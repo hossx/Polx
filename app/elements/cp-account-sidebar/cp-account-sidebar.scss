@@ -1,0 +1,39 @@
+@import "../_colors";
+
+
+$activeBackground: darken($color1, 30%);
+
+core-item {
+	background:$color1;
+	font-weight: 400;
+	&.core-selected {
+		background: $activeBackground;
+		color: $color1;
+		font-weight: 500;
+	}
+}
+
+core-submenu {
+	background: $color1;
+	font-weight: 400;
+	& > paper-item {
+		font-size: 11px;
+	}
+	> core-item {
+		background:mix($color1, white, 50%);
+		&.core-selected {
+			background: grey;
+		}
+	}
+	&.active,&[active]{
+		background: $activeBackground;
+		color: $color1;
+		core-item {font-weight: 400;}
+	}
+}
+
+core-submenu::shadow #submenu {
+  margin-left: 0px;
+  padding-left: 30px;
+  background: mix($color1, white, 50%);
+}

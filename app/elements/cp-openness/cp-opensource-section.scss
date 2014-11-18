@@ -1,0 +1,92 @@
+@import "../_colors";
+@import "../_layout";
+
+$primary: $color2;
+$primary2: mix($color2, white, 50%);
+$text-color: white;
+
+:host {
+  background: $primary;
+  font-size: 13px;
+  font-weight: 200;
+  color: $text-color;
+  padding: 60px 20px;
+}
+
+#icon {
+	height: 100px;
+	width: 100px;
+	padding-bottom: 20px;
+}
+
+.nav {
+	height: 60px;
+	width: 60px;
+	color: darken($color2, 10%);
+}
+.git {
+	border-radius: 10px;
+	padding: 10px 20px;
+	color: $primary2;
+	a {
+		color: white;
+		text-decoration: none;
+		&:hover {
+			color: white;
+			text-decoration: underline;
+		}
+	}
+	& > div {
+		text-align: center;
+	}
+}
+
+.heading {
+	font-weight: 100;
+	font-size: 48px;
+}
+
+.feature {
+	border: solid 2px $primary2;
+	border-radius: 5px;
+	padding: 10px;
+	margin: 20px;
+	width: 320px;
+	height: 160px;
+	color: $text-color;
+
+	.label {
+		text-align: center;
+		width: 100%;
+		font-weight: 100;
+		font-size: 26px;
+		letter-spacing: 1px;
+		padding-bottom: 20px;
+		text-transform: uppercase;
+	}
+
+	.quote:before {
+		font-size: 30px;
+		font-weight: 700;
+		color: $primary2;
+		content: "“";
+		width: 100px;
+		padding-right: 10px;
+	}
+
+	.content {
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 1.5;
+	}
+
+	.source {
+		padding: 10px;
+		text-align: right;
+		font-size: 12px;
+		color: $primary2;
+		&:before {
+			content: "- ";
+		}
+	}
+}

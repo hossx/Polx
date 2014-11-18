@@ -1,0 +1,26 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html">
+
+<polymer-element name="cp-toolbar-button" attributes="route, hash, label, icon">
+<template>
+  <link rel="stylesheet" href="cp-toolbar-button.css">
+
+  <a href="/#{{hash}}">
+  <core-tooltip label='{{label}}' position="bottom">
+    <paper-icon-button icon="{{icon}}" active?="{{match(route, hash)}}">
+    </paper-icon-button>
+  <core-tooltip>
+  </a>
+</template>
+
+<script>
+
+  Polymer({
+  	match: function (str, prefix) {
+	    return str.indexOf(prefix) === 0;
+	  }
+  });
+
+</script>
+</polymer-element>

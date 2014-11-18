@@ -1,0 +1,42 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../../bower_components/core-menu/core-menu.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+
+<polymer-element name="cp-market-list" attributes="marketId">
+<template>
+ <link rel="stylesheet" href="cp-market-list.css">
+
+<paper-tabs selected="{{x}}">
+  <paper-tab>RMB MARKETS</paper-tab>
+  <paper-tab>BTC MARKETS</paper-tab>
+</paper-tabs>
+
+<core-animated-pages selected="{{x}}">
+	<section>
+		<core-menu valueattr="hash" selected="{{marketId}}">
+		<template repeat="{{market in btcmarkets}}">
+			<paper-item noink hash="{{market.id}}"> {{market.name}} </paper-item>
+		</template>
+		</core-menu>
+	</section>
+	<section>
+		<core-menu valueattr="hash" selected="{{marketId}}">
+		<template repeat="{{market in rmbmarkets}}">
+			<paper-item noink hash="{{market.id}}"> {{market.name}} </paper-item>
+		</template>
+		</core-menu>
+	</section>
+</core-animated-pages>
+</template>
+
+<script>
+
+  Polymer({
+    btcmarkets:[{"name": "BTC-LTC", "id": "btc-ltc"}],
+    rmbmarkets:[{"name": "CNY-LTC", "id": "cny-ltc"}]
+  });
+
+</script>
+</polymer-element>

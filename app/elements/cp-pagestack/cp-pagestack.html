@@ -1,0 +1,51 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../../bower_components/core-animated-pages/transitions/hero-transition.html">
+<link rel="import" href="../../bower_components/core-animated-pages/transitions/cross-fade.html">
+<link rel="import" href="../../bower_components/core-animated-pages/transitions/slide-down.html">
+<link rel="import" href="../../bower_components/core-animated-pages/transitions/slide-up.html">
+<link rel="import" href="../../bower_components/core-animated-pages/transitions/tile-cascade.html">
+<link rel="import" href="../toplevel-pages/toplevel-home.html">
+<link rel="import" href="../toplevel-pages/toplevel-markets.html">
+<link rel="import" href="../toplevel-pages/toplevel-reserves.html">
+<link rel="import" href="../toplevel-pages/toplevel-openness.html">
+<link rel="import" href="../]toplevel-pages/toplevel-account.html">
+
+<polymer-element name="cp-pagestack" attributes="route">
+<template>
+<style>    
+:host {
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #FF5D4F;
+}
+</style>
+
+<core-animated-pages selected="{{route}}" valueattr="hash" notap fit>
+  <section hash="" fit>
+    <toplevel-home fit></toplevel-home>
+  </section>
+  <section hash="markets" fit>
+    <toplevel-markets fit></toplevel-markets>
+  </section>
+  <section hash="openness" fit>
+    <toplevel-openness fit></toplevel-openness>
+  </section>
+  <section hash="reserves" fit>
+    <toplevel-reserves fit></toplevel-reserves>
+  </section>
+  <section hash="account" fit>
+    <toplevel-account fit></toplevel-account>
+  </section>
+</core-animated-pages>
+
+</template>
+
+<script>
+
+  Polymer({
+    
+  });
+
+</script>
+</polymer-element>
