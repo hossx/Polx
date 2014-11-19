@@ -16,14 +16,14 @@
   	<section group="BTC">
   		<core-menu valueattr="hash" selected="{{market}}">
   		<template repeat="{{c in marketConfig.btcMarkets}}">
-  			<paper-item noink hash="BTC-{{c}}"><a href="/#/market/BTC-{{c}}">BTC-{{c}} ({{marketConfig.currencies[c].label}})</a></paper-item>
+  			<paper-item hash="BTC-{{c}}"><a href="/#/market/BTC-{{c}}">BTC-{{c}} ({{marketConfig.currencies[c].label}})</a></paper-item>
   		</template>
   		</core-menu>
   	</section>
   	<section group="CNY">
   		<core-menu valueattr="hash" selected="{{market}}">
   		<template repeat="{{c in marketConfig.cnyMarkets}}">
-        <paper-item noink hash="CNY-{{c}}"><a href="/#/market/CNY-{{c}}">CNY-{{c}} ({{marketConfig.currencies[c].label}})</a></paper-item>
+        <paper-item hash="CNY-{{c}}"><a href="/#/market/CNY-{{c}}">CNY-{{c}} ({{marketConfig.currencies[c].label}})</a></paper-item>
       </template>
   		</core-menu>
   	</section>
@@ -33,10 +33,16 @@
 <script>
 
   Polymer({
-    market: 'CNY-BTC',
-    selectedTab: 'CNY',
+
+    ready: function() {
+      this.market= 'CNY-BTC';
+      this.selectedTab= 'XX';
+    },
     marketChanged: function(o, n) {
-      this.selectedTab = this.market.substring(0, 3);
+      var tab = n.substring(0, 3);
+      if (tab === "BTC" || tab === "CNY"){
+        this.selectedTab = tab;
+      }
     }
   });
 

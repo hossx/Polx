@@ -17,6 +17,9 @@
     color: color($color, 500);
   }
 
+  paper-item::shadow #ink {
+    color: blue;
+  }
 
   paper-item[active] {
   	background: $magic-grey;
@@ -28,7 +31,12 @@
   	a {
   		text-decoration: none;
   		color: $black2;
+      padding: 14px;
   	}
+  }
+
+  paper-item::shadow .button-content {
+    padding: 0;
   }
 
   core-menu {
