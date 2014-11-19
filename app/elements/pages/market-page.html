@@ -17,7 +17,7 @@
   <core-drawer-panel forceNarrow>
 
     <core-header-panel mode="seamed" id="drawer" drawer>
-      <cp-market-list market="{{market}}" marketConfig="{{globalConfig}}"></cp-market-list>
+      <cp-market-list market="{{market}}" globalConfig="{{globalConfig}}"></cp-market-list>
     </core-header-panel>
 
     <core-header-panel mode="waterfall" main>
@@ -25,7 +25,7 @@
       <core-toolbar id="toolbar">
         <a href="/#/market"><paper-icon-button icon="arrow-back"></paper-icon-button></a>
         <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-        <div flex id="market-title">{{market}} Market</div>
+        <div flex id="market-title">{{market}} ({{globalConfig.currencies[getTargetCoin(market)].label}})</div>
       </core-toolbar>
 
       <cp-hasfooter flex>
@@ -42,8 +42,8 @@
     'use strict';
 
      Polymer(Polymer.mixin({
-          marketUpdated: function(o, n) {
-            console.log("market-page: " + o + "-> " +n);
+          getTargetCoin: function(market) {
+            return market.substring(4);
           }
         }, window.configMixin));
 
