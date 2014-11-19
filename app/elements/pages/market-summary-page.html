@@ -2,13 +2,14 @@
 <link rel="import" href="../cp-page/cp-page.html">
 <link rel="import" href="../cp-market/cp-market-list.html">
 <link rel="import" href="../cp-market/cp-market-stat-card.html">
-<link rel="import" href="../config-mixin.html">
+<link rel="import" href="../cp-globals/cp-globals.html">
 <link rel="import" href="../cp-hasfooter/cp-hasfooter.html">
 
 <polymer-element name="market-summary-page">
 <template>
 <link rel="stylesheet" href="market-summary-page.css">
 
+<cp-globals id="globals"></cp-globals>
 <cp-page toolbarSelect="/market">
       <cp-hasfooter flex>
         <div id="main" flex>
@@ -41,12 +42,9 @@
   (function () {
     'use strict';
 
-     Polymer(Polymer.mixin({
-          marketUpdated: function(o, n) {
-            console.log("market-page: " + o + "-> " +n);
-          }
-        }, window.configMixin));
+    Polymer({
+    });
 
-      })();
+  })();
 </script>
 </polymer-element>

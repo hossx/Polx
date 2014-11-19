@@ -1,6 +1,10 @@
-<script>
-  window.configMixin = {
-    globalConfig: {
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<polymer-element name="cp-globals" hidden>
+  <script>
+  (function() {
+
+    var configs = {
           btcMarkets: ["LTC", "BTSX"],
           cnyMarkets: ["BTC", "LTC", "BTSX"],
           currencies: {
@@ -10,5 +14,12 @@
             "BTSX": {"label": "BitsharesX", "color":"rgb(55, 185, 216)"}
           }
         }
-  };
-</script>
+
+    Polymer({
+       ready: function() {
+         this.configs = configs;
+       }
+    });
+  })();
+  </script>
+</polymer-element>
