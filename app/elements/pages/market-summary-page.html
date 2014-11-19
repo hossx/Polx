@@ -1,6 +1,7 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../cp-page/cp-page.html">
 <link rel="import" href="../cp-market/cp-market-list.html">
+<link rel="import" href="../cp-market/cp-market-stat-card.html">
 <link rel="import" href="../config-mixin.html">
 <link rel="import" href="../cp-hasfooter/cp-hasfooter.html">
 
@@ -11,7 +12,10 @@
 <cp-page toolbarSelect="/market">
       <cp-hasfooter flex>
         <div id="main" flex>
-          <cp-market-list market="{{market}}" globalConfig="{{globalConfig}}"></cp-market-list>
+            <cp-market-stat-card market="BTC-LTC" currentPrice="123.1" lowestPrice="100.0" highestPrice="130" volume="121211" priceChangePercentage="12.0%">
+            </cp-market-state-card>
+
+          <!--cp-market-list market="{{market}}" globalConfig="{{globalConfig}}"></cp-market-list-->
         </div>
       </cp-hasfooter>
 </cp-page>

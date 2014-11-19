@@ -1,0 +1,53 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="../../bower_components/core-icons/social-icons.html">
+
+<polymer-element name="cp-market-stat-card"
+  attributes="market,currentPrice,highestPrice,lowestPrice,volume,priceChangePercentage" vertical center-justified center layout>
+
+<template>
+  <link rel="stylesheet" href="cp-market-stat-card.css">
+  
+  <paper-shadow z="1">
+    <a href="/#/market/{{market}}">
+    <div id="box" vertical layout>
+      <div horizotal layout>
+        <div id="market">{{market}}</div>
+      </div>
+      <div horizotal layout>
+        <div id="currentPrice">{{currentPrice}}</div>
+      </div>
+      <div horizontal layout>
+        <div class="info"vertical layout>
+          <div>24H Low</div>
+          <div>{{lowestPrice}}</div>
+        </div>
+        <div class="info"vertical layout>
+          <div>24H High</div>
+          <div>{{highestPrice}}</div>
+        </div>
+        <div class="info"vertical layout>
+          <div>24H Volume</div>
+          <div>{{volume}}</div>
+        </div>
+        <div class="info"vertical layout>
+          <div>24H Change</div>
+          <div>{{priceChangePercentage}}</div>
+        </div>
+      </div>
+    </div>
+    </a>
+  </paper-shadow>
+
+</template>
+<script>
+  (function () {
+    'use strict';
+
+    Polymer({
+    });
+
+  })();
+</script>
+</polymer-element>

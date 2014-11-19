@@ -1,0 +1,44 @@
+@import "../_colors";
+
+:host {
+  display: block;
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: $black1;
+}
+
+#box {
+  padding: 20px;
+  background: white;
+
+  > :nth-child(2) {
+    border-bottom: solid 1px $black4;
+  }
+}
+
+#market {
+  color: $black1;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+#currentPrice {
+  font-size: 36px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.info {
+  padding: 5px 10px;
+
+  :nth-child(1) {
+    color: $black3;
+    text-transform: uppercase;
+  }
+  :nth-child(2) {
+    color: $black2;
+  }
+}

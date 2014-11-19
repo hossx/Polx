@@ -1,29 +1,37 @@
 @import "../_colors";
 
-:host {
-  display: block;
-  background: #f2f2f2;
-}
+@mixin theme($color) {
+  cp-page {
+    background: color($color, 400);
+    color: white;
+  }
 
-#drawer {
-	background: white;
-	color: black;
-}
+  #drawer {
+  	background: white;
+  	color: black;
+  }
 
 
-cp-page::shadow #core_toolbar {
-  background: white;
-  color:$black1;
-}
+  cp-page::shadow #core_toolbar {
+    background: white;
+    color:$black1;
+  }
 
-cp-page::shadow cp-toolbar-button::shadow a {
-  color:$black1;
-  &:hover {
-     color:$black1;
+  cp-page::shadow cp-toolbar-button::shadow a {
+    color:color($color, 500);
+    &:hover {
+       color:color($color, 500);
+    }
+  }
+
+  cp-page::shadow #home {
+    color: color($color, 500);
+    text-decoration: none;
+  }
+
+  #main {
+    min-height: 500px;
   }
 }
 
-cp-page::shadow #home {
-  color: color($deep-purple, 500);
-  text-decoration: none;
-}
+@include theme($deep-purple);
