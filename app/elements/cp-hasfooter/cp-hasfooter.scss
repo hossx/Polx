@@ -1,0 +1,28 @@
+@import "../_colors";
+
+#footer {
+  background: $magic-grey;
+
+  a {
+    color: $black2;
+    text-decoration: none;
+    &:hover {
+      color: $black1;
+      text-decoration: underline;
+    }
+  }
+  .group {
+    padding: 20px;
+  }
+
+  .group-label {
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    color: $black3;
+  }
+
+  .link {
+    padding-bottom: 5px;
+  }
+
+}

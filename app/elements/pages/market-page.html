@@ -6,23 +6,29 @@
 <link rel="import" href="../cp-page/cp-page.html">
 <link rel="import" href="../cp-market/cp-market-list.html">
 <link rel="import" href="../config-mixin.html">
-
+<link rel="import" href="../cp-hasfooter/cp-hasfooter.html">
 
 <polymer-element name="market-page" attributes="market">
 <template>
 <link rel="stylesheet" href="market-page.css">
 
 <cp-page toolbarSelect="/market">>
-  <core-drawer-panel>
+  <core-drawer-panel forceNarrow>
+
     <core-header-panel mode="seamed" id="drawer" drawer>
       <cp-market-list market="{{market}}" marketConfig="{{globalConfig}}"></cp-market-list>
     </core-header-panel>
+
     <core-header-panel mode="waterfall" main>
+
       <core-toolbar>
         <core-icon-button icon="menu" core-drawer-toggle></core-icon-button>
         <div>{{market}}</div>
       </core-toolbar>
-      <div> Main content... </div>
+
+      <cp-hasfooter flex>
+        <div id="main" flex> Main content... </div>
+      </cp-hasfooter>
     </core-header-panel>
   </core-drawer-panel>
 </cp-page>
