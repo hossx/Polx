@@ -1,6 +1,8 @@
 @import "../_colors";
 @import "../_layout";
 
+$color2: red;
+
 $primary: $color2;
 $primary2: mix($color2, white, 50%);
 $text-color: white;

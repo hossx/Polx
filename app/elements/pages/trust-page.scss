@@ -2,7 +2,10 @@
 /* http://robdodson.me/blog/2014/04/10/shadow-dom-css-cheat-sheet */
 
 /* styles for the custom element itself - lowest specificity */
+
 :host {
   display: block;
-  background: transparent;
+  background: bluesteel;
+  over-flow: scrool;
+  height: 100%;
 }

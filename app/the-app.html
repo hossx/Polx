@@ -1,17 +1,25 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
-<link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
-<link rel="import" href="bower_components/flatiron-director/flatiron-director.html">
-<link rel="import" href="bower_components/core-iconset-svg/core-iconset-svg.html">
-<link rel="import" href="elements/cp-toolbar/cp-toolbar.html">
-<link rel="import" href="elements/cp-pagestack/cp-pagestack.html">
+<link rel="import" href="bower_components/app-router/app-router.html">
+<link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="elements/pages/home-page.html">
+<link rel="import" href="elements/pages/market-page.html">
+<link rel="import" href="elements/pages/account-page.html">
+<link rel="import" href="elements/pages/trust-page.html">
+<link rel="import" href="elements/pages/notfound-page.html">
+
 
 <polymer-element name="the-app">
 <template fit>
-  <flatiron-director route="{{route}}" autoHash></flatiron-director>
-  <core-header-panel mode="standard" fit>
-    <cp-toolbar id="toolbar" class="core-header" route="{{route}}"></cp-toolbar>
-    <cp-pagestack id="pages" route="{{route}}"fit></cp-pagestack>
-  </core-header-panel>
+
+<app-router mode="hash" trailingSlash="ignore" core-animated-pages>
+  <app-route path="/" element="home-page"></app-route>
+  <app-route path="/market" element="market-page"></app-route>
+  <app-route path="/market/:market" element="market-page"></app-route>
+  <app-route path="/trust" element="trust-page"></app-route> 
+  <app-route path="/account" element="account-page"></app-route>
+  <app-route path="*" element="notfound-page"></app-route>
+</app-router>
+
 </template>
 
 <script>
@@ -19,7 +27,19 @@
     'use strict';
 
     Polymer({
-
+      route: "",
+      created: function() {
+        this.marketConfig = {
+          btcMarkets: ["LTC", "BTSX"],
+          cnyMarkets: ["BTC", "LTC", "BTSX"],
+          currencies: {
+            "CNY": {"label": "Chinese Yuan"},
+            "BTC": {"label": "Bitcoin"},
+            "LTC": {"label": "Litecoin"},
+            "BTSX": {"label": "BitsharesX"}
+          }
+        }
+      }
     });
 
   })();

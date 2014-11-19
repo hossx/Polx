@@ -1,0 +1,8 @@
+@import "../_colors";
+
+$toolbar-color: color($blue, 500);
+
+core-toolbar {
+	background: $toolbar-color;
+	color: white;
+}

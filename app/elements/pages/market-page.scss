@@ -1,0 +1,20 @@
+@import "../_colors";
+
+:host {
+  display: block;
+}
+
+#drawer {
+	background: white;
+	color: black;
+	padding: 0;
+}
+
+core-toolbar {
+	background: $white1;	
+	color:black;
+}
+
+core-header-panel {
+	background: $magic-grey;
+}
