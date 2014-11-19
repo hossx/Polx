@@ -1,6 +1,8 @@
 <link rel="import" href="bower_components/polymer/polymer.html">
 <link rel="import" href="bower_components/app-router/app-router.html">
 <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="bower_components/core-animated-pages/transitions/cross-fade.html">
+<link rel="import" href="bower_components/core-animated-pages/transitions/hero-transition.html">
 <link rel="import" href="elements/pages/home-page.html">
 <link rel="import" href="elements/pages/market-page.html">
 <link rel="import" href="elements/pages/market-summary-page.html">
@@ -12,10 +14,10 @@
 <polymer-element name="the-app">
 <template fit>
 
-<app-router mode="hash" trailingSlash="ignore">
+<app-router mode="hash" core-animated-pages transitions="hero-transition cross-fade" trailingSlash="ignore">
   <app-route path="/" element="home-page"></app-route>
   <app-route path="/market" element="market-summary-page"></app-route>
-  <app-route path="/market/:market" element="market-page"></app-route>
+  <app-route path="/market/:market" hero element="market-page"></app-route>
   <app-route path="/trust" element="trust-page"></app-route> 
   <app-route path="/account" element="account-page"></app-route>
   <app-route path="*" element="notfound-page"></app-route>

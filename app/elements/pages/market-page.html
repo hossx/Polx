@@ -20,7 +20,7 @@
       <cp-market-list market="{{market}}" globalConfig="{{globalConfig}}"></cp-market-list>
     </core-header-panel>
 
-    <core-header-panel mode="waterfall" main>
+    <core-header-panel mode="waterfall" cross-fade main>
 
       <core-toolbar id="toolbar">
         <a href="/#/market"><paper-icon-button icon="arrow-back"></paper-icon-button></a>
@@ -29,7 +29,7 @@
       </core-toolbar>
 
       <cp-hasfooter flex>
-        <div id="main" flex> Main content... </div>
+        <div id="main" hero-id="{{market}}" hero flex></div>
       </cp-hasfooter>
     </core-header-panel>
   </core-drawer-panel>
