@@ -16,14 +16,18 @@
   	<section group="BTC">
   		<core-menu valueattr="hash" selected="{{market}}">
   		<template repeat="{{c in marketConfig.btcMarkets}}">
-  			<paper-item hash="BTC-{{c}}"><a href="/#/market/BTC-{{c}}">BTC-{{c}} ({{marketConfig.currencies[c].label}})</a></paper-item>
+  			<paper-item hash="BTC-{{c}}" center horizontal layout flex>
+          <a href="/#/market/BTC-{{c}}">BTC-{{c}} ({{marketConfig.currencies[c].label}})</a>
+        </paper-item>
   		</template>
   		</core-menu>
   	</section>
   	<section group="CNY">
   		<core-menu valueattr="hash" selected="{{market}}">
   		<template repeat="{{c in marketConfig.cnyMarkets}}">
-        <paper-item hash="CNY-{{c}}"><a href="/#/market/CNY-{{c}}">CNY-{{c}} ({{marketConfig.currencies[c].label}})</a></paper-item>
+        <paper-item hash="CNY-{{c}}" center horizontal layout flex>
+          <a href="/#/market/CNY-{{c}}">CNY-{{c}} ({{marketConfig.currencies[c].label}})</a>
+        </paper-item>
       </template>
   		</core-menu>
   	</section>
