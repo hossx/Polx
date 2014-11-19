@@ -1,42 +1,46 @@
 @import "../_colors";
 
-:host {
-  display: block;
-}
+@mixin theme($bgcolor) {
+  :host {
+    display: block;
+    background: $bgcolor;
+  }
 
-#drawer {
-	background: white;
-	color: black;
-	padding: 0;
-}
+  #drawer {
+    background: white;
+    padding: 0;
+  }
 
-#secondary-toolbar {
-  background: white;
-  color: $black1;
-
-  a {
+  #toolbar {
+    background: $bgcolor;
     color: $black1;
-    height: 40px !important;
+
+    a {
+      color: $black1;
+      height: 40px !important;
+    }
+  }
+
+  cp-page::shadow cp-toolbar-button::shadow a {
+    color:white;
+    &:hover {
+       color:white;
+    }
+  }
+
+  #main {
+    height: 2034px;
+    background: $bgcolor;
+  }
+
+  #market-title {
+    font-weight: 700;
+  }
+
+  cp-hasfooter::shadow #footer {
+    background: $bgcolor;
+    border-top: solid 1px $black4;
   }
 }
 
-cp-page::shadow #core_toolbar {
-  background: white;
-  color:$black1;
-}
-
-cp-page::shadow cp-toolbar-button::shadow a {
-  color:white;
-  &:hover {
-     color:white;
-  }
-}
-
-#main {
-  height: 2034px;
-  background: red;
-}
-
-#market-title {
-  font-weight: 700;
-}
+@include theme(color($yellow, 300));
