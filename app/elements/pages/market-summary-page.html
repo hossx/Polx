@@ -9,11 +9,11 @@
 <link rel="import" href="../config-mixin.html">
 <link rel="import" href="../cp-hasfooter/cp-hasfooter.html">
 
-<polymer-element name="market-page" attributes="market">
+<polymer-element name="market-summary-page" attributes="market">
 <template>
-<link rel="stylesheet" href="market-page.css">
+<link rel="stylesheet" href="market-summary-page.css">
 
-<cp-page toolbarSelect="/market" hideToolbar>
+<cp-page toolbarSelect="/market">
   <core-drawer-panel forceNarrow>
 
     <core-header-panel mode="seamed" id="drawer" drawer>
@@ -21,12 +21,6 @@
     </core-header-panel>
 
     <core-header-panel mode="waterfall" main>
-
-      <core-toolbar id="secondary-toolbar">
-        <a href="/#/market"><paper-icon-button icon="arrow-back"></paper-icon-button></a>
-        <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-        <div flex id="market-title">{{market}} Market</div>
-      </core-toolbar>
 
       <cp-hasfooter flex>
         <div id="main" flex> Main content... </div>

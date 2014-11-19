@@ -5,24 +5,25 @@
 }
 
 #drawer {
-	background: white;
-	color: black;
-	padding: 0;
+  background: white;
+  color: black;
+  padding: 0;
 }
 
 #secondary-toolbar {
-  background: white;
-  color: $black1;
+  background: color($blue, 500);
+  color: white;
 
   a {
-    color: $black1;
+    color: white;
     height: 40px !important;
   }
 }
 
 cp-page::shadow #core_toolbar {
-  background: white;
-  color:$black1;
+  background: color($blue, 500);
+  color:white;
+
 }
 
 cp-page::shadow cp-toolbar-button::shadow a {
@@ -35,8 +36,4 @@ cp-page::shadow cp-toolbar-button::shadow a {
 #main {
   height: 2034px;
   background: red;
-}
-
-#market-title {
-  font-weight: 700;
 }

@@ -1,1 +1,7 @@
 @import "../_colors";
+
+:host-context([hideToolbar]) {
+  #core_toolbar {
+    display: none;
+  }
+}

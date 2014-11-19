@@ -3,6 +3,7 @@
 <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
 <link rel="import" href="elements/pages/home-page.html">
 <link rel="import" href="elements/pages/market-page.html">
+<link rel="import" href="elements/pages/market-summary-page.html">
 <link rel="import" href="elements/pages/account-page.html">
 <link rel="import" href="elements/pages/trust-page.html">
 <link rel="import" href="elements/pages/notfound-page.html">
@@ -13,7 +14,7 @@
 
 <app-router mode="hash" trailingSlash="ignore">
   <app-route path="/" element="home-page"></app-route>
-  <app-route path="/market" element="market-page"></app-route>
+  <app-route path="/market" element="market-summary-page"></app-route>
   <app-route path="/market/:market" element="market-page"></app-route>
   <app-route path="/trust" element="trust-page"></app-route> 
   <app-route path="/account" element="account-page"></app-route>
