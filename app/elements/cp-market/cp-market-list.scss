@@ -1,34 +1,38 @@
 @import "../_colors";
 
-paper-tabs {
-	font-size: 13px;
-	font-weight: 500px;
+@mixin theme($color) {
+  paper-tabs {
+  	font-size: 13px;
+  	font-weight: 500px;
+  }
+
+  paper-tabs::shadow #tabsContainer {
+  	background:white;
+  }
+  paper-tabs::shadow #selectionBar {
+    background-color: color($color, 500);
+  }
+
+  paper-tabs paper-tab::shadow #ink {
+    color: color($color, 500);
+  }
+
+
+  paper-item[active] {
+  	background: $magic-grey;
+  	a {color: $black1}
+  }
+
+  paper-item {
+  	font-size: 13px;
+  	a {
+  		text-decoration: none;
+  		color: $black2;
+  	}
+  }
+
+  core-menu {
+  }
 }
 
-paper-tabs::shadow #tabsContainer {
-	background:white;
-}
-paper-tabs::shadow #selectionBar {
-  background-color: color($blue, 500);
-}
-
-paper-tabs paper-tab::shadow #ink {
-  color: color($blue, 500);
-}
-
-
-paper-item[active] {
-	background: $magic-grey;
-	a {color: $black1}
-}
-
-paper-item {
-	font-size: 13px;
-	a {
-		text-decoration: none;
-		color: $black2;
-	}
-}
-
-core-menu {
-}
+@include theme($light-green);

@@ -1,8 +1,15 @@
 @import "../_colors";
 
-$toolbar-color: color($blue, 500);
+/* Try to define a method theme(colors...) and include this mixin as one method call */
 
-core-toolbar {
-	background: $toolbar-color;
-	color: white;
+@mixin theme($color) {
+
+  $toolbar-color: color($color, 500);
+
+  core-toolbar {
+    background: $toolbar-color;
+    color: white;
+  }
 }
+
+@include theme($light-green);
