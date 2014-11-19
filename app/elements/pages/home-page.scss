@@ -22,3 +22,8 @@ cp-page::shadow cp-toolbar-button::shadow a {
      color:$black1;
   }
 }
+
+cp-page::shadow #home {
+  color: color($deep-purple, 500);
+  text-decoration: none;
+}
