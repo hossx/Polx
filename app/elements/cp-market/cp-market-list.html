@@ -1,12 +1,15 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/core-animated-pages/core-animated-pages.html">
 <link rel="import" href="../../bower_components/core-menu/core-menu.html">
-<link rel="import" href="../../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../cp-globals/cp-globals.html">
+<link rel="import" href="cp-market-list-item.html">
 
-<polymer-element name="cp-market-list" vertical layout attributes="market,globalConfig">
+<polymer-element name="cp-market-list" vertical layout attributes="market">
 <template>
   <link rel="stylesheet" href="cp-market-list.css">
+
+  <cp-globals id="globals"></cp-globals>
   <paper-tabs valueattr="group" selected="{{selectedTab}}">
     <paper-tab group="BTC">BTC MARKETS</paper-tab>
     <paper-tab group="CNY">CNY MARKETS</paper-tab>
@@ -15,23 +18,15 @@
   <core-animated-pages valueattr="group" flex selected="{{selectedTab}}">
   	<section group="BTC">
   		<core-menu valueattr="hash" selected="{{market}}">
-  		<template repeat="{{c in globalConfig.btcMarkets}}">
-  			 <a hash="BTC-{{c}}" active?="{{market==='BTC-'+c}}" href="/#/market/BTC-{{c}}">
-          <paper-item center horizontal layout flex>
-            BTC-{{c}} ({{globalConfig.currencies[c].label}})</a>
-          </paper-item>
-        </a>
+  		<template repeat="{{c in $.globals.configs.btcMarkets}}">
+        <cp-market-list-item hash="BTC-{{c}}" active?="{{market==='BTC-'+c}}" market="BTC-{{c}}"></cp-market-list-item>
   		</template>
   		</core-menu>
   	</section>
   	<section group="CNY">
   		<core-menu valueattr="hash" selected="{{market}}">
-  		<template repeat="{{c in globalConfig.cnyMarkets}}">
-        <a hash="CNY-{{c}}" active?="{{market==='CNY-'+c}}" href="/#/market/CNY-{{c}}">
-          <paper-item center horizontal layout flex>
-            CNY-{{c}} ({{globalConfig.currencies[c].label}})</a>
-          </paper-item>
-        </a>
+  		<template repeat="{{c in $.globals.configs.cnyMarkets}}">
+        <cp-market-list-item hash="CNY-{{c}}" active?="{{market==='CNY-'+c}}" market="CNY-{{c}}"></cp-market-list-item>
       </template>
   		</core-menu>
   	</section>

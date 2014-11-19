@@ -16,25 +16,6 @@
   paper-tabs paper-tab::shadow #ink {
     color: color($color, 500);
   }
-
-  paper-item {
-    font-size: 13px;
-  }
-
-  a {
-    text-decoration: none;
-    color: $black2;
-  }
-
-  a[active] {
-    paper-item {
-      color: $black1;
-      background: $magic-grey;
-    }
-    color: red; 
-  }
- 
-
 }
 
 @include theme($yellow);
