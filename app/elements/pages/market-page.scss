@@ -11,10 +11,13 @@
 }
 
 cp-page::shadow #core_toolbar {
-  background: red;; 
+  background: color($blue, 500);
   color:white;
 }
 
-core-header-panel {
-	background: $magic-grey;
+cp-page::shadow cp-toolbar-button::shadow a {
+  color:white;
+  &:hover {
+     color:white;
+  }
 }

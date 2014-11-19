@@ -1,8 +1,19 @@
-:host {
-	background: steelblue;
-}
+@import "../_colors";
+
 
 #drawer {
   background: white;
   color: black; 
  }
+
+cp-page::shadow #core_toolbar {
+  background: color($orange, 500); 
+  color:white;
+}
+
+cp-page::shadow cp-toolbar-button::shadow a {
+  color: white;
+  &:hover {
+    color: white;
+  }
+}

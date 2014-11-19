@@ -1,11 +1,19 @@
-/* Shadow DOM CSS Cheat Sheet */
-/* http://robdodson.me/blog/2014/04/10/shadow-dom-css-cheat-sheet */
-
-/* styles for the custom element itself - lowest specificity */
+@import "../_colors";
 
 :host {
   display: block;
-  background: bluesteel;
   over-flow: scrool;
   height: 100%;
+}
+
+cp-page::shadow #core_toolbar {
+  background: color($green, 500);
+  color:white;
+}
+
+cp-page::shadow cp-toolbar-button::shadow a {
+  color:white;
+  &:hover {
+     color:white;
+  }
 }
