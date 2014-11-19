@@ -1,0 +1,23 @@
+@import "../_colors";
+
+:host([active]) {
+  paper-item {
+    color: $black1;
+    background: $magic-grey;
+  }
+  color: red; 
+}
+
+paper-item {
+  font-size: 13px;
+}
+
+a {
+  text-decoration: none;
+  color: $black2;
+}
+
+
+#icon {
+  backgroun:red;
+}

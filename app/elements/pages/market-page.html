@@ -6,6 +6,7 @@
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../cp-globals/cp-globals.html">
 <link rel="import" href="../cp-page/cp-page.html">
+<link rel="import" href="../cp-icons/crypto-icons.html">
 <link rel="import" href="../cp-market/cp-market-list.html">
 <link rel="import" href="../cp-hasfooter/cp-hasfooter.html">
 
@@ -18,7 +19,7 @@
   <core-drawer-panel forceNarrow>
 
     <core-header-panel mode="seamed" id="drawer" drawer>
-      <cp-market-list market="{{market}}" globalConfig="{{globalConfig}}"></cp-market-list>
+      <cp-market-list market="{{market}}"></cp-market-list>
     </core-header-panel>
 
     <core-header-panel mode="waterfall" cross-fade main>
@@ -26,7 +27,9 @@
       <core-toolbar style="background:{{bgcolor}}" id="toolbar">
         <a href="/#/market"><paper-icon-button icon="arrow-back"></paper-icon-button></a>
         <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-        <div flex id="market-title">{{market}} ({{globalConfig.currencies[getTargetCoin(market)].label}})</div>
+        <div flex id="market-title">{{market}} ({{$.globals.configs.currencies[getTargetCoin(market)].label}})</div>
+        <a href="/#/chart/{{market}}"><paper-icon-button icon="trending-up"></paper-icon-button></a>
+        <a href="xxxxx"><paper-icon-button icon="info-outline"></paper-icon-button></a>
       </core-toolbar>
 
       <cp-hasfooter flex>
@@ -45,7 +48,7 @@
      Polymer(Polymer.mixin({
           bgcolor: 'white',
           marketChanged: function(oldV, newV) {
-            this.bgcolor = this.$.globals.configs.currencies[this.getTargetCoin(this.market)].color;
+            this.bgcolor = this.$.globals.helpers.getTargetCoin(this.market).color;
           },
           getTargetCoin: function(market) {
             return market.substring(4);
