@@ -2,7 +2,7 @@
 
 @mixin theme($color) {
   cp-page {
-    background: color($color, 400);
+    background: $magic-grey;
     color: white;
   }
 
@@ -18,14 +18,14 @@
   }
 
   cp-page::shadow cp-toolbar-button::shadow a {
-    color:color($color, 500);
+    color:color($color, 600);
     &:hover {
-       color:color($color, 500);
+       color:color($color, 600);
     }
   }
 
   cp-page::shadow #home {
-    color: color($color, 500);
+    color: color($color, 600);
     text-decoration: none;
   }
 
@@ -34,4 +34,4 @@
   }
 }
 
-@include theme($deep-purple);
+@include theme($grey);
