@@ -12,10 +12,25 @@
 <cp-page toolbarSelect="/market">
       <cp-hasfooter flex>
         <div id="main" flex>
-            <cp-market-stat-card icon="icon-usd-o" market="BTC-LTC" currentPrice="123.1" lowestPrice="100.0" highestPrice="130" volume="121211" priceChangePercentage="12.0%">
-            </cp-market-state-card>
+            <cp-market-stat-card
+              icon="litecoin" 
+              market="BTC-LTC"
+              currentPrice="123.1"
+              lowestPrice="100.0"
+              highestPrice="130"
+              volume="121211"
+              priceChangePercentage="12.0%">
+            </cp-market-stat-card>
 
-          <!--cp-market-list market="{{market}}" globalConfig="{{globalConfig}}"></cp-market-list-->
+            <cp-market-stat-card
+              icon="bitcoin" 
+              market="CNY-BTC"
+              currentPrice="123.1"
+              lowestPrice="100.0"
+              highestPrice="130"
+              volume="121211"
+              priceChangePercentage="12.0%">
+            </cp-market-stat-card>
         </div>
       </cp-hasfooter>
 </cp-page>

@@ -1,7 +1,7 @@
 @import "../_colors";
 
 :host {
-  display: block;
+  display: inline-block;
   padding: 10px;
 }
 
@@ -26,6 +26,12 @@ cp-coinport-icon {
   color: $black1;
   font-weight: 500;
   font-size: 16px;
+}
+
+#crypto-icon {
+  #Oval-43 {fill: $black3; }
+  height: 40px;
+  width: 40px;
 }
 
 #currentPrice {

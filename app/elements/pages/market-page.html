@@ -13,7 +13,7 @@
 <template>
 <link rel="stylesheet" href="market-page.css">
 
-<cp-page toolbarSelect="/market" hideToolbar>
+<cp-page style="background:{{bgcolor}}"toolbarSelect="/market" hideToolbar>
   <core-drawer-panel forceNarrow>
 
     <core-header-panel mode="seamed" id="drawer" drawer>
@@ -22,7 +22,7 @@
 
     <core-header-panel mode="waterfall" cross-fade main>
 
-      <core-toolbar id="toolbar">
+      <core-toolbar style="background:{{bgcolor}}" id="toolbar">
         <a href="/#/market"><paper-icon-button icon="arrow-back"></paper-icon-button></a>
         <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
         <div flex id="market-title">{{market}} ({{globalConfig.currencies[getTargetCoin(market)].label}})</div>
@@ -42,6 +42,10 @@
     'use strict';
 
      Polymer(Polymer.mixin({
+          bgcolor: 'white',
+          marketChanged: function(oldV, newV) {
+            this.bgcolor = this.globalConfig.currencies[this.getTargetCoin(this.market)].color;
+          },
           getTargetCoin: function(market) {
             return market.substring(4);
           }

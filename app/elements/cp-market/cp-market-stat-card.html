@@ -4,7 +4,6 @@
 <link rel="import" href="../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../cp-icons/crypto-icons.html">
 <link rel="import" href="../cp-icons/cryptocode-icons.html">
-<link rel="import" href="../cp-icons/cryptocode-outline-icons.html">
 
 <polymer-element name="cp-market-stat-card"
   attributes="market,currentPrice,icon,highestPrice,lowestPrice,volume,priceChangePercentage" vertical center-justified center layout>
@@ -17,7 +16,7 @@
     <div cross-fade id="box" vertical layout>
       <div horizotal layout>
         <div id="market" hero-id="{{market}}" hero>
-        <core-icon icon="cryptocode-outline:ripple"></core-icon>
+        <core-icon id="crypto-icon" icon="crypto:{{icon}}"></core-icon>
         {{market}}
         </div>
       </div>

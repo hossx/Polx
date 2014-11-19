@@ -1,9 +1,8 @@
 @import "../_colors";
 
-@mixin theme($bgcolor) {
+@mixin theme() {
   :host {
     display: block;
-    background: $bgcolor;
   }
 
   #drawer {
@@ -12,11 +11,10 @@
   }
 
   #toolbar {
-    background: $bgcolor;
-    color: $black1;
+    color: white;
 
     a {
-      color: $black1;
+      color: white;
       height: 40px !important;
     }
   }
@@ -30,7 +28,6 @@
 
   #main {
     height: 2034px;
-    background: $bgcolor;
   }
 
   #market-title {
@@ -38,9 +35,8 @@
   }
 
   cp-hasfooter::shadow #footer {
-    background: $bgcolor;
     border-top: solid 1px $black4;
   }
 }
 
-@include theme(color($yellow, 300));
+@include theme();
