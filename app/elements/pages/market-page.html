@@ -22,7 +22,7 @@
       <cp-market-list market="{{market}}"></cp-market-list>
     </core-header-panel>
 
-    <core-header-panel mode="waterfall" cross-fade main>
+    <core-header-panel mode="waterfall" main>
 
       <core-toolbar style="background:{{bgcolor}}" id="toolbar">
         <a href="/#/market"><paper-icon-button icon="arrow-back"></paper-icon-button></a>
@@ -31,7 +31,7 @@
         <a href="/#/chart/{{market}}"><paper-icon-button icon="trending-up"></paper-icon-button></a>
       </core-toolbar>
 
-       <div id="main" hero-id="{{market}}" hero flex></div>
+       <div id="main" flex></div>
       <cp-footer></cp-footer>
     </core-header-panel>
   </core-drawer-panel>
