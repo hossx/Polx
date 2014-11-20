@@ -4,87 +4,97 @@
 <link rel="import" href="../cp-market/cp-market-list.html">
 <link rel="import" href="../cp-market/cp-market-stat-card.html">
 <link rel="import" href="../cp-globals/cp-globals.html">
-<link rel="import" href="../cp-hasfooter/cp-hasfooter.html">
+<link rel="import" href="../cp-footer/cp-footer.html">
 
 <polymer-element name="market-summary-page">
 <template>
 <link rel="stylesheet" href="market-summary-page.css">
 
-<cp-media-query smallup="{{smallup}}" small="{{small}}" mediumup="{{mediumup}}"></cp-media-query>
+<cp-media-query smallup="{{smallup}}" small="{{small}}" mediumup="{{mediumup}}" medium="{{medium}}" large="{{large}}"></cp-media-query>
 
 <cp-globals id="globals"></cp-globals>
 <cp-page toolbarSelect="/market">
-      <cp-hasfooter vertical center-justified>
-        <div id="main" wrap center-justified layout vertical?={{!smallup}} horizontal?={{smallup}}>
-            <cp-market-stat-card auto-vertical 
-              small?={{small}}
-              mediumup?={{mediumup}}
-              market="BTC-LTC"
-              currentPrice="123.1"
-              lowestPrice="100.0"
-              highestPrice="130"
-              volume="121211"
-              priceChangePercentage="12.0%">
-            </cp-market-stat-card>
 
-            <cp-market-stat-card auto-vertical
-              small?={{small}}
-              mediumup?={{mediumup}}
-              market="CNY-BTC"
-              currentPrice="123.1"
-              lowestPrice="100.0"
-              highestPrice="130"
-              volume="121211"
-              priceChangePercentage="12.0%">
-            </cp-market-stat-card>
+  <div flex center vertical layout>
+    <div id="canvas"  center horizontal layout
+          small?={{small}}
+          medium?={{medium}}
+          large?={{large}}
+      wrap?={{smallup}} layout center?={{!smallup}} vertical?={{!smallup}} horizontal?={{smallup}}>
 
+        <cp-market-stat-card auto-vertical 
+          small?={{small}}
+          medium?={{medium}}
+          large?={{large}}
+          market="BTC-LTC"
+          currentPrice="123.1"
+          lowestPrice="100.0"
+          highestPrice="130"
+          volume="121211"
+          priceChangePercentage="12.0%">
+        </cp-market-stat-card>
 
-                        <cp-market-stat-card auto-vertical 
-              small?={{small}}
-              mediumup?={{mediumup}}
-              market="BTC-LTC"
-              currentPrice="123.1"
-              lowestPrice="100.0"
-              highestPrice="130"
-              volume="121211"
-              priceChangePercentage="12.0%">
-            </cp-market-stat-card>
+        <cp-market-stat-card auto-vertical
+          small?={{small}}
+          medium?={{medium}}
+          large?={{large}}
+          market="CNY-BTC"
+          currentPrice="123.1"
+          lowestPrice="100.0"
+          highestPrice="130"
+          volume="121211"
+          priceChangePercentage="12.0%">
+        </cp-market-stat-card>
 
-            <cp-market-stat-card auto-vertical
-              small?={{small}}
-              mediumup?={{mediumup}}
-              market="CNY-BTC"
-              currentPrice="123.1"
-              lowestPrice="100.0"
-              highestPrice="130"
-              volume="121211"
-              priceChangePercentage="12.0%">
-            </cp-market-stat-card>
+        <cp-market-stat-card auto-vertical 
+          small?={{small}}
+          medium?={{medium}}
+          large?={{large}}
+          market="BTC-LTC"
+          currentPrice="123.1"
+          lowestPrice="100.0"
+          highestPrice="130"
+          volume="121211"
+          priceChangePercentage="12.0%">
+        </cp-market-stat-card>
 
-                        <cp-market-stat-card auto-vertical 
-              small?={{small}}
-              mediumup?={{mediumup}}
-              market="BTC-LTC"
-              currentPrice="123.1"
-              lowestPrice="100.0"
-              highestPrice="130"
-              volume="121211"
-              priceChangePercentage="12.0%">
-            </cp-market-stat-card>
+        <cp-market-stat-card auto-vertical
+          small?={{small}}
+          medium?={{medium}}
+          large?={{large}}
+          market="CNY-BTC"
+          currentPrice="123.1"
+          lowestPrice="100.0"
+          highestPrice="130"
+          volume="121211"
+          priceChangePercentage="12.0%">
+        </cp-market-stat-card>
+                    <cp-market-stat-card auto-vertical 
+          small?={{small}}
+          medium?={{medium}}
+          large?={{large}}
+          market="BTC-LTC"
+          currentPrice="123.1"
+          lowestPrice="100.0"
+          highestPrice="130"
+          volume="121211"
+          priceChangePercentage="12.0%">
+        </cp-market-stat-card>
 
-            <cp-market-stat-card auto-vertical
-              small?={{small}}
-              mediumup?={{mediumup}}
-              market="CNY-BTC"
-              currentPrice="123.1"
-              lowestPrice="100.0"
-              highestPrice="130"
-              volume="121211"
-              priceChangePercentage="12.0%">
-            </cp-market-stat-card>
-
-        </div>
-      </cp-hasfooter>
+        <cp-market-stat-card auto-vertical
+          small?={{small}}
+          medium?={{medium}}
+          large?={{large}}
+          market="CNY-BTC"
+          currentPrice="123.1"
+          lowestPrice="100.0"
+          highestPrice="130"
+          volume="121211"
+          priceChangePercentage="12.0%">
+        </cp-market-stat-card>
+    </div>
+    <cp-footer></cp-footer>
+  </div>
 </cp-page>
 
 </template>

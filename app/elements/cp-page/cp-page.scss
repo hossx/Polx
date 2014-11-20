@@ -1,7 +1,12 @@
 @import "../_colors";
 
+:host {
+  box-sizing: border-box;
+  background: $magic-grey;
+}
+
 :host-context([hideToolbar]) {
-  #core_toolbar {
+  #toolbar {
     display: none;
   }
 }

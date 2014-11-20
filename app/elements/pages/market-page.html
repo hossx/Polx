@@ -8,7 +8,7 @@
 <link rel="import" href="../cp-page/cp-page.html">
 <link rel="import" href="../cp-icons/crypto-icons.html">
 <link rel="import" href="../cp-market/cp-market-list.html">
-<link rel="import" href="../cp-hasfooter/cp-hasfooter.html">
+<link rel="import" href="../cp-footer/cp-footer.html">
 
 <polymer-element name="market-page" attributes="market">
 <template>
@@ -32,9 +32,8 @@
         <a href="xxxxx"><paper-icon-button icon="info-outline"></paper-icon-button></a>
       </core-toolbar>
 
-      <cp-hasfooter flex>
-        <div id="main" hero-id="{{market}}" hero flex></div>
-      </cp-hasfooter>
+       <div id="main" hero-id="{{market}}" hero flex></div>
+      <cp-footer></cp-footer>
     </core-header-panel>
   </core-drawer-panel>
 </cp-page>

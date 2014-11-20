@@ -3,7 +3,7 @@
 @mixin theme($color) {
   cp-page {
     background: $magic-grey;
-    color: white;
+    color: $black1;
   }
 
   #drawer {
@@ -11,8 +11,7 @@
   	color: black;
   }
 
-
-  cp-page::shadow #core_toolbar {
+  cp-page::shadow #toolbar {
     background: white;
     color:$black1;
   }
@@ -29,8 +28,13 @@
     text-decoration: none;
   }
 
-  #main {
-    min-height: 500px;
+  #xx {
+    background: red;
+    width: 100%;
+  }
+
+  #page-content {
+    background: yellow;
   }
 }
 

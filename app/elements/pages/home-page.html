@@ -1,16 +1,17 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../cp-page/cp-page.html">
-<link rel="import" href="../cp-hasfooter/cp-hasfooter.html">
+<link rel="import" href="../cp-footer/cp-footer.html">
 
 <polymer-element name="home-page" attributes="">
   <template>
     <link rel="stylesheet" href="home-page.css">
     <cp-page>
-      <cp-hasfooter>
-      <div id="main" vertical layout flex>
-        
+      <div id="page-content" flex vertical layout>
+        <div id="xx"  self-center horizontal layout>
+          hello
+        </div>
+        <cp-footer self-center></cp-footer>
       </div>
-      </cp-hasfooter>
     </cp-page>
   </template>
   <script>

@@ -1,12 +1,7 @@
 @import "../_colors";
 
 
-#drawer {
-  background: white;
-  color: black; 
- }
-
-cp-page::shadow #core_toolbar {
+cp-page::shadow #toolbar {
   background: color($orange, 500); 
   color:white;
 }

@@ -7,7 +7,7 @@
 <link rel="import" href="../cp-icons/cryptocode-icons.html">
 
 <polymer-element name="cp-market-stat-card"
-  attributes="market,currentPrice,highestPrice,lowestPrice,volume,priceChangePercentage" vertical center-justified layout>
+  attributes="market,currentPrice,highestPrice,lowestPrice,volume,priceChangePercentage">
 
 <template>
   <link rel="stylesheet" href="cp-market-stat-card.css">
@@ -15,8 +15,8 @@
   <cp-globals id="globals"></cp-globals>
   <paper-shadow z="1">
     <a href="/#/market/{{market}}">
-    <div cross-fade id="box" vertical layout>
-      <div horizotal layout>
+    <div cross-fade id="box" vertical center layout>
+      <div self-start horizotal layout>
         <div id="market" hero-id="{{market}}" hero>
         <core-icon id="crypto-icon" icon="{{icon}}"></core-icon>
         {{market}}

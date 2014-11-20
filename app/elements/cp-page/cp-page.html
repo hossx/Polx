@@ -6,20 +6,20 @@
 <link rel="import" href="../../bower_components/core-header-panel/core-header-panel.html">
 <link rel="import" href="cp-toolbar-button.html">
 
-<polymer-element name="cp-page" attributes="toolbarSelect" vertical layout fit>
+<polymer-element name="cp-page" attributes="toolbarSelect" fit>
 <template>
   <link rel="stylesheet" href="cp-page.css">
   
-  <core-header-panel mode="waterfall" flex>
-    <core-toolbar id="core_toolbar" end>
+  <core-header-panel mode="waterfall" fit>
+    <core-toolbar id="toolbar">
       <div id="brand" flex><a id="home" href="/">coinport</a></div>
       <cp-toolbar-button hash="/market"   active="[[toolbarSelect === '/market']]" label="Markets" icon="swap-horiz"></cp-toolbar-button>
       <cp-toolbar-button hash="/trust"  active="[[toolbarSelect === '/trust']]" label="Trust" icon="verified-user"></cp-toolbar-button>
       <cp-toolbar-button hash="/account"  active="[[toolbarSelect === '/account']]" label="My Account" icon="account-circle"></cp-toolbar-button>
     </core-toolbar>
-    <div>
-      <content></content>
-    </div>
+
+    <content></content>
+
   </core-header-panel>
 
 </template>

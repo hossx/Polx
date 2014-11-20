@@ -1,7 +1,9 @@
 @import "../_colors";
 
-#footer {
+:host {
+  box-sizing: border-box;
   background: transparent;
+  min-width: 40%;
 
   a {
     color: $black2;

@@ -1,29 +1,12 @@
 @import "../_colors";
 
 :host {
-  display: block;
+  box-sizing: border-box;
 }
 
-#drawer {
-  background: white;
-  color: black;
-  padding: 0;
-}
-
-#secondary-toolbar {
-  background: color($blue, 500);
-  color: white;
-
-  a {
-    color: white;
-    height: 40px !important;
-  }
-}
-
-cp-page::shadow #core_toolbar {
+cp-page::shadow #toolbar {
   background: color($blue, 500);
   color:white;
-
 }
 
 cp-page::shadow cp-toolbar-button::shadow a {
@@ -33,6 +16,20 @@ cp-page::shadow cp-toolbar-button::shadow a {
   }
 }
 
-#main {
+#canvas {
   padding-top: 40px;
+  width: 100%;
 }
+
+#canvas[small] {width: 768px}
+#canvas[medium] {width: 992px}
+#canvas[large] {width: 1200px}
+
+cp-market-stat-card{
+  width: 100%;
+  max-width: 400px;
+}
+
+cp-market-stat-card[small] {width: 50%; }
+cp-market-stat-card[medium] {width: 33%; }
+cp-market-stat-card[large] {width: 25%; }

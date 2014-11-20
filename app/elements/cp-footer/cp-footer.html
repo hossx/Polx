@@ -5,15 +5,9 @@
 <link rel="import" href="../../bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
 <link rel="import" href="../../bower_components/core-header-panel/core-header-panel.html">
 
-<polymer-element name="cp-hasfooter" attributes="toolbarSelect" vertical layout>
+<polymer-element name="cp-footer" horizontal around-justified layout>
 <template>
-  <link rel="stylesheet" href="cp-hasfooter.css">
-
-  <div>
-    <content></content>
-  </div>
-
-  <div id="footer" horizontal center-justified layout>
+  <link rel="stylesheet" href="cp-footer.css">
     <template repeat="{{group in groups}}">
       <div class="group" vertical layout>
         <div class="group-label">{{group.label}}</div>
@@ -22,8 +16,6 @@
         </template>
       </div>
     </template>
-  </div>
-
 </template>
 <script>
   (function () {
