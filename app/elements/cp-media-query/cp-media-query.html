@@ -1,0 +1,12 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-media-query/core-media-query.html">
+
+<polymer-element name="cp-media-query" noscript hidden attributes="small,medium,large,smallup,mediumup">
+<template>
+  <core-media-query query="(min-width: 768px) and (max-width: 991px)" queryMatches="{{small}}"></core-media-query>
+  <core-media-query query="(min-width: 992px) and (max-width: 1199px)" queryMatches="{{medium}}"></core-media-query>
+  <core-media-query query="min-width: 1200px" queryMatches="{{large}}"></core-media-query>
+  <core-media-query query="min-width: 768px" queryMatches="{{smallup}}"></core-media-query>
+  <core-media-query query="min-width: 992px" queryMatches="{{mediumup}}"></core-media-query>
+</template>
+</polymer-element>
