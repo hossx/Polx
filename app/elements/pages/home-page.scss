@@ -2,8 +2,8 @@
 
 @mixin theme($color) {
   cp-page {
-    background: $magic-grey;
-    color: $black1;
+    background: white;
+    color: $white1;
   }
 
   #drawer {
@@ -13,28 +13,48 @@
 
   cp-page::shadow #toolbar {
     background: white;
-    color:$black1;
+    color:color($color, 900);
   }
 
   cp-page::shadow cp-toolbar-button::shadow a {
-    color:color($color, 600);
+    color:color($color, 800);
     &:hover {
-       color:color($color, 600);
+       color:color($color, 900);
     }
   }
 
   cp-page::shadow #home {
-    color: color($color, 600);
+    color: color($color, 800);
     text-decoration: none;
   }
 
-  #xx {
-    background: red;
+  #branding {
+    padding: 40px 0;
+    background: color($color, 800);
     width: 100%;
+
+    #name {
+      font-size: 56px;
+      text-transform: lowercase;
+    }
+    #slogan {
+      font-size: 18px;
+      color: $white3;
+    }
+  }
+
+  #branding[smallup] {
+    padding: 100px 0;
+    #name {
+      font-size: 100px;
+    }
+    #slogan {
+      font-size: 32px;
+    }
   }
 
   #page-content {
-    background: yellow;
+    background: white;
   }
 }
 
