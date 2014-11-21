@@ -26,8 +26,20 @@
     }
   }
 
+  core-icon-button {
+    display:none;
+  }
+
+  core-icon-button[smallup] {
+    display: initial;
+  }
+
   #main {
-    height: 2034px;
+    background: white;
+
+    paper-tabs[smallup] {
+      height: 0;
+    }
   }
 
   #market-title {

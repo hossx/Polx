@@ -1,19 +1,30 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/core-drawer-panel/core-drawer-panel.html">
 <link rel="import" href="../../bower_components/core-header-panel/core-header-panel.html">
+<link rel="import" href="../../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../../bower_components/core-animated-pages/transitions/slide-from-right.html">
 <link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html">
+<link rel="import" href="../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
 <link rel="import" href="../cp-globals/cp-globals.html">
 <link rel="import" href="../cp-page/cp-page.html">
 <link rel="import" href="../cp-icons/crypto-icons.html">
-<link rel="import" href="../cp-market/cp-market-list.html">
+<link rel="import" href="../cp-media-query/cp-media-query.html">
 <link rel="import" href="../cp-footer/cp-footer.html">
+<link rel="import" href="../cp-market/cp-market-list.html">
+<link rel="import" href="../cp-market/cp-market-trade.html">
+<link rel="import" href="../cp-market/cp-market-kchart.html">
+<link rel="import" href="../cp-market/cp-market-recent-transactions.html">
+<link rel="import" href="../cp-market/cp-market-open-orders.html">
 
 <polymer-element name="market-page" attributes="market">
 <template>
 <link rel="stylesheet" href="market-page.css">
 
+<cp-media-query smallup="{{smallup}}" small="{{small}}" mediumup="{{mediumup}}" medium="{{medium}}" large="{{large}}"></cp-media-query>
 <cp-globals id="globals"></cp-globals>
 <cp-page style="background:{{bgcolor}}"toolbarSelect="/market" hideToolbar>
   <core-drawer-panel forceNarrow>
@@ -28,11 +39,38 @@
         <a href="/#/market"><paper-icon-button icon="arrow-back"></paper-icon-button></a>
         <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
         <div flex id="market-title">{{market}} ({{$.globals.configs.currencies[getTargetCoin(market)].label}})</div>
-        <a href="/#/chart/{{market}}"><paper-icon-button icon="trending-up"></paper-icon-button></a>
+        <core-icon-button smallup?="{{smallup}}" active?="{{tab === 0}}" on-tap="{{switchTab0}}" icon="sort"></core-icon-button>
+        <core-icon-button smallup?="{{smallup}}" active?="{{tab === 1}}" on-tap="{{switchTab1}}" icon="trending-up"></core-icon-button>
+        <core-icon-button smallup?="{{smallup}}" active?="{{tab === 2}}" on-tap="{{switchTab2}}" icon="info-outline"></core-icon-button>
+        <core-icon-button smallup?="{{smallup}}" active?="{{tab === 3}}" on-tap="{{switchTab3}}" icon="info-outline"></core-icon-button>
       </core-toolbar>
 
-       <div id="main" flex></div>
-      <cp-footer></cp-footer>
+      <div id="main" flex vertical layout>
+         <paper-tabs selected="{{tab}}" smallup?="{{smallup}}">
+            <paper-tab><core-icon icon="sort"></core-icon></paper-tab>
+            <paper-tab><core-icon icon="trending-up"></core-icon></paper-tab>
+            <paper-tab><core-icon icon="info-outline"></core-icon></paper-tab>
+            <paper-tab><core-icon icon="info-outline"></core-icon></paper-tab>
+         </paper-tabs>
+         <core-animated-pages selected="{{tab}}" transitions="slide-from-right">
+          <section>
+            <cp-market-trade></cp-market-trade>
+          </section>
+
+          <section>
+            <cp-market-kchart></cp-market-kchart>
+          </section>
+
+          <section>
+            <cp-market-open-orders></cp-market-open-orders>
+          </section>
+
+          <section>
+            <cp-market-recent-transactions></cp-market-recent-transactions>
+          </section>
+         </core-animated-pages>
+         <cp-footer></cp-footer>
+       </div>
     </core-header-panel>
   </core-drawer-panel>
 </cp-page>
@@ -43,16 +81,20 @@
   (function () {
     'use strict';
 
-     Polymer(Polymer.mixin({
-          bgcolor: 'white',
-          marketChanged: function(oldV, newV) {
-            this.bgcolor = this.$.globals.helpers.getTargetCoin(this.market).color;
-          },
-          getTargetCoin: function(market) {
-            return market.substring(4);
-          }
-        }, window.configMixin));
-
-      })();
+     Polymer({
+        tab: 0,
+        bgcolor: 'white',
+        marketChanged: function(oldV, newV) {
+          this.bgcolor = this.$.globals.helpers.getTargetCoin(this.market).color;
+        },
+        getTargetCoin: function(market) {
+          return market.substring(4);
+        },
+        switchTab0: function()  {this.tab = 0; },
+        switchTab1: function()  {this.tab = 1; },
+        switchTab2: function()  {this.tab = 2; },
+        switchTab3: function()  {this.tab = 3; }
+      })
+  })();
 </script>
 </polymer-element>
