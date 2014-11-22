@@ -1,12 +1,15 @@
 @import "../_colors";
 
 #container {
-  padding-bottom: 80px;
+  padding-bottom: 130px;
 
   &.smallup {
     padding: 40px;
     max-width: 768px;
-    padding-bottom: 40px; 
+    padding-bottom: 80px; 
+  }
+  > paper-shadow {
+    margin: 10px 0;
   }
 }
 
@@ -19,9 +22,7 @@ paper-fab {
   }
 }
 
-paper-shadow {
-  margin: 10px 0;
-}
+
 
 actions {
   margin: 20px 0;

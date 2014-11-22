@@ -14,7 +14,7 @@
 <link rel="import" href="../cp-media-query/cp-media-query.html">
 <link rel="import" href="../cp-footer/cp-footer.html">
 <link rel="import" href="../cp-market/cp-market-list.html">
-<link rel="import" href="../cp-market/cp-market-trade.html">
+<link rel="import" href="../cp-market/trade-subpage.html">
 <link rel="import" href="../cp-market/cp-market-kchart.html">
 <link rel="import" href="../cp-market/cp-market-recent-transactions.html">
 <link rel="import" href="../cp-market/cp-market-open-orders.html">
@@ -46,7 +46,7 @@
 
        <core-animated-pages fit selected="{{tab}}" transitions="slide-from-right">
         <section>
-          <cp-market-trade market="{{market}}" fit></cp-market-trade>
+          <trade-subpage market="{{market}}" fit></trade-subpage>
         </section>
 
         <section>
