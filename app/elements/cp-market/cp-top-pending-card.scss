@@ -1,5 +1,29 @@
+@import "../_colors";
+
 
 #container {
   background: white;
-  padding: 40px;
+  padding: 20px;
+}
+
+.box {
+  border:solid 1px $black4;
+  width: 100%;
+  padding: 0px;
+  margin: 10px;
+}
+
+table {
+  color: $black1;
+  width: 100%;
+  padding: 0;
+  border-spacing: 0;
+  th {
+    background: $black4;
+    text-align: left;
+    margin: 0;
+  }
+  th, td {
+    padding: 4px;
+  }
 }

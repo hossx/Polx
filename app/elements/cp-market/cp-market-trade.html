@@ -1,4 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../cp-media-query/cp-media-query.html">
 <link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="cp-top-pending-card.html">
 
@@ -6,9 +7,10 @@
 <template>
   <link rel="stylesheet" href="cp-market-trade.css">
   
-  <div id="container" vertical layout>
+  <cp-media-query smallup="{{smallup}}"></cp-media-query>
+  <div id="container" smallup="{{smallup}}" vertical layout>
     <paper-shadow z="1">
-      <cp-top-pending-card></cp-top-pending-card>
+      <cp-top-pending-card vert="{{smallup}}"></cp-top-pending-card>
     </paper-shadow>
   </div>
 </template>
