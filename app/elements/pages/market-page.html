@@ -31,7 +31,7 @@
     <cp-market-list market="{{market}}"></cp-market-list>
   </core-header-panel>
 
-  <core-header-panel mode="waterfall" main flex>
+  <core-header-panel style="background:{{bgcolor}}"  mode="waterfall" main flex>
     <core-toolbar class="core-header" style="background:{{bgcolor}}" id="toolbar">
       <a href="/#/market"><paper-icon-button icon="arrow-back"></paper-icon-button></a>
       <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
@@ -42,7 +42,7 @@
       <core-icon-button smallup?="{{smallup}}" active?="{{tab === 3}}" on-tap="{{switchTab3}}" icon="history"></core-icon-button>
     </core-toolbar>
 
-    <div id="canvas" flex vertical center layout main>
+    <div id="canvas" flex vertical layout main>
        <paper-tabs selected="{{tab}}" smallup?="{{smallup}}" style="background:{{bgcolor}}">
           <paper-tab><core-icon icon="swap-horiz"></core-icon></paper-tab>
           <paper-tab><core-icon icon="trending-up"></core-icon></paper-tab>
@@ -55,15 +55,15 @@
         </section>
 
         <section>
-          <cp-market-kchart fit></cp-market-kchart>
+          <cp-market-kchart></cp-market-kchart>
         </section>
 
         <section>
-          <cp-market-open-orders fit></cp-market-open-orders>
+          <cp-market-open-orders></cp-market-open-orders>
         </section>
 
         <section>
-          <cp-market-recent-transactions fit></cp-market-recent-transactions>
+          <cp-market-recent-transactions></cp-market-recent-transactions>
         </section>
        </core-animated-pages>
   </core-header-panel>

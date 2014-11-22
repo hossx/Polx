@@ -22,8 +22,8 @@ core-icon-button {
 
 #canvas {
   paper-tabs {
+    border-top: solid 2px $black3;
     width: 100%;
-    color:white;
     position: absolute;
     right: 0;
     left: 0;
@@ -38,6 +38,10 @@ core-icon-button {
 
   paper-tabs::shadow #selectionBar {
     background-color: white;
+  }
+
+  core-animated-pages {
+    padding-bottom: 200px;
   }
 }
 

@@ -1,18 +1,19 @@
 @import "../_colors";
 
-:host {
-  padding-top: 40px;
-  background: $magic-grey;
-}
 #container {
-  padding: 20px;
-  width: 100%;
+  padding: 40px;
+  padding-bottom: 80px;
+
+  &.smallup {
+    max-width: 768px;
+    padding-bottom: 40px; 
+  }
 }
 
-#container[smallup] {
-  width: 768px;
+paper-shadow {
+  margin: 10px;
 }
 
-core-header-panel {
-  background: red;
+core-scroll-header-panel  {
+  background: transparent;
 }

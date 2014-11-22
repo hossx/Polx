@@ -9,10 +9,12 @@
   <link rel="stylesheet" href="cp-market-trade.css">
   
   <cp-media-query smallup="{{smallup}}"></cp-media-query>
-  <core-scroll-header-panel flex>
+  <core-scroll-header-panel fit>
     <div horizontal center-justified layout>
-      <div id="container" smallup="{{smallup}}" vertical layout>
-        <paper-shadow z="1"> <cp-top-pending-card market="{{market}}"></cp-top-pending-card> </paper-shadow>
+      <div id="container" class="{{ {smallup: smallup} | tokenList}}" vertical flex layout>
+        <paper-shadow z="1">
+          <cp-top-pending-card market="{{market}}"></cp-top-pending-card>
+        </paper-shadow>
       </div>
     </div>
   </core-scroll-header-panel>
