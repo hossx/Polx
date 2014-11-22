@@ -7,23 +7,47 @@
 }
 
 .box {
-  border:solid 1px $black4;
   width: 100%;
-  padding: 0px;
-  margin: 10px;
+  padding: 10px;
+}
+
+.label {
+  text-transform: uppercase;
+  color: $black2;
+  font-weight: 700;
+  font-size: 14px;
+  padding-bottom: 10px;
 }
 
 table {
+  border:solid 1px $black4;
   color: $black1;
   width: 100%;
   padding: 0;
   border-spacing: 0;
   th {
     background: $black4;
+    color: $black2;
     text-align: left;
     margin: 0;
+    padding-left: 10px;
   }
   th, td {
     padding: 4px;
+    padding-left: 10px;
   }
+  td {
+    font-weight: 700;
+  }
+}
+
+#buys {
+  td {color: color($red, 500);}
+}
+#sells {
+  td {color: color($green, 500);}
+}
+
+.target {
+font-weight: 500;
 }

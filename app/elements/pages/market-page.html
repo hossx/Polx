@@ -24,6 +24,9 @@
 <template>
 <link rel="stylesheet" href="market-page.css">
 <style>
+  #main paper-tabs {
+    border-top: 2px solid {{bgcolor}};
+  }
   #main paper-tabs::shadow #selectionBar {
     background-color: {{bgcolor}};
   }
@@ -62,7 +65,7 @@
          </paper-tabs>
          <core-animated-pages fit selected="{{tab}}" transitions="slide-from-right">
           <section>
-            <cp-market-trade fit></cp-market-trade>
+            <cp-market-trade market="{{market}}" fit></cp-market-trade>
           </section>
 
           <section>
