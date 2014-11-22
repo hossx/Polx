@@ -23,6 +23,14 @@
 <polymer-element name="market-page" attributes="market">
 <template>
 <link rel="stylesheet" href="market-page.css">
+<style>
+  #main paper-tabs::shadow #selectionBar {
+    background-color: {{bgcolor}};
+  }
+  #main paper-tabs paper-tab::shadow #ink {
+    color: {{bgcolor}};
+  }
+</style>
 
 <cp-media-query smallup="{{smallup}}" small="{{small}}" mediumup="{{mediumup}}" medium="{{medium}}" large="{{large}}"></cp-media-query>
 <cp-globals id="globals"></cp-globals>
@@ -45,7 +53,7 @@
         <core-icon-button smallup?="{{smallup}}" active?="{{tab === 3}}" on-tap="{{switchTab3}}" icon="info-outline"></core-icon-button>
       </core-toolbar>
 
-      <div id="main" flex vertical layout>
+      <div id="main" fit vertical center layout>
          <paper-tabs selected="{{tab}}" smallup?="{{smallup}}">
             <paper-tab><core-icon icon="sort"></core-icon></paper-tab>
             <paper-tab><core-icon icon="trending-up"></core-icon></paper-tab>
@@ -69,12 +77,11 @@
             <cp-market-recent-transactions></cp-market-recent-transactions>
           </section>
          </core-animated-pages>
-         <cp-footer></cp-footer>
+         <!--cp-footer></cp-footer-->
        </div>
     </core-header-panel>
   </core-drawer-panel>
 </cp-page>
-
 </template>
 
 <script>
