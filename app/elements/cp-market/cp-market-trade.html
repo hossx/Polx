@@ -1,8 +1,14 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../../bower_components/core-animated-pages/transitions/cross-fade.html">
+<link rel="import" href="../../bower_components/core-animated-pages/transitions/hero-transition.html">
 <link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../../bower_components/core-header-panel/core-header-panel.html">
 <link rel="import" href="../cp-media-query/cp-media-query.html">
+<link rel="import" href="cp-mycoin-stat-card.html">
 <link rel="import" href="cp-top-pending-card.html">
+<link rel="import" href="cp-trade-card-buy.html">
+<link rel="import" href="cp-trade-card-sell.html">
 
 <polymer-element name="cp-market-trade" attributes="market" horizontal center-justified layout>
 <template>
@@ -13,8 +19,58 @@
     <div main horizontal center-justified layout>
       <div id="container" class="{{ {smallup: smallup} | tokenList}}" flex vertical layout>
         <paper-shadow z="1">
-          <cp-top-pending-card market="{{market}}"></cp-top-pending-card>
+          <cp-top-pending-card market="{{market}}" smallup="{{smallup}}" targetCoin="{{targetCoin}}"></cp-top-pending-card>
         </paper-shadow>
+
+        <paper-shadow z="1">
+          <cp-mycoin-stat-card
+            smallup="{{smallup}}" 
+            selected="{{selected}}"
+            coin="{{targetCoin}}" total="{{11111111.1}}" 
+            available="{{121.1}}" locked="{{12.11212}}" 
+            pendingWithdrawal="{{121.12}}">
+          </cp-mycoin-stat-card>
+        </paper-shadow>
+
+        <core-animated-pages  selected="{{selected}}" transitions="hero-transition cross-fade-all">
+
+          <section cross-fade>
+            <div id="actions" horizontal hero-p layout>
+              <div  flex horizontal center-justified layout>
+                <core-tooltip hero-id="buy" hero label="Buy {{coin}}" position="left">
+                  <paper-fab  id="buy" icon="add" on-tap="{{triggerBuy}}"></paper-fab>
+                </core-tooltip>
+              </div>
+              <div  flex horizontal center-justified layout>
+                <core-tooltip hero-id="sell" hero label="Sell {{coin}}" position="right">
+                  <paper-fab  id="sell" icon="remove" on-tap="{{triggerSell}}"></paper-fab>
+                </core-tooltip>
+              </div>
+            </div>
+          </section>
+
+          <section hero-p>
+            <paper-shadow z="1" hero-id="sell" hero>
+              <cp-trade-card-sell
+                smallup="{{smallup}}" 
+                selected="{{selected}}"
+                coin="{{targetCoin}}">
+              </cp-trade-card-sell>
+            </paper-shadow>
+          </section>
+
+          <section hero-p>
+            <paper-shadow z="1" hero-id="buy" hero>
+              <cp-trade-card-buy
+                smallup="{{smallup}}" 
+                selected="{{selected}}"
+                coin="{{targetCoin}}">
+              </cp-trade-card-buy>
+            </paper-shadow>
+          </section>
+
+        </core-animated-pages>
+
       </div>
     </div>
   </core-header-panel>
@@ -24,6 +80,12 @@
     'use strict';
 
     Polymer({
+      selected: 0,
+      triggerSell: function(){this.selected=1;},
+      triggerBuy: function(){this.selected=2;},
+      marketChanged: function(oldV, newV) {
+        this.targetCoin = newV.substring(4);
+      },
     });
 
   })();

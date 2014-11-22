@@ -3,12 +3,11 @@
 <link rel="import" href="../cp-media-query/cp-media-query.html">
 <link rel="import" href="../cp-globals/cp-globals.html">
 
-<polymer-element name="cp-top-pending-card" attributes="market">
+<polymer-element name="cp-top-pending-card" attributes="market,targetCoin,smallup">
 <template>
   <link rel="stylesheet" href="cp-top-pending-card.css">
  
   <cp-globals id="globals"></cp-globals>
-  <cp-media-query smallup="{{smallup}}"></cp-media-query>
   <div vertical?={{!smallup}} center horizontal?={{smallup}} layout id="card">
     <div auto-vertical class="box" id="buys" vertical layout>
       <div class="label" self-center>TOP Buy <span class="target">({{targetCoin}})</span></div>
@@ -45,9 +44,6 @@
     'use strict';
 
     Polymer({
-      marketChanged: function(oldV, newV) {
-        this.targetCoin = newV.substring(4);
-      },
       model: {
         buy: [
           ["12", "121", "1313"],

@@ -10,8 +10,21 @@
   }
 }
 
+paper-fab {
+  &#buy{
+    background:color($green, 400);
+  }
+  &#sell{
+    background:color($red, 400);
+  }
+}
+
 paper-shadow {
-  margin: 10px;
+  margin: 10px 0;
+}
+
+actions {
+  margin: 20px 0;
 }
 
 core-scroll-header-panel  {

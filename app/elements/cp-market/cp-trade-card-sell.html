@@ -1,0 +1,29 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html">
+<link rel="import" href="../../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="cp-mycoin-stat-card.html">
+
+<polymer-element name="cp-trade-card-sell" attributes="selected,smallup,coin">
+<template>
+  <link rel="stylesheet" href="cp-trade-card-sell.css">
+ 
+  <div id="card" vertical layout>
+        <div on-tap="{{fold}}">xxxxx</div>
+  </div>
+
+</template>
+<script>
+  (function () {
+    'use strict';
+
+    Polymer({
+      selected:0,
+      fold: function() {
+        this.selected=0;
+      }
+    });
+
+  })();
+</script>
+</polymer-element>
