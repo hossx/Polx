@@ -47,18 +47,18 @@
         <a href="/#/market"><paper-icon-button icon="arrow-back"></paper-icon-button></a>
         <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
         <div flex id="market-title">{{market}} ({{$.globals.configs.currencies[getTargetCoin(market)].label}})</div>
-        <core-icon-button smallup?="{{smallup}}" active?="{{tab === 0}}" on-tap="{{switchTab0}}" icon="sort"></core-icon-button>
+        <core-icon-button smallup?="{{smallup}}" active?="{{tab === 0}}" on-tap="{{switchTab0}}" icon="swap-horiz"></core-icon-button>
         <core-icon-button smallup?="{{smallup}}" active?="{{tab === 1}}" on-tap="{{switchTab1}}" icon="trending-up"></core-icon-button>
-        <core-icon-button smallup?="{{smallup}}" active?="{{tab === 2}}" on-tap="{{switchTab2}}" icon="info-outline"></core-icon-button>
-        <core-icon-button smallup?="{{smallup}}" active?="{{tab === 3}}" on-tap="{{switchTab3}}" icon="info-outline"></core-icon-button>
+        <core-icon-button smallup?="{{smallup}}" active?="{{tab === 2}}" on-tap="{{switchTab2}}" icon="list"></core-icon-button>
+        <core-icon-button smallup?="{{smallup}}" active?="{{tab === 3}}" on-tap="{{switchTab3}}" icon="history"></core-icon-button>
       </core-toolbar>
 
       <div id="main" fit vertical center layout>
          <paper-tabs selected="{{tab}}" smallup?="{{smallup}}">
-            <paper-tab><core-icon icon="sort"></core-icon></paper-tab>
+            <paper-tab><core-icon icon="swap-horiz"></core-icon></paper-tab>
             <paper-tab><core-icon icon="trending-up"></core-icon></paper-tab>
-            <paper-tab><core-icon icon="info-outline"></core-icon></paper-tab>
-            <paper-tab><core-icon icon="info-outline"></core-icon></paper-tab>
+            <paper-tab><core-icon icon="list"></core-icon></paper-tab>
+            <paper-tab><core-icon icon="history"></core-icon></paper-tab>
          </paper-tabs>
          <core-animated-pages selected="{{tab}}" transitions="slide-from-right">
           <section>
