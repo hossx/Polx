@@ -1,15 +1,17 @@
 @import "../_colors";
 
-
+:host {
+  padding-top: 40px;
+  background: $magic-grey;
+}
 #container {
-  padding: 10px;
+  padding: 20px;
   width: 100%;
 }
 
 #container[smallup] {
   width: 768px;
 }
-
 
 core-header-panel {
   background: red;

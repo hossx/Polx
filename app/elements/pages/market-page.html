@@ -10,7 +10,6 @@
 <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
 <link rel="import" href="../cp-globals/cp-globals.html">
-<link rel="import" href="../cp-page/cp-page.html">
 <link rel="import" href="../cp-icons/crypto-icons.html">
 <link rel="import" href="../cp-media-query/cp-media-query.html">
 <link rel="import" href="../cp-footer/cp-footer.html">
@@ -23,68 +22,52 @@
 <polymer-element name="market-page" attributes="market">
 <template>
 <link rel="stylesheet" href="market-page.css">
-<style>
-  #main paper-tabs {
-    border-top: 2px solid {{bgcolor}};
-  }
-  #main paper-tabs::shadow #selectionBar {
-    background-color: {{bgcolor}};
-  }
-  #main paper-tabs paper-tab::shadow #ink {
-    color: {{bgcolor}};
-  }
-</style>
 
 <cp-media-query smallup="{{smallup}}" small="{{small}}" mediumup="{{mediumup}}" medium="{{medium}}" large="{{large}}"></cp-media-query>
 <cp-globals id="globals"></cp-globals>
-<cp-page style="background:{{bgcolor}}"toolbarSelect="/market" hideToolbar>
-  <core-drawer-panel forceNarrow>
+<core-drawer-panel forceNarrow>
 
-    <core-header-panel mode="seamed" id="drawer" drawer>
-      <cp-market-list market="{{market}}"></cp-market-list>
-    </core-header-panel>
+  <core-header-panel mode="seamed" id="drawer" drawer>
+    <cp-market-list market="{{market}}"></cp-market-list>
+  </core-header-panel>
 
-    <core-header-panel mode="waterfall" main flex>
+  <core-header-panel mode="waterfall" main flex>
+    <core-toolbar class="core-header" style="background:{{bgcolor}}" id="toolbar">
+      <a href="/#/market"><paper-icon-button icon="arrow-back"></paper-icon-button></a>
+      <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
+      <div flex id="market-title">{{market}} ({{$.globals.configs.currencies[getTargetCoin(market)].label}})</div>
+      <core-icon-button smallup?="{{smallup}}" active?="{{tab === 0}}" on-tap="{{switchTab0}}" icon="swap-horiz"></core-icon-button>
+      <core-icon-button smallup?="{{smallup}}" active?="{{tab === 1}}" on-tap="{{switchTab1}}" icon="trending-up"></core-icon-button>
+      <core-icon-button smallup?="{{smallup}}" active?="{{tab === 2}}" on-tap="{{switchTab2}}" icon="list"></core-icon-button>
+      <core-icon-button smallup?="{{smallup}}" active?="{{tab === 3}}" on-tap="{{switchTab3}}" icon="history"></core-icon-button>
+    </core-toolbar>
 
-      <core-toolbar style="background:{{bgcolor}}" id="toolbar">
-        <a href="/#/market"><paper-icon-button icon="arrow-back"></paper-icon-button></a>
-        <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-        <div flex id="market-title">{{market}} ({{$.globals.configs.currencies[getTargetCoin(market)].label}})</div>
-        <core-icon-button smallup?="{{smallup}}" active?="{{tab === 0}}" on-tap="{{switchTab0}}" icon="swap-horiz"></core-icon-button>
-        <core-icon-button smallup?="{{smallup}}" active?="{{tab === 1}}" on-tap="{{switchTab1}}" icon="trending-up"></core-icon-button>
-        <core-icon-button smallup?="{{smallup}}" active?="{{tab === 2}}" on-tap="{{switchTab2}}" icon="list"></core-icon-button>
-        <core-icon-button smallup?="{{smallup}}" active?="{{tab === 3}}" on-tap="{{switchTab3}}" icon="history"></core-icon-button>
-      </core-toolbar>
+    <div id="canvas" flex vertical center layout main>
+       <paper-tabs selected="{{tab}}" smallup?="{{smallup}}" style="background:{{bgcolor}}">
+          <paper-tab><core-icon icon="swap-horiz"></core-icon></paper-tab>
+          <paper-tab><core-icon icon="trending-up"></core-icon></paper-tab>
+          <paper-tab><core-icon icon="list"></core-icon></paper-tab>
+          <paper-tab><core-icon icon="history"></core-icon></paper-tab>
+       </paper-tabs>
+       <core-animated-pages fit selected="{{tab}}" transitions="slide-from-right">
+        <section>
+          <cp-market-trade market="{{market}}" fit></cp-market-trade>
+        </section>
 
-      <div id="main" fit vertical center layout>
-         <paper-tabs selected="{{tab}}" smallup?="{{smallup}}">
-            <paper-tab><core-icon icon="swap-horiz"></core-icon></paper-tab>
-            <paper-tab><core-icon icon="trending-up"></core-icon></paper-tab>
-            <paper-tab><core-icon icon="list"></core-icon></paper-tab>
-            <paper-tab><core-icon icon="history"></core-icon></paper-tab>
-         </paper-tabs>
-         <core-animated-pages fit selected="{{tab}}" transitions="slide-from-right">
-          <section>
-            <cp-market-trade market="{{market}}" fit></cp-market-trade>
-          </section>
+        <section>
+          <cp-market-kchart fit></cp-market-kchart>
+        </section>
 
-          <section>
-            <cp-market-kchart fit></cp-market-kchart>
-          </section>
+        <section>
+          <cp-market-open-orders fit></cp-market-open-orders>
+        </section>
 
-          <section>
-            <cp-market-open-orders fit></cp-market-open-orders>
-          </section>
-
-          <section>
-            <cp-market-recent-transactions fit></cp-market-recent-transactions>
-          </section>
-         </core-animated-pages>
-         <!--cp-footer></cp-footer-->
-       </div>
-    </core-header-panel>
-  </core-drawer-panel>
-</cp-page>
+        <section>
+          <cp-market-recent-transactions fit></cp-market-recent-transactions>
+        </section>
+       </core-animated-pages>
+  </core-header-panel>
+</core-drawer-panel>
 </template>
 
 <script>
@@ -93,7 +76,7 @@
 
      Polymer({
         tab: 0,
-        bgcolor: 'white',
+        bgcolor: 'black',
         marketChanged: function(oldV, newV) {
           this.bgcolor = this.$.globals.helpers.getTargetCoin(this.market).color;
         },

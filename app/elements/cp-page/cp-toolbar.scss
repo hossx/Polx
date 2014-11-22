@@ -1,0 +1,17 @@
+@import "../_colors";
+
+:host {
+  box-sizing: border-box;
+  background: $magic-grey;
+}
+
+:host-context([hideToolbar]) {
+  #toolbar {
+    display: none;
+  }
+}
+
+#home {
+  color: white;
+  text-decoration: none;
+}
