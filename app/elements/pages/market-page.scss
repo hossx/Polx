@@ -24,12 +24,16 @@ core-icon-button {
   paper-tabs {
     border-top: solid 2px $black3;
     width: 100%;
+    color: white;
     position: absolute;
     right: 0;
     left: 0;
     bottom: 0;
     z-index: 100;
-    &[smallup] {height: 0; }
+    &[smallup] {
+      height: 0; 
+      border-top: none;
+    }
 
     paper-tab::shadow #ink {
       color: white;

@@ -1,10 +1,10 @@
 @import "../_colors";
 
 #container {
-  padding: 40px;
   padding-bottom: 80px;
 
   &.smallup {
+    padding: 40px;
     max-width: 768px;
     padding-bottom: 40px; 
   }
