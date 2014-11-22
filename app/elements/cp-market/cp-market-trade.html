@@ -1,10 +1,16 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="cp-top-pending-card.html">
 
-<polymer-element name="cp-market-trade" attributes="market">
+<polymer-element name="cp-market-trade" attributes="market" horizontal center-justified layout>
 <template>
   <link rel="stylesheet" href="cp-market-trade.css">
-
-TRADE
+  
+  <div id="container" vertical layout>
+    <paper-shadow z="1">
+      <cp-top-pending-card></cp-top-pending-card>
+    </paper-shadow>
+  </div>
 </template>
 <script>
   (function () {
