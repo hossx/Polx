@@ -1,8 +1,9 @@
 @import "../../_colors";
 
+$color: color($red, 400);
+
 :host {
-  background:color($red, 400);
-  color: white;
+  border-top: solid 2px $color;
   display:block;
   height: 100%;
 }

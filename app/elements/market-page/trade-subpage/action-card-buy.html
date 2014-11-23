@@ -1,10 +1,12 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/core-icon-button/core-icon-button.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
 
-<polymer-element name="action-card-buy" attributes="selected,coin" vertical layout>
+<polymer-element name="action-card-buy" attributes="selected,coin" vertical center layout>
   <template>
     <link rel="stylesheet" href="action-card-buy.css">
-    BUY
+    
+    <paper-input id="x" label="floating label" floatingLabel></paper-input>
   </template>
   <script>
     (function() {

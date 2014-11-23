@@ -1,8 +1,16 @@
 @import "../../_colors";
 
+$color: color($green, 400);
 :host {
-  background:color($green, 400);
-  color: white;
+  border-top: solid 2px $color;
   display:block;
   height: 100%;
+}
+
+paper-input {
+  font-size: 20px;
+  font-weight: 700;
+}
+#x /deep/  input {
+  background: $magic-grey;
 }
