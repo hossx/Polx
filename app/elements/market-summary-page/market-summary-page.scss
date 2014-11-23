@@ -25,11 +25,11 @@ cp-page::shadow cp-toolbar-button::shadow a {
 #canvas[medium] {width: 992px}
 #canvas[large] {width: 1200px}
 
-cp-market-stat-card{
+stats-card{
   width: 100%;
   max-width: 400px;
 }
 
-cp-market-stat-card[small] {width: 50%; }
-cp-market-stat-card[medium] {width: 33%; }
-cp-market-stat-card[large] {width: 25%; }
+stats-card[small] {width: 50%; }
+stats-card[medium] {width: 33%; }
+stats-card[large] {width: 25%; }
