@@ -7,8 +7,8 @@
 <link rel="import" href="../cp-media-query/cp-media-query.html">
 <link rel="import" href="trade-subpage/mycoin-card.html">
 <link rel="import" href="trade-subpage/toppending-card.html">
-<link rel="import" href="cp-trade-card-buy.html">
-<link rel="import" href="cp-trade-card-sell.html">
+<link rel="import" href="trade-subpage/action-card-buy.html">
+<link rel="import" href="trade-subpage/action-card-sell.html">
 
 <polymer-element name="trade-subpage" attributes="market" horizontal center-justified layout>
 <template>
@@ -51,21 +51,21 @@
 
           <section hero-p>
             <paper-shadow z="1" hero-id="sell" hero>
-              <cp-trade-card-sell
+              <action-card-sell
                 smallup="{{smallup}}" 
                 selected="{{selected}}"
                 coin="{{targetCoin}}">
-              </cp-trade-card-sell>
+              </action-card-sell>
             </paper-shadow>
           </section>
 
           <section hero-p>
             <paper-shadow z="1" hero-id="buy" hero>
-              <cp-trade-card-buy
+              <action-card-buy
                 smallup="{{smallup}}" 
                 selected="{{selected}}"
                 coin="{{targetCoin}}">
-              </cp-trade-card-buy>
+              </action-card-buy>
             </paper-shadow>
           </section>
 
