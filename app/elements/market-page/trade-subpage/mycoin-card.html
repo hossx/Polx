@@ -3,49 +3,50 @@
 <link rel="import" href="../../cp-globals/cp-globals.html">
 
 <polymer-element name="mycoin-card" attributes="smallup,coin,total,available,locked,pendingWithdrawal">
-<template>
-  <link rel="stylesheet" href="mycoin-card.css">
- 
-  <cp-globals id="globals"></cp-globals>
-  <div id="card" vertical center layout>
-    <div class="title" self-center>My <label id="coin">{{coin}}</label> balance</span></div>
-    <div class="box" vertical?={{!smallup}} center horizontal?={{smallup}} layout id="card">
-      <div auto-vertical><span class="label">Available to Sell:</span>{{available}}</div>
-      <div auto-vertical><span class="label">Locked by Orders:</span>{{locked}}</div>
-      <div auto-vertical><span class="label">Locked for Withdrawal:</span>{{pendingWithdrawal}}</div>
-      <div auto-vertical><span class="label">Total:</span>{{total}}</div>
+  <template>
+    <link rel="stylesheet" href="mycoin-card.css">
+
+    <cp-globals id="globals"></cp-globals>
+    <div vertical center layout>
+      <div class="title" self-center>My
+        <label id="coin">{{coin}}</label> balance</span>
+      </div>
+      <div class="box" vertical?={{!smallup}} center horizontal?={{smallup}} layout>
+        <div auto-vertical><span class="label">Available to Sell:</span>{{available}}</div>
+        <div auto-vertical><span class="label">Locked by Orders:</span>{{locked}}</div>
+        <div auto-vertical><span class="label">Locked for Withdrawal:</span>{{pendingWithdrawal}}</div>
+        <div auto-vertical><span class="label">Total:</span>{{total}}</div>
+      </div>
     </div>
-  </div>
-</template>
-<script>
-  (function () {
-    'use strict';
+  </template>
 
-    Polymer({
-      smallup:false,
-      coin:'',
-      total: 0,
-      available:0,
-      locked:0,
-      pendingWithdrawal:0,
-      model: {
-        buy: [
-          ["12", "121", "1313"],
-          ["12", "121", "1313"],
-          ["12", "121", "1313"],
-          ["12", "121", "1313"],
-          ["12", "121", "1313"]
-        ],
-        sell: [
-          ["12", "121", "1313"],
-          ["12", "121", "1313"],
-          ["12", "121", "1313"],
-          ["12", "121", "1313"],
-          ["12", "121", "1313"]
-        ]
-      }
-    });
-
-  })();
-</script>
+  <script>
+    (function() {
+      'use strict';
+      Polymer({
+        smallup: false,
+        coin: '',
+        total: 0,
+        available: 0,
+        locked: 0,
+        pendingWithdrawal: 0,
+        model: {
+          buy: [
+            ["12", "121", "1313"],
+            ["12", "121", "1313"],
+            ["12", "121", "1313"],
+            ["12", "121", "1313"],
+            ["12", "121", "1313"]
+          ],
+          sell: [
+            ["12", "121", "1313"],
+            ["12", "121", "1313"],
+            ["12", "121", "1313"],
+            ["12", "121", "1313"],
+            ["12", "121", "1313"]
+          ]
+        }
+      });
+    })();
+  </script>
 </polymer-element>

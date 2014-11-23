@@ -1,1 +1,37 @@
-action-car
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/core-header-panel/core-header-panel.html">
+<link rel="import" href="../../../bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="../../../bower_components/core-tooltip/core-tooltip.html">
+<link rel="import" href="../../../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="action-card-sell.html">
+<link rel="import" href="action-card-buy.html">
+
+<polymer-element name="action-card" attributes="coin" vertical flex layout>
+  <template>
+    <link rel="stylesheet" href="action-card.css">
+
+    <paper-tabs selected="{{selected}}">
+      <paper-tab id="buy">BUY {{coin}}</paper-tab>
+      <paper-tab id="sell">SELL {{coin}}</paper-tab>
+    </paper-tabs>
+    <core-animated-pages flex selected="{{selected}}">
+      <section flex>
+        <action-card-buy flex></action-card-buy>
+      </section>
+
+      <section flex>
+        <action-card-sell flex></action-card-sell>
+      </section>
+    </core-animated-pages>
+
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+      Polymer({
+      });
+    })();
+  </script>
+</polymer-element>

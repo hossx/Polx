@@ -20,62 +20,71 @@
 <link rel="import" href="orderbook-subpage/orderbook-subpage.html">
 
 <polymer-element name="market-page" attributes="market">
-<template>
-<link rel="stylesheet" href="market-page.css">
+  <template>
+    <link rel="stylesheet" href="market-page.css">
 
-<cp-media-query smallup="{{smallup}}" small="{{small}}" mediumup="{{mediumup}}" medium="{{medium}}" large="{{large}}"></cp-media-query>
-<cp-globals id="globals"></cp-globals>
-<core-drawer-panel forceNarrow>
+    <cp-media-query smallup="{{smallup}}" small="{{small}}" mediumup="{{mediumup}}" medium="{{medium}}" large="{{large}}"></cp-media-query>
+    <cp-globals id="globals"></cp-globals>
+    <core-drawer-panel forceNarrow>
 
-  <core-header-panel mode="seamed" id="drawer" drawer>
-    <market-sidebar market="{{market}}"></market-sidebar>
-  </core-header-panel>
+      <core-header-panel mode="seamed" id="drawer" drawer>
+        <market-sidebar market="{{market}}"></market-sidebar>
+      </core-header-panel>
 
-  <core-header-panel style="background:{{bgcolor}}"  mode="waterfall" main flex>
-    <core-toolbar class="core-header" style="background:{{bgcolor}}" id="toolbar">
-      <a href="/#/market"><paper-icon-button icon="arrow-back"></paper-icon-button></a>
-      <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-      <div flex id="market-title">{{market}} ({{$.globals.configs.currencies[getTargetCoin(market)].label}})</div>
-      <core-icon-button smallup?="{{smallup}}" active?="{{tab === 0}}" on-tap="{{switchTab0}}" icon="swap-horiz"></core-icon-button>
-      <core-icon-button smallup?="{{smallup}}" active?="{{tab === 1}}" on-tap="{{switchTab1}}" icon="trending-up"></core-icon-button>
-      <core-icon-button smallup?="{{smallup}}" active?="{{tab === 2}}" on-tap="{{switchTab2}}" icon="list"></core-icon-button>
-      <core-icon-button smallup?="{{smallup}}" active?="{{tab === 3}}" on-tap="{{switchTab3}}" icon="history"></core-icon-button>
-    </core-toolbar>
+      <core-header-panel style="background:{{bgcolor}}" mode="waterfall" main flex>
+        <core-toolbar class="core-header" style="background:{{bgcolor}}" id="toolbar">
+          <a href="/#/market">
+            <paper-icon-button icon="arrow-back"></paper-icon-button>
+          </a>
+          <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
+          <div flex id="market-title">{{market}} ({{$.globals.configs.currencies[getTargetCoin(market)].label}})</div>
+          <core-icon-button smallup?="{{smallup}}" active?="{{tab === 0}}" on-tap="{{switchTab0}}" icon="swap-horiz"></core-icon-button>
+          <core-icon-button smallup?="{{smallup}}" active?="{{tab === 1}}" on-tap="{{switchTab1}}" icon="trending-up"></core-icon-button>
+          <core-icon-button smallup?="{{smallup}}" active?="{{tab === 2}}" on-tap="{{switchTab2}}" icon="list"></core-icon-button>
+          <core-icon-button smallup?="{{smallup}}" active?="{{tab === 3}}" on-tap="{{switchTab3}}" icon="history"></core-icon-button>
+        </core-toolbar>
 
-    <div id="canvas" flex vertical layout main>
+        <div id="canvas" flex vertical layout main>
 
-       <core-animated-pages fit selected="{{tab}}" transitions="slide-from-right">
-        <section>
-          <trade-subpage market="{{market}}" fit></trade-subpage>
-        </section>
+          <core-animated-pages fit selected="{{tab}}" transitions="slide-from-right">
+            <section>
+              <trade-subpage market="{{market}}" fit></trade-subpage>
+            </section>
 
-        <section>
-          <kchart-subpage></kchart-subpage>
-        </section>
+            <section>
+              <kchart-subpage></kchart-subpage>
+            </section>
 
-        <section>
-          <orderbook-subpage></orderbook-subpage>
-        </section>
+            <section>
+              <orderbook-subpage></orderbook-subpage>
+            </section>
 
-        <section>
-          <recent-txs-subpage></recent-txs-subpage>
-        </section>
-       </core-animated-pages>
-       <paper-tabs selected="{{tab}}" smallup?="{{smallup}}" style="background:{{bgcolor}}">
-          <paper-tab><core-icon icon="swap-horiz"></core-icon></paper-tab>
-          <paper-tab><core-icon icon="trending-up"></core-icon></paper-tab>
-          <paper-tab><core-icon icon="list"></core-icon></paper-tab>
-          <paper-tab><core-icon icon="history"></core-icon></paper-tab>
-       </paper-tabs>
-  </core-header-panel>
-</core-drawer-panel>
-</template>
+            <section>
+              <recent-txs-subpage></recent-txs-subpage>
+            </section>
+          </core-animated-pages>
+          <paper-tabs selected="{{tab}}" smallup?="{{smallup}}" style="background:{{bgcolor}}">
+            <paper-tab>
+              <core-icon icon="swap-horiz"></core-icon>
+            </paper-tab>
+            <paper-tab>
+              <core-icon icon="trending-up"></core-icon>
+            </paper-tab>
+            <paper-tab>
+              <core-icon icon="list"></core-icon>
+            </paper-tab>
+            <paper-tab>
+              <core-icon icon="history"></core-icon>
+            </paper-tab>
+          </paper-tabs>
+      </core-header-panel>
+    </core-drawer-panel>
+  </template>
 
-<script>
-  (function () {
-    'use strict';
-
-     Polymer({
+  <script>
+    (function() {
+      'use strict';
+      Polymer({
         tab: 0,
         bgcolor: 'black',
         marketChanged: function(oldV, newV) {
@@ -84,11 +93,19 @@
         getTargetCoin: function(market) {
           return market.substring(4);
         },
-        switchTab0: function()  {this.tab = 0; },
-        switchTab1: function()  {this.tab = 1; },
-        switchTab2: function()  {this.tab = 2; },
-        switchTab3: function()  {this.tab = 3; }
+        switchTab0: function() {
+          this.tab = 0;
+        },
+        switchTab1: function() {
+          this.tab = 1;
+        },
+        switchTab2: function() {
+          this.tab = 2;
+        },
+        switchTab3: function() {
+          this.tab = 3;
+        }
       })
-  })();
-</script>
+    })();
+  </script>
 </polymer-element>

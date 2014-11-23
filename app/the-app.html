@@ -9,21 +9,21 @@
 
 
 <polymer-element name="the-app">
-<template fit>
+  <template fit>
 
-<app-router mode="hash" trailingSlash="ignore">
-  <app-route path="/" element="home-page"></app-route>
-  <app-route path="/market" element="market-summary-page"></app-route>
-  <app-route path="/market/:market" hero element="market-page"></app-route>
-  <app-route path="/trust" element="trust-page"></app-route> 
-  <app-route path="/account" element="account-page"></app-route>
-  <app-route path="*" element="notfound-page"></app-route>
-</app-router>
+    <app-router mode="hash" trailingSlash="ignore">
+      <app-route path="/" element="home-page"></app-route>
+      <app-route path="/market" element="market-summary-page"></app-route>
+      <app-route path="/market/:market" hero element="market-page"></app-route>
+      <app-route path="/trust" element="trust-page"></app-route>
+      <app-route path="/account" element="account-page"></app-route>
+      <app-route path="*" element="notfound-page"></app-route>
+    </app-router>
 
-</template>
+  </template>
 
-<script>
-  (function () {
+  <script>
+  (function() {
     'use strict';
 
     Polymer({
@@ -33,17 +33,23 @@
           btcMarkets: ["LTC", "BTSX"],
           cnyMarkets: ["BTC", "LTC", "BTSX"],
           currencies: {
-            "CNY": {"label": "Chinese Yuan"},
-            "BTC": {"label": "Bitcoin"},
-            "LTC": {"label": "Litecoin"},
-            "BTSX": {"label": "BitsharesX"}
+            "CNY": {
+              "label": "Chinese Yuan"
+            },
+            "BTC": {
+              "label": "Bitcoin"
+            },
+            "LTC": {
+              "label": "Litecoin"
+            },
+            "BTSX": {
+              "label": "BitsharesX"
+            }
           }
         }
       }
     });
 
   })();
-</script>
+  </script>
 </polymer-element>
-
-

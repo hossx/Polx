@@ -1,0 +1,38 @@
+@import "../../_colors";
+
+:host {
+  display:block;
+  background:white;
+  padding: 20px;
+  height:300px;
+}
+
+paper-tabs {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+paper-tabs::shadow #tabsContainer {
+  background:white;
+  color: $black1;
+}
+paper-tabs::shadow #selectionBar {
+  background-color: $white3;
+}
+
+paper-tab[active]#buy {
+  background: color($green, 400);
+  color:white;
+}
+
+paper-tab#buy::shadow #ink {
+  color: color($green, 400);
+}
+
+paper-tab[active]#sell {
+  background: color($red, 400);
+  color: white;
+}
+paper-tab#sell::shadow #ink {
+  color: color($red, 400);
+}

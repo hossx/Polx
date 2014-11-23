@@ -4,32 +4,30 @@
 <link rel="import" href="../cp-icons/crypto-icons.html">
 
 <polymer-element name="market-sidebar-item" attributes="market" flex>
-<template>
-  <link rel="stylesheet" href="market-sidebar-item.css">
+  <template>
+    <link rel="stylesheet" href="market-sidebar-item.css">
 
-  <cp-globals id="globals"></cp-globals>
-  <a href="/#/market/{{market}}">
+    <cp-globals id="globals"></cp-globals>
+    <a href="/#/market/{{market}}">
       <paper-item center flex>
         <div horizontal layout flex>
-         <div flex>{{market}} ({{label}})</div>
-         <core-icon id="icon" icon="{{icon}}"></core-icon>
+          <div flex>{{market}} ({{label}})</div>
+          <core-icon id="icon" icon="{{icon}}"></core-icon>
         </div>
       </paper-item>
-  </a>
+    </a>
 
-</template>
+  </template>
 
-<script>
-
-  Polymer({
-    market: "",
-    label: "",
-    icon: "",
-    marketChanged : function(oldV, newV) {
-      this.label = this.$.globals.helpers.getTargetCoin(this.market).label;
-      this.icon = this.$.globals.helpers.getTargetCoin(this.market).icon || "";
-    }
-  });
-
-</script>
+  <script>
+    Polymer({
+      market: "",
+      label: "",
+      icon: "",
+      marketChanged: function(oldV, newV) {
+        this.label = this.$.globals.helpers.getTargetCoin(this.market).label;
+        this.icon = this.$.globals.helpers.getTargetCoin(this.market).icon || "";
+      }
+    });
+  </script>
 </polymer-element>

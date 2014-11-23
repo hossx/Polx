@@ -6,48 +6,45 @@
 <link rel="import" href="market-sidebar-item.html">
 
 <polymer-element name="market-sidebar" vertical layout attributes="market">
-<template>
-  <link rel="stylesheet" href="market-sidebar.css">
+  <template>
+    <link rel="stylesheet" href="market-sidebar.css">
 
-  <cp-globals id="globals"></cp-globals>
-  <paper-tabs valueattr="group" selected="{{selectedTab}}">
-    <paper-tab group="BTC">BTC MARKETS</paper-tab>
-    <paper-tab group="CNY">CNY MARKETS</paper-tab>
-  </paper-tabs>
+    <cp-globals id="globals"></cp-globals>
+    <paper-tabs valueattr="group" selected="{{selectedTab}}">
+      <paper-tab group="BTC">BTC MARKETS</paper-tab>
+      <paper-tab group="CNY">CNY MARKETS</paper-tab>
+    </paper-tabs>
 
-  <core-animated-pages valueattr="group" flex selected="{{selectedTab}}">
-  	<section group="BTC">
-  		<core-menu valueattr="hash" selected="{{market}}">
-  		<template repeat="{{c in $.globals.configs.btcMarkets}}">
-        <market-sidebar-item hash="BTC-{{c}}" active?="{{market==='BTC-'+c}}" market="BTC-{{c}}"></market-sidebar-item>
-  		</template>
-  		</core-menu>
-  	</section>
-  	<section group="CNY">
-  		<core-menu valueattr="hash" selected="{{market}}">
-  		<template repeat="{{c in $.globals.configs.cnyMarkets}}">
-        <market-sidebar-item hash="CNY-{{c}}" active?="{{market==='CNY-'+c}}" market="CNY-{{c}}"></market-sidebar-item>
-      </template>
-  		</core-menu>
-  	</section>
-  </core-animated-pages>
-</template>
+    <core-animated-pages valueattr="group" flex selected="{{selectedTab}}">
+      <section group="BTC">
+        <core-menu valueattr="hash" selected="{{market}}">
+          <template repeat="{{c in $.globals.configs.btcMarkets}}">
+            <market-sidebar-item hash="BTC-{{c}}" active?="{{market==='BTC-'+c}}" market="BTC-{{c}}"></market-sidebar-item>
+          </template>
+        </core-menu>
+      </section>
+      <section group="CNY">
+        <core-menu valueattr="hash" selected="{{market}}">
+          <template repeat="{{c in $.globals.configs.cnyMarkets}}">
+            <market-sidebar-item hash="CNY-{{c}}" active?="{{market==='CNY-'+c}}" market="CNY-{{c}}"></market-sidebar-item>
+          </template>
+        </core-menu>
+      </section>
+    </core-animated-pages>
+  </template>
 
-<script>
-
-  Polymer({
-
-    ready: function() {
-      this.market= 'CNY-BTC';
-      this.selectedTab= 'XX';
-    },
-    marketChanged: function(o, n) {
-      var tab = n.substring(0, 3);
-      if (tab === "BTC" || tab === "CNY"){
-        this.selectedTab = tab;
+  <script>
+    Polymer({
+      ready: function() {
+        this.market = 'CNY-BTC';
+        this.selectedTab = 'XX';
+      },
+      marketChanged: function(o, n) {
+        var tab = n.substring(0, 3);
+        if (tab === "BTC" || tab === "CNY") {
+          this.selectedTab = tab;
+        }
       }
-    }
-  });
-
-</script>
+    });
+  </script>
 </polymer-element>

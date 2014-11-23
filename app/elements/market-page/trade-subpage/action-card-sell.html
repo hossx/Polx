@@ -3,26 +3,20 @@
 <link rel="import" href="../../../bower_components/paper-fab/paper-fab.html">
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
 
-<polymer-element name="action-card-sell" attributes="">
-<template>
-  <link rel="stylesheet" href="action-card-sell.css">
- 
-  <div id="card" vertical layout>
-        <div on-tap="{{fold}}">xxxxx</div>
-  </div>
-
-</template>
-<script>
-  (function () {
-    'use strict';
-
-    Polymer({
-      selected:0,
-      fold: function() {
-        this.selected=0;
-      }
-    });
-
-  })();
-</script>
+<polymer-element name="action-card-sell" attributes="selected">
+  <template>
+    <link rel="stylesheet" href="action-card-sell.css">
+SELL
+  </template>
+  <script>
+    (function() {
+      'use strict';
+      Polymer({
+        selected: "",
+        fold: function() {
+          this.selected = "closed";
+        }
+      });
+    })();
+  </script>
 </polymer-element>

@@ -6,60 +6,57 @@
 <link rel="import" href="../cp-icons/crypto-icons.html">
 <link rel="import" href="../cp-icons/cryptocode-icons.html">
 
-<polymer-element name="stats-card"
-  attributes="market,currentPrice,highestPrice,lowestPrice,volume,priceChangePercentage">
+<polymer-element name="stats-card" attributes="market,currentPrice,highestPrice,lowestPrice,volume,priceChangePercentage">
 
-<template>
-  <link rel="stylesheet" href="stats-card.css">
-  
-  <cp-globals id="globals"></cp-globals>
-  <paper-shadow z="1">
-    <a href="/#/market/{{market}}">
-    <div cross-fade id="box" vertical center layout>
-      <div self-start horizotal layout>
-        <div id="market" hero-id="{{market}}" hero>
-        <core-icon id="crypto-icon" icon="{{icon}}"></core-icon>
-        {{market}}
-        </div>
-      </div>
-      <div horizotal layout>
-        <div id="currentPrice">{{currentPrice}}</div>
-      </div>
-      <div horizontal layout>
-        <div class="info"vertical layout>
-          <div>24H Low</div>
-          <div>{{lowestPrice}}</div>
-        </div>
-        <div class="info"vertical layout>
-          <div>24H High</div>
-          <div>{{highestPrice}}</div>
-        </div>
-        <div class="info"vertical layout>
-          <div>24H Volume</div>
-          <div>{{volume}}</div>
-        </div>
-        <div class="info"vertical layout>
-          <div>24H Change</div>
-          <div>{{priceChangePercentage}}</div>
-        </div>
-      </div>
-    </div>
-    </a>
-  </paper-shadow>
+  <template>
+    <link rel="stylesheet" href="stats-card.css">
 
-</template>
-<script>
-  (function () {
-    'use strict';
+    <cp-globals id="globals"></cp-globals>
+    <paper-shadow z="1">
+      <a href="/#/market/{{market}}">
+        <div cross-fade id="box" vertical center layout>
+          <div self-start horizotal layout>
+            <div id="market" hero-id="{{market}}" hero>
+              <core-icon id="crypto-icon" icon="{{icon}}"></core-icon>
+              {{market}}
+            </div>
+          </div>
+          <div horizotal layout>
+            <div id="currentPrice">{{currentPrice}}</div>
+          </div>
+          <div horizontal layout>
+            <div class="info" vertical layout>
+              <div>24H Low</div>
+              <div>{{lowestPrice}}</div>
+            </div>
+            <div class="info" vertical layout>
+              <div>24H High</div>
+              <div>{{highestPrice}}</div>
+            </div>
+            <div class="info" vertical layout>
+              <div>24H Volume</div>
+              <div>{{volume}}</div>
+            </div>
+            <div class="info" vertical layout>
+              <div>24H Change</div>
+              <div>{{priceChangePercentage}}</div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </paper-shadow>
 
-    Polymer({
+  </template>
+  <script>
+    (function() {
+      'use strict';
+      Polymer({
         market: "",
         icon: "",
         marketChanged: function(oldV, newV) {
           this.icon = this.$.globals.helpers.getTargetCoin(this.market).icon || ""
         }
-    });
-
-  })();
-</script>
+      });
+    })();
+  </script>
 </polymer-element>
