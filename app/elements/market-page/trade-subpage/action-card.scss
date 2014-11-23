@@ -36,3 +36,7 @@ paper-tab[active]#sell {
 paper-tab#sell::shadow #ink {
   color: color($red, 400);
 }
+
+core-animated-pages {
+  display: block;
+}

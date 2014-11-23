@@ -31,7 +31,7 @@
         <market-sidebar market="{{market}}"></market-sidebar>
       </core-header-panel>
 
-      <core-header-panel style="background:{{bgcolor}}" mode="default" main flex>
+      <core-header-panel style="background:{{bgcolor}}" mode="default" main>
         <core-toolbar class="core-header" style="background:{{bgcolor}}" id="toolbar">
           <a href="/#/market">
             <paper-icon-button icon="arrow-back"></paper-icon-button>
@@ -63,7 +63,7 @@
               <recent-txs-subpage></recent-txs-subpage>
             </section>
           </core-animated-pages>
-          <paper-tabs selected="{{tab}}" smallup?="{{smallup}}" style="background:{{bgcolor}}">
+          <paper-tabs id="tabs" selected="{{tab}}" smallup?="{{smallup}}" style="background:{{bgcolor}}">
             <paper-tab>
               <core-icon icon="swap-horiz"></core-icon>
             </paper-tab>

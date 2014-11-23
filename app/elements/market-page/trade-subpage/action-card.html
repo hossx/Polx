@@ -7,7 +7,7 @@
 <link rel="import" href="action-card-sell.html">
 <link rel="import" href="action-card-buy.html">
 
-<polymer-element name="action-card" attributes="coin" vertical flex layout>
+<polymer-element name="action-card" attributes="coin" vertical layout>
   <template>
     <link rel="stylesheet" href="action-card.css">
 
@@ -15,13 +15,14 @@
       <paper-tab id="buy">BUY {{coin}}</paper-tab>
       <paper-tab id="sell">SELL {{coin}}</paper-tab>
     </paper-tabs>
+
     <core-animated-pages flex selected="{{selected}}">
       <section flex>
-        <action-card-buy flex></action-card-buy>
+        <action-card-buy></action-card-buy>
       </section>
 
       <section flex>
-        <action-card-sell flex></action-card-sell>
+        <action-card-sell></action-card-sell>
       </section>
     </core-animated-pages>
 
@@ -30,8 +31,7 @@
   <script>
     (function() {
       'use strict';
-      Polymer({
-      });
+      Polymer({});
     })();
   </script>
 </polymer-element>
