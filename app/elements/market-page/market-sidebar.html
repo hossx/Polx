@@ -3,11 +3,11 @@
 <link rel="import" href="../../bower_components/core-menu/core-menu.html">
 <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../cp-globals/cp-globals.html">
-<link rel="import" href="cp-market-list-item.html">
+<link rel="import" href="market-sidebar-item.html">
 
-<polymer-element name="cp-market-list" vertical layout attributes="market">
+<polymer-element name="market-sidebar" vertical layout attributes="market">
 <template>
-  <link rel="stylesheet" href="cp-market-list.css">
+  <link rel="stylesheet" href="market-sidebar.css">
 
   <cp-globals id="globals"></cp-globals>
   <paper-tabs valueattr="group" selected="{{selectedTab}}">
@@ -19,14 +19,14 @@
   	<section group="BTC">
   		<core-menu valueattr="hash" selected="{{market}}">
   		<template repeat="{{c in $.globals.configs.btcMarkets}}">
-        <cp-market-list-item hash="BTC-{{c}}" active?="{{market==='BTC-'+c}}" market="BTC-{{c}}"></cp-market-list-item>
+        <market-sidebar-item hash="BTC-{{c}}" active?="{{market==='BTC-'+c}}" market="BTC-{{c}}"></market-sidebar-item>
   		</template>
   		</core-menu>
   	</section>
   	<section group="CNY">
   		<core-menu valueattr="hash" selected="{{market}}">
   		<template repeat="{{c in $.globals.configs.cnyMarkets}}">
-        <cp-market-list-item hash="CNY-{{c}}" active?="{{market==='CNY-'+c}}" market="CNY-{{c}}"></cp-market-list-item>
+        <market-sidebar-item hash="CNY-{{c}}" active?="{{market==='CNY-'+c}}" market="CNY-{{c}}"></market-sidebar-item>
       </template>
   		</core-menu>
   	</section>

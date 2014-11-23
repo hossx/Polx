@@ -13,11 +13,11 @@
 <link rel="import" href="../cp-icons/crypto-icons.html">
 <link rel="import" href="../cp-media-query/cp-media-query.html">
 <link rel="import" href="../cp-footer/cp-footer.html">
-<link rel="import" href="../market-page/cp-market-list.html">
+<link rel="import" href="../market-page/market-sidebar.html">
 <link rel="import" href="../market-page/trade-subpage.html">
-<link rel="import" href="../market-page/cp-market-kchart.html">
-<link rel="import" href="../market-page/cp-market-recent-transactions.html">
-<link rel="import" href="../market-page/cp-market-open-orders.html">
+<link rel="import" href="../market-page/kchart-subpage.html">
+<link rel="import" href="../market-page/recent-txs-subpage.html">
+<link rel="import" href="../market-page/orderbook-subpage.html">
 
 <polymer-element name="market-page" attributes="market">
 <template>
@@ -28,7 +28,7 @@
 <core-drawer-panel forceNarrow>
 
   <core-header-panel mode="seamed" id="drawer" drawer>
-    <cp-market-list market="{{market}}"></cp-market-list>
+    <market-sidebar market="{{market}}"></market-sidebar>
   </core-header-panel>
 
   <core-header-panel style="background:{{bgcolor}}"  mode="waterfall" main flex>
@@ -50,15 +50,15 @@
         </section>
 
         <section>
-          <cp-market-kchart></cp-market-kchart>
+          <kchart-subpage></kchart-subpage>
         </section>
 
         <section>
-          <cp-market-open-orders></cp-market-open-orders>
+          <orderbook-subpage></orderbook-subpage>
         </section>
 
         <section>
-          <cp-market-recent-transactions></cp-market-recent-transactions>
+          <recent-txs-subpage></recent-txs-subpage>
         </section>
        </core-animated-pages>
        <paper-tabs selected="{{tab}}" smallup?="{{smallup}}" style="background:{{bgcolor}}">
