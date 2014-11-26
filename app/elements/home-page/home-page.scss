@@ -1,61 +1,61 @@
 @import "../_colors";
-
-@mixin theme($color) {
-  cp-page {
-    background: white;
-    color: $white1;
-  }
-
-  #drawer {
-  	background: white;
-  	color: black;
-  }
-
-  cp-page::shadow #toolbar {
-    background: white;
-    color:color($color, 900);
-  }
-
-  cp-page::shadow cp-toolbar-button::shadow a {
-    color:color($color, 800);
-    &:hover {
-       color:color($color, 900);
-    }
-  }
-
-  cp-page::shadow #home {
-    color: color($color, 800);
-    text-decoration: none;
-  }
-
-  #branding {
-    padding: 40px 0;
-    background: color($color, 800);
-    width: 100%;
-
-    #name {
-      font-size: 56px;
-      text-transform: uppercase;
-    }
-    #slogan {
-      font-size: 15px;
-      color: $white3;
-    }
-  }
-
-  #branding[smallup] {
-    padding: 100px 0;
-    #name {
-      font-size: 100px;
-    }
-    #slogan {
-      font-size: 26px;
-    }
-  }
-
-  #page-content {
-    background: white;
-  }
+$color: $blue;
+:host {
+    box-sizing: border-box;
 }
-
-@include theme($grey);
+cp-page {
+    background: color($color, 500);
+    color: $white1;
+    &::shadow {
+        #toolbar {
+            background: white;
+            color: color($color, 500);
+            a#home {
+                color: color($color, 500);
+                text-decoration: none;
+            }
+        }
+        cp-toolbar-button::shadow a {
+            color: color($color, 500);
+            &:hover {
+                color: color($color, 500);
+            }
+        }
+    }
+}
+#footer {
+    display: none;
+}
+#branding {
+    padding: 40px 0;
+    background: color($color, 500);
+    width: 100%;
+    #name {
+        font-size: 56px;
+        text-transform: uppercase;
+    }
+    #slogan {
+        font-size: 15px;
+        color: $white2;
+    }
+}
+#page-content {
+    background: white;
+}
+@media(min-width: 769px) {
+    cp-page {
+        background: white;
+    }
+    #footer {
+        display: inherit;
+    }
+    #branding {
+        padding: 100px 0;
+        #name {
+            font-size: 100px;
+        }
+        #slogan {
+            font-size: 26px;
+        }
+    }
+}

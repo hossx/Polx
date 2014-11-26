@@ -1,58 +1,46 @@
 @import "../_colors";
-
 #drawer {
-  background: white;
-  padding: 0;
+    background: white;
+    padding: 0;
 }
-
-
 #toolbar {
-  color: white;
-  a {
     color: white;
-    height: 40px !important;
-  }
+    a {
+        color: white;
+        height: 40px !important;
+    }
 }
-
 core-icon-button {
-  display:none;
-  &[smallup] {display: initial; }
-}
-
-
-#canvas {
-  > paper-tabs {
-    border-top: solid 2px $black3;
-    width: 100%;
-    color: white;
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 100;
+    display: none;
     &[smallup] {
-      height: 0; 
-      border-top: none;
+        display: initial;
     }
-
-    paper-tab::shadow #ink {
-      color: white;
-    }
-  }
-
-  > paper-tabs::shadow #selectionBar {
-    background-color: white;
-  }
-
-  core-animated-pages {
-    padding-bottom: 200px;
-  }
 }
-
+#canvas {
+    > paper-tabs {
+        border-top: solid 2px $black3;
+        width: 100%;
+        color: white;
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 100;
+        &[smallup] {
+            height: 0;
+            border-top: none;
+        }
+        paper-tab::shadow #ink {
+            color: white;
+        }
+    }
+    > paper-tabs::shadow #selectionBar {
+        background-color: white;
+    }
+    core-animated-pages {
+        padding-bottom: 200px;
+    }
+}
 #market-title {
-  font-weight: 700;
-}
-
-cp-hasfooter::shadow #footer {
-  border-top: solid 1px $black4;
+    font-weight: 700;
 }

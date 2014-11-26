@@ -1,35 +1,57 @@
 @import "../_colors";
-
+$color: $blue;
 :host {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
-
-cp-page::shadow #toolbar {
-  background: color($grey, 700);
-  color:white;
+cp-page::shadow {
+    #toolbar {
+        background: color($color, 500);
+        color: white;
+    }
+    cp-toolbar-button::shadow a {
+        color: white;
+        &:hover {
+            color: white;
+        }
+    }
 }
-
-cp-page::shadow cp-toolbar-button::shadow a {
-  color:white;
-  &:hover {
-     color:white;
-  }
-}
-
 #canvas {
-  padding-top: 40px;
-  width: 100%;
+    padding-top: 40px;
+    width: 100%;
 }
-
-#canvas[small] {width: 768px}
-#canvas[medium] {width: 992px}
-#canvas[large] {width: 1200px}
-
-stats-card{
-  width: 100%;
-  max-width: 400px;
+stats-card {
+    width: 100%;
+    max-width: 400px;
 }
-
-stats-card[small] {width: 50%; }
-stats-card[medium] {width: 33%; }
-stats-card[large] {width: 25%; }
+#footer {
+    display: none;
+}
+@media(min-width: 768px) and (max-width: 991px) {
+    #canvas {
+        width: 768px;
+    }
+    stats-card {
+        width: 50%;
+    }
+}
+@media(min-width: 992px) and (max-width: 1199px) {
+    #canvas {
+        width: 992px;
+    }
+    stats-card {
+        width: 33%;
+    }
+}
+@media(min-width: 1200px) {
+    #canvas {
+        width: 1200px;
+    }
+    stats-card {
+        width: 25%;
+    }
+}
+@media(min-width: 768px) {
+    #footer {
+        display: inherit;
+    }
+}

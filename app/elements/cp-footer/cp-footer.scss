@@ -1,29 +1,25 @@
 @import "../_colors";
-
 :host {
-  box-sizing: border-box;
-  background: transparent;
-  min-width: 40%;
-
-  a {
-    color: $black2;
-    text-decoration: none;
-    &:hover {
-      color: $black1;
-      text-decoration: underline;
+    box-sizing: border-box;
+    background: transparent;
+    min-width: 40%;
+    a {
+        color: $black2;
+        text-decoration: none;
+        &:hover {
+            color: $black1;
+            text-decoration: underline;
+        }
     }
-  }
-  .group {
-    padding: 20px;
-  }
-
-  .group-label {
-    text-transform: uppercase;
-    padding-bottom: 10px;
-    color: $black3;
-  }
-
-  .link {
-    padding-bottom: 5px;
-  }
+    .group {
+        padding: 20px;
+    }
+    .group-label {
+        text-transform: uppercase;
+        padding-bottom: 10px;
+        color: $black3;
+    }
+    .link {
+        padding-bottom: 5px;
+    }
 }

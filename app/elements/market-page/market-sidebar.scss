@@ -1,21 +1,17 @@
 @import "../_colors";
-
-@mixin theme($color) {
-  paper-tabs {
-  	font-size: 13px;
-  	font-weight: 500px;
-  }
-
-  paper-tabs::shadow #tabsContainer {
-  	background:white;
-  }
-  paper-tabs::shadow #selectionBar {
-    background-color: color($color, 600);
-  }
-
-  paper-tabs paper-tab::shadow #ink {
-    color: color($color, 500);
-  }
+$color:$blue;
+paper-tabs {
+    font-size: 13px;
+    font-weight: 500px;
+    &::shadow {
+        #tabsContainer {
+            background: white;
+        }
+        #selectionBar {
+            background-color: color($color, 500);
+        }
+    }
+    paper-tab::shadow #ink {
+        color: color($color, 500);
+    }
 }
-
-@include theme($yellow);

@@ -1,31 +1,26 @@
 @import "../../_colors";
-
 :host {
-  display:block;
-  background:white;
-  padding: 20px;
+    display: block;
+    background: white;
+    padding: 20px;
 }
-
 .box {
-  padding: 10px;
-  font-size: 14px;
+    padding: 10px;
+    font-size: 14px;
 }
-
 #coin {
-  color: $black1;
+    color: $black1;
 }
-
 .title {
-  font-size: 14px;
-  color: $black2;
-  text-transform: uppercase;
-  font-weight: 700;
+    font-size: 14px;
+    color: $black2;
+    text-transform: uppercase;
+    font-weight: 700;
 }
-
 .label {
-  color: $black2;
-  font-size: 12px;
-  padding-bottom: 10px;
-  padding: 0 10px;
-  font-weight: normal;
+    color: $black2;
+    font-size: 12px;
+    padding-bottom: 10px;
+    padding: 0 10px;
+    font-weight: normal;
 }

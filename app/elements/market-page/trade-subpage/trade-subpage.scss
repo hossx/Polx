@@ -1,33 +1,34 @@
 @import "../../_colors";
-
+:host {
+  display:block;
+}
 #container {
-  padding-bottom: 130px;
-
-  &.smallup {
-    padding: 40px;
-    max-width: 768px;
-    padding-bottom: 80px; 
-  }
-  > paper-shadow {
-    margin: 10px 0;
-  }
+    padding-bottom: 60px;
+    &.smallup {
+        padding: 40px;
+        max-width: 768px;
+        padding-bottom: 80px;
+    }
+    > paper-shadow {
+        margin: 5px 0;
+    }
 }
-
 paper-fab {
-  &#buy{
-    background:color($green, 400);
-  }
-  &#sell{
-    background:color($red, 400);
-  }
+    &#buy {
+        background: color($green, 400);
+    }
+    &#sell {
+        background: color($red, 400);
+    }
 }
-
-
-
 actions {
-  margin: 20px 0;
+    margin: 20px 0;
 }
-
-core-scroll-header-panel  {
-  background: transparent;
+@media (min-width: 769px) {
+    #container {
+        padding-bottom: 130px;
+        > paper-shadow {
+            margin: 10px 0;
+        }
+    }
 }

@@ -4,36 +4,39 @@
 <link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="../../bower_components/core-iconset-svg/core-iconset-svg.html">
 <link rel="import" href="../cp-page/cp-page.html">
+<link rel="import" href="../cp-globals/cp-globals.html">
+<link rel="import" href="../cp-footer/cp-footer.html">
+<link rel="import" href="../cp-media-query/cp-media-query.html">
 <link rel="import" href="../cp-account-sidebar/cp-account-sidebar.html">
 
 <polymer-element name="account-page" attributes="">
-<template>
-<link rel="stylesheet" href="account-page.css">
+  <template>
+    <link rel="stylesheet" href="account-page.css">
+    <cp-media-query smallup="{{smallup}}" small="{{small}}" mediumup="{{mediumup}}" medium="{{medium}}" large="{{large}}"></cp-media-query>
 
-  <cp-page toolbarSelect="/account">
-    <core-drawer-panel>
-      <core-header-panel mode="seamed" id="drawer" drawer>
-        <cp-account-sidebar></cp-account-sidebar>
-      </core-header-panel>
-      <core-header-panel mode="waterfall" main>
-        <core-toolbar>
-          <core-icon-button icon="menu" core-drawer-toggle></core-icon-button>
-          <div>ACCOUNT</div>
-        </core-toolbar>
-        <div> Main content... </div>
-        <cp-footer self-center></cp-footer>
-      </core-header-panel>
-    </core-drawer-panel>
-  </cp-page>
+    <cp-globals id="globals"></cp-globals>
 
-</template>
-<script>
-  (function () {
-    'use strict';
+    <cp-page toolbarSelect="/account">
+      <core-drawer-panel>
+        <core-header-panel mode="seamed" id="drawer" drawer>
+          <cp-account-sidebar></cp-account-sidebar>
+        </core-header-panel>
+        <core-header-panel mode="waterfall" main>
+          <core-toolbar>
+            <core-icon-button icon="menu" core-drawer-toggle></core-icon-button>
+            <div>ACCOUNT</div>
+          </core-toolbar>
+          <div> Main content... </div>
+          <cp-footer id="footer" self-center></cp-footer>
+        </core-header-panel>
+      </core-drawer-panel>
+    </cp-page>
 
-    Polymer({
-    });
-
-  })();
-</script>
+  </template>
+  <script>
+    (function() {
+      'use strict';
+      Polymer({});
+    })();
+  </script>
 </polymer-element>

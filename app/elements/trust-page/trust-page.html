@@ -5,29 +5,28 @@
 <link rel="import" href="../../bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
 <link rel="import" href="../../bower_components/core-header-panel/core-header-panel.html">
 <link rel="import" href="../cp-page/cp-page.html">
-
+<link rel="import" href="../cp-globals/cp-globals.html">
+<link rel="import" href="../cp-footer/cp-footer.html">
 <link rel="import" href="../cp-openness/cp-opensource-section.html">
 <link rel="import" href="../cp-openness/cp-opendata-section.html">
 
 <polymer-element name="trust-page" vertical layout fit>
-<template>
-  <link rel="stylesheet" href="trust-page.css">
-  <cp-page toolbarSelect="/trust">
-    <div id="page-content" flex vertical layout>
-      <div id="xx"  self-center horizontal layout>
-        hello
+  <template>
+    <link rel="stylesheet" href="trust-page.css">
+    <cp-globals id="globals"></cp-globals>
+    <cp-page toolbarSelect="/trust">
+      <div id="page-content" flex vertical layout>
+        <div id="xx" self-center horizontal layout>
+          hello
+        </div>
+        <cp-footer id="footer" smallup?={{smallup}} self-center></cp-footer>
       </div>
-      <cp-footer self-center></cp-footer>
-    </div>
-  </cp-page>
-</template>
-<script>
-  (function () {
-    'use strict';
-
-    Polymer({
-    });
-
-  })();
-</script>
+    </cp-page>
+  </template>
+  <script>
+    (function() {
+      'use strict';
+      Polymer({});
+    })();
+  </script>
 </polymer-element>
