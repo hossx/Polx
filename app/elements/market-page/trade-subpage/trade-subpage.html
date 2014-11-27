@@ -5,6 +5,7 @@
 <link rel="import" href="mycoin-card.html">
 <link rel="import" href="toppending-card.html">
 <link rel="import" href="action-card.html">
+<link rel="import" href="action-card-alt.html">
 <link rel="import" href="action-card-buy.html">
 <link rel="import" href="action-card-sell.html">
 
@@ -26,9 +27,14 @@
             </mycoin-card>
           </paper-shadow>
 
-          <paper-shadow z="1">
+          <paper-shadow id="action-narrow" z="1">
             <action-card coin="{{targetCoin}}">
             </action-card>
+          </paper-shadow>
+
+          <paper-shadow id="action-wide" z="1">
+            <action-card-alt coin="{{targetCoin}}">
+            </action-card-alt>
           </paper-shadow>
 
           <paper-shadow z="1">

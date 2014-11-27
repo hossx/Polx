@@ -3,9 +3,8 @@
     display: block;
     background: white;
     padding: 20px;
-    height: 300px;
+    height: 230px;
 }
-
 paper-tabs {
     font-size: 14px;
     font-weight: 700;
@@ -19,32 +18,31 @@ paper-tabs {
         }
     }
 }
-
 paper-tab {
+    color: $black3;
     &[active] {
         &#buy {
-            background: color($green, 400);
+            background: color($green, 500);
             color: white;
         }
         &#sell {
-            background: color($red, 400);
+            background: color($red, 500);
             color: white;
         }
     }
-    &#buy::shadow #ink {
-        color: white;
+    &#buy {
+        color: color($green, 500);
+        &::shadow #ink {
+            color: white;
+        }
     }
-    &#sell::shadow #ink {
-        color: white;
+    &#sell {
+        color: color($red, 500);
+        &::shadow #ink {
+            color: white;
+        }
     }
 }
-
 #pages {
-    display: block;
-}
-
-
-/** smallup **/
-@media (max-width: 768px) {
-
+    display: inherit;
 }

@@ -1,16 +1,5 @@
-@import "../../_colors";
+@import "_action-card-common";
 
-$color: color($green, 400);
-:host {
-  border-top: solid 2px $color;
-  display:block;
-  height: 100%;
-}
+$color: color($green, 500);
 
-paper-input {
-  font-size: 20px;
-  font-weight: 700;
-}
-#x /deep/  input {
-  background: $magic-grey;
-}
+@include config($color);

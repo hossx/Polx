@@ -1,6 +1,6 @@
 @import "../../_colors";
 :host {
-  display:block;
+    display: block;
 }
 #container {
     padding-bottom: 60px;
@@ -24,7 +24,16 @@ paper-fab {
 actions {
     margin: 20px 0;
 }
+#action-wide {
+    display: none;
+}
 @media (min-width: 769px) {
+    #action-wide {
+        display: inherit;
+    }
+    #action-narrow {
+        display: none;
+    }
     #container {
         padding-bottom: 130px;
         > paper-shadow {

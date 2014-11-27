@@ -1,9 +1,5 @@
-@import "../../_colors";
+@import "_action-card-common";
 
-$color: color($red, 400);
+$color: color($red, 500);
 
-:host {
-  border-top: solid 2px $color;
-  display:block;
-  height: 100%;
-}
+@include config($color);

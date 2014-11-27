@@ -1,0 +1,24 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="action-card-sell.html">
+<link rel="import" href="action-card-buy.html">
+
+<polymer-element name="action-card-alt" attributes="coin" horizontal layout>
+  <template>
+    <link rel="stylesheet" href="action-card-alt.css">
+    <div flex id="buy" vertical layout>
+      <div class="label">BUY {{coin}}</div>
+      <action-card-buy flex></action-card-buy>
+    </div>
+    <div flex id="sell" vertical layout>
+      <div class="label">SELL {{coin}}</div>
+      <action-card-sell flex></action-card-sell>
+    </div>
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+      Polymer({});
+    })();
+  </script>
+</polymer-element>

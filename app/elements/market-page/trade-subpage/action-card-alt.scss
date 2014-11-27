@@ -1,0 +1,33 @@
+@import "../../_colors";
+:host {
+    display: block;
+    width: 100%;
+    height: 300px;
+    background: white;
+    padding: 10px;
+    >div {
+        .label {
+            font-size: 14px;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        &#buy {
+            .label {
+                background: color($green, 500);
+            }
+        }
+        &#sell {
+            .label {
+                background: color($red, 500);
+            }
+        }
+    }
+    #buy {
+        padding: 10px;
+    }
+    #sell {
+        padding: 10px;
+    }
+}

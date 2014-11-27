@@ -1,7 +1,4 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../../bower_components/core-header-panel/core-header-panel.html">
-<link rel="import" href="../../../bower_components/core-toolbar/core-toolbar.html">
-<link rel="import" href="../../../bower_components/core-tooltip/core-tooltip.html">
 <link rel="import" href="../../../bower_components/core-animated-pages/core-animated-pages.html">
 <link rel="import" href="../../../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="action-card-sell.html">
@@ -16,7 +13,7 @@
       <paper-tab id="sell">SELL {{coin}}</paper-tab>
     </paper-tabs>
 
-    <core-animated-pages flex selected="{{selected}}">
+    <core-animated-pages id="pages" flex selected="{{selected}}">
       <section flex>
         <action-card-buy></action-card-buy>
       </section>

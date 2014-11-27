@@ -1,22 +1,42 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../../bower_components/core-icon-button/core-icon-button.html">
-<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../../bower_components/core-tooltip/core-tooltip.html">
+<link rel="import" href="../../../bower_components/core-input/core-input.html">
+<link rel="import" href="../../../bower_components/core-field/core-field.html">
+<link rel="import" href="../../../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 
-<polymer-element name="action-card-buy" attributes="selected,coin" vertical center layout>
+<polymer-element name="action-card-buy" vertical layout>
   <template>
     <link rel="stylesheet" href="action-card-buy.css">
-    
-    <paper-input id="x" label="floating label" floatingLabel></paper-input>
+
+    <div id="form" vertical layout>
+      <core-field>
+        <label>Price</label>
+        <input type='number' class='input' is="core-input" placeholder="" flex>
+      </core-field>
+
+      <core-field>
+        <label>Quantity</label>
+        <input type='number' class='input' is="core-input" placeholder="" flex>
+      </core-field>
+
+      <core-field>
+        <label>Total</label>
+        <input type='number' class='input' is="core-input" placeholder="" flex>
+      </core-field>
+    </div>
+    <div id="explain">
+
+    </div>
+    <div self-center>
+      <paper-button raised id="action">SUBMIT BUY ORDER<core-icon icon="check"></core-icon></paper-button>
+    </div>
   </template>
+
   <script>
     (function() {
       'use strict';
-      Polymer({
-        selected: "",
-        fold: function() {
-          this.selected = "closed";
-        }
-      });
+      Polymer({});
     })();
   </script>
 </polymer-element>
