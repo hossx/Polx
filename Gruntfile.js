@@ -44,7 +44,7 @@ module.exports = function (grunt) {
         ]
       },
       js: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
+        files: ['<%= yeoman.app %>/scripts/{,*/,*/*/}*.js'],
         tasks: ['jshint']
       },
       styles: {
@@ -65,7 +65,6 @@ module.exports = function (grunt) {
     // Compiles Sass to CSS and generates necessary files if requested
     sass: {
       options: {
-        sourcemap: true,
         loadPath: 'bower_components'
       },
       dist: {
@@ -75,7 +74,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>',
-          src: ['styles/{,*/}*.{scss,sass}', 'elements/{,*/,*/*/}*.{scss,sass}'],
+          src: ['styles/{,*/,*/*/}*.{scss,sass}', 'elements/{,*/,*/*/}*.{scss,sass}'],
           dest: '<%= yeoman.dist %>',
           ext: '.css'
         }]
@@ -84,7 +83,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>',
-          src: ['styles/{,*/}*.{scss,sass}', 'elements/{,*/,*/*/}*.{scss,sass}'],
+          src: ['styles/{,*/,*/*/}*.{scss,sass}', 'elements/{,*/,*/*/}*.{scss,sass}'],
           dest: '.tmp',
           ext: '.css'
         }]
@@ -195,8 +194,8 @@ module.exports = function (grunt) {
           strip: true
         },
         files: {
-          '<%= yeoman.dist %>/elements/elements.vulcanized.html': [
-            '<%= yeoman.dist %>/elements/elements.html'
+          '<%= yeoman.dist %>/the-app.vulcanized.html': [
+           '<%= yeoman.dist %>/the-app.html'
           ]
         }
       }
@@ -237,6 +236,7 @@ module.exports = function (grunt) {
             '.htaccess',
             '*.html',
             'elements/**',
+            'styles/*.ttf',
             '!elements/**/*.scss',
             'images/{,*/}*.{webp,gif}',
             'bower_components/**'

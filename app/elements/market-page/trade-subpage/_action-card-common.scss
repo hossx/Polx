@@ -52,10 +52,10 @@
             }
         }
         #action {
-            background: $color;
-            color: white;
+            background: white;
+            color: $color;
             &:hover {
-                background: $black1;
+                background: $color;
                 color: white;
             }
         }
