@@ -2,7 +2,7 @@
 :host {
     display: block;
 }
-#container {
+#top-container {
     padding-bottom: 60px;
     > paper-shadow {
         margin: 5px 0;
@@ -12,21 +12,18 @@
     display: none;
 }
 @media (min-width: 768px) {
-    #container {
+    #top-container {
         padding: 40px;
         max-width: 768px;
         padding-bottom: 80px;
+        > paper-shadow {
+            margin: 10px 0;
+        }
     }
     #action-wide {
         display: inherit;
     }
     #action-narrow {
         display: none;
-    }
-    #container {
-        padding-bottom: 130px;
-        > paper-shadow {
-            margin: 10px 0;
-        }
     }
 }

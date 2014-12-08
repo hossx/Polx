@@ -38,10 +38,10 @@
           </a>
           <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
           <div flex id="market-title">{{market}} ({{$.globals.configs.currencies[getTargetCoin(market)].label}})</div>
-          <core-icon-button smallup?="{{smallup}}" active?="{{tab === 0}}" on-tap="{{switchTab0}}" icon="swap-horiz"></core-icon-button>
-          <core-icon-button smallup?="{{smallup}}" active?="{{tab === 1}}" on-tap="{{switchTab1}}" icon="trending-up"></core-icon-button>
-          <core-icon-button smallup?="{{smallup}}" active?="{{tab === 2}}" on-tap="{{switchTab2}}" icon="list"></core-icon-button>
-          <core-icon-button smallup?="{{smallup}}" active?="{{tab === 3}}" on-tap="{{switchTab3}}" icon="history"></core-icon-button>
+          <core-icon-button class="btn" smallup?="{{smallup}}" active?="{{tab === 0}}" on-tap="{{switchTab0}}" icon="swap-horiz"></core-icon-button>
+          <core-icon-button class="btn" smallup?="{{smallup}}" active?="{{tab === 1}}" on-tap="{{switchTab1}}" icon="trending-up"></core-icon-button>
+          <core-icon-button class="btn" smallup?="{{smallup}}" active?="{{tab === 2}}" on-tap="{{switchTab2}}" icon="list"></core-icon-button>
+          <core-icon-button class="btn" smallup?="{{smallup}}" active?="{{tab === 3}}" on-tap="{{switchTab3}}" icon="history"></core-icon-button>
         </core-toolbar>
 
         <div id="canvas" flex vertical layout main>
@@ -63,7 +63,7 @@
               <recent-txs-subpage></recent-txs-subpage>
             </section>
           </core-animated-pages>
-          <paper-tabs id="tabs" selected="{{tab}}" smallup?="{{smallup}}" style="background:{{bgcolor}}">
+          <paper-tabs id="nav-tabs" selected="{{tab}}" smallup?="{{smallup}}" style="background:{{bgcolor}}">
             <paper-tab>
               <core-icon icon="swap-horiz"></core-icon>
             </paper-tab>

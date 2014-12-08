@@ -19,7 +19,7 @@
 #pages {
     padding-bottom: 200px;
 }
-#tabs {
+#nav-tabs {
     border-top: solid 2px $black3;
     width: 100%;
     color: white;
@@ -41,7 +41,7 @@
     .btn {
         display: initial;
     }
-    #tabs {
+    #nav-tabs {
         height: 0;
         border-top: none;
     }
