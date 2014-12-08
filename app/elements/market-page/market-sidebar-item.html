@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="market-sidebar-item.css">
 
     <cp-globals id="globals"></cp-globals>
-    <a href="/#/market/{{market}}">
-      <paper-item center flex>
+
+    <a id="link" href="/#/market/{{market}}">
+      <paper-item id="item" center flex>
         <div horizontal layout flex>
           <div flex>{{market}} ({{label}})</div>
           <core-icon id="icon" icon="{{icon}}"></core-icon>

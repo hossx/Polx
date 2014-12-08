@@ -1,14 +1,14 @@
 @import "../_colors";
 :host([active]) {
-    paper-item {
+    #item {
         color: $black1;
         background: $magic-grey;
     }
 }
-paper-item {
+#item {
     font-size: 13px;
 }
-a {
+#link {
     text-decoration: none;
     color: $black2;
 }

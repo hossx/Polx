@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="market-sidebar.css">
 
     <cp-globals id="globals"></cp-globals>
-    <paper-tabs valueattr="group" selected="{{selectedTab}}">
+    <paper-tabs id="tabs" valueattr="group" selected="{{selectedTab}}">
       <paper-tab group="BTC">BTC MARKETS</paper-tab>
       <paper-tab group="CNY">CNY MARKETS</paper-tab>
     </paper-tabs>
 
-    <core-animated-pages valueattr="group" flex selected="{{selectedTab}}">
+    <core-animated-pages id="pages" valueattr="group" flex selected="{{selectedTab}}">
       <section group="BTC">
         <core-menu valueattr="hash" selected="{{market}}">
           <template repeat="{{c in $.globals.configs.btcMarkets}}">

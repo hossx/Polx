@@ -7,20 +7,14 @@
 .box {
     width: 100%;
     padding: 5px;
-    .label {
-        text-transform: uppercase;
-        color: $black2;
-        font-weight: 700;
-        font-size: 14px;
-    }
-    &[smallup] {
-        padding: 10px;
-        .label {
-            padding-bottom: 10px;
-        }
-    }
 }
-table {
+.label {
+    text-transform: uppercase;
+    color: $black2;
+    font-weight: 700;
+    font-size: 14px;
+}
+.table {
     border: solid 1px $black4;
     color: $black1;
     width: 100%;
@@ -40,11 +34,6 @@ table {
     td {
         font-weight: 700;
     }
-    &[smallup] {
-        th, td {
-            padding: 4px;
-        }
-    }
 }
 #buys {
     td {
@@ -58,4 +47,17 @@ table {
 }
 .target {
     font-weight: 500;
+}
+#container[smallup] {
+    .box {
+        padding: 10px;
+    }
+    .label {
+        padding-bottom: 10px;
+    }
+    .table {
+        th, td {
+            padding: 4px;
+        }
+    }
 }

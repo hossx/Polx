@@ -1,6 +1,6 @@
 @import "../_colors";
 $color:$blue;
-paper-tabs {
+#tabs {
     font-size: 13px;
     font-weight: 500px;
     &::shadow {
@@ -11,7 +11,7 @@ paper-tabs {
             background-color: color($color, 500);
         }
     }
-    paper-tab::shadow #ink {
+    >paper-tab::shadow #ink {
         color: color($color, 500);
     }
 }

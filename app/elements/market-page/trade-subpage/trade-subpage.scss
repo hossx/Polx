@@ -4,22 +4,19 @@
 }
 #container {
     padding-bottom: 60px;
-    &.smallup {
-        padding: 40px;
-        max-width: 768px;
-        padding-bottom: 80px;
-    }
     > paper-shadow {
         margin: 5px 0;
     }
 }
-actions {
-    margin: 20px 0;
-}
 #action-wide {
     display: none;
 }
-@media (min-width: 769px) {
+@media (min-width: 768px) {
+    #container {
+        padding: 40px;
+        max-width: 768px;
+        padding-bottom: 80px;
+    }
     #action-wide {
         display: inherit;
     }

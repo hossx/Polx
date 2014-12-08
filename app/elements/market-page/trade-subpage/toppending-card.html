@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="toppending-card.css">
 
     <cp-globals id="globals"></cp-globals>
-    <div vertical?={{!smallup}} center horizontal?={{smallup}} layout>
-      <div auto-vertical class="box" smallup?={{smallup}} id="buys" vertical layout>
+
+    <div id="container" smallup?={{smallup}} vertical?={{!smallup}} center horizontal?={{smallup}} layout>
+      <div auto-vertical class="box" id="buys" vertical layout>
         <div class="label" self-center>TOP Buy <span class="target">({{targetCoin}})</span>
         </div>
-        <table smallup?={{smallup}}>
+        <table class="table">
           <tr>
             <th>Price
               <core-icon icon="arrow-drop-down"></core-icon>
@@ -30,10 +31,10 @@
         </table>
       </div>
 
-      <div auto-vertical class="box" smallup?={{smallup}} id="sells" vertical layout>
+      <div auto-vertical class="box" id="sells" vertical layout>
         <div class="label" self-center>TOP Sell <span class="target">({{targetCoin}})</span>
         </div>
-        <table smallup?={{smallup}}>
+        <table class="table">
           <tr>
             <th>Price
               <core-icon icon="arrow-drop-up">

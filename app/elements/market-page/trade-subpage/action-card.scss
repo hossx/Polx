@@ -5,7 +5,10 @@
     padding: 20px;
     height: 230px;
 }
-paper-tabs {
+#pages {
+    display: inherit;
+}
+#tabs {
     font-size: 14px;
     font-weight: 700;
     &::shadow {
@@ -17,32 +20,29 @@ paper-tabs {
             background-color: $white3;
         }
     }
-}
-paper-tab {
-    color: $black3;
-    &[active] {
+    >paper-tab {
+        color: $black3;
+        &[active] {
+            &#buy {
+                background: color($green, 500);
+                color: white;
+            }
+            &#sell {
+                background: color($red, 500);
+                color: white;
+            }
+        }
         &#buy {
-            background: color($green, 500);
-            color: white;
+            color: color($green, 500);
+            &::shadow #ink {
+                color: white;
+            }
         }
         &#sell {
-            background: color($red, 500);
-            color: white;
+            color: color($red, 500);
+            &::shadow #ink {
+                color: white;
+            }
         }
     }
-    &#buy {
-        color: color($green, 500);
-        &::shadow #ink {
-            color: white;
-        }
-    }
-    &#sell {
-        color: color($red, 500);
-        &::shadow #ink {
-            color: white;
-        }
-    }
-}
-#pages {
-    display: inherit;
 }
