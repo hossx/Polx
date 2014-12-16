@@ -1,19 +1,7 @@
 @import "../_colors";
-$color: $blue;
+$color: $green;
 :host {
     box-sizing: border-box;
-}
-cp-page::shadow {
-    #toolbar {
-        background: color($color, 500);
-        color: white;
-    }
-    cp-toolbar-button::shadow a {
-        color: white;
-        &:hover {
-            color: white;
-        }
-    }
 }
 #canvas {
     padding-top: 40px;

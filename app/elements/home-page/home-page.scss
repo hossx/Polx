@@ -1,51 +1,25 @@
 @import "../_colors";
-$color: $blue;
 :host {
     box-sizing: border-box;
-}
-cp-page {
-    background: color($color, 500);
-    color: $white1;
-    &::shadow {
-        #toolbar {
-            background: white;
-            color: color($color, 500);
-            a#home {
-                color: color($color, 500);
-                text-decoration: none;
-            }
-        }
-        cp-toolbar-button::shadow a {
-            color: color($color, 500);
-            &:hover {
-                color: color($color, 500);
-            }
-        }
-    }
 }
 #footer {
     display: none;
 }
 #branding {
     padding: 40px 0;
-    background: color($color, 500);
+    background: $primary;
     width: 100%;
     #name {
         font-size: 56px;
         text-transform: uppercase;
+        color: $secondary;
     }
     #slogan {
-        font-size: 15px;
-        color: $white2;
+        font-size: 12px;
+        color: lighten($secondary, 10%);
     }
-}
-#page-content {
-    background: white;
 }
 @media(min-width: 769px) {
-    cp-page {
-        background: white;
-    }
     #footer {
         display: inherit;
     }
@@ -55,7 +29,8 @@ cp-page {
             font-size: 100px;
         }
         #slogan {
-            font-size: 26px;
+            font-weight: 100;
+            font-size: 22px;
         }
     }
 }

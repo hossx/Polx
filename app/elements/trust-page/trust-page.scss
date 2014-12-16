@@ -1,25 +1,11 @@
 @import "../_colors";
-$color: $green;
 :host {
     box-sizing: border-box;
     display: block;
     over-flow: scrool;
     height: 100%;
 }
-cp-page::shadow {
-    #toolbar {
-        background: color($color, 500);
-        color: white;
-    }
-    cp-toolbar-button::shadow {
-        a {
-            color: white;
-            &:hover {
-                color: white;
-            }
-        }
-    }
-}
+
 #footer {
     display: none;
 }

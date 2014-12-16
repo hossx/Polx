@@ -1,15 +1,29 @@
 @import "../_colors";
 :host {
     box-sizing: border-box;
-    background: $magic-grey;
+    background: $primary;
 }
 :host-context([hideToolbar]) {
     #toolbar {
         display: none;
     }
 }
-#home {
+
+:content {
+  color: white;
+}
+
+#toolbar {
+    background: $primary;
     color: white;
-    font-weight:700;
-    text-decoration: none;
+    a#home {
+        color: $secondary;
+        text-decoration: none;
+    }
+}
+cp-toolbar-button::shadow a {
+    color: $secondary;
+    &:hover {
+        color: lighten($secondary, 10%);
+    }
 }

@@ -7,26 +7,31 @@
 }
 a {
     text-decoration: none;
-    color: $black1;
+    color: white;
 }
 #box {
-    background: white;
+    background: darken($primary, 5%);
+    transition: background 420ms ease-in-out;
+    &:hover {
+    background: lighten($primary, 5%);
+
+    }
     padding: 20px;
     >:nth-child(3) {
-        border-top: solid 1px $black4;
+        border-top: solid 1px $white4;
     }
 }
 cp-coinport-icon {
     font-size: 24px;
 }
 #market {
-    color: $black1;
+    color: $white1;
     font-weight: 500;
     font-size: 16px;
 }
 #crypto-icon {
     #Oval-43 {
-        fill: $black3;
+        fill: $white3;
     }
     height: 40px;
     width: 40px;
@@ -35,17 +40,18 @@ cp-coinport-icon {
     font-size: 36px;
     font-weight: 300;
     text-align: center;
+    color: $secondary;
 }
 .info {
     font-size: 11 px;
     padding: 5px 10px;
     :nth-child(1) {
-        color: $black3;
+        color: $white3;
         text-transform: uppercase;
         padding-bottom: 4px;
     }
     :nth-child(2) {
-        color: $black2;
+        color: $thirdary;
         font-weight: 700;
     }
 }

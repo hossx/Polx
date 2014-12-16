@@ -1,8 +1,10 @@
 @import "../../_colors";
 :host {
     display: block;
+    height: 100%;
 }
 #top-container {
+    padding-top: 40px;
     padding-bottom: 60px;
     > paper-shadow {
         margin: 5px 0;
@@ -13,7 +15,6 @@
 }
 @media (min-width: 768px) {
     #top-container {
-        padding: 40px;
         max-width: 768px;
         padding-bottom: 80px;
         > paper-shadow {
