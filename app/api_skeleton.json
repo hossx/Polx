@@ -1,0 +1,95 @@
+{
+  "config": {
+    "hash": "FDSLFJDLJFLDJFLJLSL",
+    "currencies": {
+      "CNY": {
+        "name": "Chinese Yuan",
+        "color": "red",
+        "fiat": true,
+        "deposit-fee": {
+          "c": 0.3,
+          "p": 0.1
+        },
+        "withdraw-fee": {
+          "c": 0.3,
+          "p": 0.1
+        }
+      },
+      "LTC": {
+        "name": "Litecoin",
+        "color": "#f2f000",
+        "official-site": "http://litcoin.org",
+        "deposit-fee": {
+          "c": 0.3,
+          "p": 0.1
+        },
+        "withdraw-fee": {
+          "c": 0.3,
+          "p": 0.1
+        },
+        "browser": {
+          "addr": "https://ltbrowser/addr/%s",
+          "tx": "https://ltbrowser/addr/%s"
+        }
+      }
+    },
+    "market-groups": {
+      "CNY": {
+        "markets": {
+          "BTC": {
+            "weight": 10000,
+            "precision": 3,
+            "price-unit": "CNY/BTC",
+            "min-sell-amt": 0.001,
+            "min-buy-amt": 0.001,
+            "maker-fee": {
+              "c": 0.3,
+              "p": 0.1
+            },
+            "taker-fee": {
+              "constant": 0.3,
+              "percentage": 0.1
+            },
+            "tags": ["featured"]
+          },
+          "LTC": {
+            "weight": 9000,
+            "precision": 3,
+            "price-unit": "LTC/BTC",
+            "min-sell-amt": 0.001,
+            "min-buy-amt": 0.001,
+            "maker-fee": {
+              "c": 0.3,
+              "p": 0.1
+            },
+            "taker-fee": {
+              "c": 0.3,
+              "p": 0.1
+            },
+            "tags": ["featured"]
+          }
+        }
+      }
+    },
+    "BTC": {
+      "markets": {
+        "LTC": {
+          "weight": 9000,
+          "precision": 3,
+          "price-unit": "LTC/BTC",
+          "min-sell-amt": 0.001,
+          "min-buy-amt": 0.001,
+          "maker-fee": {
+            "c": 0.3,
+            "p": 0.1
+          },
+          "taker-fee": {
+            "c": 0.3,
+            "p": 0.1
+          },
+          "tags": ["featured"]
+        }
+      }
+    }
+  }
+}

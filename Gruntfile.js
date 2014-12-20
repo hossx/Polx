@@ -42,6 +42,7 @@ module.exports = function(grunt) {
                     '<%= yeoman.app %>/*.html',
                     '<%= yeoman.app %>/elements/{,*/,*/*/}*.html',
                     '{.tmp,<%= yeoman.app %>}/elements/{,*/,*/*/}*.css',
+                    '{.tmp,<%= yeoman.app %>}/elements/{,*/,*/*/}*.js',
                     '{.tmp,<%= yeoman.app %>}/styles/{,*/,*/*/}*.css',
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/,*/*/}*.js',
                     '<%= yeoman.app %>/images/{,*/,*/*/}*.{png,jpg,jpeg,gif,webp}'
@@ -52,8 +53,11 @@ module.exports = function(grunt) {
                 tasks: ['copy:scripts', 'jshint']
             },
             coffee: {
-                files: ['<%= yeoman.app %>/scripts/{,*/,*/*/}*.coffee'],
-                tasks: ['copy:scripts', 'jshint']
+                files: [
+                    '<%= yeoman.app %>/scripts/{,*/,*/*/}*.coffee',
+                    '<%= yeoman.app %>/elements/{,*/,*/*/}*.coffee'
+                    ],
+                tasks: ['coffee:server', 'copy:scripts', 'jshint']
             },
             styles: {
                 files: [

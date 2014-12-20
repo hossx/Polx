@@ -1,4 +1,19 @@
-(function(document) {
+
+class Coin
+  constructor: (@id, @json) ->
+    console.log("id: " + @id + ", json: " + JSON.stringify(@json))
+    @name = @json.name
+
+class Market
+  constructor: (@baseCoin, @coin, @json) ->
+    @id = @baseCoin.id + "-" + @coin.id
+    @shortName = @coin.id + "/" + @baseCoin.id
+    @name = @coin.name +"(" + @coin.id + ")/" + @baseCoin.id
+
+
+
+
+`(function(document) {
   'use strict';
 
   document.addEventListener('polymer-ready', function() {
@@ -19,4 +34,4 @@
     };
     // wrap document so it plays nice with other libraries
     // http://www.polymer-project.org/platform/shadow-dom.html#wrappers
-})(wrap(document));
+})(wrap(document));`
