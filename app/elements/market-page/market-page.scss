@@ -1,12 +1,13 @@
 @import "../_colors";
 #drawer {
-    background: white;
+    background: lighten($primary, 5%);
     padding: 0;
 }
 #toolbar {
-    color: white;
+    color: $secondary;
+    background: $primary;
     a {
-        color: white;
+        color: $secondary;
         height: 40px !important;
     }
 }
@@ -20,9 +21,9 @@
     padding-bottom: 200px;
 }
 #nav-tabs {
-    border-top: solid 2px $black3;
     width: 100%;
-    color: white;
+    color: darken($primary, 10%);
+    background: $secondary;
     position: absolute;
     right: 0;
     left: 0;

@@ -1,0 +1,9 @@
+@import "../_colors";
+#footer {
+    display: none;
+}
+@media(min-width: 769px) {
+    #footer {
+        display: inline-block;
+    }
+}

@@ -1,6 +1,6 @@
 // color palette
-$primary2: rgb(43, 49, 59);
-$primary: lighten($primary2, 10%);
+$primary2: lighten(rgb(43, 49, 59), 10%);
+$primary: lighten(rgb(43, 49, 59), 5%);
 $secondary: rgb(254, 118, 101);
 $thirdary: rgb(84, 174, 171);
 

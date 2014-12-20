@@ -1,11 +1,17 @@
 @import "../_colors";
 :host([active]) {
     #item {
-        color: $black1;
-        background: $magic-grey;
+        color: $secondary;
+        background: $primary;
+    }
+}
+:host(:hover) {
+    #item {
+        color: $secondary;
     }
 }
 #item {
+    color: white;
     font-size: 13px;
 }
 #link {

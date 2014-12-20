@@ -10,11 +10,10 @@ a {
     color: white;
 }
 #box {
-    background: darken($primary, 5%);
+    background: lighten($primary, 5%);
     transition: background 420ms ease-in-out;
     &:hover {
-    background: lighten($primary, 5%);
-
+        background: lighten($primary, 10%);
     }
     padding: 20px;
     >:nth-child(3) {
@@ -25,7 +24,7 @@ cp-coinport-icon {
     font-size: 24px;
 }
 #market {
-    color: $white1;
+    color: $secondary;
     font-weight: 500;
     font-size: 16px;
 }
@@ -40,7 +39,7 @@ cp-coinport-icon {
     font-size: 36px;
     font-weight: 300;
     text-align: center;
-    color: $secondary;
+    color: $white1;
 }
 .info {
     font-size: 11 px;

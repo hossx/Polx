@@ -1,17 +1,22 @@
 @import "../_colors";
-$color:$blue;
 #market-tabs {
     font-size: 13px;
     font-weight: 500px;
     &::shadow {
         #tabsContainer {
-            background: white;
+            background: $primary;
+            color: white;
         }
         #selectionBar {
-            background-color: color($color, 500);
+            background-color: $secondary;
         }
     }
     >paper-tab::shadow #ink {
-        color: color($color, 500);
+        color: $secondary;
+    }
+}
+#pages {
+    core-menu {
+        background: lighten($primary,5%);
     }
 }

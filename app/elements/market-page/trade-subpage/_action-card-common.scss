@@ -54,6 +54,7 @@
         #action {
             background: white;
             color: $color;
+            transition: background 420ms ease-in-out,color 420ms ease-in-out;
             &:hover {
                 background: $color;
                 color: white;
