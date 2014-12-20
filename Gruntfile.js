@@ -49,7 +49,11 @@ module.exports = function(grunt) {
             },
             js: {
                 files: ['<%= yeoman.app %>/scripts/{,*/,*/*/}*.js'],
-                tasks: ['jshint']
+                tasks: ['copy:scripts', 'jshint']
+            },
+            coffee: {
+                files: ['<%= yeoman.app %>/scripts/{,*/,*/*/}*.coffee'],
+                tasks: ['copy:scripts', 'jshint']
             },
             styles: {
                 files: [
@@ -64,6 +68,34 @@ module.exports = function(grunt) {
                     '<%= yeoman.app %>/elements/{,*/,*/*/}*.{scss,sass}'
                 ],
                 tasks: ['sass:server', 'autoprefixer:server']
+            }
+        },
+        // Compile coffee scripts to js
+        coffee: {
+            options: {
+                bare: false,
+                join: false
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= yeoman.app %>',
+                    src: ['scripts/{,*/,*/*/}*.coffee', 'elements/{,*/,*/*/}*.coffee'],
+                    dest: '<%= yeoman.dist %>',
+                    ext: '.js'
+                }]
+            },
+            server: {
+                options: {
+                    sourceMap: true
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= yeoman.app %>',
+                    src: ['scripts/{,*/,*/*/}*.coffee', 'elements/{,*/,*/*/}*.coffee'],
+                    dest: '.tmp',
+                    ext: '.js'
+                }]
             }
         },
         // Compiles Sass to CSS and generates necessary files if requested
@@ -198,8 +230,8 @@ module.exports = function(grunt) {
                     strip: true
                 },
                 files: {
-                    '<%= yeoman.dist %>/the-app.vulcanized.html': [
-                        '<%= yeoman.dist %>/the-app.html'
+                    '<%= yeoman.dist %>/elements/the-app.vulcanized.html': [
+                        '<%= yeoman.dist %>/elements/the-app.html'
                     ]
                 }
             }
@@ -247,6 +279,7 @@ module.exports = function(grunt) {
                         'styles/*.ttf',
                         'scripts/**',
                         '!elements/**/*.scss',
+                        '!elements/**/*.coffee',
                         'images/{,*/}*.{webp,gif}',
                         'bower_components/**'
                     ]
@@ -258,6 +291,14 @@ module.exports = function(grunt) {
                     cwd: '<%= yeoman.app %>',
                     dest: '.tmp',
                     src: ['{styles,elements}/{,*/,*/*/}*.css']
+                }]
+            },
+            scripts: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= yeoman.app %>',
+                    dest: '.tmp',
+                    src: ['{scripts,elements}/{,*/,*/*/}*.js']
                 }]
             }
         },
@@ -295,8 +336,10 @@ module.exports = function(grunt) {
 
         grunt.task.run([
             'clean:server',
+            'coffee:server',
             'sass:server',
             'copy:styles',
+            'copy:scripts',
             'autoprefixer:server',
             'connect:livereload',
             'open',
@@ -311,6 +354,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
+        'coffee',
         'sass',
         'copy',
         'useminPrepare',

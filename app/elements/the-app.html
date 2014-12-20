@@ -1,0 +1,25 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-router/app-router.html">
+<link rel="import" href="home-page/home-page.html">
+<link rel="import" href="market-page/market-page.html">
+<link rel="import" href="market-summary-page/market-summary-page.html">
+<link rel="import" href="account-page/account-page.html">
+<link rel="import" href="trust-page/trust-page.html">
+<link rel="import" href="notfound-page/notfound-page.html">
+
+<polymer-element name="the-app">
+  <template fit>
+
+    <app-router mode="hash" trailingSlash="ignore">
+      <app-route path="/" element="home-page"></app-route>
+      <app-route path="/market" element="market-summary-page"></app-route>
+      <app-route path="/market/:market" hero element="market-page"></app-route>
+      <app-route path="/trust" element="trust-page"></app-route>
+      <app-route path="/account" element="account-page"></app-route>
+      <app-route path="*" element="notfound-page"></app-route>
+    </app-router>
+
+  </template>
+
+  <script src="the-app.js"></script>
+</polymer-element>
