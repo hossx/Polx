@@ -1,14 +1,4 @@
 
-class Coin
-  constructor: (@id, @json) ->
-    console.log("id: " + @id + ", json: " + JSON.stringify(@json))
-    @name = @json.name
-
-class Market
-  constructor: (@baseCoin, @coin, @json) ->
-    @id = @baseCoin.id + "-" + @coin.id
-    @shortName = @coin.id + "/" + @baseCoin.id
-    @name = @coin.name +"(" + @coin.id + ")/" + @baseCoin.id
 
 
 
