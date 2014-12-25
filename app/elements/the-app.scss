@@ -1,0 +1,26 @@
+@import "_colors";
+#main {
+    #loading, #error {
+        color: white;
+        height: 100vh;
+        font-size: 14px;
+        paper-spinner::shadow .circle {
+            border-color: $secondary;
+        }
+        core-icon {
+            color: $secondary;
+            height: 28px;
+            width: 28px;
+        }
+        &[hide] {
+            display: none;
+        }
+    }
+    > the-router {
+        opacity: 0.0;
+        transition: opacity 420ms ease-in;
+        &[show] {
+            opacity: 1.0;
+        }
+    }
+}

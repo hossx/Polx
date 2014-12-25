@@ -1,6 +1,5 @@
 {
   "config": {
-    "hash": "FDSLFJDLJFLDJFLJLSL",
     "currencies": {
       "CNY": {
         "name": "Chinese Yuan",
@@ -35,7 +34,7 @@
 
         "name": "Litecoin",
         "color": "#f2f000",
-        "official-site": "http://litcoin.org",
+        "officialSite": "http://litcoin.org",
         "fee": {
           "deposit": {
             "c": 0.3,
@@ -52,14 +51,14 @@
         }
       }
     },
-    "market-groups": {
+    "marketGroups": {
       "CNY": {
         "markets": {
           "BTC": {
             "precision": 3,
-            "price-unit": "CNY/BTC",
-            "min-sell-amt": 0.001,
-            "min-buy-amt": 0.001,
+            "priceUnit": "CNY/BTC",
+            "minSellAmountmt": 0.001,
+            "minBuyAmount": 0.001,
             "fee": {
               "maker": {
                 "c": 0.3,
@@ -74,9 +73,9 @@
           },
           "LTC": {
             "precision": 3,
-            "price-unit": "LTC/BTC",
-            "min-sell-amt": 0.001,
-            "min-buy-amt": 0.001,
+            "priceUnit": "LTC/BTC",
+            "minSellAmountmt": 0.001,
+            "minBuyAmount": 0.001,
             "fee": {
               "maker": {
                 "c": 0.3,
@@ -95,9 +94,9 @@
         "markets": {
           "LTC": {
             "precision": 3,
-            "price-unit": "LTC/BTC",
-            "min-sell-amt": 0.001,
-            "min-buy-amt": 0.001,
+            "priceUnit": "LTC/BTC",
+            "minSellAmountmt": 0.001,
+            "minBuyAmount": 0.001,
             "tags": ["featured"]
           }
         }

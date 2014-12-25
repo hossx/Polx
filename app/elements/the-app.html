@@ -1,0 +1,26 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-router/app-router.html">
+<link rel="import" href="../bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../bower_components/paper-spinner/paper-spinner.html">
+<link rel="import" href="the-router.html">
+
+<polymer-element name="the-app">
+  <template fit>
+    <link rel="stylesheet" href="the-app.css">
+    <core-ajax url="https://coinport.firebaseio.com/config.json" on-core-response="{{onConfigLoaded}}" auto></core-ajax>
+    <div id="main" flex>
+      <div id="loading" flex vertical center center-justified layout>
+        <paper-spinner active></paper-spinner>
+        Loading ...
+      </div>
+      <div id="error" hide flex vertical center center-justified layout>
+        <core-icon icon="error"></core-icon>
+        <div class="error">Failed to load configurations!</div>
+        <div>(Please check your network connection.)</div>
+      </div>
+    </div>
+  </template>
+
+  <script src="the-app.js"></script>
+</polymer-element>
