@@ -2,15 +2,15 @@
 <link rel="import" href="action-card-sell.html">
 <link rel="import" href="action-card-buy.html">
 
-<polymer-element name="action-card-alt" attributes="coin" horizontal layout>
+<polymer-element name="action-card-alt" attributes="market" horizontal layout>
   <template>
     <link rel="stylesheet" href="action-card-alt.css">
     <div flex id="buy" vertical layout>
-      <div class="label">BUY {{coin}}</div>
+      <div class="label">BUY {{market.currency.id}}</div>
       <action-card-buy flex></action-card-buy>
     </div>
     <div flex id="sell" vertical layout>
-      <div class="label">SELL {{coin}}</div>
+      <div class="label">SELL {{market.currency.id}}</div>
       <action-card-sell flex></action-card-sell>
     </div>
   </template>

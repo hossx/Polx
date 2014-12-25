@@ -2,14 +2,14 @@
 <link rel="import" href="../../cp-media-query/cp-media-query.html">
 <link rel="import" href="../../cp-globals/cp-globals.html">
 
-<polymer-element name="mycoin-card" attributes="smallup,coin,total,available,locked,pendingWithdrawal">
+<polymer-element name="mycoin-card" attributes="smallup,market,total,available,locked,pendingWithdrawal">
   <template>
     <link rel="stylesheet" href="mycoin-card.css">
 
     <cp-globals id="globals"></cp-globals>
     <div vertical center layout>
       <div id="title" self-center>My
-        <label id="coin">{{coin}}</label> balance</span>
+        <label id="market.currency.id">{{market.currency.id}}</label> balance</span>
       </div>
       <div id="box" vertical?={{!smallup}} center horizontal?={{smallup}} layout>
         <div auto-vertical><span class="label">Available to Sell:</span>{{available}}</div>
@@ -25,7 +25,6 @@
       'use strict';
       Polymer({
         smallup: false,
-        coin: '',
         total: 0,
         available: 0,
         locked: 0,

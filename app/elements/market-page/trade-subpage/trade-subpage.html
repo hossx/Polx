@@ -18,22 +18,22 @@
       <div main horizontal center-justified layout>
         <div id="top-container" flex vertical layout>
           <paper-shadow z="1">
-            <toppending-card market="{{market}}" smallup="{{smallup}}" targetCoin="{{targetCoin}}"></toppending-card>
+            <toppending-card market="{{market}}" smallup="{{smallup}}"></toppending-card>
           </paper-shadow>
 
           <paper-shadow z="1">
-            <mycoin-card smallup="{{smallup}}" selected="{{selected}}" coin="{{targetCoin}}" total="{{11111111.1}}" available="{{121.1}}"
+            <mycoin-card market="{{market}}" smallup="{{smallup}}" selected="{{selected}}" total="{{11111111.1}}" available="{{121.1}}"
             locked="{{12.11212}}" pendingWithdrawal="{{121.12}}">
             </mycoin-card>
           </paper-shadow>
 
           <paper-shadow id="action-narrow" z="1">
-            <action-card coin="{{targetCoin}}">
+            <action-card market="{{market}}">
             </action-card>
           </paper-shadow>
 
           <paper-shadow id="action-wide" z="1">
-            <action-card-alt coin="{{targetCoin}}">
+            <action-card-alt market="{{market}}">
             </action-card-alt>
           </paper-shadow>
 
@@ -44,11 +44,7 @@
   <script>
     (function() {
       'use strict';
-      Polymer({
-        marketChanged: function(oldV, newV) {
-          this.targetCoin = newV.substring(4);
-        },
-      });
+      Polymer({});
     })();
   </script>
 </polymer-element>

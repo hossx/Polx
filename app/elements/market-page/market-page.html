@@ -37,7 +37,7 @@
             <paper-icon-button icon="arrow-back"></paper-icon-button>
           </a>
           <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-          <div flex id="market-title">{{marketName}}</div>
+          <div flex id="market-title">{{market.name}}</div>
           <core-icon-button class="btn" smallup?="{{smallup}}" active?="{{tab === 0}}" on-tap="{{switchTab0}}" icon="swap-horiz"></core-icon-button>
           <core-icon-button class="btn" smallup?="{{smallup}}" active?="{{tab === 1}}" on-tap="{{switchTab1}}" icon="trending-up"></core-icon-button>
           <core-icon-button class="btn" smallup?="{{smallup}}" active?="{{tab === 2}}" on-tap="{{switchTab2}}" icon="list"></core-icon-button>
@@ -46,23 +46,20 @@
 
         <div id="canvas" flex vertical layout main>
 
-          <!--core-animated-pages fit selected="{{tab}}" transitions="slide-from-right">
+          <core-animated-pages fit selected="{{tab}}" transitions="slide-from-right">
             <section>
-              <trade-subpage market="{{marketId}}" fit></trade-subpage>
+              <trade-subpage market="{{market}}" fit></trade-subpage>
             </section>
-
             <section>
-              <kchart-subpage></kchart-subpage>
+              <kchart-subpage market="{{market}}" fit></kchart-subpage>
             </section>
-
             <section>
-              <orderbook-subpage></orderbook-subpage>
+              <orderbook-subpage market="{{market}}" fit></orderbook-subpage>
             </section>
-
             <section>
-              <recent-txs-subpage></recent-txs-subpage>
+              <recent-txs-subpage market="{{market}}" fit></recent-txs-subpage>
             </section>
-          </core-animated-pages-->
+          </core-animated-pages>
           <paper-tabs id="nav-tabs" selected="{{tab}}" smallup?="{{smallup}}">
             <paper-tab>
               <core-icon icon="swap-horiz"></core-icon>
@@ -86,11 +83,9 @@
       'use strict';
       Polymer({
         marketId: '',
-        config: window.config,
         tab: 2,
-        marketName: '',
-        marketIdChanged:function(o,n) {
-          this.marketName = window.config.markets[this.marketId].name;
+        marketIdChanged: function(o, n) {
+          this.market = window.config.markets[this.marketId];
         },
         switchTab0: function() {
           this.tab = 0;

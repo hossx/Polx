@@ -4,13 +4,13 @@
 <link rel="import" href="action-card-sell.html">
 <link rel="import" href="action-card-buy.html">
 
-<polymer-element name="action-card" attributes="coin" vertical layout>
+<polymer-element name="action-card" attributes="market" vertical layout>
   <template>
     <link rel="stylesheet" href="action-card.css">
 
     <paper-tabs id="action-tabs" selected="{{selected}}">
-      <paper-tab id="buy">BUY {{coin}}</paper-tab>
-      <paper-tab id="sell">SELL {{coin}}</paper-tab>
+      <paper-tab id="buy">BUY {{market.currency.id}}</paper-tab>
+      <paper-tab id="sell">SELL {{market.currency.id}}</paper-tab>
     </paper-tabs>
 
     <core-animated-pages id="pages" flex selected="{{selected}}">
