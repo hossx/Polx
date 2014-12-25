@@ -1,104 +1,102 @@
 {
-  "config": {
-    "currencies": {
-      "CNY": {
-        "name": "Chinese Yuan",
-        "color": "red",
-        "fiat": true,
-        "fee": {
-          "deposit": {
-            "c": 0.3,
-            "p": 0.1
-          },
-          "withdraw": {
-            "c": 0.3,
-            "p": 0.1
-          }
-        }
-      },
-      "BTC": {
-        "name": "Bitcoin",
-        "color": "blue",
-        "fee": {
-          "deposit": {
-            "c": 0.3,
-            "p": 0.1
-          },
-          "withdraw": {
-            "c": 0.3,
-            "p": 0.1
-          }
-        }
-      },
-      "LTC": {
-
-        "name": "Litecoin",
-        "color": "#f2f000",
-        "officialSite": "http://litcoin.org",
-        "fee": {
-          "deposit": {
-            "c": 0.3,
-            "p": 0.1
-          },
-          "withdraw": {
-            "c": 0.3,
-            "p": 0.1
-          }
+  "currencies": {
+    "CNY": {
+      "name": "Chinese Yuan",
+      "color": "red",
+      "fiat": true,
+      "fee": {
+        "deposit": {
+          "c": 0.3,
+          "p": 0.1
         },
-        "browser": {
-          "addr": "https://ltbrowser/addr/%s",
-          "tx": "https://ltbrowser/addr/%s"
+        "withdraw": {
+          "c": 0.3,
+          "p": 0.1
         }
       }
     },
-    "marketGroups": {
-      "CNY": {
-        "markets": {
-          "BTC": {
-            "precision": 3,
-            "priceUnit": "CNY/BTC",
-            "minSellAmountmt": 0.001,
-            "minBuyAmount": 0.001,
-            "fee": {
-              "maker": {
-                "c": 0.3,
-                "p": 0.1
-              },
-              "taker": {
-                "constant": 0.3,
-                "percentage": 0.1
-              }
-            },
-            "tags": ["featured"]
-          },
-          "LTC": {
-            "precision": 3,
-            "priceUnit": "LTC/BTC",
-            "minSellAmountmt": 0.001,
-            "minBuyAmount": 0.001,
-            "fee": {
-              "maker": {
-                "c": 0.3,
-                "p": 0.1
-              },
-              "taker": {
-                "c": 0.3,
-                "p": 0.1
-              }
-            },
-            "tags": ["featured"]
-          }
+    "BTC": {
+      "name": "Bitcoin",
+      "color": "blue",
+      "fee": {
+        "deposit": {
+          "c": 0.3,
+          "p": 0.1
+        },
+        "withdraw": {
+          "c": 0.3,
+          "p": 0.1
+        }
+      }
+    },
+    "LTC": {
+
+      "name": "Litecoin",
+      "color": "#f2f000",
+      "officialSite": "http://litcoin.org",
+      "fee": {
+        "deposit": {
+          "c": 0.3,
+          "p": 0.1
+        },
+        "withdraw": {
+          "c": 0.3,
+          "p": 0.1
         }
       },
-      "BTC": {
-        "markets": {
-          "LTC": {
-            "precision": 3,
-            "priceUnit": "LTC/BTC",
-            "minSellAmountmt": 0.001,
-            "minBuyAmount": 0.001,
-            "tags": ["featured"]
-          }
+      "browser": {
+        "addr": "https://ltbrowser/addr/%s",
+        "tx": "https://ltbrowser/addr/%s"
+      }
+    }
+  },
+  "marketGroups": {
+    "CNY": {
+      "markets": {
+        "BTC": {
+          "precision": 3,
+          "priceUnit": "CNY/BTC",
+          "minSellAmountmt": 0.001,
+          "minBuyAmount": 0.001,
+          "fee": {
+            "maker": {
+              "c": 0.3,
+              "p": 0.1
+            },
+            "taker": {
+              "constant": 0.3,
+              "percentage": 0.1
+            }
+          },
+          "tags": ["featured"]
+        },
+        "LTC": {
+          "precision": 3,
+          "priceUnit": "LTC/BTC",
+          "minSellAmountmt": 0.001,
+          "minBuyAmount": 0.001,
+          "fee": {
+            "maker": {
+              "c": 0.3,
+              "p": 0.1
+            },
+            "taker": {
+              "c": 0.3,
+              "p": 0.1
+            }
+          },
+          "tags": ["featured"]
+        }
+      }
+    },
+    "BTC": {
+      "markets": {
+        "LTC": {
+          "precision": 3,
+          "priceUnit": "LTC/BTC",
+          "minSellAmountmt": 0.001,
+          "minBuyAmount": 0.001,
+          "tags": ["featured"]
         }
       }
     }

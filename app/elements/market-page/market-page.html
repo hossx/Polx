@@ -19,7 +19,7 @@
 <link rel="import" href="recent-txs-subpage/recent-txs-subpage.html">
 <link rel="import" href="orderbook-subpage/orderbook-subpage.html">
 
-<polymer-element name="market-page" attributes="market">
+<polymer-element name="market-page" attributes="marketId">
   <template>
     <link rel="stylesheet" href="market-page.css">
 
@@ -28,7 +28,7 @@
     <core-drawer-panel forceNarrow>
 
       <core-header-panel mode="seamed" id="drawer" drawer>
-        <market-sidebar market="{{market}}"></market-sidebar>
+        <market-sidebar marketId="{{marketId}}"></market-sidebar>
       </core-header-panel>
 
       <core-header-panel mode="seamed" main>
@@ -37,7 +37,7 @@
             <paper-icon-button icon="arrow-back"></paper-icon-button>
           </a>
           <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-          <div flex id="market-title">{{market}} ({{$.globals.configs.currencies[getTargetCoin(market)].label}})</div>
+          <div flex id="market-title">{{marketName}}</div>
           <core-icon-button class="btn" smallup?="{{smallup}}" active?="{{tab === 0}}" on-tap="{{switchTab0}}" icon="swap-horiz"></core-icon-button>
           <core-icon-button class="btn" smallup?="{{smallup}}" active?="{{tab === 1}}" on-tap="{{switchTab1}}" icon="trending-up"></core-icon-button>
           <core-icon-button class="btn" smallup?="{{smallup}}" active?="{{tab === 2}}" on-tap="{{switchTab2}}" icon="list"></core-icon-button>
@@ -46,9 +46,9 @@
 
         <div id="canvas" flex vertical layout main>
 
-          <core-animated-pages fit selected="{{tab}}" transitions="slide-from-right">
+          <!--core-animated-pages fit selected="{{tab}}" transitions="slide-from-right">
             <section>
-              <trade-subpage market="{{market}}" fit></trade-subpage>
+              <trade-subpage market="{{marketId}}" fit></trade-subpage>
             </section>
 
             <section>
@@ -62,7 +62,7 @@
             <section>
               <recent-txs-subpage></recent-txs-subpage>
             </section>
-          </core-animated-pages>
+          </core-animated-pages-->
           <paper-tabs id="nav-tabs" selected="{{tab}}" smallup?="{{smallup}}">
             <paper-tab>
               <core-icon icon="swap-horiz"></core-icon>
@@ -85,13 +85,12 @@
     (function() {
       'use strict';
       Polymer({
+        marketId: '',
+        config: window.config,
         tab: 2,
-        bgcolor: 'black',
-        marketChanged: function(oldV, newV) {
-          this.bgcolor = this.$.globals.helpers.getTargetCoin(this.market).color;
-        },
-        getTargetCoin: function(market) {
-          return market.substring(4);
+        marketName: '',
+        marketIdChanged:function(o,n) {
+          this.marketName = window.config.markets[this.marketId].name;
         },
         switchTab0: function() {
           this.tab = 0;

@@ -9,11 +9,11 @@
 
     <cp-globals id="globals"></cp-globals>
 
-    <a id="link" href="/#/market/{{market}}">
+    <a id="link" href="/#/market/{{market.id}}">
       <paper-item id="item" center flex>
         <div horizontal layout flex>
-          <div flex>{{market}} ({{label}})</div>
-          <core-icon id="icon" icon="{{icon}}"></core-icon>
+          <div flex>{{market.id}} ({{market.currency.name}})</div>
+          <core-icon id="icon" icon=""></core-icon>
         </div>
       </paper-item>
     </a>
@@ -22,13 +22,6 @@
 
   <script>
     Polymer({
-      market: "",
-      label: "",
-      icon: "",
-      marketChanged: function(oldV, newV) {
-        this.label = this.$.globals.helpers.getTargetCoin(this.market).label;
-        this.icon = this.$.globals.helpers.getTargetCoin(this.market).icon || "";
-      }
     });
   </script>
 </polymer-element>

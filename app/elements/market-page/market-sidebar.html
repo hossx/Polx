@@ -2,48 +2,41 @@
 <link rel="import" href="../../bower_components/core-animated-pages/core-animated-pages.html">
 <link rel="import" href="../../bower_components/core-menu/core-menu.html">
 <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
-<link rel="import" href="../cp-globals/cp-globals.html">
 <link rel="import" href="market-sidebar-item.html">
 
-<polymer-element name="market-sidebar" vertical layout attributes="market">
+<polymer-element name="market-sidebar" vertical layout attributes="marketId">
   <template>
     <link rel="stylesheet" href="market-sidebar.css">
 
-    <cp-globals id="globals"></cp-globals>
-    <paper-tabs id="market-tabs" valueattr="group" selected="{{selectedTab}}">
-      <paper-tab group="BTC">BTC MARKETS</paper-tab>
-      <paper-tab group="CNY">CNY MARKETS</paper-tab>
+    <paper-tabs id="market-tabs" valueattr="group" selected="{{selectedGroup}}">
+      <template repeat="{{coin in marketGroupKeys}}">
+        <paper-tab group="{{coin}}">{{coin}} MARKETS</paper-tab>
+      </template>
     </paper-tabs>
 
-    <core-animated-pages id="pages" valueattr="group" flex selected="{{selectedTab}}">
-      <section group="BTC">
-        <core-menu valueattr="hash" selected="{{market}}">
-          <template repeat="{{c in $.globals.configs.btcMarkets}}">
-            <market-sidebar-item hash="BTC-{{c}}" active?="{{market==='BTC-'+c}}" market="BTC-{{c}}"></market-sidebar-item>
-          </template>
-        </core-menu>
-      </section>
-      <section group="CNY">
-        <core-menu valueattr="hash" selected="{{market}}">
-          <template repeat="{{c in $.globals.configs.cnyMarkets}}">
-            <market-sidebar-item hash="CNY-{{c}}" active?="{{market==='CNY-'+c}}" market="CNY-{{c}}"></market-sidebar-item>
-          </template>
-        </core-menu>
-      </section>
+    <core-animated-pages id="pages" valueattr="group" flex selected="{{selectedGroup}}">
+      <template repeat="{{coin in marketGroupKeys}}">
+        <section group="{{coin}}">
+          <core-menu valueattr="market" selected="{{marketId}}">
+            <template repeat="{{market in config.marketGroups[selectedGroup]}}">
+              <market-sidebar-item active?="{{marketId===market.id}}" market="{{market}}"></market-sidebar-item>
+            </template>
+          </core-menu>
+        </section>
+      </template>
     </core-animated-pages>
   </template>
 
   <script>
     Polymer({
       ready: function() {
-        this.market = 'CNY-BTC';
-        this.selectedTab = 'XX';
+        this.config = window.config;
+        this.marketGroupKeys = Object.keys(window.config.marketGroups);
+        this.marketId = window.config.defaultMarket.id;
+        this.selectedGroup = window.config.markets[this.marketId].baseCurrency.id;
       },
       marketChanged: function(o, n) {
-        var tab = n.substring(0, 3);
-        if (tab === "BTC" || tab === "CNY") {
-          this.selectedTab = tab;
-        }
+        this.selectedGroup = window.config.markets[this.marketId].baseCurrency.id;
       }
     });
   </script>

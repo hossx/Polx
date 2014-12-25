@@ -8,7 +8,7 @@
 <polymer-element name="the-app">
   <template fit>
     <link rel="stylesheet" href="the-app.css">
-    <core-ajax url="https://coinport.firebaseio.com/config.json" on-core-response="{{onConfigLoaded}}" auto></core-ajax>
+    <core-ajax url="../api_skeleton.json" on-core-response="{{onConfigLoaded}}" auto></core-ajax>
     <div id="main" flex>
       <div id="loading" flex vertical center center-justified layout>
         <paper-spinner active></paper-spinner>
