@@ -15,7 +15,7 @@ class Market
   constructor: (@baseCurrency, @currency, @json) ->
     @id = @baseCurrency.id + "-" + @currency.id
     @shortName = @currency.id + "/" + @baseCurrency.id
-    @name = @currency.name + "(" + @currency.id + ")/" + @baseCurrency.id
+    @name = @currency.name + " (" + @currency.id + ") / " + @baseCurrency.id
     @fee = new MarketFee @json.fee
 
 

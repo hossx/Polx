@@ -6,7 +6,7 @@
 <link rel="import" href="trust-page/trust-page.html">
 <link rel="import" href="notfound-page/notfound-page.html">
 
-<polymer-element name="the-router" flex>
+<polymer-element name="the-router" flex noscript>
   <template fit>
     <app-router id="router" mode="hash" trailingSlash="ignore">
       <app-route path="/" element="home-page"></app-route>
@@ -17,11 +17,4 @@
       <app-route path="*" element="notfound-page"></app-route>
     </app-router>
   </template>
-  <script>
-    (function() {
-      'use strict';
-      Polymer({
-      });
-    })();
-  </script>
 </polymer-element>
