@@ -77,7 +77,7 @@
       "name": "Ripple"
     },
     "GOOC": {
-      "name": "Gooc"
+      "name": "谷壳"
     }
   },
   "marketGroups": {
@@ -178,5 +178,10 @@
   },
   "api": {
     "base": "https://exchange.coinport.com"
+
+  },
+  "refreshIntervals": {
+    "depths": 5000,
+    "tickers": 3000
   }
 }

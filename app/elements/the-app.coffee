@@ -21,7 +21,7 @@ class Market
       if @json.refreshInterval
         @json.refreshInterval
       else
-        3000
+        window.config.refreshIntervals.depths
 
 window.protocol =
     base: () -> window.config.api.base
