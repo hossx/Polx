@@ -2,4 +2,4 @@
 
 Polymer
   x: 'aaaaa'
-  ready: ()-> console.log("============")
+  ready: ()-> 

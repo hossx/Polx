@@ -11,39 +11,26 @@
 
     <cp-media-query smallup="{{smallup}}"></cp-media-query>
 
-    <cp-globals id="globals"></cp-globals>
     <cp-page toolbarSelect="/market">
 
       <div flex center vertical layout>
-        <div id="canvas" center horizontal layout wrap?={{smallup}} layout center?={{!smallup}} vertical?={{!smallup}} horizontal?={{smallup}}>
 
-          <stats-card auto-vertical market="BTC-LTC" currentPrice="123.1" lowestPrice="100.0" highestPrice="130" volume="121211" priceChangePercentage="12.0%">
-          </stats-card>
+        <template repeat="{{coin in marketGroupKeys}}">
+        <div class="groupLabel">{{config.currencies[coin].id}} Markets</div>
+          <div class="canvas" center horizontal layout wrap?={{smallup}} layout center?={{!smallup}} vertical?={{!smallup}} horizontal?={{smallup}}>
+            <template repeat="{{market in config.marketGroups[coin]}}">
+              <stats-card auto-vertical market="{{market}}" currentPrice="123.1" lowestPrice="100.0" highestPrice="130" volume="121211"
+              priceChangePercentage="12.0%">
+              </stats-card>
+            </template>
+          </div>
+        </template>
 
-          <stats-card auto-vertical market="CNY-BTC" currentPrice="123.1" lowestPrice="100.0" highestPrice="130" volume="121211" priceChangePercentage="12.0%">
-          </stats-card>
-
-          <stats-card auto-vertical market="BTC-LTC" currentPrice="123.1" lowestPrice="100.0" highestPrice="130" volume="121211" priceChangePercentage="12.0%">
-          </stats-card>
-
-          <stats-card auto-vertical market="CNY-BTC" currentPrice="123.1" lowestPrice="100.0" highestPrice="130" volume="121211" priceChangePercentage="12.0%">
-          </stats-card>
-          <stats-card auto-vertical market="BTC-LTC" currentPrice="123.1" lowestPrice="100.0" highestPrice="130" volume="121211" priceChangePercentage="12.0%">
-          </stats-card>
-
-          <stats-card auto-vertical market="CNY-BTC" currentPrice="123.1" lowestPrice="100.0" highestPrice="130" volume="121211" priceChangePercentage="12.0%">
-          </stats-card>
-        </div>
         <cp-footer id="footer" smallup?={{smallup}}></cp-footer>
       </div>
     </cp-page>
 
   </template>
 
-  <script>
-    (function() {
-      'use strict';
-      Polymer({});
-    })();
-  </script>
+  <script src="market-summary-page.js"></script>
 </polymer-element>

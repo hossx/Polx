@@ -4,12 +4,11 @@ Polymer
   created: () ->
     @bids = @asks = []
     @market = null
-    @needStartRefresh = false
+    @active = false
     @refreshJob = null
 
   detached: () ->
-    @cancelUnbindAll()
-    @stop()
+    @stopRefresh()
     console.log "detached: toppending-card"
     
   errorChanged: (o, e) ->
@@ -23,27 +22,23 @@ Polymer
     else
       @bids = @asks = []
 
-  marketChanged: (o, m) ->
-    if m and m != o
-      @depthUrl = window.protocol.depthUrl(m.id)
-      @startRefresh()
+  marketChanged: (o, n) ->
+    @startRefresh() if @active and @market
 
-
-  go: () =>
-    if @market
-      @startRefresh()
+  activeChanged: (o, n) ->
+    if @active
+      @startRefresh() if @market
     else
-      @needStartRefresh = true
+      @stopRefresh()
 
   startRefresh: () ->
-    # both @needStartRefresh and @market are not null
-    @stop()
+    @stopRefresh()
+    @depthUrl = window.protocol.depthUrl(@market.id)
     work = () =>this.$.ajax.go()
     @refreshJob = setInterval(work, @market.refreshInterval)
-    console.log("start auto-refresh market " +  @market.id + " every " + @market.refreshInterval + "ms")
+    console.log("start auto-refresh market " +  @market.id + " every " + @market.refreshInterval + "ms: " + @depthUrl)
 
-  stop: () ->
-    @needStartRefresh = false
+  stopRefresh: () ->
     if @refreshJob
       clearInterval(@refreshJob)
       @refreshJob = null

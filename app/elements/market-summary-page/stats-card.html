@@ -6,19 +6,19 @@
 <link rel="import" href="../cp-icons/crypto-icons.html">
 <link rel="import" href="../cp-icons/cryptocode-icons.html">
 
-<polymer-element name="stats-card" attributes="market,currentPrice,highestPrice,lowestPrice,volume,priceChangePercentage">
+<polymer-element name="stats-card" noscript attributes="market,currentPrice,highestPrice,lowestPrice,volume,priceChangePercentage">
 
   <template>
     <link rel="stylesheet" href="stats-card.css">
 
     <cp-globals id="globals"></cp-globals>
     <paper-shadow z="1">
-      <a href="/#/market/{{market}}">
+      <a href="/#/market/{{market.id}}">
         <div cross-fade id="box" vertical center layout>
           <div self-start horizotal layout>
-            <div id="market" hero-id="{{market}}" hero>
-              <core-icon id="crypto-icon" icon="{{icon}}"></core-icon>
-              {{market}}
+            <div id="market" hero-id="{{market.id}}" hero>
+              <core-icon id="crypto-icon"></core-icon>
+              {{market.id}}
             </div>
           </div>
           <div horizotal layout>
@@ -47,16 +47,4 @@
     </paper-shadow>
 
   </template>
-  <script>
-    (function() {
-      'use strict';
-      Polymer({
-        market: "",
-        icon: "",
-        marketChanged: function(oldV, newV) {
-          this.icon = this.$.globals.helpers.getTargetCoin(this.market).icon || ""
-        }
-      });
-    })();
-  </script>
 </polymer-element>
