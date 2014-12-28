@@ -6,40 +6,40 @@
 <link rel="import" href="../cp-icons/crypto-icons.html">
 <link rel="import" href="../cp-icons/cryptocode-icons.html">
 
-<polymer-element name="stats-card" noscript attributes="market,currentPrice,highestPrice,lowestPrice,volume,priceChangePercentage">
+<polymer-element name="stats-card" noscript attributes="ticker">
 
   <template>
     <link rel="stylesheet" href="stats-card.css">
 
     <cp-globals id="globals"></cp-globals>
     <paper-shadow z="1">
-      <a href="/#/market/{{market.id}}">
+      <a href="/#/market/{{ticker.c}}-{{ticker.i}}">
         <div cross-fade id="box" vertical center layout>
           <div self-start horizotal layout>
-            <div id="market" hero-id="{{market.id}}" hero>
+            <div id="market">
               <core-icon id="crypto-icon"></core-icon>
-              {{market.id}}
+              {{ticker.c}}-{{ticker.i}}
             </div>
           </div>
           <div horizotal layout>
-            <div id="currentPrice">{{currentPrice}}</div>
+            <div id="currentPrice">{{ticker.p}}</div>
           </div>
           <div horizontal layout>
-            <div class="info" vertical layout>
+            <!--div class="info" vertical layout>
               <div>24H Low</div>
               <div>{{lowestPrice}}</div>
             </div>
             <div class="info" vertical layout>
               <div>24H High</div>
               <div>{{highestPrice}}</div>
-            </div>
+            </div-->
             <div class="info" vertical layout>
               <div>24H Volume</div>
-              <div>{{volume}}</div>
+              <div>{{ticker.v}}</div>
             </div>
             <div class="info" vertical layout>
               <div>24H Change</div>
-              <div>{{priceChangePercentage}}</div>
+              <div>{{tickger.g}}</div>
             </div>
           </div>
         </div>

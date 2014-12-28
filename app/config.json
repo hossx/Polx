@@ -48,6 +48,36 @@
         "addr": "https://ltbrowser/addr/%s",
         "tx": "https://ltbrowser/addr/%s"
       }
+    },
+    "BTSX": {
+      "name": "Bitshares"
+    },
+    "DOGE": {
+      "name": "Dogecoin"
+    },
+    "BC": {
+      "name": "Blackcoin"
+    },
+    "DRK": {
+      "name": "Darkcoin"
+    },
+    "VRC": {
+      "name": "VRCCoin"
+    },
+    "ZET": {
+      "name": "Zetacoin"
+    },
+    "BTSX": {
+      "name": "Bitshares"
+    },
+    "NXT": {
+      "name": "NextCoin"
+    },
+    "XRP": {
+      "name": "Ripple"
+    },
+    "GOOC": {
+      "name": "Gooc"
     }
   },
   "marketGroups": {
@@ -73,7 +103,7 @@
         },
         "LTC": {
           "precision": 3,
-          "priceUnit": "LTC/BTC",
+          "priceUnit": "LTC/CNY",
           "minSellAmountmt": 0.001,
           "minBuyAmount": 0.001,
           "fee": {
@@ -87,6 +117,18 @@
             }
           },
           "tags": ["featured"]
+        },
+        "BTSX": {
+          "precision": 3,
+          "priceUnit": "BTSX/CNY"
+        },
+        "XRP": {
+          "precision": 3,
+          "priceUnit": "XRP/CNY"
+        },
+        "GOOC": {
+          "precision": 3,
+          "priceUnit": "GOOC/CNY"
         }
       }
     },
@@ -98,6 +140,38 @@
           "minSellAmountmt": 0.001,
           "minBuyAmount": 0.001,
           "tags": ["featured"]
+        },
+        "DOGE": {
+          "precision": 3,
+          "priceUnit": "DOGE/CNY"
+        },
+        "BC": {
+          "precision": 3,
+          "priceUnit": "BC/CNY"
+        },
+        "DRK": {
+          "precision": 3,
+          "priceUnit": "DRK/CNY"
+        },
+        "VRC": {
+          "precision": 3,
+          "priceUnit": "VRC/CNY"
+        },
+        "ZET": {
+          "precision": 3,
+          "priceUnit": "ZET/CNY"
+        },
+        "BTSX": {
+          "precision": 3,
+          "priceUnit": "BTSX/CNY"
+        },
+        "NXT": {
+          "precision": 3,
+          "priceUnit": "NXT/CNY"
+        },
+        "XRP": {
+          "precision": 3,
+          "priceUnit": "XRP/CNY"
         }
       }
     }

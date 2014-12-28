@@ -25,7 +25,7 @@ class Market
 
 window.protocol =
     base: () -> window.config.api.base
-    tickerUrl: (market) ->  "%s/api/m/ticker/%s".format(@base, market.toLowerCase())
+    tickerUrl: (base) ->  "%s/api/m/ticker/%s".format(@base, base.toLowerCase())
     depthUrl: (market) ->  "%s/api/m/%s/depth".format(@base, market.toLowerCase())
     transactionUrl:  (market) ->  "%s/api/%s/transaction".format(@base, market.toLowerCase())
 

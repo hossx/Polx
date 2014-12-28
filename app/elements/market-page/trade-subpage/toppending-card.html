@@ -2,13 +2,11 @@
 <link rel="import" href="../../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
 <link rel="import" href="../../cp-media-query/cp-media-query.html">
-<link rel="import" href="../../cp-globals/cp-globals.html">
 
 <polymer-element name="toppending-card" attributes="market,active,smallup">
   <template>
     <link rel="stylesheet" href="toppending-card.css">
 
-    <cp-globals id="globals"></cp-globals>
     <core-ajax id="ajax" url="{{depthUrl}}" handleAs="json" response="{{response}}" error="{{error}}" auto></core-ajax>
 
     <div id="container" smallup?={{smallup}} vertical?={{!smallup}} center horizontal?={{smallup}} layout>

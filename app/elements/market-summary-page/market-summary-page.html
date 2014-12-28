@@ -3,7 +3,7 @@
 <link rel="import" href="../cp-page/cp-page.html">
 <link rel="import" href="../cp-globals/cp-globals.html">
 <link rel="import" href="../cp-footer/cp-footer.html">
-<link rel="import" href="stats-card.html">
+<link rel="import" href="stats-card-group.html">
 
 <polymer-element name="market-summary-page">
   <template>
@@ -16,14 +16,7 @@
       <div flex center vertical layout>
 
         <template repeat="{{coin in marketGroupKeys}}">
-        <div class="groupLabel">{{config.currencies[coin].id}} Markets</div>
-          <div class="canvas" center horizontal layout wrap?={{smallup}} layout center?={{!smallup}} vertical?={{!smallup}} horizontal?={{smallup}}>
-            <template repeat="{{market in config.marketGroups[coin]}}">
-              <stats-card auto-vertical market="{{market}}" currentPrice="123.1" lowestPrice="100.0" highestPrice="130" volume="121211"
-              priceChangePercentage="12.0%">
-              </stats-card>
-            </template>
-          </div>
+          <stats-card-group currency="{{config.currencies[coin]}}" smallup="{{smallup}}"></stats-card-group>
         </template>
 
         <cp-footer id="footer" smallup?={{smallup}}></cp-footer>

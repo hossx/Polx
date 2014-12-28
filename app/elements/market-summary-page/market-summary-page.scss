@@ -3,46 +3,9 @@ $color: $green;
 :host {
     box-sizing: border-box;
 }
-.canvas {
-    padding-top: 20px;
-    width: 100%;
-}
-.groupLabel {
-    padding-top: 20px;
-    font-size: 20px;
-    font-weight: 500;
-    color: $white3;
-}
-stats-card {
-    width: 100%;
-    max-width: 400px;
-}
+
 #footer {
     display: none;
-}
-@media(min-width: 768px) and (max-width: 991px) {
-    .canvas {
-        width: 768px;
-    }
-    stats-card {
-        width: 50%;
-    }
-}
-@media(min-width: 992px) and (max-width: 1199px) {
-    .canvas {
-        width: 992px;
-    }
-    stats-card {
-        width: 33%;
-    }
-}
-@media(min-width: 1200px) {
-    .canvas {
-        width: 1200px;
-    }
-    stats-card {
-        width: 25%;
-    }
 }
 @media(min-width: 768px) {
     #footer {
