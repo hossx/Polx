@@ -27,6 +27,12 @@ cp-coinport-icon {
     color: $secondary;
     font-weight: 500;
     font-size: 16px;
+    #unit {
+      color: $white3;
+      padding-left: 5px;
+      &:before {content: "("}
+      &:after{content: ")"}
+    }
 }
 #crypto-icon {
     #Oval-43 {
@@ -35,6 +41,7 @@ cp-coinport-icon {
     height: 40px;
     width: 40px;
 }
+
 #currentPrice {
     font-size: 36px;
     font-weight: 300;

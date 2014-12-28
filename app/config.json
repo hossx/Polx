@@ -86,7 +86,6 @@
         "BTC": {
           "refreshInterval": 1000,
           "precision": 3,
-          "priceUnit": "CNY/BTC",
           "minSellAmountmt": 0.001,
           "minBuyAmount": 0.001,
           "fee": {
@@ -103,7 +102,6 @@
         },
         "LTC": {
           "precision": 3,
-          "priceUnit": "LTC/CNY",
           "minSellAmountmt": 0.001,
           "minBuyAmount": 0.001,
           "fee": {
@@ -119,16 +117,13 @@
           "tags": ["featured"]
         },
         "BTSX": {
-          "precision": 3,
-          "priceUnit": "BTSX/CNY"
+          "precision": 3
         },
         "XRP": {
-          "precision": 3,
-          "priceUnit": "XRP/CNY"
+          "precision": 3
         },
         "GOOC": {
-          "precision": 3,
-          "priceUnit": "GOOC/CNY"
+          "precision": 3
         }
       }
     },
@@ -136,42 +131,35 @@
       "markets": {
         "LTC": {
           "precision": 3,
-          "priceUnit": "LTC/BTC",
           "minSellAmountmt": 0.001,
           "minBuyAmount": 0.001,
           "tags": ["featured"]
         },
         "DOGE": {
-          "precision": 3,
-          "priceUnit": "DOGE/CNY"
+          "precision": 3
         },
         "BC": {
-          "precision": 3,
-          "priceUnit": "BC/CNY"
+          "precision": 3
         },
         "DRK": {
-          "precision": 3,
-          "priceUnit": "DRK/CNY"
+          "precision": 3
         },
         "VRC": {
-          "precision": 3,
-          "priceUnit": "VRC/CNY"
+          "precision": 3
         },
         "ZET": {
           "precision": 3,
           "priceUnit": "ZET/CNY"
         },
         "BTSX": {
-          "precision": 3,
-          "priceUnit": "BTSX/CNY"
+          "precision": 3
         },
         "NXT": {
           "precision": 3,
           "priceUnit": "NXT/CNY"
         },
         "XRP": {
-          "precision": 3,
-          "priceUnit": "XRP/CNY"
+          "precision": 3
         }
       }
     }

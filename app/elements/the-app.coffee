@@ -15,13 +15,23 @@ class Market
   constructor: (@baseCurrency, @currency, @json) ->
     @id = @currency.id + "-" + @baseCurrency.id 
     @shortName = @currency.id + "/" + @baseCurrency.id
-    @name = @currency.name + " (" + @currency.id + ") / " + @baseCurrency.id
+    @name = @currency.name + " | " + @currency.id + "-" + @baseCurrency.id
     @fee = new MarketFee @json.fee
     @refreshInterval =
       if @json.refreshInterval
         @json.refreshInterval
       else
         window.config.refreshIntervals.depths
+    @priceUnit =
+      if @json.priceUnit
+        @json.priceUnit
+      else
+        @currency.id + "/" + @baseCurrency.id
+    @priceUnitOrEmptyString =
+      if @json.priceUnit
+        @json.priceUnit
+      else
+        ''
 
 window.protocol =
     base: () -> window.config.api.base

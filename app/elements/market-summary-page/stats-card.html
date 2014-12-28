@@ -6,19 +6,22 @@
 <link rel="import" href="../cp-icons/crypto-icons.html">
 <link rel="import" href="../cp-icons/cryptocode-icons.html">
 
-<polymer-element name="stats-card" noscript attributes="ticker">
+<polymer-element name="stats-card" attributes="ticker">
 
   <template>
     <link rel="stylesheet" href="stats-card.css">
 
     <cp-globals id="globals"></cp-globals>
     <paper-shadow z="1">
-      <a href="/#/market/{{ticker.c}}-{{ticker.i}}">
+      <a href="/#/market/{{marketId}}">
         <div cross-fade id="box" vertical center layout>
           <div self-start horizotal layout>
             <div id="market">
               <core-icon id="crypto-icon"></core-icon>
-              {{ticker.c}}-{{ticker.i}}
+              {{marketId}}
+              <template if="{{priceUnit != null}}">
+                <span id="unit">{{priceUnit}}</span>
+              </template>
             </div>
           </div>
           <div horizotal layout>
@@ -39,7 +42,7 @@
             </div>
             <div class="info" vertical layout>
               <div>24H Change</div>
-              <div>{{tickger.g}}</div>
+              <div>{{ticker.g}}</div>
             </div>
           </div>
         </div>
@@ -47,4 +50,16 @@
     </paper-shadow>
 
   </template>
+  <script>
+    (function() {
+      'use strict';
+      Polymer({
+        tickerChanged: function(o, n) {
+          this.marketId = n.c + "-" + n.i;
+          this.priceUnit = window.config.markets[this.marketId].json.priceUnit
+        }
+      });
+    })();
+  </script>
+
 </polymer-element>
