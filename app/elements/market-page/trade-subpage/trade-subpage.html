@@ -9,7 +9,7 @@
 <link rel="import" href="action-card-buy.html">
 <link rel="import" href="action-card-sell.html">
 
-<polymer-element name="trade-subpage" attributes="market" horizontal center-justified layout>
+<polymer-element name="trade-subpage" attributes="market,active" horizontal center-justified layout>
   <template>
     <link rel="stylesheet" href="trade-subpage.css">
 
@@ -18,7 +18,7 @@
       <div main horizontal center-justified layout>
         <div id="top-container" flex vertical layout>
           <paper-shadow z="1">
-            <toppending-card market="{{market}}" smallup="{{smallup}}"></toppending-card>
+            <toppending-card id="toppendingCard" market="{{market}}" smallup="{{smallup}}"></toppending-card>
           </paper-shadow>
 
           <paper-shadow z="1">
@@ -41,10 +41,5 @@
       </div>
     </core-header-panel>
   </template>
-  <script>
-    (function() {
-      'use strict';
-      Polymer({});
-    })();
-  </script>
+   <script src="trade-subpage.js"></script>
 </polymer-element>

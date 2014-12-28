@@ -54,6 +54,7 @@
     "CNY": {
       "markets": {
         "BTC": {
+          "refreshInterval": 1000,
           "precision": 3,
           "priceUnit": "CNY/BTC",
           "minSellAmountmt": 0.001,
@@ -100,5 +101,8 @@
         }
       }
     }
+  },
+  "api": {
+    "base": "https://exchange.coinport.com"
   }
 }

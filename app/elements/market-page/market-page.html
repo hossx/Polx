@@ -48,16 +48,16 @@
 
           <core-animated-pages fit selected="{{tab}}" transitions="slide-from-right">
             <section>
-              <trade-subpage market="{{market}}" fit></trade-subpage>
+              <trade-subpage market="{{market}}" active="{{tab===0}}" fit></trade-subpage>
             </section>
             <section>
-              <kchart-subpage market="{{market}}" fit></kchart-subpage>
+              <kchart-subpage market="{{market}}" active="{{tab===1}}" fit></kchart-subpage>
             </section>
             <section>
-              <orderbook-subpage market="{{market}}" fit></orderbook-subpage>
+              <orderbook-subpage market="{{market}}" active="{{tab===2}}" fit></orderbook-subpage>
             </section>
             <section>
-              <recent-txs-subpage market="{{market}}" fit></recent-txs-subpage>
+              <recent-txs-subpage market="{{market}}" active="{{tab===3}}" fit></recent-txs-subpage>
             </section>
           </core-animated-pages>
           <paper-tabs id="nav-tabs" selected="{{tab}}" smallup?="{{smallup}}">
@@ -78,28 +78,5 @@
     </core-drawer-panel>
   </template>
 
-  <script>
-    (function() {
-      'use strict';
-      Polymer({
-        marketId: '',
-        tab: 2,
-        marketIdChanged: function(o, n) {
-          this.market = window.config.markets[this.marketId];
-        },
-        switchTab0: function() {
-          this.tab = 0;
-        },
-        switchTab1: function() {
-          this.tab = 1;
-        },
-        switchTab2: function() {
-          this.tab = 2;
-        },
-        switchTab3: function() {
-          this.tab = 3;
-        }
-      })
-    })();
-  </script>
+  <script src="market-page.js"></script>
 </polymer-element>

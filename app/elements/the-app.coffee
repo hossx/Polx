@@ -13,11 +13,21 @@ class Currency
 
 class Market
   constructor: (@baseCurrency, @currency, @json) ->
-    @id = @baseCurrency.id + "-" + @currency.id
+    @id = @currency.id + "-" + @baseCurrency.id 
     @shortName = @currency.id + "/" + @baseCurrency.id
     @name = @currency.name + " (" + @currency.id + ") / " + @baseCurrency.id
     @fee = new MarketFee @json.fee
+    @refreshInterval =
+      if @json.refreshInterval
+        @json.refreshInterval
+      else
+        3000
 
+window.protocol =
+    base: () -> window.config.api.base
+    tickerUrl: (market) ->  "%s/api/m/ticker/%s".format(@base, market.toLowerCase())
+    depthUrl: (market) ->  "%s/api/m/%s/depth".format(@base, market.toLowerCase())
+    transactionUrl:  (market) ->  "%s/api/%s/transaction".format(@base, market.toLowerCase())
 
 
 Polymer
@@ -60,4 +70,3 @@ Polymer
     console.log(window.config)
     @initRouter()
 
-   
