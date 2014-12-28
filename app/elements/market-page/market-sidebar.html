@@ -35,7 +35,7 @@
         this.marketId = window.config.defaultMarket.id;
         this.selectedGroup = window.config.markets[this.marketId].baseCurrency.id;
       },
-      marketChanged: function(o, n) {
+      marketIdChanged: function(o, n) {
         this.selectedGroup = window.config.markets[this.marketId].baseCurrency.id;
       }
     });

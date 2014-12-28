@@ -1,14 +1,14 @@
 @import "../_colors";
-:host([active]) {
-    #item {
-        color: $secondary;
-        background: $primary;
-    }
-}
 :host(:hover) {
     #item {
         color: white;
         background: $secondary;
+    }
+}
+:host([active]) {
+    #item {
+        color: $secondary;
+        background: $primary;
     }
 }
 #item {
