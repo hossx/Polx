@@ -47,24 +47,6 @@
     </paper-shadow>
 
   </template>
-  <script>
-    (function() {
-      'use strict';
-      Polymer("stats-card", {
-        tickerChanged: function(o, n) {
-          this.marketId = n.c + "-" + n.i;
-          this.priceUnit = window.config.markets[this.marketId].json.priceUnit
-        },
-        formatChange: function(value) {
-          var percent = String(value * 100).substring(0, 5) + "%";
-          if (value > 0) {
-            return "+" + percent;
-          } else {
-            return percent;
-          }
-        }
-      });
-    })();
-  </script>
+  <script src="stats-card.js"></script>
 
 </polymer-element>

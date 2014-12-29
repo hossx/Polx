@@ -33,14 +33,9 @@ class Market
       else
         ''
 
-window.protocol =
-    base: () -> window.config.api.base
-    tickerUrl: (base) ->  "%s/api/m/ticker/%s".format(@base, base.toLowerCase())
-    depthUrl: (market) ->  "%s/api/m/%s/depth".format(@base, market.toLowerCase())
-    transactionUrl:  (market) ->  "%s/api/%s/transaction".format(@base, market.toLowerCase())
 
 
-Polymer
+Polymer 'the-app',
   route: ""
 
   onConfigLoaded: (event, data) ->
@@ -68,15 +63,21 @@ Polymer
       for currency, config of v.markets
         market = new Market(currencies[baseCurrency], currencies[currency], config)
         markets[market.id] = market
-        defaultMarket = market if not defaultMarket
         marketGroups[market.baseCurrency.id] = [] if not marketGroups[market.baseCurrency.id]
         marketGroups[market.baseCurrency.id].push market
 
-    window.config.defaultMarket = defaultMarket
     window.config.markets = markets
     window.config.marketGroups = marketGroups
 
-    console.log("====== window.config: ")
-    console.log(window.config)
+    window.protocol =
+      base: window.config.api.base
+      tickerUrl: (base) ->  "%s/api/m/ticker/%s".format(@base, base.toLowerCase())
+      depthUrl: (market) ->  "%s/api/m/%s/depth".format(@base, market.toLowerCase())
+      transactionUrl:  (market) ->  "%s/api/%s/transaction".format(@base, market.toLowerCase())
+
+    console.debug("====== window.config and window.protocol: ")
+    console.dir(window.config)
+    console.dir(window.protocol)
+
     @initRouter()
 

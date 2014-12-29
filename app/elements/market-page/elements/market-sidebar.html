@@ -1,7 +1,7 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/core-animated-pages/core-animated-pages.html">
-<link rel="import" href="../../bower_components/core-menu/core-menu.html">
-<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../../../bower_components/core-menu/core-menu.html">
+<link rel="import" href="../../../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="market-sidebar-item.html">
 
 <polymer-element name="market-sidebar" vertical layout attributes="marketId">
@@ -26,18 +26,5 @@
       </template>
     </core-animated-pages>
   </template>
-
-  <script>
-    Polymer({
-      ready: function() {
-        this.config = window.config;
-        this.marketGroupKeys = Object.keys(window.config.marketGroups);
-        this.marketId = window.config.defaultMarket.id;
-        this.selectedGroup = window.config.markets[this.marketId].baseCurrency.id;
-      },
-      marketIdChanged: function(o, n) {
-        this.selectedGroup = window.config.markets[this.marketId].baseCurrency.id;
-      }
-    });
-  </script>
+  <script src="market-sidebar.js"></script>
 </polymer-element>

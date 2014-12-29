@@ -1,5 +1,5 @@
 'use strict'
 
-Polymer
+Polymer 'recent-txs-subpage',
   x: 'aaaaa'
   ready: ()-> 
