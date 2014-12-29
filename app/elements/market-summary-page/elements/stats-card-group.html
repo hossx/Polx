@@ -1,5 +1,6 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="../../../bower_components/paper-toast/paper-toast.html">
 <link rel="import" href="stats-card.html">
 
 <polymer-element name="stats-card-group" attributes="currency,smallup" center vertical layout>
@@ -13,7 +14,7 @@
         <stats-card auto-vertical ticker="{{ticker}}"></stats-card>
       </template>
     </div>
-
+    <paper-toast id="errorToast"  text="Network problems..."></paper-toast>
   </template>
   <script src="stats-card-group.js"></script>
 </polymer-element>

@@ -1,22 +1,27 @@
 'use strict'
 
-Polymer
+Polymer 'stats-card-group',
   ready: () ->
     @tickerUrl = window.protocol.tickerUrl(@currency.id)
     @tickers = []
     work = () =>this.$.ajax.go()
     @refreshJob = setInterval(work, window.config.refreshIntervals.tickers)
     console.log("start auto-refresh for tickers " +  @tickerUrl)
+    this.$.errorToast.show()
 
   responseChanged: (o, n) ->
-    @tickers = n.data if n
+    if not n
+      @stopRefresh()
+      this.$.errorToast.show()
+    else
+      @tickers = n.data
 
   detached: () ->
     @stopRefresh()
-    console.log "detached: stats-card-group"
     
   errorChanged: (o, e) ->
     console.log("error: " + e) if e
+    this.$.errorToast.show()
 
   stopRefresh: () ->
     if @refreshJob

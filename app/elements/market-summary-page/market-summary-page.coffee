@@ -1,6 +1,6 @@
 'use strict'
 
-Polymer
+Polymer 'market-summary-page',
   ready: () ->
     @config = window.config
     @marketGroupKeys = Object.keys(@config.marketGroups)

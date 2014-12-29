@@ -1,4 +1,4 @@
-@import "../_colors";
+@import "../../_colors";
 $color: $green;
 :host {
     width: 100%;
@@ -8,6 +8,10 @@ $color: $green;
 .canvas {
     padding-top: 10px;
     width: 100%;
+}
+
+#errorToast {
+    background: $thirdary;
 }
 .groupLabel {
     padding-top: 20px;

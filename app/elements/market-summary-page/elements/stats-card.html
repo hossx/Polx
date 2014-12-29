@@ -1,17 +1,14 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
-
-<link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
-<link rel="import" href="../../bower_components/core-icon/core-icon.html">
-<link rel="import" href="../cp-globals/cp-globals.html">
-<link rel="import" href="../cp-icons/crypto-icons.html">
-<link rel="import" href="../cp-icons/cryptocode-icons.html">
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="../../../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../../cp-icons/crypto-icons.html">
+<link rel="import" href="../../cp-icons/cryptocode-icons.html">
 
 <polymer-element name="stats-card" attributes="ticker">
 
   <template>
     <link rel="stylesheet" href="stats-card.css">
 
-    <cp-globals id="globals"></cp-globals>
     <paper-shadow z="1">
       <a href="/#/market/{{marketId}}">
         <div cross-fade id="box" vertical center layout>
@@ -42,7 +39,7 @@
             </div>
             <div class="info" vertical layout>
               <div>24H Change</div>
-              <div>{{ticker.g}}</div>
+              <div>{{ticker.g | formatChange}}</div>
             </div>
           </div>
         </div>
@@ -53,10 +50,18 @@
   <script>
     (function() {
       'use strict';
-      Polymer({
+      Polymer("stats-card", {
         tickerChanged: function(o, n) {
           this.marketId = n.c + "-" + n.i;
           this.priceUnit = window.config.markets[this.marketId].json.priceUnit
+        },
+        formatChange: function(value) {
+          var percent = String(value * 100).substring(0, 5) + "%";
+          if (value > 0) {
+            return "+" + percent;
+          } else {
+            return percent;
+          }
         }
       });
     })();
