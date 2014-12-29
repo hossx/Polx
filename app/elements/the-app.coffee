@@ -71,13 +71,12 @@ Polymer 'the-app',
 
     window.protocol =
       base: window.config.api.base
-      tickerUrl: (base) ->  "%s/api/m/ticker/%s".format(@base, base.toLowerCase())
-      depthUrl: (market) ->  "%s/api/m/%s/depth".format(@base, market.toLowerCase())
-      transactionUrl:  (market) ->  "%s/api/%s/transaction".format(@base, market.toLowerCase())
+      tickerUrl: (base) ->  "%s/api/m/ticker/%s".format(@base, base.toLowerCase)
+      depthUrl: (market) ->  "%s/api/m/%s/depth".format(@base, market.toLowerCase)
+      transactionUrl:  (market) ->  "%s/api/%s/transaction".format(@base, market.toLowerCase)
 
-    console.debug("====== window.config and window.protocol: ")
-    console.dir(window.config)
-    console.dir(window.protocol)
+
+    console.dir({"config": window.config, "protocol": window.protocol})
 
     @initRouter()
 

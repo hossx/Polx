@@ -1,4 +1,4 @@
-@import "../../_colors";
+@import "../../../_colors";
 @mixin config($color) {
     :host {
         border-top: solid 2px $color;

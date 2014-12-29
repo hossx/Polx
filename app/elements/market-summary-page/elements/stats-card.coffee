@@ -15,6 +15,7 @@ Polymer 'stats-card',
     if @market
       @priceUnit = @market.json.priceUnit
 
+  # Filters
   formatChange: (value) ->
     percent = String(value * 100).substring(0, 5) + "%"
     if value > 0

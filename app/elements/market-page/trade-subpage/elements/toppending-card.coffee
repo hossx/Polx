@@ -1,6 +1,6 @@
 'use strict'
 
-Polymer
+Polymer 'toppending-card',
   created: () ->
     @bids = @asks = []
     @market = null

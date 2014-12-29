@@ -1,6 +1,6 @@
 'use strict'
 
-Polymer
+Polymer 'trade-subpage',
   active: false
 
   detached: () ->
