@@ -174,16 +174,28 @@
   },
   "documents": {
     "tos": {
-      "label": "Terms of Use",
-      "tags": ["law"]
+      "label": "Terms of Service",
+      "tags": ["legal"]
     },
     "questions": {
       "label": "MyQuestions",
-      "tags": ["law", "test"]
-    },
-    "questions2": {
-      "label": "MyQuestions2",
       "tags": ["test"]
+    },
+    "privacy": {
+      "label": "Privacy Policies",
+      "tags": ["legal"]
+    },
+    "aml": {
+      "label": "AML Policies",
+      "tags": ["legal"]
+    },
+    "jobs": {
+      "label": "Jobs",
+      "tags": ["about"]
+    },
+    "team": {
+      "label": "Team",
+      "tags": ["about"]
     }
   }
 }
