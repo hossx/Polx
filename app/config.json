@@ -171,5 +171,19 @@
   "refreshIntervals": {
     "depths": 5000,
     "tickers": 3000
+  },
+  "documents": {
+    "tos": {
+      "label": "Terms of Use",
+      "tags": ["law"]
+    },
+    "questions": {
+      "label": "MyQuestions",
+      "tags": ["law", "test"]
+    },
+    "questions2": {
+      "label": "MyQuestions2",
+      "tags": ["test"]
+    }
   }
 }

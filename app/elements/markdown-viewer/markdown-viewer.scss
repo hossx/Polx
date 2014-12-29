@@ -1,0 +1,64 @@
+@import "../_colors";
+core-header-panel[main] {
+    background: white;
+}
+#drawer {
+    background: lighten($primary, 5%);
+    padding: 0;
+}
+#toolbar, #drawer-toolbar {
+    background: $primary;
+    a {
+        color: $secondary;
+        height: 40px !important;
+    }
+}
+#toolbar {
+    color: $secondary;
+}
+#drawer-toolbar {
+    color: $white2;
+}
+#canvas {
+    background: white;
+}
+#title {
+    font-weight: 700;
+}
+#content {
+    width: 100%;
+    padding: 40px 0 60px 0;
+    background: white;
+    color: $black1;
+    height: 100%;
+    a {
+        color: $secondary;
+        &:hover {
+            color: $thirdary;
+        }
+    }
+}
+#footer {
+    display: none;
+    border-top: solid 1px $black4;
+    & /deep/ {
+        a {
+            color: $black2;
+            &:hover {
+                color: $secondary;
+            }
+        }
+        .group-label {
+            color: $black3;
+        }
+    }
+}
+@media(min-width: 768px) {
+    #content {
+        width: 768px;
+        padding-bottom: 80px;
+    }
+    #footer {
+        display: inherit;
+    }
+}

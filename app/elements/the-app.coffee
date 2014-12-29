@@ -33,8 +33,6 @@ class Market
       else
         ''
 
-
-
 Polymer 'the-app',
   route: ""
 
@@ -43,6 +41,7 @@ Polymer 'the-app',
       this.$.loading.setAttribute("hide", "")
       @enrichConfig(data.response)
     catch error
+      console.error(error)
       this.$.error.removeAttribute("hide")
 
   initRouter: () ->
@@ -50,18 +49,17 @@ Polymer 'the-app',
     this.$.main.appendChild(router)
     router.setAttribute("show","")
 
-  enrichConfig: (config) ->
-    window.config = config
 
+  processCurrenciesAndMarkets: () ->
     currencies = {}
-    currencies[k] = new Currency(k, v) for k, v of config.currencies
-    window.config.currencies = currencies
+    currencies[k] = new Currency(k, v) for k, v of window.config.currencies
+    config.currencies = currencies
 
     markets = {}
     marketGroups = {}
-    for baseCurrency, v of config.marketGroups
-      for currency, config of v.markets
-        market = new Market(currencies[baseCurrency], currencies[currency], config)
+    for baseCurrency, v of window.config.marketGroups
+      for currency, v of v.markets
+        market = new Market(currencies[baseCurrency], currencies[currency], v)
         markets[market.id] = market
         marketGroups[market.baseCurrency.id] = [] if not marketGroups[market.baseCurrency.id]
         marketGroups[market.baseCurrency.id].push market
@@ -69,14 +67,36 @@ Polymer 'the-app',
     window.config.markets = markets
     window.config.marketGroups = marketGroups
 
+  processProtocols: () ->
     window.protocol =
       base: window.config.api.base
-      tickerUrl: (base) ->  "%s/api/m/ticker/%s".format(@base, base.toLowerCase)
-      depthUrl: (market) ->  "%s/api/m/%s/depth".format(@base, market.toLowerCase)
-      transactionUrl:  (market) ->  "%s/api/%s/transaction".format(@base, market.toLowerCase)
+      tickerUrl: (coin) -> "%s/api/m/ticker/%s".format(@base, coin.toLowerCase())
+      depthUrl: (market) ->  "%s/api/m/%s/depth".format(@base, market.toLowerCase())
+      transactionUrl: (market) ->  "%s/api/%s/transaction".format(@base, market.toLowerCase())
 
 
-    console.dir({"config": window.config, "protocol": window.protocol})
+  processDocuments: (config) ->
+    tagMap = {}
+    for k, v of window.config.documents
+      for tag in v.tags 
+        tagMap[tag] = {} if not tagMap[tag]
+        tagMap[tag][k] = v
+
+    console.log(tagMap)
+    window.config.documentTagMap = tagMap
+
+
+  enrichConfig: (config) ->
+    window.config = config
+    @processCurrenciesAndMarkets()
+    @processProtocols()
+    @processDocuments()
+    
+
+    console.dir({"config": window.config, "protocol": window.protocol, "documentTagMap": window.documentTagMap})
 
     @initRouter()
+
+
+
 

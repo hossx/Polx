@@ -4,6 +4,7 @@
 <link rel="import" href="market-summary-page/market-summary-page.html">
 <link rel="import" href="account-page/account-page.html">
 <link rel="import" href="trust-page/trust-page.html">
+<link rel="import" href="markdown-viewer/markdown-viewer.html">
 <link rel="import" href="notfound-page/notfound-page.html">
 
 <polymer-element name="the-router" flex noscript>
@@ -14,6 +15,7 @@
       <app-route path="/market/:marketId" element="market-page"></app-route>
       <app-route path="/trust" element="trust-page"></app-route>
       <app-route path="/account" element="account-page"></app-route>
+      <app-route path="/doc/:file" element="markdown-viewer"></app-route>
       <app-route path="*" element="notfound-page"></app-route>
     </app-router>
   </template>

@@ -4,6 +4,7 @@
     height: 100%;
 }
 #top-container {
+    width: 100%;
     padding-top: 40px;
     padding-bottom: 60px;
     > paper-shadow {
@@ -15,7 +16,7 @@
 }
 @media (min-width: 768px) {
     #top-container {
-        max-width: 768px;
+        width: 768px;
         padding-bottom: 80px;
         > paper-shadow {
             margin: 10px 0;
