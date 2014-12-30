@@ -280,6 +280,7 @@ module.exports = function(grunt) {
                         '*.{ico,txt}',
                         '.htaccess',
                         '*.html',
+                        'CNAME',
                         '*.json',
                         'elements/**',
                         'markdown/**',
@@ -333,7 +334,7 @@ module.exports = function(grunt) {
             options: {
                 base: 'dist'
             },
-            src: ['**']
+            src: ['*','styles/*.ttf']
         }
     });
 

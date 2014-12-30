@@ -1,7 +1,0 @@
-*.scssc
-.tmp
-app/
-dist/
-node_modules/
-.gitignore
-.grunt/grunt-gh-pages/gh-pages/src/
