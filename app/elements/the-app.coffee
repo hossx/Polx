@@ -73,6 +73,7 @@ Polymer 'the-app',
       tickerUrl: (coin) -> "%s/api/m/ticker/%s".format(@base, coin.toLowerCase())
       depthUrl: (market) ->  "%s/api/m/%s/depth".format(@base, market.toLowerCase())
       transactionUrl: (market) ->  "%s/api/%s/transaction".format(@base, market.toLowerCase())
+      currencyReserveUrl: (coin) -> "%s/api/open/reserve/%s".format(@base, coin.toLowerCase())
 
 
   processDocuments: (config) ->

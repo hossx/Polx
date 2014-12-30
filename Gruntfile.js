@@ -56,7 +56,7 @@ module.exports = function(grunt) {
                 files: [
                     '<%= yeoman.app %>/scripts/{,*/,*/*/,*/*/*/}*.coffee',
                     '<%= yeoman.app %>/elements/{,*/,*/*/,*/*/*/}*.coffee'
-                    ],
+                ],
                 tasks: ['coffee:server', 'copy:scripts', 'jshint']
             },
             styles: {
@@ -326,6 +326,12 @@ module.exports = function(grunt) {
                     threshold: 80
                 }
             }
+        },
+        'gh-pages': {
+            options: {
+                base: 'dist'
+            },
+            src: ['**']
         }
     });
 
