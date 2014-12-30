@@ -235,7 +235,7 @@ module.exports = function(grunt) {
                     inline: true
                 },
                 files: {
-                    '<%= yeoman.dist %>/vulcanized.html': [
+                    '<%= yeoman.dist %>/app.html': [
                         '<%= yeoman.dist %>/elements/the-app.html'
                     ]
                 }
@@ -334,7 +334,7 @@ module.exports = function(grunt) {
             options: {
                 base: 'dist'
             },
-            src: ['*', 'styles/*', 'scripts/app.js', 'bower_components/webcomponentsjs/webcomponents.js']
+            src: ['*', 'styles/*', 'scripts/*']
         }
     });
 
