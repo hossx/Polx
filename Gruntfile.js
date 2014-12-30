@@ -210,29 +210,15 @@ module.exports = function(grunt) {
                 'test/spec/{,*/}*.js'
             ]
         },
-        useminPrepare: {
-            html: '<%= yeoman.app %>/index.html',
-            options: {
-                dest: '<%= yeoman.dist %>'
-            }
-        },
-        usemin: {
-            html: ['<%= yeoman.dist %>/{,*/,*/*/,*/*/*/}*.html'],
-            css: ['<%= yeoman.dist %>/styles/{,*/,*/*/,*/*/*/}*.css'],
-            options: {
-                dirs: ['<%= yeoman.dist %>'],
-                blockReplacements: {
-                    vulcanized: function(block) {
-                        return '<link rel="import" href="' + block.dest + '">';
-                    }
-                }
-            }
-        },
         vulcanize: {
             default: {
                 options: {
                     strip: true,
-                    inline:true
+                    inline: true,
+                    excludes: {
+                        styles: ["main.css"]
+                    }
+                    //csp: true
                 },
                 files: {
                     '<%= yeoman.dist %>/index.html': [
@@ -334,7 +320,7 @@ module.exports = function(grunt) {
             options: {
                 base: 'dist'
             },
-            src: ['*','styles/*.ttf']
+            src: ['*', 'styles/*']
         }
     });
 
@@ -371,14 +357,9 @@ module.exports = function(grunt) {
         'coffee',
         'sass',
         'copy',
-        //'useminPrepare',
         'imagemin',
-        //'concat',
         'autoprefixer',
-        //'uglify',
-        'vulcanize',
-        //'usemin'
-        //'minifyHtml'
+        'vulcanize'
     ]);
 
     grunt.registerTask('default', [
