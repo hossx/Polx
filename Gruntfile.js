@@ -334,7 +334,7 @@ module.exports = function(grunt) {
             options: {
                 base: 'dist'
             },
-            src: ['*', 'styles/*']
+            src: ['*', 'styles/*', 'scripts/app.js', 'bower_components/webcomponentsjs/webcomponents.js']
         }
     });
 
