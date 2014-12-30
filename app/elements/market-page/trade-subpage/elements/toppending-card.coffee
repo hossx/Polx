@@ -16,7 +16,7 @@ Polymer 'toppending-card',
 
   responseChanged: (o, r) ->
     if r == ''
-      console.error("nework issue")
+      @fire('network-error', {'url': @depthUrl})
     else if r and r.success
       @bids = r.data["b"] if @bids != r.data["b"]
       @asks = r.data["a"] if @asks != r.data["a"]

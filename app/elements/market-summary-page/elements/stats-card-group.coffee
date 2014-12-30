@@ -13,14 +13,14 @@ Polymer 'stats-card-group',
       @tickers = @response.data
     else if @response == ''
       @stopRefresh()
-      this.$.errorToast.show()
+      @fire("network-error", {'url': @tickerUrl})
 
   detached: () ->
     @stopRefresh()
     
   errorChanged: (o, e) ->
     console.error("error: " + e) if e
-    this.$.errorToast.show()
+    @fire("network-error", {'url': @tickerUrl})
 
   stopRefresh: () ->
     if @refreshJob

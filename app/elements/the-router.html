@@ -1,4 +1,6 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../bower_components/paper-toast/paper-toast.html">
 <link rel="import" href="home-page/home-page.html">
 <link rel="import" href="market-page/market-page.html">
 <link rel="import" href="market-summary-page/market-summary-page.html">
@@ -7,8 +9,9 @@
 <link rel="import" href="markdown-viewer/markdown-viewer.html">
 <link rel="import" href="notfound-page/notfound-page.html">
 
-<polymer-element name="the-router" flex noscript>
+<polymer-element name="the-router" flex>
   <template fit>
+    <link rel="stylesheet" href="the-router.css">
     <app-router id="router" mode="hash" trailingSlash="ignore">
       <app-route path="/" element="home-page"></app-route>
       <app-route path="/market" element="market-summary-page"></app-route>
@@ -18,5 +21,8 @@
       <app-route path="/doc/:file" element="markdown-viewer"></app-route>
       <app-route path="*" element="notfound-page"></app-route>
     </app-router>
+    <paper-toast id="errorToast" text="Damn, I cannot connect to the servers :("></paper-toast>
   </template>
+
+  <script src="the-router.js"></script>
 </polymer-element>
