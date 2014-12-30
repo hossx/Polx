@@ -1,7 +1,9 @@
-@import "_fonts";
 @import "../elements/_colors";
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700);
+
 html {
-    font-family: 'Roboto Condensed', "Lantinghei SC","Hiragino Sans GB","Microsoft Yahei", sans-serif;
+    font-family: 'Roboto', "Lantinghei SC","Hiragino Sans GB","Microsoft Yahei", sans-serif;
     font-size: 13px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
