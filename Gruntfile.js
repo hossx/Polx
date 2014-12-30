@@ -232,11 +232,11 @@ module.exports = function(grunt) {
             default: {
                 options: {
                     strip: true,
-                    csp: true
+                    inline:true
                 },
                 files: {
-                    '<%= yeoman.dist %>/elements/the-app.vulcanized.html': [
-                        '<%= yeoman.dist %>/elements/the-app.html'
+                    '<%= yeoman.dist %>/index.html': [
+                        '<%= yeoman.dist %>/index.html'
                     ]
                 },
             },
@@ -254,11 +254,11 @@ module.exports = function(grunt) {
         minifyHtml: {
             options: {
                 comments: false,
-                conditionals: false,
+                empty: true, // must be true
+                conditionals: true,
                 spare: true,
                 quotes: true,
-                loose: true,
-                empty: true
+                loose: true
             },
             dist: {
                 files: [{
@@ -282,6 +282,7 @@ module.exports = function(grunt) {
                         '*.html',
                         '*.json',
                         'elements/**',
+                        'markdown/**',
                         'styles/*.ttf',
                         'scripts/**',
                         '!elements/**/*.scss',
@@ -369,14 +370,14 @@ module.exports = function(grunt) {
         'coffee',
         'sass',
         'copy',
-        'useminPrepare',
+        //'useminPrepare',
         'imagemin',
-        'concat',
+        //'concat',
         'autoprefixer',
-        'uglify',
+        //'uglify',
         'vulcanize',
-        'usemin',
-        'minifyHtml'
+        //'usemin'
+        //'minifyHtml'
     ]);
 
     grunt.registerTask('default', [
