@@ -210,22 +210,36 @@ module.exports = function(grunt) {
                 'test/spec/{,*/}*.js'
             ]
         },
+        useminPrepare: {
+            html: '<%= yeoman.app %>/index.html',
+            options: {
+                dest: '<%= yeoman.dist %>'
+            }
+        },
+        usemin: {
+            html: ['<%= yeoman.dist %>/{,*/,*/*/,*/*/*/}*.html'],
+            css: ['<%= yeoman.dist %>/styles/{,*/,*/*/,*/*/*/}*.css'],
+            options: {
+                dirs: ['<%= yeoman.dist %>'],
+                blockReplacements: {
+                    vulcanized: function(block) {
+                        return '<link rel="import" href="' + block.dest + '">';
+                    }
+                }
+            }
+        },
         vulcanize: {
             default: {
                 options: {
                     strip: true,
-                    inline: true,
-                    excludes: {
-                        styles: ["main.css"]
-                    }
-                    //csp: true
+                    inline: true
                 },
                 files: {
-                    '<%= yeoman.dist %>/index.html': [
-                        '<%= yeoman.dist %>/index.html'
+                    '<%= yeoman.dist %>/vulcanized.html': [
+                        '<%= yeoman.dist %>/elements/the-app.html'
                     ]
-                },
-            },
+                }
+            }
         },
         imagemin: {
             dist: {
@@ -240,17 +254,17 @@ module.exports = function(grunt) {
         minifyHtml: {
             options: {
                 comments: false,
-                empty: true, // must be true
                 conditionals: true,
                 spare: true,
                 quotes: true,
-                loose: true
+                loose: true,
+                empty: true
             },
             dist: {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.dist %>',
-                    src: '{,*/,*/*/,*/*/*/}*.html',
+                    src: '*.html',
                     dest: '<%= yeoman.dist %>'
                 }]
             }
@@ -266,10 +280,10 @@ module.exports = function(grunt) {
                         '*.{ico,txt}',
                         '.htaccess',
                         '*.html',
-                        'CNAME',
                         '*.json',
-                        'elements/**',
+                        'CNAME',
                         'markdown/**',
+                        'elements/**',
                         'styles/*.ttf',
                         'scripts/**',
                         '!elements/**/*.scss',
@@ -357,9 +371,14 @@ module.exports = function(grunt) {
         'coffee',
         'sass',
         'copy',
+        'useminPrepare',
         'imagemin',
+        'concat',
         'autoprefixer',
-        'vulcanize'
+        'vulcanize',
+        'uglify',
+        'usemin',
+        'minifyHtml'
     ]);
 
     grunt.registerTask('default', [
