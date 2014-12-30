@@ -25,3 +25,9 @@ Polymer 'markdown-viewer',
 
   onError: (event) ->
     console.log("error occured")
+
+  textChanged: (o, n) ->
+    setTimeout () =>
+      this.$.marked.style.opacity = 1
+      #this.$.footer.addClass("show")
+    ,10
