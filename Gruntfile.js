@@ -231,14 +231,15 @@ module.exports = function(grunt) {
         vulcanize: {
             default: {
                 options: {
-                    strip: true
+                    strip: true,
+                    csp: true
                 },
                 files: {
                     '<%= yeoman.dist %>/elements/the-app.vulcanized.html': [
                         '<%= yeoman.dist %>/elements/the-app.html'
                     ]
-                }
-            }
+                },
+            },
         },
         imagemin: {
             dist: {
@@ -253,7 +254,7 @@ module.exports = function(grunt) {
         minifyHtml: {
             options: {
                 comments: false,
-                conditionals: true,
+                conditionals: false,
                 spare: true,
                 quotes: true,
                 loose: true,
@@ -263,7 +264,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.dist %>',
-                    src: '*.html',
+                    src: '{,*/,*/*/,*/*/*/}*.html',
                     dest: '<%= yeoman.dist %>'
                 }]
             }

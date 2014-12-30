@@ -1,17 +1,31 @@
 
 
-##显示reserve ratio应该有个API可以拿到所有货币的简单统计
+##通用
 
-现在的api是每个货币需要单独去拿："/api/open/reserve/btc"，建议支持“/api/open/reserve”显示全部币种。返回值建议为：
+URL中的币ID用小写，返回值JSON中全部用大写。
+##读取currency的reserve数据
+
+- 读取所有支持的币种
+```/api/open/reserve```
+
+- 读取指定币种
+```/api/open/reserve/btc,ltc```
+
+- 返回值
 ```
 {
-  "labels": ["total", "hot","code", "user"],
-  "reserves": {
-    "BTC": [100, 10, 20, 70],
-    "LTC": [12, 10, 1, 1]
-  }
+    "labels": ["total", "hot","cold", "user"],
+    "reserves": {
+        "BTC": [100, 10, 20, 70],
+        "LTC": [12, 10, 1, 1]
+    }
 }
 ```
+建议数字只保留8位有效数字。
+
+####现状
+
+现在的api是每个货币需要单独去拿，返回值也比较冗余。
 
 现在的冗余了，是：
 ```
