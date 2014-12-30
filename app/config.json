@@ -177,10 +177,6 @@
       "label": "Terms of Service",
       "tags": ["legal"]
     },
-    "questions": {
-      "label": "MyQuestions",
-      "tags": ["test"]
-    },
     "privacy": {
       "label": "Privacy Policies",
       "tags": ["legal"]
@@ -196,6 +192,18 @@
     "team": {
       "label": "Team",
       "tags": ["about"]
+    },
+    "contactus": {
+      "label": "Contact Us",
+      "tags": ["about"]
+    },
+    "roadmap": {
+      "label": "Roadmap",
+      "tags": ["developer"]
+    },
+    "dong": {
+      "label": "Daniel's Developer Notes",
+      "tags": ["developer"]
     }
   }
 }

@@ -6,27 +6,23 @@ Polymer 'stats-card-group',
     @tickers = []
     work = () =>this.$.ajax.go()
     @refreshJob = setInterval(work, window.config.refreshIntervals.tickers)
-    console.log("start auto-refresh for tickers " +  @tickerUrl)
-    this.$.errorToast.show()
+    console.debug("start auto-refresh for tickers " +  @tickerUrl)
 
   responseChanged: (o, n) ->
-    if not n
-      @stopRefresh()
-      this.$.errorToast.show()
-    else
-      @tickers = n.data
+    if @response
+      @tickers = @response.data
 
   detached: () ->
     @stopRefresh()
     
   errorChanged: (o, e) ->
-    console.log("error: " + e) if e
+    console.error("error: " + e) if e
     this.$.errorToast.show()
 
   stopRefresh: () ->
     if @refreshJob
       clearInterval(@refreshJob)
       @refreshJob = null
-      console.log("stop auto-refresh for tickers")
+      console.debug("stop auto-refresh for tickers")
 
     

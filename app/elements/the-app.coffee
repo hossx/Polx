@@ -15,7 +15,7 @@ class Market
   constructor: (@baseCurrency, @currency, @json) ->
     @id = @currency.id + "-" + @baseCurrency.id 
     @shortName = @currency.id + "/" + @baseCurrency.id
-    @name = @currency.name + " | " + @currency.id + "-" + @baseCurrency.id
+    @name = @currency.name + "  [" + @currency.id + "-" + @baseCurrency.id+"]"
     @fee = new MarketFee @json.fee
     @refreshInterval =
       if @json.refreshInterval
@@ -82,7 +82,6 @@ Polymer 'the-app',
         tagMap[tag] = {} if not tagMap[tag]
         tagMap[tag][k] = v
 
-    console.log(tagMap)
     window.config.documentTagMap = tagMap
 
 
@@ -93,7 +92,8 @@ Polymer 'the-app',
     @processDocuments()
     
 
-    console.dir({"config": window.config, "protocol": window.protocol, "documentTagMap": window.documentTagMap})
+    console.debug("Loaded dynamic app-configurations:")
+    console.dir({"config": window.config, "protocol": window.protocol})
 
     @initRouter()
 

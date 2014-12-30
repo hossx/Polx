@@ -1,4 +1,8 @@
 
+
+
+#Daniel's Developer Notes
+
 ##URLs
 - "login":  "/account/login"
 - "profile":  "/account#/accountprofiles"
@@ -27,7 +31,7 @@
 - shim-shadowdom
 -fire()
 
-
+---
 
 ##URLs
 - "login":  "/account/login"

@@ -1,4 +1,5 @@
 @import "../_colors";
+@import "_markdown";
 core-header-panel[main] {
     background: white;
 }
@@ -31,7 +32,7 @@ core-header-panel[main] {
     color: $black1;
     height: 100%;
     opacity: 0;
-    transition: opacity 1s ease-out;
+    transition: opacity 420ms ease-out;
     a {
         color: $secondary;
         &:hover {
@@ -41,7 +42,6 @@ core-header-panel[main] {
 }
 #footer {
     display: none;
-    border-top: solid 1px $black4;
     & /deep/ {
         a {
             color: $black2;
@@ -58,6 +58,7 @@ core-header-panel[main] {
     #marked {
         width: 768px;
         padding-bottom: 80px;
+        border-bottom: solid 1px $black4;
     }
     #footer {
         display: inherit;

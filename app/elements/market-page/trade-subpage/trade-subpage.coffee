@@ -4,4 +4,4 @@ Polymer 'trade-subpage',
   active: false
 
   detached: () ->
-    console.log "detached: trade-subpage"
+    console.debug "detached: trade-subpage"

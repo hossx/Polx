@@ -2,20 +2,17 @@
 
 Polymer 'stats-card',
 
-  ready: () ->
-    @config = window.config
-    @marketId = ''
-    @market = ''
-    @ticker = null
-    @priceUnit = ''
+  marketId: ''
+  market: null
+  priceUnit: null
+  ticker: null
 
   tickerChanged: (o, n) ->
     @marketId = @ticker.c + "-" + @ticker.i;
-    @market = @config.markets[@marketId]
+    @market = window.config.markets[@marketId]
     if @market
       @priceUnit = @market.json.priceUnit
 
-  # Filters
   formatChange: (value) ->
     percent = String(value * 100).substring(0, 5) + "%"
     if value > 0
