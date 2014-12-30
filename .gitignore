@@ -6,3 +6,5 @@ app/bower_components
 .tmp
 .DS_Store
 test/bower_components/
+
+.grunt/grunt-gh-pages/gh-pages/src/

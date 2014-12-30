@@ -27,3 +27,5 @@ If at any time you would like us to cease sending you direct mailings, please co
 
 
 If we do ask you to provide personal information, we will always specify the purpose for which such personal information is collected and ensure that it is only used for the purpose specified at the time of collection.
+
+***Should you have any questions and comments, or should you be aware of any violation by relevant Coinport entities, please feel free to contact us via exchange-support@coinport.com***

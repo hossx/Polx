@@ -166,7 +166,6 @@
   },
   "api": {
     "base": "https://exchange.coinport.com"
-
   },
   "refreshIntervals": {
     "depths": 5000,
@@ -203,6 +202,9 @@
     },
     "dong": {
       "label": "Daniel's Developer Notes",
+      "tags": ["developer"]
+    },"api2": {
+      "label": "API 2.0 Brainstorming",
       "tags": ["developer"]
     }
   }

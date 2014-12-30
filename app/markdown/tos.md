@@ -104,5 +104,5 @@ To the full extent permitted by applicable law, you hereby agree to indemnify Co
 Coinport reserves the right to change, add or remove portions of these Terms, at any time, in an exercise of its sole discretion. You will be notified of any changes in advance through your Account. Upon such notification, it is your responsibility to review the amended Terms. Your continued use of the Website following a notice of changes to the Terms shall be deemed as your acceptance to the changes.
 
 
-***Should you have any questions and comments on above Terms of Use, or should you be aware of any violation by relevant Coinport entities, please feel free to contact us via exchange-support@@coinport.com***
+***Should you have any questions and comments, or should you be aware of any violation by relevant Coinport entities, please feel free to contact us via exchange-support@coinport.com***
 
