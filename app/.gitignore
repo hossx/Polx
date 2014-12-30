@@ -1,6 +1,5 @@
-
-
 bower_components/
 elements/
-styles/
+styles/*.css
+styles/*.css.map
 scripts/
