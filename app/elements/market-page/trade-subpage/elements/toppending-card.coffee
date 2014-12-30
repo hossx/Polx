@@ -15,7 +15,9 @@ Polymer 'toppending-card',
     console.error("error: " + e) if e
 
   responseChanged: (o, r) ->
-    if r and r.success
+    if r == ''
+      console.error("nework issue")
+    else if r and r.success
       @bids = r.data["b"] if @bids != r.data["b"]
       @asks = r.data["a"] if @asks != r.data["a"]
     else

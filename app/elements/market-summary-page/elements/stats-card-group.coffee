@@ -11,6 +11,9 @@ Polymer 'stats-card-group',
   responseChanged: (o, n) ->
     if @response
       @tickers = @response.data
+    else if @response == ''
+      @stopRefresh()
+      this.$.errorToast.show()
 
   detached: () ->
     @stopRefresh()
