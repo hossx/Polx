@@ -1,5 +1,7 @@
-bower_components/
-elements/
-styles/*.css
-styles/*.css.map
-scripts/
+*.scssc
+.tmp
+app/
+dist/
+node_modules/
+.gitignore
+.grunt/grunt-gh-pages/gh-pages/src/
