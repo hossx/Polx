@@ -8,8 +8,7 @@
 
     <cp-globals id="globals"></cp-globals>
     <div vertical center layout>
-      <div id="title" self-center>My
-        <label id="market.currency.id">{{market.currency.id}}</label> balance</span>
+      <div id="title" self-center>My <span id="{{market.currency.id}}">{{market.currency.id}}</span> balance</span>
       </div>
       <div id="box" vertical?={{!smallup}} center horizontal?={{smallup}} layout>
         <div auto-vertical><span class="label">Available to Sell:</span>{{available}}</div>

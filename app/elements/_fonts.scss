@@ -1,0 +1,10 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300|Roboto+Slab|Roboto:400,100);
+@mixin slab-font() {
+    font-family: 'Roboto Slab', 'Lantinghei SC', 'Hiragino Sans GB', 'Microsoft Yahei', serif;
+}
+@mixin condensed-font() {
+    font-family: 'Roboto Condensed', 'Lantinghei SC', 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
+}
+@mixin normal-font() {
+    font-family: 'Robto', 'Lantinghei SC', 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
+}
