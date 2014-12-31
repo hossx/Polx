@@ -15,6 +15,7 @@ class Currency
         @id
     @name = @json.name
     @fee = new CurrencyFee @json.fee
+    @fullName = @name + "/" + @id
 
 class Market
   constructor: (@baseCurrency, @currency, @json) ->
