@@ -10,9 +10,14 @@ Polymer 'markdown-viewer',
     
   fileChanged: (o, n) ->
     doclinks = {}
-    for tag in window.config.documents[@file].tags
-      for k, v of window.config.documentTagMap[tag]
-        doclinks[k] = v
+    doclink = window.config.documents[@file]
+    
+    if doclink and doclink.tags
+      for tag in doclink.tags 
+        map = window.config.documentTagMap[tag]
+        if map
+          doclinks[k] = v for k, v of map
+            
 
     @doclinks = doclinks
     @files = Object.keys(@doclinks)
