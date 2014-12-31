@@ -42,7 +42,7 @@
             });
           }, this);
           this.ctx = this.$.parent.firstChild.getContext('2d');
-          this.chart = new Chart(this.ctx).Pie(this.data);
+          this.chart = new Chart(this.ctx).Pie(this.data, {segmentStrokeColor: '#fff',segmentStrokeWidth: 1});
         }
       }
     });

@@ -43,7 +43,9 @@ a {
             }
             .v {
                 font-size: 28px;
-                color: white;
+                font-weight: 100;
+                text-align: center;
+                color: $white1;
             }
             border-bottom: solid 1px $white4;
             padding-bottom: 10px;
