@@ -22,13 +22,13 @@ code {
 table {
     border-collapse: collapse;
     margin-left: 20px;
-    border-bottom: solid 1px #f0f0f0;
+    border-bottom: solid 1px $magic-grey;
 }
 th {
-    background: #f0f0f0;
+    background: $magic-grey;
 }
 td,th {
-    border-right: solid 1px #f0f0f0;
-    border-left: solid 1px #f0f0f0;
-    border-bottom: solid 1px #f0f0f0;
+    border-right: solid 1px $magic-grey;
+    border-left: solid 1px $magic-grey;
+    border-bottom: solid 1px $magic-grey;
 }
