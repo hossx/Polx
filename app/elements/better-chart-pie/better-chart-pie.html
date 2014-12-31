@@ -1,0 +1,41 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/chart-elements/chart-js-import.html">
+
+<polymer-element name="better-chart-pie" attributes="width height values colors labels">
+  <template>
+    <style>
+    :host {
+      display: inline-block;
+    }
+    </style>
+    <canvas id="canvas" width="{{width}}" height="{{height}}"></canvas>
+  </template>
+  <script>
+    Polymer({
+      height: 200,
+      width: 400,
+      values: [30, 50, 100, 40, 120],
+      colors: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
+      labels: ["A", "B", "C", "D", "E"],
+      observe: {
+        height: 'updateChart',
+        width: 'updateChart',
+        colors: 'updateChart',
+        values: 'updateChart',
+        labels: 'updateChart'
+      },
+      updateChart: function () {
+        if(this.chart){
+          this.chart.destroy();
+        }
+        this.data = [];
+        this.values.forEach(function (val, i) {
+          this.data.push({ color: this.colors[i], value: val, label: this.labels[i]});
+        }, this);
+
+        this.ctx = this.$.canvas.getContext('2d');
+        this.chart = new Chart(this.ctx).Pie(this.data);
+      }
+    });
+  </script>
+</polymer-element>

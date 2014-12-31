@@ -8,7 +8,7 @@
     <core-ajax id="ajax" url="{{tickerUrl}}" handleAs="json" response="{{response}}" error="{{error}}" auto></core-ajax>
 
     <div class="groupLabel">{{currency.id}} MARKETS</div>
-    <div class="canvas" center horizontal layout wrap?={{smallup}} layout center?={{!smallup}} vertical?={{!smallup}} horizontal?={{smallup}}>
+    <div class="canvas" wrap?={{smallup}} layout center?={{!smallup}} vertical?={{!smallup}} horizontal?={{smallup}}>
       <template repeat="{{ticker in tickers}}">
         <stats-card auto-vertical ticker="{{ticker}}"></stats-card>
       </template>

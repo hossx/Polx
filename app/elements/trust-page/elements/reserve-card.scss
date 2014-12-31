@@ -1,0 +1,48 @@
+@import "../../_colors";
+:host {
+    width: 100%;
+    display: block;
+    padding: 20px;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+#box {
+    padding: 10px;
+    background: lighten($primary, 5%);
+    transition: background 420ms ease-in-out;
+    &:hover {
+        background: lighten($primary, 10%);
+    }
+    #head {
+        color: $secondary;
+        font-weight: 500;
+        font-size: 16px;
+        text-align: center;
+        padding: 10px 0;
+    }
+    #stats {
+    padding: 10px 0;
+        .l {
+            color: $white2;
+            padding: 0 5px;
+        }
+        .v {
+            font-weight: 500;
+            color: $thirdary;
+            padding: 0 5px;
+        }
+        #general {
+            .v {
+                font-size: 24px;
+                color: white;
+            }
+            border-bottom: solid 2px $white3;
+        }
+        #missing .v {
+            color: $secondary;
+        }
+    }
+}

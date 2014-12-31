@@ -1,0 +1,47 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="../../../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../../better-chart-pie/better-chart-pie.html">
+<link rel="import" href="../../cp-icons/crypto-icons.html">
+<link rel="import" href="../../cp-icons/cryptocode-icons.html">
+
+<polymer-element name="reserve-card" attributes="currencyId,reserve">
+
+  <template>
+    <link rel="stylesheet" href="reserve-card.css">
+
+    <paper-shadow z="1">
+      <a href="/#/currency/{{currencyId}}">
+        <div cross-fade id="box" vertical layout>
+          <div id="head">{{currency.name}} [{{currencyId}}]</div>
+
+          <div id="stats" center-justified vertical layout>
+            <div id="general">
+              <span class="l">Reserve Ratio:</span> <span class="v">{{reserveRatio | ratioFormat}}</span>
+            </div>
+            <div id="sub">
+              <div>
+                <span class="l">Hot wallet:</span><span class="v">{{hotRatio | ratioFormat}} = {{reserve[0]}} {{currency.unit}}</span>
+              </div>
+              <div>
+                <span class="l">Cold wallet:</span><span class="v">{{coldRatio | ratioFormat}} = {{reserve[1]}} {{currency.unit}}</span>
+              </div>
+              <div>
+                <span class="l">User:</span><span class="v">{{userRatio | ratioFormat}} = {{reserve[2]}} {{currency.unit}}</span>
+              </div>
+              <div id="missing">
+                <span class="l">Missing:</span><span class="v">{{missingRatio | ratioFormat}} = {{reserve[3]}} {{currency.unit}}</span>
+              </div>
+            </div>
+          </div>
+          <div center-justified horizontal layout>
+            <better-chart-pie values="{{reserve}}" colors="{{colors}}" labels="{{labels}}" width="{{200}}" height="{{120}}"></better-chart-pie>
+          </div>
+        </div>
+      </a>
+    </paper-shadow>
+
+  </template>
+  <script src="reserve-card.js"></script>
+
+</polymer-element>

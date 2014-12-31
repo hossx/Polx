@@ -1,0 +1,17 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="reserve-card.html">
+
+<polymer-element name="reserve-card-group" attributes="smallup" center vertical layout>
+  <template>
+    <link rel="stylesheet" href="reserve-card-group.css">
+    <core-ajax id="ajax" url="{{reservesUrl}}" handleAs="json" response="{{response}}" error="{{error}}" auto></core-ajax>
+
+    <div class="canvas" wrap?={{smallup}} layout center?={{!smallup}} vertical?={{!smallup}} horizontal?={{smallup}}>
+      <template repeat="{{currencyId in currencieIds}}">
+        <reserve-card auto-vertical currencyId="{{currencyId}}" reserve="{{reserves[currencyId]}}"></reserve-card>
+      </template>
+    </div>
+  </template>
+  <script src="reserve-card-group.js"></script>
+</polymer-element>

@@ -1,5 +1,4 @@
 @import "../../_colors";
-$color: $green;
 :host {
     width: 100%;
     display: block;
@@ -9,13 +8,7 @@ $color: $green;
     padding-top: 10px;
     width: 100%;
 }
-.groupLabel {
-    padding-top: 20px;
-    font-size: 20px;
-    font-weight: 500;
-    color: $white3;
-}
-stats-card {
+reserve-card {
     width: 100%;
     max-width: 400px;
 }
@@ -23,7 +16,7 @@ stats-card {
     .canvas {
         width: 768px;
     }
-    stats-card {
+    reserve-card {
         width: 50%;
     }
 }
@@ -31,7 +24,7 @@ stats-card {
     .canvas {
         width: 992px;
     }
-    stats-card {
+    reserve-card {
         width: 33%;
     }
 }
@@ -39,7 +32,7 @@ stats-card {
     .canvas {
         width: 1200px;
     }
-    stats-card {
+    reserve-card {
         width: 25%;
     }
 }

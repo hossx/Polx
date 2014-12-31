@@ -8,6 +8,11 @@ class MarketFee
 
 class Currency
   constructor: (@id, @json) ->
+    @unit =
+      if @json.unit
+        @json.unit
+      else
+        @id
     @name = @json.name
     @fee = new CurrencyFee @json.fee
 
@@ -73,7 +78,11 @@ Polymer 'the-app',
       tickerUrl: (coin) -> "%s/api/m/ticker/%s".format(@base, coin.toLowerCase())
       depthUrl: (market) ->  "%s/api/m/%s/depth".format(@base, market.toLowerCase())
       transactionUrl: (market) ->  "%s/api/%s/transaction".format(@base, market.toLowerCase())
-      currencyReserveUrl: (coin) -> "%s/api/open/reserve/%s".format(@base, coin.toLowerCase())
+      reservesUrl: (coin) -> 'api_mock_reserves.json'
+      #  if coin
+      #    "%s/api/open/reserve/%s".format(@base, coin.toLowerCase())
+      #  else
+      #    "%s/api/open/reserves".format(@base)
 
 
   processDocuments: (config) ->
