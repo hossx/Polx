@@ -381,6 +381,11 @@ module.exports = function(grunt) {
         'minifyHtml'
     ]);
 
+    grunt.registerTask('publish', [
+        'build',
+        'gh-pages',
+    ]);
+
     grunt.registerTask('default', [
         'jshint',
         // 'test'

@@ -1,13 +1,26 @@
-##To run in dev mode
-
+##Initialize the environment
 ```
 bower install
 npm install grunt
 npm install
+
+```
+
+##Run in live-preview mode
+```
 grunt serve
 ```
 
-In the future you can just type `grunt serve` to dynaymcailly load the preview.
+##Compile and run
+```
+grunt build
+cd dist
+python -m SimpleHTTPServer 12345
+```
+Open ```http://localhost:12345```
 
-To publish the site to `http://www.bitvar.com`, run `grunt gh-pages`
-
+##Publish
+```
+grunt publish
+```
+Open ```http://wwwbitvar.com```
