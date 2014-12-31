@@ -24,7 +24,7 @@ a {
         padding: 10px 0;
     }
     #stats {
-    padding: 10px 0;
+        padding: 10px 0;
         .l {
             color: $white2;
             padding: 0 5px;
@@ -36,7 +36,7 @@ a {
         }
         #general {
             .v {
-                font-size: 24px;
+                font-size: 28px;
                 color: white;
             }
             border-bottom: solid 2px $white3;
@@ -44,5 +44,8 @@ a {
         #missing .v {
             color: $secondary;
         }
+    }
+    #chart {
+        padding-bottom: 10px;
     }
 }

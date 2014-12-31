@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="reserve-card-group.css">
     <core-ajax id="ajax" url="{{reservesUrl}}" handleAs="json" response="{{response}}" error="{{error}}" auto></core-ajax>
 
+    <div class="groupLabel">RESERVE STATS</div>
     <div class="canvas" wrap?={{smallup}} layout center?={{!smallup}} vertical?={{!smallup}} horizontal?={{smallup}}>
       <template repeat="{{currencyId in currencieIds}}">
         <reserve-card auto-vertical currencyId="{{currencyId}}" reserve="{{reserves[currencyId]}}"></reserve-card>
