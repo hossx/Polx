@@ -4,16 +4,19 @@
 <polymer-element name="better-chart-pie" attributes="width height values colors labels">
   <template>
     <style>
-    :host {
-      display: inline-block;
-    }
+      :host {
+        display: inline-block;
+      }
     </style>
-    <canvas id="canvas" width="{{width}}" height="{{height}}"></canvas>
+    <div id="parent"></div>
   </template>
   <script>
     Polymer({
-      height: 200,
-      width: 400,
+      height: 0,
+      width: 0,
+      colors: null,
+      values: null,
+      labels: null,
       observe: {
         height: 'updateChart',
         width: 'updateChart',
@@ -21,17 +24,26 @@
         values: 'updateChart',
         labels: 'updateChart'
       },
-      updateChart: function () {
-        if(this.chart){
-          this.chart.destroy();
+      domReady: function() {
+        console.log("ready");
+      },
+      updateChart: function() {
+        if (this.height > 0 && this.width > 0 && this.labels !== null && this.colors !== null && this.values !== null) {
+          this.$.parent.innerHTML = '<canvas id="canvas" width="' + this.width + '" height="' + this.height + '"></canvas>';
+          if (this.chart) {
+            this.chart.destroy();
+          }
+          this.data = [];
+          this.values.forEach(function(val, i) {
+            this.data.push({
+              color: this.colors[i],
+              value: val,
+              label: this.labels[i]
+            });
+          }, this);
+          this.ctx = this.$.parent.firstChild.getContext('2d');
+          this.chart = new Chart(this.ctx).Pie(this.data);
         }
-        this.data = [];
-        this.values.forEach(function (val, i) {
-          this.data.push({ color: this.colors[i], value: val, label: this.labels[i]});
-        }, this);
-
-        this.ctx = this.$.canvas.getContext('2d');
-        this.chart = new Chart(this.ctx).Pie(this.data);
       }
     });
   </script>
