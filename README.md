@@ -1,9 +1,7 @@
 ##To run in dev mode
 
 ```
-cd ex2/
 bower install
-npm install --save-dev connect-livereload
 npm install grunt
 npm install
 grunt serve
