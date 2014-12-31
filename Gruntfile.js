@@ -334,7 +334,7 @@ module.exports = function(grunt) {
             options: {
                 base: 'dist'
             },
-            src: ['*', 'styles/*', 'scripts/*']
+            src: ['*', 'styles/*.css', 'scripts/*.js', 'markdown/*']
         }
     });
 

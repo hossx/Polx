@@ -1,10 +1,21 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300|Roboto+Slab|Roboto:400,100);
-@mixin slab-font() {
-    font-family: 'Roboto Slab', 'Lantinghei SC', 'Hiragino Sans GB', 'Microsoft Yahei', serif;
+@font-face {
+    font-family: 'Roboto Condensed';
+    font-weight: 300;
+    font-style: normal;
+    src: local('RobotoCondensed-Light'), local('Roboto Condensed Light'), url(RobotoCondensed-Light.ttf);
+}
+@font-face {
+    font-family: 'Roboto Condensed';
+    font-weight: 400;
+    font-style: normal;
+    src: local('RobotoCondensed-Regular'), local('Roboto Condensed Regular'), url(RobotoCondensed-Regular.ttf);
+}
+@font-face {
+    font-family: 'Roboto Condensed';
+    font-weight: 700;
+    font-style: normal;
+    src: local('RobotoCondensed-Bold'), local('Roboto Condensed Bold'), url(RobotoCondensed-Bold.ttf);
 }
 @mixin condensed-font() {
     font-family: 'Roboto Condensed', 'Lantinghei SC', 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
-}
-@mixin normal-font() {
-    font-family: 'Robto', 'Lantinghei SC', 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
 }
