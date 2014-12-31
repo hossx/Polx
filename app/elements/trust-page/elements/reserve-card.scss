@@ -10,7 +10,7 @@ a {
     color: white;
 }
 #box {
-    padding: 10px;
+    padding: 20px;
     background: lighten($primary, 5%);
     transition: background 420ms ease-in-out;
     &:hover {
@@ -24,10 +24,12 @@ a {
         padding: 10px 0;
     }
     #stats {
-        padding: 10px 0;
+        padding-bottom: 10px;
         .l {
+            display: inline-block;
             color: $white2;
             padding: 0 5px;
+            min-width: 60px;
         }
         .v {
             font-weight: 500;
@@ -35,17 +37,22 @@ a {
             padding: 0 5px;
         }
         #general {
+            text-align: center;
+            .l {
+                text-transform: uppercase;
+            }
             .v {
                 font-size: 28px;
                 color: white;
             }
-            border-bottom: solid 2px $white3;
+            border-bottom: solid 1px $white4;
+            padding-bottom: 10px;
         }
-        #missing .v {
+        #sub {
+            padding-top: 10px;
+        }
+        #shortage .v {
             color: $secondary;
         }
-    }
-    #chart {
-        padding-bottom: 10px;
     }
 }

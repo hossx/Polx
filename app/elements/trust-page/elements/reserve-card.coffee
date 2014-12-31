@@ -9,7 +9,7 @@ Polymer 'reserve-card',
   hotRatio: 0
   coldRatio: 0
   userRatio: 0
-  missingRatio: 0
+  shortageRatio: 0
 
 
   ready: () ->
@@ -24,18 +24,18 @@ Polymer 'reserve-card',
   reserveChanged: (o, n) ->
     if @reserve
       @total = @reserve[0] + @reserve[1] + @reserve[2] + @reserve[3]
-      @missingRatio = Math.ceil(100 * @reserve[3]/@total)
+      @shortageRatio = Math.ceil(100 * @reserve[3]/@total)
 
       @hotRatio = Math.floor(100 * @reserve[0]/@total)
       @coldRatio = Math.floor(100 * @reserve[1]/@total)
-      @userRatio =100 - @hotRatio - @coldRatio - @missingRatio
-      @reserveRatio = 100 - @missingRatio
+      @userRatio =100 - @hotRatio - @coldRatio - @shortageRatio
+      @reserveRatio = 100 - @shortageRatio
 
       @labels = [
-        "Hot Wallet ("  + @ratioFormat(@hotRatio) + ")", 
-        "Cold Wallet ("  + @ratioFormat(@coldRatio) + ")", 
-        "User Wallet ("  + @ratioFormat(@userRatio) + ")", 
-        "Missing ("  + @ratioFormat(@missingRatio) + ")"
+        "Hot Wallet (" + @currency.unit + ")", 
+        "Cold Wallet (" + @currency.unit + ")", 
+        "User Wallet (" + @currency.unit + ")", 
+        "Missing (" + @currency.unit + ")"
       ]
 
   ratioFormat: (value) ->
