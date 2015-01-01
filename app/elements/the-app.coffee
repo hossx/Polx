@@ -92,11 +92,8 @@ Polymer 'the-app',
       tickerUrl: (coin) -> "%s/api/m/ticker/%s".format(@base, coin.toLowerCase())
       depthUrl: (market) ->  "%s/api/m/%s/depth".format(@base, market.toLowerCase())
       transactionUrl: (market) ->  "%s/api/%s/transaction".format(@base, market.toLowerCase())
-      reservesUrl: (coin) -> 'api_mock_reserves.json'
-      #  if coin
-      #    "%s/api/open/reserve/%s".format(@base, coin.toLowerCase())
-      #  else
-      #    "%s/api/open/reserves".format(@base)
+      currencyStatsUrl: () -> 'api_mock_currency_stats.json'
+      currencyDetailsUrl: (coin) -> 'api_mock_currency_details.json'
 
 
   processDocuments: (config) ->

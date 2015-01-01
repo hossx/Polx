@@ -2,7 +2,7 @@
 
 Polymer 'reserve-card-group',
   ready: () ->
-    @reservesUrl = window.protocol.reservesUrl()
+    @currencyStatsUrl = window.protocol.currencyStatsUrl()
     @reserves = {}
     @currencieIds = []
     work = () =>this.$.ajax.go()
