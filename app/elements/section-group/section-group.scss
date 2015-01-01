@@ -9,6 +9,14 @@
     width: 100%;
 }
 ::content {
+    >div {
+        text-align: center;
+        padding-top: 20px;
+        font-size: 20px;
+        font-weight: 500;
+        color: $white3;
+        text-transform: uppercase;
+    }
     >paper-shadow {
         width: 100%;
         margin: 10px 0;
