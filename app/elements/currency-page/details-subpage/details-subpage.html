@@ -1,6 +1,7 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../../../bower_components/marked-element/marked-element.html">
+<link rel="import" href="../../../bower_components/core-tooltip/core-tooltip.html">
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../crypto-address/crypto-address.html">
 
@@ -10,41 +11,42 @@
     <core-ajax url="../markdown/currency-{{currency.id}}.md" response="{{wiki}}" auto></core-ajax>
     <core-ajax url="{{detailsUrl}}" response="{{details}}" auto></core-ajax>
     <section-group>
+      <div label>Reserve Details</div>
+      <paper-shadow>
+        <div no-padding>
+          <template repeat="{{group in details.reserves}}">
+            <template repeat="{{data,idx in group.addresses}}">
+              <div class="data" vertical layout>
+                <div horizontal layout>
+                  <div flex>
+                    <core-tooltip label="This address is in our {{group.label}} wallet." position="right">
+                      <crypto-address class="{{group.label}}" currency="{{currency}}" addr="{{data[0]}}"></crypto-address>
+                    </core-tooltip>
+                  </div>
+                  <core-tooltip label="This is how much we have in this wallet." position="left">
+                    <div class="balance">{{data[1]}} {{currency.unit}}</div>
+                  </core-tooltip>
+                </div>
+                <div class="verify" vertical layout>
+                  <div class="l">Signed Message:</div>
+                  <code> {{data[2]}}</code>
+                  <div class="l">Signature:</div>
+                  <code>{{data[3]}} </code>
+                </div>
+            </template>
+            </div>
+          </template>
+        </div>
+      </paper-shadow>
+
       <template if="{{wiki !== ''}}">
+        <div label>About {{currency.name}}</div>
         <paper-shadow>
           <div>
             <marked-element id="marked" text="{{wiki}}"></marked-element>
           </div>
         </paper-shadow>
       </template>
-
-      <div>Reserve Stats</div>
-      <paper-shadow>
-        <div>
-          <template repeat="{{group in details.reserves}}">
-            <div class="group">
-
-              <template repeat="{{data in group.addresses}}">
-
-                <div class="data" vertical layout>
-                  <div horizontal layout>
-                    <div flex>
-                      <crypto-address currency="{{currency}}" addr="{{data[0]}}"></crypto-address> <span class="label {{group.label}}"></core-icon>[{{group.label}}]</span>
-                    </div>
-                    <div class="balance">{{data[1]}} {{currency.unit}}</div>
-                  </div>
-                  <div class="verify" vertical layout>
-                    <div class="l">Signed Message:</div>
-                    <code> {{data[2]}}</code>
-                    <div class="l">Signature:</div>
-                    <code>{{data[3]}} </code>
-                  </div>
-                </div>
-              </template>
-            </div>
-          </template>
-        </div>
-      </paper-shadow>
 
     </section-group>
   </template>

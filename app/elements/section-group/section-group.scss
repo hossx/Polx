@@ -9,7 +9,7 @@
     width: 100%;
 }
 ::content {
-    >div {
+    div[label] {
         text-align: center;
         padding-top: 20px;
         font-size: 20px;
@@ -17,11 +17,21 @@
         color: $white3;
         text-transform: uppercase;
     }
+    div[divider] {
+        font-size: 0;
+        height: 1px;
+        width: 100%;
+        margin: 20px 0;
+        background: $black4;
+    }
     >paper-shadow {
         width: 100%;
         margin: 10px 0;
         >div {
             padding: 5px;
+            &[no-padding] {
+                padding: 5px 0;
+            }
             background: white;
             color: $black1;
         }
@@ -35,6 +45,9 @@
             >paper-shadow {
                 >div {
                     padding: 20px;
+                    &[no-padding] {
+                        padding: 20px 0;
+                    }
                 }
             }
         }

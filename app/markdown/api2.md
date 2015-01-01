@@ -263,17 +263,37 @@ URL中的币ID用小写，返回值JSON中全部用大写。
 
 ####返回值
 ```
- {
-   "timestamp": "12/12/12",
-   "data": {
-     "BTC": [10, 20, 70, 99],
-     "LTC": [12, 10, 1, 25],
-     "GOOC": [ 10, 20, 70, 101],
-     "BC": [12, 10, 1, 23],
-     "BTSX": [10, 10, 20, 30],
-     "XRP": [120, 10, 1, 150]
-   }
- }
+{
+  "timestamp": "12/12/12",
+  "id": "BTC",
+  "stats": [10, 20, 70, 99],
+  "reserves": [{
+    "label": "cold",
+    "addresses": [
+      ["1N9eMy14zYA6H7Rpn7dpErxgmdbjLk6iW4", 12.1121,
+      "coinport", "H5mC9Q4ILstd0PxROJn/gEDjutY7HIW8zZ9EmpMcTikvOrP0VeGWQI8iMIuQu2ByChF+uc0gLelHl49Bi9e+Y1M="],
+      ["1N9eMy14zYA6H7Rpn7dpErxgmdbjLk6iW4", 12.1121,
+      "coinport", "H5mC9Q4ILstd0PxROJn/gEDjutY7HIW8zZ9EmpMcTikvOrP0VeGWQI8iMIuQu2ByChF+uc0gLelHl49Bi9e+Y1M="],
+      ["1N9eMy14zYA6H7Rpn7dpErxgmdbjLk6iW4", 12.1121, 
+      "coinport", "H5mC9Q4ILstd0PxROJn/gEDjutY7HIW8zZ9EmpMcTikvOrP0VeGWQI8iMIuQu2ByChF+uc0gLelHl49Bi9e+Y1M="],
+      ["1N9eMy14zYA6H7Rpn7dpErxgmdbjLk6iW4", 12.1121, 
+      "coinport", "H5mC9Q4ILstd0PxROJn/gEDjutY7HIW8zZ9EmpMcTikvOrP0VeGWQI8iMIuQu2ByChF+uc0gLelHl49Bi9e+Y1M="],
+      ["1N9eMy14zYA6H7Rpn7dpErxgmdbjLk6iW4", 12.1121, 
+      "coinport", "H5mC9Q4ILstd0PxROJn/gEDjutY7HIW8zZ9EmpMcTikvOrP0VeGWQI8iMIuQu2ByChF+uc0gLelHl49Bi9e+Y1M="],
+      ["1N9eMy14zYA6H7Rpn7dpErxgmdbjLk6iW4", 12.1121, 
+      "coinport", "H5mC9Q4ILstd0PxROJn/gEDjutY7HIW8zZ9EmpMcTikvOrP0VeGWQI8iMIuQu2ByChF+uc0gLelHl49Bi9e+Y1M="]
+    ]
+  }, {
+    "label": "hot",
+    "addresses": [
+      ["1N9eMy14zYA6H7Rpn7dpErxgmdbjLk6iW4", 12.1121, 
+      "coinport", "H5mC9Q4ILstd0PxROJn/gEDjutY7HIW8zZ9EmpMcTikvOrP0VeGWQI8iMIuQu2ByChF+uc0gLelHl49Bi9e+Y1M="],
+      ["1N9eMy14zYA6H7Rpn7dpErxgmdbjLk6iW4", 12.1121, 
+      "coinport", "H5mC9Q4ILstd0PxROJn/gEDjutY7HIW8zZ9EmpMcTikvOrP0VeGWQI8iMIuQu2ByChF+uc0gLelHl49Bi9e+Y1M="]
+    ]
+  }]
+}
+
 
 ```
 数字分别表示：hot, cold, user, balance。建议数字只保留8位有效数字。 balance >= hot + cold + user。 Resesrve Ratio = (hot + cold + user) / balance
