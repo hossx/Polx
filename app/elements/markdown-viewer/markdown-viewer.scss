@@ -22,6 +22,7 @@ core-header-panel[main] {
 }
 #canvas {
     background: white;
+    height: 100%;
 }
 #title {
     font-weight: 700;
@@ -30,6 +31,7 @@ core-header-panel[main] {
     padding: 40px 0 60px 0;
     background: white;
     color: $black1;
+    display: block;
     height: 100%;
     opacity: 0;
     transition: opacity 420ms ease-out;

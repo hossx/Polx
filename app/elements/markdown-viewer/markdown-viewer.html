@@ -35,8 +35,10 @@
           <div flex id="title">{{doclinks[file].label}}</div>
         </core-toolbar>
 
-        <div id="canvas" flex center vertical layout main>
-          <marked-element id="marked" text="{{text}}"></marked-element>
+        <div id="canvas" center vertical layout main>
+          <div>
+            <marked-element id="marked" text="{{text}}"></marked-element>
+          </div>
           <cp-footer id="footer"></cp-footer>
         </div>
 

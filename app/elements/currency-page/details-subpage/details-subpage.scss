@@ -23,16 +23,15 @@
     }
     .verify {
         word-wrap: break-word;
-        margin: 10px 0;
-        background: lighten($primary, 5%);
-        border-radius: 5px;
-        padding: 10px;
+        margin-top: 10px;
         div.l {
-            color: white;
+            color: $black1;
         }
-        code {
-            color: $thirdary;
-            padding: 10px;
+        div.code {
+            background: $primary;
+            color: $secondary;
+            padding: 20px;
+            margin: 10px;
         }
     }
 }

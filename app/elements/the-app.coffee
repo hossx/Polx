@@ -21,7 +21,7 @@ class Currency
       if @isCrypto
         'CRYPTO'
       else
-        'OTHERS'
+        'NON-CRYPTO'
 
 class Market
   constructor: (@baseCurrency, @currency, @json) ->

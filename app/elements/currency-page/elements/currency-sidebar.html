@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="currency-sidebar.css">
 
     <paper-tabs id="currency-tabs" valueattr="group" selected="{{selectedGroup}}">
-      <template repeat="{{coin in currencyGroupKeys}}">
-        <paper-tab group="{{coin}}">{{coin}} CURRENCY</paper-tab>
+      <template repeat="{{g in currencyGroupKeys}}">
+        <paper-tab group="{{g}}">{{g}}</paper-tab>
       </template>
     </paper-tabs>
 
     <core-animated-pages id="pages" valueattr="group" flex selected="{{selectedGroup}}">
-      <template repeat="{{coin in currencyGroupKeys}}">
-        <section group="{{coin}}">
+      <template repeat="{{g in currencyGroupKeys}}">
+        <section group="{{g}}">
           <core-menu valueattr="currency" selected="{{currencyId}}">
             <template repeat="{{currency in config.currencyGroups[selectedGroup]}}">
             {{currency.id}}

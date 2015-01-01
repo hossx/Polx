@@ -2,19 +2,19 @@
     font-family: 'Roboto Condensed';
     font-weight: 300;
     font-style: normal;
-    src: local('RobotoCondensed-Light'), local('Roboto Condensed Light'), url(RobotoCondensed-Light.ttf);
+    src: local('RobotoCondensed-Light'), local('Roboto Condensed Light'), url('/styles/RobotoCondensed-Light.ttf');
 }
 @font-face {
     font-family: 'Roboto Condensed';
     font-weight: 400;
     font-style: normal;
-    src: local('RobotoCondensed-Regular'), local('Roboto Condensed Regular'), url(RobotoCondensed-Regular.ttf);
+    src: local('RobotoCondensed-Regular'), local('Roboto Condensed Regular'), url('/styles/RobotoCondensed-Regular.ttf');
 }
 @font-face {
     font-family: 'Roboto Condensed';
     font-weight: 700;
     font-style: normal;
-    src: local('RobotoCondensed-Bold'), local('Roboto Condensed Bold'), url(RobotoCondensed-Bold.ttf);
+    src: local('RobotoCondensed-Bold'), local('Roboto Condensed Bold'), url('/styles/RobotoCondensed-Bold.ttf');
 }
 @mixin condensed-font() {
     font-family: 'Roboto Condensed', 'Lantinghei SC', 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;

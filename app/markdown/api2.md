@@ -298,4 +298,3 @@ URL中的币ID用小写，返回值JSON中全部用大写。
 ```
 数字分别表示：hot, cold, user, balance。建议数字只保留8位有效数字。 balance >= hot + cold + user。 Resesrve Ratio = (hot + cold + user) / balance
 
----
