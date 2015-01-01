@@ -12,34 +12,25 @@
     <paper-shadow z="1">
       <a href="/#/market/{{marketId}}">
         <div cross-fade id="box" vertical center layout>
-          <div self-start horizotal layout>
-            <div id="market">
-              <core-icon id="crypto-icon"></core-icon>
-              {{marketId}}
-              <template if="{{priceUnit != null}}">
-                <span id="unit">{{priceUnit}}</span>
-              </template>
-            </div>
+          <div id="head">
+            <!--core-icon id="crypto-icon"></core-icon-->
+            {{marketId}}
+            <template if="{{priceUnit != null}}">
+              <span id="unit">{{priceUnit}}</span>
+            </template>
           </div>
-          <div horizotal layout>
-            <div id="currentPrice">{{ticker.p}}</div>
-          </div>
-          <div horizontal layout>
-            <!--div class="info" vertical layout>
-              <div>24H Low</div>
-              <div>{{lowestPrice}}</div>
+
+          <div id="stats" center-justified vertical layout>
+            <div id="general">
+              <span class="l">Last Price: </span> <span class="v">{{ticker.p}}</span>
             </div>
-            <div class="info" vertical layout>
-              <div>24H High</div>
-              <div>{{highestPrice}}</div>
-            </div-->
-            <div class="info" vertical layout>
-              <div>24H Volume</div>
-              <div>{{ticker.v}}</div>
-            </div>
-            <div class="info" vertical layout>
-              <div>24H Change</div>
-              <div>{{ticker.g | formatChange}}</div>
+            <div id="sub">
+              <div>
+                <span class="l">24H Volume:</span><span class="v">{{ticker.v}}</span>
+              </div>
+              <div>
+                <span class="l">24H Change:</span><span class="v">{{ticker.g | formatChange}}</span>
+              </div>
             </div>
           </div>
         </div>
