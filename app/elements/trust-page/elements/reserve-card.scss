@@ -28,7 +28,7 @@ a {
     padding-bottom: 10px;
     .l {
         display: inline-block;
-        color: $white2;
+        color: $white3;
         padding: 0 5px;
         min-width: 60px;
     }
@@ -40,6 +40,7 @@ a {
     #general {
         text-align: center;
         .l {
+            color: $white2;
             text-transform: uppercase;
         }
         .v {
@@ -48,11 +49,14 @@ a {
             text-align: center;
             color: $white1;
         }
-        border-bottom: solid 1px $white4;
-        padding-bottom: 10px;
-    }
-    #sub {
-        padding-top: 10px;
+        &:after {
+            content: "";
+            display: block;
+            padding-top: 10px;
+            height: 1px;
+            width: 100%;
+            border-top: solid 1px $white4;
+        }
     }
     #shortage {
         &.short {
