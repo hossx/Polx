@@ -1,0 +1,17 @@
+@import "../_colors";
+:host {
+    display: inline-block;
+    background: $secondary;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 10px;
+}
+#icon {
+    color: white;
+    height: 12px;
+    width: 12px;
+    padding-right: 5px;
+}
+#addr {
+    font-family: monospace;
+}

@@ -2,22 +2,48 @@
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../../../bower_components/marked-element/marked-element.html">
 <link rel="import" href="../../section-group/section-group.html">
+<link rel="import" href="../../crypto-address/crypto-address.html">
 
-<polymer-element name="details-subpage" attributes="currency" noscript flex>
+<polymer-element name="details-subpage" attributes="currency" flex>
   <template>
     <link rel="stylesheet" href="details-subpage.css">
-    <core-ajax url="../markdown/currency-{{currency.id}}.md" response="{{text}}" auto></core-ajax>
+    <core-ajax url="../markdown/currency-{{currency.id}}.md" response="{{wiki}}" auto></core-ajax>
+    <core-ajax url="{{detailsUrl}}" response="{{details}}" auto></core-ajax>
     <section-group>
-      <template if="{{text !== ''}}">
+      <template if="{{wiki !== ''}}">
         <paper-shadow>
           <div>
-            <marked-element id="marked" text="{{text}}"></marked-element>
+            <marked-element id="marked" text="{{wiki}}"></marked-element>
           </div>
         </paper-shadow>
       </template>
 
+      <div>Reserve Stats</div>
       <paper-shadow>
-        <div>{{currency.fullName}}</div>
+        <div>
+          <template repeat="{{group in details.reserves}}">
+            <div class="group">
+
+              <template repeat="{{data in group.addresses}}">
+
+                <div class="data" vertical layout>
+                  <div horizontal layout>
+                    <div flex>
+                      <crypto-address currency="{{currency}}" addr="{{data[0]}}"></crypto-address> <span class="label {{group.label}}"></core-icon>[{{group.label}}]</span>
+                    </div>
+                    <div class="balance">{{data[1]}} {{currency.unit}}</div>
+                  </div>
+                  <div class="verify" vertical layout>
+                    <div class="l">Signed Message:</div>
+                    <code> {{data[2]}}</code>
+                    <div class="l">Signature:</div>
+                    <code>{{data[3]}} </code>
+                  </div>
+                </div>
+              </template>
+            </div>
+          </template>
+        </div>
       </paper-shadow>
 
     </section-group>
