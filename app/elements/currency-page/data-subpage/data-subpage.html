@@ -12,9 +12,9 @@
 
     <section-group>
       <core-ajax id="txsAjax" url="{{txsUrl}}" response="{{response}}" auto></core-ajax>
+      <div label>{{currency.name}} Transactions</div>
       <paper-shadow>
         <div class="card" vertical center layout>
-          <h2>{{currency.name}} Transactions</h2>
           <p>The following blockchain transactions involve our {{currency.name}} addresses.</p>
           <table>
             <thead>
@@ -52,10 +52,10 @@
 
       </paper-shadow>
 
+      <div label>{{currency.name}} Distributation Snapshots</div>
       <paper-shadow>
         <core-ajax id="snapshotAjax" url="{{snapshotUrl}}" response="{{snapshotResponse}}" auto></core-ajax>
         <div class="card" vertical center layout>
-          <h2>{{currency.name}} Distributation Snapshots</h2>
           <p>The following files capture our {{currency.name}} distribution among all our users at certain time.</p>
           <table>
             <thead>
@@ -70,7 +70,8 @@
                 <tr>
                   <td>{{snapshot[1]}}</td>
                   <td>
-                    <a href="{{snapshot[2]}} | formatFileUrl}}"><core-icon class="small" icon="file-download"></core-icon>{{snapshot[2]}}</a>
+                    <a href="{{snapshot[2]}} | formatFileUrl}}">
+                      <core-icon class="small" icon="file-download"></core-icon>{{snapshot[2]}}</a>
                   </td>
                   <td>{{snapshot[3]}}</td>
                 </tr>
