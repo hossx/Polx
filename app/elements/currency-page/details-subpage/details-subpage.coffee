@@ -8,4 +8,3 @@ Polymer 'details-subpage',
     @detailsUrl = window.protocol.currencyDetailsUrl(@currency)
 
   detailsChanged: (o, n) ->
-    console.debug(@details)
