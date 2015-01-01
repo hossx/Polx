@@ -19,12 +19,12 @@
           <table>
             <thead>
               <tr>
-                <td>Timestamp</td>
-                <td>User ID</td>
-                <td>Type</td>
-                <td>Amount</td>
-                <td>{{currency.id}} Address</td>
-                <td>{{currency.id}} Transaction</td>
+                <th>Timestamp</th>
+                <th>User ID</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>{{currency.id}} Address</th>
+                <th>{{currency.id}} Transaction</th>
               </tr>
             </thead>
             <tbody>
@@ -49,7 +49,6 @@
           </table>
           <paper-button class="load-button" disabled?="{{!hasMore}}" on-tap="{{loadMoreTxs}}">Load more</paper-button>
         </div>
-
       </paper-shadow>
 
       <div label>{{currency.name}} Distributation Snapshots</div>
@@ -60,9 +59,9 @@
           <table>
             <thead>
               <tr>
-                <td>Timestamp</td>
-                <td>File</td>
-                <td>Size</td>
+                <th>Timestamp</th>
+                <th>File</th>
+                <th>Size</th>
               </tr>
             </thead>
             <tbody>
