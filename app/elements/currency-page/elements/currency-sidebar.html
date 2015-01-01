@@ -1,0 +1,31 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../../../bower_components/core-menu/core-menu.html">
+<link rel="import" href="../../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="currency-sidebar-item.html">
+
+<polymer-element name="currency-sidebar" vertical layout attributes="currencyId">
+  <template>
+    <link rel="stylesheet" href="currency-sidebar.css">
+
+    <paper-tabs id="currency-tabs" valueattr="group" selected="{{selectedGroup}}">
+      <template repeat="{{coin in currencyGroupKeys}}">
+        <paper-tab group="{{coin}}">{{coin}} CURRENCY</paper-tab>
+      </template>
+    </paper-tabs>
+
+    <core-animated-pages id="pages" valueattr="group" flex selected="{{selectedGroup}}">
+      <template repeat="{{coin in currencyGroupKeys}}">
+        <section group="{{coin}}">
+          <core-menu valueattr="currency" selected="{{currencyId}}">
+            <template repeat="{{currency in config.currencyGroups[selectedGroup]}}">
+            {{currency.id}}
+              <currency-sidebar-item active?="{{currencyId===currency.id}}" currency="{{currency}}"></currency-sidebar-item>
+            </template>
+          </core-menu>
+        </section>
+      </template>
+    </core-animated-pages>
+  </template>
+  <script src="currency-sidebar.js"></script>
+</polymer-element>

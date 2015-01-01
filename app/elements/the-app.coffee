@@ -15,7 +15,13 @@ class Currency
         @id
     @name = @json.name
     @fee = new CurrencyFee @json.fee
-    @fullName = @name + "/" + @id
+    @fullName = @name + " / " + @id
+    @isCrypto = not @json.notCripto
+    @group =
+      if @isCrypto
+        'CRYPTO'
+      else
+        'OTHERS'
 
 class Market
   constructor: (@baseCurrency, @currency, @json) ->
@@ -58,8 +64,15 @@ Polymer 'the-app',
 
   processCurrenciesAndMarkets: () ->
     currencies = {}
-    currencies[k] = new Currency(k, v) for k, v of window.config.currencies
-    config.currencies = currencies
+    currencyGroups = {}
+    for k, v of window.config.currencies
+      c = new Currency(k, v) 
+      currencies[k] = c
+      currencyGroups[c.group] = [] if not currencyGroups[c.group]
+      currencyGroups[c.group].push c
+
+    window.config.currencies = currencies
+    window.config.currencyGroups = currencyGroups
 
     markets = {}
     marketGroups = {}
