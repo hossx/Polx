@@ -4,27 +4,23 @@
     height: 100%;
     color: $black1;
 }
-a {
-    color: $black1;
-    text-decoration: none;
-    &:hover {
-        color: $secondary;
-        text-decoration: underline;
-        core-icon.small {
+.card {
+    a {
+        color: $black1;
+        text-decoration: none;
+        &:hover {
             color: $secondary;
+            text-decoration: underline;
+            core-icon.small {
+                color: $secondary;
+            }
         }
-    }
-    core-icon.small {
-        height: 16px;
-        width: 16px;
-        padding-right: 10px;
-        color: transparent;
-    }
-}
-crypto-address {
-    background: $black2;
-    &:hover {
-        background: $secondary;
+        core-icon.small {
+            height: 16px;
+            width: 16px;
+            padding-right: 10px;
+            color: transparent;
+        }
     }
 }
 table {

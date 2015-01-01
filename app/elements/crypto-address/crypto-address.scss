@@ -1,12 +1,15 @@
 @import "../_colors";
 :host {
     display: inline-block;
-    background: $primary;
+    background: $thirdary; 
     color: white;
     padding: 3px 8px;
     border-radius: 10px;
     font-size: 10px;
     font-weight: 500;
+}
+:host(:hover) {
+    background: $secondary;
 }
 #icon {
     color: white;

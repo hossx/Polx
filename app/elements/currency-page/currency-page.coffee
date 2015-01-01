@@ -5,7 +5,7 @@ Polymer 'currency-page',
   ready: () ->
     @currencyId = ''
     @currency = null
-    @tab = 1
+    @tab = 0
     @config = window.config
 
   currencyIdChanged: (o, n) ->
