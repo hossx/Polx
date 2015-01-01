@@ -36,8 +36,8 @@
           </a>
           <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
           <div flex id="currency-title">{{currency.fullName}}</div>
-          <core-icon-button class="btn" smallup?="{{smallup}}" active?="{{tab === 0}}" on-tap="{{switchTab0}}" icon="swap-horiz"></core-icon-button>
-          <core-icon-button class="btn" smallup?="{{smallup}}" active?="{{tab === 1}}" on-tap="{{switchTab1}}" icon="trending-up"></core-icon-button>
+          <core-icon-button class="btn" smallup?="{{smallup}}" active?="{{tab === 0}}" on-tap="{{switchTab0}}" icon="info"></core-icon-button>
+          <core-icon-button class="btn" smallup?="{{smallup}}" active?="{{tab === 1}}" on-tap="{{switchTab1}}" icon="cloud-download"></core-icon-button>
         </core-toolbar>
 
         <div id="canvas" flex vertical layout main>
@@ -52,10 +52,10 @@
           </core-animated-pages>
           <paper-tabs id="nav-tabs" selected="{{tab}}" smallup?="{{smallup}}">
             <paper-tab>
-              <core-icon icon="swap-horiz"></core-icon>
+              <core-icon icon="info"></core-icon>
             </paper-tab>
             <paper-tab>
-              <core-icon icon="trending-up"></core-icon>
+              <core-icon icon="cloud-download"></core-icon>
             </paper-tab>
           </paper-tabs>
       </core-header-panel>
