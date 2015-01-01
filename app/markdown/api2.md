@@ -298,3 +298,64 @@ URL中的币ID用小写，返回值JSON中全部用大写。
 ```
 数字分别表示：hot, cold, user, balance。建议数字只保留8位有效数字。 balance >= hot + cold + user。 Resesrve Ratio = (hot + cold + user) / balance
 
+---
+
+## /api/currency/txs/[currencyId]
+读取特定币种与平台相关的blockchain转账记录列表。
+
+- /api/currency/txs/btc?limit=50 读取btc详细数据
+- /api/currency/txs/btc?cursor=1121321&limit=50 读取btc详细数据
+
+####返回值
+```
+{
+  "timestamp": "12/12/12",
+  "currency": "BTC",
+  "hasMore": true,
+  "txs": [
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"]
+  ]
+}
+
+---
+
+## /api/currency/snapshots/[currencyId]
+读取特定币种的资产分布snapshot列表。
+
+- /api/currency/snapshots/btc?limit=50 读取btc详细数据
+- /api/currency/snapshots/btc?cursor=1121321&limit=50 读取btc详细数据
+
+####返回值
+```
+{
+  "timestamp": "12/12/12",
+  "currency": "BTC",
+  "hasMore": true,
+  "snapshots": [
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311],
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311],
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311],
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311],
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311],
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311],
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311],
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311],
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311],
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311],
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311],
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311]
+  ]
+}
+```
