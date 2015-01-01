@@ -53,6 +53,9 @@ a {
         #sub {
             padding-top: 10px;
         }
+        #shortage.short {
+            opacity: 0;
+        }
         #shortage .v {
             color: $secondary;
         }
