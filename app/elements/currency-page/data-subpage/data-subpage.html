@@ -2,18 +2,20 @@
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../../../bower_components/marked-element/marked-element.html">
 <link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="../../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../crypto-address/crypto-address.html">
 
 <polymer-element name="data-subpage" attributes="currency" flex>
   <template>
     <link rel="stylesheet" href="data-subpage.css">
-    <core-ajax id="ajax" url="{{txsUrl}}" response="{{response}}" auto></core-ajax>
 
     <section-group>
+      <core-ajax id="txsAjax" url="{{txsUrl}}" response="{{response}}" auto></core-ajax>
       <paper-shadow>
-        <div>{{currency.fullName}}</div>
-        <div id="list" vertical center layout>
+        <div vertical center layout>
+          <h2>{{currency.name}} Transactions</h2>
+          <p>The following blockchain transactions involve our {{currency.name}} addresses.</p>
           <table>
             <thead>
               <tr>
@@ -45,7 +47,37 @@
               </template>
             </tbody>
           </table>
-          <paper-button id="load-button" disabled?="{{!response.hasMore}}" on-tap="{{loadMore}}">Load more</paper-button>
+          <paper-button class="load-button" disabled?="{{!hasMore}}" on-tap="{{loadMoreTxs}}">Load more</paper-button>
+        </div>
+
+      </paper-shadow>
+
+      <paper-shadow>
+        <core-ajax id="snapshotAjax" url="{{snapshotUrl}}" response="{{snapshotResponse}}" auto></core-ajax>
+        <div vertical center layout>
+          <h2>{{currency.name}} Distributation Snapshots</h2>
+          <p>The following files capture our {{currency.name}} distribution among all our users at certain time.</p>
+          <table>
+            <thead>
+              <tr>
+                <td>Timestamp</td>
+                <td>File</td>
+                <td>Size</td>
+              </tr>
+            </thead>
+            <tbody>
+              <template repeat="{{snapshot in snapshots}}">
+                <tr>
+                  <td>{{snapshot[1]}}</td>
+                  <td>
+                    <a href="{{snapshot[2]}} | formatFileUrl}}"><core-icon class="small" icon="file-download"></core-icon>{{snapshot[2]}}</a>
+                  </td>
+                  <td>{{snapshot[3]}}</td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+          <paper-button class="load-button" disabled?="{{!hasMoreSnapshots}}" on-tap="{{loadMoreSnapshots}}">Load more</paper-button>
         </div>
 
       </paper-shadow>

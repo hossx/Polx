@@ -10,6 +10,15 @@ a {
     &:hover {
         color: $secondary;
         text-decoration: underline;
+        core-icon.small {
+            color: $secondary;
+        }
+    }
+    core-icon.small {
+        height: 16px;
+        width: 16px;
+        padding-right: 10px;
+        color: transparent;
     }
 }
 crypto-address {
@@ -35,7 +44,7 @@ tr {
 td, th {
     padding: 10px;
 }
-#load-button {
+.load-button {
     padding: 5px 20px;
     background: transparent;
     color: $black2;
