@@ -1,0 +1,22 @@
+@import "../../_colors";
+#currency-tabs {
+    font-size: 13px;
+    font-weight: 500px;
+    &::shadow {
+        #tabsContainer {
+            background: $primary;
+            color: white;
+        }
+        #selectionBar {
+            background-color: $secondary;
+        }
+    }
+    >paper-tab::shadow #ink {
+        color: $secondary;
+    }
+}
+#pages {
+    core-menu {
+        background: lighten($primary,5%);
+    }
+}

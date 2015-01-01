@@ -15,7 +15,13 @@ class Currency
         @id
     @name = @json.name
     @fee = new CurrencyFee @json.fee
-    @fullName = @name + "/" + @id
+    @fullName = @name + " / " + @id
+    @isCrypto = not @json.notCripto
+    @group =
+      if @isCrypto
+        'CRYPTO'
+      else
+        'OTHERS'
 
 class Market
   constructor: (@baseCurrency, @currency, @json) ->
@@ -58,8 +64,15 @@ Polymer 'the-app',
 
   processCurrenciesAndMarkets: () ->
     currencies = {}
-    currencies[k] = new Currency(k, v) for k, v of window.config.currencies
-    config.currencies = currencies
+    currencyGroups = {}
+    for k, v of window.config.currencies
+      c = new Currency(k, v) 
+      currencies[k] = c
+      currencyGroups[c.group] = [] if not currencyGroups[c.group]
+      currencyGroups[c.group].push c
+
+    window.config.currencies = currencies
+    window.config.currencyGroups = currencyGroups
 
     markets = {}
     marketGroups = {}
@@ -79,11 +92,8 @@ Polymer 'the-app',
       tickerUrl: (coin) -> "%s/api/m/ticker/%s".format(@base, coin.toLowerCase())
       depthUrl: (market) ->  "%s/api/m/%s/depth".format(@base, market.toLowerCase())
       transactionUrl: (market) ->  "%s/api/%s/transaction".format(@base, market.toLowerCase())
-      reservesUrl: (coin) -> 'api_mock_reserves.json'
-      #  if coin
-      #    "%s/api/open/reserve/%s".format(@base, coin.toLowerCase())
-      #  else
-      #    "%s/api/open/reserves".format(@base)
+      currencyStatsUrl: () -> 'api_mock_currency_stats.json'
+      currencyDetailsUrl: (coin) -> 'api_mock_currency_details.json'
 
 
   processDocuments: (config) ->

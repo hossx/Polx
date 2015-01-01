@@ -3,7 +3,7 @@
     "CNY": {
       "name": "Chinese Yuan",
       "color": "red",
-      "fiat": true,
+      "notCripto": true,
       "fee": {
         "deposit": {
           "c": 0.3,
@@ -30,7 +30,6 @@
       }
     },
     "LTC": {
-
       "name": "Litecoin",
       "color": "#f2f000",
       "officialSite": "http://litcoin.org",
@@ -77,6 +76,7 @@
       "name": "Ripple"
     },
     "GOOC": {
+      "notCripto": true,
       "name": "谷壳"
     }
   },
@@ -204,7 +204,8 @@
     "dong": {
       "label": "Daniel's Developer Notes",
       "tags": ["developer"]
-    },"api2": {
+    },
+    "api2": {
       "label": "API 2.0 Brainstorming",
       "tags": ["developer"]
     }

@@ -24,9 +24,6 @@
         values: 'updateChart',
         labels: 'updateChart'
       },
-      domReady: function() {
-        console.log("ready");
-      },
       updateChart: function() {
         if (this.height > 0 && this.width > 0 && this.labels !== null && this.colors !== null && this.values !== null) {
           this.$.parent.innerHTML = '<canvas id="canvas" width="' + this.width + '" height="' + this.height + '"></canvas>';

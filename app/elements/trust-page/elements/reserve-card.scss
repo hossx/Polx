@@ -16,44 +16,53 @@ a {
     &:hover {
         background: lighten($primary, 10%);
     }
-    #head {
-        color: $secondary;
-        font-weight: 500;
-        font-size: 16px;
-        text-align: center;
-        padding: 10px 0;
+}
+#head {
+    color: $secondary;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    padding: 10px 0;
+}
+#stats {
+    padding-bottom: 10px;
+    .l {
+        display: inline-block;
+        color: $white3;
+        padding: 0 5px;
+        min-width: 60px;
     }
-    #stats {
-        padding-bottom: 10px;
+    .v {
+        font-weight: 500;
+        color: $thirdary;
+        padding: 0 5px;
+    }
+    #general {
+        text-align: center;
         .l {
-            display: inline-block;
             color: $white2;
-            padding: 0 5px;
-            min-width: 60px;
+            text-transform: uppercase;
         }
         .v {
-            font-weight: 500;
-            color: $thirdary;
-            padding: 0 5px;
-        }
-        #general {
+            font-size: 28px;
+            font-weight: 100;
             text-align: center;
-            .l {
-                text-transform: uppercase;
-            }
-            .v {
-                font-size: 28px;
-                font-weight: 100;
-                text-align: center;
-                color: $white1;
-            }
-            border-bottom: solid 1px $white4;
-            padding-bottom: 10px;
+            color: $white1;
         }
-        #sub {
+        &:after {
+            content: "";
+            display: block;
             padding-top: 10px;
+            height: 1px;
+            width: 100%;
+            border-top: solid 1px $white4;
         }
-        #shortage .v {
+    }
+    #shortage {
+        &.short {
+            opacity: 0;
+        }
+        .v {
             color: $secondary;
         }
     }

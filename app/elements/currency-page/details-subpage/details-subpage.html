@@ -1,0 +1,26 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="../../../bower_components/marked-element/marked-element.html">
+<link rel="import" href="../../section-group/section-group.html">
+
+<polymer-element name="details-subpage" attributes="currency" noscript flex>
+  <template>
+    <link rel="stylesheet" href="details-subpage.css">
+    <core-ajax url="../markdown/currency-{{currency.id}}.md" response="{{text}}" auto></core-ajax>
+    <section-group>
+      <template if="{{text !== ''}}">
+        <paper-shadow>
+          <div>
+            <marked-element id="marked" text="{{text}}"></marked-element>
+          </div>
+        </paper-shadow>
+      </template>
+
+      <paper-shadow>
+        <div>{{currency.fullName}}</div>
+      </paper-shadow>
+
+    </section-group>
+  </template>
+  <script src="details-subpage.js"></script>
+</polymer-element>
