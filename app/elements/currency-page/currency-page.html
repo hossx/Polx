@@ -12,12 +12,11 @@
 <link rel="import" href="../cp-globals/cp-globals.html">
 <link rel="import" href="../cp-icons/crypto-icons.html">
 <link rel="import" href="../cp-media-query/cp-media-query.html">
-<link rel="import" href="../cp-footer/cp-footer.html">
 <link rel="import" href="elements/currency-sidebar.html">
 <link rel="import" href="details-subpage/details-subpage.html">
 <link rel="import" href="data-subpage/data-subpage.html">
 
-<polymer-element name="currency-page" attributes="currencyId">
+<polymer-element name="currency-page" attributes="currencyId,tab">
   <template>
     <link rel="stylesheet" href="currency-page.css">
 
@@ -41,7 +40,6 @@
         </core-toolbar>
 
         <div id="canvas" flex vertical layout main>
-
           <core-animated-pages fit selected="{{tab}}" transitions="slide-from-right">
             <section>
               <details-subpage currency="{{currency}}" active="{{tab===0}}" fit></details-subpage>

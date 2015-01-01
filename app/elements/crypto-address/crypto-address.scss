@@ -1,0 +1,20 @@
+@import "../_colors";
+:host {
+    display: inline-block;
+    background: $thirdary; 
+    color: white;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 500;
+}
+:host(:hover) {
+    background: $secondary;
+}
+#icon {
+    color: white;
+    height: 12px;
+    width: 12px;
+    padding-right: 5px;
+}
+#addr {}

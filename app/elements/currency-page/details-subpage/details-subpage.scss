@@ -3,27 +3,41 @@
     display: block;
     height: 100%;
 }
-#top-container {
-    padding-top: 40px;
-    padding-bottom: 60px;
-    > paper-shadow {
-        margin: 5px 0;
+.label {
+    padding-left: 20px;
+    &.cold {
+        color: color($light-blue, 500);
     }
-    .card {
-        padding: 5px;
-        background: white;
+    &.hot {
+        color: color($orange, 500);
     }
 }
-
-@media (min-width: 768px) {
-    #top-container {
-        max-width: 768px;
-        padding-bottom: 80px;
-        > paper-shadow {
-            margin: 10px 0;
+.data {
+    padding: 20px;
+    border-bottom: solid 1px $black4;
+    &:last-of-type {
+        border-bottom: none;
+    }
+    .balance {
+        font-weight: 500;
+    }
+    .verify {
+        word-wrap: break-word;
+        margin-top: 10px;
+        div.l {
+            color: $black1;
         }
-        .card {
+        div.code {
+            background: $primary;
+            color: $secondary;
             padding: 20px;
+            margin: 10px;
         }
     }
+}
+crypto-address.hot {
+    background: color($orange, 500);
+}
+crypto-address.cold {
+    background: color($blue, 500);
 }

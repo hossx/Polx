@@ -1,6 +1,11 @@
 'use strict'
 
 Polymer 'details-subpage',
-  ready: () ->
-    @url = window.protocol.currencyDetailsUrl(@currency)
-    console.log(@detailsUrl)
+  wiki: ''
+  details: null
+  detailsUrl: ''
+
+  currencyChanged: () ->
+    @detailsUrl = window.protocol.currencyDetailsUrl(@currency.id)
+
+  detailsChanged: (o, n) ->

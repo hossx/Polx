@@ -2,4 +2,52 @@
 :host {
     display: block;
     height: 100%;
+    color: $black1;
+}
+.card {
+    a {
+        color: $black1;
+        text-decoration: none;
+        &:hover {
+            color: $secondary;
+            text-decoration: underline;
+            core-icon.small {
+                color: $secondary;
+            }
+        }
+        core-icon.small {
+            height: 16px;
+            width: 16px;
+            padding-right: 10px;
+            color: transparent;
+        }
+    }
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+thead {
+    background: $primary;
+    color: white;
+    font-weight: 500;
+}
+tr {
+    &:nth-child(even) {
+        background-color: $magic-grey;
+    }
+}
+td, th {
+    padding: 10px;
+}
+.load-button {
+    padding: 5px 20px;
+    background: transparent;
+    color: $black2;
+    &:hover {
+        color: $secondary;
+    }
+    &[disabled] {
+        color: $black4;
+    }
 }

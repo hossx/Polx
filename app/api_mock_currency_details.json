@@ -1,0 +1,22 @@
+{
+  "timestamp": "12/12/12",
+  "currency": "BTC",
+  "stats": [10, 20, 70, 99],
+  "reserves": [{
+    "label": "cold",
+    "addresses": [
+      ["1N9eMy14zYA6H7Rpn7dpErxgmdbjLk6iW4", 12.1121, "coinport", "H5mC9Q4ILstd0PxROJn/gEDjutY7HIW8zZ9EmpMcTikvOrP0VeGWQI8iMIuQu2ByChF+uc0gLelHl49Bi9e+Y1M="],
+      ["1N9eMy14zYA6H7Rpn7dpErxgmdbjLk6iW4", 12.1121, "coinport", "H5mC9Q4ILstd0PxROJn/gEDjutY7HIW8zZ9EmpMcTikvOrP0VeGWQI8iMIuQu2ByChF+uc0gLelHl49Bi9e+Y1M="],
+      ["1N9eMy14zYA6H7Rpn7dpErxgmdbjLk6iW4", 12.1121, "coinport", "H5mC9Q4ILstd0PxROJn/gEDjutY7HIW8zZ9EmpMcTikvOrP0VeGWQI8iMIuQu2ByChF+uc0gLelHl49Bi9e+Y1M="],
+      ["1N9eMy14zYA6H7Rpn7dpErxgmdbjLk6iW4", 12.1121, "coinport", "H5mC9Q4ILstd0PxROJn/gEDjutY7HIW8zZ9EmpMcTikvOrP0VeGWQI8iMIuQu2ByChF+uc0gLelHl49Bi9e+Y1M="],
+      ["1N9eMy14zYA6H7Rpn7dpErxgmdbjLk6iW4", 12.1121, "coinport", "H5mC9Q4ILstd0PxROJn/gEDjutY7HIW8zZ9EmpMcTikvOrP0VeGWQI8iMIuQu2ByChF+uc0gLelHl49Bi9e+Y1M="],
+      ["1N9eMy14zYA6H7Rpn7dpErxgmdbjLk6iW4", 12.1121, "coinport", "H5mC9Q4ILstd0PxROJn/gEDjutY7HIW8zZ9EmpMcTikvOrP0VeGWQI8iMIuQu2ByChF+uc0gLelHl49Bi9e+Y1M="]
+    ]
+  }, {
+    "label": "hot",
+    "addresses": [
+      ["1N9eMy14zYA6H7Rpn7dpErxgmdbjLk6iW4", 12.1121, "coinport", "H5mC9Q4ILstd0PxROJn/gEDjutY7HIW8zZ9EmpMcTikvOrP0VeGWQI8iMIuQu2ByChF+uc0gLelHl49Bi9e+Y1M="],
+      ["1N9eMy14zYA6H7Rpn7dpErxgmdbjLk6iW4", 12.1121, "coinport", "H5mC9Q4ILstd0PxROJn/gEDjutY7HIW8zZ9EmpMcTikvOrP0VeGWQI8iMIuQu2ByChF+uc0gLelHl49Bi9e+Y1M="]
+    ]
+  }]
+}

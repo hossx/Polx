@@ -21,7 +21,7 @@ class Currency
       if @isCrypto
         'CRYPTO'
       else
-        'OTHERS'
+        'NON-CRYPTO'
 
 class Market
   constructor: (@baseCurrency, @currency, @json) ->
@@ -94,6 +94,8 @@ Polymer 'the-app',
       transactionUrl: (market) ->  "%s/api/%s/transaction".format(@base, market.toLowerCase())
       currencyStatsUrl: () -> 'api_mock_currency_stats.json'
       currencyDetailsUrl: (coin) -> 'api_mock_currency_details.json'
+      currencyTxsUrl: (coin) -> 'api_mock_currency_txs.json'
+      currencySnapshotsUrl: (coin) -> 'api_mock_currency_snapshots.json'
 
 
   processDocuments: (config) ->

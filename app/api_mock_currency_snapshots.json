@@ -1,0 +1,19 @@
+{
+  "timestamp": "12/12/12",
+  "currency": "BTC",
+  "hasMore": true,
+  "snapshots": [
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311],
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311],
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311],
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311],
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311],
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311],
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311],
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311],
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311],
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311],
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311],
+    [123456, "01-01 15:06:00", "file-aaf-fafaf.json", 121311]
+  ]
+}
