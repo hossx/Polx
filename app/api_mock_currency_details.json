@@ -1,6 +1,6 @@
 {
   "timestamp": "12/12/12",
-  "id": "BTC",
+  "currency": "BTC",
   "stats": [10, 20, 70, 99],
   "reserves": [{
     "label": "cold",

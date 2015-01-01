@@ -3,8 +3,9 @@
 Polymer 'details-subpage',
   wiki: ''
   details: null
+  detailsUrl: ''
 
-  ready: () ->
-    @detailsUrl = window.protocol.currencyDetailsUrl(@currency)
+  currencyChanged: () ->
+    @detailsUrl = window.protocol.currencyDetailsUrl(@currency.id)
 
   detailsChanged: (o, n) ->

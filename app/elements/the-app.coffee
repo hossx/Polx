@@ -94,6 +94,7 @@ Polymer 'the-app',
       transactionUrl: (market) ->  "%s/api/%s/transaction".format(@base, market.toLowerCase())
       currencyStatsUrl: () -> 'api_mock_currency_stats.json'
       currencyDetailsUrl: (coin) -> 'api_mock_currency_details.json'
+      currencyTxsUrl: (coin) -> 'api_mock_currency_txs.json'
 
 
   processDocuments: (config) ->
