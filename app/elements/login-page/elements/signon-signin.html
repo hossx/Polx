@@ -1,37 +1,39 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../../../bower_components/core-label/core-label.html">
 <link rel="import" href="../../../bower_components/paper-input/paper-input-decorator.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/paper-checkbox/paper-checkbox.html">
 
-<polymer-element name="signon-signin" noscript attributes="">
+<polymer-element name="signon-signin" noscript attributes="tab">
   <template>
     <link rel="stylesheet" href="signon-signin.css">
 
     <core-animated-pages id="pages" selected="{{tab}}" transitions="slide-from-right">
       <section>
-      <div class="container" vertical layout>
-        <div id="title">Member Login</div>
-        <div id="inner" vertical layout>
-          <paper-input-decorator class="input" label="Email" floatingLabel>
-            <input is="core-input">
-          </paper-input-decorator required>
-          <paper-input-decorator class="input" label="Password" floatingLabel>
-            <input is="core-input" type="password">
-          </paper-input-decorator required>
-        </div>
-        <div id="action" vertical layout>
-          <paper-button id="login">Login</paper-button>
-        </div>
+        <div class="container" vertical layout>
+          <div id="title">Member Login</div>
+          <div id="inner" vertical layout>
+            <paper-input-decorator class="input" label="Email" floatingLabel>
+              <input is="core-input">
+            </paper-input-decorator required>
+            <paper-input-decorator class="input" label="Password" floatingLabel>
+              <input is="core-input" type="password">
+            </paper-input-decorator required>
+          </div>
 
-        <div id="options" horizontal center-justified layout>
-          <div>Open an account?</div>
-          <div>Forgot your password?</div>
-        </div>
+          <div id="action" vertical layout>
+            <paper-button id="login">Login</paper-button>
+          </div>
+
+          <div id="options" horizontal center-justified layout>
+            <div>Open an account?</div>
+            <div>Forgot your password?</div>
+          </div>
         </div>
       </section>
 
       <section>
-      <div class="container" vertical layout>
         <div id="title">Member Login</div>
         <div id="inner" vertical layout>
           <paper-input-decorator class="input" label="Email" floatingLabel>
@@ -40,13 +42,26 @@
           <paper-input-decorator class="input" label="Password" floatingLabel>
             <input is="core-input" type="password">
           </paper-input-decorator required>
+
+          <paper-input-decorator class="input" label="Confirm Password" floatingLabel>
+            <input is="core-input" type="password">
+          </paper-input-decorator required>
         </div>
+
+        <div id="agree" center vertical layout>
+          <core-label center horizontal layout>
+            <paper-checkbox class="checkbox" for></paper-checkbox>
+            <div> I agree to the <a href="/#/doc/tos" target="_blank">Terms of Service</a>
+            </div>
+          </core-label>
+        </div>
+
         <div id="action" vertical layout>
           <paper-button id="login">Login</paper-button>
         </div>
 
         <div id="options" horizontal center-justified layout>
-          <div>Open an account?</div>
+          <div>Login</div>
           <div>Forgot your password?</div>
         </div>
         </div>

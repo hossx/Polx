@@ -1,17 +1,16 @@
 @import "../../_colors";
 :host {
     display: block;
-    background:white;
+    background: white;
 }
 .container {
     background: white;
     color: $primary;
 }
-
 #pages {
     width: 300px;
-    height: 360px;
-    background:white;
+    height: 460px;
+    background: white;
 }
 #title {
     $color: $black2;
@@ -22,6 +21,24 @@
 #inner {
     background: lighten($primary, 5%);
     padding: 0 40px;
+}
+#agree {
+    padding: 20px;
+    a {
+        color: $thirdary;
+    }
+    .checkbox {
+        color: $secondary;
+        padding-right: 20px;
+        &::shadow {
+            #ink[checked] {
+                color: $secondary;
+            }
+            #checkbox.checked {
+                border-color: $secondary;
+            }
+        }
+    }
 }
 #action {
     padding: 20px 35px;
