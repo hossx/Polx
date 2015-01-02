@@ -21,7 +21,7 @@
         <content select="#sidebar"></content>
       </core-header-panel>
 
-      <core-header-panel mode="seamed" main>
+      <core-header-panel mode="seamed" main >
         <core-toolbar class="core-header" id="toolbar">
           <a href="{{backlink}}">
             <paper-icon-button icon="arrow-back"></paper-icon-button>
@@ -39,7 +39,7 @@
           </core-animated-pages>
 
           <paper-tabs id="nav-tabs" selected="{{tab}}">
-            <template repeat="{{icon,idx in icons}}">
+            <template repeat="{{icon in icons}}">
               <paper-tab>
                 <core-icon icon="{{icon}}"></core-icon>
               </paper-tab>

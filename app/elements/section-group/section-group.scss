@@ -63,3 +63,17 @@
         }
     }
 }
+:host-context([light]) {
+    background: $magic-grey;
+    color: $black1;
+    ::content {
+        div[label] {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 20px;
+            font-weight: 500;
+            color: $black2;
+            text-transform: uppercase;
+        }
+    }
+}

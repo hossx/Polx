@@ -1,5 +1,7 @@
 @import "../_colors";
-
+:host {
+    box-sizing: border-box;
+}
 #drawer {
     background: lighten($primary, 5%);
     padding: 0;
