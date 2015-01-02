@@ -1,15 +1,11 @@
 @import "../_colors";
 :host {
     box-sizing: border-box;
-    display: block;
-    over-flow: scrool;
-    height: 100%;
 }
-
 #footer {
     display: none;
 }
-@media(min-width: 768px) {
+@media(min-width: 769px) {
     #footer {
         display: inherit;
     }

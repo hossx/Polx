@@ -5,14 +5,10 @@
 <polymer-element name="home-page" noscript attributes="">
   <template>
     <link rel="stylesheet" href="home-page.css">
-
-    <cp-page>
-      <div id="page-content" flex vertical layout>
-        <div id="branding" vertical center center-justified layout>
-          <div id="name">Coinport</div>
-          <div id="slogan">Crypto-Asset Exchange for Cool People Like You</div>
-        </div>
-        <cp-footer id="footer" self-center></cp-footer>
+    <cp-page has-toolbar has-footer>
+      <div id="branding" vertical center center-justified layout>
+        <div id="name">Coinport</div>
+        <div id="slogan" >Crypto-Asset Exchange for Cool People Like You</div>
       </div>
     </cp-page>
   </template>

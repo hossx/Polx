@@ -12,32 +12,44 @@
         color: color($orange, 500);
     }
 }
-.data {
-    padding: 20px;
-    border-bottom: solid 1px $black4;
-    &:last-of-type {
-        border-bottom: none;
-    }
-    .balance {
-        font-weight: 500;
-    }
-    .verify {
-        word-wrap: break-word;
-        margin-top: 10px;
-        div.l {
-            color: $black1;
-        }
-        div.code {
-            background: $primary;
-            color: $secondary;
-            padding: 20px;
-            margin: 10px;
-        }
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+thead {
+    background: $black4;
+    color: $black1;
+    font-weight: 500;
+}
+tbody {
+    tr:hover {
+        background: $magic-grey;
     }
 }
-crypto-address.hot {
-    background: color($orange, 500);
+td {
+    border-bottom: solid 1px $magic-grey;
+    vertical-align: top;
 }
-crypto-address.cold {
-    background: color($blue, 500);
+td, th {
+    padding: 10px;
+}
+.msg, .sig {
+    font-family: monospace;
+    font-size: 10px;
+    word-wrap: break-word;
+    max-width: 240px;
+    border: solid 1px lighten($primary, 10%);
+    border-radius: 3px;
+    color: $black1;
+    padding: 5px;
+    &:hover {
+        background: lighten($primary, 10%);
+        color: white;
+    }
+}
+.hot {
+    color: color($orange, 500);
+}
+.cold {
+    color: color($blue, 500);
 }

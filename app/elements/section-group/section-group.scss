@@ -6,8 +6,29 @@
 #container {
     padding-bottom: 60px;
     width: 100%;
-    #footer {
-        display: none;
+}
+#footer {
+    display: none;
+}
+@media(min-width: 768px) {
+    #container {
+        max-width: 768px;
+        padding-bottom: 0;
+    }
+    :host-context([has-footer]) {
+        #footer {
+            display: inherit;
+        }
+    }
+    ::content {
+        >paper-shadow {
+            >div {
+                padding: 20px;
+                &[no-padding] {
+                    padding: 20px 0;
+                }
+            }
+        }
     }
 }
 ::content {
@@ -16,7 +37,7 @@
         padding-top: 20px;
         font-size: 20px;
         font-weight: 500;
-        color: $white3;
+        color: $white2;
         text-transform: uppercase;
     }
     div[divider] {
@@ -34,7 +55,7 @@
         }
         background: white;
         >div {
-            padding: 5px;
+            padding: 20px 5px;
             &[no-padding] {
                 padding: 5px 0;
             }
@@ -42,22 +63,17 @@
         }
     }
 }
-@media(min-width: 768px) {
-    #container {
-        #footer {
-            display: inherit;
-        }
-        max-width: 768px;
-        padding-bottom: 0;
-        ::content {
-            >paper-shadow {
-                >div {
-                    padding: 20px;
-                    &[no-padding] {
-                        padding: 20px 0;
-                    }
-                }
-            }
+:host-context([light]) {
+    background: $magic-grey;
+    color: $black1;
+    ::content {
+        div[label] {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 20px;
+            font-weight: 500;
+            color: $black2;
+            text-transform: uppercase;
         }
     }
 }

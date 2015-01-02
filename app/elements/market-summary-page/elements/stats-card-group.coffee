@@ -11,6 +11,7 @@ Polymer 'stats-card-group',
   responseChanged: (o, n) ->
     if @response
       @tickers = @response.data
+      console.debug(@tickers)
     else if @response == ''
       @stopRefresh()
       @fire("network-error", {'url': @tickerUrl})

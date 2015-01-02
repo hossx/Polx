@@ -42,20 +42,6 @@ core-header-panel[main] {
         }
     }
 }
-#footer {
-    display: none;
-    & /deep/ {
-        a {
-            color: $black2;
-            &:hover {
-                color: $secondary;
-            }
-        }
-        .group-label {
-            color: $black3;
-        }
-    }
-}
 @media(min-width: 768px) {
     #marked {
         width: 768px;

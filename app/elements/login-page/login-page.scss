@@ -1,0 +1,12 @@
+@import "../_colors";
+:host {
+    display: block;
+}
+#widget {
+    padding: 20px 0;
+}
+@media(min-width:768px) {
+    #widget {
+        padding: 40px 0;
+    }
+}

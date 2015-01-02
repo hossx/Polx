@@ -13,29 +13,36 @@
     <section-group>
       <div label>Reserve Details</div>
       <paper-shadow>
-        <div no-padding>
-          <template repeat="{{group in details.reserves}}">
-            <template repeat="{{data,idx in group.addresses}}">
-              <div class="data" vertical layout>
-                <div horizontal layout>
-                  <div flex>
-                    <core-tooltip label="This address is part of our {{group.label}} wallet." position="top">
-                      <crypto-address class="{{group.label}}" currency="{{currency}}" addr="{{data[0]}}"></crypto-address>
-                    </core-tooltip>
-                  </div>
-                  <core-tooltip label="Address Balance." position="top">
-                    <div class="balance">{{data[1]}} {{currency.unit}}</div>
-                  </core-tooltip>
-                </div>
-                <div class="verify" vertical layout>
-                  <div class="l">Signed Message:</div>
-                  <div class="code"> {{data[2]}}</div>
-                  <div class="l">Signature:</div>
-                  <div class="code">{{data[3]}} </div>
-                </div>
-            </template>
-            </div>
-          </template>
+        <div class="card" vertical center layout>
+          <table>
+            <thead>
+              <tr>
+                <th nowrap>{{currency.id}} Address</th>
+                <th>Balance</th>
+                <th>Type</th>
+                <th nowrap>Signed Message</th>
+                <th>Signature</th>
+              </tr>
+            </thead>
+            <tbody>
+              <template repeat="{{group in details.reserves}}">
+                <template repeat="{{data,idx in group.addresses}}">
+                  <tr>
+                    <td>
+                      <crypto-address currency="{{currency}}" addr="{{data[0]}}"></crypto-address>
+                    </td>
+                    <td>{{data[1]}}</td>
+                    <td><span class="{{group.label}}">{{group.label}}</span>
+                    </td>
+                    <td><div class="msg">{{data[2]}}</div></td>
+                    <td>
+                      <div class="sig">{{data[3]}}</div>
+                    </td>
+                  </tr>
+                </template>
+              </template>
+            </tbody>
+          </table>
         </div>
       </paper-shadow>
 

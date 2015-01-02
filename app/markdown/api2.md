@@ -328,7 +328,7 @@ URL中的币ID用小写，返回值JSON中全部用大写。
     [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"]
   ]
 }
-
+```
 ---
 
 ## /api/currency/snapshots/[currencyId]
@@ -338,6 +338,7 @@ URL中的币ID用小写，返回值JSON中全部用大写。
 - /api/currency/snapshots/btc?cursor=1121321&limit=50 读取btc详细数据
 
 ####返回值
+
 ```
 {
   "timestamp": "12/12/12",

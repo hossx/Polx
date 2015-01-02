@@ -24,3 +24,14 @@
         padding-bottom: 5px;
     }
 }
+:host-context([light]) {
+    a {
+        color: $black2;
+        &:hover {
+            color: $secondary;
+        }
+    }
+    .group-label {
+        color: $black3;
+    }
+}

@@ -1,11 +1,13 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 
 <link rel="import" href="../bower_components/paper-toast/paper-toast.html">
+<link rel="import" href="login-page/login-page.html">
+<link rel="import" href="register-page/register-page.html">
 <link rel="import" href="home-page/home-page.html">
 <link rel="import" href="market-page/market-page.html">
 <link rel="import" href="market-summary-page/market-summary-page.html">
 <link rel="import" href="account-page/account-page.html">
-<link rel="import" href="trust-page/trust-page.html">
+<link rel="import" href="reserves-page/reserves-page.html">
 <link rel="import" href="currency-page/currency-page.html">
 <link rel="import" href="markdown-viewer/markdown-viewer.html">
 <link rel="import" href="notfound-page/notfound-page.html">
@@ -15,17 +17,19 @@
     <link rel="stylesheet" href="the-router.css">
     <app-router id="router" mode="hash" trailingSlash="ignore">
       <app-route path="/" element="home-page"></app-route>
+      <app-route path="/login" element="login-page"></app-route>
+      <app-route path="/register" element="register-page"></app-route>
       <app-route path="/market" element="market-summary-page"></app-route>
       <app-route path="/market/:marketId" element="market-page"></app-route>
       <app-route path="/market/:marketId/:tab" element="market-page"></app-route>
-      <app-route path="/trust" element="trust-page"></app-route>
+      <app-route path="/reserves" element="reserves-page"></app-route>
       <app-route path="/currency/:currencyId" element="currency-page"></app-route>
       <app-route path="/currency/:currencyId/:tab" element="currency-page"></app-route>
       <app-route path="/account" element="account-page"></app-route>
       <app-route path="/doc/:file" element="markdown-viewer"></app-route>
       <app-route path="*" element="notfound-page"></app-route>
     </app-router>
-    <paper-toast id="errorToast" text="Damn, I cannot connect to the servers :("></paper-toast>
+    <paper-toast id="toast" text={{error}}></paper-toast>
   </template>
 
   <script src="the-router.js"></script>
