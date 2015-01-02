@@ -9,15 +9,10 @@
     <link rel="stylesheet" href="market-summary-page.css">
 
     <cp-media-query smallup="{{smallup}}"></cp-media-query>
-
-    <cp-page toolbarSelect="/market">
-      <div flex center vertical layout>
-        <template repeat="{{coin in marketGroupKeys}}">
-          <stats-card-group currency="{{config.currencies[coin]}}" smallup="{{smallup}}"></stats-card-group>
-        </template>
-
-        <cp-footer id="footer" smallup?={{smallup}}></cp-footer>
-      </div>
+    <cp-page has-toolbar has-footer toolbarSelect="/market">
+      <template repeat="{{coin in marketGroupKeys}}">
+        <stats-card-group currency="{{config.currencies[coin]}}" smallup="{{smallup}}"></stats-card-group>
+      </template>
     </cp-page>
 
   </template>

@@ -40,6 +40,7 @@ module.exports = function(grunt) {
                 },
                 files: [
                     '<%= yeoman.app %>/*.html',
+                    '<%= yeoman.app %>/email_templates/*.*',
                     '<%= yeoman.app %>/elements/{,*/,*/*/,*/*/*/}*.html',
                     '{.tmp,<%= yeoman.app %>}/elements/{,*/,*/*/,*/*/*/}*.css',
                     '{.tmp,<%= yeoman.app %>}/elements/{,*/,*/*/,*/*/*/}*.js',
@@ -68,6 +69,7 @@ module.exports = function(grunt) {
             },
             sass: {
                 files: [
+                    '<%= yeoman.app %>/email_templates/*.scss',
                     '<%= yeoman.app %>/styles/{,*/,*/*/,*/*/*/}*.{scss,sass}',
                     '<%= yeoman.app %>/elements/{,*/,*/*/,*/*/*/}*.{scss,sass}'
                 ],
@@ -114,7 +116,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.app %>',
-                    src: ['styles/{,*/,*/*/,*/*/*/}*.{scss,sass}', 'elements/{,*/,*/*/,*/*/*/}*.{scss,sass}'],
+                    src: ['styles/{,*/,*/*/,*/*/*/}*.{scss,sass}', 'elements/{,*/,*/*/,*/*/*/}*.{scss,sass}', 'email_templates/*.scss'],
                     dest: '<%= yeoman.dist %>',
                     ext: '.css'
                 }]
@@ -123,7 +125,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.app %>',
-                    src: ['styles/{,*/,*/*/,*/*/*/}*.{scss,sass}', 'elements/{,*/,*/*/,*/*/*/}*.{scss,sass}'],
+                    src: ['styles/{,*/,*/*/,*/*/*/}*.{scss,sass}', 'elements/{,*/,*/*/,*/*/*/}*.{scss,sass}', 'email_templates/*.scss'],
                     dest: '.tmp',
                     ext: '.css'
                 }]
@@ -284,6 +286,7 @@ module.exports = function(grunt) {
                         'CNAME',
                         'markdown/**',
                         'elements/**',
+                        'email_templates/**',
                         'styles/*.ttf',
                         'scripts/**',
                         '!elements/**/*.scss',
@@ -298,7 +301,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: '<%= yeoman.app %>',
                     dest: '.tmp',
-                    src: ['{styles,elements}/{,*/,*/*/,*/*/*/}*.css']
+                    src: ['{styles,elements,email_templates}/{,*/,*/*/,*/*/*/}*.css']
                 }]
             },
             scripts: {
@@ -330,11 +333,24 @@ module.exports = function(grunt) {
                 }
             }
         },
+        inlinecss: {
+            main: {
+                options: {
+                    preserveMediaQueries: true
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= yeoman.dist %>/email_templates',
+                    src: '*.html',
+                    dest: '<%= yeoman.dist %>/email_templates'
+                }]
+            }
+        },
         'gh-pages': {
             options: {
                 base: 'dist'
             },
-            src: ['*', 'styles/*.{css,ttf}', 'scripts/*.js', 'markdown/*']
+            src: ['*', 'styles/*.{css,ttf}', 'scripts/*.js', 'markdown/*', 'email_templates/*']
         }
     });
 
@@ -378,6 +394,7 @@ module.exports = function(grunt) {
         'vulcanize',
         'uglify',
         'usemin',
+       // 'inlinecss',
         'minifyHtml'
     ]);
 

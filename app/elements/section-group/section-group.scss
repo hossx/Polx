@@ -6,8 +6,29 @@
 #container {
     padding-bottom: 60px;
     width: 100%;
-    #footer {
-        display: none;
+}
+#footer {
+    display: none;
+}
+@media(min-width: 768px) {
+    #container {
+        max-width: 768px;
+        padding-bottom: 0;
+    }
+    :host-context([has-footer]) {
+        #footer {
+            display: inherit;
+        }
+    }
+    ::content {
+        >paper-shadow {
+            >div {
+                padding: 20px;
+                &[no-padding] {
+                    padding: 20px 0;
+                }
+            }
+        }
     }
 }
 ::content {
@@ -34,30 +55,11 @@
         }
         background: white;
         >div {
-            padding: 5px;
+            padding: 20px 5px;
             &[no-padding] {
                 padding: 5px 0;
             }
             color: $black1;
-        }
-    }
-}
-@media(min-width: 768px) {
-    #container {
-        #footer {
-            display: inherit;
-        }
-        max-width: 768px;
-        padding-bottom: 0;
-        ::content {
-            >paper-shadow {
-                >div {
-                    padding: 20px;
-                    &[no-padding] {
-                        padding: 20px 0;
-                    }
-                }
-            }
         }
     }
 }

@@ -2,28 +2,31 @@
 :host {
     box-sizing: border-box;
     background: $primary;
-}
-:host-context([hideToolbar]) {
-    #toolbar {
-        display: none;
-    }
-}
-
-:content {
-  color: white;
-}
-
-#toolbar {
-    background: $primary;
     color: white;
-    a#home {
-        color: $secondary;
-        text-decoration: none;
+}
+cp-toolbar {
+    display: none;
+}
+:host-context([has-toolbar]) {
+    cp-toolbar {
+        display: inherit;
     }
 }
-cp-toolbar-button::shadow a {
-    color: $secondary;
-    &:hover {
-        color: lighten($secondary, 10%);
+#footer {
+    display: none;
+}
+#content {
+}
+@media(min-width:768px) {
+    :host-context([has-footer]) {
+        #footer {
+            display: inherit;
+        }
+    }
+    :host-context([narrow]) {
+        #content {
+            width: 768px;
+            margin: auto;
+        }
     }
 }

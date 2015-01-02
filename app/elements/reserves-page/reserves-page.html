@@ -9,16 +9,13 @@
 <link rel="import" href="../cp-footer/cp-footer.html">
 <link rel="import" href="elements/reserve-card-group.html">
 
-<polymer-element name="reserves-page" vertical layout noscript fit>
+<polymer-element name="reserves-page" vertical layout noscript>
   <template>
     <link rel="stylesheet" href="reserves-page.css">
     <cp-media-query smallup="{{smallup}}"></cp-media-query>
 
-    <cp-page toolbarSelect="/reserves">
-      <div id="page-content" flex vertical layout>
-        <reserve-card-group id="reserves" smallup="{{smallup}}"></reserve-card-group>
-        <cp-footer id="footer" smallup?={{smallup}} self-center></cp-footer>
-      </div>
+    <cp-page has-toolbar has-footer toolbarSelect="/reserves">
+      <reserve-card-group id="reserves" smallup="{{smallup}}"></reserve-card-group>
     </cp-page>
   </template>
 </polymer-element>

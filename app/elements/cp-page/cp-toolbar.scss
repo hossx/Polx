@@ -2,12 +2,22 @@
 :host {
     box-sizing: border-box;
 }
-:host-context([hideToolbar]) {
-    #toolbar {
-        display: none;
+#toolbar {
+    width: 100%;
+    background: $primary;
+    color: white;
+    a#home {
+        color: $secondary;
+        text-decoration: none;
     }
 }
 #home {
     color: white;
     text-decoration: none;
+}
+cp-toolbar-button::shadow a {
+    color: $secondary;
+    &:hover {
+        color: lighten($secondary, 10%);
+    }
 }

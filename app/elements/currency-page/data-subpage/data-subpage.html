@@ -10,7 +10,7 @@
   <template>
     <link rel="stylesheet" href="data-subpage.css">
 
-    <section-group>
+    <section-group has-footer>
       <core-ajax id="txsAjax" url="{{txsUrl}}" response="{{response}}" auto></core-ajax>
       <div label>{{currency.name}} Transactions</div>
       <paper-shadow>
@@ -79,7 +79,6 @@
           </table>
           <paper-button class="load-button" disabled?="{{!hasMoreSnapshots}}" on-tap="{{loadMoreSnapshots}}">Load more</paper-button>
         </div>
-
       </paper-shadow>
     </section-group>
   </template>

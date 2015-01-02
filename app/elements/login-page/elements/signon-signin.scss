@@ -1,0 +1,79 @@
+@import "../../_colors";
+:host {
+    display: block;
+}
+.container {
+    background: white;
+    color: $primary;
+}
+#title {
+    $color: $black2;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 20px;
+}
+#inner {
+    background: lighten($primary, 5%);
+    padding: 0 40px;
+}
+#action {
+    padding: 20px 35px;
+    #login {
+        background: lighten($secondary, 5%);
+        transition: background 420ms ease-in-out;
+        color: white;
+        &:hover {
+            background: $secondary;
+        }
+    }
+}
+#options {
+    font-size: 12px;
+    padding-bottom: 20px;
+    width: 100%;
+    >div {
+        padding: 0 10px;
+    }
+}
+.input {
+    background: lighten($primary, 5%);
+    color: white;
+    $placeholder-color: $white2;
+    &[focused] {
+        color: $secondary;
+    }
+    /deep/::-webkit-input-placeholder {
+        color: $placeholder-color;
+    }
+    /deep/::-moz-placeholder {
+        color: $placeholder-color;
+    }
+    /deep/:-ms-input-placeholder {
+        color: $placeholder-color;
+    }
+    /deep/ .label-text, /deep/ .error {
+        color: $placeholder-color;
+    }
+    /deep/ .unfocused-underline {
+        background-color: $white4;
+    }
+    /deep/ .floated-label .label-text {
+        color: $white2;
+        font-size: 13px;
+    }
+    /deep/ .focused-underline {
+        background-color: $secondary;
+    }
+    &[focused] /deep/ {
+        .floated-label .label-text {
+            color: $white2;
+            font-size: 13px;
+        }
+    }
+    &.invalid /deep/ .floated-label .label-text, /deep/ .error {
+        color: $placeholder-color;
+    }
+    &.invalid /deep/ .focused-underline {
+        background-color: $thirdary;
+    }
+}

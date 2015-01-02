@@ -3,12 +3,3 @@ $color: $green;
 :host {
     box-sizing: border-box;
 }
-
-#footer {
-    display: none;
-}
-@media(min-width: 768px) {
-    #footer {
-        display: inherit;
-    }
-}

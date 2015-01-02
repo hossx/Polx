@@ -4,7 +4,7 @@
 <link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="cp-toolbar-button.html">
 
-<polymer-element name="cp-toolbar" attributes="toolbarSelect" fit>
+<polymer-element name="cp-toolbar" attributes="toolbarSelect" noscript>
 <template>
   <link rel="stylesheet" href="cp-toolbar.css">
   <core-toolbar id="toolbar">
@@ -14,13 +14,4 @@
     <cp-toolbar-button hash="/account"  active="[[toolbarSelect === '/account']]" label="My Account" icon="account-circle"></cp-toolbar-button>
   </core-toolbar>
 </template>
-<script>
-  (function () {
-    'use strict';
-
-    Polymer({
-    });
-
-  })();
-</script>
 </polymer-element>
