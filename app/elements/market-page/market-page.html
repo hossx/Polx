@@ -11,7 +11,7 @@
   <template>
     <link rel="stylesheet" href="market-page.css">
 
-    <cp-drawer-page backlink="/#/market" icons="{{['swap-horiz','trending-up','list','history']}}">
+    <cp-drawer-page backlink="/#/market" label="{{market.name}}" icons="{{['swap-horiz','trending-up','list','history']}}">
       <market-sidebar id="sidebar" marketId="{{marketId}}"></market-sidebar>
       <section>
         <trade-subpage market="{{market}}" active="{{tab===0}}" fit></trade-subpage>

@@ -1,10 +1,17 @@
 @import "../../_colors";
 :host {
     display: block;
+    background:white;
 }
 .container {
     background: white;
     color: $primary;
+}
+
+#pages {
+    width: 300px;
+    height: 360px;
+    background:white;
 }
 #title {
     $color: $black2;

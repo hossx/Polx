@@ -11,7 +11,7 @@
 <link rel="import" href="../cp-icons/crypto-icons.html">
 <link rel="import" href="../cp-footer/cp-footer.html">
 
-<polymer-element name="cp-drawer-page" attributes="backlink,title,icons,tab">
+<polymer-element name="cp-drawer-page" attributes="backlink,label,icons,tab">
   <template>
     <link rel="stylesheet" href="cp-drawer-page.css">
 
@@ -27,7 +27,7 @@
             <paper-icon-button icon="arrow-back"></paper-icon-button>
           </a>
           <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-          <div flex id="title">{{title}}</div>
+          <div flex id="label">{{label}}</div>
           <template repeat="{{icon,idx in icons}}">
             <paper-icon-button class="btn" idx="{{idx}}" active?="{{tab === idx}}" on-tap="{{switchTab}}" icon="{{icon}}"></paper-icon-button>
           </template>

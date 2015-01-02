@@ -4,6 +4,10 @@
     background: $primary;
     color: white;
 }
+:host-context([light]) {
+    background: $magic-grey;
+    color: $black1;
+}
 cp-toolbar {
     display: none;
 }

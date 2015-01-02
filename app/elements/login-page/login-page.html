@@ -1,12 +1,17 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../cp-page/cp-page.html">
 <link rel="import" href="elements/signon-signin.html">
 
 <polymer-element name="login-page" noscript attributes="">
   <template>
     <link rel="stylesheet" href="login-page.css">
-    <cp-page narrow has-toolbar has-footer>
-      
+    <cp-page light narrow has-toolbar has-footer>
+      <div id="widget">
+        <paper-shadow z="1">
+          <signon-signin></signon-signin>
+        </paper-shadow>
+      </div>
     </cp-page>
   </template>
 </polymer-element>
