@@ -11,9 +11,19 @@ Polymer 'signon-signin',
   showForget: () -> @show("forget")
   showSignout: () -> @show("signout")
 
+  pageChanged: (o, n) ->
+    if @page == 'registered'
+      @showRegistered()
+    if @page == 'verified'
+      @showVerified()
+    else if @page == 'retrieved'
+      @showPasswordRetrived()
+    else if @page == 'pwdchanged'
+      @showPasswordChanged()
+
   showRegistered: () ->
     @message =
-      title: "Confirm Your Membership"
+      title: "Check Your Email"
       details: [
         "We just send you an email for your membership confirmation. You need to click on the link in the email to activate your account.",
         "Please give the email a couple of minutes to arrive. If you still don't find it in your mailbox after a while, go ahead and check the spam folder."
@@ -21,12 +31,31 @@ Polymer 'signon-signin',
     @show("message")
     @delayShow("signin")
 
-  showPasswordReset: () ->
+  showVerified: () ->
+    @message =
+      title: "Email Verified"
+      details: [
+        "We have verified your email address.",
+        "You can take advantage of all Coinport services."
+        "Happy trading!"]
+    @show("message")
+    @delayShow("signin")
+
+  showPasswordRetrived: () ->
     @message = 
-      title: "Reset Password"
+      title: "Check Your Email"
       details: [
         "We just send you an email with a link to reset your password. Your current password is still valid until a new one is set.",
         "Please give the email a couple of minutes to arrive. If you still don't find it in your mailbox after a while, go ahead and check the spam folder."
+        "Thank you."]
+    @show("message")
+    @delayShow("signin")
+
+  showPasswordChanged: () ->
+    @message = 
+      title: "Password Changed"
+      details: [
+        "Your password has bee successfully changed.",
         "Thank you."]
     @show("message")
     @delayShow("signin")
