@@ -7,7 +7,6 @@
 }
 #branding {
     padding: 40px 0;
-    background: $primary;
     width: 100%;
     #name {
         font-size: 56px;
@@ -19,10 +18,14 @@
         color: lighten($secondary, 10%);
     }
 }
-#form {
+#form-container {
     width: 100%;
     padding: 20px 0;
-    background: $magic-grey;
+}
+@media(min-width:320px) {
+    #widget {
+        width: 320px;
+    }
 }
 @media(min-width: 768px) {
     #footer {

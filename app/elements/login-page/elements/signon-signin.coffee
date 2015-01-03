@@ -5,10 +5,6 @@ Polymer 'signon-signin',
   email: ''
   message: null
   timeout: null
-  z: "1"
-
-  ready: () ->
-    @showRegistered()
 
   showSignin: () -> @show("signin")
   showSignon: () -> @show("signon")

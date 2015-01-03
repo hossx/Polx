@@ -8,14 +8,16 @@
   <template>
     <link rel="stylesheet" href="home-page.css">
     <cp-page has-toolbar has-footer>
-      <div id="branding" vertical center center-justified layout>
-        <div id="name">Coinport</div>
-        <div id="slogan">Crypto-Asset Exchange for Cool People Like You</div>
-      </div>
-      <div center vertical layout id="form">
-        <paper-shadow z="1">
-          <signon-signin></signon-signin>
-        </paper-shadow>
+      <div vertical center layout>
+        <div id="branding" vertical center layout>
+          <div id="name">Coinport</div>
+          <div id="slogan">Crypto-Asset Exchange for Cool People Like You</div>
+        </div>
+        <div id="form-container" vertical center layout>
+          <div id="widget">
+            <signon-signin></signon-signin>
+          </div>
+        </div>
       </div>
     </cp-page>
   </template>
