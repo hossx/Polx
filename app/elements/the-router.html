@@ -1,8 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 
 <link rel="import" href="../bower_components/paper-toast/paper-toast.html">
-<link rel="import" href="login-page/login-page.html">
-<link rel="import" href="register-page/register-page.html">
+<link rel="import" href="member-page/member-page.html">
 <link rel="import" href="home-page/home-page.html">
 <link rel="import" href="market-page/market-page.html">
 <link rel="import" href="market-summary-page/market-summary-page.html">
@@ -17,8 +16,8 @@
     <link rel="stylesheet" href="the-router.css">
     <app-router id="router" mode="hash" trailingSlash="ignore">
       <app-route path="/" element="home-page"></app-route>
-      <app-route path="/login" element="login-page"></app-route>
-      <app-route path="/register" element="register-page"></app-route>
+      <app-route path="/member" element="member-page"></app-route>
+      <app-route path="/member/:page" element="member-page"></app-route>
       <app-route path="/market" element="market-summary-page"></app-route>
       <app-route path="/market/:marketId" element="market-page"></app-route>
       <app-route path="/market/:marketId/:tab" element="market-page"></app-route>

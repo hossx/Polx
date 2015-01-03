@@ -4,27 +4,28 @@
 <link rel="import" href="../cp-page/cp-page.html">
 <link rel="import" href="elements/signon-signin.html">
 
-<polymer-element name="login-page" attributes="">
+<polymer-element name="member-page" attributes="page">
   <template>
-    <link rel="stylesheet" href="login-page.css">
+    <link rel="stylesheet" href="member-page.css">
     <cp-page light narrow has-toolbar has-footer>
       <div id="widget">
-          <signon-signin></signon-signin>
+        <signon-signin page="{{page}}"></signon-signin>
       </div>
     </cp-page>
   </template>
   <script>
     (function() {
       'use strict';
-      Polymer("login-page", {
+      Polymer("member-page", {
         ready: function(e) {
           setTimeout(function() {
             var animation = new CoreAnimation();
             animation.duration = 500;
-            animation.keyframes = [
-              {opacity: 1 },
-              {opacity: 0 }
-            ];
+            animation.keyframes = [{
+              opacity: 1
+            }, {
+              opacity: 0
+            }];
             animation.target = document.getElementById('widget');
             animation.play();
           }, 1000);
