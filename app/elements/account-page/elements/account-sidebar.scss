@@ -1,0 +1,34 @@
+@import "../../_colors";
+$color1: lighten($primary, 5%);
+$activeBackground: $secondary;
+core-item {
+    background: $color1;
+    font-weight: 400;
+    &.core-selected {
+        background: $activeBackground;
+        color: white;
+        font-weight: 500;
+    }
+}
+core-submenu {
+    font-weight: 400;
+    & > paper-item {
+        font-size: 11px;
+    }
+    > core-item {
+        background: $color1;
+        &.core-selected {
+            background: $secondary;
+        }
+    }
+    &.active, &[active] {
+        color: $white2;
+        core-item {
+            font-weight: 400;
+        }
+    }
+}
+core-submenu::shadow #submenu {
+    margin-left: 0px;
+    padding-left: 30px;
+}

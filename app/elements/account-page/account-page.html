@@ -6,14 +6,14 @@
 <link rel="import" href="../cp-page/cp-right-drawer-page.html">
 <link rel="import" href="../cp-globals/cp-globals.html">
 <link rel="import" href="../cp-footer/cp-footer.html">
-<link rel="import" href="../cp-account-sidebar/cp-account-sidebar.html">
+<link rel="import" href="elements/account-sidebar.html">
 
-<polymer-element name="account-page" attributes="">
+<polymer-element name="account-page" attributes="page">
   <template>
     <link rel="stylesheet" href="account-page.css">
 
     <cp-right-drawer-page has-footer backlink="/#/" label="My Account" page="{{page}}">
-      <cp-account-sidebar id="sidebar"></cp-account-sidebar>
+      <account-sidebar id="sidebar" selected="{{page}}"></account-sidebar>
       <section page="profile">
         <div> Main content... 1</div>
       </section>
@@ -24,14 +24,6 @@
         <div> Main content... 3</div>
       </section>
     </cp-right-drawer-page>
-
   </template>
-  <script>
-    (function() {
-      'use strict';
-      Polymer("account-page", {
-        page: 2
-      });
-    })();
-  </script>
+  <script src="account-page.js"></script>
 </polymer-element>
