@@ -4,14 +4,15 @@ Polymer 'signon-signin',
   page: 'signin'
   email: ''
   message: null
+  timeout: null
   z: "1"
 
   ready: () ->
     @showRegistered()
 
-  showSignin: () -> @page = "signin"
-  showSignon: () -> @page = "signon"
-  showForget: () -> @page = "forget"
+  showSignin: () -> @show("signin")
+  showSignon: () -> @show("signon")
+  showForget: () -> @show("forget")
 
   showRegistered: () ->
     @message = 
@@ -21,6 +22,16 @@ Polymer 'signon-signin',
         "Please give the email a couple of minutes to arrive. If you still don't find it in your mailbox after a while, go ahead and check the spam folder."
         "Thank you."]
     @page = "message"
-    setTimeout ()=> 
-      @page = "signin"
-    , 10000
+    @delayShow("signin", 3000)
+
+  show: (page) ->
+    clearTimeout(@timeout) if @timeout
+    @timeout = null
+    @page = page
+
+  delayShow: (page, timeout) ->
+    clearTimeout(@timeout) if @timeout
+    @timeout = setTimeout ()=> 
+      @page = page
+      @timeout = null
+    , timeout

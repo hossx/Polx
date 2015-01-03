@@ -3,10 +3,16 @@
     display: block;
 }
 #widget {
+    width: 100%;
     padding: 20px 0;
 }
 @media(min-width:768px) {
     #widget {
         padding: 40px 0;
+    }
+}
+@media(min-width:320px) {
+    #widget {
+        width: 320px;
     }
 }
