@@ -1,4 +1,7 @@
 'use strict'
 
 Polymer 'profile-subpage',
-  user: null
+  profile: null
+
+  showGoogleAuthDialog: (e) ->
+    this.$.googleAuthDialog.toggle()

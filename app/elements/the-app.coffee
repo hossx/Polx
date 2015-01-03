@@ -96,6 +96,7 @@ Polymer 'the-app',
       currencyDetailsUrl: (coin) -> 'api_mock_currency_details.json'
       currencyTxsUrl: (coin) -> 'api_mock_currency_txs.json'
       currencySnapshotsUrl: (coin) -> 'api_mock_currency_snapshots.json'
+      userProfileUrl: (userId) -> 'api_mock_profile.json'
 
 
   processDocuments: (config) ->

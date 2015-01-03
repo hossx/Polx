@@ -1,4 +1,10 @@
 @import "../../_colors";
+a {
+    color: $white2;
+    &:hover {
+        color: $thirdary;
+    }
+}
 .keyvalues {
     background: lighten($primary, 5%);
     padding: 10px;
@@ -8,7 +14,7 @@
             &:nth-child(1) {
                 color: $white2;
                 text-align: right;
-                min-width: 25%;
+                min-width: 40%;
                 &:after {
                     content: ":";
                 }
@@ -29,7 +35,7 @@
             >div {
                 padding: 10px;
                 &:nth-child(1) {
-                    min-width: 30%;
+                    min-width: 40%;
                 }
             }
         }

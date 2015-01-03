@@ -360,3 +360,18 @@ URL中的币ID用小写，返回值JSON中全部用大写。
   ]
 }
 ```
+
+## /api/user/[uid]/profile
+读取用户的profile
+```
+{
+  "uid": 12345678,
+  "name": "wangdong",
+  "email": "dong77@gmail.com",
+  "mobile": "+86 18817728171",
+  "apiToken": "8c0781b2402a9907af4e68cb8f982767",
+  "emailVerified": true,
+  "mobileVerified": true,
+  "googleAuthEnabled": false
+}
+```

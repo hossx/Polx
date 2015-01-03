@@ -3,3 +3,32 @@
 :host {
     display: block;
 }
+paper-toggle-button::shadow {
+    paper-radio-button::shadow {
+        #ink[checked] {
+            color: $secondary;
+        }
+        #ink {
+            color: white;
+        }
+        #onRadio {
+            background-color: $secondary;
+        }
+        #offRadio {
+            background-color: $white4;
+        }
+    }
+    #toggleBar {
+        background-color: $white2;
+    }
+    #toggleBar[checked] {
+        background-color: $secondary;
+    }
+    #toggleContainer[disabled] {
+        opacity: 0.7;
+        pointer-events: none;
+    }
+}
+#googleAuthDialog {
+    max-width: 400px;
+}
