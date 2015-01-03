@@ -1,16 +1,16 @@
 @import "../../_colors";
 :host {
     display: block;
-    background: white;
+    background: transparent;
 }
 .container {
-    background: white;
     color: $primary;
+    height: 100%;
+    background: white;
 }
 #pages {
-    width: 300px;
+    width: 100%;
     height: 460px;
-    background: white;
 }
 #title {
     $color: $black2;
@@ -18,45 +18,85 @@
     font-weight: 500;
     margin: 20px;
 }
-#inner {
-    background: lighten($primary, 5%);
-    padding: 0 40px;
-}
-#agree {
-    padding: 20px;
-    a {
-        color: $thirdary;
+#outer {
+    border-top: solid 1px $black4;
+    min-height: 200px;
+    #inner {
+        background: lighten($primary, 5%);
+        padding-left: 40px;
+        padding-right: 40px;
+        min-height: 200px;
     }
-    .checkbox {
-        color: $secondary;
-        padding-right: 20px;
-        &::shadow {
-            #ink[checked] {
+    #agree {
+        text-align: left;
+        padding-top: 20px;
+        padding-left: 40px;
+        a {
+            color: $black1;
+            &:hover {
                 color: $secondary;
             }
-            #checkbox.checked {
-                border-color: $secondary;
+        }
+        .checkbox {
+            color: $secondary;
+            padding-right: 10px;
+            &::shadow {
+                #ink[checked] {
+                    color: $secondary;
+                }
+                #checkbox.checked {
+                    border-color: $secondary;
+                }
             }
         }
     }
-}
-#action {
-    padding: 20px 35px;
-    #login {
-        background: lighten($secondary, 5%);
-        transition: background 420ms ease-in-out;
+    #msg {
+        padding: 40px 20px;
         color: white;
-        &:hover {
-            background: $secondary;
+        background: lighten($primary, 5%);
+        word-wrap: break-word;
+    }
+    #logout {
+        padding: 40px 20px;
+        color: $black2;
+        #userid {
+            color: $black1;
+            font-weight: 500;
+        }
+    }
+    #action {
+        padding: 40px 35px 0 35px;
+        paper-button {
+            background: lighten($secondary, 5%);
+            transition: background 420ms ease-in-out;
+            color: white;
+            &:hover {
+                background: $secondary;
+            }
         }
     }
 }
 #options {
     font-size: 12px;
+    padding-top: 10px;
     padding-bottom: 20px;
     width: 100%;
+    background: white;
     >div {
         padding: 0 10px;
+    }
+    paper-button {
+        text-transform: None;
+        &:hover {
+            color: $secondary;
+        }
+        &.highlight {
+            transition: color 200ms ease-in-out;
+            color: $thirdary;
+            &:hover {
+                color: $secondary;
+            }
+        }
     }
 }
 .input {
