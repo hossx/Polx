@@ -1,0 +1,36 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../../../bower_components/core-icons/social-icons.html">
+<link rel="import" href="../../../bower_components/core-icons/editor-icons.html">
+<link rel="import" href="../../../bower_components/core-icons/hardware-icons.html">
+<link rel="import" href="../../../bower_components/core-icons/communication-icons.html">
+<link rel="import" href="../../../bower_components/core-collapse/core-collapse.html">
+<link rel="import" href="../../../bower_components/core-menu/core-menu.html">
+<link rel="import" href="../../../bower_components/core-menu/core-submenu.html">
+<link rel="import" href="../../../bower_components/core-item/core-item.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+
+<polymer-element name="account-sidebar" noscript attributes="selected" fit vertical layout>
+  <template>
+    <link rel="stylesheet" href="account-sidebar.css">
+
+    <core-menu valueattr="page" selected="{{selected}}">
+      <core-item page="profile" icon="social:person-outline" label="Profile"></core-item>
+      <core-item page="assets" icon="editor:attach-money" label="Assets"></core-item>
+      <core-item page="deposit" icon="communication:call-received" label="Deposit"></core-item>
+      <core-item page="withdrawal" icon="communication:call-made" label="Withdrawal"></core-item>
+      <core-item page="orders" icon="list" label="Open Orders"></core-item>
+      <core-item page="trading-history" icon="history" label="Trading History"></core-item>
+
+      <!--core-submenu icon="settings-applications" label="Settings"-->
+      <core-item page="security" icon="hardware:security" label="Security"></core-item>
+      <core-item page="auth" icon="social:plus-one" label="Two-factor Auth"></core-item>
+      <!--/core-submenu-->
+
+    </core-menu>
+    <div flex></div>
+    <div>
+      <paper-button id="logout">Logout</paper-button>
+    </div>
+  </template>
+</polymer-element>
