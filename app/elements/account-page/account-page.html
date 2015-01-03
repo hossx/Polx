@@ -18,15 +18,15 @@
 
     <core-ajax id="profileAjax" url="{{profileUrl}}" response="{{profile}}" auto></core-ajax>
     <cp-right-drawer-page backlink="/#/" label="My Account" id="pages" page="{{page}}">
-     <cp-toolbar-button hash="/market" id="shortcut" active="[[toolbarSelect === '/market']]" label="Go to markets" icon="swap-horiz"></cp-toolbar-button>
+      <cp-toolbar-button hash="/market" id="shortcut" active="[[toolbarSelect === '/market']]" label="Go to markets" icon="swap-horiz">
+      </cp-toolbar-button>
       <account-sidebar id="sidebar" selected="{{page}}"></account-sidebar>
-      <section page="profile">
-        <profile-subpage profile="{{profile}}"></profile-subpage>
-      </section>
       <section page="assets">
         <div> Main content... 2</div>
       </section>
-
+      <section page="profile">
+        <profile-subpage profile="{{profile}}"></profile-subpage>
+      </section>
       <section page="deposit">
         <div>Deposit</div>
       </section>
