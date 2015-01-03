@@ -4,5 +4,6 @@
 #Road Map (0.1)
 
 
-##Features
-- cache market/currency stats
+##TODOs
+- cache api results using local storage
+- minify and remove html comments

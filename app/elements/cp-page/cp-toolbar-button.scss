@@ -1,0 +1,10 @@
+@import "../_colors";
+:host {
+    box-sizing: border-box;
+}
+a {
+    color: $secondary;
+    &:hover {
+        color: lighten($secondary, 10%);
+    }
+}

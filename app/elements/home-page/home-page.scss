@@ -2,20 +2,17 @@
 :host {
     box-sizing: border-box;
 }
-#footer {
-    display: none;
-}
 #branding {
-    padding: 40px 0;
+    padding: 20px 0;
     width: 100%;
     #name {
-        font-size: 56px;
+        font-size: 72px;
         text-transform: uppercase;
-        color: $secondary;
+        color: $white2;
     }
     #slogan {
-        font-size: 12px;
-        color: lighten($secondary, 10%);
+        font-size: 16px;
+        color: $white3;
     }
 }
 #form-container {
@@ -25,20 +22,5 @@
 @media(min-width:320px) {
     #widget {
         width: 320px;
-    }
-}
-@media(min-width: 768px) {
-    #footer {
-        display: inherit;
-    }
-    #branding {
-        padding: 20px 0;
-        #name {
-            font-size: 100px;
-        }
-        #slogan {
-            font-weight: 100;
-            font-size: 22px;
-        }
     }
 }

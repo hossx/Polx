@@ -7,7 +7,7 @@
     padding: 0;
 }
 #menu-toolbar {
-    color: $secondary;
+    color: $white3;
     background: lighten($primary, 5%);
     a {
         color: $secondary;
@@ -21,11 +21,9 @@
         color: $secondary;
         height: 40px !important;
     }
-    #backlink {
-        transform: rotate(90deg);
-    }
 }
 #label {
+    color: $white2;
     font-weight: 700;
 }
 .btn {

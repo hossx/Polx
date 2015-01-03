@@ -15,9 +15,3 @@
     color: white;
     text-decoration: none;
 }
-cp-toolbar-button::shadow a {
-    color: $secondary;
-    &:hover {
-        color: lighten($secondary, 10%);
-    }
-}

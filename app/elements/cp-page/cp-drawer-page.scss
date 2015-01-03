@@ -13,11 +13,9 @@
         color: $secondary;
         height: 40px !important;
     }
-    #backlink {
-        transform: rotate(90deg);
-    }
 }
 #label {
+    color: $white2;
     font-weight: 700;
 }
 .btn {
