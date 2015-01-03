@@ -20,6 +20,8 @@ Polymer 'signon-signin',
       @showPasswordRetrived()
     else if @page == 'pwdchanged'
       @showPasswordChanged()
+    else if @page == 'signedout'
+      @showSignedout()
 
   showRegistered: () ->
     @message =
@@ -57,6 +59,15 @@ Polymer 'signon-signin',
       details: [
         "Your password has bee successfully changed.",
         "Thank you."]
+    @show("message")
+    @delayShow("signin")
+
+  showSignedout: () ->
+    @message = 
+      title: "Singed Out"
+      details: [
+        "You have successfully signed out.",
+        "See you soon."]
     @show("message")
     @delayShow("signin")
 
