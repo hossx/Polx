@@ -19,12 +19,17 @@
         color: lighten($secondary, 10%);
     }
 }
+#form {
+    width: 100%;
+    padding: 20px 0;
+    background: $magic-grey;
+}
 @media(min-width: 768px) {
     #footer {
         display: inherit;
     }
     #branding {
-        padding: 100px 0;
+        padding: 20px 0;
         #name {
             font-size: 100px;
         }

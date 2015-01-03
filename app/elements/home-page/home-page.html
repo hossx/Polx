@@ -1,6 +1,8 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../cp-page/cp-page.html">
 <link rel="import" href="../cp-footer/cp-footer.html">
+<link rel="import" href="../login-page/elements/signon-signin.html">
 
 <polymer-element name="home-page" noscript attributes="">
   <template>
@@ -8,7 +10,12 @@
     <cp-page has-toolbar has-footer>
       <div id="branding" vertical center center-justified layout>
         <div id="name">Coinport</div>
-        <div id="slogan" >Crypto-Asset Exchange for Cool People Like You</div>
+        <div id="slogan">Crypto-Asset Exchange for Cool People Like You</div>
+      </div>
+      <div center vertical layout id="form">
+        <paper-shadow z="1">
+          <signon-signin></signon-signin>
+        </paper-shadow>
       </div>
     </cp-page>
   </template>
