@@ -13,6 +13,9 @@
         color: $secondary;
         height: 40px !important;
     }
+    #backlink {
+        transform: rotate(90deg);
+    }
 }
 #label {
     font-weight: 700;

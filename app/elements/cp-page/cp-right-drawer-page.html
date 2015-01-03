@@ -24,14 +24,14 @@
 
       <core-header-panel mode="seamed" main>
         <core-toolbar class="core-header" id="toolbar">
-          <a href="{{backlink}}">
+          <a href="{{backlink}}" id="backlink">
             <paper-icon-button icon="arrow-back"></paper-icon-button>
           </a>
           <div flex id="label">{{label}}</div>
           <paper-icon-button core-drawer-toggle icon="menu" core-drawer-toggle></paper-icon-button>
         </core-toolbar>
 
-        <core-animated-pages main valueattr="page" selected="{{page}}" transitions="slide-from-right">
+        <core-animated-pages main valueattr="page" fit id="pages" selected="{{page}}" transitions="cross-fade-all">
           <content select="section"></content>
         </core-animated-pages>
       </core-header-panel>

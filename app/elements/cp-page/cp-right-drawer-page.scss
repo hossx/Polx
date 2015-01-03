@@ -21,6 +21,9 @@
         color: $secondary;
         height: 40px !important;
     }
+    #backlink {
+        transform: rotate(90deg);
+    }
 }
 #label {
     font-weight: 700;
@@ -29,7 +32,6 @@
     display: none;
 }
 #pages {
-    background: lighten($primary, 5%);
     padding-bottom: 200px;
 }
 #nav-tabs {

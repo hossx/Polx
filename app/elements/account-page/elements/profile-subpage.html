@@ -1,0 +1,48 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="../../section-group/section-group.html">
+
+<polymer-element name="profile-subpage" attributes="user">
+  <template>
+    <link rel="stylesheet" href="profile-subpage.css">
+    <section-group has-footer fit>
+      <div label>Profile</div>
+      <paper-shadow  z="0">
+        <div class="keyvalues" vertical layout>
+          <div horizontal layout>
+            <div>User ID</div>
+            <div flex>1000000003</div>
+          </div>
+
+          <div horizontal layout>
+            <div>Badge</div>
+            <div flex>Lifetime 0 trading fee</div>
+          </div>
+
+          <div horizontal layout>
+            <div>Name</div>
+            <div flex>王东</div>
+          </div>
+
+          <div horizontal layout>
+            <div>Cellphone Number</div>
+            <div flex>+86 1817117171</div>
+          </div>
+
+          <div horizontal layout>
+            <div>Public Profile URL</div>
+            <div flex>https://www.coinport.com/user/1000000002</div>
+          </div>
+
+          <div horizontal layout>
+            <div>API Token</div>
+            <div flex>8c0781b2402a9907af4e68cb8f982767</div>
+          </div>
+        </div>
+      </paper-shadow>
+    </section-group>
+  </template>
+
+  <script src="profile-subpage.js"></script>
+</polymer-element>

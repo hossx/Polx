@@ -1,9 +1,8 @@
 @import "../_colors";
-#footer {
-    display: none;
+:host {
+    background: white;
 }
-@media(min-width: 769px) {
-    #footer {
-        display: inline-block;
-    }
+
+#pages::shadow #pages {
+  # background: $magic-grey;
 }
