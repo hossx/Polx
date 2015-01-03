@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="login-page.css">
     <cp-page light narrow has-toolbar has-footer>
       <div id="widget">
-        <paper-shadow z="1">
-          <signon-signin on-tap="{{hi}}" tab="1"></signon-signin>
-        </paper-shadow>
+          <signon-signin></signon-signin>
       </div>
     </cp-page>
   </template>
@@ -29,7 +27,6 @@
             ];
             animation.target = document.getElementById('widget');
             animation.play();
-            console.log("done");
           }, 1000);
         }
       });

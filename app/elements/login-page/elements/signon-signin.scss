@@ -1,16 +1,16 @@
 @import "../../_colors";
 :host {
     display: block;
-    background: white;
+    background: transparent;
 }
 .container {
-    background: white;
     color: $primary;
+    height: 100%;
+    background: white;
 }
 #pages {
     width: 300px;
     height: 460px;
-    background: white;
 }
 #title {
     $color: $black2;
@@ -18,36 +18,50 @@
     font-weight: 500;
     margin: 20px;
 }
-#inner {
-    background: lighten($primary, 5%);
-    padding: 0 40px;
-}
-#agree {
-    padding: 20px;
-    a {
-        color: $thirdary;
+#outer {
+    min-height: 200px;
+    #inner {
+        background: lighten($primary, 5%);
+        padding-left: 40px;
+        padding-right: 40px;
+        min-height: 200px;
     }
-    .checkbox {
-        color: $secondary;
-        padding-right: 20px;
-        &::shadow {
-            #ink[checked] {
+    #agree {
+        padding-top: 20px;
+        a {
+            color: $black1;
+            &:hover {
                 color: $secondary;
             }
-            #checkbox.checked {
-                border-color: $secondary;
+        }
+        .checkbox {
+            color: $secondary;
+            padding-right: 20px;
+            &::shadow {
+                #ink[checked] {
+                    color: $secondary;
+                }
+                #checkbox.checked {
+                    border-color: $secondary;
+                }
             }
         }
     }
-}
-#action {
-    padding: 20px 35px;
-    #login {
-        background: lighten($secondary, 5%);
-        transition: background 420ms ease-in-out;
+    #msg {
+        padding: 40px 20px;
         color: white;
-        &:hover {
-            background: $secondary;
+        background: lighten($primary, 5%);
+        word-wrap: break-word;
+    }
+    #action {
+        padding: 40px 35px 20px 35px;
+        #login {
+            background: lighten($secondary, 5%);
+            transition: background 420ms ease-in-out;
+            color: white;
+            &:hover {
+                background: $secondary;
+            }
         }
     }
 }
@@ -57,6 +71,19 @@
     width: 100%;
     >div {
         padding: 0 10px;
+    }
+    paper-button {
+        text-transform: None;
+        &:hover {
+            color: $secondary;
+        }
+        &.highlight {
+            transition: color 200ms ease-in-out;
+            color: $thirdary;
+            &:hover {
+                color: $secondary;
+            }
+        }
     }
 }
 .input {

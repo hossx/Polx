@@ -1,72 +1,122 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../../../bower_components/core-animated-pages/transitions/cross-fade.html">
 <link rel="import" href="../../../bower_components/core-label/core-label.html">
 <link rel="import" href="../../../bower_components/paper-input/paper-input-decorator.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../../../bower_components/paper-checkbox/paper-checkbox.html">
 
-<polymer-element name="signon-signin" noscript attributes="tab">
+<polymer-element name="signon-signin" attributes="page,z">
   <template>
     <link rel="stylesheet" href="signon-signin.css">
 
-    <core-animated-pages id="pages" selected="{{tab}}" transitions="slide-from-right">
-      <section>
-        <div class="container" vertical layout>
-          <div id="title">Member Login</div>
-          <div id="inner" vertical layout>
-            <paper-input-decorator class="input" label="Email" floatingLabel>
-              <input is="core-input">
-            </paper-input-decorator required>
-            <paper-input-decorator class="input" label="Password" floatingLabel>
-              <input is="core-input" type="password">
-            </paper-input-decorator required>
-          </div>
+    <core-animated-pages id="pages" flex valueattr="id" selected="{{page}}" transitions="cross-fade-all">
+      <section flex id="signin">
+        <paper-shadow z="{{z}}">
+          <div class="container" vertical layout>
+            <div id="title">Member Login</div>
+            <div id="outer">
+              <div id="inner" center-justified vertical layout>
+                <paper-input-decorator class="input" label="Email" floatingLabel>
+                  <input is="core-input" value="{{email}}">
+                </paper-input-decorator required>
+                <paper-input-decorator class="input" label="Password" floatingLabel>
+                  <input is="core-input" type="password">
+                </paper-input-decorator required>
+              </div>
 
-          <div id="action" vertical layout>
-            <paper-button id="login">Login</paper-button>
+              <div id="action" vertical layout>
+                <paper-button id="login">Login</paper-button>
+              </div>
+            </div>
+            <div id="options" horizontal center-justified layout>
+              <paper-button class="highlight" noink on-tap="{{showSignon}}">Become a member</paper-button>
+              <paper-button noink on-tap="{{showForget}}">Forget password?</paper-button>
+            </div>
           </div>
+        </paper-shadow>
+      </section>
+      <section id="signon">
+        <paper-shadow z="{{z}}">
+          <div class="container" vertical layout>
+            <div id="title">Become a Member</div>
+            <div id="outer">
+              <div id="inner" center-justified vertical layout>
+                <paper-input-decorator class="input" label="Email" floatingLabel>
+                  <input is="core-input" value="{{email}}">
+                </paper-input-decorator required>
+                <paper-input-decorator class="input" label="Password" floatingLabel>
+                  <input is="core-input" type="password">
+                </paper-input-decorator required>
 
-          <div id="options" horizontal center-justified layout>
-            <div>Open an account?</div>
-            <div>Forgot your password?</div>
+                <paper-input-decorator class="input" label="Confirm Password" floatingLabel>
+                  <input is="core-input" type="password">
+                </paper-input-decorator required>
+              </div>
+
+              <div id="agree" center vertical layout>
+                <core-label center horizontal layout>
+                  <paper-checkbox class="checkbox" for></paper-checkbox>
+                  <div> I agree to the <a href="/#/doc/tos" target="_blank">Terms of Service</a>
+                  </div>
+                </core-label>
+              </div>
+
+              <div id="action" vertical layout>
+                <paper-button id="login">Register</paper-button>
+              </div>
+            </div>
+            <div id="options" horizontal center-justified layout>
+              <paper-button noink on-tap="{{showSignin}}">Member login</paper-button>
+            </div>
           </div>
-        </div>
+        </paper-shadow>
       </section>
 
-      <section>
-        <div id="title">Member Login</div>
-        <div id="inner" vertical layout>
-          <paper-input-decorator class="input" label="Email" floatingLabel>
-            <input is="core-input">
-          </paper-input-decorator required>
-          <paper-input-decorator class="input" label="Password" floatingLabel>
-            <input is="core-input" type="password">
-          </paper-input-decorator required>
+      <section id="forget">
+        <paper-shadow z="{{z}}">
+          <div class="container" vertical layout>
+            <div id="title">Forget Password</div>
+            <div id="outer">
+              <div id="inner" center-justified vertical layout>
+                <paper-input-decorator class="input" label="Tell me your email" floatingLabel>
+                  <input is="core-input" value="{{email}}">
+                </paper-input-decorator required>
+              </div>
 
-          <paper-input-decorator class="input" label="Confirm Password" floatingLabel>
-            <input is="core-input" type="password">
-          </paper-input-decorator required>
-        </div>
-
-        <div id="agree" center vertical layout>
-          <core-label center horizontal layout>
-            <paper-checkbox class="checkbox" for></paper-checkbox>
-            <div> I agree to the <a href="/#/doc/tos" target="_blank">Terms of Service</a>
+              <div id="action" vertical layout>
+                <paper-button id="login">Retrieve Password</paper-button>
+              </div>
             </div>
-          </core-label>
-        </div>
+            <div id="options" horizontal center-justified layout>
+              <paper-button noink on-tap="{{showSignin}}">Member Login</paper-button>
+              <paper-button class="highlight" noink on-tap="{{showSignon}}">Become a Member</paper-button>
+            </div>
+          </div>
+        </paper-shadow>
+      </section>
 
-        <div id="action" vertical layout>
-          <paper-button id="login">Login</paper-button>
-        </div>
-
-        <div id="options" horizontal center-justified layout>
-          <div>Login</div>
-          <div>Forgot your password?</div>
-        </div>
-        </div>
+      <section id="message">
+        <paper-shadow z="{{z}}">
+          <div class="container" vertical layout>
+            <div id="title">{{message.title}}</div>
+            <div id="outer">
+              <div id="msg" vertical layout>
+                <template repeat="{{detail in message.details}}">
+                  <p>{{detail}}</p>
+                </template>
+              </div>
+            </div>
+            <div id="options" horizontal center-justified layout>
+              <paper-button noink on-tap="{{showSignin}}">Member Login</paper-button>
+              <paper-button class="highlight" noink on-tap="{{showSignon}}">Become a Member</paper-button>
+            </div>
+          </div>
+        </paper-shadow>
       </section>
     </core-animated-pages>
 
   </template>
+  <script src="signon-signin.js"></script>
 </polymer-element>
