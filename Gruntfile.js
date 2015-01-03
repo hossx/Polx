@@ -262,13 +262,15 @@ module.exports = function(grunt) {
                 loose: true,
                 empty: true
             },
+            app: {
             dist: {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.dist %>',
-                    src: '*.html',
+                    src: ['*.html'],
                     dest: '<%= yeoman.dist %>'
                 }]
+            }
             }
         },
         copy: {
@@ -333,19 +335,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-        inlinecss: {
-            main: {
-                options: {
-                    preserveMediaQueries: true
-                },
-                files: [{
-                    expand: true,
-                    cwd: '<%= yeoman.dist %>/email_templates',
-                    src: '*.html',
-                    dest: '<%= yeoman.dist %>/email_templates'
-                }]
-            }
-        },
         'gh-pages': {
             options: {
                 base: 'dist'
@@ -394,7 +383,6 @@ module.exports = function(grunt) {
         'vulcanize',
         'uglify',
         'usemin',
-       // 'inlinecss',
         'minifyHtml'
     ]);
 
