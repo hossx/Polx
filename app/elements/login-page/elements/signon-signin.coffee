@@ -8,11 +8,12 @@ Polymer 'signon-signin',
   z: "1"
 
   ready: () ->
-    @showPasswordReset()
+    @showRegistered()
 
   showSignin: () -> @show("signin")
   showSignon: () -> @show("signon")
   showForget: () -> @show("forget")
+  showSignout: () -> @show("signout")
 
   showRegistered: () ->
     @message =
@@ -44,4 +45,4 @@ Polymer 'signon-signin',
     @timeout = setTimeout ()=> 
       @page = page
       @timeout = null
-    , 10000
+    , 15000

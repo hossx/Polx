@@ -19,6 +19,7 @@
     margin: 20px;
 }
 #outer {
+    border-top: solid 1px $black4;
     min-height: 200px;
     #inner {
         background: lighten($primary, 5%);
@@ -55,9 +56,17 @@
         background: lighten($primary, 5%);
         word-wrap: break-word;
     }
+    #logout {
+        padding: 40px 20px;
+        color: $black2;
+        #userid {
+            color: $black1;
+            font-weight: 500;
+        }
+    }
     #action {
         padding: 40px 35px 0 35px;
-        #login {
+        paper-button {
             background: lighten($secondary, 5%);
             transition: background 420ms ease-in-out;
             color: white;
@@ -72,6 +81,7 @@
     padding-top: 10px;
     padding-bottom: 20px;
     width: 100%;
+    background: white;
     >div {
         padding: 0 10px;
     }

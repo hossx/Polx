@@ -64,7 +64,7 @@
               </div>
 
               <div id="action" vertical layout>
-                <paper-button id="login">Register</paper-button>
+                <paper-button>Register</paper-button>
               </div>
             </div>
             <div id="options" horizontal center-justified layout>
@@ -86,13 +86,34 @@
               </div>
 
               <div id="action" vertical layout>
-                <paper-button id="login">Retrieve Password</paper-button>
+                <paper-button>Retrieve Password</paper-button>
               </div>
             </div>
             <div id="options" horizontal center-justified layout>
               <paper-button noink on-tap="{{showSignin}}">Member Login</paper-button>
               <paper-button class="highlight" noink on-tap="{{showSignon}}">Become a Member</paper-button>
             </div>
+          </div>
+        </paper-shadow>
+      </section>
+
+      <section id="signout">
+        <paper-shadow z="{{z}}">
+          <div class="container" vertical layout>
+            <div id="title">Signout</div>
+            <div id="outer">
+              <div id="logout" center vertical layout>
+                <div>You have signed in as:</div>
+                <div id="userid">This is you remail</div>
+              </div>
+
+              <div id="action" vertical layout>
+                <paper-button>Signout</paper-button>
+              </div>
+            </div>
+          </div>
+          <div id="options" horizontal center-justified layout>
+
           </div>
         </paper-shadow>
       </section>
@@ -109,8 +130,8 @@
               </div>
             </div>
             <div id="options" horizontal center-justified layout>
-              <paper-button noink on-tap="{{showSignin}}">Member Login</paper-button>
-              <paper-button class="highlight" noink on-tap="{{showSignon}}">Become a Member</paper-button>
+              <paper-button noink on-tap="{{showSignin}}">Member login</paper-button>
+              <paper-button class="highlight" noink on-tap="{{showSignon}}">Become a member</paper-button>
             </div>
           </div>
         </paper-shadow>
