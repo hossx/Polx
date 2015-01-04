@@ -1,0 +1,82 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="../../../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../../../bower_components/core-tooltip/core-tooltip.html">
+<link rel="import" href="../../../bower_components/core-icons/communication-icons.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/core-collapse/core-collapse.html">
+<link rel="import" href="../../section-group/section-group.html">
+
+<polymer-element name="assets-subpage" attributes="user">
+  <template>
+    <link rel="stylesheet" href="assets-subpage.css">
+    <core-ajax id="assetsAjax" url="{{assetsUrl}}" response="{{assetsResp}}" auto></core-ajax>
+
+    <section-group has-footer fit>
+      <div label>Assets</div>
+      <paper-shadow z="0">
+        <div vertical center layout id="table-container">
+          <table>
+            <thead>
+              <tr>
+                <td>Currency</td>
+                <td>Available</td>
+                <td>Locked</td>
+                <td>Pending Withdrawal</td>
+                <td>Total</td>
+                <td colspan=3></td>
+              </tr>
+            </thead>
+            <tbody>
+              <template repeat="{{c in currencies}}">
+                <tr>
+                  <td>{{c.fullName}}</td>
+                  <td class="part">{{assets[c.id][0]}}</td>
+                  <td class="part">{{assets[c.id][1]}}</td>
+                  <td class="part">{{assets[c.id][2]}}</td>
+                  <td class="total">{{assets[c.id][3]}}</td>
+                  <td class="op">
+                    <core-tooltip label="Trade {{c.name}}">
+                      <core-icon on-tap="{{openMarkets}}" id="{{c.id}}" icon="swap-horiz"></core-icon>
+                    </core-tooltip>
+                  </td>
+                  <td class="op">
+                    <core-tooltip label="Deposit {{c.name}}">
+                      <a>
+                        <core-icon icon="communication:call-received"></core-icon>
+                      </a>
+                    </core-tooltip>
+                  </td>
+                  <td class="op">
+                    <core-tooltip label="Withdraw {{c.name}}">
+                      <a>
+                        <core-icon icon="communication:call-made"></core-icon>
+                      </a>
+                    </core-tooltip>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan=8>
+                    <core-collapse class="markets" id="{{c.id}}markets">
+                      <div horizontal layout>
+                        <div class="heading" nowrap>Markets: </div>
+                        <div flex horizontal wrap layout>
+                          <template repeat="{{m in marketsFor(c.id)}}">
+                            <div class="market"><a target="_blank" href="/#/market/{{m.id}}">{{m.name}}</a></div>
+                          </template>
+                        </div>
+                      </div>
+                    </core-collapse>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+      </paper-shadow>
+    </section-group>
+
+  </template>
+
+  <script src="assets-subpage.js"></script>
+</polymer-element>

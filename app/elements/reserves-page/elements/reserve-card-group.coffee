@@ -12,7 +12,7 @@ Polymer 'reserve-card-group',
   responseChanged: (o, n) ->
     if @response
       @reserves = @response.data
-      @currencieIds = Object.keys(@reserves)
+      @currencieIds = Object.keys(@reserves).sort()
     else if @response == ''
       @stopRefresh()
       @fire("network-error", {'url': @reserveStatsUrl})

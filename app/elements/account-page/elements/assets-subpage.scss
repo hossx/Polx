@@ -1,0 +1,79 @@
+@import "../../_colors";
+:host {
+    display: block;
+}
+#table-container {
+    background: lighten($primary, 5%);
+    color: $white1;
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    thead {
+        color: $white2;
+        td {
+            padding-bottom: 10px;
+        }
+    }
+    tbody {
+        tr:nth-child(odd) {
+            td {
+                padding: 4px 0;
+            }
+        }
+        tr:nth-child(even) {
+            background-color: $primary;
+            padding: 10px;
+            td {
+                padding: 10px;
+                &.part {
+                    color: $white2;
+                }
+                &.total {
+                    color: $secondary;
+                    font-weight: 700;
+                }
+                &.op {
+                    color: $white3;
+                }
+            }
+            &:hover {
+                background: $secondary;
+                td {
+                    color: white;
+                }
+                td.total {
+                    color: white;
+                }
+                td.op {
+                    background: $white1;
+                    color: $black2;
+                    &:hover {
+                        color: $secondary;
+                    }
+                }
+            }
+        }
+    }
+    .markets {
+        >div {
+            padding: 15px;
+            .heading {
+                color: $white3;
+                width: 25%;
+                text-align: right;
+                text-transform: uppercase;
+            }
+            .market {
+                padding: 0 10px;
+                min-width: 120px;
+                a {
+                    color: $secondary;
+                    &:hover {
+                        color: $thirdary;
+                    }
+                }
+            }
+        }
+    }
+}

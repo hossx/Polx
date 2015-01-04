@@ -61,17 +61,25 @@ Polymer 'the-app',
     this.$.main.appendChild(router)
     router.setAttribute("show","")
 
-
   processCurrenciesAndMarkets: () ->
     currencies = {}
-    currencyGroups = {}
     for k, v of window.config.currencies
       c = new Currency(k, v) 
       currencies[k] = c
+    window.config.currencies = currencies
+
+    currencyGroups = {}
+    for k, c of window.config.currencies
       currencyGroups[c.group] = [] if not currencyGroups[c.group]
       currencyGroups[c.group].push c
 
-    window.config.currencies = currencies
+    for k, v of currencyGroups
+      currencyGroups[k] = v.sort (a, b) ->
+        if a.id < b.id
+          -1
+        else
+          1
+
     window.config.currencyGroups = currencyGroups
 
     markets = {}
@@ -85,6 +93,19 @@ Polymer 'the-app',
 
     window.config.markets = markets
     window.config.marketGroups = marketGroups
+    window.config.marketsForCurrency = (coin) ->
+      results = []
+      for k, market of markets
+        results.push market if market.baseCurrency.id == coin or market.currency.id == coin
+      results.sort (a, b) -> 
+        if a.baseCurrency.id < b.baseCurrency.id
+          -1
+        else if a.baseCurrency.id > b.baseCurrency.id
+          1
+        else if a.currency.id < b.currency.id
+          -1
+        else
+          1
 
   processProtocols: () ->
     window.protocol =
@@ -98,7 +119,8 @@ Polymer 'the-app',
       reserveDetailsUrl: (coin) -> 'api_mock_open_reserve_details.json'
       reserveSnapshotsUrl: (coin) -> 'api_mock_open_reserve_snapshots.json'
       ## private apis
-      userProfileUrl: (userId) -> 'api_mock_my_profile.json'
+      userProfileUrl: 'api_mock_my_profile.json'
+      userAssetsUrl:  'api_mock_my_assets.json'
 
 
   processDocuments: (config) ->

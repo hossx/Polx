@@ -10,19 +10,20 @@
 <link rel="import" href="../section-group/section-group.html">
 <link rel="import" href="elements/account-sidebar.html">
 <link rel="import" href="elements/profile-subpage.html">
-<link rel="import" href="elements/security-subpage.html">
+<link rel="import" href="elements/assets-subpage.html">
 
 <polymer-element name="account-page" attributes="page">
   <template>
     <link rel="stylesheet" href="account-page.css">
 
     <core-ajax id="profileAjax" url="{{profileUrl}}" response="{{profileResp}}" auto></core-ajax>
+    
     <cp-right-drawer-page backlink="/#/" label="My Account" id="pages" page="{{page}}">
       <cp-toolbar-button hash="/market" id="shortcut" active="[[toolbarSelect === '/market']]" label="Go to markets" icon="swap-horiz">
       </cp-toolbar-button>
       <account-sidebar id="sidebar" selected="{{page}}"></account-sidebar>
       <section page="assets">
-        <div> Main content... 2</div>
+        <assets-subpage profile="{{profile}}"></assets-subpage>
       </section>
       <section page="profile">
         <profile-subpage profile="{{profile}}"></profile-subpage>
