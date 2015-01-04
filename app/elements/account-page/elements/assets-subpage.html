@@ -58,9 +58,9 @@
                 <tr>
                   <td colspan=8>
                     <core-collapse class="markets" id="{{c.id}}markets">
-                      <div horizontal layout>
-                        <div class="heading" nowrap>Markets: </div>
-                        <div flex horizontal wrap layout>
+                      <div vertical center layout>
+                        <div class="heading" nowrap>Buy / sell {{c.name}} at the following market(s): </div>
+                        <div center horizontal wrap layout>
                           <template repeat="{{m in marketsFor(c.id)}}">
                             <div class="market"><a target="_blank" href="/#/market/{{m.id}}">{{m.name}}</a></div>
                           </template>

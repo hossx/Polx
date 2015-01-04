@@ -60,12 +60,9 @@
             padding: 15px;
             .heading {
                 color: $white3;
-                width: 25%;
-                text-align: right;
-                text-transform: uppercase;
+                padding-bottom: 10px;
             }
             .market {
-                padding: 0 10px;
                 min-width: 120px;
                 a {
                     color: $secondary;
