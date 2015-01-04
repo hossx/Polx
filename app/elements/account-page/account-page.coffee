@@ -2,6 +2,7 @@
 
 Polymer 'account-page',
   page: "profile"
+  profileResp: null
   profile: null
   profileUrl: ''
 
@@ -15,8 +16,8 @@ Polymer 'account-page',
       @profileUrl = window.protocol.userProfileUrl(uid)
     
 
-  profileChanged: (o, n) ->
-    if @profile
-      window.profile = @profile
+  profileRespChanged: (o, n) ->
+    if @profileResp and @profileResp.code == 0
+      window.profile = @profile = @profileResp.data
 
 

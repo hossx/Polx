@@ -1,0 +1,23 @@
+@import "../_colors";
+:host {
+    color: $black1;
+}
+#dialog {
+    max-width: 400px;
+    .instruction {
+        font-size: 12px;
+        border-radius: 5px;
+        padding: 0 10px;
+        color: $black2;
+        a {
+            color: $secondary;
+            text-decoration: none;
+            &:hover {
+                color: $secondary;
+            }
+        }
+        #tag {
+            color: $secondary;
+        }
+    }
+}

@@ -16,7 +16,7 @@
   <template>
     <link rel="stylesheet" href="account-page.css">
 
-    <core-ajax id="profileAjax" url="{{profileUrl}}" response="{{profile}}" auto></core-ajax>
+    <core-ajax id="profileAjax" url="{{profileUrl}}" response="{{profileResp}}" auto></core-ajax>
     <cp-right-drawer-page backlink="/#/" label="My Account" id="pages" page="{{page}}">
       <cp-toolbar-button hash="/market" id="shortcut" active="[[toolbarSelect === '/market']]" label="Go to markets" icon="swap-horiz">
       </cp-toolbar-button>

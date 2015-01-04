@@ -89,14 +89,16 @@ Polymer 'the-app',
   processProtocols: () ->
     window.protocol =
       base: window.config.api.base
+      ## public apis
       tickerUrl: (coin) -> "%s/api/m/ticker/%s".format(@base, coin.toLowerCase())
       depthUrl: (market) ->  "%s/api/m/%s/depth".format(@base, market.toLowerCase())
       transactionUrl: (market) ->  "%s/api/%s/transaction".format(@base, market.toLowerCase())
-      currencyStatsUrl: () -> 'api_mock_currency_stats.json'
-      currencyDetailsUrl: (coin) -> 'api_mock_currency_details.json'
-      currencyTxsUrl: (coin) -> 'api_mock_currency_txs.json'
-      currencySnapshotsUrl: (coin) -> 'api_mock_currency_snapshots.json'
-      userProfileUrl: (userId) -> 'api_mock_profile.json'
+      cryptoTxsUrl: (coin) -> 'api_mock_open_crypto_txs.json'
+      reserveStatsUrl: () -> 'api_mock_open_reserve_stats.json'
+      reserveDetailsUrl: (coin) -> 'api_mock_open_reserve_details.json'
+      reserveSnapshotsUrl: (coin) -> 'api_mock_open_reserve_snapshots.json'
+      ## private apis
+      userProfileUrl: (userId) -> 'api_mock_my_profile.json'
 
 
   processDocuments: (config) ->

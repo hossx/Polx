@@ -2,8 +2,27 @@
 
 ##通用
 
-URL中的币ID用小写，返回值JSON中全部用大写。
+- URL中的币ID用小写，返回值JSON中全部用大写。
 
+- 所有[public]API指的是无需cookie验证的API，[private]的是需要cookie的.
+
+- 建议[private]API格式为: `/api/my/...` 。[private]API无需传入user id，因为可以从cookie得到。
+
+- 建议[public]API格式为`/api/open/...`
+
+- 所有API的数据[DATA]都被抱在如下结构中：
+
+    ```
+    {
+      "code": 0,
+      "message": "",
+      "time": 12345678,
+
+      "data": [DATA]
+    }
+    ```
+
+  下面说的"返回值"都指的是[DATA].
 ---
 ## /api/config
 读取全局配置，包括支持的币种，支持的市场，以及app的参数等等。
@@ -231,24 +250,20 @@ URL中的币ID用小写，返回值JSON中全部用大写。
 
 ---
 
-## /api/currency/stats
+## /api/open/assets
 读取货币资产的统计数据，特别是准备金情况。
 
-- /api/currency/stats 读取全部币种统计
-- /api/currency/stats/btc,ltc 读取btc和ltc统计
+- /api/open/assets 读取全部币种统计
 
 ####返回值
 ```
  {
-   "timestamp": "12/12/12",
-   "data": {
-     "BTC": [10, 20, 70, 99],
-     "LTC": [12, 10, 1, 25],
-     "GOOC": [ 10, 20, 70, 101],
-     "BC": [12, 10, 1, 23],
-     "BTSX": [10, 10, 20, 30],
-     "XRP": [120, 10, 1, 150]
-   }
+   "BTC": [10, 20, 70, 99],
+   "LTC": [12, 10, 1, 25],
+   "GOOC": [ 10, 20, 70, 101],
+   "BC": [12, 10, 1, 23],
+   "BTSX": [10, 10, 20, 30],
+   "XRP": [120, 10, 1, 150]
  }
 
 ```
@@ -256,17 +271,17 @@ URL中的币ID用小写，返回值JSON中全部用大写。
 
 ---
 
-## /api/currency/details/[currencyId]
+## /api/open/reserves/[currencyId]
 读取特定币种的详细数据。
 
-- /api/currency/details/btc 读取btc详细数据
+- /api/open/reserves/btc 读取btc详细数据
 
 ####返回值
 ```
 {
   "timestamp": "12/12/12",
   "id": "BTC",
-  "stats": [10, 20, 70, 99],
+  "assets": [10, 20, 70, 99],
   "reserves": [{
     "label": "cold",
     "addresses": [
@@ -296,46 +311,16 @@ URL中的币ID用小写，返回值JSON中全部用大写。
 
 
 ```
-数字分别表示：hot, cold, user, balance。建议数字只保留8位有效数字。 balance >= hot + cold + user。 Resesrve Ratio = (hot + cold + user) / balance
+
+addresses中每一项为[地址，金额，原始消息，消息签名]
 
 ---
 
-## /api/currency/txs/[currencyId]
-读取特定币种与平台相关的blockchain转账记录列表。
-
-- /api/currency/txs/btc?limit=50 读取btc详细数据
-- /api/currency/txs/btc?cursor=1121321&limit=50 读取btc详细数据
-
-####返回值
-```
-{
-  "timestamp": "12/12/12",
-  "currency": "BTC",
-  "hasMore": true,
-  "txs": [
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"]
-  ]
-}
-```
----
-
-## /api/currency/snapshots/[currencyId]
+## /api/open/reserve_snapshots/[currencyId]
 读取特定币种的资产分布snapshot列表。
 
-- /api/currency/snapshots/btc?limit=50 读取btc详细数据
-- /api/currency/snapshots/btc?cursor=1121321&limit=50 读取btc详细数据
+- /api/open/reserve_snapshots/btc?limit=50 读取btc详细数据
+- /api/open/reserve_snapshots/btc?cursor=1121321&limit=50 读取btc详细数据
 
 ####返回值
 
@@ -361,7 +346,41 @@ URL中的币ID用小写，返回值JSON中全部用大写。
 }
 ```
 
-## /api/user/[uid]/profile
+---
+
+## /api/open/cryptotxs/[currencyId]
+读取特定币种与平台相关的blockchain转账记录列表。
+
+- /api/open/cryptotxs/btc?limit=50 读取btc详细数据
+- /api/open/cryptotxs/btc?cursor=1121321&limit=50 读取btc详细数据
+
+####返回值
+```
+{
+  "timestamp": "12/12/12",
+  "currency": "BTC",
+  "hasMore": true,
+  "txs": [
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
+    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"]
+  ]
+}
+```
+
+---
+
+## /api/my/profile
 读取用户的profile
 ```
 {
@@ -373,5 +392,46 @@ URL中的币ID用小写，返回值JSON中全部用大写。
   "emailVerified": true,
   "mobileVerified": true,
   "googleAuthEnabled": false
+}
+```
+
+---
+
+## /api/my/assets
+读取用户的assets
+```
+{
+  "DRK": [1,2,3,6],
+  "BTC": [1,2,3,6],
+  "VRC": [1,2,3,6],
+  "LTC": [1,2,3,6],
+  "CNY": [1,2,3,6]
+}
+```
+
+[available, locked, pendingwithdrawal, total]
+
+---
+
+## /api/my/cryptoaddrs
+读取用户的虚拟货币deposit地址
+
+```
+{
+  "DRK": "fjdajfdjsalfjdlsafj",
+  "BTC": "fjdajfdjsalfjdlsafj",
+  "VRC": "fjdajfdjsalfjdlsafj",
+  "LTC": "fjdajfdjsalfjdlsafj",
+  "CNY": "fjdajfdjsalfjdlsafj",
+}
+```
+
+---
+
+## POST /api/my/cryptoaddr/btc
+读取用户的虚拟货币deposit地址，如果没有，系统先生成一个。
+```
+{
+  "BTC": "fjdajfdjsalfjdlsafj"
 }
 ```

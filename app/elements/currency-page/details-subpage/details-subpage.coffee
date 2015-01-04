@@ -6,6 +6,6 @@ Polymer 'details-subpage',
   detailsUrl: ''
 
   currencyChanged: () ->
-    @detailsUrl = window.protocol.currencyDetailsUrl(@currency.id)
+    @detailsUrl = window.protocol.reserveDetailsUrl(@currency.id)
 
   detailsChanged: (o, n) ->

@@ -14,13 +14,13 @@ Polymer 'data-subpage',
     @snapshots = []
 
   currencyChanged: (o, n) ->
-      @txsUrl = window.protocol.currencyTxsUrl(@currency.id)
-      @snapshotUrl = window.protocol.currencySnapshotsUrl(@currency.id)
+      @txsUrl = window.protocol.cryptoTxsUrl(@currency.id)
+      @snapshotUrl = window.protocol.reserveSnapshotsUrl(@currency.id)
 
   responseChanged: (o, n) ->
     if @response
       if @response == ''
-        @fire('network-error', {'url': @currencyTxsUrl})
+        @fire('network-error', {'url': @cryptoTxsUrl})
       else
         @hasMore = @response.hasMore
         @transactions.push @response.txs...

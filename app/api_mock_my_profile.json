@@ -1,0 +1,16 @@
+{
+  "code": 0,
+  "message": "",
+  "time": 12345678,
+
+  "data": {
+    "uid": 12345678,
+    "name": "wangdong",
+    "email": "dong77@gmail.com",
+    "mobile": "+86 18817728171",
+    "apiToken": "8c0781b2402a9907af4e68cb8f982767",
+    "emailVerified": true,
+    "mobileVerified": true,
+    "googleAuthEnabled": false
+  }
+}
