@@ -1,6 +1,7 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
 <link rel="import" href="../../bower_components/core-icons/social-icons.html">
+<link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html">
 <link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="../../bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
 <link rel="import" href="../../bower_components/core-header-panel/core-header-panel.html">
@@ -12,7 +13,7 @@
       <div class="group" vertical layout>
         <div class="group-label">{{group.label}}</div>
         <template repeat="{{link in group.links}}">
-          <div class="link"><a href={{link.url}}>{{link.label}}</a></div>
+          <div class="link {{link.class}}"><core-tooltip  position="top" label="{{link.tooltip}}"><a href={{link.url}}>{{link.label}}</a></core-tooltip></div>
         </template>
       </div>
     </template>
@@ -44,7 +45,7 @@
           "links": [
             {"label": "Bitcoin", "url": ""},
             {"label": "Dev Roadmap", "url": "/#/doc/roadmap"},
-            {"label": "Coinport PAY", "url": "https://pay.coinport.com"}
+            {"label": "Coinport PAY", "url": "https://pay.coinport.com", "class": "pay", "tooltip": "Accept bitcoin payment for your business."}
           ]
         },
         {
