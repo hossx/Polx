@@ -1,7 +1,7 @@
 'use strict'
 
 Polymer 'account-page',
-  page: "assets"
+  page: "profile"
   profile: null
   profileUrl: ''
 

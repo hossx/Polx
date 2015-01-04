@@ -4,6 +4,7 @@
 <link rel="import" href="../../../bower_components/paper-toggle-button/paper-toggle-button.html">
 <link rel="import" href="../../../bower_components/paper-dialog/paper-action-dialog.html">
 <link rel="import" href="../../section-group/section-group.html">
+<link rel="import" href="../../qr-code/qr-code.html">
 
 <polymer-element name="profile-subpage" attributes="profile">
   <template>
@@ -54,6 +55,8 @@
           </div>
         </div>
       </paper-shadow>
+
+      <qr-code data="hello wafdsafdsafdsaf dsafdsa fa sorld!" margin="2"></qr-code>
     </section-group>
 
     <paper-action-dialog id="googleAuthDialog" backdrop autoCloseDisabled layered="false" heading="Title">

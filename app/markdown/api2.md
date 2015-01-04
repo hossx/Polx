@@ -5,7 +5,7 @@
 URL中的币ID用小写，返回值JSON中全部用大写。
 
 ---
-##[public] /api/config 
+## /api/config
 读取全局配置，包括支持的币种，支持的市场，以及app的参数等等。
 
 - /api/config 读取全部配置
@@ -231,7 +231,7 @@ URL中的币ID用小写，返回值JSON中全部用大写。
 
 ---
 
-##[public] /api/currency/stats
+## /api/currency/stats
 读取货币资产的统计数据，特别是准备金情况。
 
 - /api/currency/stats 读取全部币种统计
@@ -256,7 +256,7 @@ URL中的币ID用小写，返回值JSON中全部用大写。
 
 ---
 
-##[public] /api/currency/details/[currencyId]
+## /api/currency/details/[currencyId]
 读取特定币种的详细数据。
 
 - /api/currency/details/btc 读取btc详细数据
@@ -300,7 +300,7 @@ URL中的币ID用小写，返回值JSON中全部用大写。
 
 ---
 
-##[public] /api/currency/txs/[currencyId]
+## /api/currency/txs/[currencyId]
 读取特定币种与平台相关的blockchain转账记录列表。
 
 - /api/currency/txs/btc?limit=50 读取btc详细数据
@@ -331,7 +331,7 @@ URL中的币ID用小写，返回值JSON中全部用大写。
 ```
 ---
 
-##[public] /api/currency/snapshots/[currencyId]
+## /api/currency/snapshots/[currencyId]
 读取特定币种的资产分布snapshot列表。
 
 - /api/currency/snapshots/btc?limit=50 读取btc详细数据
@@ -361,7 +361,7 @@ URL中的币ID用小写，返回值JSON中全部用大写。
 }
 ```
 
-##[private] /api/user/[uid]/profile
+## /api/user/[uid]/profile
 读取用户的profile
 ```
 {
