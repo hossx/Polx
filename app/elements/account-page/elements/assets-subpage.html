@@ -62,7 +62,7 @@
                         <div class="heading" nowrap>Buy / sell {{c.name}} at the following market(s): </div>
                         <div center horizontal wrap layout>
                           <template repeat="{{m in marketsFor(c.id)}}">
-                            <div class="market"><a target="_blank" href="/#/market/{{m.id}}">{{m.name}}</a></div>
+                            <div class="market"><a href="/#/market/{{m.id}}">{{m.name}}</a></div>
                           </template>
                         </div>
                       </div>

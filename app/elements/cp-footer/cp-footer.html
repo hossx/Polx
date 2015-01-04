@@ -7,58 +7,77 @@
 <link rel="import" href="../../bower_components/core-header-panel/core-header-panel.html">
 
 <polymer-element name="cp-footer" horizontal around-justified layout>
-<template>
-  <link rel="stylesheet" href="cp-footer.css">
+  <template>
+    <link rel="stylesheet" href="cp-footer.css">
     <template repeat="{{group in groups}}">
       <div class="group" vertical layout>
         <div class="group-label">{{group.label}}</div>
         <template repeat="{{link in group.links}}">
-          <div class="link {{link.class}}"><core-tooltip  position="top" label="{{link.tooltip}}"><a href={{link.url}}>{{link.label}}</a></core-tooltip></div>
+          <div class="link {{link.class}}">
+            <core-tooltip position="top" label="{{link.tooltip}}"><a target="{{link.target}}" href={{link.url}}>{{link.label}}</a>
+            </core-tooltip>
+          </div>
         </template>
       </div>
     </template>
-</template>
-<script>
-  (function () {
-    'use strict';
-
-    Polymer('cp-footer', {
-      groups: [
-        {
+  </template>
+  <script>
+    (function() {
+      'use strict';
+      Polymer('cp-footer', {
+        groups: [{
           "label": "About",
-          "links": [
-            {"label": "Team", "url": "/#/doc/team"},
-            {"label": "Jobs", "url": "/#/doc/jobs"},
-            {"label": "Contact Us", "url": "/#/doc/contactus"}
-          ]
-        },
-        {
+          "links": [{
+            "label": "Team",
+            "url": "/#/doc/team"
+          }, {
+            "label": "Jobs",
+            "url": "/#/doc/jobs"
+          }, {
+            "label": "Contact Us",
+            "url": "/#/doc/contactus"
+          }]
+        }, {
           "label": "Legal",
-          "links": [
-            {"label": "Terms of Service", "url": "/#/doc/tos"},
-            {"label": "Privacy Polycies", "url": "/#/doc/privacy"},
-            {"label": "AML Polycies", "url": "/#/doc/aml"}
-          ]
-        },
-        {
+          "links": [{
+            "label": "Terms of Service",
+            "url": "/#/doc/tos"
+          }, {
+            "label": "Privacy Polycies",
+            "url": "/#/doc/privacy"
+          }, {
+            "label": "AML Polycies",
+            "url": "/#/doc/aml"
+          }]
+        }, {
           "label": "Resources",
-          "links": [
-            {"label": "Bitcoin", "url": ""},
-            {"label": "Dev Roadmap", "url": "/#/doc/roadmap"},
-            {"label": "Coinport PAY", "url": "https://pay.coinport.com", "class": "pay", "tooltip": "Accept bitcoin payment for your business."}
-          ]
-        },
-        {
+          "links": [{
+            "label": "Bitcoin",
+            "url": ""
+          }, {
+            "label": "Dev Roadmap",
+            "url": "/#/doc/roadmap"
+          }, {
+            "label": "Coinport PAY",
+            "url": "https://pay.coinport.com",
+            "class": "pay",
+            "tooltip": "Accept bitcoin payment for your business.",
+            "target": "_blank"
+          }]
+        }, {
           "label": "Social",
-          "links": [
-            {"label": "Twitter", "url": "/#/tos"},
-            {"label": "Facebook", "url": "/#/privacy"},
-            {"label": "Google+", "url": "/#/aml"}
-          ]
-        },
-      ]
-    });
-
-  })();
-</script>
+          "links": [{
+            "label": "Twitter",
+            "url": "/#/tos"
+          }, {
+            "label": "Facebook",
+            "url": "/#/privacy"
+          }, {
+            "label": "Google+",
+            "url": "/#/aml"
+          }]
+        }, ]
+      });
+    })();
+  </script>
 </polymer-element>
