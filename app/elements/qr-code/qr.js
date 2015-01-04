@@ -705,12 +705,13 @@ var QRCode = {
 
   'generateHTML': function(data, options) {
     options = options || {};
+    var size = options.size || 240;
     var matrix = QRCode['generate'](data, options);
-    var modsize = Math.max(options.modulesize || 5, 0.5);
+    var n = matrix.length;
     var margin = Math.max(options.margin || 4, 0.0);
+    var modsize = size / (n + 2 * margin);
 
     var e = document.createElement('div');
-    var n = matrix.length;
     var html = ['<table border="0" cellspacing="0" cellpadding="0" style="border:' +
       modsize*margin + 'px solid #fff;background:#fff">'];
     for (var i = 0; i < n; ++i) {
@@ -728,11 +729,11 @@ var QRCode = {
 
   'generatePNG': function(data, options) {
     options = options || {};
+    var size = options.size || 240;
     var matrix = QRCode['generate'](data, options);
-    var modsize = Math.max(options.modulesize || 5, 0.5);
-    var margin = Math.max(options.margin || 4, 0.0);
     var n = matrix.length;
-    var size = modsize * (n + 2 * margin);
+    var margin = Math.max(options.margin || 4, 0.0);
+    var modsize = size / (n + 2 * margin);
 
     var canvas = document.createElement('canvas'), context;
     canvas.width = canvas.height = size;

@@ -1,8 +1,9 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../../../bower_components/paper-toggle-button/paper-toggle-button.html">
-<link rel="import" href="../../../bower_components/paper-dialog/paper-action-dialog.html">
+<link rel="import" href="../../../bower_components/core-collapse/core-collapse.html">
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../qr-code/qr-code.html">
 
@@ -43,9 +44,29 @@
           <div horizontal layout>
             <div>Two-factor Auth Enabled</div>
             <div flex>
-              <paper-toggle-button checked?={{profile.googleAuthEnabled}} on-change="{{showGoogleAuthDialog}}"></paper-toggle-button>
+              <paper-toggle-button checked?={{profile.googleAuthEnabled}} on-change="{{toggleEnableGoogleAuth}}"></paper-toggle-button>
             </div>
+
           </div>
+          <core-collapse id="enableGoogleAuthCollapse">
+            <div>
+              <paper-shadow z="1">
+                <div class="outer" vertical center layout>
+                  <div class="inner" vertical center layout>
+                    <div>Scan the following QR code with your Google Authenticator app.</div>
+                    <qr-code data="fdsjafldjsaljflsadjf;lajfldsa" size="300"></qr-code>
+                    <div>Input the 6-digit code (taggd with <span id="tag">COINPORT:{{profile.uid}}</span>) from your Google Authenticator
+                      app , then click OK.</div>
+                    <paper-input id="code" label="6-digit code"></paper-input>
+                    <div horizontal layout>
+                      <paper-button on-tap="{{toggleEnableGoogleAuth}}">Cancel</paper-button>
+                      <paper-button raised>OK</paper-button>
+                    </div>
+                  </div>
+                </div>
+              </paper-shadow>
+            </div>
+          </core-collapse>
 
           <div horizontal layout>
             <div>Cellphone Verified</div>
@@ -56,18 +77,7 @@
         </div>
       </paper-shadow>
 
-      <qr-code data="hello wafdsafdsafdsaf dsafdsa fa sorld!" margin="2"></qr-code>
     </section-group>
-
-    <paper-action-dialog id="googleAuthDialog" backdrop autoCloseDisabled layered="false" heading="Title">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-      <paper-button dismissive>More Info...</paper-button>
-      <paper-button affirmative>Decline</paper-button>
-      <paper-button affirmative autofocus>Accept</paper-button>
-    </paper-action-dialog>
-
   </template>
 
   <script src="profile-subpage.js"></script>

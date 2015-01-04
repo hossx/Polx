@@ -1,28 +1,24 @@
-<polymer-element name="qr-code" attributes="data format margin eccLevel">
+<polymer-element name="qr-code" attributes="data,format,margin,eccLevel,size">
     <script src="qr.js"></script>
     <script>
         Polymer('qr-code', {
             format: 'png',
             margin: 4,
             eccLevel: "L",
-            options: {},
+            size: 200,
             observe: {
                 data: 'generate',
                 format: 'generate',
                 margin: 'generate',
-                eccLevel: 'generate'
-            },
-            dataChanged: function() {
-                this.options = {
-                    eccLevel: this.eccLevel,
-                    margin: this.margin
-                };
-                this.generate();
-            },
-            optionsChanged: function() {
-                this.generate();
+                eccLevel: 'generate',
+                size: 'generate'
             },
             generate: function() {
+                this.options = {
+                    eccLevel: this.eccLevel,
+                    margin: this.margin,
+                    size: this.size
+                };
                 if (this.format === 'png') {
                     this.generatePNG();
                 } else {

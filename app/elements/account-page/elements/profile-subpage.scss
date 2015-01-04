@@ -29,6 +29,24 @@ paper-toggle-button::shadow {
         pointer-events: none;
     }
 }
-#googleAuthDialog {
-    max-width: 400px;
+core-collapse {
+    >div {
+        padding: 0 20px 20px 20px;
+        > paper-shadow {
+            color: $black1;
+            text-align: center;
+            .inner {
+                max-width: 360px;
+            }
+        }
+    }
+}
+paper-input#code {
+    /deep/ input[is=core-input] {
+        font-size: 18px;
+        text-align: center;
+    }
+}
+span#tag {
+    color: $secondary;
 }

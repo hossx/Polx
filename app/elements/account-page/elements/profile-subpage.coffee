@@ -2,6 +2,7 @@
 
 Polymer 'profile-subpage',
   profile: null
+  token: 'DB2MBN7XAGCPON2I'
 
-  showGoogleAuthDialog: (e) ->
-    this.$.googleAuthDialog.toggle()
+  toggleEnableGoogleAuth: (e) ->
+    this.$.enableGoogleAuthCollapse.toggle()
