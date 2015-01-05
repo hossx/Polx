@@ -20,10 +20,10 @@
             <thead>
               <tr>
                 <td>Currency</td>
+                <td>Total</td>
                 <td>Available</td>
                 <td>Locked</td>
                 <td>Pending Withdrawal</td>
-                <td>Total</td>
                 <td colspan=3></td>
               </tr>
             </thead>
@@ -31,10 +31,10 @@
               <template repeat="{{c in currencies}}">
                 <tr>
                   <td>{{c.fullName}}</td>
+                  <td class="total">{{assets[c.id][3]}}</td>
                   <td class="part">{{assets[c.id][0]}}</td>
                   <td class="part">{{assets[c.id][1]}}</td>
                   <td class="part">{{assets[c.id][2]}}</td>
-                  <td class="total">{{assets[c.id][3]}}</td>
                   <td class="op">
                     <core-tooltip label="Trade {{c.name}}">
                       <core-icon on-tap="{{openMarkets}}" id="{{c.id}}" icon="swap-horiz"></core-icon>
@@ -59,7 +59,7 @@
                   <td colspan=8>
                     <core-collapse class="markets" id="{{c.id}}markets">
                       <div vertical center layout>
-                        <div class="heading" nowrap>Buy / sell {{c.name}} at the following market(s): </div>
+                        <div class="heading" nowrap>Buy / sell {{c.name}} in the following market(s): </div>
                         <div center horizontal wrap layout>
                           <template repeat="{{m in marketsFor(c.id)}}">
                             <div class="market"><a href="/#/market/{{m.id}}">{{m.name}}</a></div>
