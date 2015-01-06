@@ -11,8 +11,9 @@
 <link rel="import" href="elements/account-sidebar.html">
 <link rel="import" href="elements/profile-subpage.html">
 <link rel="import" href="elements/assets-subpage.html">
+<link rel="import" href="elements/deposit-subpage.html">
 
-<polymer-element name="account-page" attributes="page">
+<polymer-element name="account-page" attributes="page,currencyId">
   <template>
     <link rel="stylesheet" href="account-page.css">
 
@@ -29,7 +30,7 @@
         <profile-subpage profile="{{profile}}"></profile-subpage>
       </section>
       <section page="deposit">
-        <div>Deposit</div>
+        <deposit-subpage profile="{{profile}}" currencyId="{{currencyId}}"></deposit-subpage>
       </section>
       <section page="withdraw">
         <section-group>

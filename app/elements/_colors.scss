@@ -1,8 +1,3 @@
-// color palette
-$primary2: lighten(rgb(43, 49, 59), 20%);
-$primary: lighten(rgb(43, 49, 59), 10%);
-$secondary: #FE766A;
-$thirdary: #54AEAA;
 
 
 @function color($color, $value: 500) {
@@ -332,3 +327,10 @@ $blue-grey: (
   800:  #37474f,
   900:  #263238
 );
+
+
+
+// color palette
+$C1: $blue;
+$C2: $amber;
+$C3: $deep-orange;

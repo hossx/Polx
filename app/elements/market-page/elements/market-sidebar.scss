@@ -2,21 +2,22 @@
 #market-tabs {
     font-size: 13px;
     font-weight: 500px;
+    height: 64px;
     &::shadow {
         #tabsContainer {
-            background: $primary;
+            background: color($C1, 500);
             color: white;
         }
         #selectionBar {
-            background-color: $secondary;
+            background-color: color($C2, 500);
         }
     }
     >paper-tab::shadow #ink {
-        color: $secondary;
+        color: white;
     }
 }
 #pages {
     core-menu {
-        background: lighten($primary,5%);
+        color: white;
     }
 }

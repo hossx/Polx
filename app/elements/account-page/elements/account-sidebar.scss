@@ -1,22 +1,16 @@
 @import "../../_colors";
-$color1: lighten($primary, 5%);
-$activeBackground: $secondary;
 :host {
     height: 100%;
 }
 core-item {
-    background: $color1;
     font-weight: 400;
     &.core-selected {
-        background: $primary;
-        color: $secondary;
+        background: color($C1, 700);
+        color: white;
         font-weight: 500;
-        &:hover {
-            color: white;
-        }
     }
     &:hover {
-        background: $secondary;
+        background: color($C2, 500);
     }
 }
 core-submenu {
@@ -25,9 +19,9 @@ core-submenu {
         font-size: 11px;
     }
     > core-item {
-        background: $color1;
+        background: color($C1, 400);
         &.core-selected {
-            background: $secondary;
+            background: color($C2, 500);
         }
     }
     &.active, &[active] {
@@ -45,9 +39,8 @@ core-submenu::shadow #submenu {
     width: 100%;
     border-radius: 0;
     margin:0;
-    color: lighten($thirdary, 5%);
+    color: white;
     &:hover {
-        background: lighten($thirdary, 5%);
-        color: white;
+        background: color($C3, 500);
     }
 }

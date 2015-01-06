@@ -1,10 +1,10 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
-<link rel="import" href="../../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../../bower_components/core-tooltip/core-tooltip.html">
 <link rel="import" href="../../../bower_components/core-icons/communication-icons.html">
-<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../../bower_components/core-collapse/core-collapse.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../section-group/section-group.html">
 
 <polymer-element name="assets-subpage" attributes="user">
@@ -14,7 +14,7 @@
 
     <section-group has-footer fit>
       <div label>Assets</div>
-      <paper-shadow z="0">
+      <paper-shadow z="1">
         <div vertical center layout id="table-container">
           <table>
             <thead>
@@ -37,21 +37,17 @@
                   <td class="part">{{assets[c.id][2]}}</td>
                   <td class="op">
                     <core-tooltip label="Trade {{c.name}}">
-                      <core-icon on-tap="{{openMarkets}}" id="{{c.id}}" icon="swap-horiz"></core-icon>
+                      <paper-icon-button on-tap="{{openMarkets}}" id="{{c.id}}" icon="swap-horiz"></paper-icon-button>
                     </core-tooltip>
                   </td>
                   <td class="op">
                     <core-tooltip label="Deposit {{c.name}}">
-                      <a>
-                        <core-icon icon="communication:call-received"></core-icon>
-                      </a>
+                      <paper-icon-button icon="communication:call-received"></paper-icon-button>
                     </core-tooltip>
                   </td>
                   <td class="op">
                     <core-tooltip label="Withdraw {{c.name}}">
-                      <a>
-                        <core-icon icon="communication:call-made"></core-icon>
-                      </a>
+                      <paper-icon-button icon="communication:call-made"></paper-icon-button>
                     </core-tooltip>
                   </td>
                 </tr>
@@ -62,7 +58,8 @@
                         <div class="heading" nowrap>Buy / sell {{c.name}} in the following market(s): </div>
                         <div center horizontal wrap layout>
                           <template repeat="{{m in marketsFor(c.id)}}">
-                            <div class="market"><a href="/#/market/{{m.id}}">{{m.name}}</a></div>
+                            <div class="market"><a href="/#/market/{{m.id}}">{{m.name}}</a>
+                            </div>
                           </template>
                         </div>
                       </div>

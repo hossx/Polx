@@ -1,11 +1,12 @@
 'use strict'
 
 Polymer 'account-page',
-  page: "assets"
+  page: "deposit"
   
   profileUrl: ''
   profileResp: null
   profile: null
+  currencyId: ""
 
   ready: () ->
     @profileUrl = window.protocol.userProfileUrl
@@ -13,4 +14,3 @@ Polymer 'account-page',
   profileRespChanged: (o, n) ->
     if @profileResp and @profileResp.code == 0
       window.profile = @profile = @profileResp.data
-

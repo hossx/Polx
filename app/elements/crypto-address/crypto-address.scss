@@ -1,7 +1,7 @@
 @import "../_colors";
 :host {
     display: inline-block;
-    background: $thirdary; 
+    background: color($blue, 400); 
     color: white;
     padding: 3px 8px;
     border-radius: 10px;
@@ -9,7 +9,7 @@
     font-weight: 500;
 }
 :host(:hover) {
-    background: $secondary;
+    background: color($blue, 700); 
 }
 #icon {
     color: white;

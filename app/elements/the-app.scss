@@ -6,10 +6,10 @@
         height: 100vh;
         font-size: 14px;
         paper-spinner::shadow .circle {
-            border-color: $secondary;
+            border-color: color($C2, 500);
         }
         core-icon {
-            color: $secondary;
+            color: color($C2, 500);
             height: 28px;
             width: 28px;
         }

@@ -1,6 +1,5 @@
 @import "../elements/_colors";
 @import "../elements/_fonts";
-
 html {
     @include condensed-font();
     font-size: 13px;
@@ -8,6 +7,15 @@ html {
     -moz-osx-font-smoothing: grayscale;
 }
 body {
-    background: $primary;
-    color: white;
+    background: white;
+    color: $black1;
+}
+
+a {
+    color: $black2;
+    text-decoration: none;
+    &:hover {
+        color: color($C1, 500);
+        text-decoration: underline;
+    }
 }

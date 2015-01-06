@@ -1,14 +1,13 @@
 @import "../_colors";
 :host {
     box-sizing: border-box;
-    background: transparent;
     min-width: 40%;
     display: block;
     a {
-        color: $white2;
+        color: $black2;
         text-decoration: none;
         &:hover {
-            color: lighten($secondary, 10%);
+            color: color($C1, 500);
             text-decoration: underline;
         }
     }
@@ -16,7 +15,7 @@
         a {
             color: color($deep-purple, 300);
             &:hover {
-                color: color($amber, 300);
+                color: color($deep-purple, 500);
             }
         }
     }
@@ -26,7 +25,7 @@
     .group-label {
         text-transform: uppercase;
         padding-bottom: 10px;
-        color: $white3;
+        color: $black3;
     }
     .link {
         padding-bottom: 5px;
@@ -36,7 +35,7 @@
     a {
         color: $black2;
         &:hover {
-            color: $secondary;
+            color: color($C2, 500);
         }
     }
     .pay {

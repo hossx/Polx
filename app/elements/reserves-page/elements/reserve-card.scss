@@ -11,14 +11,14 @@ a {
 }
 #box {
     padding: 20px;
-    background: lighten($primary, 5%);
+    background: $white2;
     transition: background 420ms ease-in-out;
     &:hover {
-        background: lighten($primary, 10%);
+        background: $white1;
     }
 }
 #head {
-    color: $secondary;
+    color: color($C1, 500);
     font-weight: 500;
     font-size: 16px;
     text-align: center;
@@ -29,26 +29,26 @@ a {
     padding-bottom: 10px;
     .l {
         display: inline-block;
-        color: $white3;
+        color: $black3;
         padding: 0 5px;
         min-width: 60px;
     }
     .v {
         font-weight: 500;
-        color: $thirdary;
+        color: $black2;
         padding: 0 5px;
     }
     #general {
         text-align: center;
         .l {
-            color: $white2;
+            color: $black2;
             text-transform: uppercase;
         }
         .v {
             font-size: 28px;
             font-weight: 100;
             text-align: center;
-            color: $white1;
+            color: $black1;
         }
         &:after {
             content: "";
@@ -56,7 +56,7 @@ a {
             padding-top: 10px;
             height: 1px;
             width: 100%;
-            border-top: solid 1px $white4;
+            border-top: solid 1px $black4;
         }
     }
     #shortage {
@@ -64,7 +64,7 @@ a {
             opacity: 0;
         }
         .v {
-            color: $secondary;
+            color: color($C3, 500);
         }
     }
 }

@@ -2,54 +2,51 @@
 :host {
     display: block;
 }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
 #table-container {
-    background: lighten($primary, 5%);
-    color: $white1;
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
+    background: white;
+    color: $black1;
     thead {
-        color: $white2;
+        color: $black2;
         td {
             padding-bottom: 10px;
         }
     }
     tbody {
         tr:nth-child(odd) {
-            td {
-                padding: 4px 0;
-            }
+            td {}
         }
         tr:nth-child(even) {
-            background-color: $primary;
-            padding: 10px;
+            background-color: $magic-grey;
             td {
-                padding: 10px;
+                padding: 0 10px;
                 &.part {
-                    color: $white2;
+                    color: $black2;
+                    font-weight: 700;
                 }
                 &.total {
-                    color: $secondary;
+                    color: color($C1, 500);
                     font-weight: 700;
                 }
                 &.op {
-                    color: $white3;
+                    color: $black3;
+                    text-align: center;
                 }
             }
             &:hover {
-                background: $secondary;
+                background: color($C2, 400);
                 td {
-                    color: white;
-                }
-                td.total {
-                    color: white;
+                    color: $white1;
                 }
                 td.op {
-                    background: $white1;
-                    color: $black2;
+                    background: color($C1, 400);
+                    color: $white3;
                     &:hover {
-                        color: $secondary;
+                        color: white;
                     }
                 }
             }
@@ -57,17 +54,19 @@
     }
     .markets {
         >div {
+            border-bottom: solid 10px white;
+            background: color($C1, 400);
             padding: 15px;
             .heading {
-                color: $white3;
+                color: $white2;
                 padding-bottom: 10px;
             }
             .market {
                 min-width: 120px;
                 a {
-                    color: $secondary;
+                    color: white;
                     &:hover {
-                        color: $thirdary;
+                        color: color($C2, 500);
                     }
                 }
             }

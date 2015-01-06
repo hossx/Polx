@@ -5,7 +5,7 @@
 <link rel="import" href="../../bower_components/core-animated-pages/transitions/slide-from-right.html">
 <link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="../../bower_components/core-icon/core-icon.html">
-<link rel="import" href="../../bower_components/paper-icon-button/core-icon-button.html">
+<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html">
 <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
 <link rel="import" href="../cp-icons/crypto-icons.html">
@@ -21,7 +21,7 @@
         <content select="#sidebar"></content>
       </core-header-panel>
 
-      <core-header-panel mode="seamed" main >
+      <core-header-panel mode="seamed" main>
         <core-toolbar class="core-header" id="toolbar">
           <a href="{{backlink}}" id="backlink">
             <paper-icon-button icon="arrow-back"></paper-icon-button>
@@ -29,12 +29,13 @@
           <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
           <div flex id="label">{{label}}</div>
           <template repeat="{{icon,idx in icons}}">
-            <core-icon-button class="btn" idx="{{idx}}" active?="{{page==idx}}" on-tap="{{switchTab}}" icon="{{icon}}"></core-icon-button>
+            <core-icon-button class="btn" idx="{{idx}}" active?="{{page == idx}}" on-tap="{{switchTab}}" icon="{{icon}}">
+            </core-icon-button>
           </template>
         </core-toolbar>
 
-        <div id="canvas" flex vertical layout main>
-          <core-animated-pages fit selected="{{page}}" transitions="slide-from-right">
+        <div flex vertical layout main>
+          <core-animated-pages fit id="pages" selected="{{page}}" transitions="slide-from-right">
             <content select="section"></content>
           </core-animated-pages>
 

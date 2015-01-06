@@ -1,13 +1,13 @@
 @import "../../_colors";
 :host(:hover) {
     #item {
-        color: $secondary;
+        color: color($C1, 500);
     }
 }
 :host([active]) {
     #item {
-        color: $black1;
-        background: $black4;
+        color: white;
+        background: color($C1, 700);
         cursor: default;
         font-weight: 500;
         disabled: disabled;

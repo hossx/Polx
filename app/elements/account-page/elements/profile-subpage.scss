@@ -6,23 +6,23 @@
 paper-toggle-button::shadow {
     paper-radio-button::shadow {
         #ink[checked] {
-            color: $secondary;
+            color: color($C1, 700);
         }
         #ink {
-            color: white;
+            color: color($C1, 500);
         }
         #onRadio {
-            background-color: $secondary;
+            background-color: color($C1, 500);
         }
         #offRadio {
-            background-color: $white4;
+            background-color: $black4;
         }
     }
     #toggleBar {
-        background-color: $white2;
+        background-color: $black2;
     }
     #toggleBar[checked] {
-        background-color: $secondary;
+        background-color: color($C1, 500);
     }
     #toggleContainer[disabled] {
         opacity: 0.7;
@@ -31,12 +31,14 @@ paper-toggle-button::shadow {
 }
 core-collapse {
     >div {
-        padding: 0 20px 20px 20px;
+        border-top: solid 1px $black4;
+        border-bottom: solid 1px $black4;
         > paper-shadow {
-            color: $black1;
             text-align: center;
-            .inner {
-                max-width: 360px;
+            .outer {
+                .inner {
+                    max-width: 360px;
+                }
             }
         }
     }
@@ -48,5 +50,5 @@ paper-input#code {
     }
 }
 span#tag {
-    color: $secondary;
+    color: color($C2, 500);
 }

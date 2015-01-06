@@ -1,0 +1,38 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="../../../bower_components/core-dropdown-menu/core-dropdown-menu.html">
+<link rel="import" href="../../../bower_components/core-dropdown/core-dropdown.html">
+<link rel="import" href="../../../bower_components/core-menu/core-menu.html">
+<link rel="import" href="../../../bower_components/core-item/core-item.html">
+<link rel="import" href="../../section-group/section-group.html">
+
+<polymer-element name="deposit-subpage" attributes="user,currencyId">
+  <template>
+    <link rel="stylesheet" href="deposit-subpage.css">
+    <core-ajax id="depositAddrAjax" url="{{depositAddrUrl}}" response="{{depositAddrResp}}" auto></core-ajax>
+
+    <section-group has-footer fit>
+      <div label>Deposit</div>
+      <paper-shadow z="1">
+        <div vertical center layout id="container">
+
+          <div id="select" center horizontal layout>
+            <div>Currency to deposit: </div>
+            <core-dropdown-menu label="{{currency.fullName}}" class="currencyDropdown">
+              <core-dropdown class="dropdown">
+                <core-menu valueattr="currency" selected="{{currencyId}}">
+                  <template repeat="{{c in currencyKeys}}">
+                    <core-item currency="{{c}}">{{config.currencies[c].fullName}}</core-item>
+                  </template>
+                </core-menu>
+              </core-dropdown>
+            </core-dropdown-menu>
+          </div>
+        </div>
+      </paper-shadow>
+    </section-group>
+
+  </template>
+
+  <script src="deposit-subpage.js"></script>
+</polymer-element>

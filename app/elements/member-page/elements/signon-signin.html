@@ -15,9 +15,9 @@
       <section flex id="signin">
         <paper-shadow z="{{z}}">
           <div class="container" vertical layout>
-            <div id="title">Member Login</div>
-            <div id="outer">
-              <div id="inner" center-justified vertical layout>
+            <div class="label">Member Login</div>
+            <div class="outer">
+              <div class="inner" center-justified vertical layout>
                 <paper-input-decorator class="input" label="Email" floatingLabel>
                   <input is="core-input" value="{{email}}">
                 </paper-input-decorator required>
@@ -26,11 +26,11 @@
                 </paper-input-decorator required>
               </div>
 
-              <div id="action" vertical layout>
+              <div class="action" vertical layout>
                 <paper-button id="login">Login</paper-button>
               </div>
             </div>
-            <div id="options" horizontal center-justified layout>
+            <div class="options" horizontal center-justified layout>
               <paper-button class="highlight" noink on-tap="{{showSignon}}">Become a member</paper-button>
               <paper-button noink on-tap="{{showForget}}">Forget password?</paper-button>
             </div>
@@ -40,9 +40,9 @@
       <section id="signon">
         <paper-shadow z="{{z}}">
           <div class="container" vertical layout>
-            <div id="title">Become a Member</div>
-            <div id="outer">
-              <div id="inner" center-justified vertical layout>
+            <div class="label">Become a Member</div>
+            <div class="outer">
+              <div class="inner" center-justified vertical layout>
                 <paper-input-decorator class="input" label="Email" floatingLabel>
                   <input is="core-input" value="{{email}}">
                 </paper-input-decorator required>
@@ -63,11 +63,11 @@
                 </core-label>
               </div>
 
-              <div id="action" vertical layout>
+              <div class="action" vertical layout>
                 <paper-button>Register</paper-button>
               </div>
             </div>
-            <div id="options" horizontal center-justified layout>
+            <div class="options" horizontal center-justified layout>
               <paper-button noink on-tap="{{showSignin}}">Member login</paper-button>
             </div>
           </div>
@@ -77,19 +77,19 @@
       <section id="forget">
         <paper-shadow z="{{z}}">
           <div class="container" vertical layout>
-            <div id="title">Forget Password</div>
-            <div id="outer">
-              <div id="inner" center-justified vertical layout>
+            <div class="label">Forget Password</div>
+            <div class="outer">
+              <div class="inner" center-justified vertical layout>
                 <paper-input-decorator class="input" label="Email" floatingLabel>
                   <input is="core-input" value="{{email}}">
                 </paper-input-decorator required>
               </div>
 
-              <div id="action" vertical layout>
+              <div class="action" vertical layout>
                 <paper-button>Retrieve Password</paper-button>
               </div>
             </div>
-            <div id="options" horizontal center-justified layout>
+            <div class="options" horizontal center-justified layout>
               <paper-button noink on-tap="{{showSignin}}">Member Login</paper-button>
               <paper-button class="highlight" noink on-tap="{{showSignon}}">Become a Member</paper-button>
             </div>
@@ -100,19 +100,19 @@
       <section id="signout">
         <paper-shadow z="{{z}}">
           <div class="container" vertical layout>
-            <div id="title">Signout</div>
-            <div id="outer">
+            <div class="label">Signout</div>
+            <div class="outer">
               <div id="logout" center vertical layout>
                 <div>You have signed in as:</div>
                 <div id="userid">dong77@gmail.com</div>
               </div>
 
-              <div id="action" vertical layout>
+              <div class="action" vertical layout>
                 <paper-button>Signout</paper-button>
               </div>
             </div>
           </div>
-          <div id="options" horizontal center-justified layout>
+          <div class="options" horizontal center-justified layout>
 
           </div>
         </paper-shadow>
@@ -121,15 +121,15 @@
       <section id="message">
         <paper-shadow z="{{z}}">
           <div class="container" vertical layout>
-            <div id="title">{{message.title}}</div>
-            <div id="outer">
+            <div class="label">{{message.title}}</div>
+            <div class="outer">
               <div id="msg" vertical layout>
                 <template repeat="{{detail in message.details}}">
                   <p>{{detail}}</p>
                 </template>
               </div>
             </div>
-            <div id="options" horizontal center-justified layout>
+            <div class="options" horizontal center-justified layout>
               <paper-button noink on-tap="{{showSignin}}">Member login</paper-button>
               <paper-button class="highlight" noink on-tap="{{showSignon}}">Become a member</paper-button>
             </div>

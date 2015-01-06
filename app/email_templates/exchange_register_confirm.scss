@@ -18,14 +18,14 @@ body {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     text-align: center;
-    background: $primary;
+    background: color($C1, 500);
     color: white;
     font-size: 14px;
     font-weight: 400;
     padding: 10px;
 }
 #content {
-    border: solid 1px $primary;
+    border: solid 1px color($C1, 500);
     width: 100%;
     background: white;
     text-align: center;
@@ -58,13 +58,13 @@ body {
             transition: background 420ms ease-in-out;
             font-size: 10px;
             word-wrap: break-word;
-            background: $secondary;
-            color: $secondary;
+            background: color($C2, 500);
+            color: color($C2, 500);
             padding: 10px 10px;
             color: white;
             border-radius: 20px;
             &:hover {
-                background: $thirdary;
+                background: color($C3, 500);
             }
         }
     }
@@ -77,7 +77,7 @@ body {
         color: $black2;
         text-decoration: none;
         &:hover {
-            color: $secondary;
+            color: color($C2, 500);
             text-decoration: underline;
         }
     }

@@ -3,19 +3,22 @@
     box-sizing: border-box;
 }
 #drawer {
-    background: lighten($primary, 5%);
+    background: color($C1, 400);
     padding: 0;
 }
 #toolbar {
-    color: $secondary;
-    background: $primary;
-    a {
-        color: $secondary;
-        height: 40px !important;
+    color: white;
+    background: color($C1, 500);
+    paper-icon-button, core-icon-button {
+        background: color($C1, 500);
+        color: white;
+    }
+    paper-icon-button:hover, core-icon-button:hover {
+        color: color($C2, 500);
     }
 }
 #label {
-    color: $white2;
+    color: $white1;
     font-weight: 700;
 }
 .btn {
@@ -23,11 +26,12 @@
 }
 #pages {
     padding-bottom: 200px;
+    background: $magic-grey;
 }
 #nav-tabs {
     width: 100%;
-    color: darken($primary, 10%);
-    background: $secondary;
+    color: white;
+    background: color($C1, 500);
     position: absolute;
     right: 0;
     left: 0;

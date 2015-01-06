@@ -1,8 +1,8 @@
 ##Initialize the environment
 ```
 bower install
-npm install grunt
-npm install
+sudo npm install grunt
+sudo npm install
 
 ```
 
@@ -23,4 +23,4 @@ Open ```http://localhost:12345```
 ```
 grunt publish
 ```
-Open ```http://wwwbitvar.com```
+Open ```http://www.bitvar.com```

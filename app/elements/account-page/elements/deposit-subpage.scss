@@ -1,0 +1,31 @@
+@import "../../_colors";
+:host {
+    display: block;
+}
+#container {
+    .currencyDropdown {
+        padding: 0 10px;
+        min-width: 120px;
+        color: color($C1, 500);
+        font-weight: 700;
+        padding: 0 10px;
+        .dropdown {
+            font-weight: 400;
+            background: color($C1, 400);
+            color: white;
+            max-height: 400px;
+            min-width: 160px;
+            core-item {
+                padding: 0 10px;
+                &:hover {
+                    background: color($C2, 500);
+                    color: white;
+                }
+                &[active] {
+                    background: color($C1, 700);
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}

@@ -10,14 +10,14 @@
         padding: 0 10px;
         color: $black2;
         a {
-            color: $secondary;
+            color: color($C2, 500);
             text-decoration: none;
             &:hover {
-                color: $secondary;
+                color: color($C2, 500);
             }
         }
         #tag {
-            color: $secondary;
+            color: color($C2, 500);
         }
     }
 }

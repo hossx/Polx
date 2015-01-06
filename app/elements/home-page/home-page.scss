@@ -8,11 +8,11 @@
     #name {
         font-size: 72px;
         text-transform: uppercase;
-        color: $white2;
+        color: color($C1, 500);
     }
     #slogan {
         font-size: 16px;
-        color: $white3;
+        color: color($C1, 400);
     }
 }
 #form-container {

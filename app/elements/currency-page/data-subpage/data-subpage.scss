@@ -9,10 +9,10 @@
         color: $black1;
         text-decoration: none;
         &:hover {
-            color: $secondary;
+            color: color($C1, 500);
             text-decoration: underline;
             core-icon.small {
-                color: $secondary;
+                color: color($C1, 500);
             }
         }
         core-icon.small {
@@ -45,7 +45,7 @@ td, th {
     background: transparent;
     color: $black2;
     &:hover {
-        color: $secondary;
+        color: color($C1, 500);
     }
     &[disabled] {
         color: $black4;

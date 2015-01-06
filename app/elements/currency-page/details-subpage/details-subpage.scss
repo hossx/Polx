@@ -38,13 +38,14 @@ td, th {
     font-size: 10px;
     word-wrap: break-word;
     max-width: 240px;
-    border: solid 1px lighten($primary, 10%);
+    border: solid 1px color($C1, 500);
     border-radius: 3px;
     color: $black1;
     padding: 5px;
     &:hover {
-        background: lighten($primary, 10%);
+        background: color($C2, 500);
         color: white;
+        border: solid 1px transparent;
     }
 }
 .hot {

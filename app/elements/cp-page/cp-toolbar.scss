@@ -4,14 +4,10 @@
 }
 #toolbar {
     width: 100%;
-    background: $primary;
+    background: color($C1, 500);
     color: white;
     a#home {
-        color: $secondary;
+        color: white;
         text-decoration: none;
     }
-}
-#home {
-    color: white;
-    text-decoration: none;
 }

@@ -3,59 +3,30 @@
     box-sizing: border-box;
 }
 #drawer {
-    background: lighten($primary, 5%);
+    background: color($C1, 400);
+    color: $white1;
     padding: 0;
 }
 #menu-toolbar {
-    color: $white3;
-    background: lighten($primary, 5%);
+    color: $white2;
+    background: color($C1, 500);
     a {
-        color: $secondary;
+        color: white;
         height: 40px !important;
     }
 }
 #toolbar {
-    color: $secondary;
-    background: $primary;
+    color: white;
+    background: color($C1, 500);
     a {
-        color: $secondary;
+        color: white;
         height: 40px !important;
     }
 }
 #label {
-    color: $white2;
+    color: $white1;
     font-weight: 700;
 }
-.btn {
-    display: none;
-}
 #pages {
-    padding-bottom: 200px;
-}
-#nav-tabs {
-    width: 100%;
-    color: darken($primary, 10%);
-    background: $secondary;
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 100;
-    /deep/ {
-        #ink {
-            color: white;
-        }
-        #selectionBar {
-            background-color: white;
-        }
-    }
-}
-@media(min-width: 768px) {
-    .btn {
-        display: initial;
-    }
-    #nav-tabs {
-        height: 0;
-        border-top: none;
-    }
+    background: $magic-grey;
 }
