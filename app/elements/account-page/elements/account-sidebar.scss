@@ -47,6 +47,7 @@ core-submenu::shadow #submenu {
     margin:0;
     color: lighten($thirdary, 5%);
     &:hover {
-        color: $secondary;
+        background: lighten($thirdary, 5%);
+        color: white;
     }
 }

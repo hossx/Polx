@@ -5,13 +5,13 @@
 <link rel="import" href="../../bower_components/core-animated-pages/transitions/slide-from-right.html">
 <link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="../../bower_components/core-icon/core-icon.html">
-<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/paper-icon-button/core-icon-button.html">
 <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
 <link rel="import" href="../cp-icons/crypto-icons.html">
 <link rel="import" href="../cp-footer/cp-footer.html">
 
-<polymer-element name="cp-drawer-page" attributes="backlink,label,icons,tab">
+<polymer-element name="cp-drawer-page" attributes="backlink,label,icons,page">
   <template>
     <link rel="stylesheet" href="cp-drawer-page.css">
 
@@ -29,16 +29,16 @@
           <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
           <div flex id="label">{{label}}</div>
           <template repeat="{{icon,idx in icons}}">
-            <paper-icon-button class="btn" idx="{{idx}}" active?="{{tab === idx}}" on-tap="{{switchTab}}" icon="{{icon}}"></paper-icon-button>
+            <core-icon-button class="btn" idx="{{idx}}" active?="{{page==idx}}" on-tap="{{switchTab}}" icon="{{icon}}"></core-icon-button>
           </template>
         </core-toolbar>
 
         <div id="canvas" flex vertical layout main>
-          <core-animated-pages fit selected="{{tab}}" transitions="slide-from-right">
+          <core-animated-pages fit selected="{{page}}" transitions="slide-from-right">
             <content select="section"></content>
           </core-animated-pages>
 
-          <paper-tabs id="nav-tabs" selected="{{tab}}">
+          <paper-tabs id="nav-tabs" selected="{{page}}">
             <template repeat="{{icon in icons}}">
               <paper-tab>
                 <core-icon icon="{{icon}}"></core-icon>

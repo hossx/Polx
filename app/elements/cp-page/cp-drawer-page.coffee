@@ -1,10 +1,10 @@
 'use strict'
 
 Polymer 'cp-drawer-page',
-  tab: 1
+  page: 0
   backlink: ''
   label: '' 
   icons: []
 
   switchTab: (e, detail, sender) -> 
-    @tab = sender.getAttribute("idx")
+    @page = sender.getAttribute("idx")

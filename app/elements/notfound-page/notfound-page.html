@@ -4,8 +4,6 @@
   <template>
     <link rel="stylesheet" href="notfound-page.css">
 
-    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="../../bower_components/jquery-qrcode/dist/jquery.qrcode.js"></script>
     <h1>404</h1>
 
     <div id="qrcode"></div>
@@ -13,16 +11,7 @@
   <script>
     (function() {
       'use strict';
-      Polymer({
-        ready: function() {
-          $('#qrcode').qrcode({
-            "width": 100,
-            "height": 100,
-            "color": "#3a3",
-            "text": "http://larsjung.de/qrcode"
-          });
-        }
-      });
+      Polymer({});
     })();
   </script>
 </polymer-element>
