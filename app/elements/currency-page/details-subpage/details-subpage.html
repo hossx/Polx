@@ -29,7 +29,7 @@
                 <template repeat="{{data,idx in group.addresses}}">
                   <tr>
                     <td>
-                      <crypto-address currency="{{currency}}" addr="{{data[0]}}"></crypto-address>
+                      <crypto-address class="{{group.label}}" currency="{{currency}}" addr="{{data[0]}}"></crypto-address>
                     </td>
                     <td>{{data[1]}}</td>
                     <td><span class="{{group.label}}">{{group.label}}</span>

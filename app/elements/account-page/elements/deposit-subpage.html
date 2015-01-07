@@ -18,10 +18,10 @@
     <section-group has-footer fit>
       <div label>Deposit</div>
       <paper-shadow z="1">
-        <div vertical center layout class="container">
+        <div vertical center layout class="container1">
 
           <div id="select" center horizontal layout>
-            <div>Currency to deposit: </div>
+            <div class="label">Currency to deposit: </div>
             <core-dropdown-menu label="{{currency.fullName}}" class="dropdownMenu">
               <core-dropdown class="dropdown">
                 <core-menu valueattr="currency" selected="{{currencyId}}">
@@ -33,18 +33,55 @@
             </core-dropdown-menu>
           </div>
 
-          <div id="instruction">Please send your {{currency.name}} to:
-            <crypto-address currency="{{currency}}" addr="{{address}}"></crypto-address>
-          </div>
-          <div id="qrcode">
-            <qr-code data="{{address}}" size="200" margin="1"></qr-code>
-          </div>
+          <template if="{{currency.id == 'CNY'}}">
+            <div class="instruction" vertical layout>
+              <p>There are two ways for you to deposit CNY.
+              </p>
+              <h3>Method 1</h3>
+              <p>You can make {{currency.fullName}} deposits through our certified agents. Please contact them using Tencent
+                <span class="highlight">QQ 498073256</span>. They will tell you one of their CNY bank accounts that you need to transfer
+                money into.
+              </p>
+              <h3>Method 2</h3>
+              <p>You may also deposit {{currency.name}} through our trusted Ripple gateways. Ripple deposit is near realtime and is
+                more convinient. Please refer to <a href="/#/doc/cny-deposit-thru-ripple-gateways" target="_blank">this document</a>                for details.
+              </p>
+            </div>
+          </template>
+          <template if="{{currency.id == 'GOOC'}}">
+            <div class="instruction" vertical layout>
+              <p>Please send your {{currency.fullName}} to account <span class="highlight">50001</span> with and only with your id
+                <span class="memo">afdafas</span> as the exact memo.
+                <p>Please note:</p>
+                <ul>
+                  <li>The minimum amount for deposit is 1000 {{currency.unit}}.</li>
+                  <li>Manual processing of {{currency.name}} is only available between 10:00AM and 10:00PM Beijing Time.</li>
+                  <li>During the above hours, we nomally credit your account within 2 hours.</li>
+                </ul>
+                <p>Shall you have any questions, please contact us: <span class="highlight">QQ 1691767742</span>.
+                </p>
+            </div>
+          </template>
+
+          <template if="{{currency.isCrypto}}">
+            <div class="instruction" vertical center layout>
+              <div>Please send your {{currency.name}} to</div>
+              <div>
+                <crypto-address class="attention" currency="{{currency}}" addr="{{address}}"></crypto-address>
+              </div>
+              <div>You can scan this QR code with your {{currency.name}} wallet</div>
+            </div>
+            <div id="qrcode">
+              <qr-code data="{{address}}" size="200" margin="1"></qr-code>
+            </div>
+
+          </template>
         </div>
       </paper-shadow>
-      
+
       <div label>History</div>
       <paper-shadow z="1">
-        <div vertical center layout class="container">
+        <div vertical center layout class="container2">
           <table>
             <thead>
               <tr>

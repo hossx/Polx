@@ -1,15 +1,28 @@
 @import "../_colors";
 :host {
     display: inline-block;
-    background: color($blue, 400);
-    color: white;
+    background: $black4;
+    color: $black1;
     padding: 3px 8px;
     border-radius: 10px;
     font-size: 11px;
     font-weight: 500;
 }
+:host-context(.attention) {
+    background: color($C3, 500);
+    color: $white1;
+}
+:host-context(.cold) {
+    background: color($C1, 500);
+    color: $white1;
+}
+:host-context(.hot) {
+    background: color($C2, 500);
+    color: $white1;
+}
 :host(:hover) {
-    background: color($blue, 700);
+    background: $black1;
+    color: $white1;
 }
 #icon {
     color: white;

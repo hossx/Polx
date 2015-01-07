@@ -1,16 +1,10 @@
 @import "../_colors";
+@import "../_common";
 :host {
     box-sizing: border-box;
     min-width: 40%;
     display: block;
-    a {
-        color: $black2;
-        text-decoration: none;
-        &:hover {
-            color: color($C1, 500);
-            text-decoration: underline;
-        }
-    }
+    @include has-grey-link();
     .pay {
         a {
             color: color($deep-purple, 300);
@@ -29,24 +23,5 @@
     }
     .link {
         padding-bottom: 5px;
-    }
-}
-:host-context([light]) {
-    a {
-        color: $black2;
-        &:hover {
-            color: color($C2, 500);
-        }
-    }
-    .pay {
-        a {
-            color: color($deep-purple, 400);
-            &:hover {
-                color: color($amber, 400);
-            }
-        }
-    }
-    .group-label {
-        color: $black3;
     }
 }

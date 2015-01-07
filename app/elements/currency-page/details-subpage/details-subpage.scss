@@ -1,8 +1,10 @@
 @import "../../_colors";
+@import "../../_common";
 :host {
     display: block;
     height: 100%;
 }
+@include has-simple-table();
 .label {
     padding-left: 20px;
     &.cold {
@@ -11,26 +13,6 @@
     &.hot {
         color: color($orange, 500);
     }
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-thead {
-    color: $black1;
-    font-weight: 500;
-}
-tbody {
-    tr:hover {
-        background: $magic-grey;
-    }
-}
-td {
-    border-bottom: solid 1px $magic-grey;
-    vertical-align: top;
-}
-td, th {
-    padding: 10px;
 }
 .msg, .sig {
     font-family: monospace;
@@ -46,10 +28,4 @@ td, th {
         color: white;
         border: solid 1px transparent;
     }
-}
-.hot {
-    color: color($orange, 500);
-}
-.cold {
-    color: color($blue, 500);
 }

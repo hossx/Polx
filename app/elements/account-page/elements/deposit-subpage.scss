@@ -1,57 +1,66 @@
 @import "../../_colors";
+@import "../../_common";
 :host {
     display: block;
     color: $black1;
 }
-.container {
-    .dropdownMenu {
-        padding: 0 10px;
-        min-width: 120px;
-        color: color($C1, 500);
+@include has-simple-table();
+@include has-primary-link();
+.label {
+    font-weight: 700;
+    color: $black2;
+    padding: 0 10px;
+}
+.container1 {
+    padding: 20px;
+    color: $black1;
+    .highlight {
+        color: color($C3, 500);
         font-weight: 700;
-        padding: 0 10px;
-        .dropdown {
-            font-weight: 400;
-            background: color($C1, 400);
-            max-height: 400px;
-            min-width: 160px;
-            core-item {
-                padding: 0 10px;
-                color: white;
-                &:hover {
-                    background: color($C2, 500);
-                }
-                &[active] {
-                    background: color($C1, 700);
-                    font-weight: 400;
-                }
+    }
+    .memo {
+        color: $black1;
+        font-family: monospace;
+        background: $black4;
+        padding: 2px 10px;
+        border-radius: 3px;
+    }
+}
+.dropdownMenu {
+    padding: 0 10px;
+    min-width: 140px;
+    background: color($C1, 500);
+    color: white;
+    font-weight: 700;
+    padding: 0 10px;
+    .dropdown {
+        font-weight: 400;
+        background: color($C1, 400);
+        max-height: 400px;
+        min-width: 160px;
+        core-item {
+            padding: 0 10px;
+            color: white;
+            &:hover {
+                background: color($C2, 500);
+            }
+            &[active] {
+                background: color($C1, 700);
+                font-weight: 400;
             }
         }
     }
 }
-#instruction {
+.instruction {
+    color: $black1;
     padding: 20px;
-    color: $black2;
+    >div {
+        padding: 5px 0;
+    }
 }
 #qrcode {
     background: $magic-grey;
     padding: 20px;
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-thead {
-    color: $black1;
-    font-weight: 500;
-}
-tr {
-    &:nth-child(even) {
-        background-color: $magic-grey;
-    }
-}
-td, th {
-    padding: 10px;
 }
 .load-button {
     padding: 5px 20px;

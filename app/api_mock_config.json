@@ -208,6 +208,10 @@
     "api2": {
       "label": "API 2.0 Brainstorming",
       "tags": ["developer"]
+    },
+    "cny-deposit-thru-ripple-gateways": {
+      "label": "CNY Deposit Through Ripple Gateways",
+      "tags": ["ripple", "deposit"]
     }
   }
 }

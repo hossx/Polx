@@ -1,9 +1,11 @@
 @import "../../_colors";
+@import "../../_common";
 :host {
     display: block;
     height: 100%;
     color: $black1;
 }
+@include has-simple-table();
 .card {
     a {
         color: $black1;
@@ -22,22 +24,6 @@
             color: transparent;
         }
     }
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-thead {
-    color: $black1;
-    font-weight: 500;
-}
-tr {
-    &:nth-child(even) {
-        background-color: $magic-grey;
-    }
-}
-td, th {
-    padding: 10px;
 }
 .load-button {
     padding: 5px 20px;

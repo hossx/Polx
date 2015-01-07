@@ -1,0 +1,14 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
+
+<polymer-element name="data-table" attributes="url,data,listFiledName" vertical layout>
+  <template>
+    <link rel="stylesheet" href="data-table.css">
+    <core-ajax id="ajax" url="{{url}}" response="{{resp}}" auto></core-ajax>
+    <content select="table"></content>
+    <paper-icon-button disabled?="{{!data.hasMore}}" on-tap="{{loadMore}}">Load More</paper-icon-button>
+  </template>
+
+  <script src="data-table.js"></script>
+</polymer-element>

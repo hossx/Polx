@@ -1,0 +1,44 @@
+@import "_colors";
+@mixin has-grey-link() {
+    a {
+        color: $black2;
+        text-decoration: none;
+        &:hover {
+            color: color($C1, 500);
+            text-decoration: underline;
+        }
+    }
+}
+@mixin has-primary-link() {
+    a {
+        color: color($C1, 500);
+        text-decoration: none;
+        &:hover {
+            color: color($C2, 500);
+            text-decoration: underline;
+        }
+    }
+}
+@mixin has-simple-table() {
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    thead {
+        color: $black1;
+        font-weight: 500;
+    }
+    tr {
+        &:nth-child(even) {
+            background-color: $magic-grey;
+        }
+    }
+    td, th {
+        padding: 10px;
+    }
+    tbody {
+        tr:hover {
+            background: color($C2, 100);
+        }
+    }
+}
