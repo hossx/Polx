@@ -1,9 +1,10 @@
 @import "../../_colors";
 :host {
     display: block;
+    color: $black1;
 }
-#container {
-    .currencyDropdown {
+.container {
+    .dropdownMenu {
         padding: 0 10px;
         min-width: 120px;
         color: color($C1, 500);
@@ -12,14 +13,13 @@
         .dropdown {
             font-weight: 400;
             background: color($C1, 400);
-            color: white;
             max-height: 400px;
             min-width: 160px;
             core-item {
                 padding: 0 10px;
+                color: white;
                 &:hover {
                     background: color($C2, 500);
-                    color: white;
                 }
                 &[active] {
                     background: color($C1, 700);
@@ -27,5 +27,34 @@
                 }
             }
         }
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+thead {
+    color: $black1;
+    font-weight: 500;
+}
+tr {
+    &:nth-child(even) {
+        background-color: $magic-grey;
+    }
+}
+td, th {
+    padding: 10px;
+}
+
+.load-button {
+    padding: 5px 20px;
+    background: transparent;
+    color: $black2;
+    &:hover {
+        color: color($C1, 500);
+    }
+    &[disabled] {
+        color: $black4;
     }
 }

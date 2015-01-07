@@ -18,8 +18,9 @@ Polymer 'toppending-card',
     if r == ''
       @fire('network-error', {'url': @depthUrl})
     else if r and r.success
-      @bids = r.data["b"] if @bids != r.data["b"]
-      @asks = r.data["a"] if @asks != r.data["a"]
+      console.log(r.data)
+      @bids = r.data["b"] 
+      @asks = r.data["a"] 
     else
       @bids = @asks = []
 

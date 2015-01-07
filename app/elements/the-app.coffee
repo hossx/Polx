@@ -121,6 +121,7 @@ Polymer 'the-app',
       ## private apis
       userProfileUrl: 'api_mock_my_profile.json'
       userAssetsUrl:  'api_mock_my_assets.json'
+      userDepositsUrl: (coin) -> 'api_mock_my_deposits.json'
 
 
   processDocuments: (config) ->

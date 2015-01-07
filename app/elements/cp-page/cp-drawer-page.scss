@@ -16,6 +16,9 @@
     paper-icon-button:hover, core-icon-button:hover {
         color: color($C2, 500);
     }
+    a {
+        height: 40px;
+    }
 }
 #label {
     color: $white1;

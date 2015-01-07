@@ -4,21 +4,24 @@
 <link rel="import" href="../../../bower_components/core-dropdown/core-dropdown.html">
 <link rel="import" href="../../../bower_components/core-menu/core-menu.html">
 <link rel="import" href="../../../bower_components/core-item/core-item.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../section-group/section-group.html">
+<link rel="import" href="../../crypto-address/crypto-address.html">
 
 <polymer-element name="deposit-subpage" attributes="user,currencyId">
   <template>
     <link rel="stylesheet" href="deposit-subpage.css">
     <core-ajax id="depositAddrAjax" url="{{depositAddrUrl}}" response="{{depositAddrResp}}" auto></core-ajax>
+    <core-ajax id="depositsAjax" url="{{depositsUrl}}" response="{{depositsResp}}" auto></core-ajax>
 
     <section-group has-footer fit>
       <div label>Deposit</div>
       <paper-shadow z="1">
-        <div vertical center layout id="container">
+        <div vertical center layout class="container">
 
           <div id="select" center horizontal layout>
             <div>Currency to deposit: </div>
-            <core-dropdown-menu label="{{currency.fullName}}" class="currencyDropdown">
+            <core-dropdown-menu label="{{currency.fullName}}" class="dropdownMenu">
               <core-dropdown class="dropdown">
                 <core-menu valueattr="currency" selected="{{currencyId}}">
                   <template repeat="{{c in currencyKeys}}">
@@ -28,6 +31,37 @@
               </core-dropdown>
             </core-dropdown-menu>
           </div>
+        </div>
+      </paper-shadow>
+
+      <paper-shadow z="1">
+        <div vertical center layout class="container">
+          <table>
+            <thead>
+              <tr>
+                <td>ID</td>
+                <td>Time</td>
+                <td>Quantity</td>
+                <td>Status</td>
+                <td>{{currency.id}} Address</td>
+              </tr>
+            </thead>
+            <tbody>
+              <template repeat="{{d in deposits}}">
+                <tr>
+                  <td>{{d.id}}</td>
+                  <td>{{d.created}}</td>
+                  <td>{{d.quantity}}</td>
+                  <td>{{d.status}}</td>
+                  <td>
+                    <crypto-address currency="{{currency}}" addr="{{d.address}}"></crypto-address>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+
+          <paper-button class="load-button" disabled?="{{!hasMore}}" on-tap="{{loadMore}}">Load more</paper-button>
         </div>
       </paper-shadow>
     </section-group>
