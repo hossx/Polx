@@ -3,6 +3,7 @@
 Polymer 'deposit-subpage',
   currencyId: ''
   currency: null
+  address: 'afafaa'
 
   ready: () ->
     @config = window.config

@@ -43,6 +43,10 @@ core-collapse {
         }
     }
 }
+#qrcode {
+    padding: 20px;
+    background: $magic-grey;
+}
 paper-input#code {
     /deep/ input[is=core-input] {
         font-size: 18px;

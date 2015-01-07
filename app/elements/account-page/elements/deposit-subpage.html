@@ -7,6 +7,7 @@
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../crypto-address/crypto-address.html">
+<link rel="import" href="../../qr-code/qr-code.html">
 
 <polymer-element name="deposit-subpage" attributes="user,currencyId">
   <template>
@@ -30,6 +31,13 @@
                 </core-menu>
               </core-dropdown>
             </core-dropdown-menu>
+          </div>
+
+          <div id="instruction">Please send your {{currency.name}} to:
+            <crypto-address currency="{{currency}}" addr="{{address}}"></crypto-address>
+          </div>
+          <div id="qrcode">
+            <qr-code data="{{address}}" size="200" margin="1"></qr-code>
           </div>
         </div>
       </paper-shadow>

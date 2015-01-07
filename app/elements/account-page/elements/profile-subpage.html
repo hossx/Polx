@@ -54,7 +54,9 @@
                 <div class="outer" vertical center layout>
                   <div class="inner" vertical center layout>
                     <div>Scan the following QR code with your Google Authenticator app.</div>
-                    <qr-code data="fdsjafldjsaljflsadjf;lajfldsa" size="300"></qr-code>
+                    <div id="qrcode">
+                      <qr-code data="fdsjafldjsaljflsadjf;lajfldsa" size="200" margin="1"></qr-code>
+                    </div>
                     <div>Input the 6-digit code (taggd with <span id="tag">COINPORT:{{profile.uid}}</span>) from your Google Authenticator
                       app , then click OK.</div>
                     <paper-input id="code" label="6-digit code"></paper-input>

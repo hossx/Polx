@@ -29,7 +29,14 @@
         }
     }
 }
-
+#instruction {
+    padding: 20px;
+    color: $black2;
+}
+#qrcode {
+    background: $magic-grey;
+    padding: 20px;
+}
 table {
     width: 100%;
     border-collapse: collapse;
@@ -46,7 +53,6 @@ tr {
 td, th {
     padding: 10px;
 }
-
 .load-button {
     padding: 5px 20px;
     background: transparent;

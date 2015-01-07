@@ -1,7 +1,7 @@
 @import "../_colors";
 :host {
     display: inline-block;
-    background: color($blue, 400); 
+    background: color($blue, 400);
     color: white;
     padding: 3px 8px;
     border-radius: 10px;
@@ -9,7 +9,7 @@
     font-weight: 500;
 }
 :host(:hover) {
-    background: color($blue, 700); 
+    background: color($blue, 700);
 }
 #icon {
     color: white;
@@ -17,4 +17,7 @@
     width: 12px;
     padding-right: 5px;
 }
-#addr {}
+#addr {};
+#lead {
+    user-select: none;
+}
