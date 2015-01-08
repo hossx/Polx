@@ -1,7 +1,6 @@
 'use strict'
 
 Polymer 'deposit-subpage',
-  currencyId: ''
   currency: null
   address: 'afafaa'
 
@@ -9,21 +8,23 @@ Polymer 'deposit-subpage',
     @config = window.config
     @deposits = []
     @currencyKeys = Object.keys(window.config.currencies)
+    @currencyId = window.currencyId
     @currency = window.config.currencies[@currencyId]
-    if not @currency
-      @currencyId = 'BTC'
-      @currency = window.config.currencies[@currencyId]
-
     @depositsUrl = window.protocol.userDepositsUrl(@currencyId)
 
   currencyIdChanged: (o, n) ->
-    @currency = window.config.currencies[@currencyId]
-    if not @currency
-      @currencyId = 'BTC'
-      @currency = window.config.currencies[@currencyId]
-    @deposits = []
-    @depositsUrl = window.protocol.userDepositsUrl(@currencyId)
-    console.log(@depositsUrl)
+    if @page == "deposit"
+      window.currencyId = @currencyId
+      @currency = window.config.currencies[window.currencyId]
+      @deposits = []
+      @depositsUrl = window.protocol.userDepositsUrl(@currencyId)
+
+  pageChanged: (o, n) ->
+    if @page == "deposit"
+      @currencyId = window.currencyId
+      @currency = window.config.currencies[window.currencyId]
+      @deposits = []
+      @depositsUrl = window.protocol.userDepositsUrl(@currencyId)
 
   depositsRespChanged: (o, n) ->
     if @depositsResp

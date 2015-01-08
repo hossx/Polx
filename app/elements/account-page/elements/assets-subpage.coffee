@@ -1,12 +1,10 @@
 'use strict'
 
 Polymer 'assets-subpage',
-  user: null
   assetsUrl: ''
   assetsResp: null
   assets: null
   currentCollapse: null
-
 
   ready: () ->
     @assetsUrl = window.protocol.userAssetsUrl
@@ -29,4 +27,13 @@ Polymer 'assets-subpage',
         @currentCollapse.toggle()
       else
         @currentCollapse = null
+
+  gotoDeposit: (e, detail, sender) ->
+    window.currencyId = sender.getAttribute("currencyId")
+    @page = "deposit"
+
+
+  gotoWithdraw: (e, detail, sender) ->
+    window.currencyId = sender.getAttribute("currencyId")
+    @page = "withdraw"
 

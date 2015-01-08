@@ -7,7 +7,7 @@
 <link rel="import" href="../../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../section-group/section-group.html">
 
-<polymer-element name="assets-subpage" attributes="user">
+<polymer-element name="assets-subpage" attributes="profile,page">
   <template>
     <link rel="stylesheet" href="assets-subpage.css">
     <core-ajax id="assetsAjax" url="{{assetsUrl}}" response="{{assetsResp}}" auto></core-ajax>
@@ -42,12 +42,12 @@
                   </td>
                   <td class="op">
                     <core-tooltip label="Deposit {{c.name}}">
-                      <paper-icon-button icon="communication:call-received"></paper-icon-button>
+                      <paper-icon-button currencyId="{{c.id}}" on-tap="{{gotoDeposit}}" icon="communication:call-received"></paper-icon-button>
                     </core-tooltip>
                   </td>
                   <td class="op">
                     <core-tooltip label="Withdraw {{c.name}}">
-                      <paper-icon-button icon="communication:call-made"></paper-icon-button>
+                      <paper-icon-button currencyId="{{c.id}}" on-tap="{{gotoWithdraw}}" icon="communication:call-made"></paper-icon-button>
                     </core-tooltip>
                   </td>
                 </tr>
