@@ -287,6 +287,7 @@ module.exports = function(grunt) {
                         '*.json',
                         'CNAME',
                         'markdown/**',
+                        'images/**',
                         'elements/**',
                         'email_templates/**',
                         'styles/*.ttf',
@@ -339,7 +340,7 @@ module.exports = function(grunt) {
             options: {
                 base: 'dist'
             },
-            src: ['*', 'styles/*.{css,ttf}', 'scripts/*.js', 'markdown/*', 'email_templates/*']
+            src: ['*', 'styles/*.{css,ttf}', 'scripts/*.js', 'images/**', 'markdown/**', 'email_templates/*']
         }
     });
 
