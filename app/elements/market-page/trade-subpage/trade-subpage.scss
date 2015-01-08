@@ -6,6 +6,9 @@
 #action-wide {
     display: none;
 }
+#toppendingCard {
+    height: 320px;
+}
 @media(min-width: 768px) {
     #action-wide {
         display: inherit;
@@ -13,8 +16,7 @@
     #action-narrow {
         display: none;
     }
-}
-
-#toppendingCard {
-  height: 240px;
+    #toppendingCard {
+        height: 240px;
+    }
 }
