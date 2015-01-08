@@ -1,5 +1,7 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="../../../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
 <link rel="import" href="../../cp-media-query/cp-media-query.html">
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="elements/mycoin-card.html">
@@ -14,9 +16,15 @@
     <link rel="stylesheet" href="trade-subpage.css">
 
     <cp-media-query smallup="{{smallup}}"></cp-media-query>
+
+    <core-ajax id="depthAjax" url="{{depthUrl}}" handleAs="json" response="{{response}}" error="{{error}}" auto></core-ajax>
+
     <section-group has-footer>
       <paper-shadow z="1">
-        <toppending-card id="toppendingCard" active="{{active}}" market="{{market}}" smallup="{{smallup}}"></toppending-card>
+        <core-animated-pages id="toppendingCard" selected="{{cardIndex}}">
+          <toppending-card bids="{{bids[0]}}" asks="{{asks[0]}}" market="{{market}}" smallup="{{smallup}}"></toppending-card>
+          <toppending-card bids="{{bids[1]}}" asks="{{asks[1]}}" market="{{market}}" smallup="{{smallup}}"></toppending-card>
+        </core-animated-pages>
       </paper-shadow>
 
       <paper-shadow z="1">

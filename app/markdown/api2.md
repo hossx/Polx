@@ -435,3 +435,54 @@ addresses中每一项为[地址，金额，原始消息，消息签名]
   "BTC": "fjdajfdjsalfjdlsafj"
 }
 ```
+
+## /api/my/deposits/btc?cursor=xxx&limit=12
+读取用户某个币种的deposit记录
+```
+  "data": {
+    "hasMore": true,
+    "deposits": [{
+      "id": 1000000000320,
+      "created": 118271181818,
+      "updated": 118271181818,
+      "quantity": 10,
+      "status": "Succeeded",
+      "address": "fdafdsafidsaiofdslafjdasfjafa"
+    }, {
+      "id": 1000000000320,
+      "created": 118271181818,
+      "updated": 118271181818,
+      "quantity": 10,
+      "status": "Succeeded",
+      "address": "fdafdsafidsaiofdslafjdasfjafa"
+    }, {
+      "id": 1000000000320,
+      "created": 118271181818,
+      "updated": 118271181818,
+      "quantity": 10,
+      "status": "Succeeded",
+      "address": "fdafdsafidsaiofdslafjdasfjafa"
+    }, {
+      "id": 1000000000320,
+      "created": 118271181818,
+      "updated": 118271181818,
+      "quantity": 10,
+      "status": "Succeeded",
+      "address": "fdafdsafidsaiofdslafjdasfjafa"
+    }, {
+      "id": 1000000000320,
+      "created": 118271181818,
+      "updated": 118271181818,
+      "quantity": 10.9,
+      "status": "Succeeded",
+      "address": "fdafdsafidsaiofdslafjdasfjafa"
+    }, {
+      "id": 1000000000320,
+      "created": 118271181818,
+      "updated": 118271181818,
+      "quantity": 10,
+      "status": "Succeeded",
+      "address": "fdafdsafidsaiofdslafjdasfjafa"
+    }]
+  }
+```
