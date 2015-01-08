@@ -16,7 +16,7 @@ Polymer 'reserve-card',
   ready: () ->
     @asset = []
     @labels = []
-    @colors = ['#54AEAA','#54AEAA','#54AEAA','#FE766A']
+    @colors = ['#8BC34A','#9CCC65','#AED581','#EF5350']
 
   currencyIdChanged: (o, n) ->
     @currency = window.config.currencies[@currencyId]
