@@ -8,13 +8,16 @@
 a {
     text-decoration: none;
     color: white;
+    &:hover {
+        text-decoration: none;
+    }
 }
 #box {
     padding: 20px;
     background: $white2;
     transition: background 420ms ease-in-out;
     &:hover {
-        background: $white1;
+        background: color($C2, 100);
     }
 }
 #head {

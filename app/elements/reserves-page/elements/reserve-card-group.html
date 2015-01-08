@@ -15,7 +15,7 @@
         <reserve-card auto-vertical currencyId="{{currencyId}}" reserve="{{reserves[currencyId]}}"></reserve-card>
       </template>
     </div>
-    <paper-spinner active?="{{reserves.length != 0}}"></paper-spinner>
+    <paper-spinner active?="{{reserves.length == 0}}"></paper-spinner>
   </template>
   <script src="reserve-card-group.js"></script>
 </polymer-element>

@@ -15,10 +15,8 @@ cp-toolbar {
 #footer {
     display: none;
 }
-#content {
-}
 @media(min-width:768px) {
-    :host-context([has-footer]) {
+    : host-context([has-footer]) {
         #footer {
             display: inherit;
         }
