@@ -29,11 +29,11 @@ Polymer 'assets-subpage',
         @currentCollapse = null
 
   gotoDeposit: (e, detail, sender) ->
-    window.currencyId = sender.getAttribute("currencyId")
+    window.state.currencyId = sender.getAttribute("currencyId")
     @page = "deposit"
 
 
   gotoWithdraw: (e, detail, sender) ->
-    window.currencyId = sender.getAttribute("currencyId")
+    window.state.currencyId = sender.getAttribute("currencyId")
     @page = "withdraw"
 

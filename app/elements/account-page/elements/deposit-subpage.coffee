@@ -8,21 +8,21 @@ Polymer 'deposit-subpage',
     @config = window.config
     @deposits = []
     @currencyKeys = Object.keys(window.config.currencies)
-    @currencyId = window.currencyId
+    @currencyId = window.state.currencyId
     @currency = window.config.currencies[@currencyId]
     @depositsUrl = window.protocol.userDepositsUrl(@currencyId)
 
   currencyIdChanged: (o, n) ->
     if @page == "deposit"
-      window.currencyId = @currencyId
-      @currency = window.config.currencies[window.currencyId]
+      window.state.currencyId = @currencyId
+      @currency = window.config.currencies[window.state.currencyId]
       @deposits = []
       @depositsUrl = window.protocol.userDepositsUrl(@currencyId)
 
   pageChanged: (o, n) ->
     if @page == "deposit"
-      @currencyId = window.currencyId
-      @currency = window.config.currencies[window.currencyId]
+      @currencyId = window.state.currencyId
+      @currency = window.config.currencies[window.state.currencyId]
       @deposits = []
       @depositsUrl = window.protocol.userDepositsUrl(@currencyId)
 

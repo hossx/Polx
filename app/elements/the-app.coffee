@@ -143,7 +143,8 @@ Polymer 'the-app',
     console.debug("Loaded dynamic app-configurations:")
     console.dir({"config": window.config, "protocol": window.protocol})
 
-    window.currencyId = "BTC"
+    window.state = {}
+    window.state.currencyId = "BTC"
 
     @initRouter()
 
