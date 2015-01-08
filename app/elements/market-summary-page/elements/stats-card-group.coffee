@@ -2,10 +2,11 @@
 
 Polymer 'stats-card-group',
   ready: () ->
+    @config = window.config
     @tickerUrl = window.protocol.tickerUrl(@currency.id)
     @tickers = []
     work = () =>this.$.ajax.go()
-    @refreshJob = setInterval(work, window.config.refreshIntervals.tickers)
+    @refreshJob = setInterval(work, @config.refreshIntervals.tickers)
     console.debug("start auto-refresh for tickers " +  @tickerUrl)
 
   responseChanged: (o, n) ->

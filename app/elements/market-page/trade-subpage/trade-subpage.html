@@ -1,6 +1,5 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
-<link rel="import" href="../../../bower_components/core-animated-pages/core-animated-pages.html">
 <link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
 <link rel="import" href="../../cp-media-query/cp-media-query.html">
 <link rel="import" href="../../section-group/section-group.html">
@@ -21,10 +20,10 @@
 
     <section-group has-footer>
       <paper-shadow z="1">
-        <core-animated-pages id="toppendingCard" selected="{{cardIndex}}">
-          <toppending-card bids="{{bids[0]}}" asks="{{asks[0]}}" market="{{market}}" smallup="{{smallup}}"></toppending-card>
-          <toppending-card bids="{{bids[1]}}" asks="{{asks[1]}}" market="{{market}}" smallup="{{smallup}}"></toppending-card>
-        </core-animated-pages>
+        <div vertical layout>
+          <toppending-card cross-fade bids="{{bids}}" asks="{{asks}}" market="{{market}}" smallup="{{smallup}}"></toppending-card>
+          <div self-center class="comment">Refreshed every {{market.refreshInterval/1000}} seconds</div>
+        </div>
       </paper-shadow>
 
       <paper-shadow z="1">

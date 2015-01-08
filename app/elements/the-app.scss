@@ -1,13 +1,11 @@
 @import "_colors";
-
+@import "_common";
 #main {
     #loading, #error {
         color: white;
         height: 100vh;
         font-size: 14px;
-        paper-spinner::shadow .circle {
-            border-color: color($C2, 500);
-        }
+        @include has-paper-spinner();
         core-icon {
             color: color($C2, 500);
             height: 28px;

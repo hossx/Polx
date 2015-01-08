@@ -6,8 +6,8 @@ Polymer 'trade-subpage',
     @active = false
     @refreshJob = null
     @cardIndex = 0
-    @bids = [[],[]]
-    @asks = [[],[]]
+    @bids = []
+    @asks = []
 
   detached: () ->
     @stopRefresh()
@@ -20,10 +20,8 @@ Polymer 'trade-subpage',
     if @response == ''
       @fire('network-error', {'url': @depthUrl})
     else if @response and @response.success
-      newIndex = (@cardIndex + 1) %2
-      @bids[newIndex] = @response.data["b"] 
-      @asks[newIndex] = @response.data["a"] 
-      @cardIndex = newIndex
+      @bids = @response.data["b"] 
+      @asks = @response.data["a"] 
 
   marketChanged: (o, n) ->
     @startRefresh() if @active and @market

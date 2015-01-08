@@ -1,5 +1,6 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="../../../bower_components/paper-spinner/paper-spinner.html">
 <link rel="import" href="stats-card.html">
 
 <polymer-element name="stats-card-group" attributes="currency,smallup" center vertical layout>
@@ -8,11 +9,13 @@
     <core-ajax id="ajax" url="{{tickerUrl}}" handleAs="json" response="{{response}}" error="{{error}}" auto></core-ajax>
 
     <div class="groupLabel">{{currency.id}} MARKETS</div>
+    <div class="comment">Refreshed every {{config.refreshIntervals.tickers/1000}} seconds</div>
     <div class="canvas" wrap?={{smallup}} layout center?={{!smallup}} vertical?={{!smallup}} horizontal?={{smallup}}>
       <template repeat="{{ticker in tickers}}">
         <stats-card auto-vertical ticker="{{ticker}}"></stats-card>
       </template>
     </div>
+    <paper-spinner active?="{{tickers.length == 0}}" ></paper-spinner>
   </template>
   <script src="stats-card-group.js"></script>
 

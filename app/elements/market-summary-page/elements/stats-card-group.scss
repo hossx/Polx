@@ -1,5 +1,5 @@
 @import "../../_colors";
-$color: $green;
+@import "../../_common";
 :host {
     width: 100%;
     display: block;
@@ -15,10 +15,16 @@ $color: $green;
     font-weight: 500;
     color: $black2;
 }
+.comment {
+    padding-bottom: 10px;
+    font-size: 12px;
+    color: $black3;
+}
 stats-card {
     width: 100%;
     max-width: 400px;
 }
+@include has-paper-spinner();
 @media(min-width: 768px) and (max-width: 991px) {
     .canvas {
         width: 768px;

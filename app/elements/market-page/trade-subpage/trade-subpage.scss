@@ -9,6 +9,10 @@
 #toppendingCard {
     height: 320px;
 }
+.comment {
+    font-size: 12px;
+    color: $black3;
+}
 @media(min-width: 768px) {
     #action-wide {
         display: inherit;

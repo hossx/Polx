@@ -19,6 +19,11 @@
         }
     }
 }
+@mixin has-paper-spinner() {
+    paper-spinner::shadow .circle {
+        border-color: color($C1, 500);
+    }
+}
 @mixin has-simple-table() {
     table {
         width: 100%;

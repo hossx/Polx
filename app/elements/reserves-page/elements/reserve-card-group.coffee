@@ -2,11 +2,12 @@
 
 Polymer 'reserve-card-group',
   ready: () ->
+    @config = window.config
     @reserveStatsUrl = window.protocol.reserveStatsUrl()
     @reserves = {}
     @currencieIds = []
     work = () =>this.$.ajax.go()
-    @refreshJob = setInterval(work, window.config.refreshIntervals.reserves)
+    @refreshJob = setInterval(work, @config.refreshIntervals.reserves)
     console.debug("start auto-refresh for reserves " +  @reserveStatsUrl)
 
   responseChanged: (o, n) ->
