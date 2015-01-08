@@ -1,8 +1,10 @@
 @import "../../_colors";
+@import "../../_common";
 :host {
     display: block;
     height: 100%;
 }
+@include has-paper-spinner();
 #action-wide {
     display: none;
 }

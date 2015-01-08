@@ -1,6 +1,7 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="../../../bower_components/paper-spinner/paper-spinner.html">
 <link rel="import" href="../../cp-media-query/cp-media-query.html">
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="elements/mycoin-card.html">
@@ -22,6 +23,7 @@
       <paper-shadow z="1">
         <div vertical layout>
           <toppending-card cross-fade bids="{{bids}}" asks="{{asks}}" market="{{market}}" smallup="{{smallup}}"></toppending-card>
+          <div self-center><paper-spinner active?="{{bids.length==0 && asks.length==0}}"></paper-spinner></div>
           <div self-center class="comment">Refreshed every {{market.refreshInterval/1000}} seconds</div>
         </div>
       </paper-shadow>
