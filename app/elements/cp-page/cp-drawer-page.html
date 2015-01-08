@@ -4,6 +4,7 @@
 <link rel="import" href="../../bower_components/core-animated-pages/core-animated-pages.html">
 <link rel="import" href="../../bower_components/core-animated-pages/transitions/slide-from-right.html">
 <link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html">
 <link rel="import" href="../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html">
 <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
@@ -11,7 +12,7 @@
 <link rel="import" href="../cp-icons/crypto-icons.html">
 <link rel="import" href="../cp-footer/cp-footer.html">
 
-<polymer-element name="cp-drawer-page" attributes="backlink,label,icons,page">
+<polymer-element name="cp-drawer-page" attributes="backlink,label,buttons,page">
   <template>
     <link rel="stylesheet" href="cp-drawer-page.css">
 
@@ -28,9 +29,11 @@
           </a>
           <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
           <div flex id="label">{{label}}</div>
-          <template repeat="{{icon,idx in icons}}">
-            <core-icon-button class="btn" idx="{{idx}}" active?="{{page == idx}}" on-tap="{{switchTab}}" icon="{{icon}}">
-            </core-icon-button>
+          <template repeat="{{button,idx in buttons}}">
+            <core-tooltip label="{{button[1]}}">
+              <core-icon-button class="btn" idx="{{idx}}" active?="{{page == idx}}" on-tap="{{switchTab}}" icon="{{button[0]}}">
+              </core-icon-button>
+            </core-tooltip>
           </template>
         </core-toolbar>
 

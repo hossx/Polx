@@ -3,6 +3,7 @@
 Polymer 'market-page',
    
   ready: () ->
+    @buttons = [['swap-horiz', 'Trade'],['trending-up','Market Trend'],['list','Market Depth'],['history', 'History Data']]
     @marketId = ''
     @market = null
     @tab = 0

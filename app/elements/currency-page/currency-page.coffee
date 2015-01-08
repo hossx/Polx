@@ -3,10 +3,12 @@
 Polymer 'currency-page',
    
   ready: () ->
+    @buttons = [['info', "Reserve Details"], ['cloud-download', 'History Data']]
     @currencyId = ''
     @currency = null
     @tab = 0
     @config = window.config
+
 
   currencyIdChanged: (o, n) ->
     @currency = @config.currencies[@currencyId]

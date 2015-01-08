@@ -4,7 +4,7 @@ Polymer 'cp-drawer-page',
   page: 0
   backlink: ''
   label: '' 
-  icons: []
+  buttons: []
 
   switchTab: (e, detail, sender) -> 
     @page = sender.getAttribute("idx")
