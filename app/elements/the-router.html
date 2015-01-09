@@ -1,5 +1,6 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 
+<link rel="import" href="../bower_components/core-ajax/core-ajax.html">
 <link rel="import" href="../bower_components/paper-toast/paper-toast.html">
 <link rel="import" href="member-page/member-page.html">
 <link rel="import" href="home-page/home-page.html">
@@ -14,6 +15,7 @@
 <polymer-element name="the-router" flex>
   <template fit>
     <link rel="stylesheet" href="the-router.css">
+    <core-ajax url="{{loginTestUrl}}" response="{{loginTestResp}}" id="loginTestAjax"></core-ajax>
     <app-router id="router" mode="hash" trailingSlash="ignore">
       <app-route path="/" element="home-page"></app-route>
       <app-route path="/member" element="member-page"></app-route>
@@ -24,12 +26,22 @@
       <app-route path="/reserves" element="reserves-page"></app-route>
       <app-route path="/currency/:currencyId" element="currency-page"></app-route>
       <app-route path="/currency/:currencyId/:tab" element="currency-page"></app-route>
-      <app-route path="/account" element="account-page"></app-route>
-      <app-route path="/account/:page" element="account-page"></app-route>
-      <app-route path="/account/:page/:currencyId" element="account-page"></app-route>
       <app-route path="/doc/:file" element="markdown-viewer"></app-route>
+
+      <template if="{{userId}}">
+        <app-route path="/account" element="account-page"></app-route>
+        <app-route path="/account/:page" element="account-page"></app-route>
+        <app-route path="/member/signin" redirect="/member/signout"></app-route>
+      </template>
+
+      <template if="{{!userId}}">
+        <app-route path="/account" redirect="/member/signin"></app-route>
+        <app-route path="/account/:page" redirect="/member/signin"></app-route>
+      </template>
+
       <app-route path="*" element="notfound-page"></app-route>
     </app-router>
+
     <paper-toast id="toast" text={{error}}></paper-toast>
   </template>
 

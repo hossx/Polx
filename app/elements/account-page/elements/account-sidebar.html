@@ -10,7 +10,7 @@
 <link rel="import" href="../../../bower_components/core-item/core-item.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 
-<polymer-element name="account-sidebar" noscript attributes="selected" fit vertical layout>
+<polymer-element name="account-sidebar" attributes="selected" fit vertical layout>
   <template>
     <link rel="stylesheet" href="account-sidebar.css">
 
@@ -25,7 +25,9 @@
     </core-menu>
     <div flex></div>
     <div>
-      <paper-button id="logout">Logout</paper-button>
+      <paper-button id="logout" on-tap="{{logout}}">Logout</paper-button>
     </div>
   </template>
+
+  <script src="account-sidebar.js"></script>
 </polymer-element>

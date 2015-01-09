@@ -1,28 +1,48 @@
 'use strict'
 
 Polymer 'the-router',
+  userId: null
+  sessionCookieName: 'PLAY_SESSION'
+
   ready: ()->
+    @loginTestUrl = window.protocol.userProfileUrl
     @setupEventListeners()
-    @checkCookie()
+    @checkLoginStatus()
 
   setupEventListeners: () ->
     @addEventListener 'network-error', (e) ->
       console.debug("network-error event seen: " + e.detail.url)
-      @error = "Damn, I cannot connect to the servers :("
+      @error = "Service is temporarily unavailable."
       this.$.toast.show()
 
-    @addEventListener 'user-logged-out', (e) ->
-      @checkCookie()
+    @addEventListener 'logout-attempted', (e) -> 
+      $.removeCookie(@sessionCookieName)
+      @userId = ''
 
-    @addEventListener 'user-logged-in', (e) ->
-      @checkCookie()
+    @addEventListener 'login-attempted', (e) ->
+      @checkLoginStatus()
 
-  checkCookie: () ->
-    sessionCookie = $.cookie("PLAY_SESSION")
+  checkLoginStatus: () ->
+    sessionCookie = $.cookie(@sessionCookieName)
     if not sessionCookie
-      window.user = null
+      @userId = '' 
     else
-      sessionData = JSON.parse(sessionCookie)
-      window.user = {id: "fdaf", name: "fafda"}
+      console.debug("perform login status check using ajax")
+      this.$.loginTestAjax.go()
 
+  loginTestRespChanged: (o, n) ->
+    console.debug(@loginTestResp)
+    if @loginTestResp and @loginTestResp.data and @loginTestResp.data.uid
+      @userId = @loginTestResp.data.uid
+    else
+      @userId = ''
 
+  userIdChanged: (o, n) ->
+    window.state.uid = @userId
+    if @userId
+      console.log("user logged in: " + @userId)
+      this.$.router.go('/account') 
+    else
+      console.log("user logged out: " + o)
+      this.$.router.go('/') 
+    
