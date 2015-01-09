@@ -2,4 +2,4 @@
 
 Polymer 'account-sidebar',
   logout: () ->
-    @fire("logout-attempted")
+    @fire("logout-requested")

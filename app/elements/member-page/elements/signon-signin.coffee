@@ -68,7 +68,7 @@ Polymer 'signon-signin',
           @errorMsg = @translateErrorMessage(resp.message)
         else
           console.log("Logged in as: " + resp.data.id)
-          @fire("user-loggedin", {'uid': resp.data.id})
+          @fire("login-checked", {'uid': resp.data.id})
 
 
   ## register
@@ -123,11 +123,6 @@ Polymer 'signon-signin',
     else
       @errorMsg = ''
       @loginDisabled = false
-
-  showSignin: () -> @show("signin")
-  showSignon: () -> @show("signon")
-  showForget: () -> @show("forget")
-  showSignout: () -> @show("signout")
 
   pageChanged: (o, n) ->
     @errorMsg = ''
@@ -200,11 +195,6 @@ Polymer 'signon-signin',
         "See you soon."]
     @show("message")
     @delayShow("signin")
-
-  show: (page) ->
-    clearTimeout(@timeout) if @timeout
-    @timeout = null
-    @page = page
 
   delayShow: (page, timeout) ->
     clearTimeout(@timeout) if @timeout

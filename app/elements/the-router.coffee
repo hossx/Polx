@@ -1,10 +1,11 @@
 'use strict'
 
 Polymer 'the-router',
-  userId: null
+  userId: null # null indicates initial state
   sessionCookieName: 'PLAY_SESSION'
 
   ready: ()->
+    window.state.uid = null
     @loginTestUrl = window.protocol.userProfileUrl
     @setupEventListeners()
     @checkLoginStatus()
@@ -15,12 +16,16 @@ Polymer 'the-router',
       @error = "Service is temporarily unavailable."
       this.$.toast.show()
 
-    @addEventListener 'logout-attempted', (e) -> 
+    @addEventListener 'logout-requested', (e) -> 
+      ##$.removeCookie(@sessionCookieName)
+      @userId = ''
+
+    @addEventListener 'api-access-error', (e) ->
       $.removeCookie(@sessionCookieName)
       @userId = ''
 
-    @addEventListener 'login-attempted', (e) ->
-      @checkLoginStatus()
+    @addEventListener 'login-checked', (e) ->
+      @userId = e.detail.uid
 
   checkLoginStatus: () ->
     sessionCookie = $.cookie(@sessionCookieName)
@@ -39,10 +44,13 @@ Polymer 'the-router',
 
   userIdChanged: (o, n) ->
     window.state.uid = @userId
-    if @userId
-      console.log("user logged in: " + @userId)
-      this.$.router.go('/account') 
-    else
+    if @user == null #special
+      console.error("not supposed to see this"  )
+    else if @userId == ''
       console.log("user logged out: " + o)
-      this.$.router.go('/') 
-    
+      if location.hash.indexOf('#/account') == 0
+        this.$.router.go('/member/signedout') 
+    else
+      console.log("user logged in: " + @userId)
+      if location.hash.indexOf('#/member') == 0
+        this.$.router.go('/account') 

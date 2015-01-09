@@ -37,6 +37,7 @@
       <template if="{{!userId}}">
         <app-route path="/account" redirect="/member/signin"></app-route>
         <app-route path="/account/:page" redirect="/member/signin"></app-route>
+        <app-route path="/member/signout" redirect="/member/signin"></app-route>
       </template>
 
       <app-route path="*" element="notfound-page"></app-route>

@@ -12,7 +12,7 @@
   <template>
     <link rel="stylesheet" href="signon-signin.css">
 
-    <core-animated-pages id="pages" flex valueattr="id" selected="{{page}}" transitions="cross-fade-all">
+    <core-animated-pages id="pages" flex valueattr="id" selected="{{page}}">
       <section flex id="signin">
         <paper-shadow z="{{z}}">
           <div class="container" vertical layout>
@@ -34,8 +34,8 @@
               </form>
             </div>
             <div class="options" horizontal center-justified layout>
-              <paper-button class="highlight" noink on-tap="{{showSignon}}">Become a member</paper-button>
-              <paper-button noink on-tap="{{showForget}}">Forget password?</paper-button>
+              <a href="/#/member/signon"><paper-button class="highlight" noink>Become a member</paper-button></a>
+              <a href="/#/member/forgetpwd"><paper-button noink>Forget password?</paper-button></a>
             </div>
           </div>
         </paper-shadow>
@@ -74,13 +74,13 @@
               </form>
             </div>
             <div class="options" horizontal center-justified layout>
-              <paper-button noink on-tap="{{showSignin}}">Member login</paper-button>
+              <a href="/#/member/signin"><paper-button noink>Member login</paper-button></a>
             </div>
           </div>
         </paper-shadow>
       </section>
 
-      <section id="forget">
+      <section id="forgetpwd">
         <paper-shadow z="{{z}}">
           <div class="container" vertical layout>
             <div class="label">Forget Password</div>
@@ -96,8 +96,8 @@
               </div>
             </div>
             <div class="options" horizontal center-justified layout>
-              <paper-button noink on-tap="{{showSignin}}">Member Login</paper-button>
-              <paper-button class="highlight" noink on-tap="{{showSignon}}">Become a Member</paper-button>
+              <a href="/#/member/signin"><paper-button noink>Member login</paper-button></a>
+              <a href="/#/member/signon"><paper-button class="highlight" noink>Become a member</paper-button></a>
             </div>
           </div>
         </paper-shadow>
@@ -109,8 +109,8 @@
             <div class="label">Signout</div>
             <div class="outer">
               <div id="logout" center vertical layout>
-                <div>You have signed in as:</div>
-                <div id="userid">dong77@gmail.com</div>
+                <div>You have signed in already.</div>
+                <div id="userid"><a href="/#/account">Go to my Account</a></div>
               </div>
 
               <div class="action" vertical layout>
@@ -136,8 +136,8 @@
               </div>
             </div>
             <div class="options" horizontal center-justified layout>
-              <paper-button noink on-tap="{{showSignin}}">Member login</paper-button>
-              <paper-button class="highlight" noink on-tap="{{showSignon}}">Become a member</paper-button>
+              <a href="/#/member/signin"><paper-button noink>Member login</paper-button></a>
+              <a href="/#/member/signon"><paper-button class="highlight" noink>Become a member</paper-button></a>
             </div>
           </div>
         </paper-shadow>
