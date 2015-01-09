@@ -20,6 +20,12 @@
 .outer {
     border-top: solid 1px $black4;
     min-height: 200px;
+    .errorMsg {
+        padding-top: 10px;
+        width: 100%;
+        text-align: center;
+        color: color($C3, 500);
+    }
     .inner {
         background: color($C1, 400);
         padding-left: 40px;
@@ -41,10 +47,10 @@
             padding-right: 10px;
             &::shadow {
                 #ink[checked] {
-                    color: color($C2, 500);
+                    color: color($C1, 500);
                 }
                 #checkbox.checked {
-                    border-color: color($C2, 500);
+                    border-color: color($C1, 500);
                 }
             }
         }
@@ -71,7 +77,10 @@
             transition: background 420ms ease-in-out;
             color: white;
             &:hover {
-                background:  color($C2, 500);
+                background: color($C2, 500);
+            }
+            &[disabled] {
+                opacity: 0.5;
             }
         }
     }

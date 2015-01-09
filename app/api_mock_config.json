@@ -165,7 +165,7 @@
     }
   },
   "api": {
-    "base": "https://exchange.coinport.com"
+    "base": "http://localhost:9000"
   },
   "refreshIntervals": {
     "depths": 5000,

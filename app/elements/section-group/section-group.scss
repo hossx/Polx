@@ -49,17 +49,21 @@
     }
     paper-shadow {
         width: 100%;
-        margin: 10px 0;
         &::content {
             background: white;
         }
         background: white;
         >div {
-            padding: 20px 5px;
+            padding: 20px;
             &[no-padding] {
                 padding: 5px 0;
             }
             color: $black1;
+        }
+    }
+    paper-shadow[no-padding] {
+        >div {
+            padding: 20px 0;
         }
     }
 }

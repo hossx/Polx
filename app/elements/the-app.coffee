@@ -110,6 +110,10 @@ Polymer 'the-app',
   processProtocols: () ->
     window.protocol =
       base: window.config.api.base
+      ##
+      loginUrl: () -> "%s/account/login".format(@base)
+      registerUrl: () -> "%s/account/register".format(@base)
+      logoutUrl:  () ->"%s/account/logout".format(@base)
       ## public apis
       tickerUrl: (coin) -> "%s/api/m/ticker/%s".format(@base, coin.toLowerCase())
       depthUrl: (market) ->  "%s/api/m/%s/depth".format(@base, market.toLowerCase())

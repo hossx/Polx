@@ -4,22 +4,22 @@ Polymer 'stats-card-group',
   ready: () ->
     @config = window.config
     @tickerUrl = window.protocol.tickerUrl(@currency.id)
-    @tickers = []
+    @tickers = null
     work = () =>this.$.ajax.go()
     @refreshJob = setInterval(work, @config.refreshIntervals.tickers)
     console.debug("start auto-refresh for tickers " +  @tickerUrl)
 
   responseChanged: (o, n) ->
     if @response
-      @tickers = @response.data.sort (a, b) -> # TODO 
-        if a.c < b.c
-          -1
-        else
-          1
-      console.debug(@tickers)
-    else if @response == ''
-      @stopRefresh()
-      @fire("network-error", {'url': @tickerUrl})
+      if @response == ''
+        @stopRefresh()
+        @fire("network-error", {'url': @tickerUrl})
+      else
+        @tickers = @response.data.sort (a, b) -> # TODO 
+          if a.c < b.c
+            -1
+          else
+            1
 
   detached: () ->
     @stopRefresh()

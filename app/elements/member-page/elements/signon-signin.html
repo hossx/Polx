@@ -6,6 +6,7 @@
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../../../bower_components/paper-checkbox/paper-checkbox.html">
+<link rel="import" href="../../../bower_components/ajax-form/ajax-form.html">
 
 <polymer-element name="signon-signin" attributes="page,z">
   <template>
@@ -17,18 +18,20 @@
           <div class="container" vertical layout>
             <div class="label">Member Login</div>
             <div class="outer">
-              <div class="inner" center-justified vertical layout>
-                <paper-input-decorator class="input" label="Email" floatingLabel>
-                  <input is="core-input" value="{{email}}">
-                </paper-input-decorator required>
-                <paper-input-decorator class="input" label="Password" floatingLabel>
-                  <input is="core-input" type="password">
-                </paper-input-decorator required>
-              </div>
-
-              <div class="action" vertical layout>
-                <paper-button id="login">Login</paper-button>
-              </div>
+              <form is="ajax-form" method="post" id="signinForm">
+                <div class="inner" center-justified vertical layout>
+                  <paper-input-decorator class="input" label="Email" floatingLabel>
+                    <input is="core-input" value="{{email}}">
+                  </paper-input-decorator required>
+                  <paper-input-decorator class="input" label="Password" floatingLabel>
+                    <input is="core-input" type="password" value="{{loginPassword}}">
+                  </paper-input-decorator required>
+                </div>
+                <div class="errorMsg">{{errorMsg}}</div>
+                <div class="action" vertical layout>
+                  <paper-button on-tap="{{loginMeIn}}">Login</paper-button>
+                </div>
+              </form>
             </div>
             <div class="options" horizontal center-justified layout>
               <paper-button class="highlight" noink on-tap="{{showSignon}}">Become a member</paper-button>
@@ -37,35 +40,38 @@
           </div>
         </paper-shadow>
       </section>
+
       <section id="signon">
         <paper-shadow z="{{z}}">
           <div class="container" vertical layout>
             <div class="label">Become a Member</div>
             <div class="outer">
-              <div class="inner" center-justified vertical layout>
-                <paper-input-decorator class="input" label="Email" floatingLabel>
-                  <input is="core-input" value="{{email}}">
-                </paper-input-decorator required>
-                <paper-input-decorator class="input" label="Password" floatingLabel>
-                  <input is="core-input" type="password">
-                </paper-input-decorator required>
+              <form is="ajax-form" method="post" action="{{registerUrl}}" id="registerForm">
+                <div class="inner" center-justified vertical layout>
+                  <paper-input-decorator class="input" label="Email" floatingLabel>
+                    <input is="core-input" name="email" value="{{email}}" required>
+                  </paper-input-decorator>
+                  <paper-input-decorator class="input" label="Password" floatingLabel>
+                    <input is="core-input" name="password" type="password" value="{{registerPassword}}" required>
+                  </paper-input-decorator>
 
-                <paper-input-decorator class="input" label="Confirm Password" floatingLabel>
-                  <input is="core-input" type="password">
-                </paper-input-decorator required>
-              </div>
+                  <paper-input-decorator class="input" label="Confirm Password" floatingLabel>
+                    <input is="core-input" type="password" value="{{registerPassword2}}">
+                  </paper-input-decorator required>
+                </div>
 
-              <div id="agree" vertical layout>
-                <core-label center horizontal layout>
-                  <paper-checkbox class="checkbox" for></paper-checkbox>
-                  <div> I read and agree to the <a href="/#/doc/tos" target="_blank">Terms of Service</a>
-                  </div>
-                </core-label>
-              </div>
-
-              <div class="action" vertical layout>
-                <paper-button>Register</paper-button>
-              </div>
+                <div id="agree" vertical layout>
+                  <core-label center horizontal layout>
+                    <paper-checkbox class="checkbox" checked="{{termsAgreed}}" on-change="{{agreeChanged}}" for></paper-checkbox>
+                    <div> I read and agree to the <a href="/#/doc/tos" target="_blank">Terms of Service</a>
+                    </div>
+                  </core-label>
+                </div>
+                <div class="errorMsg">{{errorMsg}}</div>
+                <div class="action" vertical layout>
+                  <paper-button id="registerButton" disabled?="{{registerDisabled}}" on-tap="{{registerMe}}">Register</paper-button>
+                </div>
+              </form>
             </div>
             <div class="options" horizontal center-justified layout>
               <paper-button noink on-tap="{{showSignin}}">Member login</paper-button>

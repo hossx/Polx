@@ -12,7 +12,8 @@
     "jquery-cookie": "~1.4.1",
     "string-format-js": "~0.1.2",
     "chart-elements": "~0.1.1",
-    "highcharts": "~4.0.4"
+    "highcharts": "~4.0.4",
+    "ajax-form": "~1.4.0"
   },
   "devDependencies": {
     "polymer-test-tools": "Polymer/polymer-test-tools#^0.4.0"
