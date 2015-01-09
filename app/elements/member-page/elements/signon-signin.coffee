@@ -1,7 +1,7 @@
 'use strict'
 
 Polymer 'signon-signin',
-  page: 'signon'
+  page: 'signin'
 
   ## general
   message: null
@@ -12,34 +12,38 @@ Polymer 'signon-signin',
      re.test(email)
 
   observe: {
-    email: 'validateRegisterForm',
+    registerEmail: 'validateRegisterForm'
     registerPassword: 'validateRegisterForm'
     registerPassword2: 'validateRegisterForm'
     termsAgreed: 'validateRegisterForm'
+
+    loginEmail: 'validateLoginForm'
+    loginPassword: 'validateLoginForm'
   }
 
   translateErrorMessage: (m) ->
     if m == "RegisterUserFailed(EmailAlreadyRegistered)"
-      "This email has been registered already"
-    else 
+      "This email has been registered already."
+    else if m == "LoginFailed(EmailNotVerified)"
+      "This email has not been verified."
+    else if m == 'LoginFailed(UserNotExist)' or m == 'LoginFailed(PasswordNotMatch)'
+      "Either email or password is incorrect."
+    else
       m
 
   ready: () ->
-    @loginUrl = window.protocol.loginUrl()
     @registerUrl = window.protocol.registerUrl()
+    @loginUrl = window.protocol.loginUrl()
 
     this.$.registerForm.addEventListener 'submitting', (e) =>
       e.detail.formData.password = $.sha256b64(e.detail.formData.password)
-      console.log(e)
 
     this.$.registerForm.addEventListener 'submitted', (e) =>
-      console.log(e)
+      console.debug(e)
       if e.detail.status > 299
         @fire("network-error", {'url': @registerUrl})
       else
         resp = JSON.parse(e.detail.response)
-        console.log(resp)
-        console.log(resp.success)
         if not resp.success
           @errorMsg = @translateErrorMessage(resp.message)
           @registerDisabled = true
@@ -49,21 +53,38 @@ Polymer 'signon-signin',
           @fire("user-registered", {'uid': resp.message})
           @page = "registered"
 
+    this.$.loginForm.addEventListener 'submitting', (e) =>
+      console.log(e)
+      e.detail.formData.password = $.sha256b64(e.detail.formData.password)
+
+    this.$.loginForm.addEventListener 'submitted', (e) =>
+      console.debug(e)
+      if e.detail.status > 299
+        @fire("network-error", {'url': @loginUrl})
+      else
+       
+        resp = JSON.parse(e.detail.response)
+        if not resp.success
+          @errorMsg = @translateErrorMessage(resp.message)
+        else
+          console.log("Logged in as: " + resp.data.id)
+          @fire("user-loggedin", {'uid': resp.data.id})
+
 
   ## register
-  email: ''
+  registerEmail: ''
   termsAgreed: false
   registerDisabled: true
   registerMe: () -> this.$.registerForm.submit()
 
   validateRegisterForm: ()->
-    if not @email and not @registerPassword and not @registerPassword2
+    if not @registerEmail and not @registerPassword and not @registerPassword2
       @errorMsg = ''
       @registerDisabled = true
-    else if not @email
-      @errorMsg = "Provide provide your email"
+    else if not @registerEmail
+      @errorMsg = "Please provide your email"
       @registerDisabled = true
-    else if not @validateEmail(@email)
+    else if not @validateEmail(@registerEmail)
       @errorMsg = "Your email address is invalid"
       @registerDisabled = true
     else if not @registerPassword and not @registerPassword2
@@ -80,19 +101,28 @@ Polymer 'signon-signin',
       @registerDisabled = not @termsAgreed
 
 
-  ## login
-  loginMeIn: () ->
-    @errorMsg = ''
-    this.$.loginAjax.go()
 
-  loginRespChanged: (o, n) ->
-    if @loginResp
-      console.debug(@loginResp)
-      if @loginResp == ''
-        @fire("network-error", {'url': @loginUrl})
-      else if not @loginResp.success
-        @errorMsg = "Incorrect username or password."
-      else
+  ## login
+  loginEmail: ''
+  loginDisabled: true
+  logMeIn: () -> this.$.loginForm.submit()
+
+  validateLoginForm: () ->
+    if not @loginEmail and not @loginPassword 
+      @errorMsg = ''
+      @loginDisabled = true
+    else if not @loginEmail
+      @errorMsg = "Please provide your email"
+      @loginDisabled = true
+    else if not @validateEmail(@loginEmail)
+      @errorMsg = "Your email address is invalid"
+      @loginDisabled = true
+    else if not @loginPassword
+      @errorMsg = "Please provide your password"
+      @loginDisabled = true
+    else
+      @errorMsg = ''
+      @loginDisabled = false
 
   showSignin: () -> @show("signin")
   showSignon: () -> @show("signon")
@@ -103,8 +133,10 @@ Polymer 'signon-signin',
     @errorMsg = ''
     if @page == 'registered'
       @showRegistered()
-    if @page == 'verified'
+    else if @page == 'verified'
       @showVerified()
+    else if @page == 'notverified'
+      @showVerifyFailed()
     else if @page == 'retrieved'
       @showPasswordRetrived()
     else if @page == 'pwdchanged'
@@ -116,7 +148,7 @@ Polymer 'signon-signin',
     @message =
       title: "Check Your Email"
       details: [
-        "We just send you an email to %s for your membership confirmation. You need to click on the link in the email to activate your account.".format(@email),
+        "We just send you an email to %s for your membership confirmation. You need to click on the link in the email to activate your account.".format(@registerEmail),
         "Please give the email a couple of minutes to arrive. If you still don't find it in your mailbox after a while, go ahead and check the spam folder."
         "Thank you."]
     @show("message")
@@ -126,9 +158,18 @@ Polymer 'signon-signin',
     @message =
       title: "Email Verified"
       details: [
-        "We have verified your email address",
+        "We have verified your email address.",
         "You can take advantage of all Coinport services."
         "Happy trading!"]
+    @show("message")
+    @delayShow("signin")
+
+  showVerifyFailed: () ->
+    @message =
+      title: "Email Verification Failed"
+      details: [
+        "We cannot verify your email address.",
+        "You many need to try again."]
     @show("message")
     @delayShow("signin")
 
@@ -136,7 +177,7 @@ Polymer 'signon-signin',
     @message = 
       title: "Check Your Email"
       details: [
-        "We just send you an email to %s with a link to reset your password. Your current password is still valid until a new one is set.".format(@email),
+        "We just send you an email to %s with a link to reset your password. Your current password is still valid until a new one is set.".format(@retrieveEmail),
         "Please give the email a couple of minutes to arrive. If you still don't find it in your mailbox after a while, go ahead and check the spam folder."
         "Thank you."]
     @show("message")

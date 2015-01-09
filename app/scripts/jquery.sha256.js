@@ -1,3 +1,4 @@
+"use strict";
 /**
  * SHA256 Hash Algorithm Plugin
  *
@@ -10,6 +11,197 @@
  *
  * Distributed under the terms of the new BSD License
  * http://www.opensource.org/licenses/bsd-license.php
+ */
+
+/**
+ * This plugin is based on the following work:
+ *
+ * A JavaScript implementation of the Secure Hash Algorithm, SHA-256, as defined
+ * in FIPS 180-2
+ * Version 2.2-beta Copyright Angel Marin, Paul Johnston 2000 - 2009.
+ * Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet
  *
  */
-(function(f){var m=8;var k=function(q,t){var s=(q&65535)+(t&65535);var r=(q>>16)+(t>>16)+(s>>16);return(r<<16)|(s&65535)};var e=function(r,q){return(r>>>q)|(r<<(32-q))};var g=function(r,q){return(r>>>q)};var a=function(q,s,r){return((q&s)^((~q)&r))};var d=function(q,s,r){return((q&s)^(q&r)^(s&r))};var h=function(q){return(e(q,2)^e(q,13)^e(q,22))};var b=function(q){return(e(q,6)^e(q,11)^e(q,25))};var p=function(q){return(e(q,7)^e(q,18)^g(q,3))};var l=function(q){return(e(q,17)^e(q,19)^g(q,10))};var c=function(r,s){var E=new Array(1116352408,1899447441,3049323471,3921009573,961987163,1508970993,2453635748,2870763221,3624381080,310598401,607225278,1426881987,1925078388,2162078206,2614888103,3248222580,3835390401,4022224774,264347078,604807628,770255983,1249150122,1555081692,1996064986,2554220882,2821834349,2952996808,3210313671,3336571891,3584528711,113926993,338241895,666307205,773529912,1294757372,1396182291,1695183700,1986661051,2177026350,2456956037,2730485921,2820302411,3259730800,3345764771,3516065817,3600352804,4094571909,275423344,430227734,506948616,659060556,883997877,958139571,1322822218,1537002063,1747873779,1955562222,2024104815,2227730452,2361852424,2428436474,2756734187,3204031479,3329325298);var t=new Array(1779033703,3144134277,1013904242,2773480762,1359893119,2600822924,528734635,1541459225);var q=new Array(64);var G,F,D,C,A,y,x,w,v,u;var B,z;r[s>>5]|=128<<(24-s%32);r[((s+64>>9)<<4)+15]=s;for(var v=0;v<r.length;v+=16){G=t[0];F=t[1];D=t[2];C=t[3];A=t[4];y=t[5];x=t[6];w=t[7];for(var u=0;u<64;u++){if(u<16){q[u]=r[u+v]}else{q[u]=k(k(k(l(q[u-2]),q[u-7]),p(q[u-15])),q[u-16])}B=k(k(k(k(w,b(A)),a(A,y,x)),E[u]),q[u]);z=k(h(G),d(G,F,D));w=x;x=y;y=A;A=k(C,B);C=D;D=F;F=G;G=k(B,z)}t[0]=k(G,t[0]);t[1]=k(F,t[1]);t[2]=k(D,t[2]);t[3]=k(C,t[3]);t[4]=k(A,t[4]);t[5]=k(y,t[5]);t[6]=k(x,t[6]);t[7]=k(w,t[7])}return t};var j=function(t){var s=Array();var q=(1<<m)-1;for(var r=0;r<t.length*m;r+=m){s[r>>5]|=(t.charCodeAt(r/m)&q)<<(24-r%32)}return s};var n=function(s){var r="0123456789abcdef";var t="";for(var q=0;q<s.length*4;q++){t+=r.charAt((s[q>>2]>>((3-q%4)*8+4))&15)+r.charAt((s[q>>2]>>((3-q%4)*8))&15)}return t};var o=function(s,v){var u=j(s);if(u.length>16){u=c(u,s.length*m)}var q=Array(16),t=Array(16);for(var r=0;r<16;r++){q[r]=u[r]^909522486;t[r]=u[r]^1549556828}var w=c(q.concat(j(v)),512+v.length*m);return c(t.concat(w),512+256)};var i=function(q){q=typeof q=="object"?f(q).val():q.toString();return q};f.extend({sha256:function(q){q=i(q);return n(c(j(q),q.length*m))},sha256hmac:function(q,r){q=i(q);r=i(r);return n(o(q,r))},sha256config:function(q){m=parseInt(q)||8}});f.fn.sha256=function(r){f.sha256config(r);var q=i(f(this).val());var s=f.sha256(q);f.sha256config(8);return s}})(jQuery);
+
+(function($) {
+  var chrsz = 8; // bits per input character. 8 - ASCII; 16 - Unicode
+
+  var safe_add = function(x, y) {
+    var lsw = (x & 0xFFFF) + (y & 0xFFFF);
+    var msw = (x >> 16) + (y >> 16) + (lsw >> 16);
+    return (msw << 16) | (lsw & 0xFFFF);
+  };
+
+  var S = function(X, n) {
+    return ( X >>> n ) | (X << (32 - n));
+  };
+
+  var R = function(X, n) {
+    return ( X >>> n );
+  };
+
+  var Ch = function(x, y, z) {
+    return ((x & y) ^ ((~x) & z));
+  };
+
+  var Maj = function(x, y, z) {
+    return ((x & y) ^ (x & z) ^ (y & z));
+  };
+
+  var Sigma0256 = function(x) {
+    return (S(x, 2) ^ S(x, 13) ^ S(x, 22));
+  };
+
+  var Sigma1256 = function(x) {
+    return (S(x, 6) ^ S(x, 11) ^ S(x, 25));
+  };
+
+  var Gamma0256 = function(x) {
+    return (S(x, 7) ^ S(x, 18) ^ R(x, 3));
+  };
+
+  var Gamma1256 = function (x) {
+    return (S(x, 17) ^ S(x, 19) ^ R(x, 10));
+  };
+
+  var core_sha256 = function(m, l) {
+    var K = new Array(0x428A2F98,0x71374491,0xB5C0FBCF,0xE9B5DBA5,0x3956C25B,0x59F111F1,0x923F82A4,0xAB1C5ED5,0xD807AA98,0x12835B01,0x243185BE,0x550C7DC3,0x72BE5D74,0x80DEB1FE,0x9BDC06A7,0xC19BF174,0xE49B69C1,0xEFBE4786,0xFC19DC6,0x240CA1CC,0x2DE92C6F,0x4A7484AA,0x5CB0A9DC,0x76F988DA,0x983E5152,0xA831C66D,0xB00327C8,0xBF597FC7,0xC6E00BF3,0xD5A79147,0x6CA6351,0x14292967,0x27B70A85,0x2E1B2138,0x4D2C6DFC,0x53380D13,0x650A7354,0x766A0ABB,0x81C2C92E,0x92722C85,0xA2BFE8A1,0xA81A664B,0xC24B8B70,0xC76C51A3,0xD192E819,0xD6990624,0xF40E3585,0x106AA070,0x19A4C116,0x1E376C08,0x2748774C,0x34B0BCB5,0x391C0CB3,0x4ED8AA4A,0x5B9CCA4F,0x682E6FF3,0x748F82EE,0x78A5636F,0x84C87814,0x8CC70208,0x90BEFFFA,0xA4506CEB,0xBEF9A3F7,0xC67178F2);
+    var HASH = new Array(0x6A09E667, 0xBB67AE85, 0x3C6EF372, 0xA54FF53A, 0x510E527F, 0x9B05688C, 0x1F83D9AB, 0x5BE0CD19);
+      var W = new Array(64);
+      var a, b, c, d, e, f, g, h, i, j;
+      var T1, T2;
+    /* append padding */
+    m[l >> 5] |= 0x80 << (24 - l % 32);
+    m[((l + 64 >> 9) << 4) + 15] = l;
+    for ( var i = 0; i<m.length; i+=16 ) {
+      a = HASH[0]; b = HASH[1]; c = HASH[2]; d = HASH[3]; e = HASH[4]; f = HASH[5]; g = HASH[6]; h = HASH[7];
+      for ( var j = 0; j<64; j++) {
+        if (j < 16) {
+          W[j] = m[j + i];
+        }else{
+          W[j] = safe_add(safe_add(safe_add(Gamma1256(W[j - 2]), W[j - 7]), Gamma0256(W[j - 15])), W[j - 16]);
+        }
+        T1 = safe_add(safe_add(safe_add(safe_add(h, Sigma1256(e)), Ch(e, f, g)), K[j]), W[j]);
+        T2 = safe_add(Sigma0256(a), Maj(a, b, c));
+        h = g; g = f; f = e; e = safe_add(d, T1); d = c; c = b; b = a; a = safe_add(T1, T2);
+      }
+      HASH[0] = safe_add(a, HASH[0]); HASH[1] = safe_add(b, HASH[1]); HASH[2] = safe_add(c, HASH[2]); HASH[3] = safe_add(d, HASH[3]);
+      HASH[4] = safe_add(e, HASH[4]); HASH[5] = safe_add(f, HASH[5]); HASH[6] = safe_add(g, HASH[6]); HASH[7] = safe_add(h, HASH[7]);
+    }
+    return HASH;
+  };
+
+  var str2binb = function(str) {
+    var bin = Array();
+    var mask = (1 << chrsz) - 1;
+    for(var i = 0; i < str.length * chrsz; i += chrsz){
+      bin[i>>5] |= (str.charCodeAt(i / chrsz) & mask) << (24 - i%32);
+    }
+    return bin;
+  };
+  var hex2binb = function (a) {
+    var b = [], length = a.length, i, num;
+    for ( i = 0; i < length; i += 2) {
+      num = parseInt(a.substr(i, 2), 16);
+      if (!isNaN(num)) {
+        b[i >> 3] |= num << (24 - (4 * (i % 8)))
+      } else {
+        return "INVALID HEX STRING"
+      }
+  }
+    return b
+  };
+  var binb2hex = function(binarray) {
+    //var hexcase = 0; /* hex output format. 0 - lowercase; 1 - uppercase */
+    //var hex_tab = hexcase ? "0123456789ABCDEF" : "0123456789abcdef";
+    var hex_tab = "0123456789abcdef";
+    var str = "";
+    for (var i = 0; i < binarray.length * 4; i++) {
+      str += hex_tab.charAt((binarray[i>>2] >> ((3 - i%4)*8+4)) & 0xF) + hex_tab.charAt((binarray[i>>2] >> ((3 - i%4)*8  )) & 0xF);
+    }
+    return str;
+  };
+  var binb2b64 = function (a) {
+    var b = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" + "0123456789+/", str = "", length = a.length * 4, i, j, triplet;
+    var b64pad = "=";
+    for ( i = 0; i < length; i += 3) {
+      triplet = (((a[i >> 2] >> 8 * (3 - i % 4)) & 0xFF) << 16) | (((a[i + 1 >> 2] >> 8 * (3 - (i + 1) % 4)) & 0xFF) << 8) | ((a[i + 2 >> 2] >> 8 * (3 - (i + 2) % 4)) & 0xFF);
+      for ( j = 0; j < 4; j += 1) {
+        if (i * 8 + j * 6 <= a.length * 32) {
+          str += b.charAt((triplet >> 6 * (3 - j)) & 0x3F)
+        } else {
+          str += b64pad
+        }
+      }
+  }
+    return str
+  };
+  var core_hmac_sha256 = function(key, data) {
+    var bkey = str2binb(key);
+    if(bkey.length > 16) {
+      bkey = core_sha256(bkey, key.length * chrsz);
+    }
+    var ipad = Array(16), opad = Array(16);
+    for(var i = 0; i < 16; i++) {
+      ipad[i] = bkey[i] ^ 0x36363636;
+      opad[i] = bkey[i] ^ 0x5C5C5C5C;
+    }
+    var hash = core_sha256(ipad.concat(str2binb(data)), 512 + data.length * chrsz);
+    return core_sha256(opad.concat(hash), 512 + 256);
+  };
+
+  var prep = function(string){
+    string = typeof string == 'object' ? $(string).val() : string.toString();
+    return string;
+  };
+
+  // standard sha256 implementation: var x = $.sha256(value);
+  // standard sha266hmac implementation: varx = $.sha256hmac(value1, value2);
+  $.extend({
+    sha256 : function(string){
+      string = prep(string);
+      return binb2hex(core_sha256(str2binb(string),string.length * chrsz));
+    },
+    sha256b64 : function (string) {
+      string = prep(string);
+      return binb2b64(core_sha256(str2binb(string), string.length * chrsz));
+    },
+    /*
+     *
+     */
+    sha256hmachex : function (key, data) {
+      key = prep(key);
+      data = prep(data);
+      return binb2hex(core_hmac_sha256(key, data));
+    },
+    /*
+     *
+     */
+    sha256hmacb64 : function (key, data) {
+      key = prep(key);
+      data = prep(data);
+      return binb2b64(core_hmac_sha256(key, data));
+    },
+    sha256config : function(bits){
+      chrsz = parseInt(bits) || 8;
+    }
+  });
+  // alternative sha256b64 implementation: var x = value.sha256b64();
+  $.fn.sha256b64 = function (bits) {
+    // change bits
+    $.sha256config(bits);
+    var val = $.sha256b64($(this).val());
+    // reset bits, this was a one-time operation
+    $.sha256config(8);
+    return val;
+  };
+  // alternative sha256b64 implementation: var x = value.sha256b64();
+  $.fn.sha256hex = function (bits) {
+    // change bits
+    $.sha256config(bits);
+    var val = $.sha256hex($(this).val());
+    // reset bits, this was a one-time operation
+    $.sha256config(8);
+    return val;
+  };
+})(jQuery);

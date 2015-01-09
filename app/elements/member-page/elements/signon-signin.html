@@ -18,18 +18,18 @@
           <div class="container" vertical layout>
             <div class="label">Member Login</div>
             <div class="outer">
-              <form is="ajax-form" method="post" id="signinForm">
+              <form is="ajax-form" method="post" action="{{loginUrl}}" id="loginForm">
                 <div class="inner" center-justified vertical layout>
                   <paper-input-decorator class="input" label="Email" floatingLabel>
-                    <input is="core-input" value="{{email}}">
+                    <input is="core-input" name="username" value="{{loginEmail}}">
                   </paper-input-decorator required>
                   <paper-input-decorator class="input" label="Password" floatingLabel>
-                    <input is="core-input" type="password" value="{{loginPassword}}">
+                    <input is="core-input" type="password" name="password" value="{{loginPassword}}">
                   </paper-input-decorator required>
                 </div>
                 <div class="errorMsg">{{errorMsg}}</div>
                 <div class="action" vertical layout>
-                  <paper-button on-tap="{{loginMeIn}}">Login</paper-button>
+                  <paper-button disabled?="{{loginDisabled}}" on-tap="{{logMeIn}}">Login</paper-button>
                 </div>
               </form>
             </div>
@@ -49,7 +49,7 @@
               <form is="ajax-form" method="post" action="{{registerUrl}}" id="registerForm">
                 <div class="inner" center-justified vertical layout>
                   <paper-input-decorator class="input" label="Email" floatingLabel>
-                    <input is="core-input" name="email" value="{{email}}" required>
+                    <input is="core-input" name="email" value="{{registerEmail}}" required>
                   </paper-input-decorator>
                   <paper-input-decorator class="input" label="Password" floatingLabel>
                     <input is="core-input" name="password" type="password" value="{{registerPassword}}" required>
