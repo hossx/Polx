@@ -43,9 +43,9 @@
           </core-animated-pages>
 
           <paper-tabs id="nav-tabs" selected="{{page}}">
-            <template repeat="{{icon in icons}}">
+            <template repeat="{{button in buttons}}">
               <paper-tab>
-                <core-icon icon="{{icon}}"></core-icon>
+                <core-icon icon="{{button[0]}}"></core-icon>
               </paper-tab>
             </template>
           </paper-tabs>

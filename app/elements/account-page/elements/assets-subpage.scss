@@ -1,4 +1,5 @@
 @import "../../_colors";
+$C1: $brown;
 :host {
     display: block;
 }
@@ -29,7 +30,7 @@ table {
                     font-weight: 700;
                 }
                 &.total {
-                    color: color($C1, 500);
+                    color: color($C3, 500);
                     font-weight: 700;
                 }
                 &.op {

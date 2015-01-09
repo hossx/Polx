@@ -1,4 +1,5 @@
 @import "../../_colors";
+$C1: $brown;
 @mixin config-color($color) {
     core-item {
         &.core-selected {

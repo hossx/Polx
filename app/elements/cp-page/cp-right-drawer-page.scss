@@ -1,7 +1,7 @@
 @import "../_colors";
 @mixin config-color($color) {
     #drawer {
-        background: color($color, 400);
+        background: color($color, 500);
     }
     #menu-toolbar {
         background: color($color, 500);

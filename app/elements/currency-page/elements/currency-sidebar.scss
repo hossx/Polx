@@ -1,10 +1,11 @@
 @import "../../_colors";
 //
+$C1: $green;
 @mixin config-color($color) {
     #currency-tabs {
         &::shadow {
             #tabsContainer {
-                background: color($color, 500);
+                background: color($color, 700);
             }
             #selectionBar {
                 background-color: color($C2, 500);
