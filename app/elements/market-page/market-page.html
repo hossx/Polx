@@ -11,7 +11,7 @@
   <template>
     <link rel="stylesheet" href="market-page.css">
 
-    <cp-drawer-page backlink="/#/market" label="{{market.name}}" buttons="{{buttons}}">
+    <cp-drawer-page class="blue" backlink="/#/market" label="{{market.name}}" buttons="{{buttons}}">
       <market-sidebar id="sidebar" marketId="{{marketId}}"></market-sidebar>
       <section>
         <trade-subpage market="{{market}}" active="{{tab===0}}" fit></trade-subpage>

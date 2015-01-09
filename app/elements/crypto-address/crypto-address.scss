@@ -13,12 +13,14 @@
     color: $white1;
 }
 :host-context(.cold) {
-    background: color($blue, 400);
-    color: $white1;
+    #icon {
+        color: color($blue, 400);
+    }
 }
 :host-context(.hot) {
-    background: color($orange, 400);
-    color: $white1;
+    #icon {
+        color: color($orange, 400);
+    }
 }
 :host(:hover) {
     background: $black1;

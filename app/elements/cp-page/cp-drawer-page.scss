@@ -1,16 +1,33 @@
 @import "../_colors";
+//
+@mixin config-color($color) {
+    #drawer {
+        background: color($color, 400);
+    }
+    #toolbar {
+        background: color($color, 500);
+    }
+    #nav-tabs {
+        background: color($color, 500);
+    }
+}
+//
 :host {
     box-sizing: border-box;
 }
+:host-context(.blue) {
+    @include config-color($blue);
+}
+:host-context(.green) {
+    @include config-color($green);
+}
+//
 #drawer {
-    background: color($C1, 400);
     padding: 0;
 }
 #toolbar {
     color: white;
-    background: color($C1, 500);
     paper-icon-button, core-icon-button {
-        background: color($C1, 500);
         color: white;
     }
     paper-icon-button:hover, core-icon-button:hover {
@@ -34,7 +51,6 @@
 #nav-tabs {
     width: 100%;
     color: white;
-    background: color($C1, 500);
     position: absolute;
     right: 0;
     left: 0;

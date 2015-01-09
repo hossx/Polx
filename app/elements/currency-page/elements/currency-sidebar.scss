@@ -1,4 +1,28 @@
 @import "../../_colors";
+//
+@mixin config-color($color) {
+    #currency-tabs {
+        &::shadow {
+            #tabsContainer {
+                background: color($color, 500);
+            }
+            #selectionBar {
+                background-color: color($C2, 500);
+            }
+        }
+    }
+    #pages {
+        background: color($color, 400);
+    }
+}
+//
+:host-context(.blue) {
+    @include config-color($blue);
+}
+:host-context(.green) {
+    @include config-color($green);
+}
+///
 #currency-tabs {
     font-size: 13px;
     font-weight: 500px;
