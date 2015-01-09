@@ -17,7 +17,7 @@ Polymer 'the-router',
       this.$.toast.show()
 
     @addEventListener 'logout-requested', (e) -> 
-      ##$.removeCookie(@sessionCookieName)
+      $.removeCookie(@sessionCookieName)
       @userId = ''
 
     @addEventListener 'api-access-error', (e) ->
@@ -48,7 +48,7 @@ Polymer 'the-router',
       console.error("not supposed to see this"  )
     else if @userId == ''
       console.log("user logged out: " + o)
-      if location.hash.indexOf('#/account') == 0
+      if location.hash.indexOf('#/account') == 0 or location.hash == '#/member/signout'
         this.$.router.go('/member/signedout') 
     else
       console.log("user logged in: " + @userId)

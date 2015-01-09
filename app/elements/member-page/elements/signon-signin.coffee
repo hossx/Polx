@@ -101,6 +101,8 @@ Polymer 'signon-signin',
       @registerDisabled = not @termsAgreed
 
 
+  ## logout 
+  signout: () -> @fire('logout-requested')
 
   ## login
   loginEmail: ''
