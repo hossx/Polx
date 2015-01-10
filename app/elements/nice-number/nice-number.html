@@ -1,0 +1,16 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html">
+
+<polymer-element name="nice-number" attributes="v,p">
+  <template>
+    <link rel="stylesheet" href="nice-number.css">
+    <core-tooltip label="{{tooltip}}">
+      <div id="c" horizontal layout>
+        <div flex>{{part1}}</div>
+        <div>.</div>
+        <div>{{part2}}</div>
+      </div>
+    </core-tooltip>
+  </template>
+  <script src="nice-number.js"></script>
+</polymer-element>

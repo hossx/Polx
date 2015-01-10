@@ -35,7 +35,7 @@ Polymer 'trade-subpage',
 
   startRefresh: () ->
     @stopRefresh()
-    @depthUrl = window.protocol.depthUrl(@market.id)
+    @depthUrl = window.protocol.depthUrl(@market.id, 5)
     work = () =>this.$.depthAjax.go()
     @refreshJob = setInterval(work, @market.refreshInterval)
     work()

@@ -3,34 +3,91 @@
 <link rel="import" href="../../../bower_components/core-header-panel/core-header-panel.html">
 <link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
 <link rel="import" href="../../cp-media-query/cp-media-query.html">
+<link rel="import" href="../../charts/d3-depth-chart/d3-depth-chart.html">
+<link rel="import" href="../../nice-number/nice-number.html">
 
-<polymer-element name="orderbook-subpage" attributes="market,active" horizontal center-justified layout>
+<link rel="import" href="../../section-group/section-group.html">
+
+<polymer-element name="orderbook-subpage" attributes="market,active" vertical layout>
   <template>
     <link rel="stylesheet" href="orderbook-subpage.css">
 
-    <core-ajax url="{{depthUrl}}" response="{{response}}" auto></core-ajax>
-    <core-header-panel flex mode="scroll">
-      <div main horizontal center-justified layout>
-        <div id="top-container" flex horizontal layout>
+    <core-ajax url="{{depthUrl}}" handleAs="json" response="{{response}}" auto></core-ajax>
 
+    <section-group has-footer>
+      <core-ajax id="txsAjax" url="{{txsUrl}}" response="{{response}}" auto></core-ajax>
+      <div label>{{market.id}} Chart</div>
+      <paper-shadow>
+        <div class="card" vertical center layout>
+          <d3-depth-chart bids="{{bids}}" width="720" asks="{{asks}}"></d3-depth-chart>
+        </div>
+        </div>
+      </paper-shadow>
+
+      <div label>{{market.id}} Order Book</div>
+      <paper-shadow>
+        <div class="card" horizontal layout>
           <div id="buy" flex>
-            <paper-shadow>
-              <div class="card">
-                <div class="label">Buy Orders</div>
-              </div>
-            </paper-shadow>
+            <div class="label">Buy Orders</div>
+            <table>
+              <thead>
+                <tr>
+                  <td></td>
+                  <td>Price</td>
+                  <td>Quantity</td>
+                  <td>Accumulated</td>
+                </tr>
+              </thead>
+              <tbody>
+                <template repeat="{{bid,idx in bids}}">
+                  <tr>
+                    <td class="idx">{{idx+1}}</td>
+                    <td>
+                      <nice-number class="price" v="{{bid.price}}" p="10"></nice-number>
+                    </td>
+                    <td>
+                      <nice-number class="quantity" v="{{bid.quantity}}" p="6"></nice-number>
+                    </td>
+                    <td>
+                      <nice-number class="accumulated" v="{{bid.accumulated}}" p="6"></nice-number>
+                    </td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
           </div>
 
           <div id="sell" flex>
-            <paper-shadow>
-              <div class="card">
-                <div class="label">Sell Orders</div>
-              </div>
-            </paper-shadow>
+            <div class="label">Sell Orders</div>
+            <table>
+              <thead>
+                <tr>
+                  <td></td>
+                  <td>Price</td>
+                  <td>Quantity</td>
+                  <td>Accumulated</td>
+                </tr>
+              </thead>
+              <tbody>
+                <template repeat="{{ask,idx in asks}}">
+                  <tr>
+                    <td class="idx">{{idx+1}}</td>
+                    <td>
+                      <nice-number class="price" v="{{ask.price}}" p="10"></nice-number>
+                    </td>
+                    <td>
+                      <nice-number class="quantity" v="{{ask.quantity}}" p="6"></nice-number>
+                    </td>
+                    <td>
+                      <nice-number class="accumulated" v="{{ask.accumulated}}" p="6"></nice-number>
+                    </td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
           </div>
-        </div>
-      </div>
-    </core-header-panel>
+      </paper-shadow>
+    </section-group>
   </template>
-<script src="orderbook-subpage.js"></script>
+  <script src="orderbook-subpage.js"></script>
 </polymer-element>

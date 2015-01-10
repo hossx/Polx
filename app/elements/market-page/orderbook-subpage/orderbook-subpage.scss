@@ -1,4 +1,5 @@
 @import "../../_colors";
+@import "../../_common";
 :host {
     display: block;
     height: 100%;
@@ -10,7 +11,7 @@
         margin: 5px 0;
     }
     .card {
-        padding: 5px;
+        padding: 10px;
         background: white;
     }
 }
@@ -27,9 +28,6 @@
         > paper-shadow {
             margin: 10px 0;
         }
-        .card {
-            padding: 20px;
-        }
     }
     #buy {
         padding-right: 10px;
@@ -37,4 +35,38 @@
     #sell {
         padding-left: 10px;
     }
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+thead {
+    color: $black1;
+    font-weight: 500;
+}
+tr {
+    padding: 0 5px;
+    &:nth-child(even) {
+        background-color: $magic-grey;
+    }
+}
+td {
+    padding: 10px 5px;
+    text-align: right;
+    &.idx {
+        color: $black3;
+    }
+}
+tbody {
+    tr:hover {
+        background: color($C2, 100);
+    }
+}
+.label {
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.54);
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
 }

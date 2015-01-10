@@ -4,7 +4,7 @@ Polymer 'market-page',
   page: 0
 
   ready: () ->
-    @buttons = [['swap-horiz', 'Trade'],['trending-up','Market Trend'],['list','Orderbook'],['history', 'History Data']]
+    @buttons = [['swap-horiz', 'Trade'],['trending-up','Trend'],['list','Order Book'],['history', 'History Data']]
     @marketId = ''
     @market = null
     @config = window.config
