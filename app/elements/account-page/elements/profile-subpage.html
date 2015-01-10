@@ -13,7 +13,7 @@
     <section-group has-footer fit>
       <div label>Profile</div>
       <paper-shadow z="1">
-        <div class="keyvalues" vertical layout>
+        <div no-padding class="keyvalues" vertical layout>
           <div horizontal layout>
             <div>User ID</div>
             <div flex>{{profile.uid}}</div>
@@ -50,7 +50,6 @@
           </div>
           <core-collapse id="enableGoogleAuthCollapse">
             <div>
-              <paper-shadow z="0">
                 <div class="outer" vertical center layout>
                   <div class="inner" vertical center layout>
                     <div>Scan the following QR code with your Google Authenticator app.</div>
@@ -66,7 +65,6 @@
                     </div>
                   </div>
                 </div>
-              </paper-shadow>
             </div>
           </core-collapse>
 

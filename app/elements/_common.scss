@@ -50,3 +50,31 @@
         }
     }
 }
+@mixin has-paper-toggle-button($color) {
+    paper-toggle-button::shadow {
+        paper-radio-button::shadow {
+            #ink[checked] {
+                color: color($color, 700);
+            }
+            #ink {
+                color: color($color, 500);
+            }
+            #onRadio {
+                background-color: color($color, 500);
+            }
+            #offRadio {
+                background-color: $black4;
+            }
+        }
+        #toggleBar {
+            background-color: $black2;
+        }
+        #toggleBar[checked] {
+            background-color: color($color, 500);
+        }
+        #toggleContainer[disabled] {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+    }
+}

@@ -4,7 +4,7 @@
     height: 100%;
 }
 #container {
-    padding-bottom: 60px;
+    padding: 0 0 60px 0;
     width: 100%;
 }
 #footer {
@@ -13,11 +13,14 @@
 @media(min-width: 768px) {
     #container {
         max-width: 768px;
-        padding-bottom: 0;
+        padding-bottom: 20px;
     }
-    :host-context([has-footer]) {
+    :host([has-footer]) {
         #footer {
             display: inherit;
+        }
+        #container {
+            padding-bottom: 0;
         }
     }
     ::content {
@@ -34,7 +37,7 @@
 ::content {
     div[label] {
         text-align: center;
-        padding-top: 20px;
+        padding: 20px 0;
         font-size: 20px;
         font-weight: 500;
         color: $black2;
@@ -48,10 +51,9 @@
         background: $black4;
     }
     paper-shadow {
+        margin-bottom: 20px;
         width: 100%;
-        &::content {
-            background: white;
-        }
+        padding: 0;
         background: white;
         >div {
             padding: 20px;
@@ -59,25 +61,6 @@
                 padding: 5px 0;
             }
             color: $black1;
-        }
-    }
-    paper-shadow[no-padding] {
-        >div {
-            padding: 20px 0;
-        }
-    }
-}
-:host-context([light]) {
-    background: $magic-grey;
-    color: $black1;
-    ::content {
-        div[label] {
-            text-align: center;
-            padding-top: 20px;
-            font-size: 20px;
-            font-weight: 500;
-            color: $black2;
-            text-transform: uppercase;
         }
     }
 }

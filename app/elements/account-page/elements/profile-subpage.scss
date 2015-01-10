@@ -1,57 +1,41 @@
 @import "../../_colors";
+@import "../../_common";
 @import "_subpage";
 $C1: $brown;
 :host {
     display: block;
 }
-paper-toggle-button::shadow {
-    paper-radio-button::shadow {
-        #ink[checked] {
-            color: color($C1, 700);
-        }
-        #ink {
-            color: color($C1, 500);
-        }
-        #onRadio {
-            background-color: color($C1, 500);
-        }
-        #offRadio {
-            background-color: $black4;
-        }
-    }
-    #toggleBar {
-        background-color: $black2;
-    }
-    #toggleBar[checked] {
-        background-color: color($C1, 500);
-    }
-    #toggleContainer[disabled] {
-        opacity: 0.7;
-        pointer-events: none;
-    }
-}
+@include has-paper-toggle-button($C1);
 core-collapse {
     >div {
+        background: color($C1, 400);
+        color: white;
         border-top: solid 1px $black4;
         border-bottom: solid 1px $black4;
-        > paper-shadow {
-            text-align: center;
-            .outer {
-                .inner {
-                    max-width: 360px;
-                }
-            }
+        padding: 20px;
+        text-align: center;
+    }
+    paper-button:hover {
+        color: color($C2, 500);
+    }
+    paper-button[raised] {
+        background: white;
+        color: $black1;
+        &:hover {
+            background: color($C2, 500);
         }
     }
 }
 #qrcode {
     padding: 20px;
-    background: $magic-grey;
+    margin: 20px;
+    background: $black4;
 }
 paper-input#code {
     /deep/ input[is=core-input] {
         font-size: 18px;
         text-align: center;
+        color: white;
     }
 }
 span#tag {
