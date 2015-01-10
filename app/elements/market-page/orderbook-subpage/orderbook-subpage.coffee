@@ -18,8 +18,6 @@ Polymer 'orderbook-subpage',
       @depthUrl = window.protocol.depthUrl(@market.id, 40)
 
   responseChanged: (o, n) ->
-    console.log(@response)
-    window.x = @response
     if @response == ''
       @fire('network-error', {'url': @depthUrl})
     else if @response and @response.success

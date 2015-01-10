@@ -19,8 +19,7 @@
       <div label>{{market.id}} Chart</div>
       <paper-shadow>
         <div class="card" vertical center layout>
-          <d3-depth-chart bids="{{bids}}" width="720" asks="{{asks}}"></d3-depth-chart>
-        </div>
+          <d3-depth-chart bids="{{bids}}" width="720" regulate="true" asks="{{asks}}"></d3-depth-chart>
         </div>
       </paper-shadow>
 
@@ -32,7 +31,7 @@
             <table>
               <thead>
                 <tr>
-                  <td></td>
+                  <td>Index</td>
                   <td>Price</td>
                   <td>Quantity</td>
                   <td>Accumulated</td>
@@ -62,7 +61,7 @@
             <table>
               <thead>
                 <tr>
-                  <td></td>
+                  <td>Index</td>
                   <td>Price</td>
                   <td>Quantity</td>
                   <td>Accumulated</td>

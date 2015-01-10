@@ -4,21 +4,36 @@ Polymer 'd3-depth-chart',
   width: 600
   height: 260
   padding: 40
+  regulate: false
   bids: []
   asks: []
 
   observe: {
+    width: 'createChart'
+    height:  'createChart'
+    padding:  'createChart'
+    regulate:  'createChart'
     bids: 'createChart'
     asks: 'createChart'
   }
 
   createChart: () ->
     if @asks and @bids
-      console.log("===")
       asks = @asks
-      bids = []
-      bids.push @bids...
-      bids.reverse()
+      bids = @bids.slice(0)
+      # regulate asks and bids
+
+      if @regulate
+        while asks.length > 10 and bids.length > 10
+          ratio = (asks[asks.length-1].price - asks[0].price)/ (bids[0].price - bids[bids.length-1].price)
+          if ratio > 1.5
+            asks = asks.slice(0, asks.length-1)
+          else if ratio < 1/1.5
+            bids = bids.slice(0, bids.length-1)
+          else
+            break
+
+      bids = bids.reverse()
       data = bids.concat(asks)
 
       svg = d3.select(this.$.depthgraph)
@@ -55,14 +70,14 @@ Polymer 'd3-depth-chart',
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis)
         .append("text")
-        .text("Price")
+        .text("PRICE")
         .attr("class", "label")
-        .attr("dx", (width + 10) + "px")
+        .attr("dx", (width+10) + "px")
  
 
       svg.append("g").attr("class", "y axis")
         .call(yAxis)
         .append("text")
-        .text("Quantity")
+        .text("QUANTITY")
         .attr("class", "label")
-        .attr("y", (-height -20) + "px")
+        .attr("dy", "-10px")
