@@ -17,9 +17,15 @@
 }
 #buy {
     padding-right: 2px;
+    nice-number.price {
+        color: color($green, 500);
+    }
 }
 #sell {
     padding-left: 2px;
+    nice-number.price {
+        color: color($red, 500);
+    }
 }
 @media (min-width: 768px) {
     #top-container {
