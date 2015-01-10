@@ -31,7 +31,7 @@
           <div flex id="label">{{label}}</div>
           <template repeat="{{button,idx in buttons}}">
             <core-tooltip label="{{button[1]}}">
-              <core-icon-button class="btn" idx="{{idx}}" active?="{{page == idx}}" on-tap="{{switchTab}}" icon="{{button[0]}}">
+              <core-icon-button class="btn" idx="{{idx}}" active?="{{page == idx}}" on-tap="{{switchPage}}" icon="{{button[0]}}">
               </core-icon-button>
             </core-tooltip>
           </template>

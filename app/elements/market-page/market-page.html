@@ -7,23 +7,23 @@
 <link rel="import" href="recent-txs-subpage/recent-txs-subpage.html">
 <link rel="import" href="orderbook-subpage/orderbook-subpage.html">
 
-<polymer-element name="market-page" attributes="marketId,tab">
+<polymer-element name="market-page" attributes="marketId,page">
   <template>
     <link rel="stylesheet" href="market-page.css">
 
-    <cp-drawer-page class="blue" backlink="/#/market" label="{{market.name}}" buttons="{{buttons}}">
+    <cp-drawer-page class="blue" backlink="/#/market" label="{{market.name}}" page="{{page}}" buttons="{{buttons}}">
       <market-sidebar id="sidebar" marketId="{{marketId}}"></market-sidebar>
       <section>
-        <trade-subpage market="{{market}}" active="{{tab===0}}" fit></trade-subpage>
+        <trade-subpage market="{{market}}" active="{{page == 0}}" fit></trade-subpage>
       </section>
       <section>
-        <kchart-subpage market="{{market}}" active="{{tab===1}}" fit></kchart-subpage>
+        <kchart-subpage market="{{market}}" active="{{page == 1}}" fit></kchart-subpage>
       </section>
       <section>
-        <orderbook-subpage market="{{market}}" active="{{tab===2}}" fit></orderbook-subpage>
+        <orderbook-subpage market="{{market}}" active="{{page == 2}}" fit></orderbook-subpage>
       </section>
       <section>
-        <recent-txs-subpage market="{{market}}" active="{{tab===3}}" fit></recent-txs-subpage>
+        <recent-txs-subpage market="{{market}}" active="{{page == 3}}" fit></recent-txs-subpage>
       </section>
     </cp-drawer-page>
   </template>

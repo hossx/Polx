@@ -6,5 +6,5 @@ Polymer 'cp-drawer-page',
   label: '' 
   buttons: []
 
-  switchTab: (e, detail, sender) -> 
+  switchPage: (e, detail, sender) -> 
     @page = sender.getAttribute("idx")

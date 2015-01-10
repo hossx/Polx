@@ -5,17 +5,17 @@
 <link rel="import" href="details-subpage/details-subpage.html">
 <link rel="import" href="data-subpage/data-subpage.html">
 
-<polymer-element name="currency-page" attributes="currencyId,tab">
+<polymer-element name="currency-page" attributes="currencyId,page">
   <template>
     <link rel="stylesheet" href="currency-page.css">
 
-    <cp-drawer-page class="green" has-footer backlink="/#/reserves" label="{{currency.fullName}}" buttons="{{buttons}}" tab="{{tab}}">
+    <cp-drawer-page class="green" has-footer backlink="/#/reserves" label="{{currency.fullName}}" buttons="{{buttons}}" page="{{page}}">
       <currency-sidebar id="sidebar" currencyId="{{currencyId}}"></currency-sidebar>
       <section>
-        <details-subpage currency="{{currency}}" active="{{tab==0}}" fit></details-subpage>
+        <details-subpage currency="{{currency}}" active="{{page == 0}}" fit></details-subpage>
       </section>
       <section>
-        <data-subpage currency="{{currency}}" active="{{tab==1}}" fit></data-subpage>
+        <data-subpage currency="{{currency}}" active="{{page == 1}}" fit></data-subpage>
       </section>
     </cp-drawer-page>
 

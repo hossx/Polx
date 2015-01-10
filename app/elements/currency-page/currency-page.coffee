@@ -1,12 +1,11 @@
 'use strict'
 
 Polymer 'currency-page',
-   
+  page: 0
   ready: () ->
     @buttons = [['info', "Reserve Details"], ['cloud-download', 'History Data']]
     @currencyId = ''
     @currency = null
-    @tab = 0
     @config = window.config
 
 
@@ -18,7 +17,3 @@ Polymer 'currency-page',
 
   detached: () ->
     console.debug "detached: detached"
-
-  switchTabTo: (tab) -> @tab = tab
-  switchTab0: () -> @switchTabTo(0)
-  switchTab1: () -> @switchTabTo(1)

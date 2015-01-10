@@ -1,11 +1,12 @@
 'use strict'
 
 Polymer 'trade-subpage',
+  active: false
+  market: null
+  cardIndex: 0
+
   created: () ->
-    @market = null
-    @active = false
     @refreshJob = null
-    @cardIndex = 0
     @bids = []
     @asks = []
 
