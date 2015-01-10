@@ -4,7 +4,7 @@
     height: 100%;
 }
 #container {
-    padding: 0 0 60px 0;
+    padding: 10px 0 60px 0;
     width: 100%;
 }
 #footer {
@@ -37,7 +37,7 @@
 ::content {
     div[label] {
         text-align: center;
-        padding: 20px 0;
+        padding-top: 10px;
         font-size: 20px;
         font-weight: 500;
         color: $black2;
@@ -51,7 +51,7 @@
         background: $black4;
     }
     paper-shadow {
-        margin-bottom: 20px;
+        margin: 10px 0;
         width: 100%;
         padding: 0;
         background: white;

@@ -1,16 +1,31 @@
 @import "../_colors";
 :host {
     display: inline-block;
-    background: $black4;
+    background: white;
+    border: solid 1px $black4;
     color: $black1;
     padding: 3px 8px;
     border-radius: 10px;
     font-size: 11px;
     font-weight: 500;
+    #icon {
+        color: $black3;
+        height: 12px;
+        width: 12px;
+        padding-right: 5px;
+    }
+    #addr {};
+    #lead {
+        user-select: none;
+        color: $black2;
+    }
 }
 :host-context(.attention) {
     background: color($C3, 500);
     color: $white1;
+    #icon, #lead {
+        color: $white2;
+    }
 }
 :host-context(.cold) {
     #icon {
@@ -25,14 +40,7 @@
 :host(:hover) {
     background: $black1;
     color: $white1;
-}
-#icon {
-    color: white;
-    height: 12px;
-    width: 12px;
-    padding-right: 5px;
-}
-#addr {};
-#lead {
-    user-select: none;
+    #icon, #lead {
+        color: $white2;
+    }
 }
