@@ -4,7 +4,6 @@ Polymer 'depth-chart',
   market: null
   width: 600
   height: 260
-  padding: 40
   regulate: true
   bids: []
   asks: []
@@ -13,7 +12,6 @@ Polymer 'depth-chart',
     market: 'createChart'
     width: 'createChart'
     height:  'createChart'
-    padding:  'createChart'
     regulate:  'createChart'
     bids: 'createChart'
     asks: 'createChart'

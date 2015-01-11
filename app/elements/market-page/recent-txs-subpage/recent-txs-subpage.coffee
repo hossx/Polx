@@ -23,6 +23,7 @@ Polymer 'recent-txs-subpage',
       @fire('network-error', {'url': @transactionsUrl})
     else if @response and @response.success
       records = ({
+        timestamp: item.timestamp
         isSell: item.sell
         price: item.price.value
         quantity: item.subjectAmount.value
