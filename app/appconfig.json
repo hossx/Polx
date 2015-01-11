@@ -85,7 +85,8 @@
       "markets": {
         "BTC": {
           "refreshInterval": 1000,
-          "precision": 3,
+          "pricePrecision": 3,
+          "totalPrecision": 2,
           "minSellAmountmt": 0.001,
           "minBuyAmount": 0.001,
           "fee": {
@@ -101,7 +102,8 @@
           "tags": ["featured"]
         },
         "LTC": {
-          "precision": 3,
+          "pricePrecision": 3,
+          "totalPrecision": 2,
           "minSellAmountmt": 0.001,
           "minBuyAmount": 0.001,
           "fee": {
@@ -117,49 +119,61 @@
           "tags": ["featured"]
         },
         "BTSX": {
-          "precision": 3
+          "pricePrecision": 6,
+          "totalPrecision": 2
         },
         "XRP": {
-          "precision": 3
+          "pricePrecision": 10,
+          "totalPrecision": 2
         },
         "GOOC": {
-          "precision": 3
+          "pricePrecision": 5,
+          "quantityPrecision": 4,
+          "totalPrecision": 2
         }
       }
     },
     "BTC": {
       "markets": {
         "LTC": {
-          "precision": 3,
+          "pricePrecision": 3,
           "minSellAmountmt": 0.001,
           "minBuyAmount": 0.001,
           "tags": ["featured"]
         },
         "DOGE": {
-          "precision": 3
+          "pricePrecision": 10,
+          "totalPrecision": 4
         },
         "BC": {
-          "precision": 3
+          "pricePrecision": 3,
+          "totalPrecision": 4
         },
         "DRK": {
-          "precision": 3
+          "pricePrecision": 3,
+          "totalPrecision": 4
         },
         "VRC": {
-          "precision": 3
+          "pricePrecision": 3,
+          "totalPrecision": 4
         },
         "ZET": {
-          "precision": 3,
+          "pricePrecision": 3,
+          "totalPrecision": 4,
           "priceUnit": "ZET/CNY"
         },
         "BTSX": {
-          "precision": 3
+          "pricePrecision": 3,
+          "totalPrecision": 4
         },
         "NXT": {
-          "precision": 3,
+          "pricePrecision": 3,
+          "totalPrecision": 4,
           "priceUnit": "NXT/CNY"
         },
         "XRP": {
-          "precision": 3
+          "pricePrecision": 10,
+          "totalPrecision": 4
         }
       }
     }

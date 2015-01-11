@@ -39,13 +39,13 @@
                   <tr>
                     <td class="idx">{{idx+1}}</td>
                     <td>
-                      <nice-number class="price bold" v="{{bid.price}}" p="10"></nice-number>
+                      <nice-number class="price bold" v="{{bid.price}}" p="{{market.pricePrecision}}"></nice-number>
                     </td>
                     <td>
-                      <nice-number class="quantity" v="{{bid.quantity}}" p="6"></nice-number>
+                      <nice-number class="quantity" v="{{bid.quantity}}" p="{{market.quantityPrecision}}"></nice-number>
                     </td>
                     <td>
-                      <nice-number class="accumulated" v="{{bid.accumulated}}" p="6"></nice-number>
+                      <nice-number class="accumulated" v="{{bid.accumulated}}" p="{{market.totalPrecision}}"></nice-number>
                     </td>
                   </tr>
                 </template>
@@ -69,13 +69,13 @@
                   <tr>
                     <td class="idx">{{idx+1}}</td>
                     <td>
-                      <nice-number class="price bold" v="{{ask.price}}" p="10"></nice-number>
+                      <nice-number class="price bold" v="{{ask.price}}" p="{{market.pricePrecision}}"></nice-number>
                     </td>
                     <td>
-                      <nice-number class="quantity" v="{{ask.quantity}}" p="6"></nice-number>
+                      <nice-number class="quantity" v="{{ask.quantity}}" p="{{market.quantityPrecision}}"></nice-number>
                     </td>
                     <td>
-                      <nice-number class="accumulated" v="{{ask.accumulated}}" p="6"></nice-number>
+                      <nice-number class="accumulated" v="{{ask.accumulated}}" p="{{market.totalPrecision}}"></nice-number>
                     </td>
                   </tr>
                 </template>

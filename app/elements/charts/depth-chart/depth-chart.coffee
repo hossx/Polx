@@ -57,8 +57,11 @@ Polymer 'depth-chart',
         chart:
           renderTo: this.$.depthchart
           type: 'area'
+          zoomType: 'xy'
           height: @height
           width: @width
+        credits:
+          enabled: false
         title:
           text: ''
         xAxis:

@@ -29,6 +29,9 @@ class Market
     @shortName = @currency.id + "/" + @baseCurrency.id
     @name = @currency.name + "  [" + @currency.id + "-" + @baseCurrency.id+"]"
     @fee = new MarketFee @json.fee
+    @pricePrecision = Math.min(@json.pricePrecision || 4, 8)
+    @quantityPrecision = Math.min(@json.quantityPrecision || 4, 8)
+    @totalPrecision = Math.min(@json.totalPrecision || 4, 4)
     @refreshInterval =
       if @json.refreshInterval
         @json.refreshInterval

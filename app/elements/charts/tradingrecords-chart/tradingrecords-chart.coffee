@@ -38,6 +38,8 @@ Polymer 'tradingrecords-chart',
           zoomType: 'xy'
           height: @height
           width: @width
+        credits:
+          enabled: false
         title:
           text: ''
         xAxis:
