@@ -6,16 +6,17 @@ Polymer 'orderbook-subpage',
   depthUrl: ''
 
   created: () ->
+    @size = window.config.viewParams.market.orderBookInitialSize
     @bids = []
     @asks = []
     
   activeChanged: (o, n) ->
     if @active and @market
-      @depthUrl = window.protocol.depthUrl(@market.id, 40)
+      @depthUrl = window.protocol.depthUrl(@market.id, @size)
 
   marketChanged: (o, n) ->
     if @active and @market
-      @depthUrl = window.protocol.depthUrl(@market.id, 40)
+      @depthUrl = window.protocol.depthUrl(@market.id, @size)
 
   responseChanged: (o, n) ->
     if @response == ''

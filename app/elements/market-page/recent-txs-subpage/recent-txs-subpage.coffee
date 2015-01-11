@@ -1,5 +1,38 @@
 'use strict'
 
 Polymer 'recent-txs-subpage',
-  x: 'aaaaa'
-  ready: ()-> 
+  active: false
+  market: null
+  transactionsUrl: ''
+
+  created: () ->
+    @size = window.config.viewParams.market.tradingRecordInitialSize
+    @records = []
+
+    
+  activeChanged: (o, n) ->
+    if @active and @market
+      @transactionsUrl = window.protocol.transactionsUrl(@market.id, @size)
+
+  marketChanged: (o, n) ->
+    if @active and @market
+      @transactionsUrl = window.protocol.transactionsUrl(@market.id, @size)
+
+  responseChanged: (o, n) ->
+    if @response == ''
+      @fire('network-error', {'url': @transactionsUrl})
+    else if @response and @response.success
+      records = ({
+        isSell: item.sell
+        price: item.price.value
+        quantity: item.subjectAmount.value
+        total: item.currencyAmount.value} for item in @response.data.items)
+      for record in records
+          if record.isSell
+            record.typeClass= "sell"
+            record.typeLabel= "Sell"
+          else
+            record.typeClass= "buy"
+            record.typeLabel= "Buy"
+
+      @records = records

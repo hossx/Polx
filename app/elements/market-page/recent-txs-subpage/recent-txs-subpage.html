@@ -1,8 +1,51 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="../../nice-number/nice-number.html">
 
-<polymer-element name="recent-txs-subpage" attributes="market">
+<link rel="import" href="../../section-group/section-group.html">
+<polymer-element name="recent-txs-subpage" attributes="market,active" vertical layout>
   <template>
-    <link rel="stylesheet" href="recent-txs-subpage.css"> Recent transactions
+    <link rel="stylesheet" href="recent-txs-subpage.css">
+
+    <core-ajax url="{{transactionsUrl}}" handleAs="json" response="{{response}}" auto></core-ajax>
+
+    <section-group has-footer>
+      <div label>{{market.id}} Trading Records</div>
+      <paper-shadow>
+        <div class="card">
+          <div class="label">Buy Orders</div>
+          <table>
+            <thead>
+              <tr>
+                <td>Index</td>
+                <td>Type</td>
+                <td>Price</td>
+                <td>Quantity</td>
+                <td>Total</td>
+              </tr>
+            </thead>
+            <tbody>
+              <template repeat="{{record,idx in records}}">
+                <tr class="{{record.typeClass}}">
+                  <td class="idx">{{idx+1}}</td>
+                  <td class="type">{{record.typeLabel}}</td>
+                  <td>
+                    <nice-number class="price" v="{{record.price}}" p="10"></nice-number>
+                  </td>
+                  <td>
+                    <nice-number v="{{record.quantity}}" p="6"></nice-number>
+                  </td>
+                  <td>
+                    <nice-number v="{{record.total}}" p="6"></nice-number>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+      </paper-shadow>
+    </section-group>
   </template>
   <script src="recent-txs-subpage.js"></script>
 </polymer-element>

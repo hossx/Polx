@@ -116,8 +116,8 @@ Polymer 'the-app',
       logoutUrl:  () ->"%s/account/logout".format(@base)
       ## public apis
       tickerUrl: (coin) -> "%s/api/m/ticker/%s".format(@base, coin.toLowerCase())
-      depthUrl: (market,depth) ->  "%s/api/m/%s/depth?depth=%d".format(@base, market.toLowerCase(), depth)
-      transactionUrl: (market) ->  "%s/api/%s/transaction".format(@base, market.toLowerCase())
+      depthUrl: (market,limit) ->  "%s/api/m/%s/depth?depth=%d".format(@base, market.toLowerCase(), limit)
+      transactionsUrl: (market, limit) ->  "%s/api/%s/transaction?limit=%d".format(@base, market.toLowerCase(), limit)
       cryptoTxsUrl: (coin) -> 'api_mock_open_crypto_txs.json'
       reserveStatsUrl: () -> 'api_mock_open_reserve_stats.json'
       reserveDetailsUrl: (coin) -> 'api_mock_open_reserve_details.json'

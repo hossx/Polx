@@ -167,6 +167,12 @@
   "api": {
     "base": "https://exchange.coinport.com"
   },
+  "viewParams": {
+    "market": {
+      "orderBookInitialSize": 100,
+      "tradingRecordInitialSize": 100
+    }
+  },
   "refreshIntervals": {
     "depths": 5000,
     "tickers": 3000,
