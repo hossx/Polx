@@ -10,9 +10,8 @@ Polymer 'nice-number',
   }
 
   changed: (o, n) ->
-    @formatted =  ("%" + @p + "f").format(@v)
-
-    if parseFloat(@formatted) != @v
+    @formatted =  @v.toFixed(@p)
+    if @v - @formatted != 0
       @tooltip = @v 
     else
       @tooltip = ''
