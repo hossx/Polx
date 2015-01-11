@@ -1,8 +1,6 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
-<link rel="import" href="../../../bower_components/core-header-panel/core-header-panel.html">
 <link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
-<link rel="import" href="../../cp-media-query/cp-media-query.html">
 <link rel="import" href="../../charts/d3-depth-chart/d3-depth-chart.html">
 <link rel="import" href="../../nice-number/nice-number.html">
 
@@ -18,7 +16,7 @@
       <div label>{{market.id}} Chart</div>
       <paper-shadow>
         <div class="card" vertical center layout>
-          <d3-depth-chart bids="{{bids}}" width="720" regulate="true" asks="{{asks}}"></d3-depth-chart>
+          <d3-depth-chart bids="{{bids}}" width="720" asks="{{asks}}"></d3-depth-chart>
         </div>
       </paper-shadow>
 
@@ -41,7 +39,7 @@
                   <tr>
                     <td class="idx">{{idx+1}}</td>
                     <td>
-                      <nice-number class="price" v="{{bid.price}}" p="10"></nice-number>
+                      <nice-number class="price bold" v="{{bid.price}}" p="10"></nice-number>
                     </td>
                     <td>
                       <nice-number class="quantity" v="{{bid.quantity}}" p="6"></nice-number>
@@ -71,7 +69,7 @@
                   <tr>
                     <td class="idx">{{idx+1}}</td>
                     <td>
-                      <nice-number class="price" v="{{ask.price}}" p="10"></nice-number>
+                      <nice-number class="price bold" v="{{ask.price}}" p="10"></nice-number>
                     </td>
                     <td>
                       <nice-number class="quantity" v="{{ask.quantity}}" p="6"></nice-number>

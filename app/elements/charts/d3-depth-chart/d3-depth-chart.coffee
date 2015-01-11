@@ -4,7 +4,7 @@ Polymer 'd3-depth-chart',
   width: 600
   height: 260
   padding: 40
-  regulate: false
+  regulate: true
   bids: []
   asks: []
 
