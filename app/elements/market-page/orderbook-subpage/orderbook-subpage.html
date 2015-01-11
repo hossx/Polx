@@ -1,7 +1,7 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
-<link rel="import" href="../../charts/d3-depth-chart/d3-depth-chart.html">
+<link rel="import" href="../../charts/depth-chart/depth-chart.html">
 <link rel="import" href="../../nice-number/nice-number.html">
 
 <link rel="import" href="../../section-group/section-group.html">
@@ -16,7 +16,7 @@
       <div label>{{market.id}} Chart</div>
       <paper-shadow>
         <div class="card" vertical center layout>
-          <d3-depth-chart bids="{{bids}}" width="720" asks="{{asks}}"></d3-depth-chart>
+          <depth-chart market="{{market}}" bids="{{bids}}" width="720" asks="{{asks}}"></depth-chart>
         </div>
       </paper-shadow>
 
