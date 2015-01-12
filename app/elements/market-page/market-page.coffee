@@ -1,7 +1,7 @@
 'use strict'
 
 Polymer 'market-page',
-  page: 0
+  page: 1
 
   ready: () ->
     @buttons = [['swap-horiz', 'Trade'],['trending-up','Trend'],['list','Order Book'],['history', 'History Data']]
