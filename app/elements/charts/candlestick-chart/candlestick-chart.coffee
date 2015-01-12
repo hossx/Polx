@@ -15,10 +15,46 @@ Polymer 'candlestick-chart',
 
   createChart: () ->
     if @market and @candles
-      groupingUnits = [['week',[1]],['month', [1 ,2 ,3, 4 ,6]]]
+      groupingUnits = [['minute', [5,10,30]],['hour',[1,6,12]], ['day',[1]],['week',[1]],['year',null]]
 
       ohlc = ([item[0], item[1], item[2], item[3], item[4]] for item in @candles)
       volume = ([item[0], item[5]] for item in @candles)
+
+      yAxis1 =
+        labels:
+          align: 'right'
+          x: -3
+        title:
+          text: 'OHLC'
+        height: '60%'
+        lineWidth: 2
+
+      yAxis2 =
+        labels:
+          align: 'right'
+          x: -3
+        title:
+          text: 'Quantity'
+        top: '65%'
+        height: '35%'
+        offset: 0
+        lineWidth: 2
+
+      serie1 = 
+        type: 'candlestick'
+        name: @market.id
+        data: ohlc
+        yAxis: 0
+        dataGrouping:
+          units: groupingUnits
+
+      serie2 =
+        type: 'column'
+        name: 'Quantity'
+        data: volume
+        yAxis: 1
+        dataGrouping:
+          units: groupingUnits
 
       chart = new Highcharts.StockChart
         chart:
@@ -31,37 +67,5 @@ Polymer 'candlestick-chart',
           text: ''
         rangeSelector:
           selected: 1
-        yAxis: [{
-          labels:
-            align: 'right'
-            x: -3
-          title:
-            text: 'OHLC'
-          height: '60%'
-          lineWidth: 2
-        },{
-          labels:
-            align: 'right'
-            x: -3
-          title:
-            text: 'Volume'
-          top: '65%'
-          height: '35%'
-          offset: 0
-          lineWidth: 2
-        }]
-        series: [{
-          type: 'candlestick'
-          name: @market.id
-          data: ohlc
-          dataGrouping:
-            units: groupingUnits
-            
-        },{
-          type: 'column'
-          name: 'Volume'
-          data: volume
-          yAxis: 1
-          dataGrouping:
-            units: groupingUnits
-        }]
+        yAxis: [yAxis1, yAxis2]
+        series: [serie1, serie2]

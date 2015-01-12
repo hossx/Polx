@@ -5,7 +5,7 @@ Polymer 'kchart-subpage',
   active: false
   market: null
   historyUrl: ''
-  period: 3
+  period: 3 # five minutes
 
   activeChanged: (o, n) ->
     if @active and @market
