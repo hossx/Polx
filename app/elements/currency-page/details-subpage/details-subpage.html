@@ -4,6 +4,7 @@
 <link rel="import" href="../../../bower_components/core-tooltip/core-tooltip.html">
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../crypto-address/crypto-address.html">
+<link rel="import" href="../../weibo-wall/weibo-wall.html">
 
 <polymer-element name="details-subpage" attributes="currency" flex>
   <template>
@@ -34,7 +35,9 @@
                     <td>{{data[1]}}</td>
                     <td><span class="{{group.label}}">{{group.label}}</span>
                     </td>
-                    <td><div class="msg">{{data[2]}}</div></td>
+                    <td>
+                      <div class="msg">{{data[2]}}</div>
+                    </td>
                     <td>
                       <div class="sig">{{data[3]}}</div>
                     </td>
@@ -54,6 +57,13 @@
           </div>
         </paper-shadow>
       </template>
+
+      <div label>Buzz</div>
+      <paper-shadow>
+        <div>
+          <weibo-wall tags="比特币,Bitcoin"></weibo-wall>
+        </div>
+      </paper-shadow>
 
     </section-group>
   </template>

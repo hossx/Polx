@@ -43,9 +43,9 @@ module.exports = function(grunt) {
                     '<%= yeoman.app %>/email_templates/*.*',
                     '<%= yeoman.app %>/elements/{,*/,*/*/,*/*/*/}*.html',
                     '{.tmp,<%= yeoman.app %>}/elements/{,*/,*/*/,*/*/*/}*.css',
-                    '{.tmp,<%= yeoman.app %>}/elements/{,*/,*/*/,*/*/*/}*.js',
+                    '{.tmp,<%= yeoman.app %>}/elements/{,*/,*/*/,*/*/*/}*.{js,coffee}',
                     '{.tmp,<%= yeoman.app %>}/styles/{,*/,*/*/,*/*/*/}*.css',
-                    '{.tmp,<%= yeoman.app %>}/scripts/{,*/,*/*/,*/*/*/}*.js',
+                    '{.tmp,<%= yeoman.app %>}/scripts/{,*/,*/*/,*/*/*/}*.{js,coffee}',
                     '<%= yeoman.app %>/images/{,*/,*/*/,*/*/*/}*.{png,jpg,jpeg,gif,webp}'
                 ]
             },
