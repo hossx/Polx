@@ -1,5 +1,6 @@
 'use strict'
 
+# records are an array of {timestamp, isSell, price, quantity, total, typeClass, typeLabel}
 Polymer 'tradingrecords-chart',
   market: null
   width: 600

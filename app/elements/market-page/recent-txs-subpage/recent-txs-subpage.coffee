@@ -1,5 +1,6 @@
 'use strict'
 
+# records are an array of {timestamp, isSell, price, quantity, total, typeClass, typeLabel}
 Polymer 'recent-txs-subpage',
   active: false
   market: null

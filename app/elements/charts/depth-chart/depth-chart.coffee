@@ -1,5 +1,6 @@
 'use strict'
 
+# bids and asks are array of {price:price, quantity:quantity, accumulated:accumulated}
 Polymer 'depth-chart',
   market: null
   width: 600
@@ -40,18 +41,8 @@ Polymer 'depth-chart',
           else
             break
 
-      accumulated = 0
-      for i in asks
-        accumulated = accumulated + i.quantity
-        i.quantity = accumulated
-
-      accumulated = 0
-      for i in bids
-        accumulated = accumulated + i.quantity
-        i.quantity = accumulated
-
-      asks = ([i.price, i.quantity] for i in asks)
-      bids = ([i.price, i.quantity] for i in bids.reverse())
+      asks = ([i.price, i.accumulated] for i in asks)
+      bids = ([i.price, i.accumulated] for i in bids.reverse())
 
       chart = new Highcharts.Chart
         chart:
