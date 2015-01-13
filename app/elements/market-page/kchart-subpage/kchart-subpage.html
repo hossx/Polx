@@ -3,6 +3,7 @@
 <link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
 <link rel="import" href="../../charts/candlestick-chart/candlestick-chart.html">
 <link rel="import" href="../../section-group/section-group.html">
+<link rel="import" href="../../weibo-wall/weibo-wall.html">
 
 <polymer-element name="kchart-subpage" attributes="market,active">
   <template>
@@ -15,6 +16,13 @@
       <paper-shadow>
         <div>
           <candlestick-chart market="{{market}}" width="728" height="420" candles="{{candles}}"></candlestick-chart>
+        </div>
+      </paper-shadow>
+
+      <div label>Buzz</div>
+      <paper-shadow>
+        <div>
+          <weibo-wall currency="{{market.currency}}"></weibo-wall>
         </div>
       </paper-shadow>
     </section-group>

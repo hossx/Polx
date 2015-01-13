@@ -3,7 +3,8 @@
 <polymer-element name="weibo-wall" attributes="height,currency">
   <template>
     <link rel="stylesheet" href="weibo-wall.css">
-    <iframe width="100%" height="{{height}}" frameborder="0" scrolling="no" src="http://widget.weibo.com/livestream/listlive.php?language=zh_cn&width=0&height=800&uid=1674405692&skin=2&refer=1&appkey=1829616768&pic=0&titlebar=0&border=0&publish=1&atalk=1&recomm=0&at=0&atopic={{encodedTags}}&ptopic={{encodedTags}}&colordiy=1&color=ECECEC,ECECEC,464646,2196F3,FFF,FFFFFF&dpc=1"></iframe>
+    <iframe width="100%" height="{{height}}" frameborder="0" scrolling="no"
+    srcdoc="{{content}}" src="http://bitvar.com/somedoc.html"></iframe>
   </template>
   <script src="weibo-wall.js"></script>
 </polymer-element>

@@ -29,7 +29,7 @@
           "p": 0.1
         }
       },
-      "tags": "BTC~比特币~Bitcoin"
+      "tags": "BTC,比特币,Bitcoin"
     },
     "LTC": {
       "name": "Litecoin",
@@ -49,7 +49,7 @@
         "addr": "https://ltbrowser/addr/%s",
         "tx": "https://ltbrowser/addr/%s"
       },
-      "tags": "LTC~莱特币~Litecoin"
+      "tags": "LTC,莱特币,Litecoin"
     },
     "BTSX": {
       "name": "Bitshares"
@@ -59,7 +59,7 @@
     },
     "BC": {
       "name": "Blackcoin",
-      "tags": "黑币~Blackcoin"
+      "tags": "黑币,Blackcoin"
     },
     "DRK": {
       "name": "Darkcoin"
@@ -81,7 +81,8 @@
     },
     "GOOC": {
       "notCripto": true,
-      "name": "谷壳"
+      "name": "谷壳",
+      "tags": "谷壳宝"
     }
   },
   "marketGroups": {
