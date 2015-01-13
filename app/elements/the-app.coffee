@@ -125,7 +125,7 @@ Polymer 'the-app',
       reserveStatsUrl: () -> 'api_mock_open_reserve_stats.json'
       reserveDetailsUrl: (coin) -> 'api_mock_open_reserve_details.json'
       reserveSnapshotsUrl: (coin) -> 'api_mock_open_reserve_snapshots.json'
-      historyUrl: (market, period) -> 'https://exchange.coinport.com/api/%s/history?period=%d'.format(market.toLowerCase(), period)
+      historyUrl: (market, period, from) -> 'https://exchange.coinport.com/api/%s/history?period=%d&from=%s'.format(market.toLowerCase(), period,from)
       ## private apis
       userProfileUrl: 'api_mock_my_profile.json'
       userAssetsUrl:  'api_mock_my_assets.json'

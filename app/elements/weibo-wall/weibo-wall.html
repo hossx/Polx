@@ -1,10 +1,9 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<polymer-element name="weibo-wall" attributes="width,height,tags">
+<polymer-element name="weibo-wall" attributes="height,currency">
   <template>
     <link rel="stylesheet" href="weibo-wall.css">
-    <wb:topic topmid="z8ClGsZa8" column="n" border="n" width="{{width}}" height="{{height}}" tags="{{encodedTags}}" color="333333%2Cffffff%2C5677fc%2Cececec%2C333333%2Cfafeff%2C0078b6%2Ccccccc%2Ccccccc%2Cffffff"
-    language="zh_cn" version="base" appkey="2WElLa" refer="y" footbar="y" url="http://exchange.coinport.com" filter="y"></wb:topic>
+    <iframe width="100%" height="{{height}}" frameborder="0" scrolling="no" src="http://widget.weibo.com/livestream/listlive.php?language=zh_cn&width=0&height=800&uid=1674405692&skin=2&refer=1&appkey=1829616768&pic=0&titlebar=0&border=0&publish=1&atalk=1&recomm=0&at=0&atopic={{encodedTags}}&ptopic={{encodedTags}}&colordiy=1&color=ECECEC,ECECEC,464646,2196F3,FFF,FFFFFF&dpc=1"></iframe>
   </template>
   <script src="weibo-wall.js"></script>
 </polymer-element>

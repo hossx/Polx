@@ -2,6 +2,7 @@
 
 Polymer 'details-subpage',
   wiki: ''
+  wikiLinted: ''
   details: null
   detailsUrl: ''
 
@@ -9,3 +10,8 @@ Polymer 'details-subpage',
     @detailsUrl = window.protocol.reserveDetailsUrl(@currency.id)
 
   detailsChanged: (o, n) ->
+
+  wikiChanged: (o, n) ->
+    prefix = "coinport:wiki\n"
+    if @wiki and @wiki.indexOf(prefix) == 0
+      @wikiLinted = @wiki.substring(prefix.length)

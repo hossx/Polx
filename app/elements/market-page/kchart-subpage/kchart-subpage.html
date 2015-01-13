@@ -8,13 +8,14 @@
   <template>
     <link rel="stylesheet" href="kchart-subpage.css">
 
-
     <core-ajax url="{{historyUrl}}" handleAs="json" response="{{response}}" auto></core-ajax>
 
     <section-group has-footer>
       <div label>{{market.id}} Chart</div>
       <paper-shadow>
-          <candlestick-chart market="{{market}}" width="768" height="420" candles="{{candles}}"></candlestick-chart>
+        <div>
+          <candlestick-chart market="{{market}}" width="728" height="420" candles="{{candles}}"></candlestick-chart>
+        </div>
       </paper-shadow>
     </section-group>
 

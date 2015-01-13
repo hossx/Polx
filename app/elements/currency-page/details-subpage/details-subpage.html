@@ -9,7 +9,7 @@
 <polymer-element name="details-subpage" attributes="currency" flex>
   <template>
     <link rel="stylesheet" href="details-subpage.css">
-    <core-ajax url="../markdown/currency-{{currency.id}}.md" response="{{wiki}}" auto></core-ajax>
+    
     <core-ajax url="{{detailsUrl}}" response="{{details}}" auto></core-ajax>
     <section-group>
       <div label>Reserve Details</div>
@@ -49,11 +49,12 @@
         </div>
       </paper-shadow>
 
-      <template if="{{wiki !== ''}}">
+      <core-ajax url="../markdown/currency-{{currency.id}}.md" response="{{wiki}}" auto></core-ajax>
+      <template if="{{wikiLinted !== ''}}">
         <div label>About {{currency.name}}</div>
         <paper-shadow>
           <div>
-            <marked-element id="marked" text="{{wiki}}"></marked-element>
+            <marked-element id="marked" text="{{wikiLinted}}"></marked-element>
           </div>
         </paper-shadow>
       </template>
@@ -61,7 +62,7 @@
       <div label>Buzz</div>
       <paper-shadow>
         <div>
-          <weibo-wall tags="比特币,Bitcoin"></weibo-wall>
+          <weibo-wall currency="{{currency}}"></weibo-wall>
         </div>
       </paper-shadow>
 

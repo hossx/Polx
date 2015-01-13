@@ -1,9 +1,13 @@
 'use strict'
 
 Polymer 'weibo-wall',
-  width: 728
-  height: 1200
+  height: 800 
   tags: "no-tag"
 
-  tagsChanged: () ->
-    @encodedTags = encodeURIComponent(@tags)
+  currencyChanged: () ->
+    if @currency
+      if @currency.json.tags
+        tags = @currency.json.tags
+      else
+        tags = @currency.name
+      @encodedTags = encodeURIComponent(tags)
