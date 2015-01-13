@@ -20,6 +20,11 @@ Polymer 'candlestick-chart',
       ohlc = ([item[0], item[1], item[2], item[3], item[4]] for item in @candles)
       volume = ([item[0], item[5]] for item in @candles)
 
+      for v in volume
+        x = moment(v[0]).format("MM/DD-HH:mm")
+        console.log(x)
+
+
       yAxis1 =
         labels:
           align: 'right'

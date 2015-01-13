@@ -11,6 +11,7 @@ Polymer 'weibo-wall',
         tags = @currency.json.tags
       else
         tags = @currency.name
+      tags = tags + ",币丰港,币丰支付,coinport"
 
       @content = 
       '<html xmlns:wb=“http://open.weibo.com/wb”>
