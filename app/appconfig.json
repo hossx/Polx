@@ -29,7 +29,7 @@
           "p": 0.1
         }
       },
-      "tags": "BTC,比特币,Bitcoin"
+      "tags": "比特币,Bitcoin,BTC"
     },
     "LTC": {
       "name": "Litecoin",
@@ -49,20 +49,23 @@
         "addr": "https://ltbrowser/addr/%s",
         "tx": "https://ltbrowser/addr/%s"
       },
-      "tags": "LTC,莱特币,Litecoin"
+      "tags": "莱特币,Litecoin,LTC"
     },
     "BTSX": {
-      "name": "Bitshares"
+      "name": "Bitshares",
+      "tags": "比特股,Bitshare,BitsharesX,BTS"
     },
     "DOGE": {
-      "name": "Dogecoin"
+      "name": "Dogecoin",
+      "tags": "狗币,Dogecoin"
     },
     "BC": {
       "name": "Blackcoin",
       "tags": "黑币,Blackcoin"
     },
     "DRK": {
-      "name": "Darkcoin"
+      "name": "Darkcoin",
+      "tags": "暗黑币,<Darkcoin></Darkcoin>"
     },
     "VRC": {
       "name": "VRCCoin"
@@ -70,18 +73,16 @@
     "ZET": {
       "name": "Zetacoin"
     },
-    "BTSX": {
-      "name": "Bitshares"
-    },
     "NXT": {
       "name": "NextCoin"
     },
     "XRP": {
-      "name": "Ripple"
+      "name": "Ripple",
+      "tags": "瑞波币,Ripple,XRP"
     },
     "GOOC": {
       "notCripto": true,
-      "name": "谷壳",
+      "name": "谷壳宝",
       "tags": "谷壳宝"
     }
   },

@@ -1,0 +1,24 @@
+@import "../../_colors";
+@import "../../_common";
+$C1: $green;
+:host {
+    display: block;
+    height: 100%;
+}
+
+#kchart-pages {
+  height: 440px;
+}
+
+#market-tabs {
+    width: 100%;
+    color: color($C1, 500);
+    /deep/ {
+        #ink {
+            color: white;
+        }
+        #selectionBar {
+            background-color: color($C1, 500);
+        }
+    }
+}

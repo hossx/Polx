@@ -1,6 +1,6 @@
 'use strict'
 
-Polymer 'details-subpage',
+Polymer 'reserve-subpage',
   wiki: ''
   wikiLinted: ''
   details: null

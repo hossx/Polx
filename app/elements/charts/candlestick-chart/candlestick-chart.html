@@ -1,9 +1,11 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
 <link rel="import" href="../highcharts-import.html">
 
-<polymer-element name="candlestick-chart" attributes="market,width,height,candles">
+<polymer-element name="candlestick-chart" attributes="market,width,height">
   <template>
     <link rel="stylesheet" href="candlestick-chart.css">
+    <core-ajax url="{{historyUrl}}" handleAs="json" response="{{response}}" auto></core-ajax>
     <div id="candlesticks" width="{{width}}px" height="{{height}}px"></div>
   </template>
   <script src="candlestick-chart.js"></script>

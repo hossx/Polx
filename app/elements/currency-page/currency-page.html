@@ -2,7 +2,8 @@
 <link rel="import" href="../cp-icons/crypto-icons.html">
 <link rel="import" href="../cp-page/cp-drawer-page.html">
 <link rel="import" href="elements/currency-sidebar.html">
-<link rel="import" href="details-subpage/details-subpage.html">
+<link rel="import" href="about-subpage/about-subpage.html">
+<link rel="import" href="reserve-subpage/reserve-subpage.html">
 <link rel="import" href="data-subpage/data-subpage.html">
 
 <polymer-element name="currency-page" attributes="currencyId,page">
@@ -12,7 +13,10 @@
     <cp-drawer-page class="green" has-footer backlink="/#/reserves" label="{{currency.fullName}}" buttons="{{buttons}}" page="{{page}}">
       <currency-sidebar id="sidebar" currencyId="{{currencyId}}"></currency-sidebar>
       <section>
-        <details-subpage currency="{{currency}}" active="{{page == 0}}" fit></details-subpage>
+        <about-subpage currency="{{currency}}" active="{{page == 0}}" fit></about-subpage>
+      </section>
+      <section>
+        <reserve-subpage currency="{{currency}}" active="{{page == 0}}" fit></reserve-subpage>
       </section>
       <section>
         <data-subpage currency="{{currency}}" active="{{page == 1}}" fit></data-subpage>

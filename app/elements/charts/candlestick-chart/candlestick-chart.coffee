@@ -5,13 +5,26 @@ Polymer 'candlestick-chart',
   width: 600
   height: 260
   candles: []
+  historyUrl: ''
+  period: 3 # five minutes
+  oneyear: 356*24*3600*1000
 
   observe: {
-    market: 'createChart'
     width: 'createChart'
     height:  'createChart'
     candles: 'createChart'
   }
+
+  marketChanged: (o, n) ->
+    if @market
+      @historyUrl = window.protocol.historyUrl(@market.id, @period, 0)#Date.now()-@oneyear)
+
+  responseChanged: (o, n) -> 
+    if @response == ''
+      @fire('network-error', {'url': @historyUrl})
+    else if @response and @response.success
+      @candles = @response.data.candles
+
 
   createChart: () ->
     if @market and @candles

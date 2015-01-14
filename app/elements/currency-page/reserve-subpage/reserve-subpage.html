@@ -1,14 +1,12 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
-<link rel="import" href="../../../bower_components/marked-element/marked-element.html">
 <link rel="import" href="../../../bower_components/core-tooltip/core-tooltip.html">
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../crypto-address/crypto-address.html">
-<link rel="import" href="../../weibo-wall/weibo-wall.html">
 
-<polymer-element name="details-subpage" attributes="currency" flex>
+<polymer-element name="reserve-subpage" attributes="currency" flex>
   <template>
-    <link rel="stylesheet" href="details-subpage.css">
+    <link rel="stylesheet" href="reserve-subpage.css">
     
     <core-ajax url="{{detailsUrl}}" response="{{details}}" auto></core-ajax>
     <section-group>
@@ -48,25 +46,7 @@
           </table>
         </div>
       </paper-shadow>
-
-      <core-ajax url="../markdown/currency-{{currency.id}}.md" response="{{wiki}}" auto></core-ajax>
-      <template if="{{wikiLinted !== ''}}">
-        <div label>About {{currency.name}}</div>
-        <paper-shadow>
-          <div>
-            <marked-element id="marked" text="{{wikiLinted}}"></marked-element>
-          </div>
-        </paper-shadow>
-      </template>
-
-      <div label>Buzz</div>
-      <paper-shadow>
-        <div>
-          <weibo-wall currency="{{currency}}"></weibo-wall>
-        </div>
-      </paper-shadow>
-
     </section-group>
   </template>
-  <script src="details-subpage.js"></script>
+  <script src="reserve-subpage.js"></script>
 </polymer-element>
