@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="data-subpage.css">
 
     <section-group has-footer>
-      <core-ajax id="txsAjax" url="{{txsUrl}}" response="{{response}}" auto></core-ajax>
+      <core-ajax id="txsAjax" url="{{txsUrl}}" on-core-complete="{{handleTxsComplete}}" auto></core-ajax>
       <div label>{{currency.name}} Transactions</div>
       <paper-shadow>
         <div class="card" vertical center layout>
@@ -48,13 +48,13 @@
               </template>
             </tbody>
           </table>
-          <paper-button class="load-button" disabled?="{{!hasMore}}" on-tap="{{loadMoreTxs}}">Load more</paper-button>
+          <paper-button class="load-button" disabled?="{{!hasMoreTxs}}" on-tap="{{loadMoreTxs}}">Load more</paper-button>
         </div>
       </paper-shadow>
 
       <div label>{{currency.name}} Distributation Snapshots</div>
       <paper-shadow>
-        <core-ajax id="snapshotAjax" url="{{snapshotUrl}}" response="{{snapshotResponse}}" auto></core-ajax>
+        <core-ajax id="snapshotAjax" url="{{snapshotUrl}}" on-core-complete="{{handleSnapshotsComplete}}" auto></core-ajax>
         <div class="card" vertical center layout>
           <p>The following files capture our {{currency.name}} distribution among all our users at certain time.</p>
           <table>

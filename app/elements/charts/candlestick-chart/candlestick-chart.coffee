@@ -35,8 +35,6 @@ Polymer 'candlestick-chart',
 
       for v in volume
         x = moment(v[0]).format("MM/DD-HH:mm")
-        console.log(x)
-
 
       yAxis1 =
         labels:

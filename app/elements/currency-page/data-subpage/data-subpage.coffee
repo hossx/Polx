@@ -3,10 +3,8 @@
 Polymer 'data-subpage',
   currency: null
   txsUrl: ''
-  response: ''
-  hasMore: false
-
-  snapshotResponse: ''
+  snapshotUrl: ''
+  hasMoreTxs: false
   hasMoreSnapshots: false
 
   ready: () ->
@@ -17,28 +15,29 @@ Polymer 'data-subpage',
       @txsUrl = window.protocol.cryptoTxsUrl(@currency.id)
       @snapshotUrl = window.protocol.reserveSnapshotsUrl(@currency.id)
 
-  responseChanged: (o, n) ->
-    if @response
-      if @response == ''
-        @fire('network-error', {'url': @cryptoTxsUrl})
-      else
-        @hasMore = @response.hasMore
-        @transactions.push @response.txs...
+  handleTxsComplete: (e, detail, sender) ->
+    xhr = detail.xhr
+    if xhr and xhr.status != 200 or not xhr.response
+      @fire('network-error', {'url': @txsUrl})
+    else
+      resp = JSON.parse(xhr.response)
+      @hasMoreTxs = resp.hasMore
+      @transactions.push resp.txs...
 
-  snapshotResponseChanged: (o, n) ->
-    if @snapshotResponse
-      if @snapshotResponse == ''
-        @fire('network-error', {'url': @snapshotUrl})
-      else
-        @hasMoreSnapshots = @snapshotResponse.hasMore
-        @snapshots.push @snapshotResponse.snapshots...
+  handleSnapshotsComplete: (e, detail, sender) ->
+    xhr = detail.xhr
+    if xhr and xhr.status != 200 or not xhr.response
+      @fire('network-error', {'url': @snapshotUrl})
+    else 
+      resp = JSON.parse(xhr.response)
+      @hasMoreSnapshots = resp.hasMore
+      @snapshots.push resp.snapshots...
 
-  loadMoreTxs: () -> this.$.txsAjax.go() if @hasMore
+  loadMoreTxs: () -> this.$.txsAjax.go() if @hasMoreTxs
   loadMoreSnapshots: () -> this.$.snapshotAjax.go() if @hasMoreSnapshots
 
   ## TODO(dongw)
   formatAddrUrl: (value) -> "http://addr/" + value
   formatTxUrl: (value) -> "http://aaaaa/" + value
   formatUserUrl: (value) -> "/#/user/" + value
-
   formatFileUrl: (value) -> "file:" + value
