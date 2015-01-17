@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="about-subpage.css">
 
     <section-group>
-      <div label>Price Trend</div>
       <paper-shadow>
+        <div label>Price Trend</div>
         <div>
           <template if="{{markets.length > 1}}">
             <paper-tabs id="market-tabs" selected="{{tab}}">
@@ -41,16 +41,16 @@
 
       <core-ajax url="../markdown/currency-{{currency.id}}.md" response="{{wiki}}" auto></core-ajax>
       <template if="{{wikiLinted !== ''}}">
-        <div label>About {{currency.name}}</div>
         <paper-shadow>
+          <div label>About {{currency.name}}</div>
           <div>
             <marked-element id="marked" text="{{wikiLinted}}"></marked-element>
           </div>
         </paper-shadow>
       </template>
 
-      <div label>Buzz</div>
       <paper-shadow>
+        <div label>Buzz</div>
         <div>
           <weibo-wall currency="{{currency}}"></weibo-wall>
         </div>

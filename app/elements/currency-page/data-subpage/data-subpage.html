@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="data-subpage.css">
 
     <section-group has-footer>
-      <core-ajax id="txsAjax" url="{{txsUrl}}" on-core-complete="{{handleTxsComplete}}" auto></core-ajax>
-      <div label>{{currency.name}} Transactions</div>
       <paper-shadow>
+      <core-ajax id="txsAjax" url="{{txsUrl}}" on-core-complete="{{handleTxsComplete}}" auto></core-ajax>
+        <div label>{{currency.name}} Transactions</div>
         <div class="card" vertical center layout>
           <p>The following blockchain transactions involve our {{currency.name}} addresses.</p>
           <table>
@@ -52,9 +52,9 @@
         </div>
       </paper-shadow>
 
-      <div label>{{currency.name}} Distributation Snapshots</div>
       <paper-shadow>
         <core-ajax id="snapshotAjax" url="{{snapshotUrl}}" on-core-complete="{{handleSnapshotsComplete}}" auto></core-ajax>
+        <div label>{{currency.name}} Distributation Snapshots</div>
         <div class="card" vertical center layout>
           <p>The following files capture our {{currency.name}} distribution among all our users at certain time.</p>
           <table>
