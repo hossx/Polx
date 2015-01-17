@@ -15,7 +15,7 @@
 
     <section-group has-footer>
       <paper-shadow>
-        <div label>Price Trend</div>
+        <div label><h2>Price Trend</h2></div>
         <div>
           <template if="{{markets.length > 1}}">
             <paper-tabs id="market-tabs" selected="{{tab}}">
@@ -42,7 +42,7 @@
       <core-ajax url="../markdown/currency-{{currency.id}}.md" response="{{wiki}}" auto></core-ajax>
       <template if="{{wikiLinted !== ''}}">
         <paper-shadow>
-          <div label>About {{currency.name}}</div>
+          <div label><h2>About {{currency.name}}</h2></div>
           <div>
             <marked-element id="marked" text="{{wikiLinted}}"></marked-element>
           </div>
@@ -50,7 +50,7 @@
       </template>
 
       <paper-shadow>
-        <div label>Buzz</div>
+        <div label><h2>Buzz</h2></div>
         <div>
           <weibo-wall currency="{{currency}}"></weibo-wall>
         </div>

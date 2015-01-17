@@ -13,10 +13,12 @@
 
     <section-group has-footer>
       <paper-shadow>
-      <core-ajax id="txsAjax" url="{{txsUrl}}" on-core-complete="{{handleTxsComplete}}" auto></core-ajax>
-        <div label>{{currency.name}} Transactions</div>
-        <div class="card" vertical center layout>
+        <core-ajax id="txsAjax" url="{{txsUrl}}" on-core-complete="{{handleTxsComplete}}" auto></core-ajax>
+        <div label>
+          <h2>{{currency.name}} Transactions</h2>
           <p>The following blockchain transactions involve our {{currency.name}} addresses.</p>
+        </div>
+        <div class="card" vertical center layout>
           <table>
             <thead>
               <tr>
@@ -54,9 +56,12 @@
 
       <paper-shadow>
         <core-ajax id="snapshotAjax" url="{{snapshotUrl}}" on-core-complete="{{handleSnapshotsComplete}}" auto></core-ajax>
-        <div label>{{currency.name}} Distributation Snapshots</div>
-        <div class="card" vertical center layout>
+        <div label>
+          <h2>{{currency.name}} Distributation Snapshots</h2>
           <p>The following files capture our {{currency.name}} distribution among all our users at certain time.</p>
+        </div>
+        <div class="card" vertical center layout>
+
           <table>
             <thead>
               <tr>
