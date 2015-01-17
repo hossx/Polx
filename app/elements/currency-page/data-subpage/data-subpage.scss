@@ -1,12 +1,11 @@
 @import "../../_colors";
 @import "../../_common";
-$C1: $C1;
+@include has-simple-table();
 :host {
     display: block;
     height: 100%;
     color: $black1;
 }
-@include has-simple-table();
 .card {
     a {
         color: $black1;

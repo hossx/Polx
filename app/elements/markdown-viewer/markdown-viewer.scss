@@ -36,9 +36,9 @@ core-header-panel[main] {
     opacity: 0;
     transition: opacity 420ms ease-out;
     a {
-        color: color($C2, a400);
+        color: $black1;
         &:hover {
-            color: color($C3, a400);
+            color: color($C1, 500);
         }
     }
 }

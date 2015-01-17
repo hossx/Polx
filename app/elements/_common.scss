@@ -4,17 +4,17 @@
         color: $black2;
         text-decoration: none;
         &:hover {
-            color: color($C1, 400);
+            color: color($C1, 500);
             text-decoration: underline;
         }
     }
 }
 @mixin has-primary-link() {
     a {
-        color: color($C1, 400);
+        color: color($C1, 500);
         text-decoration: none;
         &:hover {
-            color: color($C2, a400);
+            color: color($C1, 700);
             text-decoration: underline;
         }
     }

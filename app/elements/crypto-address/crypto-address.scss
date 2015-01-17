@@ -29,12 +29,12 @@
 }
 :host-context(.cold) {
     #icon {
-        color: color($C1, 400);
+        color: color($blue, a400);
     }
 }
 :host-context(.hot) {
     #icon {
-        color: color($orange, 400);
+        color: color($orange, a400);
     }
 }
 :host(:hover) {
