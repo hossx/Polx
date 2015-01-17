@@ -7,15 +7,8 @@
 //
 :host {
     box-sizing: border-box;
-    @include config-color($blue);
+    @include config-color($C1);
 }
-:host-context(.green) {
-    @include config-color($green);
-}
-:host-context(.brown) {
-    @include config-color($brown);
-}
-//
 #toolbar {
     width: 100%;
     color: white;

@@ -1,5 +1,5 @@
 @import "../../_colors";
-$C1: $brown;
+$C1: $C1;
 @mixin config-color($color) {
     core-item {
         &.core-selected {
@@ -14,7 +14,7 @@ $C1: $brown;
 }
 :host {
     height: 100%;
-    @include config-color($brown);
+    @include config-color($C1);
 }
 core-item {
     font-weight: 400;

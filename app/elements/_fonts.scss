@@ -17,5 +17,5 @@
     src: local('RobotoCondensed-Bold'), local('Roboto Condensed Bold'), url('/styles/RobotoCondensed-Bold.ttf');
 }
 @mixin condensed-font() {
-    font-family: 'Roboto Condensed', 'Lantinghei SC', 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
+    font-family: 'Roboto Condensed', arial,"Microsoft Yahei","Hiragino Sans GB",sans-serif;
 }

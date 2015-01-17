@@ -14,12 +14,7 @@
 //
 :host {
     box-sizing: border-box;
-}
-:host-context(.blue) {
-    @include config-color($blue);
-}
-:host-context(.green) {
-    @include config-color($green);
+    @include config-color($C1);
 }
 //
 #drawer {
