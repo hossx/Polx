@@ -58,13 +58,13 @@ body {
             transition: background 420ms ease-in-out;
             font-size: 10px;
             word-wrap: break-word;
-            background: color($C2, 500);
-            color: color($C2, 500);
+            background: color($C2, a400);
+            color: color($C2, a400);
             padding: 10px 10px;
             color: white;
             border-radius: 20px;
             &:hover {
-                background: color($C3, 500);
+                background: color($C3, a400);
             }
         }
     }
@@ -77,7 +77,7 @@ body {
         color: $black2;
         text-decoration: none;
         &:hover {
-            color: color($C2, 500);
+            color: color($C2, a400);
             text-decoration: underline;
         }
     }

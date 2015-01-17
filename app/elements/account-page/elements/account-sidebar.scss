@@ -23,7 +23,7 @@ core-item {
         font-weight: 500;
     }
     &:hover {
-        background: color($C2, 500);
+        background: color($C2, a400);
     }
 }
 core-submenu {
@@ -33,7 +33,7 @@ core-submenu {
     }
     > core-item {
         &.core-selected {
-            background: color($C2, 500);
+            background: color($C2, a400);
         }
     }
     &.active, &[active] {
@@ -53,6 +53,6 @@ core-submenu::shadow #submenu {
     margin: 0;
     color: white;
     &:hover {
-        background: color($C3, 500);
+        background: color($C3, a400);
     }
 }

@@ -16,13 +16,13 @@ core-collapse {
         text-align: center;
     }
     paper-button:hover {
-        color: color($C2, 500);
+        color: color($C2, a400);
     }
     paper-button[raised] {
         background: white;
         color: $black1;
         &:hover {
-            background: color($C2, 500);
+            background: color($C2, a400);
         }
     }
 }
@@ -39,5 +39,5 @@ paper-input#code {
     }
 }
 span#tag {
-    color: color($C2, 500);
+    color: color($C2, a400);
 }

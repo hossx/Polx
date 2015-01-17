@@ -8,7 +8,7 @@ $C1: $C1;
                 background: color($color, 700);
             }
             #selectionBar {
-                background-color: color($C2, 500);
+                background-color: color($C2, a400);
             }
         }
     }
@@ -26,7 +26,7 @@ $C1: $C1;
             color: white;
         }
         #selectionBar {
-            background-color: color($C2, 500);
+            background-color: color($C2, a400);
         }
     }
     >paper-tab::shadow #ink {

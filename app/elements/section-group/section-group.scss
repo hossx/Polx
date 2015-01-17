@@ -39,8 +39,8 @@
         padding: 15px 30px;
         font-size: 20px;
         font-weight: 500;
-        color: color($C1, 500);
-        text-transform: uppercase;
+        color: $black1;
+        text-transform: capitalize;
         border-bottom: solid 1px $black4;
         background: $magic-grey;
     }

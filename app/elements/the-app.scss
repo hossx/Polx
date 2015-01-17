@@ -7,7 +7,7 @@
         font-size: 14px;
         @include has-paper-spinner();
         core-icon {
-            color: color($C2, 500);
+            color: color($C2, a400);
             height: 28px;
             width: 28px;
         }

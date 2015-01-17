@@ -1,8 +1,8 @@
 @import "../../_colors";
 :host(:hover) {
     #item {
-        color: white;
-        background: color($C2, 500);
+        color: color($C1, 500);
+        background: color($C2, a400);
     }
 }
 :host([active]) {

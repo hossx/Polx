@@ -25,7 +25,7 @@ $C1: $C1;
         padding-top: 10px;
         width: 100%;
         text-align: center;
-        color: color($C3, 500);
+        color: color($C3, a400);
     }
     .inner {
         background: color($C1, 400);
@@ -40,11 +40,11 @@ $C1: $C1;
         a {
             color: $black1;
             &:hover {
-                color: color($C2, 500);
+                color: color($C2, a400);
             }
         }
         .checkbox {
-            color: color($C2, 500);
+            color: color($C2, a400);
             padding-right: 10px;
             &::shadow {
                 #ink[checked] {
@@ -73,12 +73,12 @@ $C1: $C1;
     .action {
         padding: 40px 35px 0 35px;
         paper-button {
-            background: color($C2, 400);
-            border: solid 1px color($C2, 500);
+            background: color($C2, a400);
+            border: solid 1px color($C2, a400);
             transition: background 420ms ease-in-out;
             color: white;
             &:hover {
-                background: color($C2, 500);
+                background: color($C2, a400);
             }
             &[disabled] {
                 opacity: 0.5;
@@ -98,13 +98,13 @@ $C1: $C1;
     paper-button {
         text-transform: None;
         &:hover {
-            color: color($C2, 500);
+            color: color($C2, a400);
         }
         &.highlight {
             transition: color 200ms ease-in-out;
-            color: color($C3, 500);
+            color: color($C3, a400);
             &:hover {
-                color: color($C2, 500);
+                color: color($C2, a400);
             }
         }
     }
@@ -114,7 +114,7 @@ $C1: $C1;
     color: white;
     $placeholder-color: $white1;
     &[focused] {
-        color: color($C2, 500);
+        color: color($C2, a400);
     }
     /deep/::-webkit-input-placeholder {
         color: $placeholder-color;
@@ -136,7 +136,7 @@ $C1: $C1;
         font-size: 13px;
     }
     /deep/ .focused-underline {
-        background-color: color($C2, 500);
+        background-color: color($C2, a400);
     }
     &[focused] /deep/ {
         .floated-label .label-text {
@@ -148,6 +148,6 @@ $C1: $C1;
         color: $placeholder-color;
     }
     &.invalid /deep/ .focused-underline {
-        background-color: color($C3, 500);
+        background-color: color($C3, a400);
     }
 }

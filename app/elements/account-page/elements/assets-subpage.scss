@@ -30,7 +30,7 @@ table {
                     font-weight: 700;
                 }
                 &.total {
-                    color: color($C3, 500);
+                    color: color($C3, a400);
                     font-weight: 700;
                 }
                 &.op {
@@ -39,7 +39,7 @@ table {
                 }
             }
             &:hover {
-                background: color($C2, 400);
+                background: color($C2, a400);
                 td {
                     color: $white1;
                 }
@@ -67,7 +67,7 @@ table {
                 a {
                     color: white;
                     &:hover {
-                        color: color($C2, 500);
+                        color: color($C2, a400);
                     }
                 }
             }
