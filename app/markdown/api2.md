@@ -1,34 +1,233 @@
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+}
+</style>
 
 
-##通用
+##目录
+- Getting Start
+- 当前版本
+- 通用规则
+- 错误代码表
+- 字段说明
+- 签名规则
+- 接口详细说明
+    - 读取全局配置
+    - /api/open/assets          读取货币资产的统计数据
+    - /api/open/reserves/[currency_id]       读取特定币种的详细数据。
+    - /api/open/reserve_snapshots/[currency_id]      读取特定币种的资产分布snapshot列表。
+    - /api/open/cryptotxs/[currency_id]      读取特定币种与平台相关的blockchain转账记录列表。
+    - /api/my/profile               读取用户的profile
+    - /api/my/assets                读取用户的assets
+    - /api/my/cryptoaddrs           读取用户的虚拟货币deposit地址列表
+    - /api/my/cryptoaddr/btc   读取用户的虚拟货币deposit地址，如果没有，系统先生成一个。
+    - /api/my/deposits/btc?cursor=xxx&limit=12      读取用户某个币种的deposit记录
+    - +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    - /api/open/ticker/[currency_pair]
+    - /api/open/depth/[currency_pair]
+    - /api/open/trade_history/[currency_pair]
+    - /api/my/trade    交易
+    - /api/my/batch_trade  批量交易
+    - /api/my/cancel_order    取消订单
+    - /api/open/order/[order_id]     订单查询
+    - /api/my/orders/[currency_pair] 历史订单  
+    
 
-- URL中的币ID用小写，返回值JSON中全部用大写。
+---
+##Getting Start
+- 欢迎使用Coinport Exchange API, 我们提供一系列方便快速的接口，帮助您及时把握市场变化, 快速进行交易，以及方便的将Coinport交易所整合进自己的应用中， 通过API，您可以做如下事情：
 
-- 所有[public]API指的是无需cookie验证的API，[private]的是需要cookie的.
+    - 获取市场最新行情
+    - 获取市场深度和最新成交
+    - 快速买进卖出
+    - 获取用户账户信息
+    - 获取各个虚拟货币相关详细开放数据
+    
 
-- 建议[private]API格式为: `/api/my/...` 。[private]API无需传入user id，因为可以从cookie得到。
+- 要想正确使用Coinport API, 建议您仔细阅读我们的通用规则，然后再进行具体接口的接入工作。
 
-- 建议[public]API格式为`/api/open/...`
+- 接入过程中，如果遇到任何问题，非常欢迎您联系我们，QQ：3115728063， 电话：+86 18621741026
 
-- 所有API的数据[DATA]都被抱在如下结构中：
+---
+##当前版本
+- 当前版本为2.0
+
+---
+##通用规则
+
+- 所有请求基于HTTPS协议，base domain: [https:exchange.coinport.com](https:exchange.coinport.com)
+
+- 针对交易/获取用户信息等隐私性接口，调用时需要做用户数据签名校验，并随其他数据一起发送，签名方法见下面的签名规则。
+
+- URL中的币种ID用小写，返回值JSON中全部用大写。
+
+- 所有API请求数据为JSON格式(GET请求不需要)，在接口详细说明部分，会在URL前标识该接口是GET还是POST请求以及具体参数说明。
+
+- 所有API的返回数据[DATA]都被抱在如下结构中：
 
     ```
     {
-      "code": 0,
-      "message": "",
+      "code": 0, // 错误码，0 - 表示正常返回; 其他 - 表示请求失败
+      "message": "", // 错误信息, 正常返回时为空; 出错时，为错误信息提示
       "time": 12345678,
 
       "data": [DATA]
     }
     ```
 
-  下面说的"返回值"都指的是[DATA].
+  接口详细说明部分的 "返回值" 都指的是[DATA].
 ---
-## /api/config
+
+##错误代码表
+
+<table style="width:100%">
+  <tr>
+    <td>Code</td>
+    <td>Message</td>    	
+    <td>Desp</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>空字符串</td>		
+    <td>返回结果正常</td>
+  </tr>
+  <tr>
+    <td>1001</td>
+    <td>缺少的参数说明,参数：{parameter}</td>		
+    <td>缺少必须的参数</td>
+  </tr>
+  <tr>
+    <td>1002</td>
+    <td>超过流量上限</td>    	
+    <td>请求超过流量上限</td>
+  </tr>
+  <tr>
+    <td>1003</td>
+    <td>系统内部错误,请联系API客服</td>        
+    <td>系统内部错误</td>
+  </tr>
+  <tr>
+    <td>1004</td>
+    <td>用户不存在, uid:{uid}</td>        
+    <td>用户不存在</td>
+  </tr>
+  <tr>
+    <td>1005</td>
+    <td>用户帐号不可用</td>        
+    <td>用户帐号不可用</td>
+  </tr>
+  <tr>
+    <td>1006</td>
+    <td>签名不匹配</td>        
+    <td>签名不匹配</td>
+  </tr>
+  <tr>
+    <td>1007</td>
+    <td>不正确或多余的参数：参数：{parameter}</td>        
+    <td>不正确或多余的参数</td>
+  </tr>
+  <tr>
+    <td>1008</td>
+    <td>余额不足</td>        
+    <td>余额不足</td>
+  </tr>
+  <tr>
+    <td>1009</td>
+    <td>超过下单最小数量，最小交易额必须大于等值1元人民币</td>        
+    <td>超过下单最小数量</td>
+  </tr>
+  <tr>
+    <td>1010</td>
+    <td>不支持的交易对</td>        
+    <td>不支持的交易对</td>
+  </tr>
+  <tr>
+    <td>1011</td>
+    <td>订单不存在</td>        
+    <td>订单不存在</td>
+  </tr>
+  <tr>
+    <td>1012</td>
+    <td>请求url不正确</td>        
+    <td>请求url不正确</td>
+  </tr>
+  <tr>
+    <td>1013</td>
+    <td>币种不存在，币种：{currency}</td>        
+    <td>币种不存在</td>
+  </tr>
+</table>
+
+---
+##[TODO format]通用字段说明
+- currency_id 币种ID，目前支持的币种ID是：BTC, LTC, CNY，BTSX, XRP, DOGE, GOOC, BLK, DRK, VRC, ZET, NXT 
+- currency_pair 交易市场对，目前支持的市场交易对是：BTC-CNY, LTC-CNY, BTSX-CNY, XRP-CNY, GOOC-CNY, LTC-BTC, XRP-BTC, BTSX-BTC, DOGE-BTC, BLK-BTC, DRK-BTC, VRC-BTC, ZET-BTC, NXT-BTC
+- order_id, 订单号 11位数字编号：10000000234
+- order_status， 订单状态：0 - 挂单中; 1 - 完全成交; 2 - 部分成交; 3 - 已取消;
+- uid 用户ID， 10位数字编号: 1000001023
+
+---
+##签名规则
+- 生成待签名字符串  
+  
+  按照参数名字母顺序排列，组成类似于这样的序列：参数名1=参数值1＆参数名2=参数值2＆参数名3=参数值3...
+
+```
+  请求参数：
+  
+  {
+    "user_id" : 1000001010L
+    "type" : "buy"
+    "currency" : "btc"
+    "price" : 2000
+    "amount" : 0.01
+    "atestparam" : "123"
+  }
+  
+  组成的待签名序列(注意最后加上secret_key=ksd723jc7j1xjksd3n41, secret_key不参与排序)：
+  
+  amount=0.01&atestparam=123&currency=btc&price=2000&type=buy&secret_key=ksd723jc7j1xjksd3n41
+  
+  
+```
+
+- 使用32位MD5加密字符串。  
+
+```
+  md5加密：
+  
+    md5("amount=0.01&atestparam=123&currency=btc&price=2000&type=buy&secret_key=ksd723jc7j1xjksd3n41")
+  
+  结果为：
+    
+    3770f02dd594efdfe941b087304753a6
+  
+  也就是说，最终您的请求参数为：
+  
+    {
+      "user_id" : 1000001010L
+      "type" : "buy"
+      "currency" : "btc"
+      "price" : 2000
+      "amount" : 0.01
+      "atestparam" : "123"
+      "secret_key" : "3770f02dd594efdfe941b087304753a6"
+    }
+
+```
+
+##接口详细说明
+
+### GET /api/open/config
 读取全局配置，包括支持的币种，支持的市场，以及app的参数等等。
 
-- /api/config 读取全部配置
-- /api/config/currencies,marketGroups,refreshIntervals 只读取指定的3个顶级配置组。
+- /api/open/config 读取全部配置
+- /api/open/config/currencies,marketGroups,refreshIntervals 只读取指定的3个顶级配置组。
 
 ####返回值
 ```
@@ -250,7 +449,7 @@
 
 ---
 
-## /api/open/assets
+### GET /api/open/assets
 读取货币资产的统计数据，特别是准备金情况。
 
 - /api/open/assets 读取全部币种统计
@@ -271,7 +470,7 @@
 
 ---
 
-## /api/open/reserves/[currencyId]
+### GET /api/open/reserves/[currencyId]
 读取特定币种的详细数据。
 
 - /api/open/reserves/btc 读取btc详细数据
@@ -316,7 +515,7 @@ addresses中每一项为[地址，金额，原始消息，消息签名]
 
 ---
 
-## /api/open/reserve_snapshots/[currencyId]
+### GET /api/open/reserve_snapshots/[currencyId]
 读取特定币种的资产分布snapshot列表。
 
 - /api/open/reserve_snapshots/btc?limit=50 读取btc详细数据
@@ -348,7 +547,7 @@ addresses中每一项为[地址，金额，原始消息，消息签名]
 
 ---
 
-## /api/open/cryptotxs/[currencyId]
+### GET /api/open/cryptotxs/[currencyId]
 读取特定币种与平台相关的blockchain转账记录列表。
 
 - /api/open/cryptotxs/btc?limit=50 读取btc详细数据
@@ -380,7 +579,7 @@ addresses中每一项为[地址，金额，原始消息，消息签名]
 
 ---
 
-## /api/my/profile
+### GET /api/my/profile
 读取用户的profile
 ```
 {
@@ -397,7 +596,7 @@ addresses中每一项为[地址，金额，原始消息，消息签名]
 
 ---
 
-## /api/my/assets
+### GET /api/my/assets
 读取用户的assets
 ```
 {
@@ -413,7 +612,7 @@ addresses中每一项为[地址，金额，原始消息，消息签名]
 
 ---
 
-## /api/my/cryptoaddrs
+### GET /api/my/cryptoaddrs
 读取用户的虚拟货币deposit地址
 
 ```
@@ -428,7 +627,7 @@ addresses中每一项为[地址，金额，原始消息，消息签名]
 
 ---
 
-## POST /api/my/cryptoaddr/btc
+### POST /api/my/cryptoaddr/btc
 读取用户的虚拟货币deposit地址，如果没有，系统先生成一个。
 ```
 {
@@ -436,7 +635,7 @@ addresses中每一项为[地址，金额，原始消息，消息签名]
 }
 ```
 
-## /api/my/deposits/btc?cursor=xxx&limit=12
+### GET /api/my/deposits/btc?cursor=xxx&limit=12
 读取用户某个币种的deposit记录
 ```
   "data": {
@@ -485,4 +684,205 @@ addresses中每一项为[地址，金额，原始消息，消息签名]
       "address": "fdafdsafidsaiofdslafjdasfjafa"
     }]
   }
+```
+
+### GET /api/open/ticker/[currency_pair]
+获取行情数据
+
+####返回值
+```
+  "data":{ 
+	"buy":"7.79",  //买1价
+	"sell":"7.83", //卖1价
+	"high":"8.28", //24小时内最高价
+	"low":"7.51",  //24小时内最低价
+	"last":"7.74", //最近成交价
+	"vol":"6662.6767"  //24小时成交量
+  }
+  
+```
+
+### GET /api/open/depth/[currency_pair]?limit=[limit]
+获取深度数据, 默认返回前30条深度, 最大200条, 通过limit指定条数
+
+####请求示例
+```
+  /api/open/depth/btc-cny // 默认返回30条深度
+  /api/open/depth/btc-cny?limit=50 // 返回50条深度
+```
+
+####返回值
+```
+"data":{
+  "asks": [
+    [792, 5],
+    [789.68, 0.018],
+	[788.99, 0.042],
+	[788.43, 0.036],
+	[787.2...  //此处省略其余数据
+  ],
+  "bids": [
+	[787.1, 0.35],
+	[787, 12.071],
+	[786.5, 0.014],
+	[786.2, 0.38],
+	[785.04, 5... //此处省略其余数据
+  ]
+}
+  
+```
+
+### GET /api/open/trade_history/[currency_pair]?since=[start_timestamp]
+获取历史成交, 默认获取最新200条成交记录，如果提供since参数，则从since时间戳开始，向前追溯200条返回
+
+####返回值
+```
+"data":{
+  "count": 200
+  "items": [
+    {
+      "type" : "sell", // 交易类型
+      "price" : 1000.23,
+      "amount" : 0.34,
+      "order_id" : 1000000732928,
+      "date" : 1421560886 // 交易时间
+    }
+  ]
+}
+  
+```
+
+### POST /api/my/trade
+交易
+
+####POST参数
+```
+  {
+    "user_id" : 1000000001,
+    "currency_pair" : "btc-cny",
+    "type" : "sell",
+    "price" : 2100.2,
+    "amount" : 0.23,
+    "sign" : "3770f02dd594efdfe941b087304753a6"
+  }
+
+```
+####返回值
+```
+  "data":{
+    "order_id" : "1000000732928"
+  }
+  
+```
+
+### POST /api/my/batch_trade
+批量下单, 每次最大下单量为10  
+说明：订单号和下单顺序一致，如果下单失败，会有error_code，订单号为-1
+
+####POST参数
+```
+  {
+    "user_id" : 1000000001,
+    "currdency_pair" : "btc-cny",
+    "orders" : [
+      {
+        "type" : "sell",
+        "price" : 2100.2,
+        "amount" : 0.23
+      },
+      {
+        "type" : "buy",
+        "price" : 1800,
+        "amount" : 0.23
+      }
+      ....
+    ],
+    "sign" : "3770f02dd594efdfe941b087304753a6"
+  }
+
+```
+####返回值
+```
+  "data":{
+    "results" : [
+      {"order_id" : 1000000732928 }
+      {"error_code" : 1003, "order_id" -1 }
+      ....
+    ]
+  }
+  
+```
+
+### POST /api/my/cancel_order
+取消订单
+
+####POST参数
+```
+  {
+    "user_id" : 1000000001,
+    "order_id" : "1000000732928",
+    "sign" : "3770f02dd594efdfe941b087304753a6"
+  }
+
+```
+####返回值
+```
+  "data":{
+    "result" : true
+  }
+  
+```
+
+### GET /api/open/order/[order_id]
+查询订单详情
+
+####返回值
+```
+  "data":{
+    "order_id" :  "1000000732928"
+    "type" : "sell",
+    "status" : 1,
+    "currency_pair" : "btc-cny",
+    "price" : 2010.3,
+    "amount" : 0.23,
+    "dealed_amount" : 0.11,
+    "create_time" : 1421560886,
+    "last_update_time" : 1421560993,
+  }
+  
+```
+
+## GET /api/my/orders/[user_id]/[currency_pair]?page=[page]&limit=[limit]&status=[status]
+查询个人订单, 默认返回50条,如果超过50条，通过分页获取，page默认值为1，status代表订单状态码
+
+####返回值
+```
+  "data":{
+    "orders" : [
+      {
+        "order_id" :  "1000000732928"
+        "type" : "sell",
+        "status" : 1,
+        "currency_pair" : "btc-cny",
+        "price" : 2010.3,
+        "amount" : 0.23,
+        "dealed_amount" : 0.11,
+        "create_time" : 1421560886,
+        "last_update_time" : 1421560993,
+      },
+      {
+        "order_id" :  "1000000834523"
+        "type" : "buy",
+        "status" : 2,
+        "currency_pair" : "btc-cny",
+        "price" : 2010.3,
+        "amount" : 0.23,
+        "dealed_amount" : 0,
+        "create_time" : 1421560886,
+        "last_update_time" : 1421560993,
+      }
+      ...
+    ]
+  }    
+  
 ```
