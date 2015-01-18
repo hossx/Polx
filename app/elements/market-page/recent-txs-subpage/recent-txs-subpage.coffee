@@ -37,4 +37,6 @@ Polymer 'recent-txs-subpage',
             record.typeClass= "buy"
             record.typeLabel= "Buy"
 
-      @records = records
+      setTimeout ()=>
+        @records = records
+      ,400

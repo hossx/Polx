@@ -36,5 +36,7 @@ Polymer 'orderbook-subpage',
         accumulated = accumulated + b.av
         bids.push {price: b.pv, quantity: b.av, accumulated: accumulated}
 
-      @asks = asks
-      @bids = bids
+      setTimeout () =>
+        @asks = asks
+        @bids = bids
+      , 400
