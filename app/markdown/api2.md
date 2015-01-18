@@ -1,13 +1,5 @@
-<style>
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-th, td {
-    padding: 10px;
-}
-</style>
 
+#币丰港交易所API（v2.0）
 
 ##目录
 - Getting Start
@@ -37,8 +29,8 @@ th, td {
     - /api/open/order/[order_id]     订单查询
     - /api/my/orders/[currency_pair] 历史订单  
     
-
 ---
+
 ##Getting Start
 - 欢迎使用Coinport Exchange API, 我们提供一系列方便快速的接口，帮助您及时把握市场变化, 快速进行交易，以及方便的将Coinport交易所整合进自己的应用中， 通过API，您可以做如下事情：
 
@@ -54,10 +46,7 @@ th, td {
 - 接入过程中，如果遇到任何问题，非常欢迎您联系我们，QQ：3115728063， 电话：+86 18621741026
 
 ---
-##当前版本
-- 当前版本为2.0
 
----
 ##通用规则
 
 - 所有请求基于HTTPS协议，base domain: [https:exchange.coinport.com](https:exchange.coinport.com)
@@ -81,89 +70,29 @@ th, td {
     ```
 
   接口详细说明部分的 "返回值" 都指的是[DATA].
----
 
+---
 ##错误代码表
 
-<table style="width:100%">
-  <tr>
-    <td>Code</td>
-    <td>Message</td>    	
-    <td>Desp</td>
-  </tr>
-  <tr>
-    <td>0</td>
-    <td>空字符串</td>		
-    <td>返回结果正常</td>
-  </tr>
-  <tr>
-    <td>1001</td>
-    <td>缺少的参数说明,参数：{parameter}</td>		
-    <td>缺少必须的参数</td>
-  </tr>
-  <tr>
-    <td>1002</td>
-    <td>超过流量上限</td>    	
-    <td>请求超过流量上限</td>
-  </tr>
-  <tr>
-    <td>1003</td>
-    <td>系统内部错误,请联系API客服</td>        
-    <td>系统内部错误</td>
-  </tr>
-  <tr>
-    <td>1004</td>
-    <td>用户不存在, uid:{uid}</td>        
-    <td>用户不存在</td>
-  </tr>
-  <tr>
-    <td>1005</td>
-    <td>用户帐号不可用</td>        
-    <td>用户帐号不可用</td>
-  </tr>
-  <tr>
-    <td>1006</td>
-    <td>签名不匹配</td>        
-    <td>签名不匹配</td>
-  </tr>
-  <tr>
-    <td>1007</td>
-    <td>不正确或多余的参数：参数：{parameter}</td>        
-    <td>不正确或多余的参数</td>
-  </tr>
-  <tr>
-    <td>1008</td>
-    <td>余额不足</td>        
-    <td>余额不足</td>
-  </tr>
-  <tr>
-    <td>1009</td>
-    <td>超过下单最小数量，最小交易额必须大于等值1元人民币</td>        
-    <td>超过下单最小数量</td>
-  </tr>
-  <tr>
-    <td>1010</td>
-    <td>不支持的交易对</td>        
-    <td>不支持的交易对</td>
-  </tr>
-  <tr>
-    <td>1011</td>
-    <td>订单不存在</td>        
-    <td>订单不存在</td>
-  </tr>
-  <tr>
-    <td>1012</td>
-    <td>请求url不正确</td>        
-    <td>请求url不正确</td>
-  </tr>
-  <tr>
-    <td>1013</td>
-    <td>币种不存在，币种：{currency}</td>        
-    <td>币种不存在</td>
-  </tr>
-</table>
+  |Code|说明|
+  | ------------ | ------------- |
+  | 0    |  |
+  | 1001 | 缺少的参数说明,参数：{parameter} |
+  | 1002 | 超过流量上限 |
+  | 1003 | 系统内部错误,请联系API客服 |
+  | 1004 | 用户不存在, uid:{uid} |
+  | 1005 | 用户帐号不可用 |
+  | 1006 | 签名不匹配 |
+  | 1007 | 不正确或多余的参数：参数：{parameter} |
+  | 1008 | 余额不足 |
+  | 1009 | 超过下单最小数量，最小交易额必须大于等值1元人民币 |
+  | 1010 | 不支持的交易对 |
+  | 1011 | 订单不存在   |
+  | 1012 | 请求url不正确 |
+  | 1013 | 币种不存在，币种：{currency}  |
 
 ---
+
 ##[TODO format]通用字段说明
 - currency_id 币种ID，目前支持的币种ID是：BTC, LTC, CNY，BTSX, XRP, DOGE, GOOC, BLK, DRK, VRC, ZET, NXT 
 - currency_pair 交易市场对，目前支持的市场交易对是：BTC-CNY, LTC-CNY, BTSX-CNY, XRP-CNY, GOOC-CNY, LTC-BTC, XRP-BTC, BTSX-BTC, DOGE-BTC, BLK-BTC, DRK-BTC, VRC-BTC, ZET-BTC, NXT-BTC
@@ -172,6 +101,7 @@ th, td {
 - uid 用户ID， 10位数字编号: 1000001023
 
 ---
+
 ##签名规则
 - 生成待签名字符串  
   
@@ -220,6 +150,7 @@ th, td {
     }
 
 ```
+---
 
 ##接口详细说明
 
@@ -447,8 +378,6 @@ th, td {
 
 ```
 
----
-
 ### GET /api/open/assets
 读取货币资产的统计数据，特别是准备金情况。
 
@@ -468,7 +397,6 @@ th, td {
 ```
 数字分别表示：hot, cold, user, balance。建议数字只保留8位有效数字。 balance >= hot + cold + user。 Resesrve Ratio = (hot + cold + user) / balance
 
----
 
 ### GET /api/open/reserves/[currencyId]
 读取特定币种的详细数据。
@@ -513,7 +441,6 @@ th, td {
 
 addresses中每一项为[地址，金额，原始消息，消息签名]
 
----
 
 ### GET /api/open/reserve_snapshots/[currencyId]
 读取特定币种的资产分布snapshot列表。
@@ -545,7 +472,6 @@ addresses中每一项为[地址，金额，原始消息，消息签名]
 }
 ```
 
----
 
 ### GET /api/open/cryptotxs/[currencyId]
 读取特定币种与平台相关的blockchain转账记录列表。
@@ -577,7 +503,6 @@ addresses中每一项为[地址，金额，原始消息，消息签名]
 }
 ```
 
----
 
 ### GET /api/my/profile
 读取用户的profile
@@ -594,7 +519,6 @@ addresses中每一项为[地址，金额，原始消息，消息签名]
 }
 ```
 
----
 
 ### GET /api/my/assets
 读取用户的assets
@@ -610,7 +534,6 @@ addresses中每一项为[地址，金额，原始消息，消息签名]
 
 [available, locked, pendingwithdrawal, total]
 
----
 
 ### GET /api/my/cryptoaddrs
 读取用户的虚拟货币deposit地址
@@ -625,7 +548,6 @@ addresses中每一项为[地址，金额，原始消息，消息签名]
 }
 ```
 
----
 
 ### POST /api/my/cryptoaddr/btc
 读取用户的虚拟货币deposit地址，如果没有，系统先生成一个。
