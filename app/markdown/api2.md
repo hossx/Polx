@@ -310,13 +310,13 @@ distribution中每个数组代表：[地址，金额，地址属性，原始消�
 
 
   ```
-			读取最新50条btc详细数据：
-			
-		/api/reserve_snapshots/btc
+  读取最新50条btc详细数据：
 
-	 读取从1121321开始，往前的40条详细数据：
-	 
-       /api/reserve_snapshots/btc?cursor=1121321&limit=40
+    /api/reserve_snapshots/btc
+
+  读取从1121321开始，往前的40条详细数据：
+
+    /api/reserve_snapshots/btc?cursor=1121321&limit=40
 
   ```
 
@@ -361,11 +361,11 @@ timestamp的时间是数据更新时间，单位为millisecond
   ```
   读取最新50条btc txs数据：
 
-      /api/cryptotxs/btc?limit=50
+    /api/cryptotxs/btc?limit=50
   
   读取从123456开始，往前的40条详细数据：
 
-      /api/cryptotxs/btc?cursor=123456&limit=40
+    /api/cryptotxs/btc?cursor=123456&limit=40
   ```
 
 ####返回值
