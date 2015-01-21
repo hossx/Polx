@@ -41,6 +41,10 @@ core-header-panel[main] {
             color: color($C1, 500);
         }
     }
+
+    .todo {
+        color: red;
+    }
 }
 @media(min-width: 768px) {
     #marked {

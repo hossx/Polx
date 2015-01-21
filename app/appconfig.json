@@ -223,16 +223,12 @@
       "label": "Contact Us",
       "tags": ["about"]
     },
-    "roadmap": {
-      "label": "Roadmap",
-      "tags": ["developer"]
-    },
     "dong": {
       "label": "Daniel's Developer Notes",
       "tags": ["developer"]
     },
     "api2": {
-      "label": "API 2.0 Brainstorming",
+      "label": "币丰港交易所API",
       "tags": ["developer"]
     },
     "cny-deposit-thru-ripple-gateways": {
