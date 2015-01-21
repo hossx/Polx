@@ -1,5 +1,11 @@
 
-#币丰港交易所API ( _v2.0_ )
+#币丰港交易所API
+
+##版本
+当前版本：2.0。
+
+---
+
 ##我们开始吧
 欢迎使用币丰港交易所RESTful API，我们提供一系列方便快速的接口，帮助您及时把握市场变化，快速进行交易，以及方便地将币丰港整合进自己的应用中， 通过API，您可以做如下事情：
 
@@ -10,36 +16,37 @@
 - 获取用户账户信息
 - 获取各个虚拟货币相关详细开放数据
 
-要想正确使用币丰港交易所RESTful API, 建议您仔细阅读我们的__`通用规则`__，然后再进行具体接口的接入工作。接入过程中，如果遇到任何问题，请联系我们，__QQ群：3115728063， 电话：（+86）18621741026__
+要想正确使用币丰港交易所RESTful API, 建议您仔细阅读我们的「通用规则」，然后再进行具体接口的接入工作。接入过程中，如果遇到任何问题，请联系我们，QQ群：3115-728-063， 电话：（+86）186-2174-1026。
 
 ---
 
 ##术语约定
-- currency_id 币种ID，目前支持的币种ID是：
+- currency_id：币种ID，目前支持的币种ID是：
 
   ```
-	BTC, LTC, CNY，BTSX, 
-	XRP, BLK, DRK, VRC, 
-	ZET, NXT, DOGE, GOOC
+    BTC, LTC, CNY，BTSX, XRP, BLK, DRK, VRC, ZET,
+    NXT, DOGE, GOOC
   ```
-- currency_pair 交易市场对，目前支持的市场交易对是：
+- currency_pair：交易市场对，目前支持的市场交易对是：
   ```
-  BTC-CNY, LTC-CNY, BTSX-CNY, XRP-CNY, GOOC-CNY,
-
-  LTC-BTC, XRP-BTC, BTSX-BTC, DOGE-BTC, BLK-BTC, 
-  DRK-BTC, VRC-BTC, ZET-BTC, NXT-BTC
+    BTC-CNY, LTC-CNY, BTSX-CNY, XRP-CNY, GOOC-CNY,
+    LTC-BTC, XRP-BTC, BTSX-BTC, DOGE-BTC, BLK-BTC, 
+    DRK-BTC, VRC-BTC, ZET-BTC, NXT-BTC
   ```
 
-- order_id, 订单号 ，11位数字编号：10000000234
+- order_id：订单号 ，11位数字编号，如：10000000234。
 
-- order_status， 订单状态：
+- order_status：订单状态，其中：
   ```
-  0 - 挂单中; 1 - 完全成交; 2 - 部分成交; 3 - 已取消;
+    0 - 挂单中
+    1 - 完全成交
+    2 - 部分成交
+    3 - 已取消
   ```
 
-- uid 用户ID， 10位数字编号: 1000001023
+- uid：用户ID，是个10位数字编号，如: 1000001023。
 
-- withdraw_status， 提现状态码：
+- withdraw_status：提现状态码，其中：
   ```
     0 - 待处理（pending）
     1 - 处理中（processing）
@@ -47,43 +54,45 @@
     3 - 已取消（pending）
     4 - 成功（successed）
     5 - 失败（failed）
-    
   ```
 
 ---
 
 ##通用规则
-以下规则适用于所有HTTPS RESTful API：
+以下通用规则适用于所有RESTful API：
 
-- 所有请求基于HTTPS协议，API URL的前缀均为：`https://exchange.coinport.com`
-
-- 针对交易/获取用户信息等隐私性接口，调用时需要做用户认证，Coinport支持的校验方法是Basic Authentication， 具体认证方式见下面的__`认证方法`__部分
-
-- URL中的币种ID，市场ID不区分大小写；但返回值JSON中币种和市场ID全部是大写
-
-- 如果没有特别声明，所有API请求数据为JSON格式（不包括GET请求）。在接口详细说明部分，会在URL前标识该接口是GET还是POST请求以及具体参数说明
-
-- 所有API的返回数据[DATA]都被抱在如下结构体中：
+- 所有请求基于HTTPS协议，API URL的前缀均为：
   ```
-  {
-    "code": 0, 
-    "time": 12345678012345,
-    "data": [DATA]
-  }
+    https://exchange.coinport.com
+  ```
+
+- 针对交易/获取用户信息等隐私性接口，调用时需要做用户认证，币丰港交易所支持的校验方法是Basic Authentication， 具体认证方式见下面的「认证方式」部分。
+
+- 币种ID，市场ID不区分大小写；但返回值JSON中币种和市场ID全部是大写。
+
+- 如果没有特别声明，所有API请求数据为JSON格式（不包括GET请求）。在接口详细说明部分，会在URL前标识该接口的HTTPS请求类型。
+
+- 所有API的返回数据（[DATA]）都被抱在如下结构体中：
+  ```
+    {
+      "code": 0, 
+      "time": 12345678012345,
+      "data": [DATA]
+    }
   ```
   其中：
-  - code：错误代码。0表示无错误正常返回，非零表示错误，具体错误码见下面列表说明。在判断API是否正确返回的时候，首先需要判断HTTP status是否为200，然后再判断code是否为0
-  - time：服务器时间，单位是millisecond
-  - data：每个API的数据都作为[DATA]返回。出错情况下，"data"可能是null
+  - code：错误代码。0表示无错误正常返回，非零表示错误，具体错误码见下面「错误代码表」。在判断API是否正确返回的时候，首先需要判断HTTP status是否为200，然后再判断code是否为0。
+  - time：服务器时间，单位是millisecond。
+  - data：每个API的数据都作为[DATA]返回。出错情况下，"data"可能是null或者是空字符串。
 
-- 所有多单词参数命名均用下划线连接，如：order_id，currency_pair
+- 所有多单词参数命名均为小写并用下划线连接，如：order_id，currency_pair
 
-- 所有API接口说明前，会标记[PUBLIC], 和[PRIVATE], PUBLIC接口不需要认证信息，PRIVATE接口需要在Http Header中提供认证信息，认证信息请参考__`认证方法`__
+- 每个API接口会标记为"PUBLIC"或"PRIVATE", PUBLIC接口不需要认证，PRIVATE接口需要在Http Header中提供认证信息，认证信息请参考「认证方式」。
 
 ---
 ##错误代码表
 
-  |code|说明|
+  |code          |说明            |
   | ------------ | ------------- |
   | 0    | 无错误，正常返回 |
   | 1001 | 缺少的参数说明,参数：{parameter} |
@@ -99,82 +108,100 @@
   | 1011 | 订单不存在   |
   | 1012 | 请求url不正确 |
   | 1013 | 币种不存在，币种：{currency}  |
-  | 1014 | TOKEN无效  |
+  | 1014 | 认证失败 |
   
 
 ---
 
-##认证方法
-- Coinport目前只支持Basic Authentication认证方式，未来我们会支持OAuth 2.0。  
+##认证方式
+币丰港交易所目前只支持Basic Authentication认证方式，未来我们会支持OAuth 2.0。  
 
-- Basic Authentication认证流程如下：
-  
-   首先，在Coinport交易所网页版或者APP，申请访问API的TOKEN和SecretKey
-   ```
- 申请得到的TOKEN和SecretKey:
-     
-      TOKEN : "92ad7be8cdd59e230f7528fdfe94c"
-      SecretKey : "e94d592ad7be28fdf41b08730f7528f8"
-   ```
-   然后，用申请得到的SecretKey对业务请求参数签名，签名规则见下面__`签名规则`__  部分
-   
-	```
-	签名方法(SecretKey + 业务请求数据)  ->  signature："be28f28fef41b08787d3092adf75"
-   ```
-   最后，将TOKEN和signature放到Http Header，随业务请求数据一起发送到服务器：
-   ```
-   httpRequest.setHeader("auth", "[TOKEN]:[signature]")
-   
-   根据上面例子，最终请求为：
-   
-	   httpRequest.setHeader("auth", "92ad7be8cdd59e230f7528fdfe94c:be28f28fef41b08787d3092adf75")
+Basic Authentication认证流程如下：
 
-   ```
-   注意：认证失败，我们不会返回401错误，会返回一个认证失败的提示：
-   ```
-   {
+1. 首先，需在币丰港交易所网页版或者APP，申请API Token和SecretKey：
+  ```
+    Token : 92ad7be8cdd59e230f7528fdfe94c
+    SecretKey : e94d592ad7be28fdf41b08730f7528f8
+  ```
+
+2. 然后，用申请得到的SecretKey对业务请求参数签名，生成一个签名（Signature)字符串。具体签名的规则如下：
+
+  - 如果请求是GET类型，首先将URL参数按照英文字母升序排列。举个例子，如果请求为：
+    ```
+      https://exchange.coinport.com/the/path?param_c=value1&param_b=value2&param_a=value3
+    ```
+    那么排好序的URL参数字符串为：
+    ```
+      param_a=value3&param_b=value2&param_c=value1
+    ```
+    将这个字符串加上
+    ```
+      &secret=e94d592ad7be28fdf41b08730f7528f8
+    ```
+    得到：
+    ```
+      param_a=value3&param_b=value2&param_c=value1&secret=e94d592ad7be28fdf41b08730f7528f8
+    ```
+    对这个字符串进行32位MD5计算将得到：
+    ```
+      MD5("param_a=value3&param_b=value2&param_c=value1&secret=e94d592ad7be28fdf41b08730f7528f8")
+      == "1fc7b6fc40c7f377dc4cac4e261e87e3"
+    ```
+    如果URL没有参数，就直接对
+    ```
+      &secret=e94d592ad7be28fdf41b08730f7528f8
+    ```
+    进行上述的MD5计算（注意前面有个&）。
+    
+  - 如果请求类型是POST，请求将不支持URL参数，因此需要对POST的数据加上
+    ```
+      &secret=e94d592ad7be28fdf41b08730f7528f8
+    ```
+    进行MD5签名， 比如请求的JSON为：
+    ```
+      "{'param1': 'value1','param2': 'value2'}"
+    ```
+    进行32位MD5得到：
+    ```
+      MD5("{'param1': 'value1','param2': 'value2'}&secret=e94d592ad7be28fdf41b08730f7528f8")
+      == "c3b529fa00a8bc8d0b029d4a2e9d6dd8"
+    ```
+
+    同样，如果POST请求数据为空，只需对下列字符串进行加密：
+    ```
+      &secret=e94d592ad7be28fdf41b08730f7528f8
+    ```    
+
+3. 将Token和Signature放到Http Header中，随业务请求数据一起发送到服务器：
+  ```
+    httpRequest.setHeader("auth", "[TOKEN]:[signature]")
+  ```
+
+  如果Token为：
+  ```
+    92ad7be8cdd59e230f7528fdfe94c
+  ```
+
+  签名（Signature）为：
+  ```
+    be28f28fef41b08787d3092adf75
+  ```
+
+  最终Http Header将为：
+  ```
+    httpRequest.setHeader("auth", "92ad7be8cdd59e230f7528fdfe94c:be28f28fef41b08787d3092adf75")
+
+  ```
+
+  请注意：如果认证失败，我们不会返回HTTP 401错误，而是返回一个认证失败的code：
+  ```
+    {
       "code": 1014, 
-      "message": "TOKEN is invalid", 
       "time": 14423452342,
     }
-   ```
+  ```
 
----
-
-##签名规则
-- 生成待签名字符串  
-  
-  按照参数名字母顺序排列，组成类似于这样的序列：参数名1=参数值1＆参数名2=参数值2＆参数名3=参数值3...
-
-	```
-	请求参数：
-	  
-	  {
-	    "type" : "buy",
-	    "currency" : "btc",
-	    "amount" : 0.01,
-	    "atestparam" : "123"
-	  }
-	  
-	组成的待签名序列(注意最后加上secret_key=ksd723jc7j1xjksd3n41, secret_key不参与排序): 
-	  amount=0.01&atestparam=123&currency=btc&type=buy&secret_key=ksd723jc7j1xjksd3n41
-	  
-	  
-	```
-
-- 使用32位MD5加密字符串。  
-
-
-	```
-	md5加密： 
-	
-	 md5("amount=0.01&atestparam=123&currency=btc&type=buy&secret_key=ksd723jc7j1xjksd3n41")
-	  
-	结果为：
-	    
-	  3770f02dd594efdfe941b087304753a6
-	
-	```
+以上认证方式只适用于PRIVATE API接口。对于PUBLIC API，"auth" Header将被忽略。
 
 ---
 
@@ -182,28 +209,27 @@
 
 详细说明文档，描述了接入具体接口所需要的所有信息，目前支持的API列表如下：
 
-  |Type       |Http Method     | Sub Domain               | Desp
-  | --------- | -------------- | -----------------------  | ------------
-  | public    | GET            | /api/v2/reserves            | 读取平台数字资产的准备金统计数据
-  | public    | GET            | /api/v2/reserves/[currency] | 读取平台某数字资产的准备金统详细数据
-  | public    | GET            | /api/v2/asset_snapshots     | 读取特定币种的资产分布快照数据文件列表
-  | public    | GET            | /api/v2/cryptotxs           | 读取特定币种与平台相关的blockchain转账记录列表
-  | private   | GET            | /api/v2/profile             | 读取用户的基本信息资料
-  | private   | GET            | /api/v2/assets              | 读取用户的资产
-  | private   | GET            | /api/v2/cryptoaddrs         | 读取用户的虚拟货币充值地址
-  | private   | POST           | /api/v2/cryptoaddr          | 读取用户的虚拟货币充值地址，如果没有，系统生成一个
-  | private   | GET            | /api/v2/deposits            | 读取用户某个币种的充值记录
-  | public    | GET            | /api/v2/ticker              | 获取btc或者cny市场各个币种ticker信息 
-  | public    | GET            | /api/v2/depth               | 获取深度数据
-  | public    | GET            | /api/v2/kline               | 按市场对，时间区间获取K线数据
-  | public    | GET            | /api/v2/open/trade_history  | 获取历史成交
-  | private   | POST           | /api/v2/trade               | 交易
-  | private   | POST           | /api/v2/batch_trade         | 批量交易
-  | private   | POST           | /api/v2/cancel_orders       | 取消一个/多个订单
-  | private   | GET            | /api/v2/orders              | 查询单个/多个订单详情
-  | private   | GET            | /api/v2/history_orders      | 查询历史订单
-  | private   | POST           | /api/v2/withdraw            | 提交提现申请
-
+  |类型       |Http 方法         | URL                         | 说明
+  | --------- | -------------- | -----------------------     | ------------
+  | PUBLIC    | GET            | /api/v2/reserves            | 读取平台所有数字资产的准备金统计数据
+  | PUBLIC    | GET            | /api/v2/reserves/[currency] | 读取平台某数字资产的准备金统详细数据
+  | PUBLIC    | GET            | /api/v2/asset_snapshots     | 读取特定币种的资产分布快照数据文件列表
+  | PUBLIC    | GET            | /api/v2/cryptotxs           | 读取特定币种与平台相关的blockchain转账记录列表
+  | PUBLIC    | GET            | /api/v2/ticker              | 获取btc或者cny市场各个币种ticker信息 
+  | PUBLIC    | GET            | /api/v2/depth               | 获取深度数据
+  | PUBLIC    | GET            | /api/v2/kline               | 按市场对，时间区间获取K线数据
+  | PUBLIC    | GET            | /api/v2/trade_history       | 获取历史成交
+  | PRIVATE   | GET            | /api/v2/profile             | 读取用户的基本信息资料
+  | PRIVATE   | GET            | /api/v2/assets              | 读取用户的资产
+  | PRIVATE   | GET            | /api/v2/cryptoaddrs         | 读取用户的虚拟货币充值地址
+  | PRIVATE   | GET            | /api/v2/deposits            | 读取用户某个币种的充值记录
+  | PRIVATE   | GET            | /api/v2/orders              | 查询单个/多个订单详情
+  | PRIVATE   | GET            | /api/v2/order_history       | 查询历史订单
+  | PRIVATE   | POST           | /api/v2/cryptoaddr          | 读取用户的虚拟货币充值地址，如果没有，系统生成一个
+  | PRIVATE   | POST           | /api/v2/trade               | 交易
+  | PRIVATE   | POST           | /api/v2/submit_orders       | 批量交易
+  | PRIVATE   | POST           | /api/v2/cancel_orders       | 取消一个/多个订单
+  | PRIVATE   | POST           | /api/v2/withdraw            | 提交提现申请
 
 ---
 
