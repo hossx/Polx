@@ -1,10 +1,8 @@
 
 #币丰港交易所API
 
-##版本
-当前版本：2.0。
+<center>当前版本：2.0</center>
 
----
 
 ##我们开始吧
 欢迎使用币丰港交易所RESTful API，我们提供一系列方便快速的接口，帮助您及时把握市场变化，快速进行交易，以及方便地将币丰港整合进自己的应用中， 通过API，您可以做如下事情：
@@ -21,20 +19,20 @@
 ---
 
 ##术语约定
-- currency_id：币种ID，目前支持的币种ID是：
+- currency/currencies：币种ID，目前支持的币种ID是：
 
   ```
     BTC, LTC, CNY，BTSX, XRP, BLK, DRK, VRC, ZET,
     NXT, DOGE, GOOC
   ```
-- currency_pair：交易市场对，目前支持的市场交易对是：
+- market/markets：交易市场对，目前支持的市场交易对是：
   ```
     BTC-CNY, LTC-CNY, BTSX-CNY, XRP-CNY, GOOC-CNY,
     LTC-BTC, XRP-BTC, BTSX-BTC, DOGE-BTC, BLK-BTC, 
     DRK-BTC, VRC-BTC, ZET-BTC, NXT-BTC
   ```
 
-- order_id：订单号 ，11位数字编号，如：10000000234。
+- order/orders：订单号 ，11位数字编号，如：10000000234。
 
 - order_status：订单状态，其中：
   ```
@@ -124,53 +122,7 @@ Basic Authentication认证流程如下：
     SecretKey : e94d592ad7be28fdf41b08730f7528f8
   ```
 
-2. 然后，用申请得到的SecretKey对业务请求参数签名，生成一个签名（Signature)字符串。具体签名的规则如下：
-
-  - 如果请求是GET类型，首先将URL参数按照英文字母升序排列。举个例子，如果请求为：
-    ```
-      https://exchange.coinport.com/the/path?param_c=value1&param_b=value2&param_a=value3
-    ```
-    那么排好序的URL参数字符串为：
-    ```
-      param_a=value3&param_b=value2&param_c=value1
-    ```
-    将这个字符串加上
-    ```
-      &secret=e94d592ad7be28fdf41b08730f7528f8
-    ```
-    得到：
-    ```
-      param_a=value3&param_b=value2&param_c=value1&secret=e94d592ad7be28fdf41b08730f7528f8
-    ```
-    对这个字符串进行32位MD5计算将得到：
-    ```
-      MD5("param_a=value3&param_b=value2&param_c=value1&secret=e94d592ad7be28fdf41b08730f7528f8")
-      == "1fc7b6fc40c7f377dc4cac4e261e87e3"
-    ```
-    如果URL没有参数，就直接对
-    ```
-      &secret=e94d592ad7be28fdf41b08730f7528f8
-    ```
-    进行上述的MD5计算（注意前面有个&）。
-    
-  - 如果请求类型是POST，请求将不支持URL参数，因此需要对POST的数据加上
-    ```
-      &secret=e94d592ad7be28fdf41b08730f7528f8
-    ```
-    进行MD5签名， 比如请求的JSON为：
-    ```
-      "{'param1': 'value1','param2': 'value2'}"
-    ```
-    进行32位MD5得到：
-    ```
-      MD5("{'param1': 'value1','param2': 'value2'}&secret=e94d592ad7be28fdf41b08730f7528f8")
-      == "c3b529fa00a8bc8d0b029d4a2e9d6dd8"
-    ```
-
-    同样，如果POST请求数据为空，只需对下列字符串进行加密：
-    ```
-      &secret=e94d592ad7be28fdf41b08730f7528f8
-    ```    
+2. 然后，用申请得到的SecretKey对业务请求参数或者数据签名，生成一个签名（Signature)字符串。详见下面的「签名规则」。
 
 3. 将Token和Signature放到Http Header中，随业务请求数据一起发送到服务器：
   ```
@@ -203,47 +155,101 @@ Basic Authentication认证流程如下：
 
 以上认证方式只适用于PRIVATE API接口。对于PUBLIC API，"auth" Header将被忽略。
 
+
+###签名规则
+
+####POST API
+
+如果请求是GET类型，首先将URL参数按照英文字母升序排列。举个例子，如果请求为：
+  ```
+    https://exchange.coinport.com/the/path?param_c=value1&param_b=value2&param_a=value3
+  ```
+  那么排好序的URL参数字符串为：
+  ```
+    param_a=value3&param_b=value2&param_c=value1
+  ```
+  将这个字符串加上
+  ```
+    &secret=e94d592ad7be28fdf41b08730f7528f8
+  ```
+  得到：
+  ```
+    param_a=value3&param_b=value2&param_c=value1&secret=e94d592ad7be28fdf41b08730f7528f8
+  ```
+  对这个字符串进行32位MD5计算将得到：
+  ```
+    MD5("param_a=value3&param_b=value2&param_c=value1&secret=e94d592ad7be28fdf41b08730f7528f8")
+    == "1fc7b6fc40c7f377dc4cac4e261e87e3"
+  ```
+  如果URL没有参数，就直接对
+  ```
+    &secret=e94d592ad7be28fdf41b08730f7528f8
+  ```
+  进行上述的MD5计算（注意前面有个&）。
+
+
+####GET API
+
+如果请求类型是POST，请求将不支持URL参数，因此需要对POST的数据加上：
+  ```
+    &secret=e94d592ad7be28fdf41b08730f7528f8
+  ```
+  进行MD5签名， 比如请求的JSON为：
+  ```
+    "{'param1': 'value1','param2': 'value2'}"
+  ```
+  进行32位MD5得到：
+  ```
+    MD5("{'param1': 'value1','param2': 'value2'}&secret=e94d592ad7be28fdf41b08730f7528f8")
+    == "c3b529fa00a8bc8d0b029d4a2e9d6dd8"
+  ```
+
+  同样，如果POST请求数据为空，只需对下列字符串进行加密：
+  ```
+    &secret=e94d592ad7be28fdf41b08730f7528f8
+    ```    
+---
+
+##接口列表
+详细说明文档，描述了接入具体接口所需要的所有信息，目前支持的API列表如下：
+
+  |类型       |Http 方法         | URL                                             | 说明
+  | --------- | -------------- | -----------------------                         | ------------
+  | PUBLIC    | GET            | /api/v2/reserve_stats                           | 读取平台所有数字资产的准备金统计数据
+  | PUBLIC    | GET            | /api/v2/[currency]/tickers                      | 获取btc或者cny市场各个币种ticker信息 
+  | PUBLIC    | GET            | /api/v2/[currency]/balance_snapshots            | 读取特定币种的资产分布快照数据文件列表
+  | PUBLIC    | GET            | /api/v2/[currency]/reserves                     | 读取平台某数字资产的准备金统详细数据
+  | PUBLIC    | GET            | /api/v2/[market]/trades                         | 获取历史成交
+  | PUBLIC    | GET            | /api/v2/[market]/ticker                         | 获取btc或者cny市场各个币种ticker信息 
+  | PUBLIC    | GET            | /api/v2/[market]/depth                          | 获取深度数据
+  | PUBLIC    | GET            | /api/v2/[market]/kline                          | 按市场对，时间区间获取K线数据
+  | PRIVATE   | GET            | /api/v2/user/profile                      | 读取用户的基本信息资料
+  | PRIVATE   | GET            | /api/v2/user/balance                      | 读取用户的资产
+  | PRIVATE   | GET            | /api/v2/user/trades                       | 查询单个/多个订单详情
+  | PRIVATE   | GET            | /api/v2/user/orders                       | 查询单个/多个订单详情
+  | PRIVATE   | GET            | /api/v2/user/deposits                     | 读取用户某个币种的充值记录
+  | PRIVATE   | GET            | /api/v2/user/deposit_addresses            | 读取用户的虚拟货币充值地址
+  | PRIVATE   | POST           | /api/v2/user/new_deposit_address          | 读取用户的虚拟货币充值地址，如果没有，系统生成一个
+  | PRIVATE   | POST           | /api/v2/user/withdrawals                  | 提交提现申请
+  | PRIVATE   | POST           | /api/v2/user/submit_orders                | 批量交易
+  | PRIVATE   | POST           | /api/v2/user/cancel_orders                | 取消一个/多个订单
+  | PRIVATE   | POST           | /api/v2/user/submit_withdrawal            | 提交提现申请
+  | PRIVATE   | POST           | /api/v2/user/cancel_withdrawal            | 提交提现申请
+
 ---
 
 ##接口详细说明
-
-详细说明文档，描述了接入具体接口所需要的所有信息，目前支持的API列表如下：
-
-  |类型       |Http 方法         | URL                         | 说明
-  | --------- | -------------- | -----------------------     | ------------
-  | PUBLIC    | GET            | /api/v2/reserves            | 读取平台所有数字资产的准备金统计数据
-  | PUBLIC    | GET            | /api/v2/reserves/[currency] | 读取平台某数字资产的准备金统详细数据
-  | PUBLIC    | GET            | /api/v2/asset_snapshots     | 读取特定币种的资产分布快照数据文件列表
-  | PUBLIC    | GET            | /api/v2/cryptotxs           | 读取特定币种与平台相关的blockchain转账记录列表
-  | PUBLIC    | GET            | /api/v2/ticker              | 获取btc或者cny市场各个币种ticker信息 
-  | PUBLIC    | GET            | /api/v2/depth               | 获取深度数据
-  | PUBLIC    | GET            | /api/v2/kline               | 按市场对，时间区间获取K线数据
-  | PUBLIC    | GET            | /api/v2/trade_history       | 获取历史成交
-  | PRIVATE   | GET            | /api/v2/profile             | 读取用户的基本信息资料
-  | PRIVATE   | GET            | /api/v2/assets              | 读取用户的资产
-  | PRIVATE   | GET            | /api/v2/cryptoaddrs         | 读取用户的虚拟货币充值地址
-  | PRIVATE   | GET            | /api/v2/deposits            | 读取用户某个币种的充值记录
-  | PRIVATE   | GET            | /api/v2/orders              | 查询单个/多个订单详情
-  | PRIVATE   | GET            | /api/v2/order_history       | 查询历史订单
-  | PRIVATE   | POST           | /api/v2/cryptoaddr          | 读取用户的虚拟货币充值地址，如果没有，系统生成一个
-  | PRIVATE   | POST           | /api/v2/trade               | 交易
-  | PRIVATE   | POST           | /api/v2/submit_orders       | 批量交易
-  | PRIVATE   | POST           | /api/v2/cancel_orders       | 取消一个/多个订单
-  | PRIVATE   | POST           | /api/v2/withdraw            | 提交提现申请
-
----
-
-###GET /api/v2/reserves
+###GET /api/v2/reserve_stats
 读取平台数字资产的准备金统计数据。
 
 ####URL参数
 无
 
-####返回值
+####返回值示例
 ```
   {
     "timestamp": 12123213213121,
-    "reserves": {
+    "stats": {
       "BTC" : [10,  20, 70, 99 ],
       "LTC" : [12,  10, 1,  25 ],
       "GOOC": [10,  20, 70, 101],
@@ -257,14 +263,52 @@ Basic Authentication认证流程如下：
 
 对于法币和不是基于区块链的资产，该API不返回其储备金情况。
 
-  - timestamp：数据更新时间，单位为millisecond。
-  - reserves：数组中的数值分别代表 [热钱包中资产数量, 冷钱包中资产数量, 用户充值地址中资产数量, 平台应付款总额]。存备金率 = (热钱包中资产数量 + 冷钱包中资产数量 + 用户充值地址中资产数量) / 平台应付款总额。
-
-
+- timestamp：数据更新时间，单位为millisecond。
+- stats：数组中的数值分别代表 [热钱包中资产数量, 冷钱包中资产数量, 用户充值地址中资产数量, 平台应付款总额]。存备金率 = (热钱包中资产数量 + 冷钱包中资产数量 + 用户充值地址中资产数量) / 平台应付款总额。
 
 ####示例
 
- - [https://exchange.coinport.com/api/v2/reserves](https://exchange.coinport.com/api/v2/reserves)
+ - [https://exchange.coinport.com/api/v2/reserve_stats](https://exchange.coinport.com/api/v2/reserve_stats)
+
+---
+
+### GET /api/v2/[currency]/tickers
+获取btc或者cny市场各个币种ticker信息
+
+- 目标市场只能选择btc或者cny，支持的目标币种见__`通用字段说明`__
+
+- 省略btc/cny和currency，则获取所有市场所有ticker
+
+- 省略currency，则获取目标市场所有ticker
+
+- 返回值依次是：买1价，卖1价，24小时最高价，24小是最低价，最近成交价，24小时成交量
+
+  ####请求示例
+  ```
+  获取xrp-cny市场的ticker信息：
+  
+    GET /api/ticker/cny?currency=xrp
+    
+  获取cny市场的所有ticker信息：
+
+    GET /api/ticker/cny
+
+  获取所有市场的ticker信息：
+
+    GET /api/ticker
+
+  ```
+  
+  ####返回值
+  ```
+    {
+        "XRP-CNY": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02],
+        "BTC-CNY": [2013.53, 2014.42, 2015.34, 2013.34, 2014.03, 300.34],
+        "BTSX-CNY": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02],
+        "LTC-CNY": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02]
+    }
+  ```
+  
 
 ---
 
@@ -274,7 +318,7 @@ Basic Authentication认证流程如下：
 ####URL参数
 无
 
-####返回值
+####返回值示例
 ```
   {
     "timestamp": 12123213213121,
@@ -309,46 +353,28 @@ Basic Authentication认证流程如下：
     ]
   }
 ```
-timestamp的时间是数据更新时间，单位为millisecond。
-
-reserves中的数字代表：[热钱包中资产数量, 冷钱包中资产数量, 用户充值地址中资产数量, 平台应付款总额]。存备金率 = (热钱包中资产数量 + 冷钱包中资产数量 + 用户充值地址中资产数量) / 平台应付款总额。
-
-distribution中每个数组代表：[地址，金额，地址属性，原始消息，消息签名]。其中地址属性是"cold"，"hot"，"user"之一。
+- timestamp的时间是数据更新时间，单位为millisecond。
+- reserves中的数字代表：[热钱包中资产数量, 冷钱包中资产数量, 用户充值地址中资产数量, 平台应付款总额]。存备金率 = (热钱包中资产数量 + 冷钱包中资产数量 + 用户充值地址中资产数量) / 平台应付款总额。
+- distribution中每个数组代表：[地址，金额，地址属性，原始消息，消息签名]。其中地址属性是"cold"，"hot"，"user"之一。
 
 ####举例
 
 - [https://exchange.coinport.com/api/v2/reserves/btc](https://exchange.coinport.com/api/v2/reserves/btc)
-- [https://exchange.coinport.com/api/v2/reserves/btc](https://exchange.coinport.com/api/v2/reserves/ltc)
+- [https://exchange.coinport.com/api/v2/reserves/ltc](https://exchange.coinport.com/api/v2/reserves/ltc)
 
 ---
-### GET /api/v2/asset_snapshots/[currency]?cursor=[cursor]&limit=[limit]
+
+### GET /api/v2/balance_snapshots/[currency]
 读取特定币种的资产分布快照数据文件列表
 
-- currency，必须指定
+####URL参数
+- cursor：前一条snapshot记录的ID。这个snapshot记录将不包括在返回值内。
+- limit：读取数据条目数，默认值50。
 
-- cursor，可选字段，值为snapshot_id，表示往前追溯limit条数
-
-- limit，可选参数，默认50条
-  
-####示例
-
-
-  ```
-  读取最新50条btc详细数据：
-
-    /api/reserve_snapshots/btc
-
-  读取从1121321开始，往前的40条详细数据：
-
-    /api/reserve_snapshots/btc?cursor=1121321&limit=40
-
-  ```
-
-####返回值
-
+####返回值示例
 ```
 {
-  "timestamp": "12/12/12",
+  "timestamp": 126172881818,
   "hasMore": true,
   "currency": "BTC",
   "snapshots": [
@@ -367,56 +393,15 @@ distribution中每个数组代表：[地址，金额，地址属性，原始消�
   ]
 }
 ```
-timestamp的时间是数据更新时间，单位为millisecond
+- hasMore：如果返回值最后一条之后再无记录可以返回，hasMore会被设置为false。
+- timestamp的时间是数据更新时间，单位为millisecond。
+
+####示例
+- [https://exchange.coinport.com/api/v2/reserve_snapshots/ltc](https://exchange.coinport.com/api/v2/reserve_snapshots/ltc) - 读取最新50条btc详细数据。
+- [https://exchange.coinport.com/api/v2/reserve_snapshots/btc?cursor=1121321&limit=40](https://exchange.coinport.com/api/v2/reserve_snapshots/btc?cursor=1121321&limit=40) - 读取从1121321的下一条记录开始，往前的40条详细数据。
 
 ---
-### GET /api/v2/cryptotxs/[currency]?cursor=[cursor]&limit=[limit]
-读取特定币种与平台相关的blockchain转账记录列表，只支持采用了块链技术的相关币种
 
-- currency，必须指定
-
-- cursor，可选字段，值为tx_id，表示往前追溯limit条数
-
-- limit，可选参数，默认50条。
-
-
-####请求示例
-
-  ```
-  读取最新50条btc txs数据：
-
-    /api/cryptotxs/btc?limit=50
-  
-  读取从123456开始，往前的40条详细数据：
-
-    /api/cryptotxs/btc?cursor=123456&limit=40
-  ```
-
-####返回值
-```
-{
-  "timestamp": "12/12/12",
-  "currency": "BTC",
-  "hasMore": true,
-  "txs": [
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"],
-    [123456, "01-01 15:06:00", "121321312", "deposit", 2012, "dfjdajfdlajfldjsalfjdajffdjsfalj", "1xfdasfsafdasafea"]
-  ]
-}
-```
-
----
 ### GET /api/v2/profile
 读取用户的基本信息资料
 ####返回值
@@ -535,44 +520,7 @@ timestamp的时间是数据更新时间，单位为millisecond
     }]
   }
 ```
----
-### GET /api/v2/ticker/[btc/cny]?currency=[currency]
-获取btc或者cny市场各个币种ticker信息
 
-- 目标市场只能选择btc或者cny，支持的目标币种见__`通用字段说明`__
-
-- 省略btc/cny和currency，则获取所有市场所有ticker
-
-- 省略currency，则获取目标市场所有ticker
-
-- 返回值依次是：买1价，卖1价，24小时最高价，24小是最低价，最近成交价，24小时成交量
-
-	####请求示例
-	```
-	获取xrp-cny市场的ticker信息：
-	
-		GET /api/ticker/cny?currency=xrp
-		
-	获取cny市场的所有ticker信息：
-
-		GET /api/ticker/cny
-
-	获取所有市场的ticker信息：
-
-		GET /api/ticker
-
-	```
-	
-	####返回值
-	```
-      "data":{
-        "XRP-CNY": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02],
-        "BTC-CNY": [2013.53, 2014.42, 2015.34, 2013.34, 2014.03, 300.34],
-        "BTSX-CNY": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02],
-        "LTC-CNY": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02]
-	  }
-	```
-	
 ---
 ### GET /api/v2/depth/[currency_pair]?limit=[limit]
 获取深度数据, 默认返回前30条深度, 最大200条, 通过limit指定条数
@@ -685,7 +633,7 @@ timestamp的时间是数据更新时间，单位为millisecond
   
 ```
 ---
-### POST /api/v2/batch_trade
+### POST /api/v2/submit_orders
 批量下单, 每次最大下单量为10
 
 - 返回结果中订单号和下单顺序一致，如果下单失败，会有error_code，不会返回订单号
@@ -781,20 +729,13 @@ timestamp的时间是数据更新时间，单位为millisecond
   
 ```
 ---
-### GET /api/v2/history_orders?currency_pair=[currency_pair]&cursor=[cursor]&limit=[limit]&order_status=[status]
-查询历史订单
+### [Private] GET /api/v2/order_history/[market]
+查询历史订单.
 
-- 可选字段：currency_pair，cursor，limit，order_status
-
-- currency_pair，市场对，如：btsx_cny，默认为所有市场对
-
-- cursor，游标，表示从cursor指定的订单号开始往前追溯，默认为最新一条订单号
-
-- limit，每次查询最大条数限制，默认50条
-
-- order_status, 订单状态码，默认获取所有状态的订单
-
-- 返回结果按订单号生成时间排列，最新的排在第一条
+####URL参数
+- cursor：游标，表示从cursor指定的订单号开始往前追溯，默认为最新一条订单号
+- limit：每次查询最大条数限制，默认50条
+- order_status：订单状态码，默认获取所有状态的订单
 
 ####请求示例
 ```
@@ -810,7 +751,8 @@ timestamp的时间是数据更新时间，单位为millisecond
 
   GET /api/history_orders?limit=90&order_status=2
 ```
-####返回值
+
+####返回值示例
 ```
   "data":{
     "orders" : [
@@ -841,28 +783,28 @@ timestamp的时间是数据更新时间，单位为millisecond
   }    
   
 ```
+返回结果按订单号生成时间排列，最新的排在第一条。
+
 ---
-### POST /api/v2/withdraw
-提交提现申请
 
-- post中均为必填字段，除了charge_fee和verify_code
+###[Private] POST /api/v2/withdraw
+提交提现申请。
 
-####POST参数
+####POST数据格式
 ```
   {
-     "currency" : "btc",
-     "charge_fee" : 0.0002, // 不需要填写，暂不支持，默认0.0001
-     "verify_code" : 543423, // 不需要填写，暂不支持
+     "currency" : "BTC",
      "address" ： "1GbJtdiidFnbsGfuC5VtMKrRaoyrP2rRXk",
      "amount" : 0.1
   }
+```
+三个参数均需填写。
 
+####返回值示例
 ```
-####返回值
-```
-  "data":{
-    "tranfer_id" : 1000003534734, // 提现id
-    "withdraw_status" : 0 // 状态：待处理，处理中，成功，失败...
+  {
+    "tranfer_id" : 1000003534734,
+    "withdraw_status" : 0
   }
   
 ```
