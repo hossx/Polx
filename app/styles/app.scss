@@ -6,8 +6,8 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-body {
-    background: white;
+html,body {
+    background: $body-color;
     color: $black1;
 }
 

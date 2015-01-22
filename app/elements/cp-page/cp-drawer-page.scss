@@ -26,7 +26,7 @@
         color: white;
     }
     paper-icon-button:hover, core-icon-button:hover {
-        color: color($C2, a400);
+        color: color($C2, a700);
     }
     a {
         height: 40px;
@@ -41,7 +41,7 @@
 }
 #pages {
     padding-bottom: 200px;
-    background: $black4;
+    background: #f9f9f9;
 }
 #nav-tabs {
     width: 100%;

@@ -39,7 +39,7 @@ table {
                 }
             }
             &:hover {
-                background: color($C2, a400);
+                background: color($C2, a700);
                 td {
                     color: $white1;
                 }
@@ -67,7 +67,7 @@ table {
                 a {
                     color: white;
                     &:hover {
-                        color: color($C2, a400);
+                        color: color($C2, a700);
                     }
                 }
             }

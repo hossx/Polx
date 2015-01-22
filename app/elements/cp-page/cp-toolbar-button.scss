@@ -6,7 +6,7 @@ a {
     color: white;
     &:hover {
         core-icon-button {
-            color: color($C2, a400);
+            color: color($C2, a700);
         }
         core-icon-button[active] {
             color: color($C1, 100);
