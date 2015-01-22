@@ -624,51 +624,46 @@ items中的每条数据是一个长度为6的数组，依次表示：[时间戳�
 ####返回值示例
 ```
   {
-    "profile": {
-      "id": 1010101010,
-      "email": "my@gmail.com",
-    }
+    "uid": 12345678,
+    "name": "wangdong",
+    "email": "dong77@gmail.com",
+    "mobile": "+86 18817728171",
+    "apiToken": "8c0781b2402a9907af4e68cb8f982767",
+    "emailVerified": true,
+    "mobileVerified": true,
+    "googleAuthEnabled": false
   }
 ```
 profile中的pwdhash将不会被返回。
 <br><br>
 
 ### GET /api/v2/login
-用户登录。
+用户登录。这个API的主要作用是首先通过基于用户名和密码的认证授权从服务器拿到Cookie，从而可以后续对API进行基于Cookie的认证授权。
+对于APP，不建议调用该API。
+
+Authorizaton Header设置请参考签名的「1.基于用户名密码的认证授权」。为了安全，应用在退出的时候，Cookie应该被清空。
+
 ####URL参数
 无
-####Basic Auth头设置
-这个API也是通过Basic Authentcation进行授权，客户端设置HTTP Header的方式如下。
-1. 将用户名和密码用":"连在一起： "username:password"
-2. 将上述字符串用Base64进行编码，得到： "dXNlcm5hbWU6cGFzc3dvcmQ="
-3. 将"Basic "（带有一个空格）放置到上面编码前，得到："Basic dXNlcm5hbWU6cGFzc3dvcmQ="
-4. 而设置HTTP Hader "Authorization"：
-  ```
-    httpRequest.setHeader("Authorization, "Basic dXNlcm5hbWU6cGFzc3dvcmQ=")
-  ```
+
 ####POST数据JSON格式
-```
-  {
-    "profile": {
-      id": 1010101010,
-      "email": "my@gmail.com",
-    }
-  }
-```
+无
 
 ####返回值示例
 ```
   {
-    code: 0
+    "uid": 12345678,
+    "name": "wangdong",
+    "email": "dong77@gmail.com",
+    "mobile": "+86 18817728171",
+    "apiToken": "8c0781b2402a9907af4e68cb8f982767",
+    "emailVerified": true,
+    "mobileVerified": true,
+    "googleAuthEnabled": false
   }
 ```
 profile中的pwdhash将不会被返回。
 
-该API的Response中会有相应的Cookie被设置，用于后续请求的认证授权。如果想使用基于Cookie的认证授权，后续API请求就不能在设置Authorization Header。
-
-为了安全，应用在退出的时候，Cookie应该被清空。
-
-对于移动APP，因为无需做基于Cookie的认证授权，该API不该被调用。
 <br><br>
 
 
