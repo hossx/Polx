@@ -6,7 +6,7 @@
 <div class="todo">
 ##TODO【小露】
 - 每个示例需API实现后用真实数据替换。
-- 提交订单的返回值应该包含订单数据（如果成功）;不成功，原始请求数据也该被返回（？）
+- 提交订单的返回值应该包含订单数据。
 </div>
 ---
 
@@ -75,8 +75,6 @@
     https://exchange.coinport.com
   ```
 
-- 针对交易/获取用户信息等隐私性接口，调用时需要做用户认证，币丰港交易所支持的校验方法是Basic Authentication， 具体认证方式见下面的「认证方式」部分。
-
 - 币种ID，市场ID不区分大小写；但返回值JSON中币种和市场ID全部是大写。
 
 - 如果没有特别声明，所有API请求数据为JSON格式（不包括GET请求）。在接口详细说明部分，会在URL前标识该接口的HTTPS请求类型。
@@ -120,53 +118,63 @@
 ---
 
 ##认证授权
-币丰港交易所目前只支持Basic Authentication认证方式，未来我们会支持OAuth 2.0。  
+币丰港交易所目前支持通过HTTP标准的"Authorization Header"进行认证授权，也支持通过Cookie进行认证授权。  
 
-Basic Authentication认证流程如下：
+通过Authorization Header认证流程如下：
 
-1. 首先，需在币丰港交易所网页版或者APP，申请API Token和SecretKey：
+###1. 基于用户名密码的认证授权
+1. 将用户名和密码用":"连在一起，得到：
+  ```
+    username:password
+  ```
+2. 将上述字符串用Base64进行编码，得到： 
+  ```
+    dXNlcm5hbWU6cGFzc3dvcmQ=
+  ```
+3. 将"Basic "（带有一个空格）放置到上面编码前，得到：
+  ```
+    Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+  ```
+4. 设置HTTP Header "Authorization"：
+  ```
+    httpRequest.setHeader("Authorization, "Basic dXNlcm5hbWU6cGFzc3dvcmQ=")
+  ```
+
+###2. 基于Token和Secret的认证授权
+1. 首先，需在币丰港交易所网页版或者APP，申请API Token和Secret：
   ```
     Token : 92ad7be8cdd59e230f7528fdfe94c
-    SecretKey : e94d592ad7be28fdf41b08730f7528f8
+    Secret : e94d592ad7be28fdf41b08730f7528f8
   ```
 
-2. 然后，用申请得到的SecretKey对业务请求参数或者数据签名，生成一个签名（Signature)字符串。详见下面的「签名规则」。
+2. 然后，用申请得到的Secret对业务请求参数或者数据签名，生成一个签名（Signature)字符串。详见下面的「签名规则」。
 
-3. 将Token和Signature放到HTTP Header中，随业务请求数据一起发送到服务器：
-  ```
-    httpRequest.setHeader("auth", "[TOKEN]:[signature]")
-  ```
-
-  如果Token为：
-  ```
-    92ad7be8cdd59e230f7528fdfe94c
-  ```
-
-  签名（Signature）为：
+3. 如果生成的Signature为：
   ```
     be28f28fef41b08787d3092adf75
   ```
-
-  最终HTTP Header将为：
+  将Token和Signature用":"连在一起，得到：
   ```
-    httpRequest.setHeader("auth", "92ad7be8cdd59e230f7528fdfe94c:be28f28fef41b08787d3092adf75")
-
+    92ad7be8cdd59e230f7528fdfe94c:be28f28fef41b08787d3092adf75
   ```
 
-  请注意：如果认证失败，我们不会返回HTTP 401错误，而是返回一个认证失败的code：
+2. 将上述字符串用Base64进行编码，得到： 
   ```
-    {
-      "code": 1014, 
-      "time": 14423452342,
-    }
+    OTJhZDdiZThjZGQ1OWUyMzBmNzUyOGZkZmU5NGM6YmUyOGYyOGZlZjQxYjA4Nzg3ZDMwOTJhZGY3NQ==
+  ```
+3. 将"Token "（带有一个空格）放置到上面编码前，得到：
+  ```
+    Token OTJhZDdiZThjZGQ1OWUyMzBmNzUyOGZkZmU5NGM6YmUyOGYyOGZlZjQxYjA4Nzg3ZDMwOTJhZGY3NQ==
+  ```
+4. 设置HTTP Header "Authorization"：
+  ```
+    httpRequest.setHeader("Authorization,
+      "Token OTJhZDdiZThjZGQ1OWUyMzBmNzUyOGZkZmU5NGM6YmUyOGYyOGZlZjQxYjA4Nzg3ZDMwOTJhZGY3NQ==")
   ```
 
-以上认证方式只适用于Private API接口。对于Public API，"auth" Header将被忽略。
+####签名规则
 
-
-###签名规则
-
-####POST API
+- GET API接口
 
 如果请求是GET类型，首先将URL参数按照英文字母升序排列。举个例子，如果请求为：
   ```
@@ -196,7 +204,7 @@ Basic Authentication认证流程如下：
   进行上述的MD5计算（注意前面有个&）。
 
 
-####GET API
+- POST API接口
 
 如果请求类型是POST，请求将不支持URL参数，因此需要对POST的数据加上：
   ```
@@ -216,6 +224,22 @@ Basic Authentication认证流程如下：
   ```
     &secret=e94d592ad7be28fdf41b08730f7528f8
     ```    
+
+####认证失败
+  如果认证失败，我们不会返回HTTP 401错误，而是返回一个认证失败的code：
+  ```
+    {
+      "code": 1014, 
+      "time": 14423452342,
+    }
+  ```
+
+###3. 基于Cookie的认证授权
+如果Authorization Header为空，我们会检查Cookie进行认证授权。但如果Authorization Header不为空，Cookie就会被忽略。
+
+调用login API成功后，认证授权所用的cookie会被设置。因此为了安全，在应用退出的时候建议客户端删除所有币丰港相关的cookie。
+
+
 ---
 
 ##接口列表
@@ -233,6 +257,8 @@ Basic Authentication认证流程如下：
   | GET            | /api/v2/*{market}*/ticker                         | 获取某市场的ticker数据 
   | GET            | /api/v2/*{market}*/depth                          | 获取某市场的深度数据
   | GET            | /api/v2/*{market}*/kline                          | 获取某市场的K线数据
+  | POST           | /api/v2/register                                  | 新用户注册
+  | GET            | /api/v2/login                                     | 用户登录
   | GET            | /api/v2/user/profile                              | 读取授权用户的基本信息
   | GET            | /api/v2/user/balance                              | 读取用户的账户资产
   | GET            | /api/v2/user/trades                               | 读取用户交易记录
@@ -584,6 +610,66 @@ items中的每条数据是一个长度为6的数组，依次表示：[时间戳�
 
 <br><br>
 
+### POST /api/v2/register
+新用户注册。
+####URL参数
+无
+####POST数据JSON格式
+```
+  {
+    "email": "my@gmail.com",
+    "pwdhash": "md5ofmypassword"
+  }
+```
+####返回值示例
+```
+  {
+    "profile": {
+      "id": 1010101010,
+      "email": "my@gmail.com",
+    }
+  }
+```
+profile中的pwdhash将不会被返回。
+<br><br>
+
+### GET /api/v2/login
+用户登录。
+####URL参数
+无
+####Basic Auth头设置
+这个API也是通过Basic Authentcation进行授权，客户端设置HTTP Header的方式如下。
+1. 将用户名和密码用":"连在一起： "username:password"
+2. 将上述字符串用Base64进行编码，得到： "dXNlcm5hbWU6cGFzc3dvcmQ="
+3. 将"Basic "（带有一个空格）放置到上面编码前，得到："Basic dXNlcm5hbWU6cGFzc3dvcmQ="
+4. 而设置HTTP Hader "Authorization"：
+  ```
+    httpRequest.setHeader("Authorization, "Basic dXNlcm5hbWU6cGFzc3dvcmQ=")
+  ```
+####POST数据JSON格式
+```
+  {
+    "profile": {
+      id": 1010101010,
+      "email": "my@gmail.com",
+    }
+  }
+```
+
+####返回值示例
+```
+  {
+    code: 0
+  }
+```
+profile中的pwdhash将不会被返回。
+
+该API的Response中会有相应的Cookie被设置，用于后续请求的认证授权。如果想使用基于Cookie的认证授权，后续API请求就不能在设置Authorization Header。
+
+为了安全，应用在退出的时候，Cookie应该被清空。
+
+对于移动APP，因为无需做基于Cookie的认证授权，该API不该被调用。
+<br><br>
 
 
 ### GET /api/v2/user/profile
