@@ -17,7 +17,7 @@ a {
     background: $white2;
     transition: background 420ms ease-in-out;
     &:hover {
-        background: white;
+        background: color($C2, 50);
     }
 }
 #head {
