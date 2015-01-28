@@ -252,7 +252,7 @@
   | GET            | /api/v2/*{currency}*/tickers                      | 获取人民币或比特币所有市场的ticker数据
   | GET            | /api/v2/*{currency}*/reserves                     | 读取平台某数字资产的准备金统详细数据
   | GET            | /api/v2/*{currency}*/balance_snapshot_files       | 读取特定币种的资产分布快照数据文件列表
-  | GET            | /api/v2/*{currency}*/transfers_files              | 读取特定币种的充值提现记录文件列表
+  | GET            | /api/v2/*{currency}*/transfer_files              | 读取特定币种的充值提现记录文件列表
   | GET            | /api/v2/*{market}*/trades                         | 获取某市场的历史成交记录
   | GET            | /api/v2/*{market}*/ticker                         | 获取某市场的ticker数据 
   | GET            | /api/v2/*{market}*/depth                          | 获取某市场的深度数据
@@ -414,7 +414,7 @@
 
 
 
-### GET /api/v2/*{currency}*/balance_snapshots_files
+### GET /api/v2/*{currency}*/balance_snapshot_files
 读取特定币种的资产分布快照数据文件列表。
 
 ####URL参数
@@ -445,8 +445,8 @@
 ```
 
 ####示例
-- [https://exchange.coinport.com/api/v2/ltc/balance_snapshots_files](https://exchange.coinport.com/api/v2/ltc/balance_snapshots_files) - 读取最新50条LTC资产分布快照数据文件列表。
-- [https://exchange.coinport.com/api/v2/btc/balance_snapshots_files?cursor=1121321&limit=20](https://exchange.coinport.com/api/v2/btc/balance_snapshots_files?cursor=1121321&limit=20) - 读取1121321之前的20条BTC资产分布快照数据文件列表。
+- [https://exchange.coinport.com/api/v2/ltc/balance_snapshot_files](https://exchange.coinport.com/api/v2/ltc/balance_snapshot_files) - 读取最新50条LTC资产分布快照数据文件列表。
+- [https://exchange.coinport.com/api/v2/btc/balance_snapshot_files?cursor=1121321&limit=20](https://exchange.coinport.com/api/v2/btc/balance_snapshot_files?cursor=1121321&limit=20) - 读取1121321之前的20条BTC资产分布快照数据文件列表。
 
 <br><br>
 
@@ -482,8 +482,8 @@
 ```
 
 ####示例
-- [https://exchange.coinport.com/api/v2/ltc/balance_snapshots_files](https://exchange.coinport.com/api/v2/ltc/balance_snapshots_files) - 读取最新50条LTC资产分布快照数据文件列表。
-- [https://exchange.coinport.com/api/v2/btc/balance_snapshots_files?cursor=1121321&limit=20](https://exchange.coinport.com/api/v2/btc/balance_snapshots_files?cursor=1121321&limit=20) - 读取1121321之前的20条BTC资产分布快照数据文件列表。
+- [https://exchange.coinport.com/api/v2/ltc/transfer_files](https://exchange.coinport.com/api/v2/ltc/transfer_files) - 读取最新50条LTC充值提现文件列表。
+- [https://exchange.coinport.com/api/v2/btc/transfer_files?cursor=1121321&limit=20](https://exchange.coinport.com/api/v2/btc/transfer_files?cursor=1121321&limit=20) - 读取1121321之前的20条BTC充值提现文件列表。
 
 <br><br>
 
