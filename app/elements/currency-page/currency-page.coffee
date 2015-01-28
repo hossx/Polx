@@ -1,9 +1,21 @@
 'use strict'
 
 Polymer 'currency-page',
+  msgMap:
+    'en':
+      about: "about"
+      reserves: "Reserves"
+      history: "History Data"
+    'zh':
+      about: "关于"
+      reserves: "保证金数据"
+      history: "历史数据"
+
   page: 0
+
   ready: () ->
-    @buttons = [['info', "About"], ['verified-user', "Reserves"], ['cloud-download', 'Historical Data']]
+    @M = @msgMap[window.lang]
+    @buttons = [['info', @M.about], ['verified-user', @M.reserves], ['cloud-download', @M.history]]
     @currencyId = ''
     @currency = null
     @config = window.config
@@ -15,9 +27,7 @@ Polymer 'currency-page',
       console.warn("no such currency: " + @currencyId)
       # TODO: redirect to 404 page
     else
-      @buttons[0][1] = "About " + @currency.name
-      @buttons[1][1] = @currency.name + " Reserves"
-      @buttons[2][1] = @currency.name + " Data"
+      @buttons[0][1] = @M.about + @currency.name
 
   detached: () ->
     console.debug "detached: detached"

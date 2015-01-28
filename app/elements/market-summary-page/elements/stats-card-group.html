@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="stats-card-group.css">
     <core-ajax id="ajax" url="{{tickerUrl}}" handleAs="json" response="{{response}}" error="{{error}}" auto></core-ajax>
 
-    <div class="groupLabel">{{currency.id}} MARKETS</div>
-    <div class="comment">Refreshed every {{config.refreshIntervals.tickers/1000}} seconds</div>
+    <div class="groupLabel">{{currency.id}} {{M.markets}}</div>
+    <div class="comment">{{config.refreshIntervals.tickers/1000 | refreshFormatter}}</div>
     <div class="canvas" wrap?={{smallup}} layout center?={{!smallup}} vertical?={{!smallup}} horizontal?={{smallup}}>
       <template repeat="{{ticker in tickers}}">
         <stats-card auto-vertical ticker="{{ticker}}"></stats-card>

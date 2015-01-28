@@ -11,16 +11,16 @@
     <core-ajax url="{{detailsUrl}}" response="{{details}}" auto></core-ajax>
     <section-group has-footer>
       <paper-shadow>
-        <div label><h2>Reserve Details</h2></div>
+        <div label><h2>{{M.reserveDetails}}</h2></div>
         <div class="card" vertical center layout>
           <table>
             <thead>
               <tr>
-                <th nowrap>{{currency.id}} Address</th>
-                <th>Balance</th>
-                <th>Type</th>
-                <th nowrap>Signed Message</th>
-                <th>Signature</th>
+                <th nowrap>{{currency.id}} {{M.address}}</th>
+                <th>{{M.balance}}</th>
+                <th>{{M.label}}</th>
+                <th nowrap>{{M.signedMsg}}</th>
+                <th>{{M.signature}}</th>
               </tr>
             </thead>
             <tbody>
@@ -31,7 +31,7 @@
                       <crypto-address class="{{group.label}}" currency="{{currency}}" addr="{{data[0]}}"></crypto-address>
                     </td>
                     <td>{{data[1]}}</td>
-                    <td><span class="{{group.label}}">{{group.label}}</span>
+                    <td><span class="{{group.label}}">{{M[group.label]}}</span>
                     </td>
                     <td>
                       <div class="msg">{{data[2]}}</div>

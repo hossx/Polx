@@ -10,14 +10,14 @@
 
     <section-group has-footer>
       <paper-shadow>
-        <div label><h2>{{market.id}} Price Chart</h2></div>
+        <div label><h2>{{market.id}} {{M.priceChart}}</h2></div>
         <div>
           <candlestick-chart market="{{market}}" width="728" height="420"></candlestick-chart>
         </div>
       </paper-shadow>
 
       <paper-shadow>
-        <div label><h2>Buzz</h2></div>
+        <div label><h2>{{M.buzz}}</h2></div>
         <div>
           <weibo-wall currency="{{market.currency}}"></weibo-wall>
         </div>

@@ -1,7 +1,21 @@
 'use strict'
 
 Polymer 'stats-card-group',
+  msgMap:
+    'en':
+      markets: "Markets"
+      refresh: "Refreshed every %s seconds"
+
+    'zh':
+      markets: "市场"
+      refresh: "每%s秒刷新一次"
+
+  refreshFormatter: (v) -> @msgMap[window.lang].refresh.format(v)
+
+
   ready: () ->
+    @M = @msgMap[window.lang]
+    console.log(@M.markets)
     @config = window.config
     @tickerUrl = window.protocol.tickerUrl(@currency.id)
     @tickers = null
@@ -34,4 +48,3 @@ Polymer 'stats-card-group',
       @refreshJob = null
       console.debug("stop auto-refresh for tickers")
 
-    

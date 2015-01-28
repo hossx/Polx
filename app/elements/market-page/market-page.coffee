@@ -1,10 +1,24 @@
 'use strict'
 
 Polymer 'market-page',
+  msgMap:
+    'en':
+      trade: "Trade"
+      trend: "Trend"
+      orderBook: "OrderBook"
+      history: "History Data"
+
+    'zh':
+      trade: "交易"
+      trend: "趋势"
+      orderBook: "现有订单"
+      history: "历史数据"
+
   page: 1
 
   ready: () ->
-    @buttons = [['swap-horiz', 'Trade'],['trending-up','Trend'],['list','Order Book'],['history', 'History Data']]
+    @M = @msgMap[window.lang]
+    @buttons = [['swap-horiz', @M.trade],['trending-up', @M.trend],['list',@M.orderBook],['history', @M.history]]
     @marketId = ''
     @market = null
     @config = window.config

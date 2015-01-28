@@ -1,5 +1,5 @@
 coinport:wiki
-##Bitcoin
+##比特币
 
-This section is parsed from `/markdown/currency-BTC.md`.
+This section is parsed from `/markdown/currencies/zh/BTC.md`
 All wiki markdown's first line must be exact `coinport:wiki\n`

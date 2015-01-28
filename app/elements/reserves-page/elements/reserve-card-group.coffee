@@ -1,7 +1,20 @@
 'use strict'
 
 Polymer 'reserve-card-group',
+  msgMap:
+    'en':
+      reserveStats: "Reserve Stats"
+      refresh: "Refersh every %s seconds"
+
+    'zh':
+      reserveStats: "保证金统计"
+      refresh: "每%s秒刷新一次"
+
+  refreshFormatter: (v) -> @msgMap[window.lang].refresh.format(v)
+
+
   ready: () ->
+    @M = @msgMap[window.lang]
     @config = window.config
     @reserveStatsUrl = window.protocol.reserveStatsUrl()
     @reserves = {}

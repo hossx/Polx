@@ -17,20 +17,20 @@
 
           <div id="stats" center-justified vertical layout>
             <div id="general">
-              <span class="l">Reserve Ratio:</span> <span class="v">{{reserveRatio | ratioFormat}}</span>
+              <span class="l">{{M.reserveRatio}}:</span> <span class="v">{{reserveRatio | ratioFormat}}</span>
             </div>
             <div id="sub">
               <div>
-                <span class="l">Hot wallet:</span><span class="v">{{hotRatio | ratioFormat}} = {{reserve[0]}} {{currency.unit}}</span>
+                <span class="l">{{M.hotWallet}}:</span><span class="v">{{hotRatio | ratioFormat}} = {{reserve[0]}} {{currency.unit}}</span>
               </div>
               <div>
-                <span class="l">Cold wallet:</span><span class="v">{{coldRatio | ratioFormat}} = {{reserve[1]}} {{currency.unit}}</span>
+                <span class="l">{{M.coldWallet}}:</span><span class="v">{{coldRatio | ratioFormat}} = {{reserve[1]}} {{currency.unit}}</span>
               </div>
               <div>
-                <span class="l">User wallet:</span><span class="v">{{userRatio | ratioFormat}} = {{reserve[2]}} {{currency.unit}}</span>
+                <span class="l">{{M.userWallet}}:</span><span class="v">{{userRatio | ratioFormat}} = {{reserve[2]}} {{currency.unit}}</span>
               </div>
               <div id="shortage" class="item {{ {short: isShort} | tokenList }}">
-                <span class="l">Shortage:</span><span class="v">{{shortageRatio | ratioFormat}} = {{shortage}} {{currency.unit}}</span>
+                <span class="l">{{M.shortage}}:</span><span class="v">{{shortageRatio | ratioFormat}} = {{shortage}} {{currency.unit}}</span>
               </div>
 
             </div>

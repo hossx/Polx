@@ -9,7 +9,7 @@
 <polymer-element name="cp-footer" horizontal around-justified layout>
   <template>
     <link rel="stylesheet" href="cp-footer.css">
-    <template repeat="{{group in groups}}">
+    <template repeat="{{group in M.groups}}">
       <div class="group" vertical layout>
         <div class="group-label">{{group.label}}</div>
         <template repeat="{{link in group.links}}">
@@ -21,63 +21,5 @@
       </div>
     </template>
   </template>
-  <script>
-    (function() {
-      'use strict';
-      Polymer('cp-footer', {
-        groups: [{
-          "label": "About",
-          "links": [{
-            "label": "Team",
-            "url": "/#/doc/team"
-          }, {
-            "label": "Jobs",
-            "url": "/#/doc/jobs"
-          }, {
-            "label": "Contact Us",
-            "url": "/#/doc/contactus"
-          }]
-        }, {
-          "label": "Legal",
-          "links": [{
-            "label": "Terms of Service",
-            "url": "/#/doc/tos"
-          }, {
-            "label": "Privacy Polycies",
-            "url": "/#/doc/privacy"
-          }, {
-            "label": "AML and KYC",
-            "url": "/#/doc/aml-kyc"
-          }]
-        }, {
-          "label": "Resources",
-          "links": [{
-            "label": "Bitcoin",
-            "url": ""
-          }, {
-            "label": "API",
-            "url": "/#/doc/api2"
-          }, {
-            "label": "Coinport PAY",
-            "url": "https://pay.coinport.com",
-            "class": "pay",
-            "tooltip": "Accept bitcoin payment for your business.",
-            "target": "_blank"
-          }]
-        }, {
-          "label": "Social",
-          "links": [{
-            "label": "Twitter",
-            "url": "/#/tos"
-          }, {
-            "label": "Facebook",
-            "url": "/#/privacy"
-          }, {
-            "label": "Google+",
-            "url": "/#/aml"
-          }]
-        }, ]
-      });
-    })();
-  </script>
+  <script src="cp-footer.js"></script>
 </polymer-element>

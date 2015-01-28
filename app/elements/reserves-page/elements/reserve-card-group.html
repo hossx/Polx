@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="reserve-card-group.css">
     <core-ajax id="ajax" url="{{reserveStatsUrl}}" handleAs="json" response="{{response}}" error="{{error}}" auto></core-ajax>
 
-    <div class="groupLabel">RESERVE STATS</div>
-    <div class="comment">Refreshed every {{config.refreshIntervals.reserves/1000}} seconds</div>
+    <div class="groupLabel">{{M.reserveStats}}</div>
+    <div class="comment">{{config.refreshIntervals.reserves/1000 | refreshFormatter}}</div>
     <div class="canvas" wrap?={{smallup}} layout center?={{!smallup}} vertical?={{!smallup}} horizontal?={{smallup}}>
       <template repeat="{{currencyId in currencieIds}}">
         <reserve-card auto-vertical currencyId="{{currencyId}}" reserve="{{reserves[currencyId]}}"></reserve-card>

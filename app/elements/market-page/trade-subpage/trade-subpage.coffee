@@ -1,10 +1,25 @@
 'use strict'
 
 Polymer 'trade-subpage',
+  msgMap:
+    'en':
+      balance: "Balance"
+      refresh: "Refreshed every %s seconds"
+
+    'zh':
+      balance: "余额"
+      refresh: "每%s秒刷新一次"
+
+  refreshFormatter: (v) -> @msgMap[window.lang].refresh.format(v)
+
+
   active: false
   market: null
   cardIndex: 0
 
+  ready: () ->
+    @M = @msgMap[window.lang]
+    
   created: () ->
     @refreshJob = null
     @bids = []

@@ -22,14 +22,14 @@
 
           <div id="stats" center-justified vertical layout>
             <div id="general">
-              <span class="l">Last Price: </span> <span class="v">{{ticker.p}}</span>
+              <span class="l">{{M.lastPrice}}: </span> <span class="v">{{ticker.p}}</span>
             </div>
             <div id="sub">
               <div>
-                <span class="l">24H Volume:</span><span class="v">{{ticker.v}}</span>
+                <span class="l">{{M.volume}}:</span><span class="v">{{ticker.v}}</span>
               </div>
               <div>
-                <span class="l">24H Change:</span><span class="v">{{ticker.g | formatChange}}</span>
+                <span class="l">{{M.change}}:</span><span class="v">{{ticker.g | formatChange}}</span>
               </div>
             </div>
           </div>

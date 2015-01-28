@@ -51,6 +51,9 @@ class Market
 Polymer 'the-app',
   route: ""
 
+  ready: () ->
+    @configFile = "../appconfig_" + window.lang + ".json"
+
   onConfigLoaded: (event, data) ->
     try
       this.$.loading.setAttribute("hide", "")
@@ -62,7 +65,7 @@ Polymer 'the-app',
   initRouter: () ->
     router = document.createElement('the-router')
     this.$.main.appendChild(router)
-    router.setAttribute("show","")
+    router.setAttribute("show", "")
 
   processCurrenciesAndMarkets: () ->
     currencies = {}

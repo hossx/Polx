@@ -1,7 +1,16 @@
 'use strict'
 
 Polymer 'market-sidebar',
-  ready: ()-> 
+  msgMap:
+    'en':
+      markets: "Markets"
+
+    'zh':
+      markets: "市场"
+
+
+  ready: () ->
+    @M = @msgMap[window.lang]
     @config = window.config
     @marketGroupKeys = Object.keys(window.config.marketGroups)
     @marketId = ''

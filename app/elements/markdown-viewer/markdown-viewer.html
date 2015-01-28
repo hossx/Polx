@@ -12,7 +12,7 @@
 <polymer-element name="markdown-viewer" attributes="file" flex>
   <template>
     <link rel="stylesheet" href="markdown-viewer.css">
-    <core-ajax url="../markdown/{{file}}.md" error="{{error}}" on-core-error="{{onError}}" response="{{text}}" auto></core-ajax>
+    <core-ajax url="../markdown/{{fileLang}}" error="{{error}}" on-core-error="{{onError}}" response="{{text}}" auto></core-ajax>
 
     <core-drawer-panel forceNarrow>
       <core-header-panel mode="seamed" id="drawer" drawer>

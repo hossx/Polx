@@ -13,24 +13,24 @@
 
     <section-group has-footer>
       <paper-shadow>
-        <div label><h2>{{market.id}} Depth Chart</h2></div>
+        <div label><h2>{{market.id}} {{M.depthChart}}</h2></div>
         <div class="card" vertical center layout>
           <depth-chart market="{{market}}" width="720" bids="{{bids}}" asks="{{asks}}"></depth-chart>
         </div>
       </paper-shadow>
 
       <paper-shadow>
-        <div label><h2>{{market.id}} Order Book</h2></div>
+        <div label><h2>{{market.id}} {{M.orderBook}}</h2></div>
         <div class="card" horizontal layout>
           <div id="buy" flex>
-            <div class="label">Buy Orders</div>
+            <div class="label">{{M.buyOrders}}</div>
             <table>
               <thead>
                 <tr>
-                  <td>Index</td>
-                  <td>Price</td>
-                  <td>Quantity</td>
-                  <td>Accumulated</td>
+                  <td>{{M.index}}</td>
+                  <td>{{M.price}}</td>
+                  <td>{{M.quantity}}</td>
+                  <td>{{M.accumulated}}</td>
                 </tr>
               </thead>
               <tbody>
@@ -53,14 +53,14 @@
           </div>
 
           <div id="sell" flex>
-            <div class="label">Sell Orders</div>
+            <div class="label">{{M.sellOrders}}</div>
             <table>
               <thead>
                 <tr>
-                  <td>Index</td>
-                  <td>Price</td>
-                  <td>Quantity</td>
-                  <td>Accumulated</td>
+                  <td>{{M.index}}</td>
+                  <td>{{M.price}}</td>
+                  <td>{{M.quantity}}</td>
+                  <td>{{M.accumulated}}</td>
                 </tr>
               </thead>
               <tbody>

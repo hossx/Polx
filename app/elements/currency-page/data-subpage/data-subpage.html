@@ -15,19 +15,19 @@
       <paper-shadow>
         <core-ajax id="txsAjax" url="{{txsUrl}}" on-core-complete="{{handleTxsComplete}}" auto></core-ajax>
         <div label>
-          <h2>{{currency.name}} Transactions</h2>
-          <p>The following blockchain transactions involve our {{currency.name}} addresses.</p>
+          <h2>{{currency.name}} {{M.transactions}}</h2>
+          <p>{{currency.name | formatTransactionsComment}} </p>
         </div>
         <div class="card" vertical center layout>
           <table>
             <thead>
               <tr>
-                <th>Timestamp</th>
-                <th>User ID</th>
-                <th>Type</th>
-                <th>Amount</th>
-                <th>{{currency.id}} Address</th>
-                <th>{{currency.id}} Transaction</th>
+                <th>{{M.timestamp}}</th>
+                <th>{{M.userId}}</th>
+                <th>{{M.type}}</th>
+                <th>{{M.amount}}</th>
+                <th>{{currency.id}} {{M.address}}</th>
+                <th>{{currency.id}} {{M.transaction}}</th>
               </tr>
             </thead>
             <tbody>
@@ -57,17 +57,16 @@
       <paper-shadow>
         <core-ajax id="snapshotAjax" url="{{snapshotUrl}}" on-core-complete="{{handleSnapshotsComplete}}" auto></core-ajax>
         <div label>
-          <h2>{{currency.name}} Distributation Snapshots</h2>
-          <p>The following files capture our {{currency.name}} distribution among all our users at certain time.</p>
+          <h2>{{currency.name}} |{{M.distributionSnapshots}}</h2>
+          <p>{{currency.name | formatDistributionSnapshotsComment}}</p>
         </div>
         <div class="card" vertical center layout>
-
           <table>
             <thead>
               <tr>
-                <th>Timestamp</th>
-                <th>File</th>
-                <th>Size</th>
+                <th>{{M.timestamp}}</th>
+                <th>{{M.file}}</th>
+                <th>{{M.size}}</th>
               </tr>
             </thead>
             <tbody>

@@ -1,0 +1,239 @@
+{
+  "currencies": {
+    "CNY": {
+      "name": "人民币",
+      "color": "red",
+      "notCripto": true,
+      "fee": {
+        "deposit": {
+          "c": 0.3,
+          "p": 0.1
+        },
+        "withdraw": {
+          "c": 0.3,
+          "p": 0.1
+        }
+      },
+      "tags": "人民币"
+    },
+    "BTC": {
+      "name": "比特币",
+      "color": "blue",
+      "fee": {
+        "deposit": {
+          "c": 0.3,
+          "p": 0.1
+        },
+        "withdraw": {
+          "c": 0.3,
+          "p": 0.1
+        }
+      },
+      "tags": "比特币,Bitcoin,BTC"
+    },
+    "LTC": {
+      "name": "莱特币",
+      "color": "#f2f000",
+      "officialSite": "http://litcoin.org",
+      "fee": {
+        "deposit": {
+          "c": 0.3,
+          "p": 0.1
+        },
+        "withdraw": {
+          "c": 0.3,
+          "p": 0.1
+        }
+      },
+      "browser": {
+        "addr": "https://ltbrowser/addr/%s",
+        "tx": "https://ltbrowser/addr/%s"
+      },
+      "tags": "莱特币,Litecoin,LTC"
+    },
+    "BTSX": {
+      "name": "比特股",
+      "tags": "比特股,Bitshare,BitsharesX,BTS"
+    },
+    "DOGE": {
+      "name": "狗币",
+      "tags": "狗币,Dogecoin"
+    },
+    "BC": {
+      "name": "黑比",
+      "tags": "黑币,Blackcoin"
+    },
+    "DRK": {
+      "name": "暗黑币",
+      "tags": "暗黑币,<Darkcoin></Darkcoin>"
+    },
+    "VRC": {
+      "name": "VRCCoin"
+    },
+    "ZET": {
+      "name": "泽塔币"
+    },
+    "NXT": {
+      "name": "NextCoin"
+    },
+    "XRP": {
+      "name": "瑞波币",
+      "tags": "瑞波币,Ripple,XRP"
+    },
+    "GOOC": {
+      "notCripto": true,
+      "name": "谷壳币",
+      "tags": "谷壳币,谷壳宝"
+    }
+  },
+  "marketGroups": {
+    "CNY": {
+      "markets": {
+        "BTC": {
+          "refreshInterval": 1000,
+          "pricePrecision": 3,
+          "totalPrecision": 2,
+          "minSellAmountmt": 0.001,
+          "minBuyAmount": 0.001,
+          "fee": {
+            "maker": {
+              "c": 0.3,
+              "p": 0.1
+            },
+            "taker": {
+              "constant": 0.3,
+              "percentage": 0.1
+            }
+          },
+          "tags": ["featured"]
+        },
+        "LTC": {
+          "pricePrecision": 3,
+          "totalPrecision": 2,
+          "minSellAmountmt": 0.001,
+          "minBuyAmount": 0.001,
+          "fee": {
+            "maker": {
+              "c": 0.3,
+              "p": 0.1
+            },
+            "taker": {
+              "c": 0.3,
+              "p": 0.1
+            }
+          },
+          "tags": ["featured"]
+        },
+        "BTSX": {
+          "pricePrecision": 6,
+          "totalPrecision": 2
+        },
+        "XRP": {
+          "pricePrecision": 10,
+          "totalPrecision": 2
+        },
+        "GOOC": {
+          "pricePrecision": 5,
+          "quantityPrecision": 4,
+          "totalPrecision": 2
+        }
+      }
+    },
+    "BTC": {
+      "markets": {
+        "LTC": {
+          "pricePrecision": 3,
+          "minSellAmountmt": 0.001,
+          "minBuyAmount": 0.001,
+          "tags": ["featured"]
+        },
+        "DOGE": {
+          "pricePrecision": 10,
+          "totalPrecision": 4
+        },
+        "BC": {
+          "pricePrecision": 3,
+          "totalPrecision": 4
+        },
+        "DRK": {
+          "pricePrecision": 3,
+          "totalPrecision": 4
+        },
+        "VRC": {
+          "pricePrecision": 3,
+          "totalPrecision": 4
+        },
+        "ZET": {
+          "pricePrecision": 3,
+          "totalPrecision": 4,
+          "priceUnit": "ZET/CNY"
+        },
+        "BTSX": {
+          "pricePrecision": 3,
+          "totalPrecision": 4
+        },
+        "NXT": {
+          "pricePrecision": 3,
+          "totalPrecision": 4,
+          "priceUnit": "NXT/CNY"
+        },
+        "XRP": {
+          "pricePrecision": 10,
+          "totalPrecision": 4
+        }
+      }
+    }
+  },
+  "api": {
+    "base": "https://exchange.coinport.com"
+  },
+  "viewParams": {
+    "market": {
+      "orderBookInitialSize": 100,
+      "tradingRecordInitialSize": 100
+    }
+  },
+  "refreshIntervals": {
+    "depths": 5000,
+    "tickers": 3000,
+    "reserves": 300000
+  },
+  "documents": {
+    "tos": {
+      "label": "服务条款",
+      "tags": ["法律"]
+    },
+    "privacy": {
+      "label": "隐私政策",
+      "tags": ["法律"]
+    },
+    "aml": {
+      "label": "反洗钱",
+      "tags": ["法律"]
+    },
+    "jobs": {
+      "label": "工作机会",
+      "tags": ["关于"]
+    },
+    "team": {
+      "label": "团队",
+      "tags": ["关于"]
+    },
+    "contactus": {
+      "label": "联系我们",
+      "tags": ["关于"]
+    },
+    "dong": {
+      "label": "Daniel's Developer Notes",
+      "tags": ["developer"]
+    },
+    "api2": {
+      "label": "币丰港交易所API",
+      "tags": ["开发者"]
+    },
+    "cny-deposit-thru-ripple-gateways": {
+      "label": "CNY Deposit Through Ripple Gateways",
+      "tags": ["ripple", "deposit"]
+    }
+  }
+}

@@ -2,6 +2,17 @@
 
 # bids and asks are array of {price:price, quantity:quantity, accumulated:accumulated}
 Polymer 'depth-chart',
+  msgMap:
+    'en':
+      pointFormat: 'Quantity: {point.y:.2f}'
+      buy: "Buy"
+      sell: "Sell"
+
+    'zh':
+      pointFormat: '数量: {point.y:.2f}'
+      buy: "买单"
+      sell: "卖单"
+
   market: null
   width: 600
   height: 260
@@ -19,6 +30,7 @@ Polymer 'depth-chart',
   }
 
   ready: () ->
+    @M = @msgMap[window.lang]
     Highcharts.setOptions
       colors: ["#4CAF50","#F44336"]
       chart:
@@ -65,7 +77,7 @@ Polymer 'depth-chart',
           labels:
             formatter: () -> @value
         tooltip:
-          pointFormat: 'Quantity: {point.y:.2f}'
+          pointFormat: @M.pointFormat
         plotOptions:
           area:
             marker:
@@ -76,4 +88,4 @@ Polymer 'depth-chart',
                 hover:
                   enabled: true
   
-        series: [{name: 'Buy', data: bids},{name: 'Sell', data: asks}]
+        series: [{name: @M.buy, data: bids},{name: @M.sell, data: asks}]

@@ -2,6 +2,18 @@
 
 # records are an array of {timestamp, isSell, price, quantity, total, typeClass, typeLabel}
 Polymer 'tradingrecords-chart',
+  msgMap:
+    'en':
+      pointFormat: 'Quantity: {point.z}<br/>Price: {point.y}'
+      takerOrderTypeBuy: "Taker: Buy"
+      takerOrderTypeSell: "Taker: Sell"
+
+    'zh':
+      pointFormat: '数量: {point.z}<br/>价格: {point.y}'
+      takerOrderTypeBuy: "触犯单类型: 买单"
+      takerOrderTypeSell: "触犯单类型: 卖单"
+
+
   market: null
   width: 600
   height: 260
@@ -16,6 +28,7 @@ Polymer 'tradingrecords-chart',
   }
 
   ready: () ->
+    @M = @msgMap[window.lang]
     Highcharts.setOptions
       colors: ["#4CAF50","#F44336"]
       chart:
@@ -53,7 +66,7 @@ Polymer 'tradingrecords-chart',
           labels:
             formatter: () -> @value
         tooltip:
-          pointFormat: 'Quantity: {point.z}<br/>Price: {point.y}'
+          pointFormat: @M.pointFormat
         plotOptions:
           area:
             marker:
@@ -64,4 +77,4 @@ Polymer 'tradingrecords-chart',
                 hover:
                   enabled: true
   
-        series: [{name: 'Taker Order: Buy', data: bought},{name: 'Taker Order: Sell', data: sold}]
+        series: [{name: @M.takerOrderTypeBuy, data: bought},{name: @M.takerOrderTypeSell, data: sold}]

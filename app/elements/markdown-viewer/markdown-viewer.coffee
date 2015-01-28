@@ -3,12 +3,16 @@
 Polymer 'markdown-viewer',
   ready: () ->
     @file= ""
+    @fileLang = ""
     @text = null
     @error = null
     @doclinks = []
     @files = []
     
   fileChanged: (o, n) ->
+    if @file
+      @fileLang = "%s_%s.md".format(@file, window.lang)
+      
     doclinks = {}
     doclink = window.config.documents[@file]
     

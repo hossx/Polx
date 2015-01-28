@@ -13,23 +13,23 @@
 
     <section-group has-footer>
       <paper-shadow>
-        <div label><h2>{{market.id}} Chart</h2></div>
+        <div label><h2>{{market.id}} {{M.chart}}</h2></div>
         <div class="card" vertical center layout>
           <tradingrecords-chart market="{{market}}" width="720" records="{{records}}"></tradingrecords-chart>
         </div>
       </paper-shadow>
 
       <paper-shadow>
-        <div label><h2>{{market.id}} Trading History</h2></div>
+        <div label><h2>{{market.id}} {{M.tradeHistory}}</h2></div>
         <div class="card">
           <table>
             <thead>
               <tr>
-                <td>Index</td>
-                <td>Taker Order Type</td>
-                <td>Price</td>
-                <td>Quantity</td>
-                <td>Total</td>
+                <td>{{M.index}}</td>
+                <td>{{M.takerOrderType}}</td>
+                <td>{{M.price}}</td>
+                <td>{{M.quantity}}</td>
+                <td>{{M.total}}</td>
               </tr>
             </thead>
             <tbody>

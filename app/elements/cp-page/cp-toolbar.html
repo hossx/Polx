@@ -4,14 +4,15 @@
 <link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="cp-toolbar-button.html">
 
-<polymer-element name="cp-toolbar" attributes="toolbarSelect" noscript>
+<polymer-element name="cp-toolbar" attributes="toolbarSelect">
 <template>
   <link rel="stylesheet" href="cp-toolbar.css">
   <core-toolbar id="toolbar">
-    <div id="brand" flex><a id="home" href="/#/">coinport</a></div>
-    <cp-toolbar-button hash="/market"   active="[[toolbarSelect === '/market']]" label="Markets" icon="swap-horiz"></cp-toolbar-button>
-    <cp-toolbar-button hash="/reserves"  active="[[toolbarSelect === '/reserves']]" label="Reserves" icon="verified-user"></cp-toolbar-button>
-    <cp-toolbar-button hash="/account"  active="[[toolbarSelect === '/account']]" label="My Account" icon="account-circle"></cp-toolbar-button>
+    <div id="brand" flex><a id="home" href="/#/">{{M.coinport}}</a></div>
+    <cp-toolbar-button hash="/market"   active="[[toolbarSelect === '/market']]" label="{{M.markets}}" icon="swap-horiz"></cp-toolbar-button>
+    <cp-toolbar-button hash="/reserves"  active="[[toolbarSelect === '/reserves']]" label="{{M.reserves}}" icon="verified-user"></cp-toolbar-button>
+    <cp-toolbar-button hash="/account"  active="[[toolbarSelect === '/account']]" label="{{M.myAccount}}" icon="account-circle"></cp-toolbar-button>
   </core-toolbar>
 </template>
+ <script src="cp-toolbar.js"></script>
 </polymer-element>
