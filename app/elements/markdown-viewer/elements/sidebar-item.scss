@@ -2,7 +2,7 @@
 :host(:hover) {
     #item {
         color: color($C1, 500);
-        background: color($C2, a700);
+        background: color($C2, 700);
     }
 }
 :host([active]) {

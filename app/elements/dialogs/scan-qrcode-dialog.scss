@@ -10,14 +10,14 @@
         padding: 0 10px;
         color: $black2;
         a {
-            color: color($C2, a700);
+            color: color($C2, 700);
             text-decoration: none;
             &:hover {
-                color: color($C2, a700);
+                color: color($C2, 700);
             }
         }
         #tag {
-            color: color($C2, a700);
+            color: color($C2, 700);
         }
     }
 }

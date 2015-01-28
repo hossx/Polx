@@ -14,11 +14,7 @@ a {
 }
 #box {
     padding: 20px;
-    background: $white2;
-    transition: background 420ms ease-in-out;
-    &:hover {
-        background: color($C2, 50);
-    }
+    background: $white1;
 }
 #head {
     color: $black1;

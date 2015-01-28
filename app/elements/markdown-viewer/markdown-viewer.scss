@@ -1,5 +1,11 @@
 @import "../_colors";
+@import "../_common";
 @import "_markdown";
+
+#footer {
+    @include has-grey-link();
+}
+
 core-header-panel[main] {
     background: white;
 }

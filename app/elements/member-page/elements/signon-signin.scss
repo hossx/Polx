@@ -40,11 +40,11 @@
         a {
             color: $black1;
             &:hover {
-                color: color($C2, a700);
+                color: color($C2, 700);
             }
         }
         .checkbox {
-            color: color($C2, a700);
+            color: color($C2, 700);
             padding-right: 10px;
             &::shadow {
                 #ink[checked] {
@@ -73,12 +73,12 @@
     .action {
         padding: 40px 35px 0 35px;
         paper-button {
-            background: color($C2, a700);
-            border: solid 1px color($C2, a700);
+            background: color($C2, 700);
+            border: solid 1px color($C2, 700);
             transition: background 420ms ease-in-out;
             color: white;
             &:hover {
-                background: color($C2, a700);
+                background: color($C2, 700);
             }
             &[disabled] {
                 opacity: 0.5;
@@ -98,13 +98,13 @@
     paper-button {
         text-transform: None;
         &:hover {
-            color: color($C2, a700);
+            color: color($C2, 700);
         }
         &.highlight {
             transition: color 200ms ease-in-out;
             color: color($C3, a400);
             &:hover {
-                color: color($C2, a700);
+                color: color($C2, 700);
             }
         }
     }
@@ -114,7 +114,7 @@
     color: white;
     $placeholder-color: $white1;
     &[focused] {
-        color: color($C2, a700);
+        color: color($C2, 700);
     }
     /deep/::-webkit-input-placeholder {
         color: $placeholder-color;
@@ -136,7 +136,7 @@
         font-size: 13px;
     }
     /deep/ .focused-underline {
-        background-color: color($C2, a700);
+        background-color: color($C2, 700);
     }
     &[focused] /deep/ {
         .floated-label .label-text {

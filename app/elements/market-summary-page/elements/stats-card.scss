@@ -13,11 +13,7 @@ a {
     }
 }
 #box {
-    background: $white2;
-    transition: background 420ms ease-in-out;
-    &:hover {
-        background: color($C2, 50);
-    }
+    background: $white1;
     padding: 20px;
 }
 cp-coinport-icon {
@@ -72,7 +68,7 @@ cp-coinport-icon {
             font-size: 28px;
             font-weight: 100;
             text-align: center;
-            color: color($C1, 500);
+            color: color($C2, 700);
         }
         &:after {
             content: "";

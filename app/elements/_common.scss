@@ -1,10 +1,20 @@
 @import "_colors";
+@mixin has-white-link() {
+    a {
+        color: $white2;
+        text-decoration: none;
+        &:hover {
+            color: color($C2, 500);
+            text-decoration: underline;
+        }
+    }
+}
 @mixin has-grey-link() {
     a {
         color: $black2;
         text-decoration: none;
         &:hover {
-            color: color($C1, 500);
+            color: color($C2, 500);
             text-decoration: underline;
         }
     }
@@ -38,16 +48,17 @@
         font-weight: 500;
     }
     tr {
-        &:nth-child(even) {
-            background-color: $magic-grey;
-        }
+        //&:nth-child(even) {
+        //    background-color: $black4;
+        //}
+        border-bottom: 1px solid color($C1, 50);
     }
     td, th {
         padding: 10px;
     }
     tbody {
         tr:hover {
-            background: color($C2, a100);
+            background: color($C1, 50);
         }
     }
 }
