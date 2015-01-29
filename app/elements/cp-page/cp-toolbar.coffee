@@ -6,7 +6,7 @@ Polymer 'cp-toolbar',
       coinport: "coinport"
       markets: "Markets"
       reserves: "Reserves"
-      myAccount: "My Account"
+      myAccount: "Account"
 
     'zh':
       coinport: "币丰港"

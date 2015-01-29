@@ -1,5 +1,5 @@
 @import "../_colors";
-
+@import "../_common";
 :host {
     box-sizing: border-box;
 }
@@ -9,20 +9,7 @@
     background: color($C1, 500);
 }
 #toolbar {
-    background: white;
-    color: color($C1, 500);
-    paper-icon-button, core-icon-button {
-        color: color($C1, 500);
-        &[active] {
-            color: color($C2, a700);
-        }
-    }
-    paper-icon-button:hover, core-icon-button:hover {
-        color: color($C2, a700);
-    }
-    a {
-        height: 40px;
-    }
+    @include config-toolbar();
 }
 #label {
     color: color($C1, 700);

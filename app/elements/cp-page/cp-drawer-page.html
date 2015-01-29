@@ -9,6 +9,7 @@
 <link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html">
 <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../cp-icons/crypto-icons.html">
 <link rel="import" href="../cp-footer/cp-footer.html">
 
@@ -30,10 +31,9 @@
           <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
           <div flex id="label">{{label}}</div>
           <template repeat="{{button,idx in buttons}}">
-            <core-tooltip label="{{button[1]}}">
-              <core-icon-button class="btn" idx="{{idx}}" active?="{{page == idx}}" on-tap="{{switchPage}}" icon="{{button[0]}}">
-              </core-icon-button>
-            </core-tooltip>
+              <paper-button class="btn" idx="{{idx}}" active?="{{page == idx}}" on-tap="{{switchPage}}">
+              {{button[1]}}
+              </paper-button>
           </template>
         </core-toolbar>
 
