@@ -1,8 +1,18 @@
+@import "../_colors";
+
 :host {
     width: 100%;
     display: inline-block;
-    text-align: right;
 }
 :host-context(.bold) {
     font-weight: 700;
+}
+#p1 {
+    padding: 0;
+    text-align: right;
+}
+#p2 {
+    padding: 0;
+    text-align: left;
+    color: $black3;
 }
