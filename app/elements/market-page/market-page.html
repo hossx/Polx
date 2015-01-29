@@ -3,27 +3,27 @@
 <link rel="import" href="../cp-page/cp-drawer-page.html">
 <link rel="import" href="elements/market-sidebar.html">
 <link rel="import" href="trade-subpage/trade-subpage.html">
-<link rel="import" href="kchart-subpage/kchart-subpage.html">
-<link rel="import" href="recent-txs-subpage/recent-txs-subpage.html">
+<link rel="import" href="trend-subpage/trend-subpage.html">
+<link rel="import" href="trade-history-subpage/trade-history-subpage.html">
 <link rel="import" href="orderbook-subpage/orderbook-subpage.html">
 
 <polymer-element name="market-page" attributes="marketId,page">
   <template>
     <link rel="stylesheet" href="market-page.css">
 
-    <cp-drawer-page class="blue" backlink="/#/market" label="{{market.name}}" page="{{page}}" buttons="{{buttons}}">
+    <cp-drawer-page class="blue" backlink="/#/markets" label="{{market.name}}" page="{{page}}" buttons="{{buttons}}">
       <market-sidebar id="sidebar" marketId="{{marketId}}"></market-sidebar>
       <section>
-        <trade-subpage market="{{market}}" active="{{page == 0}}" fit></trade-subpage>
+        <trend-subpage market="{{market}}" active="{{page == 1}}" fit></trend-subpage>
       </section>
       <section>
-        <kchart-subpage market="{{market}}" active="{{page == 1}}" fit></kchart-subpage>
+        <trade-subpage market="{{market}}" active="{{page == 0}}" fit></trade-subpage>
       </section>
       <section>
         <orderbook-subpage market="{{market}}" active="{{page == 2}}" fit></orderbook-subpage>
       </section>
       <section>
-        <recent-txs-subpage market="{{market}}" active="{{page == 3}}" fit></recent-txs-subpage>
+        <trade-history-subpage market="{{market}}" active="{{page == 3}}" fit></trade-history-subpage>
       </section>
     </cp-drawer-page>
   </template>

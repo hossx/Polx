@@ -3,11 +3,11 @@
 Polymer 'reserve-card-group',
   msgMap:
     'en':
-      reserveStats: "Reserve Stats"
+      reserveStats: "Currency Reserves"
       refresh: "Refersh every %s seconds"
 
     'zh':
-      reserveStats: "准备金统计"
+      reserveStats: "货币准备金统计"
       refresh: "每%s秒刷新一次"
 
   refreshFormatter: (v) -> @msgMap[window.lang].refresh.format(v)

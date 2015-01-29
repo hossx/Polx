@@ -1,7 +1,7 @@
 'use strict'
 
 # bids and asks are array of {price:price, quantity:quantity, accumulated:accumulated}
-Polymer 'kchart-subpage',
+Polymer 'trend-subpage',
   msgMap:
     'en':
       priceChart: "Price Chart"

@@ -5,14 +5,14 @@ Polymer 'cp-toolbar',
     'en':
       coinport: "coinport"
       markets: "Markets"
-      reserves: "Reserves"
+      currencies: "Currencies"
       myAccount: "Account"
 
     'zh':
       coinport: "币丰港"
-      markets: "交易市场"
-      reserves: "准备金"
-      myAccount: "我的账号"
+      markets: "市场"
+      currencies: "货币"
+      myAccount: "账号"
 
   ready: () ->
     @M = @msgMap[window.lang]

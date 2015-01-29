@@ -4,12 +4,12 @@
 <link rel="import" href="../cp-footer/cp-footer.html">
 <link rel="import" href="elements/stats-card-group.html">
 
-<polymer-element name="market-summary-page">
+<polymer-element name="markets-page">
   <template>
-    <link rel="stylesheet" href="market-summary-page.css">
+    <link rel="stylesheet" href="markets-page.css">
 
     <cp-media-query smallup="{{smallup}}"></cp-media-query>
-    <cp-page class="blue" has-toolbar has-footer toolbarSelect="/market">
+    <cp-page class="blue" has-toolbar has-footer toolbarSelect="/markets">
       <template repeat="{{coin in marketGroupKeys}}">
         <stats-card-group currency="{{config.currencies[coin]}}" smallup="{{smallup}}"></stats-card-group>
       </template>
@@ -17,5 +17,5 @@
 
   </template>
 
-  <script src="market-summary-page.js"></script>
+  <script src="markets-page.js"></script>
 </polymer-element>

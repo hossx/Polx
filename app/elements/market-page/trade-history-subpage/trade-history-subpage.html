@@ -5,9 +5,9 @@
 <link rel="import" href="../../charts/tradingrecords-chart/tradingrecords-chart.html">
 
 <link rel="import" href="../../section-group/section-group.html">
-<polymer-element name="recent-txs-subpage" attributes="market,active" vertical layout>
+<polymer-element name="trade-history-subpage" attributes="market,active" vertical layout>
   <template>
-    <link rel="stylesheet" href="recent-txs-subpage.css">
+    <link rel="stylesheet" href="trade-history-subpage.css">
 
     <core-ajax url="{{transactionsUrl}}" handleAs="json" response="{{response}}" auto></core-ajax>
 
@@ -54,5 +54,5 @@
       </paper-shadow>
     </section-group>
   </template>
-  <script src="recent-txs-subpage.js"></script>
+  <script src="trade-history-subpage.js"></script>
 </polymer-element>

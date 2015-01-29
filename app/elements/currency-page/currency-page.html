@@ -10,7 +10,7 @@
   <template>
     <link rel="stylesheet" href="currency-page.css">
 
-    <cp-drawer-page has-footer backlink="/#/reserves" label="{{currency.fullName}}" buttons="{{buttons}}" page="{{page}}">
+    <cp-drawer-page has-footer backlink="/#/currencies" label="{{currency.fullName}}" buttons="{{buttons}}" page="{{page}}">
       <currency-sidebar id="sidebar" currencyId="{{currencyId}}"></currency-sidebar>
       <section>
         <about-subpage currency="{{currency}}" active="{{page == 0}}" fit></about-subpage>

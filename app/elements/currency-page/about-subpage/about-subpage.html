@@ -42,18 +42,6 @@
         </div>
       </paper-shadow>
 
-      <core-ajax url="{{wikiFile}}" response="{{wiki}}" auto></core-ajax>
-      <template if="{{wikiLinted !== ''}}">
-        <paper-shadow>
-          <div label>
-            <h2>{{M.about}} {{currency.name}}</h2>
-          </div>
-          <div>
-            <marked-element id="marked" text="{{wikiLinted}}"></marked-element>
-          </div>
-        </paper-shadow>
-      </template>
-
       <template if="{{showWeibo}}">
         <paper-shadow>
           <div label>
@@ -72,6 +60,18 @@
           </div>
           <div>
             <tweet-wall currency="{{currency}}"></tweet-wall>
+          </div>
+        </paper-shadow>
+      </template>
+
+      <core-ajax url="{{wikiFile}}" response="{{wiki}}" auto></core-ajax>
+      <template if="{{wikiLinted !== ''}}">
+        <paper-shadow>
+          <div label>
+            <h2>{{M.about}} {{currency.name}}</h2>
+          </div>
+          <div>
+            <marked-element id="marked" text="{{wikiLinted}}"></marked-element>
           </div>
         </paper-shadow>
       </template>

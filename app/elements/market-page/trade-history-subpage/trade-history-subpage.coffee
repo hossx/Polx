@@ -1,7 +1,7 @@
 'use strict'
 
 # records are an array of {timestamp, isSell, price, quantity, total, typeClass, typeLabel}
-Polymer 'recent-txs-subpage',
+Polymer 'trade-history-subpage',
   msgMap:
     'en':
       chart: "Taker Type Chart"

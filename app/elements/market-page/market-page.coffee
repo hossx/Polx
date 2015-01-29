@@ -5,20 +5,20 @@ Polymer 'market-page',
     'en':
       trade: "Trade"
       trend: "Trend"
-      orderBook: "OrderBook"
-      history: "History Data"
+      orderBook: "Order Book"
+      history: "Trade History"
 
     'zh':
       trade: "交易"
       trend: "趋势"
-      orderBook: "现有订单"
-      history: "历史数据"
+      orderBook: "深度"
+      history: "历史成交"
 
-  page: 1
+  page: 0
 
   ready: () ->
     @M = @msgMap[window.lang]
-    @buttons = [['swap-horiz', @M.trade],['trending-up', @M.trend],['list',@M.orderBook],['history', @M.history]]
+    @buttons = [@M.trend, @M.trade, @M.orderBook, @M.history]
     @marketId = ''
     @market = null
     @config = window.config

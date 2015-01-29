@@ -32,7 +32,7 @@
           <div flex id="label">{{label}}</div>
           <template repeat="{{button,idx in buttons}}">
               <paper-button class="btn" idx="{{idx}}" active?="{{page == idx}}" on-tap="{{switchPage}}">
-              {{button[1]}}
+              {{button}}
               </paper-button>
           </template>
         </core-toolbar>
