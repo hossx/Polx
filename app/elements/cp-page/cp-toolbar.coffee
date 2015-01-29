@@ -3,7 +3,7 @@
 Polymer 'cp-toolbar',
   msgMap:
     'en':
-      coinport: "coinport"
+      coinport: "Coinport Exchange"
       markets: "Markets"
       currencies: "Currencies"
       myAccount: "Account"

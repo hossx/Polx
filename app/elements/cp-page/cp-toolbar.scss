@@ -10,5 +10,5 @@
 #toolbar {
     width: 100%;
     color: color($C1, 500);
-@include config-toolbar();
+    @include config-toolbar();
 }

@@ -1,7 +1,7 @@
 'use strict'
 
 # records are an array of {timestamp, isSell, price, quantity, total, typeClass, typeLabel}
-Polymer 'tradingrecords-chart',
+Polymer 'trade-history-chart',
   msgMap:
     'en':
       pointFormat: 'Quantity: {point.z}<br/>Price: {point.y}'

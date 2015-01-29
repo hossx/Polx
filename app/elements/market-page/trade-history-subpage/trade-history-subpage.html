@@ -2,7 +2,7 @@
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
 <link rel="import" href="../../nice-number/nice-number.html">
-<link rel="import" href="../../charts/tradingrecords-chart/tradingrecords-chart.html">
+<link rel="import" href="../../charts/trade-history-chart/trade-history-chart.html">
 
 <link rel="import" href="../../section-group/section-group.html">
 <polymer-element name="trade-history-subpage" attributes="market,active" vertical layout>
@@ -15,7 +15,7 @@
       <paper-shadow>
         <div label><h2>{{market.id}} {{M.chart}}</h2></div>
         <div class="card" vertical center layout>
-          <tradingrecords-chart market="{{market}}" width="720" records="{{records}}"></tradingrecords-chart>
+          <trade-history-chart market="{{market}}" width="720" records="{{records}}"></trade-history-chart>
         </div>
       </paper-shadow>
 
