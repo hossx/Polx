@@ -18,7 +18,7 @@ Polymer 'market-page',
 
   ready: () ->
     @M = @msgMap[window.lang]
-    @buttons = [@M.trend, @M.trade, @M.orderBook, @M.history]
+    @buttons = [['swap-horiz', @M.trade],['trending-up', @M.trend],['list',@M.orderBook],['history', @M.history]]
     @marketId = ''
     @market = null
     @config = window.config

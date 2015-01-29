@@ -15,7 +15,7 @@ Polymer 'currency-page',
 
   ready: () ->
     @M = @msgMap[window.lang]
-    @buttons = [@M.about, @M.reserves, @M.history]
+    @buttons = [['info', @M.about], ['verified-user', @M.reserves], ['cloud-download', @M.history]]
     @currencyId = ''
     @currency = null
     @config = window.config
