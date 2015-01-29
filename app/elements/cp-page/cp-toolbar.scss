@@ -11,4 +11,10 @@
     width: 100%;
     color: color($C1, 500);
     @include config-toolbar();
+    #home {
+        font-size: 15px;
+        text-transform: none;
+        color: color($C1, 500);
+        text-decoration: none;
+    }
 }

@@ -4,12 +4,12 @@
 Polymer 'depth-chart',
   msgMap:
     'en':
-      pointFormat: 'Quantity: {point.y:.2f}'
+      pointFormat: 'Quantity: {point.y:.8f}'
       buy: "Buy"
       sell: "Sell"
 
     'zh':
-      pointFormat: '数量: {point.y:.2f}'
+      pointFormat: '数量: {point.y:.8f}'
       buy: "买单"
       sell: "卖单"
 
