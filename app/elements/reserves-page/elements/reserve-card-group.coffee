@@ -7,7 +7,7 @@ Polymer 'reserve-card-group',
       refresh: "Refersh every %s seconds"
 
     'zh':
-      reserveStats: "保证金统计"
+      reserveStats: "准备金统计"
       refresh: "每%s秒刷新一次"
 
   refreshFormatter: (v) -> @msgMap[window.lang].refresh.format(v)

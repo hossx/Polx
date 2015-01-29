@@ -10,7 +10,7 @@ Polymer 'reserve-card',
       shortage: "Shortage"
 
     'zh':
-      reserveRatio: "保证金比例"
+      reserveRatio: "准备金比例"
       hotWallet: "热钱包"
       coldWallet: "冷钱包"
       userWallet: "用户钱包"

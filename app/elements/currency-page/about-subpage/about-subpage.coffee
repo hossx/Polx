@@ -5,7 +5,7 @@ Polymer 'about-subpage',
     'en':
       trend: "Price Trend"
       about: "About"
-      buzz: "Buzz"
+      buzz: "Tweets"
 
     'zh':
       trend: "价格走势"
@@ -20,6 +20,8 @@ Polymer 'about-subpage',
   wiki: ''
   wikiLinted: ''
   markets: []
+  showTweets: false
+  showWeibo: false
 
   wikiChanged: (o, n) ->
     prefix = "coinport:wiki\n"
@@ -29,6 +31,17 @@ Polymer 'about-subpage',
   currencyChanged: (o, n) ->
     @markets =[]
     if @currency
+      if window.lang == "zh"
+        @showWeibo = true
+      else
+        @showWeibo = false
+
+      if window.lang == "en" and @currency.json.twitterWidgetId
+        @showTweets = true
+      else
+        @showTweets = false
+
+
       @wikiFile = "../markdown/currencies/%s/%s.md".format(window.lang, @currency.id)
       for k, m of window.config.markets
         if m.currency.id == @currency.id

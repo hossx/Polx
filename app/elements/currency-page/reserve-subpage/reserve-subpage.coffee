@@ -13,7 +13,7 @@ Polymer 'reserve-subpage',
       cold: "Cold"
 
     'zh':
-      reserveDetails: '保证金详情'
+      reserveDetails: '准备金详情'
       address: '地址'
       balance: '余额'
       label: '类型'
@@ -24,7 +24,6 @@ Polymer 'reserve-subpage',
 
   ready: () ->
     @M = @msgMap[window.lang]
-    console.log(@M)
 
   wiki: ''
   wikiLinted: ''

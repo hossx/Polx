@@ -8,6 +8,7 @@
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../charts/candlestick-chart/candlestick-chart.html">
 <link rel="import" href="../../weibo-wall/weibo-wall.html">
+<link rel="import" href="../../tweet-wall/tweet-wall.html">
 
 <polymer-element name="about-subpage" attributes="currency" flex>
   <template>
@@ -15,7 +16,9 @@
 
     <section-group has-footer>
       <paper-shadow>
-        <div label><h2>{{M.trend}}</h2></div>
+        <div label>
+          <h2>{{M.trend}}</h2>
+        </div>
         <div>
           <template if="{{markets.length > 1}}">
             <paper-tabs id="market-tabs" selected="{{tab}}">
@@ -42,19 +45,36 @@
       <core-ajax url="{{wikiFile}}" response="{{wiki}}" auto></core-ajax>
       <template if="{{wikiLinted !== ''}}">
         <paper-shadow>
-          <div label><h2>{{M.about}} {{currency.name}}</h2></div>
+          <div label>
+            <h2>{{M.about}} {{currency.name}}</h2>
+          </div>
           <div>
             <marked-element id="marked" text="{{wikiLinted}}"></marked-element>
           </div>
         </paper-shadow>
       </template>
 
-      <paper-shadow>
-        <div label><h2>{{M.buzz}}</h2></div>
-        <div>
-          <weibo-wall currency="{{currency}}"></weibo-wall>
-        </div>
-      </paper-shadow>
+      <template if="{{showWeibo}}">
+        <paper-shadow>
+          <div label>
+            <h2>{{M.buzz}}</h2>
+          </div>
+          <div>
+            <weibo-wall currency="{{currency}}"></weibo-wall>
+          </div>
+        </paper-shadow>
+      </template>
+
+      <template if="{{showTweets}}">
+        <paper-shadow>
+          <div label>
+            <h2>{{M.buzz}}</h2>
+          </div>
+          <div>
+            <tweet-wall currency="{{currency}}"></tweet-wall>
+          </div>
+        </paper-shadow>
+      </template>
 
     </section-group>
   </template>

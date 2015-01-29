@@ -1,7 +1,7 @@
 {
   "currencies": {
     "CNY": {
-      "name": "人民币",
+      "name": "Chinese Yuan",
       "color": "red",
       "notCripto": true,
       "fee": {
@@ -14,10 +14,11 @@
           "p": 0.1
         }
       },
-      "tags": "人民币"
+      "tags": "人民币",
+      "twitterWidgetId": "560699182839640064"
     },
     "BTC": {
-      "name": "比特币",
+      "name": "Bitcoin",
       "color": "blue",
       "fee": {
         "deposit": {
@@ -29,10 +30,11 @@
           "p": 0.1
         }
       },
-      "tags": "比特币,Bitcoin,BTC"
+      "tags": "比特币,Bitcoin,BTC",
+      "twitterWidgetId": "560618532224765952"
     },
     "LTC": {
-      "name": "莱特币",
+      "name": "Litecoin",
       "color": "#f2f000",
       "officialSite": "http://litcoin.org",
       "fee": {
@@ -49,40 +51,49 @@
         "addr": "https://ltbrowser/addr/%s",
         "tx": "https://ltbrowser/addr/%s"
       },
-      "tags": "莱特币,Litecoin,LTC"
+      "tags": "莱特币,Litecoin,LTC",
+      "twitterWidgetId": "560699428831375361"
     },
     "BTSX": {
-      "name": "比特股",
-      "tags": "比特股,Bitshare,BitsharesX,BTS"
+      "name": "Bitshares",
+      "tags": "比特股,Bitshare,BitsharesX,BTS",
+      "twitterWidgetId": "560707192261980160"
     },
     "DOGE": {
-      "name": "狗币",
-      "tags": "狗币,Dogecoin"
+      "name": "Dogecoin",
+      "tags": "狗币,Dogecoin",
+      "twitterWidgetId": "560706157569134593"
     },
     "BC": {
-      "name": "黑比",
-      "tags": "黑币,Blackcoin"
+      "name": "Blackcoin",
+      "tags": "黑币,Blackcoin",
+      "twitterWidgetId": "560705827766804480"
     },
     "DRK": {
-      "name": "暗黑币",
-      "tags": "暗黑币,<Darkcoin></Darkcoin>"
+      "name": "Darkcoin",
+      "tags": "暗黑币,<Darkcoin></Darkcoin>",
+      "twitterWidgetId": "560705595456909312"
     },
     "VRC": {
-      "name": "VRCCoin"
+      "name": "VeriCoin",
+      "twitterWidgetId": "560706527330590720"
     },
     "ZET": {
-      "name": "泽塔币"
+      "name": "Zetacoin",
+      "twitterWidgetId": "560706759963475968"
     },
     "NXT": {
-      "name": "NextCoin"
+      "name": "NextCoin",
+      "twitterWidgetId": "560706898450972672"
     },
     "XRP": {
-      "name": "瑞波币",
-      "tags": "瑞波币,Ripple,XRP"
+      "name": "Ripple",
+      "tags": "瑞波币,Ripple,XRP",
+      "twitterWidgetId": "560707081905639424"
     },
     "GOOC": {
       "notCripto": true,
-      "name": "谷壳币",
+      "name": "谷壳宝",
       "tags": "谷壳币,谷壳宝"
     }
   },
@@ -200,28 +211,28 @@
   },
   "documents": {
     "tos": {
-      "label": "服务条款",
-      "tags": ["法律"]
+      "label": "Terms of Service",
+      "tags": ["legal"]
     },
     "privacy": {
-      "label": "隐私政策",
-      "tags": ["法律"]
+      "label": "Privacy Policies",
+      "tags": ["legal"]
     },
     "aml": {
-      "label": "反洗钱",
-      "tags": ["法律"]
+      "label": "AML Policies",
+      "tags": ["legal"]
     },
     "jobs": {
-      "label": "工作机会",
-      "tags": ["关于"]
+      "label": "Jobs",
+      "tags": ["about"]
     },
     "team": {
-      "label": "团队",
-      "tags": ["关于"]
+      "label": "Team",
+      "tags": ["about"]
     },
     "contactus": {
-      "label": "联系我们",
-      "tags": ["关于"]
+      "label": "Contact Us",
+      "tags": ["about"]
     },
     "dong": {
       "label": "Daniel's Developer Notes",
@@ -229,7 +240,7 @@
     },
     "api2": {
       "label": "币丰港交易所API",
-      "tags": ["开发者"]
+      "tags": ["developer"]
     },
     "cny-deposit-thru-ripple-gateways": {
       "label": "CNY Deposit Through Ripple Gateways",

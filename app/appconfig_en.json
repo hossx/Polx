@@ -14,7 +14,8 @@
           "p": 0.1
         }
       },
-      "tags": "人民币"
+      "tags": "人民币",
+      "twitterWidgetId": "560699182839640064"
     },
     "BTC": {
       "name": "Bitcoin",
@@ -29,7 +30,8 @@
           "p": 0.1
         }
       },
-      "tags": "比特币,Bitcoin,BTC"
+      "tags": "比特币,Bitcoin,BTC",
+      "twitterWidgetId": "560618532224765952"
     },
     "LTC": {
       "name": "Litecoin",
@@ -49,36 +51,45 @@
         "addr": "https://ltbrowser/addr/%s",
         "tx": "https://ltbrowser/addr/%s"
       },
-      "tags": "莱特币,Litecoin,LTC"
+      "tags": "莱特币,Litecoin,LTC",
+      "twitterWidgetId": "560699428831375361"
     },
     "BTSX": {
       "name": "Bitshares",
-      "tags": "比特股,Bitshare,BitsharesX,BTS"
+      "tags": "比特股,Bitshare,BitsharesX,BTS",
+      "twitterWidgetId": "560707192261980160"
     },
     "DOGE": {
       "name": "Dogecoin",
-      "tags": "狗币,Dogecoin"
+      "tags": "狗币,Dogecoin",
+      "twitterWidgetId": "560706157569134593"
     },
     "BC": {
       "name": "Blackcoin",
-      "tags": "黑币,Blackcoin"
+      "tags": "黑币,Blackcoin",
+      "twitterWidgetId": "560705827766804480"
     },
     "DRK": {
       "name": "Darkcoin",
-      "tags": "暗黑币,<Darkcoin></Darkcoin>"
+      "tags": "暗黑币,<Darkcoin></Darkcoin>",
+      "twitterWidgetId": "560705595456909312"
     },
     "VRC": {
-      "name": "VRCCoin"
+      "name": "VeriCoin",
+      "twitterWidgetId": "560706527330590720"
     },
     "ZET": {
-      "name": "Zetacoin"
+      "name": "Zetacoin",
+      "twitterWidgetId": "560706759963475968"
     },
     "NXT": {
-      "name": "NextCoin"
+      "name": "NextCoin",
+      "twitterWidgetId": "560706898450972672"
     },
     "XRP": {
       "name": "Ripple",
-      "tags": "瑞波币,Ripple,XRP"
+      "tags": "瑞波币,Ripple,XRP",
+      "twitterWidgetId": "560707081905639424"
     },
     "GOOC": {
       "notCripto": true,

@@ -1,0 +1,10 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<polymer-element name="tweet-wall" attributes="height,currency">
+  <template>
+    <link rel="stylesheet" href="tweet-wall.css">
+    <iframe width="100%" height="{{height}}" frameborder="0" scrolling="no"
+    srcdoc="{{content}}"></iframe>
+  </template>
+  <script src="tweet-wall.js"></script>
+</polymer-element>

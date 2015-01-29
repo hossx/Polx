@@ -11,7 +11,7 @@ Polymer 'cp-toolbar',
     'zh':
       coinport: "币丰港"
       markets: "交易市场"
-      reserves: "保证金"
+      reserves: "准备金"
       myAccount: "我的账号"
 
   ready: () ->
