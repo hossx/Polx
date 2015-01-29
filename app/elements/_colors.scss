@@ -316,6 +316,7 @@ $grey: (
 );
 
 $blue-grey: (
+  hue:  350,
   50:   #eceff1,
   100:  #cfd8dc,
   200:  #b0bec5,
@@ -327,6 +328,16 @@ $blue-grey: (
   800:  #37474f,
   900:  #263238
 );
+
+@function mutate($map, $hue, $satu:0, $desatu:0) {
+  $result: ();
+  @each $k, $v in $map {
+    $color: desaturate(saturate(adjust-hue($v, $hue), $satu), $desatu);
+    $new: ($k: $color);
+    $result: map-merge($result, $new);
+  }
+  @return $result;
+}
 
 $steel: (
   50:   rgb(229, 230, 231),
@@ -370,8 +381,8 @@ $ice: (
 
 
 // color palette
-$C1: $blue-grey;
-$C2: $amber;
+$C1: mutate($brown, 205, 0, 15);
+$C2: $cyan;
 $C3: $red;
 
 
