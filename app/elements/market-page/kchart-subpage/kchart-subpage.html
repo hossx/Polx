@@ -16,12 +16,27 @@
         </div>
       </paper-shadow>
 
-      <paper-shadow>
-        <div label><h2>{{M.buzz}}</h2></div>
-        <div>
-          <weibo-wall currency="{{market.currency}}"></weibo-wall>
-        </div>
-      </paper-shadow>
+      <template if="{{showWeibo}}">
+        <paper-shadow>
+          <div label>
+            <h2>{{M.buzz}}</h2>
+          </div>
+          <div>
+            <weibo-wall currency="{{currency}}"></weibo-wall>
+          </div>
+        </paper-shadow>
+      </template>
+
+      <template if="{{showTweets}}">
+        <paper-shadow>
+          <div label>
+            <h2>{{M.buzz}}</h2>
+          </div>
+          <div>
+            <tweet-wall currency="{{currency}}"></tweet-wall>
+          </div>
+        </paper-shadow>
+      </template>
     </section-group>
 
   </template>
