@@ -9,7 +9,7 @@
             color: white;
         }
         #selectionBar {
-            background-color: color($C2, 700);
+            background-color: color($C2, a700);
         }
     }
     >paper-tab::shadow #ink {
@@ -17,7 +17,7 @@
     }
 }
 #pages {
-    background: color($C1, 500);
+    background: color($C1, 400);
     core-menu {
         color: white;
     }

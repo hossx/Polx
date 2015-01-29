@@ -1,7 +1,7 @@
 @import "../_colors";
 @mixin config-color($color) {
     #toolbar {
-        background: white;
+        background: color($color, 600);
     }
 }
 //
@@ -11,9 +11,9 @@
 }
 #toolbar {
     width: 100%;
-    color: color($C1, 500);
+    color: white;
     a#home {
-        color: color($C1, 500);
+        color: white;
         text-decoration: none;
     }
 }

@@ -3,13 +3,10 @@
     box-sizing: border-box;
 }
 a {
-    color: color($C1, 500);
+    color: white;
     &:hover {
         core-icon-button {
-            color: color($C2, 500);
-        }
-        core-icon-button[active] {
-            color: color($C2, 500);
+            color: color($C2, a700);
         }
     }
 }

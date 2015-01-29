@@ -12,11 +12,11 @@
     <div id="main" flex>
       <div id="loading" flex vertical center center-justified layout>
         <paper-spinner active></paper-spinner>
-        Loading ...
+       {{M.loading}}
       </div>
       <div id="error" hide flex vertical center center-justified layout>
         <core-icon icon="error"></core-icon>
-        <div class="error">Failed to load configurations!</div>
+        <div class="error">{{M.error}}</div>
         <div>(Please check your network connection.)</div>
       </div>
     </div>

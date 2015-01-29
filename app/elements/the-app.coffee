@@ -49,9 +49,21 @@ class Market
         ''
 
 Polymer 'the-app',
+  msgMap:
+    'en':
+      loading: "Loading..."
+      error: "Failed to load configurations!"
+      errorComment: "(Please check your network connection.)"
+
+    'zh':
+      loading: "加载中..."
+      error: "无法加载应用配置！"
+      errorComment: "（请检查网络连接）"
+
   route: ""
 
   ready: () ->
+    @M = @msgMap[window.lang]
     @configFile = "../appconfig_" + window.lang + ".json"
 
   onConfigLoaded: (event, data) ->

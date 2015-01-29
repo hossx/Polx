@@ -22,6 +22,15 @@ core-header-panel[main] {
 }
 #toolbar {
     color: white;
+    paper-icon-button, core-icon-button {
+        color: white;
+    }
+    paper-icon-button:hover, core-icon-button:hover {
+        color: color($C2, a700);
+    }
+    a {
+        height: 40px;
+    }
 }
 #drawer-toolbar {
     color: $white2;

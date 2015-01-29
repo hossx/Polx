@@ -4,7 +4,7 @@
         color: $white2;
         text-decoration: none;
         &:hover {
-            color: color($C2, 500);
+            color: color($C2, a700);
             text-decoration: underline;
         }
     }
@@ -14,7 +14,7 @@
         color: $black2;
         text-decoration: none;
         &:hover {
-            color: color($C2, 500);
+            color: color($C1, 700);
             text-decoration: underline;
         }
     }
