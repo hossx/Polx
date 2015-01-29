@@ -1,29 +1,21 @@
 @import "../_colors";
-//
-@mixin config-color($color) {
-    #drawer {
-        background: color($color, 500);
-    }
-    #toolbar {
-        background: color($color, 600);
-    }
-    #nav-tabs {
-        background: color($color, 600);
-    }
-}
-//
+
 :host {
     box-sizing: border-box;
-    @include config-color($C1);
 }
 //
 #drawer {
     padding: 0;
+    background: color($C1, 500);
 }
 #toolbar {
-    color: white;
+    background: white;
+    color: color($C1, 500);
     paper-icon-button, core-icon-button {
-        color: white;
+        color: color($C1, 500);
+        &[active] {
+            color: color($C2, a700);
+        }
     }
     paper-icon-button:hover, core-icon-button:hover {
         color: color($C2, a700);
@@ -33,7 +25,7 @@
     }
 }
 #label {
-    color: $white1;
+    color: color($C1, 700);
     font-weight: 700;
 }
 .btn {
@@ -43,6 +35,7 @@
     padding-bottom: 200px;
 }
 #nav-tabs {
+    background: color($C1, 600);
     width: 100%;
     color: white;
     position: absolute;
@@ -55,7 +48,7 @@
             color: white;
         }
         #selectionBar {
-            background-color: white;
+            background-color: color($C2, a700);
         }
     }
 }

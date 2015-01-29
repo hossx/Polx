@@ -1,7 +1,7 @@
 @import "../../../_colors";
 @mixin config($color) {
     :host {
-        border-top: solid 2px $color;
+        //border-top: solid 2px $color;
         display: block;
         height: 100%;
     }

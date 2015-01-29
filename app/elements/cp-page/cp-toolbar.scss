@@ -1,19 +1,16 @@
 @import "../_colors";
-@mixin config-color($color) {
-    #toolbar {
-        background: color($color, 600);
-    }
-}
 //
 :host {
     box-sizing: border-box;
-    @include config-color($C1);
+    #toolbar {
+        background: white;
+    }
 }
 #toolbar {
     width: 100%;
-    color: white;
+    color: color($C1, 500);
     a#home {
-        color: white;
+        color: color($C1, 500);
         text-decoration: none;
     }
 }
