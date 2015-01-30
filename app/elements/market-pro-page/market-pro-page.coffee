@@ -26,6 +26,7 @@ Polymer 'market-pro-page',
       lastPrice: "Last Price"
       volume: "24H Volume"
       change: "24H Change"
+      spread: "Spread"
 
     'zh':
       availableBalance: "可用余额"
@@ -51,6 +52,7 @@ Polymer 'market-pro-page',
       lastPrice: "最新成交价"
       volume: "24小时总成交量"
       change: "24小时价格变化"
+      spread: "买卖价差"
 
   ready: () ->
     @M = @msgMap[window.lang]
@@ -60,6 +62,7 @@ Polymer 'market-pro-page',
     @asks = []
     @bidsReverse = []
     @tradeHistory = []
+    @spread = 0
 
 
 
@@ -123,6 +126,11 @@ Polymer 'market-pro-page',
       @asks = asks
       @bids = bids
       @bidsReverse = bids.slice().reverse()
+      @spread = 
+        if @asks.length > 0 and @bids.length > 0
+          @asks[0].price - @bids[0].price
+        else
+          0
 
   tradeHistoryRespChanged: (o, n) ->
     if @tradeHistoryResp == ''

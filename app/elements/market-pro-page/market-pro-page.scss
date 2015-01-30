@@ -94,13 +94,18 @@ table.dense {
                 background: $head-background-color;
             }
         }
-        td#lastPrice {
+        td#spread {
             border-top: 1px solid $head-background-color;
             border-bottom: 1px solid $head-background-color;
             text-align: center;
             padding: 4px;
-            color: color($C2, a400);
+            color: $white2;
             font-weight: bold;
+            #container {
+                >div {
+                    padding: 0 2px;
+                }
+            }
         }
     }
 }

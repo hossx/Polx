@@ -187,8 +187,14 @@
                     </template>
 
                     <tr>
-                      <td id="lastPrice" colspan="4">
-                        ????? {{market.baseCurrency.unit}}
+                      <td id="spread" colspan="4">
+                        <div id="container" center-justified horizontal center layout>
+                          <div>{{M.spread}}:</div>
+                          <div>
+                            <nice-number v="{{spread}}"></nice-number>
+                          </div>
+                          <div> {{market.baseCurrency.unit}} </div>
+                        </div>
                       </td>
                     </tr>
                     <template repeat="{{ask,idx in asks}}">
