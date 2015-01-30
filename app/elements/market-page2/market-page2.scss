@@ -16,6 +16,9 @@
     font-weight: 700;
 }
 #main {
+    padding: 0 2px;
+}
+#main-panel {
     background: color($C1, 900);
 }
 .column {
@@ -93,12 +96,10 @@ nice-number {
         color: color($sell-color, a200);
     }
 }
-#orderbook {
-    .idx {
-        color: $white3;
-    }
+.idx {
+    color: $white3;
 }
-#depthchart {
+#orderbook {} #depthchart {
     depth-chart {
         width: 100%;
         display: inline-block;

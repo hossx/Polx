@@ -21,14 +21,15 @@
   <template>
     <link rel="stylesheet" href="market-page2.css">
     <core-ajax url="{{orderBookUrl}}" handleAs="json" response="{{orderBookResp}}" auto></core-ajax>
+    <core-ajax url="{{transactionsUrl}}" handleAs="json" response="{{tradeHistoryResp}}" auto></core-ajax>
 
     <core-drawer-panel forceNarrow>
 
       <core-header-panel mode="seamed" id="drawer" drawer>
-       <market-sidebar marketId="{{marketId}}" altview="{{true}}"></market-sidebar>
+        <market-sidebar marketId="{{marketId}}" altview="{{true}}"></market-sidebar>
       </core-header-panel>
 
-      <core-header-panel mode="seamed" main>
+      <core-header-panel id="main-panel" mode="waterfall" fix main>
         <core-toolbar class="core-header" id="toolbar">
           <a href="/#/markets" id="backlink">
             <paper-icon-button icon="arrow-back"></paper-icon-button>
@@ -140,7 +141,32 @@
                 <div class="title">Trade History</div>
               </div>
               <div class="content" vertical layout>
-                this is the content
+                <table>
+                  <thead>
+                    <tr>
+                      <td>{{M.index}}</td>
+                      <td>{{M.price}}</td>
+                      <td>{{M.quantity}}</td>
+                      <td>{{M.time}}</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <template repeat="{{record,idx in tradeHistory}}">
+                      <tr>
+                        <td class="idx">{{idx+1}}</td>
+                        <td>
+                          <nice-number class="{{record.class}}" v="{{record.price}}"></nice-number>
+                        </td>
+                        <td>
+                          <nice-number v="{{record.quantity}}"></nice-number>
+                        </td>
+                        <td>
+                          {{record.timestamp}}
+                        </td>
+                      </tr>
+                    </template>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
