@@ -11,10 +11,6 @@
 #toolbar {
     @include config-toolbar();
 }
-#label {
-    color: color($C1, 700);
-    font-weight: 700;
-}
 .btn {
     display: none;
 }

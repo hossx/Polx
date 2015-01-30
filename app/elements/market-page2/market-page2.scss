@@ -11,10 +11,6 @@
 #toolbar {
     @include config-toolbar-dark();
 }
-#label {
-    color: white;
-    font-weight: 700;
-}
 #main {
     padding: 0 2px;
 }
@@ -31,8 +27,8 @@
         border-top: 2px solid color($C1, 900);
         .head {
             padding: 10px;
-            background: $white4;
-            color: color($C1, 500);
+            background: color($C1, 600);
+            color: $white2;
             .title {
                 letter-spacing: 1px;
                 font-weight: 700;
@@ -63,7 +59,7 @@ table {
             color: $white2;
             height: 20px;
             padding: 0;
-            border-bottom: 2px solid rgba(white, 0.05);
+            border-bottom: 2px solid color($C1, 600);
         }
         th {
             font-weight: 500;
@@ -74,12 +70,12 @@ table {
             padding: 2px;
             border-bottom: 1px solid rgba(white, 0.02);
             &:hover {
-                background: rgba(white, 0.08);
+                background: color($C1, 600);
             }
         }
         td#lastPrice {
-            border-top: 1px solid rgba(white, 0.05);
-            border-bottom: 1px solid rgba(white, 0.05);
+            border-top: 1px solid color($C1, 600);
+            border-bottom: 1px solid color($C1, 600);
             text-align: center;
             padding: 4px;
             color: color($C2, a400);
@@ -103,7 +99,7 @@ nice-number {
     .content {
         color: white;
         .actions {
-            border-bottom: 1px solid rgba(white, 0.05);
+            border-bottom: 1px solid color($C1, 600);
             paper-button:hover {
                 color: color($C2, a400);
             }
@@ -148,12 +144,12 @@ nice-number {
         font-size: 14px;
         text-transform: uppercase;
         &[active] {
-            background: $white4;
+            background: color($C1, 600);
             color: white;
         }
     }
     .form {
-        background: $white4;
+        background: color($C1, 600);
         padding: 20px;
     }
 }

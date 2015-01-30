@@ -132,11 +132,14 @@
             color: color($C2, a700);
         }
     }
+    #label {
+        color: color($C1, 700);
+        font-weight: 700;
+    }
 }
-
 @mixin config-toolbar-dark() {
     background: color($C1, 800);
-    color: white;
+    color: $white2;
     a {
         height: 40px;
         text-decoration: none;
@@ -156,7 +159,7 @@
         }
     }
     core-button, paper-button, paper-icon-button {
-        color: white;
+        color: $white2;
         margin: 0;
         min-width: 0;
         font-weight: 500;
@@ -168,5 +171,9 @@
         &:hover {
             color: color($C2, a700);
         }
+    }
+    #label {
+        color: white;
+        font-weight: 700;
     }
 }
