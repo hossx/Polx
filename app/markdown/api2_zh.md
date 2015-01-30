@@ -588,7 +588,7 @@
 ####URL参数
 - market：市场ID。
 - interval：K线数据聚合粒度，必须是"1m, 5m, 15m, 30m, 1h, 2h, 4h, 6h, 1d"的值之一，默认为"5m"。其中m代表分钟，h代表小时，d代表天。
-- start：数据时间戳的起始时间（不包含），默认为0.
+- start：数据时间戳的起始时间（不包含），默认为end时间戳往前追溯90个interval时间单元的时间戳.
 - end：数据时间戳的结束时间（包含），默认为当前时间。 end必须大于start返回结果才可能非空。
 
 ####返回值示例
@@ -748,12 +748,12 @@ profile中的pwdhash将不会被返回。
     "orders" : [
       {
         "order_id" :  "1000000732928"
-        "type" : "sell",
+        "operation" : "sell",
         "status" : 1,
         "market" : "btc-cny",
         "price" : 2010.3,
         "amount" : 0.23,
-        "value" : 0.11,
+        "dealed_amount" : 0.23,
         "created" : 1421560886,
         "last_updated" : 1421560993,
       },
@@ -915,12 +915,12 @@ profile中的pwdhash将不会被返回。
     "orders" : [
       {
         "market" : "btc-cny",
-        "type" : "sell",
+        "operation" : "sell",
         "price" : 2100.2,
         "amount" : 0.23
       }, {
         "market" : "xrp-cny",
-        "type" : "buy",
+        "operation" : "buy",
         "price" : 1800,
         "amount" : 0.23
       }
