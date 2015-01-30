@@ -17,4 +17,24 @@
         color: color($C1, 500);
         text-decoration: none;
     }
+    #xyz {
+        $color1: color($amber, a700);
+        $color2: color($amber, 200);
+        #x {
+            color: $color1;
+            text-transform: uppercase;
+        }
+        #y {
+            display: inline-block;
+            font-family: helvetica, arial, sans-serif;
+            font-weight: 700;
+            background: linear-gradient(to right, $color1 50%, $color2 50%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        #z {
+            color: $color2;
+            text-transform: uppercase;
+        }
+    }
 }

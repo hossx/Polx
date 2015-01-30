@@ -1,0 +1,341 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-drawer-panel/core-drawer-panel.html">
+<link rel="import" href="../../bower_components/core-header-panel/core-header-panel.html">
+<link rel="import" href="../../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../../bower_components/core-animated-pages/transitions/slide-from-right.html">
+<link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html">
+<link rel="import" href="../../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../cp-icons/crypto-icons.html">
+<link rel="import" href="../cp-footer/cp-footer.html">
+<link rel="import" href="../nice-number/nice-number.html">
+
+<polymer-element name="market-page2" attributes="marketId">
+  <template>
+    <link rel="stylesheet" href="market-page2.css">
+
+    <core-drawer-panel forceNarrow>
+
+      <core-header-panel mode="seamed" id="drawer" drawer>
+        <content select="#sidebar"></content>
+      </core-header-panel>
+
+      <core-header-panel mode="waterfall" main>
+        <core-toolbar class="core-header" id="toolbar">
+          <a href="/#/markets" id="backlink">
+            <paper-icon-button icon="arrow-back"></paper-icon-button>
+          </a>
+          <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
+          <div flex id="label">{{market.name}}</div>
+        </core-toolbar>
+
+        <div id="main" fit horizontal layout main>
+          <div class="column" vertical layout>
+            <div class="block" vertical layout>
+              <div class="head" horizontal layout>
+                <div class="title">Available Balance</div>
+              </div>
+              <div class="content" vertical layout>
+                this is the content
+              </div>
+            </div>
+          </div>
+
+          <div class="column" vertical layout>
+            <div class="block" id="orderbook" vertical layout>
+              <div class="head" horizontal layout>
+                <div class="title">Order Book</div>
+              </div>
+              <div class="content" vertical layout>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Quantity</th>
+                      <th>Price</th>
+                      <th>My Quantity</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <nice-number  class="buy" v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number class="sell" v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td id="lastPrice" colspan="3">
+                        123123 USD
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                      <td>
+                        <nice-number v="12.312"></nice-number>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="column wide" vertical layout>
+            <div class="block" vertical layout>
+              <div class="head" horizontal layout>
+                <div class="title">Price Chart</div>
+              </div>
+              <div class="content" vertical layout>
+                this is the content
+              </div>
+            </div>
+
+            <div class="block" vertical layout>
+              <div class="head" horizontal layout>
+                <div class="title">Depth Chart</div>
+              </div>
+              <div class="content" vertical layout>
+                this is the content
+              </div>
+            </div>
+
+            <div class="block" vertical layout>
+              <div class="head" horizontal layout>
+                <div class="title">Open Orders</div>
+              </div>
+              <div class="content" vertical layout>
+                this is the content
+              </div>
+            </div>
+          </div>
+
+          <div class="column" vertical layout>
+            <div class="block" vertical layout>
+              <div class="head" horizontal layout>
+                <div class="title">Trade History</div>
+              </div>
+              <div class="content" vertical layout>
+                this is the content
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </core-header-panel>
+    </core-drawer-panel>
+  </template>
+
+  <script src="market-page2.js"></script>
+</polymer-element>

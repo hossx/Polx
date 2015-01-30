@@ -106,6 +106,7 @@
         text-transform: uppercase;
         font-size: 14px;
         color: color($C1, 500);
+        font-weight: 500;
         &:hover {
             color: color($C2, a700);
         }
@@ -120,11 +121,15 @@
     }
     core-button, paper-button, paper-icon-button {
         color: color($C1, 500);
-        margin:0;
+        margin: 0;
         min-width: 0;
+        font-weight: 500;
         text-transform: uppercase;
         font-size: 14px;
-        &[active], &:hover {
+        &[active] {
+            color: color($C2, a700);
+        }
+        &:hover {
             color: color($C2, a700);
         }
     }

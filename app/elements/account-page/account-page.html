@@ -6,7 +6,6 @@
 <link rel="import" href="../../bower_components/core-iconset-svg/core-iconset-svg.html">
 <link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../cp-page/cp-right-drawer-page.html">
-<link rel="import" href="../cp-page/cp-toolbar-button.html">
 <link rel="import" href="../section-group/section-group.html">
 <link rel="import" href="elements/account-sidebar.html">
 <link rel="import" href="elements/profile-subpage.html">
@@ -20,8 +19,9 @@
     <core-ajax id="profileAjax" url="{{profileUrl}}" response="{{profileResp}}" auto></core-ajax>
 
     <cp-right-drawer-page class="dpurple" backlink="/#/" label="My Account" id="pages" page="{{page}}">
-      <cp-toolbar-button hash="/market" id="shortcut" active="[[toolbarSelect === '/market']]" label="Go to markets" icon="swap-horiz">
-      </cp-toolbar-button>
+      <a href="/#/market" id="shortcut">
+        <paper-button active?="[[toolbarSelect === '/market']]">Go to markets</paper-button>
+      </a>
       <account-sidebar id="sidebar" selected="{{page}}"></account-sidebar>
       <section page="assets">
         <assets-subpage profile="{{profile}}" page="{{page}}"></assets-subpage>
