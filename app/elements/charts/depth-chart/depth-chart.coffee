@@ -9,7 +9,7 @@ Polymer 'depth-chart',
       sell: "Sell"
 
     'zh':
-      pointFormat: '数量: {point.y:.8f}'
+      pointFormat: '累积数量: {point.y:.8f}'
       buy: "买单"
       sell: "卖单"
 

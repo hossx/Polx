@@ -9,27 +9,26 @@
     background: color($C1, 500);
 }
 #toolbar {
-    @include config-toolbar();
+    @include config-toolbar-dark();
 }
 #label {
-    color: color($C1, 700);
+    color: white;
     font-weight: 700;
 }
 #main {
     padding: 0 2px;
 }
 #main-panel {
-    background: color($C1, 900);
+    background: color($C1, 800);
 }
 .column {
     min-width: 220px;
     width: 20%;
-    background: color($C1, 900);
-    border-left: 1px solid $black4;
-    border-right: 1px solid $black4;
+    border-left: 1px solid color($C1, 900);
+    border-right: 1px solid color($C1, 900);
     .block {
         font-size: 12px;
-        border-top: 2px solid $black4;
+        border-top: 2px solid color($C1, 900);
         .head {
             padding: 10px;
             background: $white4;
@@ -38,6 +37,7 @@
                 letter-spacing: 1px;
                 font-weight: 700;
                 color: white;
+                font-size: 14px;
                 text-transform: uppercase;
             }
         }
@@ -60,7 +60,7 @@ table {
     }
     thead {
         tr {
-            color: $white3;
+            color: $white2;
             height: 20px;
             padding: 0;
             border-bottom: 2px solid rgba(white, 0.05);
@@ -99,7 +99,66 @@ nice-number {
 .idx {
     color: $white3;
 }
-#orderbook {} #depthchart {
+#availableBalance {
+    .content {
+        color: white;
+        .actions {
+            border-bottom: 1px solid rgba(white, 0.05);
+            paper-button:hover {
+                color: color($C2, a400);
+            }
+        }
+        .balance {
+            padding: 4px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+        a {
+            text-decoration: none;
+            font-weight: bold;
+            color: $white2;
+            &:hover {
+                color: color($C2, a400);
+                text-decoration: underline;
+            }
+        }
+    }
+    core-icon.small {
+        height: 14px;
+        width: 14px;
+        margin: 4px;
+        color: color($C1, 300);
+    }
+}
+#trade {
+    paper-tabs {
+        &::shadow {
+            #selectionBar {
+                background-color: transparent;
+            }
+        }
+        >paper-tab::shadow #ink {
+            color: color($C2, a400);
+        }
+    }
+    paper-tab {
+        letter-spacing: 1px;
+        font-weight: 700;
+        color: white;
+        font-size: 14px;
+        text-transform: uppercase;
+        &[active] {
+            background: $white4;
+            color: white;
+        }
+    }
+    .form {
+        background: $white4;
+        padding: 20px;
+    }
+}
+#orderbook {};
+#depthchart {
     depth-chart {
         width: 100%;
         display: inline-block;

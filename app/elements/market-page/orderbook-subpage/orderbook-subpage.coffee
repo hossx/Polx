@@ -21,7 +21,7 @@ Polymer 'orderbook-subpage',
       index: "排序"
       price: "价格"
       quantity: "数量"
-      accumulated: "累计数量"
+      accumulated: "累积数量"
 
   ready: () ->
     @M = @msgMap[window.lang]

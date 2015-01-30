@@ -15,9 +15,11 @@
     >paper-tab::shadow #ink {
         color: white;
     }
+    paper-tab[active] {
+        background: color($C1, 500);
+    }
 }
 #pages {
-    background: color($C1, 400);
     core-menu {
         color: white;
     }

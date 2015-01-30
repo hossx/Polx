@@ -11,6 +11,8 @@
 <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/core-icons/communication-icons.html">
+<link rel="import" href="../../bower_components/core-animated-pages/transitions/fade-all.html">
 <link rel="import" href="../cp-icons/crypto-icons.html">
 <link rel="import" href="../cp-footer/cp-footer.html">
 <link rel="import" href="../nice-number/nice-number.html">
@@ -36,16 +38,61 @@
           </a>
           <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
           <div flex id="label">{{market.name}}</div>
+          <a href="/#/market/{{marketId}}">
+            <core-tooltip label="{{M.relaxMode}}" position="left">
+              <paper-icon-button icon="explore"></paper-icon-button>
+            </core-tooltip>
+          </a>
         </core-toolbar>
 
         <div id="main" flex horizontal layout main>
           <div class="column" vertical layout>
-            <div class="block" vertical layout>
+            <div class="block" id="availableBalance" vertical layout>
               <div class="head" horizontal layout>
-                <div class="title">Available Balance</div>
+                <div class="title">{{M.availableBalance}}</div>
               </div>
               <div class="content" vertical layout>
-                this is the content
+                <div class="actions" horizontal layout>
+                  <paper-button flex>
+                    <core-icon class="small" icon="communication:call-received"></core-icon> Deposit</paper-button>
+                  <paper-button flex>
+                    <core-icon class="small" icon="communication:call-made"></core-icon> Withdrawal</paper-button>
+                </div>
+                <div class="balance" horizontal layout>
+                  <div flex><a href="/#/currency/{{market.baseCurrency.id}}">{{market.baseCurrency.id}}</a>
+                  </div>
+                  <div flex>
+                    <nice-number v="{{123}}"></nice-number>
+                  </div>
+                </div>
+                <div class="balance" horizontal layout>
+                  <div flex><a href="/#/currency/{{market.currency.id}}">{{market.currency.id}}</a>
+                  </div>
+                  <div flex>
+                    <nice-number v="{{123}}"></nice-number>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="block" id="trade" vertical layout>
+              <div class="content" vertical layout>
+                <paper-tabs selected="{{selected}}">
+                  <paper-tab>AAA</paper-tab>
+                  <paper-tab>BBB</paper-tab>
+                </paper-tabs>
+                <core-animated-pages flex class="pages" selected="{{selected}}" transitions="fade-all">
+                  <section>
+                    <div class="form" vertical layout>
+                      x
+                    </div>
+                  </section>
+                  <section>
+                    <div class="form" vertical layout>
+                      afdafa
+                    </div>
+                  </section>
+                </core-animated-pages>
               </div>
             </div>
           </div>
@@ -53,7 +100,7 @@
           <div class="column" vertical layout>
             <div class="block" id="orderbook" vertical layout>
               <div class="head" horizontal layout>
-                <div class="title">Order Book</div>
+                <div class="title">{{M.orderBook}}</div>
               </div>
               <div class="content" vertical layout>
                 <table>
@@ -83,7 +130,7 @@
 
                     <tr>
                       <td id="lastPrice" colspan="4">
-                        123123 USD
+                        ????? {{market.baseCurrency.unit}}
                       </td>
                     </tr>
                     <template repeat="{{ask,idx in asks}}">
@@ -109,7 +156,7 @@
           <div class="column wide" vertical layout>
             <div class="block" vertical layout>
               <div class="head" horizontal layout>
-                <div class="title">Price Chart</div>
+                <div class="title">{{M.priceChart}}</div>
               </div>
               <div class="content" vertical layout>
                 this is the content
@@ -118,7 +165,7 @@
 
             <div class="block" id="depthchart" vertical layout>
               <div class="head" horizontal layout>
-                <div class="title">Depth Chart</div>
+                <div class="title">{{M.depthChart}}</div>
               </div>
               <div class="content" vertical layout>
                 <depth-chart market="{{market}}" simple="{{true}}" height="180" bids="{{bids}}" asks="{{asks}}"></depth-chart>
@@ -127,7 +174,7 @@
 
             <div class="block" vertical layout>
               <div class="head" horizontal layout>
-                <div class="title">Open Orders</div>
+                <div class="title">{{M.openOrders}}</div>
               </div>
               <div class="content" vertical layout>
                 this is the content
@@ -138,13 +185,13 @@
           <div class="column" vertical layout>
             <div class="block" vertical layout>
               <div class="head" horizontal layout>
-                <div class="title">Trade History</div>
+                <div class="title">{{M.tradeHistory}}</div>
               </div>
               <div class="content" vertical layout>
                 <table>
                   <thead>
                     <tr>
-                      <td>{{M.index}}</td>
+                      <td></td>
                       <td>{{M.price}}</td>
                       <td>{{M.quantity}}</td>
                       <td>{{M.time}}</td>

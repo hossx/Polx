@@ -3,32 +3,38 @@
 Polymer 'market-page2',
   msgMap:
     'en':
-      depthChart: "Depth Chart"
+      availableBalance: "Available Balance"
       orderBook: "Order Book"
+      priceChart: "Price Chart"
+      depthChart: "Depth Chart"
+      openOrders: "Open Orders"
+      tradeHistory: "Trade History"
       buyOrders: "Buy Orders"
       sellOrders: "Sell Orders"
-      index: "Index"
       price: "Price"
       quantity: "Quantity"
       accumulated: "Accumulated"
-      tradeHistory: 'Trade History'
       time: "Time"
       sell: "Sell"
       buy: "Buy"
+      relaxMode: "See more information"
 
     'zh':
-      depthChart: "深度图"
+      availableBalance: "可用余额"
       orderBook: "现有订单"
+      priceChart: "价格图表"
+      depthChart: "深度图表"
+      openOrders: "我的挂单"
+      tradeHistory: '成交记录'
       buyOrders: "买单"
       sellOrders: "卖单"
       price: "价格"
       quantity: "数量"
-      accumulated: "累计数量"
-      tradeHistory: '成交记录'
-      index: "序号"
+      accumulated: "累积数量"
       time: "时间"
       sell: "卖单"
       buy: "买单"
+      relaxMode: "查看更多该市场信息"
 
   ready: () ->
     @M = @msgMap[window.lang]
