@@ -36,7 +36,26 @@
             <paper-icon-button icon="arrow-back"></paper-icon-button>
           </a>
           <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-          <div flex id="label">{{market.name}}</div>
+          <div id="label">{{market.name}}</div>
+
+          <div class="divider"></div>
+          <div class="stat" vertical layout>
+            <div>1233</div>
+            <div>{{M.lastPrice}}</div>
+          </div>
+
+          <div class="stat" vertical layout>
+            <div>1233</div>
+            <div>{{M.volume}}</div>
+          </div>
+
+          <div class="stat" vertical layout>
+            <div>1233</div>
+            <div>{{M.change}}</div>
+          </div>
+          <div class="divider"></div>
+          <div flex></div>
+
           <a href="/#/market/{{marketId}}">
             <core-tooltip label="{{M.relaxMode}}" position="left">
               <paper-icon-button icon="explore"></paper-icon-button>

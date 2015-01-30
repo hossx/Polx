@@ -23,6 +23,9 @@ Polymer 'market-pro-page',
       withdraw: "Withdraw"
       deposit: "Deposit"
       relaxMode: "See more information"
+      lastPrice: "Last Price"
+      volume: "24H Volume"
+      change: "24H Change"
 
     'zh':
       availableBalance: "可用余额"
@@ -45,6 +48,9 @@ Polymer 'market-pro-page',
       withdraw: "提现"
       deposit: "充值"
       relaxMode: "查看更多该市场信息"
+      lastPrice: "最新成交价"
+      volume: "24小时总成交量"
+      change: "24小时价格变化"
 
   ready: () ->
     @M = @msgMap[window.lang]

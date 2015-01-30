@@ -99,12 +99,12 @@
 }
 @mixin config-toolbar() {
     background: white;
-    color: color($C1, 500);
+    color: color($C1, 700);
     a {
         height: 40px;
         text-decoration: none;
         font-size: 14px;
-        color: color($C1, 500);
+        color: color($C1, 700);
         font-weight: 500;
         &:hover {
             color: color($C2, a700);
@@ -119,7 +119,7 @@
         }
     }
     core-button, paper-button, paper-icon-button {
-        color: color($C1, 500);
+        color: color($C1, 700);
         margin: 0;
         min-width: 0;
         font-weight: 500;
