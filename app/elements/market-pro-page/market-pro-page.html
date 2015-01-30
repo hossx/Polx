@@ -18,9 +18,9 @@
 <link rel="import" href="../charts/depth-chart/depth-chart.html">
 <link rel="import" href="../market-page/elements/market-sidebar.html">
 
-<polymer-element name="market-page2" attributes="marketId">
+<polymer-element name="market-pro-page" attributes="marketId">
   <template>
-    <link rel="stylesheet" href="market-page2.css">
+    <link rel="stylesheet" href="market-pro-page.css">
     <core-ajax url="{{orderBookUrl}}" handleAs="json" response="{{orderBookResp}}" auto></core-ajax>
     <core-ajax url="{{transactionsUrl}}" handleAs="json" response="{{tradeHistoryResp}}" auto></core-ajax>
 
@@ -106,9 +106,9 @@
               <div class="content" vertical layout>
                 <div class="actions" horizontal layout>
                   <paper-button flex>
-                    <core-icon class="small" icon="communication:call-made"></core-icon>{{M.deposit}}</paper-button>
+                    <core-icon class="small" icon="communication:call-received"></core-icon>{{M.deposit}}</paper-button>
                   <paper-button flex>
-                    <core-icon class="small" icon="communication:call-received"></core-icon>{{M.withdraw}}</paper-button>
+                    <core-icon class="small" icon="communication:call-made"></core-icon>{{M.withdraw}}</paper-button>
                 </div>
                 <div class="balance" horizontal layout>
                   <div flex><a href="/#/currency/{{market.baseCurrency.id}}">{{market.baseCurrency.id}}</a>
@@ -261,5 +261,5 @@
     </core-drawer-panel>
   </template>
 
-  <script src="market-page2.js"></script>
+  <script src="market-pro-page.js"></script>
 </polymer-element>

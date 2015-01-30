@@ -1,6 +1,6 @@
 'use strict'
 
-Polymer 'market-page2',
+Polymer 'market-pro-page',
   msgMap:
     'en':
       availableBalance: "Available Balance"
@@ -42,8 +42,8 @@ Polymer 'market-page2',
       buy: "买单"
       sellAction: "买入"
       buyAction: "卖出"
-      withdraw: "充值"
-      deposit: "提现"
+      withdraw: "提现"
+      deposit: "充值"
       relaxMode: "查看更多该市场信息"
 
   ready: () ->

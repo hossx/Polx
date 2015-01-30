@@ -14,6 +14,6 @@ Polymer 'market-sidebar-item',
     if @market
       @target = 
         if @altview
-          "/#/market2/" + @market.id
+          "/#/marketpro/" + @market.id
         else
           "/#/market/" + @market.id
