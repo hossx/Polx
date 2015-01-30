@@ -53,7 +53,7 @@ table {
     border-spacing: 0px;
     th, td {
         text-align: right;
-        padding: 0 10px;
+        padding: 0 1px;
     }
     thead {
         tr {
@@ -71,7 +71,7 @@ table {
             padding: 2px;
             border-bottom: 1px solid rgba(white, 0.02);
             &:hover {
-            background: rgba(white, 0.05);
+                background: rgba(white, 0.08);
             }
         }
         td#lastPrice {
@@ -79,16 +79,28 @@ table {
             border-bottom: 1px solid rgba(white, 0.05);
             text-align: center;
             padding: 4px;
-            color: color($C2, a700);
+            color: color($C2, a400);
             font-weight: bold;
         }
     }
 }
 nice-number {
+    color: $white1;
     &.buy {
-        color: color($buy-color, 500);
+        color: color($buy-color, a200);
     }
     &.sell {
-        color: color($sell-color, 500);
+        color: color($sell-color, a200);
+    }
+}
+#orderbook {
+    .idx {
+        color: $white3;
+    }
+}
+#depthchart {
+    depth-chart {
+        width: 100%;
+        display: inline-block;
     }
 }

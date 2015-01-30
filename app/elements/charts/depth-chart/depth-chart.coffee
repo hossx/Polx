@@ -19,20 +19,22 @@ Polymer 'depth-chart',
   regulate: true
   bids: []
   asks: []
+  simple: false
 
   observe: {
     market: 'createChart'
-    width: 'createChart'
+    #width: 'createChart'
     height:  'createChart'
     regulate:  'createChart'
     bids: 'createChart'
     asks: 'createChart'
+    simple: 'createChart'
   }
 
   ready: () ->
     @M = @msgMap[window.lang]
     Highcharts.setOptions
-      colors: ["#4CAF50","#F44336"]
+      colors: ["#14e715","#ff6e40"]
       chart:
         style:
           fontFamily: "'Roboto Condensed','Lantinghei SC','Hiragino Sans GB','Microsoft Yahei',sans-serif"
@@ -62,28 +64,36 @@ Polymer 'depth-chart',
           type: 'area'
           zoomType: 'xy'
           height: @height
-          width: @width
+          backgroundColor: null
+          #width: @width
+        legend:
+          enabled: false
         credits:
           enabled: false
         title:
+          enabled: false
           text: ''
         xAxis:
           allowDecimals: true
+          title:
+            enabled: false
           labels:
+            enabled: not @simple
             formatter: () -> @value
         yAxis:
           title:
-            text: ""
+            enabled: false
           labels:
+            enabled:  not @simple
             formatter: () -> @value
         tooltip:
           pointFormat: @M.pointFormat
         plotOptions:
           area:
             marker:
-              enabled: false
+              enabled: true
               symbol: 'circle'
-              radius: 3
+              radius: 2
               states:
                 hover:
                   enabled: true

@@ -4,7 +4,7 @@
 <link rel="import" href="../../../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="market-sidebar-item.html">
 
-<polymer-element name="market-sidebar" vertical layout attributes="marketId">
+<polymer-element name="market-sidebar" vertical layout attributes="marketId,altview">
   <template>
     <link rel="stylesheet" href="market-sidebar.css">
 
@@ -19,7 +19,7 @@
         <section group="{{coin}}">
           <core-menu valueattr="market" selected="{{marketId}}">
             <template repeat="{{market in config.marketGroups[selectedGroup]}}">
-              <market-sidebar-item active?="{{marketId===market.id}}" market="{{market}}"></market-sidebar-item>
+              <market-sidebar-item active?="{{marketId===market.id}}" market="{{market}}" altview="{{altview}}"></market-sidebar-item>
             </template>
           </core-menu>
         </section>

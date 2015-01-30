@@ -77,6 +77,7 @@ Polymer 'candlestick-chart',
           renderTo: this.$.candlesticks
           height: @height
           width: @width
+          backgroundColor: null
         credits:
           enabled: false
         title:

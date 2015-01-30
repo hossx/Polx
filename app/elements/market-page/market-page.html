@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="market-page.css">
 
     <cp-drawer-page class="blue" backlink="/#/markets" label="{{market.name}}" page="{{page}}" buttons="{{buttons}}">
-      <market-sidebar id="sidebar" marketId="{{marketId}}"></market-sidebar>
+      <market-sidebar id="sidebar" marketId="{{marketId}}" altview="{{false}}"></market-sidebar>
       <section>
         <trend-subpage market="{{market}}" active="{{page == 1}}" fit></trend-subpage>
       </section>
