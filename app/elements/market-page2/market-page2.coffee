@@ -4,6 +4,7 @@ Polymer 'market-page2',
   msgMap:
     'en':
       availableBalance: "Available Balance"
+      transfers: "Deposit/Withdrawal Records"
       orderBook: "Order Book"
       priceChart: "Price Chart"
       depthChart: "Depth Chart"
@@ -17,10 +18,15 @@ Polymer 'market-page2',
       time: "Time"
       sell: "Sell"
       buy: "Buy"
+      sellAction: "Sell"
+      buyAction: "Buy"
+      withdraw: "Withdraw"
+      deposit: "Deposit"
       relaxMode: "See more information"
 
     'zh':
       availableBalance: "可用余额"
+      transfers: "充提记录"
       orderBook: "现有订单"
       priceChart: "价格图表"
       depthChart: "深度图表"
@@ -34,6 +40,10 @@ Polymer 'market-page2',
       time: "时间"
       sell: "卖单"
       buy: "买单"
+      sellAction: "买入"
+      buyAction: "卖出"
+      withdraw: "充值"
+      deposit: "提现"
       relaxMode: "查看更多该市场信息"
 
   ready: () ->
@@ -46,8 +56,35 @@ Polymer 'market-page2',
     @tradeHistory = []
 
 
+
+
   market: null
   orderBookUrl: ''
+
+  buyPrice: 0.0
+  committedBuyPrice: 0.0
+  buyQuantity: 0.0
+  committedBuyQuantity: 0.0
+  buyEnabled: false
+
+  sellPrice: 0.0
+  committedSellPrice: 0.0
+  sellQuantity: 0.0
+  committedSellQuantity: 0.0
+  sellEnabled: false
+
+  observe: {
+    buyPrice: 'updateBuyEnabled'
+    buyQuantity: 'updateBuyEnabled'
+    sellPrice: 'updateSellEnabled'
+    sellQuantity: 'updateSellEnabled'
+  }
+
+  updateBuyEnabled: () ->
+    @buyEnabled = @buyPrice > 0 and @buyQuantity > 0
+
+  updateSellEnabled: () ->
+    @sellEnabled = @sellPrice > 0 and @sellQuantity > 0
 
   marketIdChanged: (o, n) ->
     @market = @config.markets[@marketId]

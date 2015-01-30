@@ -2,6 +2,8 @@
 
 Polymer 'nice-number',
   v: 0.0
+  part1: "0."
+  part2: "00000000"
 
   vChanged: (o, n) ->
     pad = "00000000"

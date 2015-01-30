@@ -12,7 +12,6 @@
 <link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/core-icons/communication-icons.html">
-<link rel="import" href="../../bower_components/core-animated-pages/transitions/fade-all.html">
 <link rel="import" href="../cp-icons/crypto-icons.html">
 <link rel="import" href="../cp-footer/cp-footer.html">
 <link rel="import" href="../nice-number/nice-number.html">
@@ -47,16 +46,69 @@
 
         <div id="main" flex horizontal layout main>
           <div class="column" vertical layout>
+
+            <div class="block" id="trade" vertical layout>
+              <div class="content" vertical layout>
+                <paper-tabs selected="{{selected}}">
+                  <paper-tab>{{M.buyAction}}</paper-tab>
+                  <paper-tab>{{M.sellAction}}</paper-tab>
+                </paper-tabs>
+                <core-animated-pages class="pages" selected="{{selected}}">
+                  <section>
+                    <div class="form" vertical layout>
+                      <div center horizontal layout>
+                        <div flex>Quantity</div>
+                        <input flex two is="core-input" type="number" min="0" step="0.0001" preventInvalidInput placeholder="0.0000" value="{{buyQuantity}}"
+                        committedValue="{{committedBuyQuantity}}">
+                      </div>
+                      <div horizontal center layout>
+                        <div flex>Price</div>
+                        <input flex two is="core-input" type="number" min="0" step="0.00000001" preventInvalidInput placeholder="0.0000" value="{{buyPrice}}"
+                        committedValue="{{committedBuyPrice}}">
+                      </div>
+                      <div horizontal center layout>
+                        <div flex>Total {{market.baseCurrency.unit}}</div>
+                        <div flex two>
+                          <nice-number v="{{buyQuantity * buyPrice}}"></nice-number>
+                        </div>
+                      </div>
+                      <paper-button disabled?="{{!buyEnabled}}">{{M.buyAction}} {{market.currency.id}}</paper-button>
+                    </div>
+                  </section>
+                  <section>
+                    <div class="form" vertical layout>
+                      <div center horizontal layout>
+                        <div flex>Quantity</div>
+                        <input flex two is="core-input" type="number" min="0" step="0.0001" preventInvalidInput placeholder="0.0000" value="{{sellQuantity}}"
+                        committedValue="{{committedSellQuantity}}">
+                      </div>
+                      <div horizontal center layout>
+                        <div flex>Price</div>
+                        <input flex two is="core-input" type="number" min="0" step="0.00000001" preventInvalidInput placeholder="0.0000" value="{{sellPrice}}"
+                        committedValue="{{committedSellPrice}}">
+                      </div>
+                      <div horizontal center layout>
+                        <div flex>Total {{market.baseCurrency.unit}}</div>
+                        <div flex two>
+                          <nice-number v="{{sellQuantity * sellPrice}}"></nice-number>
+                        </div>
+                      </div>
+                      <paper-button disabled?="{{!sellEnabled}}">{{M.sellAction}} {{market.currency.id}}</paper-button>
+                    </div>
+                  </section>
+                </core-animated-pages>
+              </div>
+            </div>
             <div class="block" id="availableBalance" vertical layout>
-              <div class="head" horizontal layout>
+              <div class="head" center horizontal layout>
                 <div class="title">{{M.availableBalance}}</div>
               </div>
               <div class="content" vertical layout>
                 <div class="actions" horizontal layout>
                   <paper-button flex>
-                    <core-icon class="small" icon="communication:call-received"></core-icon> Deposit</paper-button>
+                    <core-icon class="small" icon="communication:call-made"></core-icon>{{M.deposit}}</paper-button>
                   <paper-button flex>
-                    <core-icon class="small" icon="communication:call-made"></core-icon> Withdrawal</paper-button>
+                    <core-icon class="small" icon="communication:call-received"></core-icon>{{M.withdraw}}</paper-button>
                 </div>
                 <div class="balance" horizontal layout>
                   <div flex><a href="/#/currency/{{market.baseCurrency.id}}">{{market.baseCurrency.id}}</a>
@@ -74,36 +126,23 @@
                 </div>
               </div>
             </div>
-
-            <div class="block" id="trade" vertical layout>
+            <div class="block" id="transfers" vertical layout>
+              <div class="head" center horizontal layout>
+                <div class="title">{{M.transfers}}</div>
+              </div>
               <div class="content" vertical layout>
-                <paper-tabs selected="{{selected}}">
-                  <paper-tab>AAA</paper-tab>
-                  <paper-tab>BBB</paper-tab>
-                </paper-tabs>
-                <core-animated-pages flex class="pages" selected="{{selected}}" transitions="fade-all">
-                  <section>
-                    <div class="form" vertical layout>
-                      x
-                    </div>
-                  </section>
-                  <section>
-                    <div class="form" vertical layout>
-                      afdafa
-                    </div>
-                  </section>
-                </core-animated-pages>
+                this is the content
               </div>
             </div>
           </div>
 
           <div class="column" vertical layout>
             <div class="block" id="orderbook" vertical layout>
-              <div class="head" horizontal layout>
+              <div class="head" center horizontal layout>
                 <div class="title">{{M.orderBook}}</div>
               </div>
               <div class="content" vertical layout>
-                <table>
+                <table class="dense">
                   <thead>
                     <tr>
                       <td></td>
@@ -155,7 +194,7 @@
 
           <div class="column wide" vertical layout>
             <div class="block" vertical layout>
-              <div class="head" horizontal layout>
+              <div class="head" center horizontal layout>
                 <div class="title">{{M.priceChart}}</div>
               </div>
               <div class="content" vertical layout>
@@ -164,7 +203,7 @@
             </div>
 
             <div class="block" id="depthchart" vertical layout>
-              <div class="head" horizontal layout>
+              <div class="head" center horizontal layout>
                 <div class="title">{{M.depthChart}}</div>
               </div>
               <div class="content" vertical layout>
@@ -173,7 +212,7 @@
             </div>
 
             <div class="block" vertical layout>
-              <div class="head" horizontal layout>
+              <div class="head" center horizontal layout>
                 <div class="title">{{M.openOrders}}</div>
               </div>
               <div class="content" vertical layout>
@@ -184,11 +223,11 @@
 
           <div class="column" vertical layout>
             <div class="block" vertical layout>
-              <div class="head" horizontal layout>
+              <div class="head" center horizontal layout>
                 <div class="title">{{M.tradeHistory}}</div>
               </div>
               <div class="content" vertical layout>
-                <table>
+                <table class="dense">
                   <thead>
                     <tr>
                       <td></td>
