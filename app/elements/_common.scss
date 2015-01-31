@@ -1,7 +1,7 @@
 @import "_colors";
 @mixin has-white-link() {
     a {
-        color: $white2;
+        color: $white1;
         text-decoration: none;
         &:hover {
             color: color($C2, a700);
@@ -21,10 +21,10 @@
 }
 @mixin has-primary-link() {
     a {
-        color: color($C1, 500);
+        color: color($C2, 500);
         text-decoration: none;
         &:hover {
-            color: color($C1, 700);
+            color: color($C2, a700);
             text-decoration: underline;
         }
     }

@@ -1,4 +1,5 @@
 @import "../_colors";
+@import "../_common";
 :host {
     box-sizing: border-box;
 }
@@ -8,20 +9,84 @@ cp-page {
 #container {
     width: 100%;
 }
+.section {
+    min-height: 360px;
+    padding: 80px 0;
+    position: relative; // important
+    overflow: hide;
+}
+@include has-primary-link();
 #branding {
-    background: transparent;
-    padding: 20px 0;
+    background: color($C2, 500);
+    color: white;
+    text-shadow: 1px 1px $black3;
     width: 100%;
-    height: 200px;
     position: relative;
     #name {
-        font-size: 72px;
+        font-size: 86px;
         text-transform: uppercase;
         color: $white1;
+        padding: 40px;
     }
     #slogan {
-        font-size: 16px;
+        font-size: 28px;
         color: white;
+        border-bottom: 2px solid $white2;
+    }
+}
+#features {
+    background: white;
+    color: $black2;
+    .feature {
+        .label {
+            text-transform: uppercase;
+            font-size: 28px;
+            font-weight: 700;
+            padding: 20px;
+            color: color($C2, a700);
+        }
+        .explain {
+            font-size: 14px;
+            line-height: 150%;
+            padding: 0 20px;
+            color: $black1;
+        }
+    }
+}
+#mobile {
+    background: color($light-green, 500);
+    color: $white1;
+    #words {
+        position: absolute;
+        left: 20%;
+        top: 40%;
+        #ready {
+            font-size: 28px;
+            font-weight: 700;
+            padding: 20px;
+            text-shadow: 1px 1px $black3;
+        }
+        #download {
+            background: color($C3, a700);
+            color: white;
+            min-width: 200px;
+            font-weight: 700;
+            font-size: 20px;
+            text-transform: none;
+            &:hover {
+                background: color($C2, a700);
+            }
+        }
+        #supports {
+            padding: 10px;
+            font-size: 14px;
+        }
+    }
+    img#android-app {
+        position: absolute;
+        bottom: 0;
+        right: 20%;
+        height: 80%;
     }
 }
 #form-container {

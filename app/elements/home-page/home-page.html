@@ -1,20 +1,50 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="../../bower_components/polymer-fontawesome/polymer-fontawesome.html">
 <link rel="import" href="../cp-page/cp-page.html">
 
- 
 <polymer-element name="home-page" attributes="">
   <template>
     <link rel="stylesheet" href="home-page.css">
     <cp-page has-toolbar has-footer>
       <div id="container" vertical layout>
-        <div id="branding" vertical center layout>
-          <div id="name">Coinport</div>
-          <div id="slogan">Crypto-Asset Exchange for Cool People</div>
+        <div class="section" id="branding" vertical center layout>
+          <div id="name">{{M.coinport}}</div>
+          <div id="slogan">{{M.slogan}}</div>
+        </div>
+
+        <div class="section" id="features" horizontal center layout>
+          <div class="feature" flex vertical center layout>
+            <font-awesome icon="github" size="4x"></font-awesome>
+            <div class="label">{{M.feature1}}</div>
+            <div class="explain">
+              {{M.explain1_1}} <a href="https://github.com/coinport/MatchEngine">{{M.explain1_2}}</a>{{M.explain1_3}}
+            </div>
+
+          </div>
+          <div class="feature" flex vertical center layout>
+            <font-awesome icon="lightbulb-o" size="4x"></font-awesome>
+            <div class="label">{{M.feature2}}</div>
+            <div class="explain">{{M.explain2}}</div>
+          </div>
+          <div class="feature" flex vertical center layout>
+            <font-awesome icon="shield" size="4x"></font-awesome>
+            <div class="label">{{M.feature3}}</div>
+            <div class="explain">{{M.explain3}}</div>
+          </div>
+        </div>
+
+        <div class="section" id="mobile" vertical center layout>
+          <div id="words" vertical center layout>
+            <div id="ready">Mobile App Ready for Android</div>
+            <a href="#"><paper-button id="download">Download App</paper-button></a>
+            <div id="supports">Supports Android 2.4.2 and up. iOS App comming soon.</div>
+          </div>
+          <img id="android-app" src="../../images/android-app-cut.png">
         </div>
       </div>
     </cp-page>
   </template>
 
-<script src="home-page.js"></script>
+  <script src="home-page.js"></script>
 </polymer-element>
