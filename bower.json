@@ -15,7 +15,8 @@
     "ajax-form": "~1.4.0",
     "moment": "~2.9.0",
     "highstock-release": "~2.0.4",
-    "highcharts-release": "~4.0.4"
+    "highcharts-release": "~4.0.4",
+    "jquery-backstretch": "~2.0.4"
   },
   "devDependencies": {
     "polymer-test-tools": "Polymer/polymer-test-tools#^0.4.0"
@@ -23,6 +24,7 @@
   "resolutions": {
     "polymer": "~0.5.1",
     "polymer-test-tools": "^0.5.0",
-    "highstock": "~2.0.4"
+    "highstock": "~2.0.4",
+    "jquery": "~2.1.1"
   }
 }

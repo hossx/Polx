@@ -2,11 +2,12 @@
 <link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../cp-page/cp-page.html">
 
-<polymer-element name="home-page" noscript attributes="">
+ 
+<polymer-element name="home-page" attributes="">
   <template>
     <link rel="stylesheet" href="home-page.css">
     <cp-page has-toolbar has-footer>
-      <div vertical center layout>
+      <div id="container" vertical layout>
         <div id="branding" vertical center layout>
           <div id="name">Coinport</div>
           <div id="slogan">Crypto-Asset Exchange for Cool People</div>
@@ -14,4 +15,6 @@
       </div>
     </cp-page>
   </template>
+
+<script src="home-page.js"></script>
 </polymer-element>
