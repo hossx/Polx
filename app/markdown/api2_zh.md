@@ -964,9 +964,10 @@ profile中的pwdhash将不会被返回。
       1000000732928，
       1000000732345
     ],
-    "failed": {
-      1000000834534 : {code: 1200}
-    }
+    "failed": [
+      1000000834534,
+      1000000923357
+    ]
   }
   
 ```
@@ -982,7 +983,9 @@ profile中的pwdhash将不会被返回。
   {
      "currency" : "BTC",
      "address" ： "1GbJtdiidFnbsGfuC5VtMKrRaoyrP2rRXk",
-     "amount" : 0.1
+     "amount" : 0.1,
+     "nxt_public_key" ： "skdjf89x9j12",
+     "memo": "btsx_memoxkksdjkl"
   }
 ```
 
