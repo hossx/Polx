@@ -1,6 +1,5 @@
 (function(document) {
   'use strict';
-  console.log("00000000000000");
   var langs = window.navigator.languages || [window.navigator.language || window.navigator.userLanguage];
   var lang = langs[0].split('-')[0];
   if (lang != 'zh') {
