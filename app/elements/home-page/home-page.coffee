@@ -6,7 +6,7 @@ Polymer 'home-page',
       coinport: "Coinport"
       slogan: "Crypto-Asset Exchange for Cool People"
       feature1: "Open-Source"
-      explain1_1: "Our matching engine has been"
+      explain1_1: "Our matching engine has been "
       explain1_2: "open-sourced on Github"
       explain1_3: ". Visit our public repository to verify our matching code, and feel free to clone it. Coinport Exchange allows clients to have insight to all the internals."
       feature2: "Open-Data"

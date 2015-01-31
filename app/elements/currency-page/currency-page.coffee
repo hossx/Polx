@@ -8,7 +8,7 @@ Polymer 'currency-page',
       history: "Data"
     'zh':
       about: "货币趋势"
-      reserves: "准备金数"
+      reserves: "准备金"
       history: "历史数据"
 
   page: 0
