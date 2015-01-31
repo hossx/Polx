@@ -61,7 +61,7 @@
     5 - 失败（failed）
   ```
 
-- cursor和limit：在几个API URL参数中，我们会用cursor和limit来指定返回数据的起始位置和数量。返回数据不包括cursor指向的那条数据（如果存在），如果想返回ID是0的数据，cursor的值应该是-1。如果没有说明，cursor默认值是-1，limit的默认值是50。每个API对limit可能与上限设置，如果设定的limit值大于这个上限，系统将用该上限作为limit的实际值。
+- cursor和limit：在几个API URL参数中，我们会用cursor和limit来指定返回数据的起始位置和数量。返回数据不包括cursor指向的那条数据（如果存在），如果想返回ID是0的数据，cursor的值应该是1。如果没有说明，cursor默认值是1，limit的默认值是50。每个API对limit可能与上限设置，如果设定的limit值大于这个上限，系统将用该上限作为limit的实际值。
 
 - hasMore：在一些API的返回数据中，hasMore如果是True，代表有更多数据可以返回；如果是False，代表没有更多数据可以返回。
 
@@ -252,7 +252,7 @@
   | GET            | /api/v2/*{currency}*/tickers                      | 获取人民币或比特币所有市场的ticker数据
   | GET            | /api/v2/*{currency}*/reserves                     | 读取平台某数字资产的准备金统详细数据
   | GET            | /api/v2/*{currency}*/balance_snapshot_files       | 读取特定币种的资产分布快照数据文件列表
-  | GET            | /api/v2/*{currency}*/transfers_files              | 读取特定币种的充值提现记录文件列表
+  | GET            | /api/v2/*{currency}*/transfer_files              | 读取特定币种的充值提现记录文件列表
   | GET            | /api/v2/*{market}*/trades                         | 获取某市场的历史成交记录
   | GET            | /api/v2/*{market}*/ticker                         | 获取某市场的ticker数据 
   | GET            | /api/v2/*{market}*/depth                          | 获取某市场的深度数据
@@ -285,15 +285,12 @@
 ####返回值示例
 ```
   {
-    "timestamp": 12123213213121,
-    "stats": {
-      "BTC" : [10,  20, 70, 99 ],
-      "LTC" : [12,  10, 1,  25 ],
-      "GOOC": [10,  20, 70, 101],
-      "BC"  : [12,  10, 1,  23 ],
-      "BTSX": [10,  10, 20, 30 ],
-      "XRP" : [120, 10, 1,  150]
-    }
+    "BTC" : [10,  20, 70, 99 ],
+    "LTC" : [12,  10, 1,  25 ],
+    "GOOC": [10,  20, 70, 101],
+    "BC"  : [12,  10, 1,  23 ],
+    "BTSX": [10,  10, 20, 30 ],
+    "XRP" : [120, 10, 1,  150]
   }
 
 ```
@@ -314,17 +311,17 @@
 ####返回值示例
   ```
     {
-        "XRP-CNY": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02],
-        "BTC-CNY": [2013.53, 2014.42, 2015.34, 2013.34, 2014.03, 300.34],
-        "BTSX-CNY": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02],
-        "LTC-CNY": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02],
-        "XRP-BTC": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02],
-        "BTC-BTC": [2013.53, 2014.42, 2015.34, 2013.34, 2014.03, 300.34],
-        "BTSX-BTC": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02],
-        "LTC-BTC": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02]
+        "XRP-CNY": [6.34, 3.34, 5.03, 103234.02, -0.0012],
+        "BTC-CNY": [2015.34, 2013.34, 2014.03, 300.34, 0.3],
+        "BTSX-CNY": [6.34, 3.34, 5.03, 103234.02, -0.02],
+        "LTC-CNY": [6.34, 3.34, 5.03, 103234.02, 0.01234],
+        "XRP-BTC": [6.34, 3.34, 5.03, 103234.02, 0.78],
+        "BTC-BTC": [2015.34, 2013.34, 2014.03, 300.34, 0.2],
+        "BTSX-BTC": [6.34, 3.34, 5.03, 103234.02, 0.14],
+        "LTC-BTC": [6.34, 3.34, 5.03, 103234.02, 0.001]
     }
   ```
-返回值中数组中的数字依次代表：[买1价，卖1价，24小时最高价，24小是最低价，最近成交价，24小时成交量]。
+返回值中数组中的数字依次代表：[最近成交价，24小时最高价，24小是最低价，24小时成交量, 24小时涨跌幅]。
 
 ####示例
  - [https://exchange.coinport.com/api/v2/tickers](https://exchange.coinport.com/api/v2/tickers)
@@ -341,13 +338,13 @@
 ####返回值示例
   ```
     {
-        "XRP-CNY": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02],
-        "BTC-CNY": [2013.53, 2014.42, 2015.34, 2013.34, 2014.03, 300.34],
-        "BTSX-CNY": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02],
-        "LTC-CNY": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02]
+        "XRP-CNY": [6.34, 3.34, 5.03, 103234.02, -0.0012],
+        "BTC-CNY": [2015.34, 2013.34, 2014.03, 300.34, 0.21],
+        "BTSX-CNY": [6.34, 3.34, 5.03, 103234.02, 0.23],
+        "LTC-CNY": [6.34, 3.34, 5.03, 103234.02, 0.1]
     }
   ```
-返回值中数组中的数字依次代表：[买1价，卖1价，24小时最高价，24小是最低价，最近成交价，24小时成交量]。
+返回值中数组中的数字依次代表：[最近成交价，24小时最高价，24小是最低价，24小时成交量, 24小时涨跌幅]。
 
 ####示例
  - [https://exchange.coinport.com/api/v2/cny/tickers](https://exchange.coinport.com/api/v2/cny/tickers)
@@ -414,7 +411,7 @@
 
 
 
-### GET /api/v2/*{currency}*/balance_snapshots_files
+### GET /api/v2/*{currency}*/balance_snapshot_files
 读取特定币种的资产分布快照数据文件列表。
 
 ####URL参数
@@ -445,8 +442,8 @@
 ```
 
 ####示例
-- [https://exchange.coinport.com/api/v2/ltc/balance_snapshots_files](https://exchange.coinport.com/api/v2/ltc/balance_snapshots_files) - 读取最新50条LTC资产分布快照数据文件列表。
-- [https://exchange.coinport.com/api/v2/btc/balance_snapshots_files?cursor=1121321&limit=20](https://exchange.coinport.com/api/v2/btc/balance_snapshots_files?cursor=1121321&limit=20) - 读取1121321之前的20条BTC资产分布快照数据文件列表。
+- [https://exchange.coinport.com/api/v2/ltc/balance_snapshot_files](https://exchange.coinport.com/api/v2/ltc/balance_snapshot_files) - 读取最新50条LTC资产分布快照数据文件列表。
+- [https://exchange.coinport.com/api/v2/btc/balance_snapshot_files?cursor=1121321&limit=20](https://exchange.coinport.com/api/v2/btc/balance_snapshot_files?cursor=1121321&limit=20) - 读取1121321之前的20条BTC资产分布快照数据文件列表。
 
 <br><br>
 
@@ -482,8 +479,8 @@
 ```
 
 ####示例
-- [https://exchange.coinport.com/api/v2/ltc/balance_snapshots_files](https://exchange.coinport.com/api/v2/ltc/balance_snapshots_files) - 读取最新50条LTC资产分布快照数据文件列表。
-- [https://exchange.coinport.com/api/v2/btc/balance_snapshots_files?cursor=1121321&limit=20](https://exchange.coinport.com/api/v2/btc/balance_snapshots_files?cursor=1121321&limit=20) - 读取1121321之前的20条BTC资产分布快照数据文件列表。
+- [https://exchange.coinport.com/api/v2/ltc/transfer_files](https://exchange.coinport.com/api/v2/ltc/transfer_files) - 读取最新50条LTC资产分布快照数据文件列表。
+- [https://exchange.coinport.com/api/v2/btc/transfer_files?cursor=1121321&limit=20](https://exchange.coinport.com/api/v2/btc/transfer_files?cursor=1121321&limit=20) - 读取1121321之前的20条BTC资产分布快照数据文件列表。
 
 <br><br>
 
@@ -502,24 +499,29 @@
 ####返回值示例
 ```
   {
-    "timestamp": 126172881818,
     "hasMore": true,
     "market": "BTC-CNY",
     "trades": [
-      { "trade_id" : 1000000732928,
-        "order_id" : 100000007,
-        "taker" : "sell",
-        "price" : 1000.23,
-        "amount" : 0.34,
-        "timestamp" : 126172881818
+      {"id":"1000000001590001",
+        "timestamp":1415429555904,
+        "price":0.0138,
+        "amount":0.0283,
+        "maker":"1000000002",
+        "taker":"1000000002",
+        "isSell":true,
+        "taker_order_id":"1000000001590",
+        "maker_order_id":"1000000001547",
       },
-      { "trade_id" : 1000000732929,
-        "order_id" : 100000007,
-        "taker" : "sell",
-        "price" : 1000.26,
-        "amount" : 1.12,
-        "timestamp" : 126172881818
-      }
+      {"id":"1000000001589005",
+        "timestamp":1415429555846,
+        "price":0.0138,
+        "amount":0.1239,
+        "maker":"1000000002",
+        "taker":"1000000001",
+        "isSell":true,
+        "taker_order_id":"1000000001589",
+        "maker_order_id":"1000000001547",
+      }    
     ]
   }
 ```
@@ -539,10 +541,10 @@
 ####返回值示例
 ```
   {
-    "XRP-CNY": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02]
+    "XRP-CNY": [6.34, 3.34, 5.03, 103234.02, 0.0012]
   }
 ```
-返回值中数组中的数字依次代表：[买1价，卖1价，24小时最高价，24小是最低价，最近成交价，24小时成交量]。
+返回值中数组中的数字依次代表：[最近成交价，24小时最高价，24小是最低价，24小时成交量, 24小时涨跌幅]。
 
 ####示例
  - [https://exchange.coinport.com/api/v2/btc-cny/ticker](https://exchange.coinport.com/api/v2/btc-cny/ticker)
