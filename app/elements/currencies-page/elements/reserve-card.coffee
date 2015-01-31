@@ -43,12 +43,13 @@ Polymer 'reserve-card',
     if @reserve
       balance =  @reserve[3]
       @shortage = balance - @reserve[0] - @reserve[1] - @reserve[2]
-      @isShort = @shortage <= 0
-      @shortageRatio = Math.ceil(100 * @shortage/balance)
+      @isShort = @shortage <=-0.00000001
+      console.log(@shortage)
+      @shortageRatio = 100 * @shortage/balance
 
-      @hotRatio = Math.floor(100 * @reserve[0]/balance)
-      @coldRatio = Math.floor(100 * @reserve[1]/balance)
-      @userRatio =100 - @hotRatio - @coldRatio - @shortageRatio
+      @hotRatio = 100 * @reserve[0]/balance
+      @coldRatio = 100 * @reserve[1]/balance
+      @userRatio = 100 * @reserve[2]/balance
       @reserveRatio = 100 - @shortageRatio
       if @shortage > 0
         @asset = [@reserve[0], @reserve[1], @reserve[2], @shortage]
@@ -63,4 +64,4 @@ Polymer 'reserve-card',
       ]
 
   ratioFormat: (value) ->
-    String(value).substring(0, 4) + "%"
+    value.toFixed(2) + "%"

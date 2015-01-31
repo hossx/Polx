@@ -26,16 +26,23 @@ a {
 }
 #stats {
     padding-bottom: 10px;
-    .l {
-        display: inline-block;
-        color: $black3;
-        padding: 0 5px;
-        min-width: 60px;
-    }
-    .v {
-        font-weight: 500;
-        color: $black2;
-        padding: 0 5px;
+    table {
+        border-collapse: collapse;
+        border-spacing: 0px;
+        td {
+            &.l {
+                text-align: right;
+                color: $black3;
+            }
+            &.v {
+                text-align: right;
+                font-weight: 500;
+                color: $black2;
+                &.s {
+                    color: color($C3, a400);
+                }
+            }
+        }
     }
     #general {
         text-align: center;
@@ -56,14 +63,6 @@ a {
             height: 1px;
             width: 100%;
             border-top: solid 1px $black4;
-        }
-    }
-    #shortage {
-        &.short {
-            opacity: 0;
-        }
-        .v {
-            color: color($C3, a400);
         }
     }
 }

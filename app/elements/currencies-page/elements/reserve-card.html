@@ -4,6 +4,7 @@
 <link rel="import" href="../../better-chart-pie/better-chart-pie.html">
 <link rel="import" href="../../cp-icons/crypto-icons.html">
 <link rel="import" href="../../cp-icons/cryptocode-icons.html">
+<link rel="import" href="../../nice-number/nice-number.html">
 
 <polymer-element name="reserve-card" attributes="currencyId,reserve">
 
@@ -20,19 +21,42 @@
               <span class="l">{{M.reserveRatio}}:</span> <span class="v">{{reserveRatio | ratioFormat}}</span>
             </div>
             <div id="sub">
-              <div>
-                <span class="l">{{M.hotWallet}}:</span><span class="v">{{hotRatio | ratioFormat}} = {{reserve[0]}} {{currency.unit}}</span>
-              </div>
-              <div>
-                <span class="l">{{M.coldWallet}}:</span><span class="v">{{coldRatio | ratioFormat}} = {{reserve[1]}} {{currency.unit}}</span>
-              </div>
-              <div>
-                <span class="l">{{M.userWallet}}:</span><span class="v">{{userRatio | ratioFormat}} = {{reserve[2]}} {{currency.unit}}</span>
-              </div>
-              <div id="shortage" class="item {{ {short: isShort} | tokenList }}">
-                <span class="l">{{M.shortage}}:</span><span class="v">{{shortageRatio | ratioFormat}} = {{shortage}} {{currency.unit}}</span>
-              </div>
-
+              <table>
+                <tr>
+                  <td class="l">{{M.hotWallet}}:</td>
+                  <td class="v">{{hotRatio | ratioFormat}} =</td>
+                  <td class="v">
+                    <nice-number v="{{reserve[0]}}"></nice-number>
+                  </td>
+                  <td class="v">{{currency.unit}}</td>
+                </tr>
+                <tr>
+                  <td class="l">{{M.coldWallet}}:</td>
+                  <td class="v">{{coldRatio | ratioFormat}} =</td>
+                  <td class="v">
+                    <nice-number v="{{reserve[1]}}"></nice-number>
+                  </td>
+                  <td class="v">{{currency.unit}}</td>
+                </tr>
+                <tr>
+                  <td class="l">{{M.userWallet}}:</td>
+                  <td class="v">{{userRatio | ratioFormat}} =</td>
+                  <td class="v">
+                    <nice-number v="{{reserve[2]}}"></nice-number>
+                  </td>
+                  <td class="v">{{currency.unit}}</td>
+                </tr>
+                <tr>
+                  <template if="{{isShort}}">
+                    <td class="l s">{{M.shortage}}:</td>
+                    <td class="v s">{{shortageRatio | ratioFormat}} =</td>
+                    <td class="v s">
+                      <nice-number v="{{shortage}}"></nice-number>
+                    </td>
+                    <td class="v s">{{currency.unit}}</td>
+                  </template>
+                </tr>
+              </table>
             </div>
           </div>
           <div id="chart" center-justified horizontal layout>

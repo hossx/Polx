@@ -141,7 +141,7 @@ Polymer 'the-app',
       depthUrl: (market,limit) ->  "%s/api/m/%s/depth?depth=%d".format(@base, market.toLowerCase(), limit)
       transactionsUrl: (market, limit) ->  "%s/api/%s/transaction?limit=%d".format(@base, market.toLowerCase(), limit)
       cryptoTxsUrl: (coin) -> 'api_mock_open_crypto_txs.json'
-      reserveStatsUrl: () -> 'api_mock_open_reserve_stats.json'
+      reserveStatsUrl: () -> '%s/api/v2/reserve_stats'.format(@base)
       reserveDetailsUrl: (coin) -> 'api_mock_open_reserve_details.json'
       reserveSnapshotsUrl: (coin) -> 'api_mock_open_reserve_snapshots.json'
       historyUrl: (market, period, from) -> 'https://exchange.coinport.com/api/%s/history?period=%d&from=%s'.format(market.toLowerCase(), period,from)
