@@ -1,6 +1,6 @@
-`(function(document) {
+(function(document) {
   'use strict';
-
+  console.log("00000000000000");
   var langs = window.navigator.languages || [window.navigator.language || window.navigator.userLanguage];
   var lang = langs[0].split('-')[0];
   if (lang != 'zh') {
@@ -27,6 +27,6 @@
     };
     // wrap document so it plays nice with other libraries
     // http://www.polymer-project.org/platform/shadow-dom.html#wrappers
-})(wrap(document));`
+})(wrap(document));
 
 

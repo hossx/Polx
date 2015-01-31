@@ -13,6 +13,10 @@ Polymer 'home-page',
       explain2: "All non-user private data are available to download as JSON files, including orders, trades, deposits and withdrawals, user account balances, and all crypto-addresses of our cold and hot wallets."
       feature3: "100% Reserves"
       explain3: "We never invest user asset for our own profit. To prove this, our platform publishes new events and system snapshots hourly. Users can verify our reserve ratios based on these open data with simple maths."
+      mobileReady: "Mobile App Ready for Android"
+      download: "Download App"
+      support: "Supports Android 2.4.2 and up. iOS App comming soon."
+      servedBy: "COINPORT EXCHANGE is powered by COINPORT TECHNOLOGY LIMITED, HK"
     'zh':
       coinport: "币丰港"
       slogan: "全透明数字资产交易平台"
@@ -24,6 +28,11 @@ Polymer 'home-page',
       explain2: "除用户隐私数据外，平台全部数据均可任意浏览下载。 全部订单、交易、充值、提现、账户余额、冷热钱包地址等均对用户开放。 您既可以掌控全局，也能够深入细节。"
       feature3: "100%准备金"
       explain3: "如何证明我们没有挪用您托管的资产？ 依靠晦涩难懂的Merkle-tree吗？ 不必那么麻烦。我们直接公开全部账户的余额，以及所有冷热钱包地址。准备金是否充足，您一目了然。"
+
+      mobileReady: "安卓手机有APP可用哦"
+      download: "立即下载"
+      support: "支持安卓2.4.2及以上版本. iOS App还在开发中。"
+      servedBy: "币丰港交易所由币丰港（香港）网络科技有限公司运营"
 
 
   onScroll: () ->

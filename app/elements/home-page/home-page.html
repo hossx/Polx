@@ -36,12 +36,18 @@
 
         <div class="section" id="mobile" vertical center layout>
           <div id="words" vertical center layout>
-            <div id="ready">Mobile App Ready for Android</div>
-            <a href="#"><paper-button id="download">Download App</paper-button></a>
-            <div id="supports">Supports Android 2.4.2 and up. iOS App comming soon.</div>
+            <div id="ready">{{M.mobileReady}}</div>
+            <a href="#">
+              <paper-button id="download">{{M.download}}</paper-button>
+            </a>
+            <div id="supports">{{M.support}}</div>
           </div>
           <img id="android-app" src="../../images/android-app-cut.png">
         </div>
+        <div id="served" vertical center layout>
+          <div>{{M.servedBy}}</div>
+        </div>
+      </div>
       </div>
     </cp-page>
   </template>
