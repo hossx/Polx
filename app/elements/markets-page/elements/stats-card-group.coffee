@@ -15,7 +15,6 @@ Polymer 'stats-card-group',
 
   ready: () ->
     @M = @msgMap[window.lang]
-    console.log(@M.markets)
     @config = window.config
     @tickerUrl = window.protocol.tickerUrl(@currency.id)
     @tickers = null
@@ -29,11 +28,8 @@ Polymer 'stats-card-group',
         @stopRefresh()
         @fire("network-error", {'url': @tickerUrl})
       else
-        @tickers = @response.data.sort (a, b) -> # TODO 
-          if a.c < b.c
-            -1
-          else
-            1
+        @tickers = @response.data
+        @marketIds = Object.keys(@tickers).sort()
 
   detached: () ->
     @stopRefresh()

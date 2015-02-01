@@ -1,28 +1,6 @@
 'use strict'
 
 Polymer 'stats-card',
-
-  marketId: ''
-  market: null
-  priceUnit: null
-  ticker: null
-
-  ready: () ->
-    @M = @msgMap[window.lang]
-
-  tickerChanged: (o, n) ->
-    @marketId = @ticker.c + "-" + @ticker.i;
-    @market = window.config.markets[@marketId]
-    if @market
-      @priceUnit = @market.json.priceUnit
-
-  formatChange: (value) ->
-    percent = String(value * 100).substring(0, 5) + "%"
-    if value > 0
-      "+" + percent;
-    else
-      percent
-
   msgMap:
     'zh':
       lastPrice: "最新成交价"
@@ -33,3 +11,28 @@ Polymer 'stats-card',
       lastPrice: "Last Price"
       volume: "24H Volume"
       change: "24H Change"
+
+  marketId: ''
+  ticker: null
+
+  ready: () ->
+    @M = @msgMap[window.lang]
+
+  marketIdChanged: (o, n) ->
+    @market = window.config.markets[@marketId]
+
+  tickerChanged: (o, n) ->
+    @changeClass =
+      if @ticker[4] > 0
+        "up"
+      else if @ticker[4] < 0
+        "down"
+      else
+        ""
+  formatChange: (value) ->
+    percent = (value * 100).toFixed(2) + "%"
+    if value > 0
+      "+" + percent;
+    else
+      percent
+

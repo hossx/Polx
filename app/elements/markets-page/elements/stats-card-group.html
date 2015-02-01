@@ -11,8 +11,8 @@
     <div class="groupLabel">{{currency.id}} {{M.markets}}</div>
     <div class="comment">{{config.refreshIntervals.tickers/1000 | refreshFormatter}}</div>
     <div class="canvas" wrap?={{smallup}} layout center?={{!smallup}} vertical?={{!smallup}} horizontal?={{smallup}}>
-      <template repeat="{{ticker in tickers}}">
-        <stats-card auto-vertical ticker="{{ticker}}"></stats-card>
+      <template repeat="{{id in marketIds}}">
+        <stats-card auto-vertical marketId="{{id}}" ticker="{{tickers[id]}}"></stats-card>
       </template>
     </div>
     <paper-spinner active?="{{tickers == null}}" ></paper-spinner>

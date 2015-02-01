@@ -4,7 +4,7 @@
 <link rel="import" href="../../cp-icons/crypto-icons.html">
 <link rel="import" href="../../cp-icons/cryptocode-icons.html">
 
-<polymer-element name="stats-card" attributes="ticker">
+<polymer-element name="stats-card" attributes="marketId,ticker">
 
   <template>
     <link rel="stylesheet" href="stats-card.css">
@@ -15,21 +15,21 @@
           <div id="head">
             <!--core-icon id="crypto-icon"></core-icon-->
             {{market.name}}
-            <template if="{{priceUnit != null}}">
-              <span id="unit">{{priceUnit}}</span>
+            <template if="{{market.json.priceUnit != null}}">
+              <span id="unit">{{market.json.priceUnit}}</span>
             </template>
           </div>
 
           <div id="stats" center-justified vertical layout>
             <div id="general">
-              <span class="l">{{M.lastPrice}}: </span> <span class="v">{{ticker.p}}</span>
+              <span class="l">{{M.lastPrice}}: </span> <span class="v">{{ticker[0]}}</span>
             </div>
             <div id="sub">
               <div>
-                <span class="l">{{M.volume}}:</span><span class="v">{{ticker.v}}</span>
+                <span class="l">{{M.volume}}:</span><span class="v">{{ticker[3]}}</span>
               </div>
               <div>
-                <span class="l">{{M.change}}:</span><span class="v">{{ticker.g | formatChange}}</span>
+                <span class="l">{{M.change}}:</span><span class="v  {{changeClass}}">{{ticker[4] | formatChange}}</span>
               </div>
             </div>
           </div>

@@ -57,6 +57,12 @@ cp-coinport-icon {
         font-weight: 500;
         color: $black2;
         padding: 0 5px;
+        &.up {
+            color: color($sell-color, 500);
+        }
+        &.down {
+            color: color($buy-color, 500);
+        }
     }
     #general {
         text-align: center;
