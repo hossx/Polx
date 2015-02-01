@@ -9,7 +9,7 @@
     <api-market-tickers id="ajax" currencyId="{{currency.id}}" tickers="{{tickers}}" auto></api-market-tickers>
 
     <div class="groupLabel">{{currency.id}} {{M.markets}}</div>
-    <div class="comment">{{config.refreshIntervals.tickers/1000 | refreshFormatter}}</div>
+    <div class="comment">{{refreshInterval/1000 | refreshFormatter}}</div>
     <div class="canvas" wrap?={{smallup}} layout center?={{!smallup}} vertical?={{!smallup}} horizontal?={{smallup}}>
       <template repeat="{{id in marketIds}}">
         <stats-card auto-vertical marketId="{{id}}" ticker="{{tickers[id]}}"></stats-card>

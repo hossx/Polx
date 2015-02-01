@@ -10,14 +10,16 @@ Polymer 'stats-card-group',
       markets: "市场"
       refresh: "每%s秒刷新一次"
 
-  refreshFormatter: (v) -> @msgMap[window.lang].refresh.format(v)
-
 
   tickers: null
+  
   ready: () ->
     @M = @msgMap[window.lang]
     work = () =>this.$.ajax.go()
-    @refreshJob = setInterval(work, window.config.refreshIntervals.tickers)
+    @refreshInterval = window.config.refreshIntervals.tickers
+    @refreshJob = setInterval(work, @refreshInterval)
 
   tickersChanged: (o, n) ->
     @marketIds = Object.keys(@tickers).sort()
+
+  refreshFormatter: (v) -> @msgMap[window.lang].refresh.format(v)

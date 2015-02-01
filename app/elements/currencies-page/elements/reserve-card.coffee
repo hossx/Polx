@@ -44,7 +44,6 @@ Polymer 'reserve-card',
       balance =  @reserve[3]
       @shortage = balance - @reserve[0] - @reserve[1] - @reserve[2]
       @isShort = @shortage <=-0.00000001
-      console.log(@shortage)
       @shortageRatio = 100 * @shortage/balance
 
       @hotRatio = 100 * @reserve[0]/balance

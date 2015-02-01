@@ -10,8 +10,8 @@ Polymer 'trade-history-chart',
 
     'zh':
       pointFormat: '数量: {point.z}<br/>价格: {point.y}'
-      takerOrderTypeBuy: "触犯单类型: 买单"
-      takerOrderTypeSell: "触犯单类型: 卖单"
+      takerOrderTypeBuy: "触发单类型: 买单"
+      takerOrderTypeSell: "触发单类型: 卖单"
 
 
   market: null
