@@ -3,6 +3,11 @@
     width: 100%;
     display: block;
     box-sizing: border-box;
+    animation: fadein 2s;
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 .canvas {
     padding-top: 10px;
