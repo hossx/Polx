@@ -1,21 +1,21 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
 <link rel="import" href="../../../bower_components/paper-spinner/paper-spinner.html">
+<link rel="import" href="../../coinport-api/api-currency-reserves.html">
 <link rel="import" href="reserve-card.html">
 
 <polymer-element name="reserve-card-group" attributes="smallup" center vertical layout>
   <template>
     <link rel="stylesheet" href="reserve-card-group.css">
-    <core-ajax id="ajax" url="{{reserveStatsUrl}}" handleAs="json" response="{{response}}" error="{{error}}" auto></core-ajax>
+    <api-currency-reserves id="ajax" reserveStats="{{reserveStats}}" auto></api-currency-reserves>
 
     <div class="groupLabel">{{M.reserveStats}}</div>
-    <div class="comment">{{config.refreshIntervals.reserves/1000 | refreshFormatter}}</div>
+    <div class="comment">{{refreshInterval | refreshFormatter}}</div>
     <div class="canvas" wrap?={{smallup}} layout center?={{!smallup}} vertical?={{!smallup}} horizontal?={{smallup}}>
       <template repeat="{{currencyId in currencieIds}}">
-        <reserve-card auto-vertical currencyId="{{currencyId}}" reserve="{{reserves[currencyId]}}"></reserve-card>
+        <reserve-card auto-vertical currencyId="{{currencyId}}" reserve="{{reserveStats[currencyId]}}"></reserve-card>
       </template>
     </div>
-    <paper-spinner active?="{{reserves.length == 0}}"></paper-spinner>
+    <paper-spinner active?="{{reserveStats == null}}"></paper-spinner>
   </template>
   <script src="reserve-card-group.js"></script>
 </polymer-element>

@@ -15,11 +15,12 @@ Polymer 'stats-card-group',
   
   ready: () ->
     @M = @msgMap[window.lang]
-    work = () =>this.$.ajax.go()
     @refreshInterval = window.config.refreshIntervals.tickers
+    work = () =>this.$.ajax.go()
     @refreshJob = setInterval(work, @refreshInterval)
 
   tickersChanged: (o, n) ->
-    @marketIds = Object.keys(@tickers).sort()
+    if @tickers
+      @marketIds = Object.keys(@tickers).sort()
 
-  refreshFormatter: (v) -> @msgMap[window.lang].refresh.format(v)
+  refreshFormatter: (v) -> @msgMap[window.lang].refresh.format(v/1000)
