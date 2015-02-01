@@ -57,16 +57,9 @@ Polymer 'market-pro-page',
   ready: () ->
     @M = @msgMap[window.lang]
     @config = window.config
-    
-    @bids = []
-    @asks = []
-    @bidsReverse = []
     @tradeHistory = []
-    @spread = 0
-
 
   market: null
-  orderBookUrl: ''
 
   buyPrice: 0.0
   committedBuyPrice: 0.0
@@ -95,66 +88,3 @@ Polymer 'market-pro-page',
 
   marketIdChanged: (o, n) ->
     @market = @config.markets[@marketId]
-    if not @market
-      console.warn("no such market: " + @marketId)
-      # TODO: redirect to 404 page
-    else
-      #window.config.viewParams.market.orderBookInitialSize
-      @tickerUrl = window.protocol.tickerUrl(@market.id)
-      @orderBookUrl = window.protocol.depthUrl(@market.id, 30)
-      @tradeHistoryUrl = window.protocol.tradeHistoryUrl(@market.id, 60)
-
-  tickerRespChanged: (o, n) ->
-    if @tickerResp == ''
-      @fire('network-error', {'url': @tickerUrl})
-    else if @tickerResp
-      @ticker = @tickerResp.data[@market.id]
-      @priceChange = (100*@ticker[4]).toFixed(2)+"%"
-      if @ticker[4] < 0
-        @changeClass = "down"
-      else if @ticker[4] > 0
-        @changeClass = "up"
-        @priceChange = "+" + @priceChange
-      else
-        @changeClass = ''
-
-
-  orderBookRespChanged: (o, n) ->
-    if @orderBookResp == ''
-      @fire('network-error', {'url': @orderBookUrl})
-
-    else if @orderBookResp and @orderBookResp.success
-      asks = []
-      bids = []
-
-      accumulated = 0
-      for ask in @orderBookResp.data.asks
-        accumulated = accumulated + ask[1]
-        asks.push {price: ask[0], quantity: ask[1], accumulated: accumulated}
-      
-      accumulated = 0
-      for bid in @orderBookResp.data.bids
-        accumulated = accumulated + bid[1]
-        bids.push {price: bid[0], quantity: bid[1], accumulated: accumulated}
-
-      @asks = asks
-      @bids = bids
-      @bidsReverse = bids.slice().reverse()
-      @spread = 
-        if @asks.length > 0 and @bids.length > 0
-          @asks[0].price - @bids[0].price
-        else
-          0
-
-  tradeHistoryRespChanged: (o, n) ->
-    if @tradeHistoryResp
-      if @tradeHistoryResp == ''
-        @fire('network-error', {'url': @tradeHistoryUrl})
-      else if @tradeHistoryResp.data
-        tradeHistory = ({
-          timestamp: moment(item.timestamp).format("hh:mm:ss")
-          class: if item.isSell then "sell" else "buy"
-          price: item.price
-          quantity: item.amount
-          total: item.amount * item.price} for item in @tradeHistoryResp.data.trades)
-        @tradeHistory = tradeHistory

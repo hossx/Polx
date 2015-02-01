@@ -17,13 +17,17 @@
 <link rel="import" href="../nice-number/nice-number.html">
 <link rel="import" href="../charts/depth-chart/depth-chart.html">
 <link rel="import" href="../market-page/elements/market-sidebar.html">
+<link rel="import" href="../coinport-api/api-market-ticker.html">
+<link rel="import" href="../coinport-api/api-market-depth.html">
+<link rel="import" href="../coinport-api/api-market-trade-history.html">
 
 <polymer-element name="market-pro-page" attributes="marketId">
   <template>
     <link rel="stylesheet" href="market-pro-page.css">
-    <core-ajax url="{{tickerUrl}}" handleAs="json" response="{{tickerResp}}" auto></core-ajax>
-    <core-ajax url="{{orderBookUrl}}" handleAs="json" response="{{orderBookResp}}" auto></core-ajax>
-    <core-ajax url="{{tradeHistoryUrl}}" handleAs="json" response="{{tradeHistoryResp}}" auto></core-ajax>
+    <api-market-ticker marketId="{{marketId}}" ticker="{{ticker}}" auto></api-market-ticker>
+    <api-market-depth marketId="{{marketId}}" bids="{{bids}}" bidsReverse="{{bidsReverse}}" asks="{{asks}}" spread="{{spread}}"
+    auto></api-market-depth>
+    <api-market-trade-history marketId="{{marketId}}" trades="{{trades}}" auto></api-market-trade-history>
 
     <core-drawer-panel forceNarrow>
 
@@ -41,17 +45,18 @@
 
           <div class="divider"></div>
           <div class="stat" vertical layout>
-            <nice-number v="{{ticker[0]}}" unit="{{market.baseCurrency.unit}}"></nice-number>
+            <nice-number v="{{ticker.price}}" unit="{{market.baseCurrency.unit}}"></nice-number>
             <div>{{M.lastPrice}}</div>
           </div>
 
           <div class="stat" vertical layout>
-           <nice-number v="{{ticker[3]}}" p="2" unit="{{market.currency.unit}}"></nice-number>
+            <nice-number v="{{ticker.volume}}" p="2" unit="{{market.currency.unit}}"></nice-number>
             <div>{{M.volume}}</div>
           </div>
 
           <div class="stat" vertical layout>
-            <div class="{{changeClass}}">{{priceChange}}</nice-number></div>
+            <div class="{{ticker.changeType}}">{{ticker.changeTxt}}</nice-number>
+            </div>
             <div>{{M.change}}</div>
           </div>
           <div class="divider"></div>
@@ -263,7 +268,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <template repeat="{{record,idx in tradeHistory}}">
+                    <template repeat="{{record,idx in trades}}">
                       <tr>
                         <td class="idx">{{idx+1}}</td>
                         <td>
