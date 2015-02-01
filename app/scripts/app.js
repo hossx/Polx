@@ -2,12 +2,12 @@
   'use strict';
   var langs = window.navigator.languages || [window.navigator.language || window.navigator.userLanguage];
   var lang = langs[0].split('-')[0];
-  if (lang != 'zh') {
+  if (lang !== 'zh') {
     window.lang = 'en';
   } else {
     window.lang = 'zh';
   }
-  console.log("lang: " + window.lang)
+  console.log('lang: ' + window.lang);
 
   document.addEventListener('polymer-ready', function() {
     // Perform some behaviour

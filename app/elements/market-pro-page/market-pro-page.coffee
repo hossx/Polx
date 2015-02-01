@@ -65,8 +65,6 @@ Polymer 'market-pro-page',
     @spread = 0
 
 
-
-
   market: null
   orderBookUrl: ''
 
@@ -103,7 +101,7 @@ Polymer 'market-pro-page',
     else
       #window.config.viewParams.market.orderBookInitialSize
       @orderBookUrl = window.protocol.depthUrl(@market.id, 30)
-      @transactionsUrl = window.protocol.transactionsUrl(@market.id, 60)
+      @tradeHistoryUrl = window.protocol.tradeHistoryUrl(@market.id, 60)
 
   orderBookRespChanged: (o, n) ->
     if @orderBookResp == ''
@@ -114,14 +112,14 @@ Polymer 'market-pro-page',
       bids = []
 
       accumulated = 0
-      for a in @orderBookResp.data.a
-        accumulated = accumulated + a.av
-        asks.push {price: a.pv, quantity: a.av, accumulated: accumulated}
+      for ask in @orderBookResp.data.asks
+        accumulated = accumulated + ask[1]
+        asks.push {price: ask[0], quantity: ask[1], accumulated: accumulated}
       
       accumulated = 0
-      for b in @orderBookResp.data.b
-        accumulated = accumulated + b.av
-        bids.push {price: b.pv, quantity: b.av, accumulated: accumulated}
+      for bid in @orderBookResp.data.bids
+        accumulated = accumulated + bid[1]
+        bids.push {price: bid[0], quantity: bid[1], accumulated: accumulated}
 
       @asks = asks
       @bids = bids
@@ -133,13 +131,14 @@ Polymer 'market-pro-page',
           0
 
   tradeHistoryRespChanged: (o, n) ->
-    if @tradeHistoryResp == ''
-      @fire('network-error', {'url': @transactionsUrl})
-    else if @tradeHistoryResp and @tradeHistoryResp.success
-      tradeHistory = ({
-        timestamp: moment(item.timestamp).format("hh:mm:ss")
-        class: if item.sell then "sell" else "buy"
-        price: item.price.value
-        quantity: item.subjectAmount.value
-        total: item.currencyAmount.value} for item in @tradeHistoryResp.data.items)
-      @tradeHistory = tradeHistory
+    if @tradeHistoryResp
+      if @tradeHistoryResp == ''
+        @fire('network-error', {'url': @tradeHistoryUrl})
+      else if @tradeHistoryResp.data
+        tradeHistory = ({
+          timestamp: moment(item.timestamp).format("hh:mm:ss")
+          class: if item.isSell then "sell" else "buy"
+          price: item.price
+          quantity: item.amount
+          total: item.amount * item.price} for item in @tradeHistoryResp.data.trades)
+        @tradeHistory = tradeHistory
