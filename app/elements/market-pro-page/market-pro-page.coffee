@@ -100,8 +100,24 @@ Polymer 'market-pro-page',
       # TODO: redirect to 404 page
     else
       #window.config.viewParams.market.orderBookInitialSize
+      @tickerUrl = window.protocol.tickerUrl(@market.id)
       @orderBookUrl = window.protocol.depthUrl(@market.id, 30)
       @tradeHistoryUrl = window.protocol.tradeHistoryUrl(@market.id, 60)
+
+  tickerRespChanged: (o, n) ->
+    if @tickerResp == ''
+      @fire('network-error', {'url': @tickerUrl})
+    else if @tickerResp
+      @ticker = @tickerResp.data[@market.id]
+      @priceChange = (100*@ticker[4]).toFixed(2)+"%"
+      if @ticker[4] < 0
+        @changeClass = "down"
+      else if @ticker[4] > 0
+        @changeClass = "up"
+        @priceChange = "+" + @priceChange
+      else
+        @changeClass = ''
+
 
   orderBookRespChanged: (o, n) ->
     if @orderBookResp == ''

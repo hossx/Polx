@@ -6,7 +6,7 @@
 <polymer-element name="stats-card-group" attributes="currency,smallup" center vertical layout>
   <template>
     <link rel="stylesheet" href="stats-card-group.css">
-    <core-ajax id="ajax" url="{{tickerUrl}}" handleAs="json" response="{{response}}" error="{{error}}" auto></core-ajax>
+    <core-ajax id="ajax" url="{{tickersUrl}}" handleAs="json" response="{{response}}" error="{{error}}" auto></core-ajax>
 
     <div class="groupLabel">{{currency.id}} {{M.markets}}</div>
     <div class="comment">{{config.refreshIntervals.tickers/1000 | refreshFormatter}}</div>

@@ -3,15 +3,18 @@
 <link rel="import" href="../../../bower_components/core-tooltip/core-tooltip.html">
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../crypto-address/crypto-address.html">
+<link rel="import" href="../../nice-number/nice-number.html">
 
 <polymer-element name="reserve-subpage" attributes="currency" flex>
   <template>
     <link rel="stylesheet" href="reserve-subpage.css">
 
-    <core-ajax url="{{detailsUrl}}" response="{{details}}" auto></core-ajax>
+    <core-ajax url="{{detailsUrl}}" handleAs="json" response="{{details}}" auto></core-ajax>
     <section-group has-footer>
       <paper-shadow>
-        <div label><h2>{{M.reserveDetails}}</h2></div>
+        <div label>
+          <h2>{{M.reserveDetails}}</h2>
+        </div>
         <div class="card" vertical center layout>
           <table>
             <thead>
@@ -24,25 +27,40 @@
               </tr>
             </thead>
             <tbody>
-              <template repeat="{{group in details.reserves}}">
-                <template repeat="{{data,idx in group.addresses}}">
-                  <tr>
-                    <td>
-                      <crypto-address class="{{group.label}}" currency="{{currency}}" addr="{{data[0]}}"></crypto-address>
-                    </td>
-                    <td>{{data[1]}}</td>
-                    <td><span class="{{group.label}}">{{M[group.label]}}</span>
-                    </td>
-                    <td>
-                      <div class="msg">{{data[2]}}</div>
-                    </td>
-                    <td>
-                      <div class="sig">{{data[3]}}</div>
-                    </td>
-                  </tr>
-                </template>
+              <template repeat="{{data,idx in distribution}}">
+                <tr>
+                  <td>
+                    <crypto-address class="{{data[2]}}" currency="{{currency}}" addr="{{data[0]}}"></crypto-address>
+                  </td>
+                  <td>
+                    <nice-number p="4" v="{{data[1]}}"></nice-number>
+                  </td>
+                  <td><span class="{{data[2]}}">{{M[data[2]]}}</span>
+                  </td>
+                  <td>
+                    <div class="msg">{{data[3]}}</div>
+                  </td>
+                  <td>
+                    <div class="sig">{{data[4]}}</div>
+                  </td>
+                </tr>
               </template>
             </tbody>
+            <tfoot>
+              <tr>
+                <td>{{distribution.length}} {{M.addresses}}
+                </td>
+                <td>
+                  <nice-number label="{{M.total}}"p="4" v="{{total}}"></nice-number>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+              </tr>
+            </tfoot>
           </table>
         </div>
       </paper-shadow>

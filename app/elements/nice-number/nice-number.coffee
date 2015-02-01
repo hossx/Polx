@@ -2,12 +2,19 @@
 
 Polymer 'nice-number',
   v: 0.0
+  p: 8
+  unit: ''
   part1: "0."
   part2: "00000000"
 
-  vChanged: (o, n) ->
+  observe: {
+    v: 'onChange'
+    p: 'onChange'
+  }
+  onChange: () ->
     pad = "00000000"
-    fixed = @v.toFixed(8)
+    p = Math.max(0, Math.min(@p, 8))
+    fixed = @v.toFixed(p)
     part1 = fixed
     part1 = part1.slice(0, part1.length-1) while part1[part1.length-1] == '0' 
     @part1 = part1

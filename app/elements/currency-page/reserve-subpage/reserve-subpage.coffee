@@ -11,6 +11,8 @@ Polymer 'reserve-subpage',
       signature: "Signature"
       hot: "Hot"
       cold: "Cold"
+      total: "Total"
+      addresses: "addresses"
 
     'zh':
       reserveDetails: '准备金详情'
@@ -21,6 +23,8 @@ Polymer 'reserve-subpage',
       signature: "签名"
       hot: "热钱包"
       cold: "冷钱包"
+      total: "总量"
+      addresses: '个地址'
 
   ready: () ->
     @M = @msgMap[window.lang]
@@ -34,6 +38,10 @@ Polymer 'reserve-subpage',
     @detailsUrl = window.protocol.reserveDetailsUrl(@currency.id)
 
   detailsChanged: (o, n) ->
+    if @details
+      #(TODO): @distribution = @details.data.distribution
+      @distribution = @details.data.distribution.reduce (a, b) -> a.concat(b)
+      @total = @total + i[1] for i in @distribution
 
   wikiChanged: (o, n) ->
     prefix = 'coinport:wiki\n'

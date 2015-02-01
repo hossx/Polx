@@ -16,7 +16,7 @@ Polymer 'stats-card-group',
   ready: () ->
     @M = @msgMap[window.lang]
     @config = window.config
-    @tickerUrl = window.protocol.tickerUrl(@currency.id)
+    @tickersUrl = window.protocol.tickersUrl(@currency.id)
     @tickers = null
     work = () =>this.$.ajax.go()
     @refreshJob = setInterval(work, @config.refreshIntervals.tickers)

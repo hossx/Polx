@@ -21,6 +21,7 @@
 <polymer-element name="market-pro-page" attributes="marketId">
   <template>
     <link rel="stylesheet" href="market-pro-page.css">
+    <core-ajax url="{{tickerUrl}}" handleAs="json" response="{{tickerResp}}" auto></core-ajax>
     <core-ajax url="{{orderBookUrl}}" handleAs="json" response="{{orderBookResp}}" auto></core-ajax>
     <core-ajax url="{{tradeHistoryUrl}}" handleAs="json" response="{{tradeHistoryResp}}" auto></core-ajax>
 
@@ -40,17 +41,17 @@
 
           <div class="divider"></div>
           <div class="stat" vertical layout>
-            <div>1233</div>
+            <nice-number v="{{ticker[0]}}" unit="{{market.baseCurrency.unit}}"></nice-number>
             <div>{{M.lastPrice}}</div>
           </div>
 
           <div class="stat" vertical layout>
-            <div>1233</div>
+           <nice-number v="{{ticker[3]}}" p="2" unit="{{market.currency.unit}}"></nice-number>
             <div>{{M.volume}}</div>
           </div>
 
           <div class="stat" vertical layout>
-            <div>1233</div>
+            <div class="{{changeClass}}">{{priceChange}}</nice-number></div>
             <div>{{M.change}}</div>
           </div>
           <div class="divider"></div>

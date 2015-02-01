@@ -137,12 +137,13 @@ Polymer 'the-app',
       loginUrl: () -> "%s/account/login".format(@base)
       logoutUrl:  () ->"%s/account/logout".format(@base)
       ## public apis
-      tickerUrl: (coin) -> "%s/api/v2/%s/tickers".format(@base, coin.toLowerCase())
+      tickersUrl: (coin) -> "%s/api/v2/%s/tickers".format(@base, coin.toLowerCase())
+      tickerUrl: (market) -> "%s/api/v2/%s/ticker".format(@base, market.toLowerCase())
       depthUrl: (market,limit) ->  "%s/api/v2/%s/depth?limit=%s".format(@base, market.toLowerCase(), limit)
       tradeHistoryUrl: (market, limit) ->  "%s/api/v2/%s/trades?limit=%s".format(@base, market.toLowerCase(), limit)
       cryptoTxsUrl: (coin) -> 'api_mock_open_crypto_txs.json'
       reserveStatsUrl: () -> '%s/api/v2/reserve_stats'.format(@base)
-      reserveDetailsUrl: (coin) -> 'api_mock_open_reserve_details.json'
+      reserveDetailsUrl: (coin) -> '%s/api/v2/%s/reserves'.format(@base, coin.toLowerCase())
       reserveSnapshotsUrl: (coin) -> 'api_mock_open_reserve_snapshots.json'
       historyUrl: (market, period, from) -> 'https://exchange.coinport.com/api/%s/history?period=%d&from=%s'.format(market.toLowerCase(), period,from)
       ## private apis
