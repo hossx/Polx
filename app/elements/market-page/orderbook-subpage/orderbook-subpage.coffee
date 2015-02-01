@@ -25,13 +25,3 @@ Polymer 'orderbook-subpage',
 
   ready: () ->
     @M = @msgMap[window.lang]
-
-  active: false
-
-  observe:
-    active: 'onChange'
-    market: 'onChange'
-
-  onChange: () ->
-    if @active and @market
-      this.$.ajax.go()

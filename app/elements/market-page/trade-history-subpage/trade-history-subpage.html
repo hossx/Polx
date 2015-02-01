@@ -1,26 +1,29 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
-<link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
 <link rel="import" href="../../nice-number/nice-number.html">
 <link rel="import" href="../../charts/trade-history-chart/trade-history-chart.html">
+<link rel="import" href="../../coinport-api/api-market-trade-history.html">
 
 <link rel="import" href="../../section-group/section-group.html">
 <polymer-element name="trade-history-subpage" attributes="market,active" vertical layout>
   <template>
     <link rel="stylesheet" href="trade-history-subpage.css">
-
-    <core-ajax url="{{transactionsUrl}}" handleAs="json" response="{{response}}" auto></core-ajax>
+    <api-market-trade-history id="ajax" marketId="{{market.id}}" trades="{{trades}}" hasMore="{{hasMore}}" auto></api-market-trade-history>
 
     <section-group has-footer>
       <paper-shadow>
-        <div label><h2>{{market.id}} {{M.chart}}</h2></div>
+        <div label>
+          <h2>{{market.id}} {{M.chart}}</h2>
+        </div>
         <div class="card" vertical center layout>
-          <trade-history-chart market="{{market}}" width="720" records="{{records}}"></trade-history-chart>
+          <trade-history-chart market="{{market}}" width="720" records="{{trades}}"></trade-history-chart>
         </div>
       </paper-shadow>
 
       <paper-shadow>
-        <div label><h2>{{market.id}} {{M.tradeHistory}}</h2></div>
+        <div label>
+          <h2>{{market.id}} {{M.tradeHistory}}</h2>
+        </div>
         <div class="card">
           <table>
             <thead>
@@ -33,10 +36,16 @@
               </tr>
             </thead>
             <tbody>
-              <template repeat="{{record,idx in records}}">
+              <template repeat="{{record,idx in trades}}">
                 <tr class="{{record.typeClass}}">
                   <td class="idx">{{idx+1}}</td>
-                  <td class="type">{{record.typeLabel}}</td>
+                  <template if="{{record.isSell}}">
+                    <td class="sell">{{M.sell}}</td>
+                  </template>
+                  <template if="{{!record.isSell}}">
+                    <td class="buy">{{M.buy}}</td>
+                  </template>
+                  </td>
                   <td>
                     <nice-number class="price bold" v="{{record.price}}"></nice-number>
                   </td>

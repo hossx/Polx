@@ -43,18 +43,16 @@
         border-collapse: collapse;
         border-spacing: 0px;
     }
-    thead {
-        color: $black1;
-        font-weight: 500;
-    }
-    tr {
-        //&:nth-child(even) {
-        //    background-color: $black4;
-        //}
-        border-bottom: 1px solid color($C1, 50);
-    }
     td, th {
         padding: 10px 4px;
+        text-align: right;
+    }
+    thead {
+        color: $black1;
+        font-weight: bold;
+    }
+    tr {
+        border-bottom: 1px solid color($C1, 50);
     }
     tbody {
         tr:hover {

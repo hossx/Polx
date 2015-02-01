@@ -9,6 +9,9 @@ Polymer 'api-market-trade-history',
     limit: 'onChange'
     marketId: 'onChange'
 
+  created: () ->
+    @limit = window.config.viewParams.market.tradingRecordInitialSize
+
   onChange: (o, n) ->
     @url = window.protocol.tradeHistoryUrl(@marketId, @limit)
 
