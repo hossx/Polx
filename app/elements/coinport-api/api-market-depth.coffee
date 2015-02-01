@@ -8,6 +8,9 @@ Polymer 'api-market-depth',
   bidsReverse: []
   spread: 0
 
+  created: () ->
+    @limit = window.config.viewParams.market.orderBookInitialSize
+    
   observe:
     limit: 'onChange'
     marketId: 'onChange'

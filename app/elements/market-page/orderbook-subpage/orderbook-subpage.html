@@ -1,15 +1,15 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
-<link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
 <link rel="import" href="../../charts/depth-chart/depth-chart.html">
 <link rel="import" href="../../nice-number/nice-number.html">
 <link rel="import" href="../../section-group/section-group.html">
+<link rel="import" href="../../coinport-api/api-market-depth.html">
 
 <polymer-element name="orderbook-subpage" attributes="market,active" vertical layout>
   <template>
     <link rel="stylesheet" href="orderbook-subpage.css">
 
-    <core-ajax url="{{depthUrl}}" handleAs="json" response="{{response}}" auto></core-ajax>
+    <api-market-depth id="ajax" marketId="{{market.id}}" bids="{{bids}}" asks="{{asks}}"></api-market-depth>
 
     <section-group has-footer>
       <paper-shadow>

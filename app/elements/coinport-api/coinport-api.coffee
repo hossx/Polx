@@ -5,6 +5,7 @@ Polymer 'coinport-api',
   processResponse: (xhr) ->
     if not xhr.responseText
       consolelog(xhr.responseText)
+      # @fire('network-error', {'url': @depthUrl})
       @data = null
     else
       try
