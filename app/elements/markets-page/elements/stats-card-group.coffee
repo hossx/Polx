@@ -13,34 +13,11 @@ Polymer 'stats-card-group',
   refreshFormatter: (v) -> @msgMap[window.lang].refresh.format(v)
 
 
+  tickers: null
   ready: () ->
     @M = @msgMap[window.lang]
-    @config = window.config
-    @tickersUrl = window.protocol.tickersUrl(@currency.id)
-    @tickers = null
     work = () =>this.$.ajax.go()
-    @refreshJob = setInterval(work, @config.refreshIntervals.tickers)
-    console.debug("start auto-refresh for tickers " +  @tickerUrl)
+    @refreshJob = setInterval(work, window.config.refreshIntervals.tickers)
 
-  responseChanged: (o, n) ->
-    if @response
-      if @response == ''
-        @stopRefresh()
-        @fire("network-error", {'url': @tickerUrl})
-      else
-        @tickers = @response.data
-        @marketIds = Object.keys(@tickers).sort()
-
-  detached: () ->
-    @stopRefresh()
-    
-  errorChanged: (o, e) ->
-    console.error("error: " + e) if e
-    @fire("network-error", {'url': @tickerUrl})
-
-  stopRefresh: () ->
-    if @refreshJob
-      clearInterval(@refreshJob)
-      @refreshJob = null
-      console.debug("stop auto-refresh for tickers")
-
+  tickersChanged: (o, n) ->
+    @marketIds = Object.keys(@tickers).sort()
