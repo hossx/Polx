@@ -144,7 +144,7 @@ Polymer 'the-app',
       cryptoTxsUrl: (coin) -> 'api_mock_open_crypto_txs.json'
       reserveStatsUrl: () -> '%s/api/v2/reserve_stats'.format(@base)
       reserveDetailsUrl: (coin) -> '%s/api/v2/%s/reserves'.format(@base, coin.toLowerCase())
-      reserveSnapshotsUrl: (coin) -> 'api_mock_open_reserve_snapshots.json'
+      balanceSnapshotFilesUrl: (coin) -> '%s/api/v2/%s/balance_snapshot_files'.format(@base, coin.toLowerCase())
       historyUrl: (market, period, from) -> 'https://exchange.coinport.com/api/%s/history?period=%d&from=%s'.format(market.toLowerCase(), period,from)
       ## private apis
       userProfileUrl: 'api_mock_my_profile.json'

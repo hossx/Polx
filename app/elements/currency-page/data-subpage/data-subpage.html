@@ -55,7 +55,7 @@
       </paper-shadow>
 
       <paper-shadow>
-        <core-ajax id="snapshotAjax" url="{{snapshotUrl}}" on-core-complete="{{handleSnapshotsComplete}}" auto></core-ajax>
+        <core-ajax id="snapshotAjax" url="{{balanceSnapshotFilesUrl}}" on-core-complete="{{handleSnapshotsComplete}}" auto></core-ajax>
         <div label>
           <h2>{{currency.name}} |{{M.distributionSnapshots}}</h2>
           <p>{{currency.name | formatDistributionSnapshotsComment}}</p>
@@ -72,12 +72,12 @@
             <tbody>
               <template repeat="{{snapshot in snapshots}}">
                 <tr>
-                  <td>{{snapshot[1]}}</td>
+                  <td>{{snapshot[2] | formatTime}}</td>
                   <td>
-                    <a href="{{snapshot[2]}} | formatFileUrl}}">
-                      <core-icon class="small" icon="file-download"></core-icon>{{snapshot[2]}}</a>
+                    <a href="{{fileBase + snapshot[0]}}">
+                      <core-icon class="small" icon="file-download"></core-icon>{{snapshot[0]}}</a>
                   </td>
-                  <td>{{snapshot[3]}}</td>
+                  <td>{{snapshot[1]}}</td>
                 </tr>
               </template>
             </tbody>

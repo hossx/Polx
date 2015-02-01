@@ -36,7 +36,7 @@ Polymer 'data-subpage',
 
   currency: null
   txsUrl: ''
-  snapshotUrl: ''
+  balanceSnapshotFilesUrl: ''
   hasMoreTxs: false
   hasMoreSnapshots: false
 
@@ -47,7 +47,7 @@ Polymer 'data-subpage',
 
   currencyChanged: (o, n) ->
       @txsUrl = window.protocol.cryptoTxsUrl(@currency.id)
-      @snapshotUrl = window.protocol.reserveSnapshotsUrl(@currency.id)
+      @balanceSnapshotFilesUrl = window.protocol.balanceSnapshotFilesUrl(@currency.id)
 
   handleTxsComplete: (e, detail, sender) ->
     xhr = detail.xhr
@@ -63,9 +63,10 @@ Polymer 'data-subpage',
     if xhr and xhr.status != 200 or not xhr.response
       @fire('network-error', {'url': @snapshotUrl})
     else 
-      resp = JSON.parse(xhr.response)
+      resp = JSON.parse(xhr.response).data
       @hasMoreSnapshots = resp.hasMore
-      @snapshots.push resp.snapshots...
+      @fileBase = resp.path
+      @snapshots.push resp.items...
 
   loadMoreTxs: () -> this.$.txsAjax.go() if @hasMoreTxs
   loadMoreSnapshots: () -> this.$.snapshotAjax.go() if @hasMoreSnapshots
@@ -74,4 +75,6 @@ Polymer 'data-subpage',
   formatAddrUrl: (value) -> "http://addr/" + value
   formatTxUrl: (value) -> "http://aaaaa/" + value
   formatUserUrl: (value) -> "/#/user/" + value
-  formatFileUrl: (value) -> "file:" + value
+  formatTime: (v) ->moment(v).format("MM/DD/YYYY-hh:mm") 
+
+  
