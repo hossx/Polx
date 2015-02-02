@@ -1,10 +1,18 @@
 'use strict'
 
 Polymer 'the-router',
+  msgMap:
+    'en':
+      serviceUnavailable: "Service is temporarily unavailable."
+
+    'zh':
+     serviceUnavailable: "币丰港服务暂时不可用。是不是你的网络有问题啦？"
+
   userId: null # null indicates initial state
   sessionCookieName: 'PLAY_SESSION'
 
   ready: ()->
+    @M = @msgMap[window.lang]
     window.state.uid = null
     @loginTestUrl = window.protocol.userProfileUrl
     @setupEventListeners()
@@ -13,7 +21,7 @@ Polymer 'the-router',
   setupEventListeners: () ->
     @addEventListener 'network-error', (e) ->
       console.debug("network-error event seen: " + e.detail.url)
-      @error = "Service is temporarily unavailable."
+      @error = @M.serviceUnavailable
       this.$.toast.show()
 
     @addEventListener 'logout-requested', (e) -> 

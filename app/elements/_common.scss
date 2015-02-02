@@ -30,11 +30,8 @@
     }
 }
 @mixin has-paper-spinner() {
-    paper-spinner[aria-hidden=true] {
-        display: none;
-    }
     paper-spinner::shadow .circle {
-        border-color: color($C1, 500);
+        border-color: color($C2, a700);
     }
 }
 @mixin has-simple-table() {

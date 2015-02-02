@@ -11,7 +11,7 @@ cp-page {
 }
 .section {
     min-height: 360px;
-    padding: 80px 0;
+    padding: 0;
     position: relative; // important
     overflow: hide;
 }
@@ -23,13 +23,13 @@ cp-page {
     width: 100%;
     position: relative;
     #name {
-        font-size: 86px;
+        font-size: 72px;
         text-transform: uppercase;
         color: $white1;
         padding: 40px;
     }
     #slogan {
-        font-size: 28px;
+        font-size: 26px;
         color: white;
         border-bottom: 2px solid $white2;
     }
@@ -38,6 +38,7 @@ cp-page {
     background: white;
     color: $black2;
     .feature {
+        padding: 20px;
         .label {
             text-transform: uppercase;
             font-size: 28px;
@@ -54,12 +55,8 @@ cp-page {
     }
 }
 #mobile {
-    background: color($light-green, 500);
-    color: $white1;
+    background-color: color($grey, 50);
     #words {
-        position: absolute;
-        left: 20%;
-        top: 40%;
         #ready {
             font-size: 28px;
             font-weight: 700;
@@ -83,24 +80,30 @@ cp-page {
         }
     }
     img#android-app {
-        position: absolute;
-        bottom: 0;
-        right: 20%;
         height: 80%;
     }
 }
-#served {
-    padding: 20px;
+#powered {
+    padding: 20px 40px;
     background: $black1;
     color: $white1;
     font-weight: 500;
+    text-align: center;
 }
 #form-container {
     width: 100%;
     padding: 20px 0;
 }
-@media(min-width:320px) {
-    #widget {
-        width: 320px;
+@media(min-width: 768px) {
+    .section {
+        padding: 80px 0;
+    }
+    #mobile {
+        color: white;
+        img#android-app {
+            position: absolute;
+            bottom: 0;
+            height: 80%;
+        }
     }
 }

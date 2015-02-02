@@ -47,12 +47,11 @@ $head-background-color: color($C1, 700);
 $head-height: 36px;
 .column {
     min-width: 260px;
-    width: 20%;
     border-left: 1px solid $border-color;
     border-right: 1px solid $border-color;
     .block {
         font-size: 12px;
-        border-top: 2px solid $border-color;
+        border-top: 8px solid $border-color;
         .head {
             height: $head-height;
             padding-left: 15px;
@@ -69,9 +68,6 @@ $head-height: 36px;
             padding: 0 0 10px 0;
             color: $white2;
         }
-    }
-    &.wide {
-        width: 40%;
     }
 }
 table.dense {
@@ -225,4 +221,11 @@ nice-number {
 }
 paper-button {
     border-radius: 0;
+}
+@media(min-width: 768px) {
+    .column {
+        .block {
+            border-top: 2px solid $border-color;
+        }
+    }
 }

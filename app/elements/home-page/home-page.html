@@ -1,4 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-media-query/core-media-query.html">
 <link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../../bower_components/polymer-fontawesome/polymer-fontawesome.html">
 <link rel="import" href="../cp-page/cp-page.html">
@@ -6,45 +7,51 @@
 <polymer-element name="home-page" attributes="">
   <template>
     <link rel="stylesheet" href="home-page.css">
+    <core-media-query query="min-width: 768px" queryMatches="{{smallup}}"></core-media-query>
+
     <cp-page has-toolbar has-footer>
       <div id="container" vertical layout>
+
         <div class="section" id="branding" vertical center layout>
           <div id="name">{{M.coinport}}</div>
           <div id="slogan">{{M.slogan}}</div>
         </div>
 
-        <div class="section" id="features" horizontal center layout>
-          <div class="feature" flex vertical center layout>
-            <font-awesome icon="github" size="4x"></font-awesome>
+        <div class="section" id="features" vertical?={{!smallup}} horizontal?={{smallup}} center layout>
+          <div class="feature" flex auto-vertical vertical center layout>
+            <font-awesome icon="github" size="5x"></font-awesome>
             <div class="label">{{M.feature1}}</div>
             <div class="explain">
               {{M.explain1_1}}<a href="https://github.com/coinport/MatchEngine">{{M.explain1_2}}</a>{{M.explain1_3}}
             </div>
 
           </div>
-          <div class="feature" flex vertical center layout>
-            <font-awesome icon="lightbulb-o" size="4x"></font-awesome>
+          <div class="feature" flex auto-vertical vertical center layout>
+            <font-awesome icon="lightbulb-o" size="5x"></font-awesome>
             <div class="label">{{M.feature2}}</div>
             <div class="explain">{{M.explain2}}</div>
           </div>
-          <div class="feature" flex vertical center layout>
-            <font-awesome icon="shield" size="4x"></font-awesome>
+          <div class="feature" flex auto-vertical vertical center layout>
+            <font-awesome icon="shield" size="5x"></font-awesome>
             <div class="label">{{M.feature3}}</div>
             <div class="explain">{{M.explain3}}</div>
           </div>
         </div>
 
-        <div class="section" id="mobile" vertical center layout>
-          <div id="words" vertical center layout>
+        <div class="section" id="mobile" vertical?={{!smallup}} horizontal?={{smallup}} center layout>
+
+          <div id="words" flex auto-vertical vertical center layout>
             <div id="ready">{{M.mobileReady}}</div>
             <a href="#">
               <paper-button id="download">{{M.download}}</paper-button>
             </a>
             <div id="supports">{{M.support}}</div>
           </div>
-          <img id="android-app" src="../../images/android-app-cut.png">
+          <div flex auto-vertical vertical center layout>
+            <img id="android-app" src="../../images/android-app-cut.png">
+          </div>
         </div>
-        <div id="served" vertical center layout>
+        <div id="powered" vertical center layout>
           <div>{{M.servedBy}}</div>
         </div>
       </div>

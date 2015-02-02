@@ -1,13 +1,17 @@
 'use strict'
 
 Polymer 'coinport-api',
+
+  processError: (xhr) ->
+    @fire('network-error', {'url': @url})
+    @data = null
   
   processResponse: (xhr) ->
     if not xhr.responseText
-      consolelog(xhr.responseText)
-      # @fire('network-error', {'url': @depthUrl})
+      console.log(xhr.responseText)
+      @fire('network-error', {'url': @url})
       @data = null
-    else
+    else if xhr.status == 200
       try
         json = JSON.parse(xhr.responseText)
         if json and json.data
@@ -17,5 +21,7 @@ Polymer 'coinport-api',
         console.warn('url:', this.url);
         console.warn(x);
         @data = null
+    else
+      console.error("status: " + xhr.status)
 
 

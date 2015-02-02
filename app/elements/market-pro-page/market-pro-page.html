@@ -8,6 +8,7 @@
 <link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html">
 <link rel="import" href="../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html">
+<link rel="import" href="../../bower_components/core-media-query/core-media-query.html">
 <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
@@ -24,6 +25,8 @@
 <polymer-element name="market-pro-page" attributes="marketId">
   <template>
     <link rel="stylesheet" href="market-pro-page.css">
+    <core-media-query query="min-width: 768px" queryMatches="{{smallup}}"></core-media-query>
+
     <api-market-ticker marketId="{{marketId}}" ticker="{{ticker}}" auto></api-market-ticker>
     <api-market-depth marketId="{{marketId}}" bids="{{bids}}" bidsReverse="{{bidsReverse}}" asks="{{asks}}" spread="{{spread}}"
     auto></api-market-depth>
@@ -69,8 +72,8 @@
           </a>
         </core-toolbar>
 
-        <div id="main" flex horizontal layout main>
-          <div class="column" vertical layout>
+        <div id="main" wrap flex vertical?={{!smallup}} horizontal?={{smallup}} layout main>
+          <div class="column" auto-vertical flex vertical layout>
 
             <div class="block" id="trade" vertical layout>
               <div class="content" vertical layout>
@@ -161,7 +164,7 @@
             </div>
           </div>
 
-          <div class="column" vertical layout>
+          <div class="column" auto-vertical flex vertical layout>
             <div class="block" id="orderbook" vertical layout>
               <div class="head" center horizontal layout>
                 <div class="title">{{M.orderBook}}</div>
@@ -223,7 +226,7 @@
             </div>
           </div>
 
-          <div class="column wide" vertical layout>
+          <div class="column" auto-vertical flex two vertical layout>
             <div class="block" vertical layout>
               <div class="head" center horizontal layout>
                 <div class="title">{{M.priceChart}}</div>
@@ -252,7 +255,7 @@
             </div>
           </div>
 
-          <div class="column" vertical layout>
+          <div class="column" auto-vertical flex vertical layout>
             <div class="block" vertical layout>
               <div class="head" center horizontal layout>
                 <div class="title">{{M.tradeHistory}}</div>

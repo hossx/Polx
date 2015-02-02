@@ -1,4 +1,6 @@
 @import "../../_colors";
+@import "../../_common";
+@include has-paper-spinner();
 :host {
     width: 100%;
     display: block;
