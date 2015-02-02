@@ -131,6 +131,15 @@ nice-number {
     .content {
         padding: 20px;
     }
+    nice-number {
+        color: color($C2, a400);
+    }
+    .up {
+        color: color($sell-color, a200);
+    }
+    .down {
+        color: color($buy-color, a200);
+    }
 }
 #availableBalance {
     .content {

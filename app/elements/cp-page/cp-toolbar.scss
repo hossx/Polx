@@ -18,6 +18,7 @@
         text-decoration: none;
     }
     #xyz {
+        display: none;
         $color1: color($amber, a700);
         $color2: color($cyan, 200);
         #x {
@@ -35,6 +36,13 @@
         #z {
             color: $color2;
             text-transform: uppercase;
+        }
+    }
+}
+@media(min-width: 768px) {
+    #toolbar {
+        #xyz {
+            display: inherit;
         }
     }
 }

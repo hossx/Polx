@@ -3,10 +3,11 @@
 @mixin config-pay-link() {
     .pay {
         a {
-            color: color($deep-purple, 300);
-            &:hover {
-                color: color($deep-purple, 200);
-            }
+            background-color: white;
+            color: color($deep-purple, 500);
+            padding-left:  6px;
+            padding-right: 6px;
+            border-radius: 3px;
         }
     }
 }
