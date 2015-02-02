@@ -45,6 +45,9 @@ $head-background-color: color($C1, 700);
     background: $background-color;
 }
 $head-height: 36px;
+#toolbar-ticker {
+    display: none;
+}
 .column {
     min-width: 260px;
     border-left: 1px solid $border-color;
@@ -123,6 +126,11 @@ nice-number {
 }
 .idx {
     color: $white3;
+}
+#ticker {
+    .content {
+        padding: 20px;
+    }
 }
 #availableBalance {
     .content {
@@ -223,6 +231,12 @@ paper-button {
     border-radius: 0;
 }
 @media(min-width: 768px) {
+    #toolbar-ticker {
+        display: inherit;
+    }
+    #ticker {
+        display: none;
+    }
     .column {
         .block {
             border-top: 2px solid $border-color;

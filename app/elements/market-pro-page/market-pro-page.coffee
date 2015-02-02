@@ -3,6 +3,7 @@
 Polymer 'market-pro-page',
   msgMap:
     'en':
+      ticker: "Ticker"
       availableBalance: "Available Balance"
       transfers: "Deposit/Withdrawal Records"
       orderBook: "Order Book"
@@ -29,6 +30,7 @@ Polymer 'market-pro-page',
       spread: "Spread"
 
     'zh':
+      ticker: "市场概况"
       availableBalance: "可用余额"
       transfers: "充提记录"
       orderBook: "现有订单"
@@ -50,8 +52,8 @@ Polymer 'market-pro-page',
       deposit: "充值"
       relaxMode: "查看更多该市场信息"
       lastPrice: "最新成交价"
-      volume: "24小时总成交量"
-      change: "24小时价格变化"
+      volume: "24小时成交"
+      change: "24小时价差"
       spread: "买卖价差"
 
   ready: () ->

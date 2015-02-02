@@ -3,7 +3,7 @@
 Polymer 'stats-card-group',
   msgMap:
     'en':
-      markets: "Markets"
+      markets: " Markets"
       refresh: "Refreshed every %s seconds"
 
     'zh':

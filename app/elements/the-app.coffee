@@ -27,11 +27,7 @@ class Market
   constructor: (@baseCurrency, @currency, @json) ->
     @id = @currency.id + "-" + @baseCurrency.id 
     @shortName = @currency.id + "/" + @baseCurrency.id
-    @name =
-      if window.lang == 'en'
-        @currency.name + '-' + @currency.id + "/" + @baseCurrency.id+" Market"
-      else
-        @currency.name + '-' + @currency.id + "/" + @baseCurrency.id+" 市场"
+    @name = @currency.name + '-' + @currency.id + "/" + @baseCurrency.id
     @fee = new MarketFee @json.fee
     @pricePrecision = Math.min(@json.pricePrecision || 4, 8)
     @quantityPrecision = Math.min(@json.quantityPrecision || 4, 8)

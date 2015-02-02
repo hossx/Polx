@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="stats-card-group.css">
     <api-market-tickers id="ajax" currencyId="{{currency.id}}" tickers="{{tickers}}" auto></api-market-tickers>
 
-    <div class="groupLabel">{{currency.id}} {{M.markets}}</div>
+    <div class="groupLabel">{{currency.name}}{{M.markets}}</div>
     <div class="comment">{{refreshInterval | refreshFormatter}}</div>
     <div class="canvas" wrap?={{smallup}} layout center?={{!smallup}} vertical?={{!smallup}} horizontal?={{smallup}}>
       <template repeat="{{id in marketIds}}">

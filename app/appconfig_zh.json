@@ -1,7 +1,7 @@
 {
   "currencies": {
     "CNY": {
-      "name": "Chinese Yuan",
+      "name": "人民币",
       "color": "red",
       "notCripto": true,
       "fee": {

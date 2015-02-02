@@ -7,7 +7,7 @@ Polymer 'reserve-card-group',
       refresh: "Refersh every %s seconds"
 
     'zh':
-      reserveStats: "货币准备金统计"
+      reserveStats: "货币准备金"
       refresh: "每%s秒刷新一次"
 
   reserveStats: null
