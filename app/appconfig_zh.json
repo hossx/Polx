@@ -239,7 +239,7 @@
       "tags": ["developer"]
     },
     "api2": {
-      "label": "币丰港交易所API",
+      "label": "币丰港交易平台API",
       "tags": ["developer"]
     },
     "cny-deposit-thru-ripple-gateways": {

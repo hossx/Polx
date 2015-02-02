@@ -32,7 +32,7 @@ Polymer 'home-page',
       mobileReady: "安卓手机有APP可用哦"
       download: "立即下载"
       support: "支持安卓2.4.2及以上版本. iOS App还在开发中。"
-      servedBy: "币丰港交易所由币丰港（香港）网络科技有限公司运营"
+      servedBy: "币丰港交易平台由币丰港（香港）网络科技有限公司运营"
 
 
   ready: () ->
