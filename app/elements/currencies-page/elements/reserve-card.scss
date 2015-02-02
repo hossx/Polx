@@ -15,6 +15,10 @@ a {
 #box {
     padding: 20px;
     background: $white1;
+    transition: 2s cubic-bezier(0, 1, 1, 1);
+    &:hover {
+        transform: scale(1.04);
+    }
 }
 #head {
     color: $black1;

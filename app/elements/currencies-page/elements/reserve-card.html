@@ -26,7 +26,7 @@
                   <td class="l">{{M.hotWallet}}:</td>
                   <td class="v">{{hotRatio | ratioFormat}} =</td>
                   <td class="v">
-                    <nice-number v="{{reserve[0]}}"></nice-number>
+                    <nice-number p="4" v="{{reserve[0]}}"></nice-number>
                   </td>
                   <td class="v">{{currency.unit}}</td>
                 </tr>
@@ -34,7 +34,7 @@
                   <td class="l">{{M.coldWallet}}:</td>
                   <td class="v">{{coldRatio | ratioFormat}} =</td>
                   <td class="v">
-                    <nice-number v="{{reserve[1]}}"></nice-number>
+                    <nice-number p="4" v="{{reserve[1]}}"></nice-number>
                   </td>
                   <td class="v">{{currency.unit}}</td>
                 </tr>
@@ -42,7 +42,7 @@
                   <td class="l">{{M.userWallet}}:</td>
                   <td class="v">{{userRatio | ratioFormat}} =</td>
                   <td class="v">
-                    <nice-number v="{{reserve[2]}}"></nice-number>
+                    <nice-number p="4" v="{{reserve[2]}}"></nice-number>
                   </td>
                   <td class="v">{{currency.unit}}</td>
                 </tr>
@@ -51,7 +51,7 @@
                     <td class="l s">{{M.shortage}}:</td>
                     <td class="v s">{{shortageRatio | ratioFormat}} =</td>
                     <td class="v s">
-                      <nice-number v="{{shortage}}"></nice-number>
+                      <nice-number p="4" v="{{shortage}}"></nice-number>
                     </td>
                     <td class="v s">{{currency.unit}}</td>
                   </template>
