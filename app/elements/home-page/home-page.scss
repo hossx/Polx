@@ -27,11 +27,20 @@ cp-page {
         text-transform: uppercase;
         color: $white1;
         padding: 40px;
+        font-weight: bold;
     }
     #slogan {
         font-size: 26px;
         color: white;
-        border-bottom: 2px solid $white2;
+        border-bottom: 2px solid $white1;
+        font-weight: bold;
+    }
+    .backstretch:before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: url("/images/bg-overlay.png");
+        position: absolute;
     }
 }
 #features {
@@ -55,6 +64,7 @@ cp-page {
     }
 }
 #mobile {
+    color: white;
     background-color: color($grey, 50);
     #words {
         #ready {
@@ -64,14 +74,14 @@ cp-page {
             text-shadow: 1px 1px $black3;
         }
         #download {
-            background: color($C3, a700);
-            color: white;
+            color: $white1;
+            background: color($C2, 500);
             min-width: 200px;
             font-weight: 700;
             font-size: 20px;
             text-transform: none;
             &:hover {
-                background: color($C2, a700);
+                background: color($C3, 500);
             }
         }
         #supports {
@@ -81,6 +91,14 @@ cp-page {
     }
     img#android-app {
         height: 80%;
+        transition: 5s cubic-bezier(0, 1, 1, 1);
+    }
+    .backstretch:before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: url("/images/bg-overlay.png");
+        position: absolute;
     }
 }
 #powered {
@@ -99,7 +117,6 @@ cp-page {
         padding: 80px 0;
     }
     #mobile {
-        color: white;
         img#android-app {
             position: absolute;
             bottom: 0;

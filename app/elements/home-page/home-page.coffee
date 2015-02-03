@@ -15,7 +15,7 @@ Polymer 'home-page',
       explain3: "We never invest user asset for our own profit. To prove this, our platform publishes new events and system snapshots hourly. Users can verify our reserve ratios based on these open data with simple maths."
       mobileReady: "Mobile App Ready for Android"
       download: "Download App"
-      support: "Supports Android 2.4.2 and up. iOS App comming soon."
+      support: "Supports Android 2.4.2 and up. iOS App coming soon."
       servedBy: "COINPORT EXCHANGE is powered by COINPORT TECHNOLOGY LIMITED, HK"
     'zh':
       coinport: "币丰港"
@@ -37,6 +37,6 @@ Polymer 'home-page',
 
   ready: () ->
     @M = @msgMap[window.lang]
-    $(this.$['branding']).backstretch("http://www.zastavki.com/pictures/1600x900/2011/Finance_Wallpapers___Money_Currency_030149_25.jpg")
-    $(this.$['mobile']).backstretch("http://www.zastavki.com/pictures/1600x900/2014/Computers_Modern_laptop_and_retro_camera_089002_25.jpg")
+    $(this.$['branding']).backstretch("/images/bg-wave.jpg")
+    $(this.$['mobile']).backstretch("/images/bg-desktop.jpg") #
 
