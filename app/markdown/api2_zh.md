@@ -680,7 +680,11 @@ profile中的pwdhash将不会被返回。
     "name": "wangdong",
     "email": "dong77@gmail.com",
     "mobile": "+86 18817728171",
-    "apiToken": "8c0781b2402a9907af4e68cb8f982767",
+    "apiTokenPairs": [
+      ["8c0781b2402a9907af4e68cb8f982767", "23842jjsdkx7jsdfjlsdfjk3j2lj3l2"],
+      ["apitoken2", "apisecret2"],
+      ["apitoken3", "apisecret3"]
+    ]
     "emailVerified": true,
     "mobileVerified": true,
     "googleAuthEnabled": false
