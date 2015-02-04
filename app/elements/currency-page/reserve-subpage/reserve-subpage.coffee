@@ -31,17 +31,14 @@ Polymer 'reserve-subpage',
 
   wiki: ''
   wikiLinted: ''
-  details: null
-  detailsUrl: ''
+  total: 0
+  distribution: []
 
-  currencyChanged: () ->
-    @detailsUrl = window.protocol.reserveDetailsUrl(@currency.id)
-
-  detailsChanged: (o, n) ->
-    if @details
-      #(TODO): @distribution = @details.data.distribution
-      @distribution = @details.data.distribution.reduce (a, b) -> a.concat(b)
-      @total = @total + i[1] for i in @distribution
+  distributionChanged: (o, n) ->
+    if @distribution
+      total = 0
+      total = total + i[1] for i in @distribution
+      @total = total
 
   wikiChanged: (o, n) ->
     prefix = 'coinport:wiki\n'

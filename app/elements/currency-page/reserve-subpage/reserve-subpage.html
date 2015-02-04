@@ -4,12 +4,13 @@
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../crypto-address/crypto-address.html">
 <link rel="import" href="../../nice-number/nice-number.html">
+<link rel="import" href="../../coinport-api/api-currency-reserves.html">
 
 <polymer-element name="reserve-subpage" attributes="currency" flex>
   <template>
     <link rel="stylesheet" href="reserve-subpage.css">
 
-    <core-ajax url="{{detailsUrl}}" handleAs="json" response="{{details}}" auto></core-ajax>
+    <api-currency-reserves currencyId="{{currency.id}}" stats="{{stats}}" distribution="{{distribution}}" auto></api-currency-reserves>
     <section-group has-footer>
       <paper-shadow>
         <div label>
@@ -30,7 +31,7 @@
               <template repeat="{{data,idx in distribution}}">
                 <tr>
                   <td>
-                    <crypto-address class="{{data[2]}}" currency="{{currency}}" addr="{{data[0]}}"></crypto-address>
+                    <crypto-address class="{{data[0]}}" currency="{{currency}}" addr="{{data[0]}}"></crypto-address>
                   </td>
                   <td>
                     <nice-number p="4" v="{{data[1]}}"></nice-number>

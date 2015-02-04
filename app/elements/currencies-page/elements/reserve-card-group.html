@@ -1,12 +1,12 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-spinner/paper-spinner.html">
-<link rel="import" href="../../coinport-api/api-currency-reserves.html">
+<link rel="import" href="../../coinport-api/api-reserve-stats.html">
 <link rel="import" href="reserve-card.html">
 
 <polymer-element name="reserve-card-group" attributes="smallup" center vertical layout>
   <template>
     <link rel="stylesheet" href="reserve-card-group.css">
-    <api-currency-reserves id="ajax" reserveStats="{{reserveStats}}" auto></api-currency-reserves>
+    <api-reserve-stats id="ajax" reserveStats="{{reserveStats}}" auto></api-reserve-stats>
 
     <div class="groupLabel">{{M.reserveStats}}</div>
     <div class="comment">{{refreshInterval | refreshFormatter}}</div>

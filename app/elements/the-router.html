@@ -18,6 +18,7 @@
   <template fit>
     <link rel="stylesheet" href="the-router.css">
     <core-ajax url="{{loginTestUrl}}" response="{{loginTestResp}}" id="loginTestAjax"></core-ajax>
+    
     <app-router id="router" mode="hash" trailingSlash="ignore">
       <app-route path="/" element="home-page"></app-route>
       <app-route path="/member" element="member-page"></app-route>

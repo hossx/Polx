@@ -9,15 +9,15 @@
   }
   console.log('lang: ' + window.lang);
 
-  if (window.lang == 'zh') {
-    document.title = "币丰港";
-    $('meta[property="og:description"]')
-      .attr('content', "全透明虚拟货币交易平台 - 代码开源，数据开放，100%可证明准备金。");
+  if (window.lang === 'zh') {
+    document.title = '币丰港';
+    $('meta[name="description"]')
+      .attr('content', '全透明虚拟货币交易平台 - 代码开源，数据开放，100%可证明准备金。');
 
   } else {
-    document.title = "Coinport";
-    $('meta[property="og:description"]')
-      .attr('content', "Crypto-asset exchange for cool people. Coinport features full openness - open source, open data, 100% open reserve.");
+    document.title = 'Coinport';
+    $('meta[name="description"]')
+      .attr('content', 'Crypto-asset exchange for cool people. Coinport features full openness - open source, open data, 100% open reserve.');
 
   }
 

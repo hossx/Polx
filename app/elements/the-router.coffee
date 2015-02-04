@@ -51,14 +51,16 @@ Polymer 'the-router',
       @userId = ''
 
   userIdChanged: (o, n) ->
-    window.state.uid = @userId
     if @user == null #special
-      console.error("not supposed to see this"  )
+      window.state.uid = null
+      console.error("not supposed to see this")
     else if @userId == ''
+      window.state.uid = null
       console.log("user logged out: " + o)
       if location.hash.indexOf('#/account') == 0 or location.hash == '#/member/signout'
         this.$.router.go('/member/signedout') 
     else
+      window.state.uid = @userId
       console.log("user logged in: " + @userId)
       if location.hash.indexOf('#/member') == 0
         this.$.router.go('/account') 

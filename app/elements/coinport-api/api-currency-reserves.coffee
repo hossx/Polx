@@ -1,10 +1,12 @@
 'use strict'
 
 Polymer 'api-currency-reserves',
-  created: () ->
-    @url = window.protocol.reserveStatsUrl()
+  currencyIdChanged: () ->
+    if @currencyId
+      @url = window.protocol.reserveDetailsUrl(@currencyId)
 
   dataChanged: (o, n) ->
     if @data
-      @reserveStats = @data
+      @stats = @data.stats
+      @distribution = @data.distribution
 
