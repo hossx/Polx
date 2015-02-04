@@ -141,7 +141,7 @@ Polymer 'the-app',
       reserveStatsUrl: () -> '%s/api/v2/reserve_stats'.format(@base)
       reserveDetailsUrl: (coin) -> '%s/api/v2/%s/reserves'.format(@base, coin.toLowerCase())
       balanceSnapshotFilesUrl: (coin) -> '%s/api/v2/%s/balance_snapshot_files'.format(@base, coin.toLowerCase())
-      historyUrl: (market, period, from) -> 'https://exchange.coinport.com/api/%s/history?period=%d&from=%s'.format(market.toLowerCase(), period,from)
+      klineUrl: (market, interval, start, end) -> '%s/api/v2/%s/kline?interval=%s&start=%s&end=%s'.format(@base, market.toLowerCase(), interval, start, end)
       ## private apis
       userProfileUrl: 'api_mock_my_profile.json'
       userAssetsUrl:  'api_mock_my_assets.json'

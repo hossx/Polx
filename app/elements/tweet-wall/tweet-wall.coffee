@@ -7,7 +7,6 @@ Polymer 'tweet-wall',
 
   currencyChanged: () ->
     if @currency
-      console.log(@currency)
       @content = 
       '<html>
       <head>

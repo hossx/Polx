@@ -11,7 +11,7 @@
 ---
 
 ##我们开始吧
-欢迎使用币丰港交易平台RESTful API，我们提供一系列方便快速的接口，帮助您及时把握市场变化，快速进行交易，以及方便地将币丰港整合进自己的应用中， 通过API，您可以做如下事情：
+欢迎使用币丰港交易平台REST API，我们提供一系列方便快速的接口，帮助您及时把握市场变化，快速进行交易，以及方便地将币丰港整合进自己的应用中， 通过API，您可以做如下事情：
 
 
 - 获取市场最新行情
@@ -21,6 +21,39 @@
 - 获取各个虚拟货币相关详细开放数据
 
 要想正确使用币丰港交易平台RESTful API, 建议您仔细阅读我们的「通用规则」，然后再进行具体接口的接入工作。接入过程中，如果遇到任何问题，请联系我们，QQ群：3115-728-063， 电话：（+86）186-2174-1026。
+
+
+---
+
+##接口列表
+目前支持的API列表如下：
+
+  |HTTP 方法        | URL                                             | 说明
+  | -------------- | -----------------------                         | ------------
+  | GET            | /api/v2/reserve_stats                           | 读取平台所有数字资产的准备金统计数据
+  | GET            | /api/v2/tickers                                 | 获取所有市场ticker数据 
+  | GET            | /api/v2/*{currency}*/tickers                      | 获取人民币或比特币所有市场的ticker数据
+  | GET            | /api/v2/*{currency}*/reserves                     | 读取平台某数字资产的准备金统详细数据
+  | GET            | /api/v2/*{currency}*/balance_snapshot_files       | 读取特定币种的资产分布快照数据文件列表
+  | GET            | /api/v2/*{currency}*/transfers              | 读取特定币种的充值提现记录文件列表
+  | GET            | /api/v2/*{market}*/trades                         | 获取某市场的历史成交记录
+  | GET            | /api/v2/*{market}*/ticker                         | 获取某市场的ticker数据 
+  | GET            | /api/v2/*{market}*/depth                          | 获取某市场的深度数据
+  | GET            | /api/v2/*{market}*/kline                          | 获取某市场的K线数据
+  | POST           | /api/v2/register                                  | 新用户注册
+  | GET            | /api/v2/login                                     | 用户登录
+  | GET            | /api/v2/user/profile                              | 读取授权用户的基本信息
+  | GET            | /api/v2/user/balance                              | 读取用户的账户资产
+  | GET            | /api/v2/user/trades                               | 读取用户交易记录
+  | GET            | /api/v2/user/orders                               | 读取用户历史订单
+  | GET            | /api/v2/user/deposits                             | 读取用户充值记录
+  | GET            | /api/v2/user/withdrawals                          | 读取用户提现记录
+  | GET            | /api/v2/user/deposit_addresses                    | 读取用户虚拟货币充值地址
+  | POST           | /api/v2/user/create_deposit_addr/*{currency}*     | 生成虚拟货币充值地址，如果已经存在，将现存的地址返回
+  | POST           | /api/v2/user/submit_orders                        | 批量下单
+  | POST           | /api/v2/user/cancel_orders                        | 批量取消订单
+  | POST           | /api/v2/user/submit_withdrawal                    | 提交一个提现申请
+  | POST           | /api/v2/user/cancel_withdrawal                    | 取消一个提现申请
 
 ---
 
@@ -61,7 +94,7 @@
     5 - 失败（failed）
   ```
 
-- cursor和limit：在几个API URL参数中，我们会用cursor和limit来指定返回数据的起始位置和数量。返回数据不包括cursor指向的那条数据（如果存在），如果想返回ID是0的数据，cursor的值应该是-1。如果没有说明，cursor默认值是-1，limit的默认值是50。每个API对limit可能与上限设置，如果设定的limit值大于这个上限，系统将用该上限作为limit的实际值。
+- cursor和limit：在几个API URL参数中，我们会用cursor和limit来指定返回数据的起始位置和数量。返回数据不包括cursor指向的那条数据（如果存在），如果想返回ID是0的数据，cursor的值应该是1。如果没有说明，cursor默认值是1，limit的默认值是50。每个API对limit可能与上限设置，如果设定的limit值大于这个上限，系统将用该上限作为limit的实际值。
 
 - hasMore：在一些API的返回数据中，hasMore如果是True，代表有更多数据可以返回；如果是False，代表没有更多数据可以返回。
 
@@ -242,38 +275,6 @@
 
 ---
 
-##接口列表
-目前支持的API列表如下：
-
-  |HTTP 方法        | URL                                             | 说明
-  | -------------- | -----------------------                         | ------------
-  | GET            | /api/v2/reserve_stats                           | 读取平台所有数字资产的准备金统计数据
-  | GET            | /api/v2/tickers                                 | 获取所有市场ticker数据 
-  | GET            | /api/v2/*{currency}*/tickers                      | 获取人民币或比特币所有市场的ticker数据
-  | GET            | /api/v2/*{currency}*/reserves                     | 读取平台某数字资产的准备金统详细数据
-  | GET            | /api/v2/*{currency}*/balance_snapshot_files       | 读取特定币种的资产分布快照数据文件列表
-  | GET            | /api/v2/*{currency}*/transfer_files              | 读取特定币种的充值提现记录文件列表
-  | GET            | /api/v2/*{market}*/trades                         | 获取某市场的历史成交记录
-  | GET            | /api/v2/*{market}*/ticker                         | 获取某市场的ticker数据 
-  | GET            | /api/v2/*{market}*/depth                          | 获取某市场的深度数据
-  | GET            | /api/v2/*{market}*/kline                          | 获取某市场的K线数据
-  | POST           | /api/v2/register                                  | 新用户注册
-  | GET            | /api/v2/login                                     | 用户登录
-  | GET            | /api/v2/user/profile                              | 读取授权用户的基本信息
-  | GET            | /api/v2/user/balance                              | 读取用户的账户资产
-  | GET            | /api/v2/user/trades                               | 读取用户交易记录
-  | GET            | /api/v2/user/orders                               | 读取用户历史订单
-  | GET            | /api/v2/user/deposits                             | 读取用户充值记录
-  | GET            | /api/v2/user/withdrawals                          | 读取用户提现记录
-  | GET            | /api/v2/user/deposit_addresses                    | 读取用户虚拟货币充值地址
-  | POST           | /api/v2/user/create_deposit_addr/*{currency}*     | 生成虚拟货币充值地址，如果已经存在，将现存的地址返回
-  | POST           | /api/v2/user/submit_orders                        | 批量下单
-  | POST           | /api/v2/user/cancel_orders                        | 批量取消订单
-  | POST           | /api/v2/user/submit_withdrawal                    | 提交一个提现申请
-  | POST           | /api/v2/user/cancel_withdrawal                    | 取消一个提现申请
-
----
-
 ##接口详细说明
 
 ### GET /api/v2/reserve_stats
@@ -285,16 +286,17 @@
 ####返回值示例
 ```
   {
-    "timestamp": 12123213213121,
-    "stats": {
-      "BTC" : [10,  20, 70, 99 ],
-      "LTC" : [12,  10, 1,  25 ],
-      "GOOC": [10,  20, 70, 101],
-      "BC"  : [12,  10, 1,  23 ],
-      "BTSX": [10,  10, 20, 30 ],
-      "XRP" : [120, 10, 1,  150]
-    }
-  }
+    "DRK"  : [274.08532934,328.04122726,0.0,602.1265566],
+    "VRC"  : [13059.45018843,10628.5443864,24.4798,23712.47437483],
+    "XRP"  : [301122.108213,0.0,0.0,301122.108213],
+    "NXT"  : [26205.01432827,0.0,3.0,26208.01432827],
+    "ZET"  : [26906.57422377,19332.05778996,0.0,46238.63201373],
+    "LTC"  : [494.53869164,928.63038698,0.0,1423.16907862],
+    "BTC"  : [7.05849568,45.66859572,0.0,52.7270914],
+    "BC"   : [11200.77066364,18749.39076667,0.0,29950.16143031],
+    "DOGE" : [4355087.92647075,4931466.49035176,2129.4304499,9288683.84727241],
+    "BTSX" : [917607.06473,0.0,0.0,917607.06473]
+   }
 
 ```
 
@@ -314,17 +316,23 @@
 ####返回值示例
   ```
     {
-        "XRP-CNY": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02],
-        "BTC-CNY": [2013.53, 2014.42, 2015.34, 2013.34, 2014.03, 300.34],
-        "BTSX-CNY": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02],
-        "LTC-CNY": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02],
-        "XRP-BTC": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02],
-        "BTC-BTC": [2013.53, 2014.42, 2015.34, 2013.34, 2014.03, 300.34],
-        "BTSX-BTC": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02],
-        "LTC-BTC": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02]
+      "LTC-CNY" : [11.91,12.11,11.16,2902.40675502,0.045654082528533764],
+      "NXT-BTC" : [5.116E-5,5.24E-5,5.116E-5,4068.638,-0.02366412213740461],
+      "BC-BTC"  : [8.728E-5,8.747E-5,8.25E-5,248.70040274,0.026823529411764687],
+      "XRP-BTC" : [8.0E-5,0.0,0.0,0.0,0.0],
+      "BTSX-CNY": [0.064,0.0669,0.063,328543.23098442,-0.033232628398791535],
+      "BTSX-BTC": [4.43E-5,4.62E-5,4.235E-5,3145.93151424,-0.028508771929824515],
+      "ZET-BTC" : [4.5E-6,0.0,0.0,0.0,0.0],
+      "DOGE-BTC": [6.3E-7,6.5E-7,6.2E-7,230048.97273492,-0.015625000000000014],
+      "XRP-CNY" : [0.083,0.0858,0.081,299436.932516,-0.005988023952095772],
+      "LTC-BTC" : [0.0081,0.0081,0.0078,6.55837298,0.025316455696202375],
+      "VRC-BTC" : [9.221E-5,0.0,0.0,0.0,0.0],
+      "DRK-BTC" : [0.008197,0.0,0.0,0.0,0.0],
+      "BTC-CNY" : [1427.26,1540.0,1403.95,38.07539626,-0.0355895211259992],
+      "GOOC-CNY": [0.0045,0.0052,0.0037,6944541.44135094,0.2162162162162162]
     }
   ```
-返回值中数组中的数字依次代表：[买1价，卖1价，24小时最高价，24小是最低价，最近成交价，24小时成交量]。
+返回值中数组中的数字依次代表：[最近成交价，24小时最高价，24小是最低价，24小时成交量, 24小时涨跌幅]。
 
 ####示例
  - [https://exchange.coinport.com/api/v2/tickers](https://exchange.coinport.com/api/v2/tickers)
@@ -341,13 +349,14 @@
 ####返回值示例
   ```
     {
-        "XRP-CNY": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02],
-        "BTC-CNY": [2013.53, 2014.42, 2015.34, 2013.34, 2014.03, 300.34],
-        "BTSX-CNY": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02],
-        "LTC-CNY": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02]
+      "LTC-CNY" : [11.91,12.11,11.16,2854.24295615,0.04657293497363805],
+      "XRP-CNY" : [0.083,0.0858,0.081,293447.750002,-0.0012033694344163169],
+      "BTC-CNY" : [1427.26,1540.0,1403.95,37.38919626,-0.04060712389172335],
+      "GOOC-CNY": [0.0045,0.0052,0.0037,6912541.44135094,0.1842105263157895]
+      "BTSX-CNY": [0.064,0.0669,0.063,322450.42061992,-0.033232628398791535],
     }
   ```
-返回值中数组中的数字依次代表：[买1价，卖1价，24小时最高价，24小是最低价，最近成交价，24小时成交量]。
+返回值中数组中的数字依次代表：[最近成交价，24小时最高价，24小是最低价，24小时成交量, 24小时涨跌幅]。
 
 ####示例
  - [https://exchange.coinport.com/api/v2/cny/tickers](https://exchange.coinport.com/api/v2/cny/tickers)
@@ -368,37 +377,46 @@
 ####返回值示例
 ```
   {
-    "timestamp": 12123213213121,
-    "currency": "BTC",
-    "stats": [10, 20, 70, 99],
-    "distribution": [
-      ["1N9eMy14zYA6H7Rpn7dpErxgmdbjLk6iW4",
-        12.1121, 
+    "timestamp":1423017359101,
+    "currency":"BTC",
+    "stats":[52.54756817,0.0,6.87897245,45.66859572],
+    "distribution":[
+      ["15WSBo1FRXQ7qKQms9qAWGvsTMxxRLrHt3",
+        0.43030544,
         "hot",
-        "coinport", 
-        "H5mC9Q4ILstd0PxROJn/gEDjutY7HIW8zZ9EmpMcTikvOrP0VeGWQI8iMIuQu2ByChF+uc0gLelHl49Bi9e+Y1M="],
-      ["1N9eMy14zYA6H7Rpn7dpErxgmdbjLk6iW4",
-        12.1121, 
+        "coinport",
+        "H4FGaDo7P3Hm+HnGMEnb/s8fXEuYJQ2vrlIDqN2H7jlWu2CfmDaC/vSkVtzlvidjgDvDQEeoe3Xovft9pomHpFc="
+      ],
+      [
+        "1E6T55vPxz27kaouY8zcoLyLYqg7aLBv8f",
+        0.17774047,
         "hot",
-        "coinport", 
-        "H5mC9Q4ILstd0PxROJn/gEDjutY7HIW8zZ9EmpMcTikvOrP0VeGWQI8iMIuQu2ByChF+uc0gLelHl49Bi9e+Y1M="],
-      ["1N9eMy14zYA6H7Rpn7dpErxgmdbjLk6iW4",
-        12.1121, 
+        "coinport",
+        "ILQHBgYRiowSjfvOSFz/l008Dks/pcktekh5a+vntxGxLYnbuP6hmvJ1bCgfu0/N9mbe+qp98jKbBjPWMYyphAE="
+      ],
+      ["1CKScR6b5WBRdMm4BjTqdwiEbbBJzH59Pa",
+        0.15424199,
+        "hot",
+        "coinport",
+        "H2MNC+f5a29iTLuWs2yn/5MgOGi3rTev+HY/dX40rZ9t3Xzmyo3Ni12me2S9OIeclJaPcIpe2HBV+u4oq9Fm1j4="
+      ],
+      [
+        "17w6wtD3FHnNTbR27jgiN7fSNp7j1gE4uv",
+        1.29283246,
+        "hot",
+        "coinport",
+        "H+2TIX6gXpZYeYT6Hye+ePZVnPDtJk5DjVA82Lnau44fSeEYG3Nvb7boibZN51r6nNHWfmhRKrZFqGZJ3L6nhIU="
+      ],
+      [
+        "1GbJtdiidFnbsGfuC5VtMKrRaoyrP2rRXk",
+        45.66859572,
         "cold",
-        "coinport", 
-        "H5mC9Q4ILstd0PxROJn/gEDjutY7HIW8zZ9EmpMcTikvOrP0VeGWQI8iMIuQu2ByChF+uc0gLelHl49Bi9e+Y1M="],
-      ["1N9eMy14zYA6H7Rpn7dpErxgmdbjLk6iW4",
-        12.1121, 
-        "cold",
-        "coinport", 
-        "H5mC9Q4ILstd0PxROJn/gEDjutY7HIW8zZ9EmpMcTikvOrP0VeGWQI8iMIuQu2ByChF+uc0gLelHl49Bi9e+Y1M="],
-      ["1N9eMy14zYA6H7Rpn7dpErxgmdbjLk6iW4",
-        12.1121, 
-        "user",
-        "coinport", 
-        "H5mC9Q4ILstd0PxROJn/gEDjutY7HIW8zZ9EmpMcTikvOrP0VeGWQI8iMIuQu2ByChF+uc0gLelHl49Bi9e+Y1M="]
+        "coinport",
+        "H0YkvkM11/6tVddcu8dr+TEzhKjNuXVTn1ckaJJQOc0IVoAkCrhiA9CUFUWvTXRBL+DwLgPUrWi7gHnD+LBLztw="
+      ]
     ]
   }
+
 ```
 - stats中的数字代表：[热钱包中资产数量, 冷钱包中资产数量, 用户充值地址中资产数量, 平台应付款总额]。存备金率 = (热钱包中资产数量 + 冷钱包中资产数量 + 用户充值地址中资产数量) / 平台应付款总额。
 - distribution中每个数组代表：[地址，金额，地址属性，原始消息，消息签名]。其中地址属性是"cold"，"hot"，"user"之一。
@@ -425,23 +443,23 @@
 ####返回值示例
 ```
 {
-  "hasMore": true,
-  "currency": "BTC",
-  "snapshots": [
-    [123456, "01-01 15:06:00", "snapshot-10000.json", 121311],
-    [123456, "01-01 15:06:00", "snapshot-10000.json", 121311],
-    [123456, "01-01 15:06:00", "snapshot-10000.json", 121311],
-    [123456, "01-01 15:06:00", "snapshot-10000.json", 121311],
-    [123456, "01-01 15:06:00", "snapshot-10000.json", 121311],
-    [123456, "01-01 15:06:00", "snapshot-10000.json", 121311],
-    [123456, "01-01 15:06:00", "snapshot-10000.json", 121311],
-    [123456, "01-01 15:06:00", "snapshot-10000.json", 121311],
-    [123456, "01-01 15:06:00", "snapshot-10000.json", 121311],
-    [123456, "01-01 15:06:00", "snapshot-10000.json", 121311],
-    [123456, "01-01 15:06:00", "snapshot-10000.json", 121311],
-    [123456, "01-01 15:06:00", "snapshot-10000.json", 121311]
+  "hasMore":true,
+  "currency":"btc",
+  "path":"https://exchange.coinport.com/download/csv/asset/btc/",
+  "items":[
+    ["btc_balance_20150204023309.csv",6037,1423017188827],
+    ["btc_balance_20150204013232.csv",6045,1423013552511],
+    ["btc_balance_20150204123154.csv",6045,1423009914072],
+    ["btc_balance_20150203113111.csv",6045,1423006270880],
+    ["btc_balance_20150203103032.csv",6017,1423002631863],
+    ["btc_balance_20150203092952.csv",6016,1422998992336],
+    ["btc_balance_20150203082914.csv",6016,1422995354688],
+    ["btc_balance_20150203072838.csv",6016,1422991717938],
+    ["btc_balance_20150203062801.csv",6014,1422988081195],
+    ["btc_balance_20150203052723.csv",6015,1422984443277]
   ]
 }
+
 ```
 
 ####示例
@@ -450,8 +468,8 @@
 
 <br><br>
 
-### GET /api/v2/*{currency}*/transfer_files
-读取特定币种的充值提现记录文件列表。
+### GET /api/v2/*{currency}*/transfers
+读取特定币种的充值提现记录。
 
 ####URL参数
 - currency：货币ID。
@@ -461,29 +479,39 @@
 ####返回值示例
 ```
 {
-  "timestamp": 126172881818,
   "hasMore": true,
   "currency": "BTC",
   "transfers": [
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311],
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311],
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311],
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311],
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311],
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311],
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311],
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311],
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311],
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311],
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311],
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311]
-  ]
+    {
+      "id": 1000000051345,
+      "uid" : 1000001368,
+      "amount" : 0.201,
+      "status" : 4,
+      "created" : 1423038158050
+      "updated" : 1423038354650
+      "operation" : 1,
+      "address" : "1BnNn2LsVbn8DDWx5ABrDF1Vkc2epchf7Z",
+      "txid" : "1b94cf14800be1c01d24e0a1341fa3be671e5e15f2f9499dd162af35d9dd4b54"
+    },
+    {
+      "id":"1000000050168",
+      "uid":"1000002398",
+      "amount":0.00615391,
+      "status":4,
+      "created":1422967424668,
+      "updated":1422968245204,
+      "operation":1,
+      "address":"1DcM6bDFGAKsAhYthCkXphEZYxBZpmcidc",
+      "txid":"74aede0a71d959c2a4b82a88d2ac3fabedb5d84b4ddc7e0d42cca602a7c965f9"
+    }
+  ],
 }
+
 ```
 
 ####示例
-- [https://exchange.coinport.com/api/v2/ltc/transfer_files](https://exchange.coinport.com/api/v2/ltc/transfer_files) - 读取最新50条LTC充值提现文件列表。
-- [https://exchange.coinport.com/api/v2/btc/transfer_files?cursor=1121321&limit=20](https://exchange.coinport.com/api/v2/btc/transfer_files?cursor=1121321&limit=20) - 读取1121321之前的20条BTC充值提现文件列表。
+- [https://exchange.coinport.com/api/v2/ltc/transfers](https://exchange.coinport.com/api/v2/ltc/transfers) - 读取最新50条LTC资产分布快照数据文件列表。
+- [https://exchange.coinport.com/api/v2/btc/transfers?cursor=1121321&limit=20](https://exchange.coinport.com/api/v2/btc/transfers?cursor=1121321&limit=20) - 读取1121321之前的20条BTC资产分布快照数据文件列表。
 
 <br><br>
 
@@ -502,26 +530,34 @@
 ####返回值示例
 ```
   {
-    "timestamp": 126172881818,
-    "hasMore": true,
-    "market": "BTC-CNY",
-    "trades": [
-      { "trade_id" : 1000000732928,
-        "order_id" : 100000007,
-        "taker" : "sell",
-        "price" : 1000.23,
-        "amount" : 0.34,
-        "timestamp" : 126172881818
+    "hasMore":true,
+    "market":"btc-cny",
+    "trades":[
+      {
+        "id":"1000001556370001",
+        "timestamp":1423015417056,
+        "price":1427.26011673,
+        "amount":0.0514,
+        "maker":"1000001436",
+        "taker":"1000001436",
+        "isSell":true,
+        "taker_order_id":"1000001556370",
+        "maker_order_id":"1000001556368"
       },
-      { "trade_id" : 1000000732929,
-        "order_id" : 100000007,
-        "taker" : "sell",
-        "price" : 1000.26,
-        "amount" : 1.12,
-        "timestamp" : 126172881818
+      {
+        "id":"1000001556367001",
+        "timestamp":1423015412568,
+        "price":1427.25992218,
+        "amount":0.0514,
+        "maker":"1000001436",
+        "taker":"1000001436",
+        "isSell":false,
+        "taker_order_id":"1000001556367",
+        "maker_order_id":"1000001556366"
       }
     ]
   }
+
 ```
 
 ####示例
@@ -539,10 +575,10 @@
 ####返回值示例
 ```
   {
-    "XRP-CNY": [4.53, 5.42, 6.34, 3.34, 5.03, 103234.02]
+    "XRP-CNY":[0.083,0.0858,0.081,287460.127894,-0.0071770334928228825]
   }
 ```
-返回值中数组中的数字依次代表：[买1价，卖1价，24小时最高价，24小是最低价，最近成交价，24小时成交量]。
+返回值中数组中的数字依次代表：[最近成交价，24小时最高价，24小是最低价，24小时成交量, 24小时涨跌幅]。
 
 ####示例
  - [https://exchange.coinport.com/api/v2/btc-cny/ticker](https://exchange.coinport.com/api/v2/btc-cny/ticker)
@@ -559,25 +595,27 @@
 
 ####返回值示例
 ```
+
   {
-    "asks": [
-      [792, 5],
-      [789.68, 0.018],
-      [788.99, 0.042],
-      [788.43, 0.036]
+    "asks":[
+      [0.0045,49333.33211111],
+      [0.0046,30250.71739131],
+      [0.0047,82950.0],
+      [0.0048,101699.00032501],
+      [0.0049,96209.64566734]
     ],
-    "bids": [
-      [787.1, 0.35],
-      [787, 12.071],
-      [786.5, 0.014],
-      [786.2, 0.38],
-      [785.04, 5]
+    "bids":[
+      [0.0044,71032.56136363],
+      [0.0043,155084.43950465],
+      [0.0042,140362.0],
+      [0.0041,201951.2195],
+      [0.004,556350.65]
     ]
   }
   
 ```
 ####示例
- - [https://exchange.coinport.com/api/v2/btc-cny/depth?limit=10](https://exchange.coinport.com/api/v2/btc-cny/depth?limit=10)
+ - [https://exchange.coinport.com/api/v2/gooc-cny/depth?limit=5](https://exchange.coinport.com/api/v2/gooc-cny/depth?limit=5)
 
 <br><br>
 
@@ -588,16 +626,18 @@
 ####URL参数
 - market：市场ID。
 - interval：K线数据聚合粒度，必须是"1m, 5m, 15m, 30m, 1h, 2h, 4h, 6h, 1d"的值之一，默认为"5m"。其中m代表分钟，h代表小时，d代表天。
-- start：数据时间戳的起始时间（不包含），默认为0.
+- start：数据时间戳的起始时间（不包含），默认为end时间戳往前追溯90个interval时间单元的时间戳.
 - end：数据时间戳的结束时间（包含），默认为当前时间。 end必须大于start返回结果才可能非空。
 
 ####返回值示例
 ```
 {
   "items": [
-    [1421560886, 1934.3, 1993.2, 1923.4, 1946.3, 10.34],
-    [1421564531, 1944.3, 2013.2, 1925.4, 1946.3, 16.34],
-    [1421568345, 1956.3, 2022.2, 1921.4, 1946.3, 29.34]
+    [1422992700000,1426.47,1426.47,1426.47,1426.47,0.0966],
+    [1422993000000,1430.0,1435.0,1429.83,1435.0,0.14600001],
+    [1422993300000,1432.6,1432.6,1432.6,1432.6,0.0976],
+    [1422993600000,1432.6,1432.6,1432.6,1432.6,0.0],
+    [1422993900000,1432.6,1432.6,1432.6,1432.6,0.0],
   ]
 }
   
@@ -624,14 +664,7 @@ items中的每条数据是一个长度为6的数组，依次表示：[时间戳�
 ####返回值示例
 ```
   {
-    "uid": 12345678,
-    "name": "wangdong",
-    "email": "dong77@gmail.com",
-    "mobile": "+86 18817728171",
-    "apiToken": "8c0781b2402a9907af4e68cb8f982767",
-    "emailVerified": true,
-    "mobileVerified": true,
-    "googleAuthEnabled": false
+    "uid": 1000008765
   }
 ```
 profile中的pwdhash将不会被返回。
@@ -652,14 +685,8 @@ Authorizaton Header设置请参考签名的「1.基于用户名密码的认证�
 ####返回值示例
 ```
   {
-    "uid": 12345678,
-    "name": "wangdong",
-    "email": "dong77@gmail.com",
-    "mobile": "+86 18817728171",
-    "apiToken": "8c0781b2402a9907af4e68cb8f982767",
-    "emailVerified": true,
-    "mobileVerified": true,
-    "googleAuthEnabled": false
+    "uid": 1000003723,
+    "email":"example@coinport.com"
   }
 ```
 profile中的pwdhash将不会被返回。
@@ -674,15 +701,17 @@ profile中的pwdhash将不会被返回。
 ####返回值示例
 ```
   {
-    "uid": 12345678,
-    "name": "wangdong",
-    "email": "dong77@gmail.com",
-    "mobile": "+86 18817728171",
-    "apiToken": "8c0781b2402a9907af4e68cb8f982767",
-    "emailVerified": true,
-    "mobileVerified": true,
-    "googleAuthEnabled": false
+    "uid":1000009818,
+    "email":"example@coinport.com",
+    "mobile":"+8618683748216",
+    "apiTokenPairs":[
+      ["023487592348963336","2349898b7cf9623ac99f877d7074ea"]
+    ],
+    "emailVerified":true,
+    "mobileVerified":true,
+    "googleAuthEnabled":false
   }
+
 ```
 
 <br><br>
@@ -696,12 +725,10 @@ profile中的pwdhash将不会被返回。
 ####返回值示例
 ```
   {
-    "DRK": [1,2,3,6],
-    "BTC": [1,2,3,6],
-    "VRC": [1,2,3,6],
-    "LTC": [1,2,3,6],
-    "CNY": [1,2,3,6]
+    "BTC":[0.03820923,12.0650945,0.0,12.10671868],
+    "CNY":[16844.23683,4118.18394,0.0,20962.42077]
   }
+  
 ```
 
 返回长度为4的类型数组，依次为：[可用余额，冻结余额，待提现余额，总余额]。
@@ -723,8 +750,17 @@ profile中的pwdhash将不会被返回。
 ####返回值示例
 ```
   {
-    TODO
+    "hasMore":true,
+    "market":"",
+    "trades":[
+      {"id":"1000001559302001","timestamp":1423047779299,"price":1395.0,"amount":0.0513,"maker":"1000001418","taker":"1000001418","isSell":false,"taker_order_id":"1000001559302","maker_order_id":"1000001558499","market":"BTC-CNY"},
+      {"id":"1000001559288001","timestamp":1423047600607,"price":1395.0,"amount":0.0123,"maker":"1000001418","taker":"1000001418","isSell":false,"taker_order_id":"1000001559288","maker_order_id":"1000001558499","market":"BTC-CNY"},
+      {"id":"1000001559273002","timestamp":1423047426723,"price":1394.99977422,"amount":0.01173707,"maker":"1000001418","taker":"1000001418","isSell":false,"taker_order_id":"1000001559273","maker_order_id":"1000001558499","market":"BTC-CNY"},
+      {"id":"1000001559273001","timestamp":1423047426723,"price":1395.00054494,"amount":0.00486293,"maker":"1000001418","taker":"1000001418","isSell":false,"taker_order_id":"1000001559273","maker_order_id":"1000001558465","market":"BTC-CNY"},
+      {"id":"1000001559260001","timestamp":1423047244363,"price":1395.0,"amount":0.0141,"maker":"1000001418","taker":"1000001418","isSell":false,"taker_order_id":"1000001559260","maker_order_id":"1000001558465","market":"BTC-CNY"}
+    ]
   }
+
 ```
 
 <br><br>
@@ -744,32 +780,16 @@ profile中的pwdhash将不会被返回。
 ####返回值示例
 ```
   {
-    "hasMore": true,
-    "orders" : [
-      {
-        "order_id" :  "1000000732928"
-        "type" : "sell",
-        "status" : 1,
-        "market" : "btc-cny",
-        "price" : 2010.3,
-        "amount" : 0.23,
-        "value" : 0.11,
-        "created" : 1421560886,
-        "last_updated" : 1421560993,
-      },
-      {
-        "order_id" :  "1000000834523"
-        "type" : "buy",
-        "status" : 2,
-        "market" : "btc-cny",
-        "price" : 2010.3,
-        "amount" : 0.23,
-        "value" : 0,
-        "created" : 1421560886,
-        "last_updated" : 1421560993,
-      }
+    "hasMore":true,
+    "orders":[
+      {"id":"1000001559354","operation":"buy","status":2,"market":"BTC-CNY","price":1410.0,"amount":0.0418,"dealed_amount":0.04180001,"created":1423048326815},
+      {"id":"1000001559353","operation":"buy","status":2,"market":"BTC-CNY","price":1405.0,"amount":0.0841,"dealed_amount":0.08410001,"created":1423048324891},
+      {"id":"1000001559352","operation":"buy","status":2,"market":"BTC-CNY","price":1395.0,"amount":0.0278,"dealed_amount":0.0278,"created":1423048322451},
+      {"id":"1000001559337","operation":"buy","status":2,"market":"BTC-CNY","price":1415.0,"amount":0.0231,"dealed_amount":0.0231,"created":1423048145503},
+      {"id":"1000001559335","operation":"buy","status":2,"market":"BTC-CNY","price":1405.0,"amount":0.0777,"dealed_amount":0.0777,"created":1423048143495},
+      {"id":"1000001559334","operation":"buy","status":2,"market":"BTC-CNY","price":1400.0,"amount":0.0981,"dealed_amount":0.09810001,"created":1423048141450}
     ]
-  }    
+  }
   
 ```
 返回结果按订单号生成时间降序排列。
@@ -797,30 +817,14 @@ profile中的pwdhash将不会被返回。
 ####返回值示例
 ```
   {
-    "hasMore": true,
-    "deposits": [{
-      "id": 1000000000320,
-      "created": 118271181818,
-      "updated": 118271181818,
-      "quantity": 10,
-      "status": "Succeeded",
-      "address": "fdafdsafidsaiofdslafjdasfjafa"
-    }, {
-      "id": 1000000000320,
-      "created": 118271181818,
-      "updated": 118271181818,
-      "quantity": 10,
-      "status": "Succeeded",
-      "address": "fdafdsafidsaiofdslafjdasfjafa"
-    }, {
-      "id": 1000000000320,
-      "created": 118271181818,
-      "updated": 118271181818,
-      "quantity": 10,
-      "status": "Succeeded",
-      "address": "fdafdsafidsaiofdslafjdasfjafa"
-    }]
+    "hasMore":false,
+    "deposits":[
+      {"id":"1000000048316","currency":"BTC","quantity":4.7072,"status":4,"created":1422852175162,"updated":1422852516540,"address":"147vEoThzNZSrrFi9r38s8pPapwzBr8VEF"},
+      {"id":"1000000006267","currency":"BTC","quantity":15.0,"status":4,"created":1418041606175,"updated":1418041731709,"address":"147vEoThzNZSrrFi9r38s8pPapwzBr8VEF"},
+      {"id":"1000000006265","currency":"CNY","quantity":20000.0,"status":4,"created":1418040570952,"updated":1418040574192,"address":""}
+    ]
   }
+
 ```
 
 <br><br>
@@ -840,31 +844,16 @@ profile中的pwdhash将不会被返回。
 
 ####返回值示例
 ```
+
   {
-    "hasMore": true,
-    "withdrawals": [{
-      "id": 1000000000320,
-      "created": 118271181818,
-      "updated": 118271181818,
-      "quantity": 10,
-      "status": "Succeeded",
-      "address": "fdafdsafidsaiofdslafjdasfjafa"
-    }, {
-      "id": 1000000000320,
-      "created": 118271181818,
-      "updated": 118271181818,
-      "quantity": 10,
-      "status": "Succeeded",
-      "address": "fdafdsafidsaiofdslafjdasfjafa"
-    }, {
-      "id": 1000000000320,
-      "created": 118271181818,
-      "updated": 118271181818,
-      "quantity": 10,
-      "status": "Succeeded",
-      "address": "fdafdsafidsaiofdslafjdasfjafa"
-    }]
+    "hasMore":false,
+    "withdrawals":[
+      {"id":"1000000043734","currency":"BTC","quantity":4.0,"status":4,"created":1422240608809,"updated":1422242067482,"address":"17ZFHKXPqoxeHcCTiJ5CZrKLrUJN1TD7Uj"},
+      {"id":"1000000006284","currency":"BTC","quantity":1.0,"status":4,"created":1418108185885,"updated":1418110469452,"address":"138WcJM1RnPLp5TQJwNcTwZgjUJpgQ3pU6"},
+      {"id":"1000000006283","currency":"BTC","quantity":1.0,"status":4,"created":1418107690265,"updated":1418108145168,"address":"138WcJM1RnPLp5TQJwNcTwZgjUJpgQ3pU6"}
+    ]
   }
+
 ```
 
 <br><br>
@@ -877,13 +866,21 @@ profile中的pwdhash将不会被返回。
 无
 ####返回值示例
 ```
-  {
-    "DRK": "fjdajfdjsalfjdlsafj",
-    "BTC": "fjdajfdjsalfjdlsafj",
-    "VRC": "fjdajfdjsalfjdlsafj",
-    "LTC": "fjdajfdjsalfjdlsafj",
-    "CNY": "fjdajfdjsalfjdlsafj",
+
+   {
+    "GOOC":"",
+    "DRK":"Xdyx1saNYDovgjTuPUA7CerJw9uNTAA9ED",
+    "VRC":"VDPX7rZN4SSXnsfXjnpdx7cJmsQZwHMirA",
+    "XRP":"",
+    "NXT":"5108275052447562865//NXT-2Z5K-53Q4-WKWM-6X3TF//4eb53cf353efb667e103fe9bb332737ce52bf2a7816cb9240145078dde78e106",
+    "ZET":"ZKAA177LfzFHAKpEXtMr2K55UGVgCwxtAR",
+    "LTC":"LNpsrBnWhL7hmzyQgMsGhVJb87NzeE2kWn",
+    "BTC":"147vEoThzNZSrrFi9r38s8pPapwzBr8VEF",
+    "BC":"BJRHTqbqpp5767Sj7R7uhRU11CsfvmDZ3s",
+    "DOGE":"DCXhmCU3tnNEh5kBEHoMkLfeU1Sw47R2XA",
+    "BTSX":""
   }
+
 ```
 
 <br><br>
@@ -897,7 +894,7 @@ profile中的pwdhash将不会被返回。
 ####返回值示例
 ```
   {
-    "BTC": "fjdajfdjsalfjdlsafj"
+    "BTC":"147vEoThzNZSrrFi9r38s8pPapwzBr8VEF"
   }
 ```
 
@@ -915,27 +912,33 @@ profile中的pwdhash将不会被返回。
     "orders" : [
       {
         "market" : "btc-cny",
-        "type" : "sell",
+        "operation" : "sell",
         "price" : 2100.2,
         "amount" : 0.23
       }, {
         "market" : "xrp-cny",
-        "type" : "buy",
+        "operation" : "buy",
         "price" : 1800,
         "amount" : 0.23
-      }
+      }, {
+        "market" : "ltc-cny",
+        "operation" : "buy",
+        "price" : 5,
+        "amount" : 0.4
     ]
   }
 ```
 ####返回值示例
 ```
+  
   {
-    "results" : [
-      {"order_id" : 1000000732928 },
-      {"order_id" : 0, "code" : 1003}
+    "results":[
+      {"order_id":"1000001559603"},
+      {"order_id":"0","code":"2003"},
+      {"order_id":"1000001559605"}
     ]
   }
-  
+
 ```
 返回结果中订单号和下单顺序一致，如果下单失败，order_id为0， 并且会有非零的code。
 
@@ -948,25 +951,19 @@ profile中的pwdhash将不会被返回。
 
 ####POST数据JSON格式
 ```
-  {
-    "order_ids" : [
-      1000000732928，
-      1000000732345，
-      1000000834534
-    ]
-  }
+  {"order_ids": [1000000001606, 1000001559603, 1000001559604]}
 
 ```
 ####返回值示例
 ```
   {
     "cancelled" :[
-      1000000732928，
-      1000000732345
+      1000001559603，
+      1000001559604
     ],
-    "failed": {
-      1000000834534 : {code: 1200}
-    }
+    "failed": [
+      1000000001606
+    ]
   }
   
 ```
@@ -982,7 +979,9 @@ profile中的pwdhash将不会被返回。
   {
      "currency" : "BTC",
      "address" ： "1GbJtdiidFnbsGfuC5VtMKrRaoyrP2rRXk",
-     "amount" : 0.1
+     "amount" : 0.1,
+     "nxt_public_key" ： "skdjf89x9j12",
+     "memo": "btsx_memoxkksdjkl"
   }
 ```
 
