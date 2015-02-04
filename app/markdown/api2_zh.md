@@ -22,6 +22,39 @@
 
 要想正确使用币丰港交易平台RESTful API, 建议您仔细阅读我们的「通用规则」，然后再进行具体接口的接入工作。接入过程中，如果遇到任何问题，请联系我们，QQ群：3115-728-063， 电话：（+86）186-2174-1026。
 
+
+---
+
+##接口列表
+目前支持的API列表如下：
+
+  |HTTP 方法        | URL                                             | 说明
+  | -------------- | -----------------------                         | ------------
+  | GET            | /api/v2/reserve_stats                           | 读取平台所有数字资产的准备金统计数据
+  | GET            | /api/v2/tickers                                 | 获取所有市场ticker数据 
+  | GET            | /api/v2/*{currency}*/tickers                      | 获取人民币或比特币所有市场的ticker数据
+  | GET            | /api/v2/*{currency}*/reserves                     | 读取平台某数字资产的准备金统详细数据
+  | GET            | /api/v2/*{currency}*/balance_snapshot_files       | 读取特定币种的资产分布快照数据文件列表
+  | GET            | /api/v2/*{currency}*/transfers              | 读取特定币种的充值提现记录文件列表
+  | GET            | /api/v2/*{market}*/trades                         | 获取某市场的历史成交记录
+  | GET            | /api/v2/*{market}*/ticker                         | 获取某市场的ticker数据 
+  | GET            | /api/v2/*{market}*/depth                          | 获取某市场的深度数据
+  | GET            | /api/v2/*{market}*/kline                          | 获取某市场的K线数据
+  | POST           | /api/v2/register                                  | 新用户注册
+  | GET            | /api/v2/login                                     | 用户登录
+  | GET            | /api/v2/user/profile                              | 读取授权用户的基本信息
+  | GET            | /api/v2/user/balance                              | 读取用户的账户资产
+  | GET            | /api/v2/user/trades                               | 读取用户交易记录
+  | GET            | /api/v2/user/orders                               | 读取用户历史订单
+  | GET            | /api/v2/user/deposits                             | 读取用户充值记录
+  | GET            | /api/v2/user/withdrawals                          | 读取用户提现记录
+  | GET            | /api/v2/user/deposit_addresses                    | 读取用户虚拟货币充值地址
+  | POST           | /api/v2/user/create_deposit_addr/*{currency}*     | 生成虚拟货币充值地址，如果已经存在，将现存的地址返回
+  | POST           | /api/v2/user/submit_orders                        | 批量下单
+  | POST           | /api/v2/user/cancel_orders                        | 批量取消订单
+  | POST           | /api/v2/user/submit_withdrawal                    | 提交一个提现申请
+  | POST           | /api/v2/user/cancel_withdrawal                    | 取消一个提现申请
+
 ---
 
 ##通用
@@ -239,38 +272,6 @@
 
 调用login API成功后，认证授权所用的cookie会被设置。因此为了安全，在应用退出的时候建议客户端删除所有币丰港相关的cookie。
 
-
----
-
-##接口列表
-目前支持的API列表如下：
-
-  |HTTP 方法        | URL                                             | 说明
-  | -------------- | -----------------------                         | ------------
-  | GET            | /api/v2/reserve_stats                           | 读取平台所有数字资产的准备金统计数据
-  | GET            | /api/v2/tickers                                 | 获取所有市场ticker数据 
-  | GET            | /api/v2/*{currency}*/tickers                      | 获取人民币或比特币所有市场的ticker数据
-  | GET            | /api/v2/*{currency}*/reserves                     | 读取平台某数字资产的准备金统详细数据
-  | GET            | /api/v2/*{currency}*/balance_snapshot_files       | 读取特定币种的资产分布快照数据文件列表
-  | GET            | /api/v2/*{currency}*/transfers              | 读取特定币种的充值提现记录文件列表
-  | GET            | /api/v2/*{market}*/trades                         | 获取某市场的历史成交记录
-  | GET            | /api/v2/*{market}*/ticker                         | 获取某市场的ticker数据 
-  | GET            | /api/v2/*{market}*/depth                          | 获取某市场的深度数据
-  | GET            | /api/v2/*{market}*/kline                          | 获取某市场的K线数据
-  | POST           | /api/v2/register                                  | 新用户注册
-  | GET            | /api/v2/login                                     | 用户登录
-  | GET            | /api/v2/user/profile                              | 读取授权用户的基本信息
-  | GET            | /api/v2/user/balance                              | 读取用户的账户资产
-  | GET            | /api/v2/user/trades                               | 读取用户交易记录
-  | GET            | /api/v2/user/orders                               | 读取用户历史订单
-  | GET            | /api/v2/user/deposits                             | 读取用户充值记录
-  | GET            | /api/v2/user/withdrawals                          | 读取用户提现记录
-  | GET            | /api/v2/user/deposit_addresses                    | 读取用户虚拟货币充值地址
-  | POST           | /api/v2/user/create_deposit_addr/*{currency}*     | 生成虚拟货币充值地址，如果已经存在，将现存的地址返回
-  | POST           | /api/v2/user/submit_orders                        | 批量下单
-  | POST           | /api/v2/user/cancel_orders                        | 批量取消订单
-  | POST           | /api/v2/user/submit_withdrawal                    | 提交一个提现申请
-  | POST           | /api/v2/user/cancel_withdrawal                    | 取消一个提现申请
 
 ---
 
