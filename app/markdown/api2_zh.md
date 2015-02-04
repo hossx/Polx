@@ -944,8 +944,6 @@ profile中的pwdhash将不会被返回。
 
 
 <br><br>
-
-
 ### POST /api/v2/user/cancel_orders
 批量取消订单。
 
@@ -978,17 +976,26 @@ profile中的pwdhash将不会被返回。
 ```
   {
      "currency" : "BTC",
-     "address" ： "1GbJtdiidFnbsGfuC5VtMKrRaoyrP2rRXk",
+     "address" ： "17ZFHKXPqoxeHcCTiJ5CZrKLrUJN1TD7Uj",
      "amount" : 0.1,
-     "nxt_public_key" ： "skdjf89x9j12",
-     "memo": "btsx_memoxkksdjkl"
+     "nxt_public_key" ："NXT-YP69-FGG3-GV6R-3A5BN", // nxt币提现用publicKey，其他币种不需要填写这个字段
+     "memo": "btc38-btsx-octo-72722" // BTSX提现memo，其他币种不需要填写这个字段
   }
+
+提现人民币：
+
+  {
+    "currency":"CNY",
+    "address":"吴小露|cny1@coinport.com|支付宝|,
+    "amount": 3
+  }
+
 ```
 
 ####返回值示例
 ```
   {
-    "tranfer_id" : 1000003534734,
+    "tranfer_id" : 1000000051916,
     "withdraw_status" : 0
   }
 ```
@@ -1002,19 +1009,14 @@ profile中的pwdhash将不会被返回。
 ####POST数据JSON格式
 ```
   {
-     "tranfer_id" : 1000003534734
+     "tranfer_id" : 1000000051918
   }
 ```
 
 ####返回值示例
 ```
   {
-    "id": 1000000000320,
-    "created": 118271181818,
-    "updated": 118271181818,
-    "quantity": 10,
-    "status": "Succeeded",
-    "address": "fdafdsafidsaiofdslafjdasfjafa"
+    "result":"Ok"
   }
+
 ```
-如果该提现记录存在，返回该提现记录；否者返回值为空字符串。客户端需要查看code是否为0来判断该API是否成功取消了一个提现申请。
