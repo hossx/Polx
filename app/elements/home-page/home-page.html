@@ -17,7 +17,7 @@
           <div id="slogan">{{M.slogan}}</div>
         </div>
 
-        <div class="section" id="features" vertical?={{!smallup}} horizontal?={{smallup}} center layout>
+        <div class="section" id="features" vertical?={{!smallup}} horizontal?={{smallup}} center center-justified layout>
           <div class="feature" flex auto-vertical vertical center layout>
             <font-awesome icon="github" size="5x"></font-awesome>
             <div class="label">{{M.feature1}}</div>
@@ -38,19 +38,20 @@
           </div>
         </div>
 
-        <div class="section" id="mobile" vertical?={{!smallup}} horizontal?={{smallup}} center layout>
+        <div class="section" id="mobile" vertical?={{!smallup}} horizontal?={{smallup}} center center-justified layout>
 
-          <div id="words" flex auto-vertical vertical center layout>
+          <div flex id="words" auto-vertical vertical center layout>
             <div id="ready">{{M.mobileReady}}</div>
             <a href="#">
               <paper-button raised id="download">{{M.download}}</paper-button>
             </a>
             <div id="supports">{{M.support}}</div>
           </div>
-          <div flex auto-vertical vertical center layout>
+          <div flex id="screenshot" auto-vertical vertical center layout>
             <img id="android-app" src="/images/android-app-cut.png">
           </div>
         </div>
+
         <div id="powered" vertical center layout>
           <div>{{M.servedBy}}</div>
         </div>
