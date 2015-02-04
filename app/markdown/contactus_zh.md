@@ -1,9 +1,9 @@
-#Contact Us
-##Email
+#联系我们
+##电子邮件
 - [exchange-support@coinport.com](mailto:exchange-support@coinport.com)
 
-##Tencent QQ
+##QQ
 - 132141231
 
-##Wechat/Weixin
+##微信
 - coinport

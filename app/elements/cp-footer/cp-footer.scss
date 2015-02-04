@@ -5,9 +5,14 @@
         a {
             background-color: white;
             color: color($deep-purple, 500);
-            padding-left:  6px;
+            padding-left: 6px;
             padding-right: 6px;
             border-radius: 3px;
+            border: 1px solid color($deep-purple, 500);
+            &:hover {
+                background: color($deep-purple, 500);
+                color: white;
+            }
         }
     }
 }
