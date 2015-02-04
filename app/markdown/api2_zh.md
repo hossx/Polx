@@ -684,14 +684,8 @@ Authorizaton Header设置请参考签名的「1.基于用户名密码的认证�
 ####返回值示例
 ```
   {
-    "uid": 12345678,
-    "name": "wangdong",
-    "email": "dong77@gmail.com",
-    "mobile": "+86 18817728171",
-    "apiToken": "8c0781b2402a9907af4e68cb8f982767",
-    "emailVerified": true,
-    "mobileVerified": true,
-    "googleAuthEnabled": false
+    "uid": 1000003723,
+    "email":"example@coinport.com"
   }
 ```
 profile中的pwdhash将不会被返回。
