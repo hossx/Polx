@@ -252,7 +252,7 @@
   | GET            | /api/v2/*{currency}*/tickers                      | 获取人民币或比特币所有市场的ticker数据
   | GET            | /api/v2/*{currency}*/reserves                     | 读取平台某数字资产的准备金统详细数据
   | GET            | /api/v2/*{currency}*/balance_snapshot_files       | 读取特定币种的资产分布快照数据文件列表
-  | GET            | /api/v2/*{currency}*/transfer_files              | 读取特定币种的充值提现记录文件列表
+  | GET            | /api/v2/*{currency}*/transfers              | 读取特定币种的充值提现记录文件列表
   | GET            | /api/v2/*{market}*/trades                         | 获取某市场的历史成交记录
   | GET            | /api/v2/*{market}*/ticker                         | 获取某市场的ticker数据 
   | GET            | /api/v2/*{market}*/depth                          | 获取某市场的深度数据
@@ -467,8 +467,8 @@
 
 <br><br>
 
-### GET /api/v2/*{currency}*/transfer_files
-读取特定币种的充值提现记录文件列表。
+### GET /api/v2/*{currency}*/transfers
+读取特定币种的充值提现记录。
 
 ####URL参数
 - currency：货币ID。
@@ -478,29 +478,39 @@
 ####返回值示例
 ```
 {
-  "timestamp": 126172881818,
   "hasMore": true,
   "currency": "BTC",
   "transfers": [
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311],
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311],
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311],
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311],
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311],
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311],
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311],
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311],
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311],
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311],
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311],
-    [123456, "01-01 15:06:00", "transfer-10000.json", 121311]
-  ]
+    {
+      "id": 1000000051345,
+      "uid" : 1000001368,
+      "amount" : 0.201,
+      "status" : 4,
+      "created" : 1423038158050
+      "updated" : 1423038354650
+      "operation" : 1,
+      "address" : "1BnNn2LsVbn8DDWx5ABrDF1Vkc2epchf7Z",
+      "txid" : "1b94cf14800be1c01d24e0a1341fa3be671e5e15f2f9499dd162af35d9dd4b54"
+    },
+    {
+      "id":"1000000050168",
+      "uid":"1000002398",
+      "amount":0.00615391,
+      "status":4,
+      "created":1422967424668,
+      "updated":1422968245204,
+      "operation":1,
+      "address":"1DcM6bDFGAKsAhYthCkXphEZYxBZpmcidc",
+      "txid":"74aede0a71d959c2a4b82a88d2ac3fabedb5d84b4ddc7e0d42cca602a7c965f9"
+    }
+  ],
 }
+
 ```
 
 ####示例
-- [https://exchange.coinport.com/api/v2/ltc/transfer_files](https://exchange.coinport.com/api/v2/ltc/transfer_files) - 读取最新50条LTC资产分布快照数据文件列表。
-- [https://exchange.coinport.com/api/v2/btc/transfer_files?cursor=1121321&limit=20](https://exchange.coinport.com/api/v2/btc/transfer_files?cursor=1121321&limit=20) - 读取1121321之前的20条BTC资产分布快照数据文件列表。
+- [https://exchange.coinport.com/api/v2/ltc/transfers](https://exchange.coinport.com/api/v2/ltc/transfers) - 读取最新50条LTC资产分布快照数据文件列表。
+- [https://exchange.coinport.com/api/v2/btc/transfers?cursor=1121321&limit=20](https://exchange.coinport.com/api/v2/btc/transfers?cursor=1121321&limit=20) - 读取1121321之前的20条BTC资产分布快照数据文件列表。
 
 <br><br>
 
@@ -653,14 +663,7 @@ items中的每条数据是一个长度为6的数组，依次表示：[时间戳�
 ####返回值示例
 ```
   {
-    "uid": 12345678,
-    "name": "wangdong",
-    "email": "dong77@gmail.com",
-    "mobile": "+86 18817728171",
-    "apiToken": "8c0781b2402a9907af4e68cb8f982767",
-    "emailVerified": true,
-    "mobileVerified": true,
-    "googleAuthEnabled": false
+    "uid": 1000008765
   }
 ```
 profile中的pwdhash将不会被返回。
@@ -835,14 +838,14 @@ profile中的pwdhash将不会被返回。
       "id": 1000000000320,
       "created": 118271181818,
       "updated": 118271181818,
-      "quantity": 10,
+      "amount": 10,
       "status": "Succeeded",
       "address": "fdafdsafidsaiofdslafjdasfjafa"
     }, {
       "id": 1000000000320,
       "created": 118271181818,
       "updated": 118271181818,
-      "quantity": 10,
+      "amount": 10,
       "status": "Succeeded",
       "address": "fdafdsafidsaiofdslafjdasfjafa"
     }, {
