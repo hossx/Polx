@@ -700,19 +700,17 @@ profile中的pwdhash将不会被返回。
 ####返回值示例
 ```
   {
-    "uid": 12345678,
-    "name": "wangdong",
-    "email": "dong77@gmail.com",
-    "mobile": "+86 18817728171",
-    "apiTokenPairs": [
-      ["8c0781b2402a9907af4e68cb8f982767", "23842jjsdkx7jsdfjlsdfjk3j2lj3l2"],
-      ["apitoken2", "apisecret2"],
-      ["apitoken3", "apisecret3"]
-    ]
-    "emailVerified": true,
-    "mobileVerified": true,
-    "googleAuthEnabled": false
+    "uid":1000009818,
+    "email":"example@coinport.com",
+    "mobile":"+8618683748216",
+    "apiTokenPairs":[
+      ["023487592348963336","2349898b7cf9623ac99f877d7074ea"]
+    ],
+    "emailVerified":true,
+    "mobileVerified":true,
+    "googleAuthEnabled":false
   }
+
 ```
 
 <br><br>
@@ -726,12 +724,10 @@ profile中的pwdhash将不会被返回。
 ####返回值示例
 ```
   {
-    "DRK": [1,2,3,6],
-    "BTC": [1,2,3,6],
-    "VRC": [1,2,3,6],
-    "LTC": [1,2,3,6],
-    "CNY": [1,2,3,6]
+    "BTC":[0.03820923,12.0650945,0.0,12.10671868],
+    "CNY":[16844.23683,4118.18394,0.0,20962.42077]
   }
+  
 ```
 
 返回长度为4的类型数组，依次为：[可用余额，冻结余额，待提现余额，总余额]。
@@ -753,8 +749,17 @@ profile中的pwdhash将不会被返回。
 ####返回值示例
 ```
   {
-    TODO
+    "hasMore":true,
+    "market":"",
+    "trades":[
+      {"id":"1000001559302001","timestamp":1423047779299,"price":1395.0,"amount":0.0513,"maker":"1000001418","taker":"1000001418","isSell":false,"taker_order_id":"1000001559302","maker_order_id":"1000001558499","market":"BTC-CNY"},
+      {"id":"1000001559288001","timestamp":1423047600607,"price":1395.0,"amount":0.0123,"maker":"1000001418","taker":"1000001418","isSell":false,"taker_order_id":"1000001559288","maker_order_id":"1000001558499","market":"BTC-CNY"},
+      {"id":"1000001559273002","timestamp":1423047426723,"price":1394.99977422,"amount":0.01173707,"maker":"1000001418","taker":"1000001418","isSell":false,"taker_order_id":"1000001559273","maker_order_id":"1000001558499","market":"BTC-CNY"},
+      {"id":"1000001559273001","timestamp":1423047426723,"price":1395.00054494,"amount":0.00486293,"maker":"1000001418","taker":"1000001418","isSell":false,"taker_order_id":"1000001559273","maker_order_id":"1000001558465","market":"BTC-CNY"},
+      {"id":"1000001559260001","timestamp":1423047244363,"price":1395.0,"amount":0.0141,"maker":"1000001418","taker":"1000001418","isSell":false,"taker_order_id":"1000001559260","maker_order_id":"1000001558465","market":"BTC-CNY"}
+    ]
   }
+
 ```
 
 <br><br>
@@ -774,32 +779,16 @@ profile中的pwdhash将不会被返回。
 ####返回值示例
 ```
   {
-    "hasMore": true,
-    "orders" : [
-      {
-        "order_id" :  "1000000732928"
-        "operation" : "sell",
-        "status" : 1,
-        "market" : "btc-cny",
-        "price" : 2010.3,
-        "amount" : 0.23,
-        "dealed_amount" : 0.23,
-        "created" : 1421560886,
-        "last_updated" : 1421560993,
-      },
-      {
-        "order_id" :  "1000000834523"
-        "type" : "buy",
-        "status" : 2,
-        "market" : "btc-cny",
-        "price" : 2010.3,
-        "amount" : 0.23,
-        "value" : 0,
-        "created" : 1421560886,
-        "last_updated" : 1421560993,
-      }
+    "hasMore":true,
+    "orders":[
+      {"id":"1000001559354","operation":"buy","status":2,"market":"BTC-CNY","price":1410.0,"amount":0.0418,"dealed_amount":0.04180001,"created":1423048326815},
+      {"id":"1000001559353","operation":"buy","status":2,"market":"BTC-CNY","price":1405.0,"amount":0.0841,"dealed_amount":0.08410001,"created":1423048324891},
+      {"id":"1000001559352","operation":"buy","status":2,"market":"BTC-CNY","price":1395.0,"amount":0.0278,"dealed_amount":0.0278,"created":1423048322451},
+      {"id":"1000001559337","operation":"buy","status":2,"market":"BTC-CNY","price":1415.0,"amount":0.0231,"dealed_amount":0.0231,"created":1423048145503},
+      {"id":"1000001559335","operation":"buy","status":2,"market":"BTC-CNY","price":1405.0,"amount":0.0777,"dealed_amount":0.0777,"created":1423048143495},
+      {"id":"1000001559334","operation":"buy","status":2,"market":"BTC-CNY","price":1400.0,"amount":0.0981,"dealed_amount":0.09810001,"created":1423048141450}
     ]
-  }    
+  }
   
 ```
 返回结果按订单号生成时间降序排列。
@@ -827,30 +816,14 @@ profile中的pwdhash将不会被返回。
 ####返回值示例
 ```
   {
-    "hasMore": true,
-    "deposits": [{
-      "id": 1000000000320,
-      "created": 118271181818,
-      "updated": 118271181818,
-      "amount": 10,
-      "status": "Succeeded",
-      "address": "fdafdsafidsaiofdslafjdasfjafa"
-    }, {
-      "id": 1000000000320,
-      "created": 118271181818,
-      "updated": 118271181818,
-      "amount": 10,
-      "status": "Succeeded",
-      "address": "fdafdsafidsaiofdslafjdasfjafa"
-    }, {
-      "id": 1000000000320,
-      "created": 118271181818,
-      "updated": 118271181818,
-      "quantity": 10,
-      "status": "Succeeded",
-      "address": "fdafdsafidsaiofdslafjdasfjafa"
-    }]
+    "hasMore":false,
+    "deposits":[
+      {"id":"1000000048316","currency":"BTC","quantity":4.7072,"status":4,"created":1422852175162,"updated":1422852516540,"address":"147vEoThzNZSrrFi9r38s8pPapwzBr8VEF"},
+      {"id":"1000000006267","currency":"BTC","quantity":15.0,"status":4,"created":1418041606175,"updated":1418041731709,"address":"147vEoThzNZSrrFi9r38s8pPapwzBr8VEF"},
+      {"id":"1000000006265","currency":"CNY","quantity":20000.0,"status":4,"created":1418040570952,"updated":1418040574192,"address":""}
+    ]
   }
+
 ```
 
 <br><br>
@@ -870,31 +843,16 @@ profile中的pwdhash将不会被返回。
 
 ####返回值示例
 ```
+
   {
-    "hasMore": true,
-    "withdrawals": [{
-      "id": 1000000000320,
-      "created": 118271181818,
-      "updated": 118271181818,
-      "quantity": 10,
-      "status": "Succeeded",
-      "address": "fdafdsafidsaiofdslafjdasfjafa"
-    }, {
-      "id": 1000000000320,
-      "created": 118271181818,
-      "updated": 118271181818,
-      "quantity": 10,
-      "status": "Succeeded",
-      "address": "fdafdsafidsaiofdslafjdasfjafa"
-    }, {
-      "id": 1000000000320,
-      "created": 118271181818,
-      "updated": 118271181818,
-      "quantity": 10,
-      "status": "Succeeded",
-      "address": "fdafdsafidsaiofdslafjdasfjafa"
-    }]
+    "hasMore":false,
+    "withdrawals":[
+      {"id":"1000000043734","currency":"BTC","quantity":4.0,"status":4,"created":1422240608809,"updated":1422242067482,"address":"17ZFHKXPqoxeHcCTiJ5CZrKLrUJN1TD7Uj"},
+      {"id":"1000000006284","currency":"BTC","quantity":1.0,"status":4,"created":1418108185885,"updated":1418110469452,"address":"138WcJM1RnPLp5TQJwNcTwZgjUJpgQ3pU6"},
+      {"id":"1000000006283","currency":"BTC","quantity":1.0,"status":4,"created":1418107690265,"updated":1418108145168,"address":"138WcJM1RnPLp5TQJwNcTwZgjUJpgQ3pU6"}
+    ]
   }
+
 ```
 
 <br><br>
@@ -907,13 +865,21 @@ profile中的pwdhash将不会被返回。
 无
 ####返回值示例
 ```
-  {
-    "DRK": "fjdajfdjsalfjdlsafj",
-    "BTC": "fjdajfdjsalfjdlsafj",
-    "VRC": "fjdajfdjsalfjdlsafj",
-    "LTC": "fjdajfdjsalfjdlsafj",
-    "CNY": "fjdajfdjsalfjdlsafj",
+
+   {
+    "GOOC":"",
+    "DRK":"Xdyx1saNYDovgjTuPUA7CerJw9uNTAA9ED",
+    "VRC":"VDPX7rZN4SSXnsfXjnpdx7cJmsQZwHMirA",
+    "XRP":"",
+    "NXT":"5108275052447562865//NXT-2Z5K-53Q4-WKWM-6X3TF//4eb53cf353efb667e103fe9bb332737ce52bf2a7816cb9240145078dde78e106",
+    "ZET":"ZKAA177LfzFHAKpEXtMr2K55UGVgCwxtAR",
+    "LTC":"LNpsrBnWhL7hmzyQgMsGhVJb87NzeE2kWn",
+    "BTC":"147vEoThzNZSrrFi9r38s8pPapwzBr8VEF",
+    "BC":"BJRHTqbqpp5767Sj7R7uhRU11CsfvmDZ3s",
+    "DOGE":"DCXhmCU3tnNEh5kBEHoMkLfeU1Sw47R2XA",
+    "BTSX":""
   }
+
 ```
 
 <br><br>
@@ -927,7 +893,7 @@ profile中的pwdhash将不会被返回。
 ####返回值示例
 ```
   {
-    "BTC": "fjdajfdjsalfjdlsafj"
+    "BTC":"147vEoThzNZSrrFi9r38s8pPapwzBr8VEF"
   }
 ```
 
@@ -953,19 +919,25 @@ profile中的pwdhash将不会被返回。
         "operation" : "buy",
         "price" : 1800,
         "amount" : 0.23
-      }
+      }, {
+        "market" : "ltc-cny",
+        "operation" : "buy",
+        "price" : 5,
+        "amount" : 0.4
     ]
   }
 ```
 ####返回值示例
 ```
+  
   {
-    "results" : [
-      {"order_id" : 1000000732928 },
-      {"order_id" : 0, "code" : 1003}
+    "results":[
+      {"order_id":"1000001559603"},
+      {"order_id":"0","code":"2003"},
+      {"order_id":"1000001559605"}
     ]
   }
-  
+
 ```
 返回结果中订单号和下单顺序一致，如果下单失败，order_id为0， 并且会有非零的code。
 
@@ -978,25 +950,18 @@ profile中的pwdhash将不会被返回。
 
 ####POST数据JSON格式
 ```
-  {
-    "order_ids" : [
-      1000000732928，
-      1000000732345，
-      1000000834534
-    ]
-  }
+  {"order_ids": [1000000001606, 1000001559603, 1000001559604]}
 
 ```
 ####返回值示例
 ```
   {
     "cancelled" :[
-      1000000732928，
-      1000000732345
+      1000001559603，
+      1000001559604
     ],
     "failed": [
-      1000000834534,
-      1000000923357
+      1000000001606
     ]
   }
   
