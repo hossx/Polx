@@ -38,6 +38,9 @@
             text-transform: uppercase;
         }
     }
+    a {
+        margin: 0;
+    }
 }
 @media(min-width: 768px) {
     #toolbar {

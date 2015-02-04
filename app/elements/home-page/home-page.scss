@@ -25,30 +25,26 @@ cp-page {
     @keyframes nameanimation {
         0% {
             transform: scale(0.7);
-            letter-spacing: 0;
             opacity: 0;
         }
         100% {
             transform: scale(1);
-            letter-spacing: 5px;
             opacity: 1;
         }
     }
     #name {
-        font-size: 72px;
+        font-size: 48px;
         text-transform: uppercase;
-        padding: 40px;
+        padding-bottom: 20px;
         font-weight: bold;
         color: white;
-        letter-spacing: 5px;
         animation: nameanimation 2s;
         animation-iteration-count: 1;
         animation-timing-function: ease;
     }
     #slogan {
-        font-size: 26px;
+        font-size: 18px;
         color: white;
-        letter-spacing: 5px;
         border-bottom: 2px solid $white1;
         font-weight: bold;
         animation: nameanimation 2s;
@@ -135,6 +131,14 @@ cp-page {
 @media(min-width: 768px) {
     .section {
         padding: 80px 0;
+    }
+    #branding {
+        #name {
+            font-size: 78px;
+        }
+        #slogan {
+            font-size: 26px;
+        }
     }
     #mobile {
         img#android-app {
