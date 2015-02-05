@@ -16,7 +16,7 @@ Polymer 'api-market-ticker',
         high: raw[2]
         volume: raw[3]
         change: raw[4]
-        changeTxt: (100*raw[4]).toFixed(2)+"%"
+        changeTxt: if raw[4] < 0 then (100*raw[4]).toFixed(2)+"%" else "+" + (100*raw[4]).toFixed(2)+"%"
         changeType:
           if raw[4] < 0
             "down"
