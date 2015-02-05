@@ -652,8 +652,8 @@ items中的每条数据是一个长度为6的数组，依次表示：[时间戳�
 ####POST数据JSON格式
 ```
   {
-    "email": "my@gmail.com",
-    "pwdhash": "md5ofmypassword"
+    "email": "example@coinport.com",
+    "pwdhash": "G41DK2iy8OmzdTgpjPKXFvI82wI6CEj/BfaGdfGNDgQ=" // pwdhash 生成方法为：BASE64.encode(SHA256(pwd))
   }
 ```
 ####返回值示例
@@ -662,6 +662,7 @@ items中的每条数据是一个长度为6的数组，依次表示：[时间戳�
     "uid": 1000008765
   }
 ```
+pwdhash生成方法：本例中登录密码为：cppwdtest, 经过sha256散列后, 再将散列后byte数组进行base64.encode操作得到G41DK2iy8OmzdTgpjPKXFvI82wI6CEj/BfaGdfGNDgQ= 
 profile中的pwdhash将不会被返回。
 <br><br>
 
