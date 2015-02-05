@@ -1,10 +1,6 @@
 'use strict'
 
 Polymer 'coinport-api',
-  urlChanged: (o, n) ->
-    super.autoGo()
-    console.log("url: " + @url)
-
   processError: (xhr) ->
     @fire('network-error', {'url': @url})
     @data = null

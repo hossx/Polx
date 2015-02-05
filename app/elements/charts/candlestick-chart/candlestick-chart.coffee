@@ -15,7 +15,7 @@ Polymer 'candlestick-chart',
   }
 
   createChart: () ->
-    if @market and @candles
+    if @market and @candles.length > 0
       groupingUnits = [['minute', [5,10,30]],['hour',[1,6,12]], ['day',[1]],['week',[1]],['year',null]]
 
       ohlc = ([item[0], item[1], item[2], item[3], item[4]] for item in @candles)

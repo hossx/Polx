@@ -1,72 +1,50 @@
 'use strict'
 
 # bids and asks are array of {price:price, quantity:quantity, accumulated:accumulated}
-Polymer 'depth-chart',
+Polymer 'price-chart',
   msgMap:
     'en':
-      pointFormat: 'Quantity: {point.y:.8f}'
-      buy: "Buy"
-      sell: "Sell"
+      pointFormat: 'Price: {point.y:.8f}'
+      price: "Price"
 
     'zh':
-      pointFormat: '累积数量: {point.y:.8f}'
-      buy: "买单"
-      sell: "卖单"
+      pointFormat: '价格: {point.y:.8f}'
+      price: "价格"
 
   market: null
   width: 600
   height: 260
-  regulate: true
-  bids: []
-  asks: []
+  candles: []
   simple: false
 
   observe: {
     market: 'createChart'
     #width: 'createChart'
     height:  'createChart'
-    regulate:  'createChart'
-    bids: 'createChart'
-    asks: 'createChart'
+    candles: 'createChart'
     simple: 'createChart'
   }
 
   ready: () ->
     @M = @msgMap[window.lang]
     Highcharts.setOptions
-      #
       chart:
         style:
           fontFamily: "'Roboto Condensed','Lantinghei SC','Hiragino Sans GB','Microsoft Yahei',sans-serif"
 
   createChart: () ->
-    if @market and @asks and @bids
-      asks = @asks
-      bids = @bids.slice(0)
-      # regulate asks and bids
-
-      if @regulate
-        while asks.length > 10 and bids.length > 10
-          ratio = (asks[asks.length-1].price - asks[0].price)/ (bids[0].price - bids[bids.length-1].price)
-          if ratio > 1.5
-            asks = asks.slice(0, asks.length-1)
-          else if ratio < 1/1.5
-            bids = bids.slice(0, bids.length-1)
-          else
-            break
-
-      asks = ([i.price, i.accumulated] for i in asks)
-      bids = ([i.price, i.accumulated] for i in bids.reverse())
+    if @market and @candles.length > 0
+      prices = ([i[0], i[1]] for i in @candles)
 
       chart = new Highcharts.Chart
         chart:
-          renderTo: this.$.depthchart
+          renderTo: this.$.pricechart
           type: 'area'
           zoomType: 'xy'
           height: @height
           backgroundColor: null
           #width: @width
-        colors: ["#14e715","#ff6e40"]
+        colors: ["#ffeb3b"]
         legend:
           enabled: false
         credits:
@@ -80,7 +58,7 @@ Polymer 'depth-chart',
             enabled: false
           labels:
             enabled: not @simple
-            formatter: () -> @value
+            formatter: () -> moment(@value).format("MM/DD-HH:mm")
         yAxis:
           title:
             enabled: false
@@ -90,6 +68,14 @@ Polymer 'depth-chart',
         tooltip:
           pointFormat: @M.pointFormat
         plotOptions:
+          series:
+            fillColor:
+              linearGradient: [0, 0, 0, 300],
+              stops: [
+                [0, 'rgba(255,235,59,.75'],
+                [1, 'rgba(255,235,59,0'],
+              ]
+               
           area:
             fillOpacity: 0.75
             marker:
@@ -99,5 +85,5 @@ Polymer 'depth-chart',
               states:
                 hover:
                   enabled: true
-  
-        series: [{name: @M.buy, data: bids},{name: @M.sell, data: asks}]
+
+        series: [{name: @M.price, data: prices}]

@@ -1,5 +1,6 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="../../coinport-api/api-market-kline.html">
 <link rel="import" href="../../charts/candlestick-chart/candlestick-chart.html">
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../weibo-wall/weibo-wall.html">
@@ -7,12 +8,15 @@
 <polymer-element name="trend-subpage" attributes="market,active">
   <template>
     <link rel="stylesheet" href="trend-subpage.css">
+    <api-market-kline marketId="{{market.id}}" interval="1d" start="0" candles="{{candles}}" auto></api-market-kline>
 
     <section-group has-footer>
       <paper-shadow>
-        <div label><h2>{{market.id}} {{M.priceChart}}</h2></div>
+        <div label>
+          <h2>{{market.id}} {{M.priceChart}}</h2>
+        </div>
         <div>
-          <candlestick-chart market="{{market}}" width="728" height="420"></candlestick-chart>
+          <candlestick-chart market="{{market}}" candles="{{candles}}" width="728" height="420"></candlestick-chart>
         </div>
       </paper-shadow>
 
