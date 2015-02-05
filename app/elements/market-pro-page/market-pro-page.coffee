@@ -68,7 +68,7 @@ Polymer 'market-pro-page',
       this.$.ajaxTradeHistory.go()
       this.$.ajaxMyOrders.go()
 
-    setInterval(work, 3000)
+    setInterval(work, window.config.refreshIntervals.pro)
 
   market: null
 
