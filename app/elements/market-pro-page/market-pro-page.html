@@ -52,12 +52,12 @@
           <div id="toolbar-ticker">
             <div class="divider"></div>
             <div class="stat" vertical layout>
-              <nice-number v="{{ticker.price}}" unit="{{market.baseCurrency.unit}}"></nice-number>
+              <nice-number v="{{ticker.price}}" unit="{{market.baseCurrency.unit}}"  no-trailing-zeros></nice-number>
               <div>{{M.lastPrice}}</div>
             </div>
 
             <div class="stat" vertical layout>
-              <nice-number v="{{ticker.volume}}" p="2" unit="{{market.currency.unit}}"></nice-number>
+              <nice-number v="{{ticker.volume}}" p="2" unit="{{market.currency.unit}}" no-trailing-zeros></nice-number>
               <div>{{M.volume}}</div>
             </div>
 

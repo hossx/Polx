@@ -1,11 +1,15 @@
 @import "../_colors";
-
 :host {
     width: 100%;
     display: inline-block;
 }
 :host-context(.bold) {
     font-weight: 700;
+}
+:host-context([no-trailing-zeros]) {
+    #p2 {
+        display: none;
+    }
 }
 #p1 {
     padding: 0;
