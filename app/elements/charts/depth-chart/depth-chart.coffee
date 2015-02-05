@@ -90,6 +90,8 @@ Polymer 'depth-chart',
         tooltip:
           pointFormat: @M.pointFormat
         plotOptions:
+          series:
+            animation: false
           area:
             fillOpacity: 0.75
             marker:

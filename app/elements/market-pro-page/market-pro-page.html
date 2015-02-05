@@ -23,18 +23,18 @@
 <link rel="import" href="../coinport-api/api-market-depth.html">
 <link rel="import" href="../coinport-api/api-market-kline.html">
 <link rel="import" href="../coinport-api/api-market-trade-history.html">
+<link rel="import" href="../coinport-api/api-my-orders.html">
 
 <polymer-element name="market-pro-page" attributes="marketId">
   <template>
     <link rel="stylesheet" href="market-pro-page.css">
     <core-media-query query="min-width: 768px" queryMatches="{{smallup}}"></core-media-query>
 
-    <api-market-ticker marketId="{{marketId}}" ticker="{{ticker}}" auto></api-market-ticker>
-    <api-market-depth marketId="{{marketId}}" limit="25" bids="{{bids}}" bidsReverse="{{bidsReverse}}" asks="{{asks}}" spread="{{spread}}"
-    auto></api-market-depth>
-
-    <api-market-kline marketId="{{marketId}}" start="0" candles="{{candles}}" auto></api-market-kline>
-    <api-market-trade-history marketId="{{marketId}}" limit="50" trades="{{trades}}" auto></api-market-trade-history>
+    <api-market-ticker id="ajaxTicker" marketId="{{marketId}}" ticker="{{ticker}}" auto></api-market-ticker>
+    <api-market-depth id="ajaxDepth" marketId="{{marketId}}" limit="25" bids="{{bids}}" bidsReverse="{{bidsReverse}}" asks="{{asks}}" spread="{{spread}}" auto></api-market-depth>
+    <api-market-kline id="ajaxKline" marketId="{{marketId}}" start="0" candles="{{candles}}" auto></api-market-kline>
+    <api-market-trade-history id="ajaxTradeHistory" marketId="{{marketId}}" limit="50" trades="{{trades}}" auto></api-market-trade-history>
+    <api-my-orders id="ajaxMyOrders"  orders="{{orders}}" auto></api-my-orders>
 
     <core-drawer-panel forceNarrow>
       <core-header-panel mode="seamed" id="drawer" drawer>

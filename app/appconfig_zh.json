@@ -1,7 +1,7 @@
 {
   "currencies": {
     "CNY": {
-      "name": "人民币",
+      "name": "Chinese Yuan",
       "color": "red",
       "notCripto": true,
       "fee": {
@@ -206,7 +206,7 @@
   },
   "refreshIntervals": {
     "depths": 5000,
-    "tickers": 3000,
+    "tickers": 300000,
     "reserves": 300000
   },
   "documents": {

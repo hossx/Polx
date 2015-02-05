@@ -61,6 +61,15 @@ Polymer 'market-pro-page',
     @config = window.config
     @tradeHistory = []
 
+    work = () =>
+      this.$.ajaxTicker.go()
+      this.$.ajaxDepth.go()
+      this.$.ajaxKline.go()
+      this.$.ajaxTradeHistory.go()
+      this.$.ajaxMyOrders.go()
+
+    setInterval(work, 3000)
+
   market: null
 
   buyPrice: 0.0

@@ -206,7 +206,7 @@
   },
   "refreshIntervals": {
     "depths": 5000,
-    "tickers": 3000,
+    "tickers": 300000,
     "reserves": 300000
   },
   "documents": {

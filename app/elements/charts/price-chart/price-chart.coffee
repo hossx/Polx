@@ -69,6 +69,7 @@ Polymer 'price-chart',
           pointFormat: @M.pointFormat
         plotOptions:
           series:
+            animation: false
             fillColor:
               linearGradient: [0, 0, 0, 300],
               stops: [
