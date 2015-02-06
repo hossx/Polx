@@ -17,10 +17,9 @@ Polymer 'api-market-trade-history',
 
   dataChanged: (o, n) ->
     if @data
-      @trades = ({
-        timestamp: moment(item.timestamp).format("hh:mm:ss")
-        class: if item.isSell then "sell" else "buy"
-        price: item.price
-        quantity: item.amount
-        total: item.amount * item.price} for item in @data.trades)
+      for item in @data.trades
+        item.class = if item.isSell then "sell" else "buy"
+        item.timestamp = moment(item.timestamp).format("hh:mm:ss")
+        item.total = item.amount * item.price
+      @trades = @data.trades
       @hasMore = @data.hasMore

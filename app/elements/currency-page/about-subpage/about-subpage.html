@@ -32,7 +32,7 @@
             <template repeat="{{market in markets}}">
               <div vertical center layout>
                 <div class="candle">
-                  <candlestick-chart flex market="{{market}}" width="728" height="420"></candlestick-chart>
+                  <candlestick-chart market="{{market}}" width="728" height="420"></candlestick-chart>
                 </div>
                 <paper-button class="trade-btn" raised><a href="/#/market/{{market.id}}">Trade {{market.name}}</a>
                 </paper-button>

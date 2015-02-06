@@ -15,11 +15,13 @@ Polymer 'about-subpage',
   ready: () ->
     @M = @msgMap[window.lang]
 
+  tab: 0
   currency: null
   wikiFile: ''
   wiki: ''
   wikiLinted: ''
   markets: []
+  candles: []
   showTweets: false
   showWeibo: false
 
@@ -46,3 +48,4 @@ Polymer 'about-subpage',
       for k, m of window.config.markets
         if m.currency.id == @currency.id
           @markets.push m
+      console.log(@markets)

@@ -31,7 +31,9 @@ Polymer 'candlestick-chart',
         title:
           text: 'OHLC'
         height: '60%'
-        lineWidth: 2
+        lineWidth: 0
+        gridLineWidth: 0
+        tickLength: 0
 
       yAxis2 =
         labels:
@@ -42,7 +44,9 @@ Polymer 'candlestick-chart',
         top: '65%'
         height: '35%'
         offset: 0
-        lineWidth: 2
+        lineWidth: 0
+        gridLineWidth: 0
+        tickLength: 0
 
       serie1 = 
         type: 'candlestick'
@@ -66,6 +70,7 @@ Polymer 'candlestick-chart',
           height: @height
           width: @width
           backgroundColor: null
+        colors: ["#259b24", "#9e9e9e"]
         credits:
           enabled: false
         title:

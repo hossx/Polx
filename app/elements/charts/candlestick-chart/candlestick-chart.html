@@ -1,9 +1,11 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../coinport-api/api-market-kline.html">
 <link rel="import" href="../highcharts-import.html">
 
 <polymer-element name="candlestick-chart" attributes="market,width,height,candles">
   <template>
     <link rel="stylesheet" href="candlestick-chart.css">
+    <api-market-kline marketId="{{market.id}}" interval="1d" start="0" candles="{{candles}}" auto></api-market-kline>
     <div id="candlesticks" width="{{width}}px" height="{{height}}px"></div>
   </template>
   <script src="candlestick-chart.js"></script>
