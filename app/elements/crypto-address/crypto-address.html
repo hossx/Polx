@@ -2,14 +2,23 @@
 <link rel="import" href="../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../bower_components/core-icons/communication-icons.html">
 
-<polymer-element name="crypto-address" attributes="currency,addr" noscript>
+<polymer-element name="crypto-address" attributes="currency,addr">
   <template>
     <link rel="stylesheet" href="crypto-address.css">
-    <div center horizontal layout>
-      <core-icon id="icon" icon="communication:location-on"></core-icon>
-      <div id="addr"><span id="lead">{{currency.id}}:</span>{{addr}}</div>
-    </div>
-
+    <core-tooltip class="fancy">
+      <div center horizontal layout>
+        <core-icon id="icon" icon="communication:location-on"></core-icon>
+        <div id="addr"><span id="lead">{{currency.id}}:</span>{{addr}}</div>
+      </div>
+      <template if="{{link}}">
+        <div tip vertical center layout>
+          <div>{{M.checkout}}</div>
+          <div horizontal layout>
+            <div><a target="_blank" href="{{link}}">{{link}}</a></div>
+          </div>
+        </div>
+      </template>
+    </core-tooltip>
   </template>
-
+  <script src="crypto-address.js"></script>
 </polymer-element>

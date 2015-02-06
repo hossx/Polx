@@ -17,6 +17,8 @@ Polymer 'home-page',
       download: "Download App"
       support: "Supports Android 2.4.2 and up. iOS App coming soon."
       servedBy: "Powered by Coinport Technology Limited HK"
+      #announceWarning: "This is the warning we can make."
+      announceInfo: "This is the info we can make."
     'zh':
       coinport: "币丰港"
       slogan: "全透明数字资产交易平台"

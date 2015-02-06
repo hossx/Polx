@@ -31,10 +31,11 @@
     <core-media-query query="min-width: 768px" queryMatches="{{smallup}}"></core-media-query>
 
     <api-market-ticker id="ajaxTicker" marketId="{{marketId}}" ticker="{{ticker}}" auto></api-market-ticker>
-    <api-market-depth id="ajaxDepth" marketId="{{marketId}}" limit="25" bids="{{bids}}" bidsReverse="{{bidsReverse}}" asks="{{asks}}" spread="{{spread}}" auto></api-market-depth>
+    <api-market-depth id="ajaxDepth" marketId="{{marketId}}" limit="25" bids="{{bids}}" bidsReverse="{{bidsReverse}}" asks="{{asks}}"
+    spread="{{spread}}" auto></api-market-depth>
     <api-market-kline id="ajaxKline" marketId="{{marketId}}" start="0" candles="{{candles}}" auto></api-market-kline>
     <api-market-trade-history id="ajaxTradeHistory" marketId="{{marketId}}" limit="50" trades="{{trades}}" auto></api-market-trade-history>
-    <api-my-orders id="ajaxMyOrders"  orders="{{orders}}" auto></api-my-orders>
+    <api-my-orders id="ajaxMyOrders" orders="{{orders}}" auto></api-my-orders>
 
     <core-drawer-panel forceNarrow>
       <core-header-panel mode="seamed" id="drawer" drawer>
@@ -52,7 +53,7 @@
           <div id="toolbar-ticker">
             <div class="divider"></div>
             <div class="stat" vertical layout>
-              <nice-number v="{{ticker.price}}" unit="{{market.baseCurrency.unit}}"  no-trailing-zeros></nice-number>
+              <nice-number v="{{ticker.price}}" unit="{{market.baseCurrency.unit}}" no-trailing-zeros></nice-number>
               <div>{{M.lastPrice}}</div>
             </div>
 
@@ -68,6 +69,8 @@
             </div>
             <div class="divider"></div>
           </div>
+          <core-icon-button icon="refresh" id="refresh" on-tap="{{forceRefresh}}"></core-icon-button>
+          </core-animated-pages>
           <div flex></div>
 
           <a href="/#/market/{{marketId}}">
@@ -88,10 +91,10 @@
                   <tbody>
                     <tr>
                       <td>
-                        <nice-number v="{{ticker.price}}" unit="{{market.baseCurrency.unit}}"></nice-number>
+                        <nice-number v="{{ticker.price}}" unit="{{market.baseCurrency.unit}}" no-trailing-zeros></nice-number>
                       </td>
                       <td>
-                        <nice-number v="{{ticker.volume}}" p="2" unit="{{market.currency.unit}}"></nice-number>
+                        <nice-number v="{{ticker.volume}}" p="2" unit="{{market.currency.unit}}" no-trailing-zeros></nice-number>
                       </td>
                       <td>
                         <div class="{{ticker.changeType}}">{{ticker.changeTxt}}</div>

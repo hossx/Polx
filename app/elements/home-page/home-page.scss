@@ -15,6 +15,9 @@ cp-page {
     position: relative; // important
     overflow: hide;
 }
+.small-section {
+    padding: 10px 40px;
+}
 @include has-primary-link();
 #branding {
     background: color($C2, 500);
@@ -59,6 +62,26 @@ cp-page {
         position: absolute;
     }
 }
+#announceInfo {
+    background: color($C2, 100);
+    color: $black1;
+    border-bottom: 1px solid $black4;
+    font-size: 14px;
+    core-icon {
+        padding-right: 20px;
+    }
+}
+
+#announceWarning {
+    background: color($C3, 400);
+    color: white;
+    border-bottom: 1px solid $black4;
+    font-size: 14px;
+    core-icon {
+        padding-right: 20px;
+    }
+}
+
 #features {
     background: white;
     color: $black2;
@@ -118,14 +141,13 @@ cp-page {
     }
 }
 #powered {
-    padding: 10px 40px;
     background: $black2;
     color: $white1;
     font-weight: 500;
     text-align: center;
     img {
         height: 36px;
-        padding: 4px;
+        padding-bottom: 4px;
     }
 }
 #form-container {

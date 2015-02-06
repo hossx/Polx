@@ -23,11 +23,13 @@ Polymer 'market-pro-page',
       buyAction: "Buy"
       withdraw: "Withdraw"
       deposit: "Deposit"
-      relaxMode: "See more information"
+      relaxMode: "More about this market"
       lastPrice: "Last Price"
       volume: "24H Volume"
       change: "24H Change"
       spread: "Spread"
+      refreshTooltip: "Refresh"
+      refreshingMsg: "Refreshing market data..."
 
     'zh':
       ticker: "市场概况"
@@ -55,22 +57,20 @@ Polymer 'market-pro-page',
       volume: "24小时成交"
       change: "24小时价差"
       spread: "买卖价差"
+      refreshTooltip: "更新数据"
+      refreshingMsg: "正在更新市场数据..."
 
   ready: () ->
     @M = @msgMap[window.lang]
     @config = window.config
-    @tradeHistory = []
 
-    work = () =>
-      this.$.ajaxTicker.go()
-      this.$.ajaxDepth.go()
-      this.$.ajaxKline.go()
-      this.$.ajaxTradeHistory.go()
-      this.$.ajaxMyOrders.go()
+  created: () ->
+    work = () => @refresh()
+    @autoRefresh = setTimeout(work, window.config.refreshIntervals.pro)
 
-    setInterval(work, window.config.refreshIntervals.pro)
-
+  autoRefresh: null
   market: null
+  refreshSelected: 0
 
   buyPrice: 0.0
   committedBuyPrice: 0.0
@@ -90,6 +90,25 @@ Polymer 'market-pro-page',
     sellPrice: 'updateSellEnabled'
     sellQuantity: 'updateSellEnabled'
   }
+
+
+  forceRefresh: () ->
+    @fire('display-message', {'message': @M.refreshingMsg})
+    @refresh()
+
+  refresh: () ->
+    clearTimeout(@autoRefresh) if @autoRefresh
+    this.$.refresh.setAttribute("disabled","")
+    reenable = () => this.$.refresh.removeAttribute("disabled")
+    setTimeout(reenable, 1000)
+
+    this.$.ajaxTicker.go()
+    this.$.ajaxDepth.go()
+    this.$.ajaxKline.go()
+    this.$.ajaxTradeHistory.go()
+    this.$.ajaxMyOrders.go()
+    work = () => @refresh() 
+    @autoRefresh = setTimeout(work, window.config.refreshIntervals.pro)
 
   updateBuyEnabled: () ->
     @buyEnabled = @buyPrice > 0 and @buyQuantity > 0

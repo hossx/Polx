@@ -1,8 +1,16 @@
 @import "_colors";
 :host {
 background: green;
-    #toast {
-        background: color($yellow, 500);
-        color: black;
+    #errorToast {
+        background: color($red, 500);
+        color: white;
+    }
+        #warningToast {
+        background: color($orange, 500);
+        color: white;
+    }
+    #messageToast {
+        background: color($C2, 500);
+        color: white;
     }
 }

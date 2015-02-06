@@ -1,4 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../bower_components/core-media-query/core-media-query.html">
 <link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../../bower_components/polymer-fontawesome/polymer-fontawesome.html">
@@ -11,6 +12,19 @@
 
     <cp-page has-toolbar has-footer>
       <div id="container" vertical layout>
+        <template if="{{M.announceInfo && announceWarning === null}}">
+          <div class="small-section" id="announceInfo" horizontal center-justified center layout>
+            <core-icon icon="announcement"></core-icon>
+            <div> {{M.announceInfo}}</div>
+          </div>
+        </template>
+
+        <template if="{{M.announceWarning}}">
+          <div class="small-section" id="announceWarning" horizontal center-justified center layout>
+            <core-icon icon="announcement"></core-icon>
+            <div> {{M.announceWarning}}</div>
+          </div>
+        </template>
 
         <div class="section" id="branding" vertical center-justified center layout>
           <div id="name">{{M.coinport}}</div>
@@ -52,8 +66,8 @@
           </div>
         </div>
 
-        <div id="powered" vertical center layout>
-        <img src="/images/watermark.png">
+        <div class="small-section" id="powered" vertical center center-justified layout>
+          <img src="/images/watermark.png">
           <div>{{M.servedBy}}</div>
         </div>
       </div>

@@ -16,8 +16,7 @@ $head-background-color: color($C1, 700);
     div.divider {
         margin: 0 10px;
         width: 1px;
-        height: 60%;
-        background: color($C1, 100);
+        background: color($C1, 50)
     }
     div.stat {
         padding: 0 10px;
@@ -46,6 +45,9 @@ $head-background-color: color($C1, 700);
 }
 $head-height: 36px;
 #toolbar-ticker {
+    display: none;
+}
+#refresh {
     display: none;
 }
 .column {
@@ -245,6 +247,9 @@ paper-button {
     }
     #ticker {
         display: none;
+    }
+    #refresh {
+        display: inherit;
     }
     .column {
         .block {
