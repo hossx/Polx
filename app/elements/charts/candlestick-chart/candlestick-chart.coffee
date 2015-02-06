@@ -18,8 +18,9 @@ Polymer 'candlestick-chart',
     if @market and @candles.length > 0
       groupingUnits = [['minute', [5,10,30]],['hour',[1,6,12]], ['day',[1]],['week',[1]],['year',null]]
 
-      ohlc = ([item[0], item[1], item[2], item[3], item[4]] for item in @candles)
-      volume = ([item[0], item[5]] for item in @candles)
+      filtered = @candles.filter (i) -> i[5] > 0
+      ohlc = ([item[0], item[1], item[2], item[3], item[4]] for item in filtered)
+      volume = ([item[0], item[5]] for item in filtered)
 
       for v in volume
         x = moment(v[0]).format("MM/DD-HH:mm")
@@ -30,10 +31,14 @@ Polymer 'candlestick-chart',
           x: -3
         title:
           text: 'OHLC'
-        height: '60%'
+        height: '80%'
         lineWidth: 0
         gridLineWidth: 0
         tickLength: 0
+        min: null
+        max: null
+        minPadding: 0
+        maxPadding: 0
 
       yAxis2 =
         labels:
@@ -41,12 +46,16 @@ Polymer 'candlestick-chart',
           x: -3
         title:
           text: 'Quantity'
-        top: '65%'
-        height: '35%'
+        top: '80%'
+        height: '20%'
         offset: 0
         lineWidth: 0
         gridLineWidth: 0
         tickLength: 0
+        min: null
+        max: null
+        minPadding: 0
+        maxPadding: 0
 
       serie1 = 
         type: 'candlestick'
