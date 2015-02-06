@@ -34,7 +34,8 @@ Polymer 'price-chart',
 
   createChart: () ->
     if @market and @candles.length > 0
-      prices = ([i[0], i[1]] for i in @candles)
+      filtered = @candles.filter (x) -> x[5] > 0
+      prices = ([i[0], i[1]] for i in filtered)
 
       chart = new Highcharts.Chart
         chart:
