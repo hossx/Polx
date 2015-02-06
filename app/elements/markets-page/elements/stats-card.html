@@ -21,8 +21,9 @@
           </div>
 
           <div id="stats" center-justified vertical layout>
-            <div id="general">
-              <span class="l">{{M.lastPrice}}: </span> <span class="v">{{ticker[0]}}</span>
+            <div id="general" horizontal end layout>
+              <div class="l">{{M.lastPrice}}: </div>
+              <div class="v"><nice-number v="{{ticker[0]}}" no-trailing-zeros></nice-number></div>
             </div>
             <div id="sub">
               <div>

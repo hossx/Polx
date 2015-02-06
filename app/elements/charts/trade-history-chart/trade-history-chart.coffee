@@ -64,7 +64,7 @@ Polymer 'trade-history-chart',
           title:
             text: ""
           labels:
-            formatter: () -> @value
+            formatter: () -> @value.toFixed(8)
         tooltip:
           pointFormat: @M.pointFormat
         plotOptions:

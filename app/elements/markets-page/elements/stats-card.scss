@@ -82,6 +82,7 @@ cp-coinport-icon {
         .l {
             color: $black2;
             text-transform: uppercase;
+            padding-bottom: 5px;
         }
         .v {
             font-size: 28px;
@@ -89,13 +90,9 @@ cp-coinport-icon {
             text-align: center;
             color: color($C2, a700);
         }
-        &:after {
-            content: "";
-            display: block;
-            padding-top: 10px;
-            height: 1px;
-            width: 100%;
-            border-top: solid 1px $black4;
-        }
+    }
+    #sub {
+        padding-top: 10px;
+        border-top: solid 1px $black4;
     }
 }
