@@ -41,9 +41,9 @@ Polymer 'trade-history-chart',
       sold = []
       for record in @records
         if record.isSell
-          sold.push [record.timestamp, record.price, record.quantity]
+          sold.push [record.timestamp, record.price, record.amount]
         else
-          bought.push [record.timestamp, record.price, record.quantity]
+          bought.push [record.timestamp, record.price, record.amount]
 
       chart = new Highcharts.Chart
         chart:
