@@ -1,19 +1,15 @@
 @import "../../_colors";
 @import "../../_common";
-
 :host {
     display: block;
     height: 100%;
 }
 @include has-simple-table();
-.label {
-    padding-left: 20px;
-    &.cold {
-        color: color($light-blue, 500);
-    }
-    &.hot {
-        color: color($orange, 500);
-    }
+.cold {
+    color: color($light-blue, 500);
+}
+.hot {
+    color: color($deep-orange, 500);
 }
 .msg, .sig {
     font-family: monospace;

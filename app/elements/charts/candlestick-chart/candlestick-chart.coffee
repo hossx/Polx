@@ -28,6 +28,7 @@ Polymer 'candlestick-chart',
       yAxis1 =
         labels:
           align: 'right'
+          formatter: () -> if @value < 1 then @value.toFixed(8) else @value
           x: -3
         title:
           text: 'OHLC'
@@ -35,14 +36,11 @@ Polymer 'candlestick-chart',
         lineWidth: 0
         gridLineWidth: 0
         tickLength: 0
-        min: null
-        max: null
-        minPadding: 0
-        maxPadding: 0
 
       yAxis2 =
         labels:
           align: 'right'
+          formatter: () -> @value
           x: -3
         title:
           text: 'Quantity'
@@ -52,10 +50,6 @@ Polymer 'candlestick-chart',
         lineWidth: 0
         gridLineWidth: 0
         tickLength: 0
-        min: null
-        max: null
-        minPadding: 0
-        maxPadding: 0
 
       serie1 = 
         type: 'candlestick'
