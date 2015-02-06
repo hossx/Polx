@@ -15,32 +15,34 @@
     <link rel="stylesheet" href="about-subpage.css">
 
     <section-group has-footer>
-      <paper-shadow>
-        <div label>
-          <h2>{{M.trend}}</h2>
-        </div>
-        <div>
-          <template if="{{markets.length > 1}}">
-            <paper-tabs id="market-tabs" selected="{{tab}}">
-              <template repeat="{{market in markets}}">
-                <paper-tab> {{market.id}} </paper-tab>
-              </template>
-            </paper-tabs>
-          </template>
-
-          <core-animated-pages id="kchart-pages" selected="{{tab}}">
-            <template repeat="{{market in markets}}">
-              <div vertical center layout>
-                <div class="candle">
-                  <candlestick-chart market="{{market}}" width="728" height="420"></candlestick-chart>
-                </div>
-                <paper-button class="trade-btn" raised><a href="/#/market/{{market.id}}">Trade {{market.name}}</a>
-                </paper-button>
-              </div>
+      <template if="{{markets.length > 0}}">
+        <paper-shadow>
+          <div label>
+            <h2>{{M.trend}}</h2>
+          </div>
+          <div>
+            <template if="{{markets.length > 1}}">
+              <paper-tabs id="market-tabs" selected="{{tab}}">
+                <template repeat="{{market in markets}}">
+                  <paper-tab> {{market.name}} </paper-tab>
+                </template>
+              </paper-tabs>
             </template>
-          </core-animated-pages>
-        </div>
-      </paper-shadow>
+
+            <core-animated-pages id="kchart-pages" selected="{{tab}}">
+              <template repeat="{{market in markets}}">
+                <div vertical center layout>
+                  <div class="candle">
+                    <candlestick-chart market="{{market}}" width="728" height="420"></candlestick-chart>
+                  </div>
+                  <paper-button class="trade-btn" raised><a href="/#/marketpro/{{market.id}}">Trade {{market.name}}</a>
+                  </paper-button>
+                </div>
+            </core-animated-pages>
+            </template>
+          </div>
+        </paper-shadow>
+      </template>
 
       <template if="{{showWeibo}}">
         <paper-shadow>

@@ -1,17 +1,24 @@
 @import "../../_colors";
 @import "../../_common";
-
 :host {
     display: block;
     height: 100%;
 }
-
 #kchart-pages {
-  height: 440px;
+    height: 480px;
 }
-
 .trade-btn {
-  margin-top: 40px;
+    margin-top: 40px;
+    background: color($C2, 500);
+    font-weight: bold;
+    padding: 10px 20px;
+    &:hover {
+        background: color($C3, 500);
+    }
+    a {
+        color: white;
+        text-decoration: none;
+    }
 }
 #market-tabs {
     width: 100%;
