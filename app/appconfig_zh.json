@@ -211,41 +211,33 @@
     "reserves": 300000
   },
   "documents": {
-    "tos": {
-      "label": "Terms of Service",
-      "tags": ["legal"]
+    "terms": {
+      "label": "服务条款",
+      "tags": ["法律"]
     },
     "privacy": {
-      "label": "Privacy Policies",
-      "tags": ["legal"]
+      "label": "隐私政策",
+      "tags": ["法律"]
     },
     "aml": {
-      "label": "AML Policies",
-      "tags": ["legal"]
+      "label": "反洗钱",
+      "tags": ["法律"]
     },
     "jobs": {
-      "label": "Jobs",
-      "tags": ["about"]
-    },
-    "team": {
-      "label": "Team",
-      "tags": ["about"]
+      "label": "工作机会",
+      "tags": ["关于"]
     },
     "contactus": {
-      "label": "Contact Us",
-      "tags": ["about"]
-    },
-    "dong": {
-      "label": "Daniel's Developer Notes",
-      "tags": ["developer"]
+      "label": "联系我们",
+      "tags": ["关于"]
     },
     "api2": {
-      "label": "币丰港交易平台API",
-      "tags": ["developer"]
+      "label": "API",
+      "tags": ["资源"]
     },
-    "cny-deposit-thru-ripple-gateways": {
-      "label": "CNY Deposit Through Ripple Gateways",
-      "tags": ["ripple", "deposit"]
+    "cny-ripple-deposit": {
+      "label": "瑞波网关充值",
+      "tags": ["资源"]
     }
   }
 }

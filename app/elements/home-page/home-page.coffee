@@ -12,11 +12,11 @@ Polymer 'home-page',
       feature2: "Open-Data"
       explain2: "All non-user private data are available to download as JSON files, including orders, trades, deposits and withdrawals, user account balances, and all crypto-addresses of our cold and hot wallets."
       feature3: "100% Reserves"
-      explain3: "We never invest user asset for our own profit. To prove this, our platform publishes new events and system snapshots hourly. Users can verify our reserve ratios based on these open data with simple maths."
+      explain3: "We never invest user asset for our own profit. To prove this, our platform publishes new events and system snapshots hourly. You can verify our reserve ratios based on these open data with simple maths."
       mobileReady: "Mobile App Ready for Android"
       download: "Download App"
       support: "Supports Android 2.4.2 and up. iOS App coming soon."
-      servedBy: "COINPORT EXCHANGE is powered by COINPORT TECHNOLOGY LIMITED, HK"
+      servedBy: "Powered by Coinport Technology Limited HK"
     'zh':
       coinport: "币丰港"
       slogan: "全透明数字资产交易平台"

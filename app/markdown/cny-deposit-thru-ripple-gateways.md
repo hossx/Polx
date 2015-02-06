@@ -1,1 +1,0 @@
-#CNY Deposit Using ripple gateways.

@@ -211,7 +211,7 @@
     "reserves": 300000
   },
   "documents": {
-    "tos": {
+    "terms": {
       "label": "Terms of Service",
       "tags": ["legal"]
     },
@@ -219,8 +219,8 @@
       "label": "Privacy Policies",
       "tags": ["legal"]
     },
-    "aml": {
-      "label": "AML Policies",
+    "aml-kyc": {
+      "label": "AML and KYC Policies",
       "tags": ["legal"]
     },
     "jobs": {

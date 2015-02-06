@@ -13,7 +13,7 @@ Polymer 'cp-footer',
         label: "Legal"
         links: [
           label: "Terms of Service"
-          url: "/#/doc/tos"
+          url: "/#/doc/terms"
         ,
           label: "Privacy Polycies"
           url: "/#/doc/privacy"
@@ -24,7 +24,7 @@ Polymer 'cp-footer',
       ,
         label: "Resources"
         links: [
-          label: "API"
+          label: "API Spec"
           url: "/#/doc/api2"
         ,
           label: "Coinport PAY"
@@ -61,12 +61,12 @@ Polymer 'cp-footer',
         label: "法律"
         links: [
           label: "服务条款"
-          url: "/#/doc/tos"
+          url: "/#/doc/terms"
         ,
           label: "隐私政策"
           url: "/#/doc/privacy"
         ,
-          label: "反洗钱"
+          label: "反洗钱与客户调查"
           url: "/#/doc/aml-kyc"
         ]
       ,
@@ -74,6 +74,9 @@ Polymer 'cp-footer',
         links: [
           label: "API"
           url: "/#/doc/api2"
+        ,
+          label: "瑞波网关充值"
+          url: "/#/doc/cny-ripple-deposit"
         ,
           label: "币丰支付"
           url: "https://pay.coinport.com"

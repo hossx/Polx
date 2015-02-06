@@ -118,11 +118,15 @@ cp-page {
     }
 }
 #powered {
-    padding: 20px 40px;
-    background: $black1;
+    padding: 10px 40px;
+    background: $black2;
     color: $white1;
     font-weight: 500;
     text-align: center;
+    img {
+        height: 36px;
+        padding: 4px;
+    }
 }
 #form-container {
     width: 100%;

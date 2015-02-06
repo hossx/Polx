@@ -10,7 +10,6 @@ body {
     background-color: $body-color;
     color: $white1;
 }
-
 a {
     color: $black2;
     text-decoration: none;
@@ -18,4 +17,9 @@ a {
         color: color($C1, 500);
         text-decoration: underline;
     }
+}
+#loading {
+    z-index: -1999998;
+    color: white;
+    font-size: 14px;
 }

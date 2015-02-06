@@ -35,6 +35,9 @@
     }
 }
 :host-context([dark]) {
+    .group-label {
+        color: $black3;
+    }
     @include has-grey-link();
     @include config-pay-link();
 }
