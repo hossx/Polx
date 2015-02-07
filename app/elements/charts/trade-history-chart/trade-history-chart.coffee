@@ -30,7 +30,7 @@ Polymer 'trade-history-chart',
   ready: () ->
     @M = @msgMap[window.lang]
     Highcharts.setOptions
-      colors: ["#4CAF50","#F44336"]
+      colors: ["#ff5722","#0a8f08"]
       chart:
         style:
           fontFamily: "'Roboto Condensed','Lantinghei SC','Hiragino Sans GB','Microsoft Yahei',sans-serif"

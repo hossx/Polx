@@ -395,9 +395,22 @@ $body-color: color($C1, 500);
 
 
 .buy {
-    color: color($buy-color, a200);
+    color: color($buy-color, 600);
 }
 .sell {
-    color: color($sell-color, a200);
+    color: color($sell-color, 600);
 }
 
+.cold {
+    color: color($light-blue, 500);
+}
+.hot {
+    color: color($deep-orange, 500);
+}
+
+.up {
+    color: color($sell-color, 500);
+}
+.down {
+    color: color($buy-color, 500);
+}

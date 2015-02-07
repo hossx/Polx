@@ -5,12 +5,6 @@
     height: 100%;
 }
 @include has-simple-table();
-.cold {
-    color: color($light-blue, 500);
-}
-.hot {
-    color: color($deep-orange, 500);
-}
 .msg, .sig {
     font-family: monospace;
     font-size: 10px;

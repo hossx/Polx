@@ -98,6 +98,12 @@ toolbar-ticker {
     .idx {
         color: $white3;
     }
+    .buy {
+        color: color($buy-color, a200);
+    }
+    .sell {
+        color: color($sell-color, a200);
+    }
 }
 @media(min-width: 768px) {
     toolbar-ticker {
