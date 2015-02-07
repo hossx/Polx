@@ -46,7 +46,7 @@ toolbar-ticker {
                 text-transform: uppercase;
             }
         }
-        .content {
+        .content, .section {
             padding: 0 0 10px 0;
             color: $white2;
         }
@@ -106,70 +106,6 @@ toolbar-ticker {
     .idx {
         color: $white3;
     }
-}
-nice-number {
-    &.buy {
-        color: color($buy-color, a200);
-    }
-    &.sell {
-        color: color($sell-color, a200);
-    }
-}
-table.dense {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0px;
-    th, td {
-        text-align: right;
-        padding: 0 1px;
-    }
-    thead {
-        tr {
-            color: $white2;
-            height: 20px;
-            padding: 0;
-            border-bottom: 2px solid $head-background-color;
-        }
-        th {
-            font-weight: 500;
-        }
-    }
-    tbody {
-        tr {
-            padding: 2px;
-            border-bottom: 1px solid rgba(white, 0.02);
-            &:hover {
-                background: $head-background-color;
-            }
-        }
-        td#spread {
-            border-top: 1px solid $head-background-color;
-            border-bottom: 1px solid $head-background-color;
-            text-align: center;
-            padding: 4px;
-            color: $white2;
-            font-weight: bold;
-            #container {
-                >div {
-                    padding: 0 2px;
-                }
-            }
-        }
-    }
-}
-.idx {
-    color: $white3;
-}
-
-#orderbook {};
-#depthchart {
-    depth-chart {
-        width: 100%;
-        display: inline-block;
-    }
-}
-paper-button {
-    border-radius: 0;
 }
 @media(min-width: 768px) {
     toolbar-ticker {

@@ -52,8 +52,8 @@ Polymer 'market-pro-page',
     setTimeout(reenable, 1000)
 
     this.$.ajaxTicker.go()
-    this.$.orderBookSection.go()
     this.$.ajaxKline.go()
+    this.$.orderBookSection.go()
     this.$.tradeHistorySection.go()
     this.$.myOrdersSection.go()
     work = () => @refresh() 
