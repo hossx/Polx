@@ -51,12 +51,12 @@ Polymer 'depth-chart',
           if ratio > 1.5
             asks = asks.slice(0, asks.length-1)
           else if ratio < 1/1.5
+            bids = bids.slice(0, bids.length-1)
+          else
             break
 
       asks = ([i.price, i.accumulated] for i in asks)
-      bids = ([i.price, i.accumulated5
-            bids = bids.slice(0, bids.length-1)
-          else] for i in bids.reverse())
+      bids = ([i.price, i.accumulated] for i in bids.reverse())
 
       chart = new Highcharts.Chart
         chart:

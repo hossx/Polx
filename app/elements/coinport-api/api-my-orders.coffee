@@ -1,8 +1,7 @@
-'use strict'
-
 Polymer 'api-my-orders',
 
-  created: () ->
+  ready: () ->
+    `this.super()`
     @url = window.protocol.userOrdersUrl()
 
   dataChanged: (o, n) ->

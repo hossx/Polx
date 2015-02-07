@@ -24,11 +24,11 @@ Polymer 'the-router',
         this.$.messageToast.show()
 
     @addEventListener 'logout-requested', (e) -> 
-      $.removeCookie(@sessionCookieName)
+      #$.removeCookie(@sessionCookieName)
       @userId = ''
 
     @addEventListener 'api-access-error', (e) ->
-      $.removeCookie(@sessionCookieName)
+      #$.removeCookie(@sessionCookieName)
       @userId = ''
 
     @addEventListener 'login-checked', (e) ->

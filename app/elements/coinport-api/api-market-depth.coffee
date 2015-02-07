@@ -1,5 +1,3 @@
-'use strict'
-
 Polymer 'api-market-depth',
   
   limit: 50
@@ -9,6 +7,7 @@ Polymer 'api-market-depth',
   spread: 0
 
   created: () ->
+    `this.super()`
     @limit = window.config.viewParams.market.orderBookInitialSize
     
   observe:

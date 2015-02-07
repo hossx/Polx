@@ -1,7 +1,6 @@
-'use strict'
-
 Polymer 'api-reserve-stats',
-  created: () ->
+  ready: () ->
+    `this.super()`
     @url = window.protocol.reserveStatsUrl()
 
   dataChanged: (o, n) ->
