@@ -1,0 +1,68 @@
+@import "../../_colors";
+@import "../../_common";
+
+$border-color: color($C1, 900);
+$background-color: color($C1, 800);
+$head-background-color: color($C1, 700);
+$head-height: 36px;
+
+paper-button {
+    border-radius: 0;
+}
+
+paper-tabs {
+    height: $head-height;
+    &::shadow {
+        #selectionBar {
+            background-color: transparent;
+        }
+    }
+    >paper-tab::shadow #ink {
+        color: color($C2, a700);
+    }
+}
+paper-tab {
+    background: $background-color;
+    height: $head-height;
+    font-weight: 700;
+    color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+    &[active] {
+        background: $head-background-color;
+        color: white;
+    }
+}
+.pages {
+    height: 242px;
+}
+.content {
+    background: $head-background-color;
+}
+.form {
+    >div {
+        height: 40px;
+    }
+    background: $head-background-color;
+    padding: 20px;
+    paper-button {
+        background: $white1;
+        color: color($C1, 700);
+        font-weight: bold;
+        font-size: 14px;
+        margin-top: 20px;
+        &[disabled] {
+            background: $white3;
+        }
+        &:hover {
+            background: color($C2, a700);
+            color: white;
+        }
+    }
+    input[is=core-input] {
+        border: 1px solid $white4;
+        padding: 8px 10px;
+        border-radius: 2px;
+        color: white;
+    }
+}

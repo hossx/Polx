@@ -1,0 +1,29 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../coinport-api/api-my-orders.html">
+
+<polymer-element name="section-my-balance" attributes="market" vertical layout>
+  <template>
+    <link rel="stylesheet" href="section-my-balance.css">
+    <div class="actions" horizontal layout>
+      <paper-button flex>
+        <core-icon class="small" icon="communication:call-received"></core-icon>{{M.deposit}}</paper-button>
+      <paper-button flex>
+        <core-icon class="small" icon="communication:call-made"></core-icon>{{M.withdraw}}</paper-button>
+    </div>
+    <div class="balance" horizontal layout>
+      <div flex><a href="/#/currency/{{market.baseCurrency.id}}">{{market.baseCurrency.id}}</a>
+      </div>
+      <div flex>
+        <nice-number v="{{123}}"></nice-number>
+      </div>
+    </div>
+    <div class="balance" horizontal layout>
+      <div flex><a href="/#/currency/{{market.currency.id}}">{{market.currency.id}}</a>
+      </div>
+      <div flex>
+        <nice-number v="{{123}}"></nice-number>
+      </div>
+    </div>
+  </template>
+  <script src="section-my-balance.js"></script>
+</polymer-element>

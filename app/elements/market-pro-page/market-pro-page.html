@@ -26,6 +26,8 @@
 <link rel="import" href="elements/section-trade-history.html">
 <link rel="import" href="elements/section-order-book.html">
 <link rel="import" href="elements/section-my-orders.html">
+<link rel="import" href="elements/section-my-balance.html">
+<link rel="import" href="elements/section-trade.html">
 
 <polymer-element name="market-pro-page" attributes="marketId">
   <template>
@@ -71,84 +73,14 @@
 
           </div>
           <div class="column" auto-vertical flex vertical layout>
-            <div class="block" id="trade" vertical layout>
-              <div class="content" vertical layout>
-                <paper-tabs selected="{{selected}}">
-                  <paper-tab>{{M.buyAction}}</paper-tab>
-                  <paper-tab>{{M.sellAction}}</paper-tab>
-                </paper-tabs>
-                <core-animated-pages class="pages" selected="{{selected}}">
-                  <section>
-                    <div class="form" vertical layout>
-                      <div center horizontal layout>
-                        <div flex>Quantity</div>
-                        <input flex two is="core-input" type="number" min="0" step="0.0001" preventInvalidInput placeholder="0.0000" value="{{buyQuantity}}"
-                        committedValue="{{committedBuyQuantity}}">
-                      </div>
-                      <div horizontal center layout>
-                        <div flex>Price</div>
-                        <input flex two is="core-input" type="number" min="0" step="0.00000001" preventInvalidInput placeholder="0.0000" value="{{buyPrice}}"
-                        committedValue="{{committedBuyPrice}}">
-                      </div>
-                      <div horizontal center layout>
-                        <div flex>Total {{market.baseCurrency.unit}}</div>
-                        <div flex two>
-                          <nice-number v="{{buyQuantity * buyPrice}}"></nice-number>
-                        </div>
-                      </div>
-                      <paper-button disabled?="{{!buyEnabled}}">{{M.buyAction}} {{market.currency.id}}</paper-button>
-                    </div>
-                  </section>
-                  <section>
-                    <div class="form" vertical layout>
-                      <div center horizontal layout>
-                        <div flex>Quantity</div>
-                        <input flex two is="core-input" type="number" min="0" step="0.0001" preventInvalidInput placeholder="0.0000" value="{{sellQuantity}}"
-                        committedValue="{{committedSellQuantity}}">
-                      </div>
-                      <div horizontal center layout>
-                        <div flex>Price</div>
-                        <input flex two is="core-input" type="number" min="0" step="0.00000001" preventInvalidInput placeholder="0.0000" value="{{sellPrice}}"
-                        committedValue="{{committedSellPrice}}">
-                      </div>
-                      <div horizontal center layout>
-                        <div flex>Total {{market.baseCurrency.unit}}</div>
-                        <div flex two>
-                          <nice-number v="{{sellQuantity * sellPrice}}"></nice-number>
-                        </div>
-                      </div>
-                      <paper-button disabled?="{{!sellEnabled}}">{{M.sellAction}} {{market.currency.id}}</paper-button>
-                    </div>
-                  </section>
-                </core-animated-pages>
-              </div>
+            <div class="block" vertical layout>
+              <section-trade id="trade" class="section" market="{{market}}"></section-trade>
             </div>
             <div class="block" id="availableBalance" vertical layout>
               <div class="head" center horizontal layout>
                 <div class="title">{{M.availableBalance}}</div>
               </div>
-              <div class="content" vertical layout>
-                <div class="actions" horizontal layout>
-                  <paper-button flex>
-                    <core-icon class="small" icon="communication:call-received"></core-icon>{{M.deposit}}</paper-button>
-                  <paper-button flex>
-                    <core-icon class="small" icon="communication:call-made"></core-icon>{{M.withdraw}}</paper-button>
-                </div>
-                <div class="balance" horizontal layout>
-                  <div flex><a href="/#/currency/{{market.baseCurrency.id}}">{{market.baseCurrency.id}}</a>
-                  </div>
-                  <div flex>
-                    <nice-number v="{{123}}"></nice-number>
-                  </div>
-                </div>
-                <div class="balance" horizontal layout>
-                  <div flex><a href="/#/currency/{{market.currency.id}}">{{market.currency.id}}</a>
-                  </div>
-                  <div flex>
-                    <nice-number v="{{123}}"></nice-number>
-                  </div>
-                </div>
-              </div>
+             <section-my-balance id="myBalanceSection" class="section" market="{{market}}"></section-my-balance>
             </div>
             <div class="block" id="transfers" vertical layout>
               <div class="head" center horizontal layout>
