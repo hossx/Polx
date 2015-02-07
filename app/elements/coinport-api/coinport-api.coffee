@@ -31,8 +31,7 @@ Polymer 'coinport-api',
     
     # TO BE REMOVED !!!!!!!!
 
-    headers['Authorization'] = "Basic " + Base64.encode("d@coinport.com:freshforce")
-    console.log(headers)
+    headers['Authorization'] = "Basic " + Base64.encode("dong77@gmail.com:freshforce")
 
     @headers = headers
     console.debug("fetching : " + @url)

@@ -1,0 +1,36 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../coinport-api/api-market-trade-history.html">
+
+<polymer-element name="section-trade-history" attributes="marketId" vertical layout>
+  <template>
+    <link rel="stylesheet" href="section-trade-history.css">
+    <api-market-trade-history id="ajax" marketId="{{marketId}}" limit="50" trades="{{trades}}" auto></api-market-trade-history>
+    <table class="dense">
+      <thead>
+        <tr>
+          <td></td>
+          <td>{{M.price}}</td>
+          <td>{{M.quantity}}</td>
+          <td>{{M.time}}</td>
+        </tr>
+      </thead>
+      <tbody>
+        <template repeat="{{record,idx in trades}}">
+          <tr>
+            <td class="idx">{{idx+1}}</td>
+            <td>
+              <nice-number class="{{record.class}}" v="{{record.price}}"></nice-number>
+            </td>
+            <td>
+              <nice-number v="{{record.amount}}"></nice-number>
+            </td>
+            <td>
+              {{record.timestamp}}
+            </td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+  </template>
+  <script src="section-trade-history.js"></script>
+</polymer-element>

@@ -1,0 +1,63 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../coinport-api/api-market-depth.html">
+
+<polymer-element name="section-order-book" attributes="marketId,bids,asks,bidsReverse" vertical layout>
+  <template>
+    <link rel="stylesheet" href="section-order-book.css">
+    <api-market-depth id="ajax" marketId="{{marketId}}" limit="25" bids="{{bids}}" bidsReverse="{{bidsReverse}}" asks="{{asks}}" spread="{{spread}}" auto></api-market-depth>
+
+    <table class="dense">
+      <thead>
+        <tr>
+          <td></td>
+          <td>{{M.price}}</td>
+          <td>{{M.quantity}}</td>
+          <td>{{M.accumulated}}</td>
+        </tr>
+      </thead>
+      <tbody>
+        <template repeat="{{bid,idx in bidsReverse}}">
+          <tr>
+            <td class="idx">{{bidsReverse.length - idx}}</td>
+            <td>
+              <nice-number class="buy" v="{{bid.price}}"></nice-number>
+            </td>
+            <td>
+              <nice-number v="{{bid.quantity}}"></nice-number>
+            </td>
+            <td>
+              <nice-number v="{{bid.accumulated}}"></nice-number>
+            </td>
+          </tr>
+        </template>
+
+        <tr>
+          <td id="spread" colspan="4">
+            <div id="container" center-justified horizontal center layout>
+              <div>{{M.spread}}:</div>
+              <div>
+                <nice-number v="{{spread}}"></nice-number>
+              </div>
+              <div> {{market.baseCurrency.unit}} </div>
+            </div>
+          </td>
+        </tr>
+        <template repeat="{{ask,idx in asks}}">
+          <tr>
+            <td class="idx">{{idx+1}}</td>
+            <td>
+              <nice-number class="sell" v="{{ask.price}}"></nice-number>
+            </td>
+            <td>
+              <nice-number v="{{ask.quantity}}"></nice-number>
+            </td>
+            <td>
+              <nice-number v="{{ask.accumulated}}"></nice-number>
+            </td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+  </template>
+  <script src="section-order-book.js"></script>
+</polymer-element>

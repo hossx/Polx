@@ -1,0 +1,30 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<polymer-element name="section-ticker" attributes="market,ticker" vertical layout>
+  <template>
+    <link rel="stylesheet" href="section-ticker.css">
+    <table class="dense">
+      <tbody>
+        <tr>
+          <td>
+            <nice-number v="{{ticker.price}}" unit="{{market.baseCurrency.unit}}" no-trailing-zeros></nice-number>
+          </td>
+          <td>
+            <nice-number v="{{ticker.volume}}" p="2" unit="{{market.currency.unit}}" no-trailing-zeros></nice-number>
+          </td>
+          <td>
+            <div class="{{ticker.changeType}}">{{ticker.changeTxt}}</div>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>{{M.lastPrice}}</td>
+          <td>{{M.volume}}</td>
+          <td>{{M.change}}</td>
+        </tr>
+      </tfoot>
+    </table>
+  </template>
+  <script src="section-ticker.js"></script>
+</polymer-element>

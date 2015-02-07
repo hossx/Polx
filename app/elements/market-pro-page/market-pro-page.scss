@@ -13,29 +13,6 @@ $head-background-color: color($C1, 700);
 }
 #toolbar {
     @include config-toolbar();
-    div.divider {
-        margin: 0 10px;
-        width: 1px;
-        background: color($C1, 50)
-    }
-    div.stat {
-        padding: 0 10px;
-        text-align: right;
-        :first-child {
-            font-weight: bold;
-            color: color($C1, 700);
-        }
-        :last-child {
-            font-size: 12px;
-            color: color($C1, 300);
-        }
-        .up {
-            color: color($sell-color, 500);
-        }
-        .down {
-            color: color($buy-color, 500);
-        }
-    }
 }
 #main {
     padding: 0 2px;
@@ -44,7 +21,7 @@ $head-background-color: color($C1, 700);
     background: $background-color;
 }
 $head-height: 36px;
-#toolbar-ticker {
+toolbar-ticker {
     display: none;
 }
 #refresh {
@@ -73,6 +50,69 @@ $head-height: 36px;
             padding: 0 0 10px 0;
             color: $white2;
         }
+    }
+}
+.section /deep/ {
+    table.dense {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0px;
+        th, td {
+            text-align: right;
+            padding: 0 1px;
+        }
+        thead {
+            tr {
+                color: $white2;
+                height: 20px;
+                padding: 0;
+                border-bottom: 2px solid $head-background-color;
+            }
+            th {
+                font-weight: 500;
+            }
+        }
+        tbody {
+            tr {
+                padding: 2px;
+                border-bottom: 1px solid rgba(white, 0.02);
+                &:hover {
+                    background: $head-background-color;
+                }
+            }
+            td#spread {
+                border-top: 1px solid $head-background-color;
+                border-bottom: 1px solid $head-background-color;
+                text-align: center;
+                padding: 4px;
+                color: $white2;
+                font-weight: bold;
+                #container {
+                    >div {
+                        padding: 0 2px;
+                    }
+                }
+            }
+        }
+    }
+    nice-number {
+        &.buy {
+            color: color($buy-color, a200);
+        }
+        &.sell {
+            color: color($sell-color, a200);
+        }
+    }
+    .idx {
+        color: $white3;
+    }
+}
+nice-number {
+    &.buy {
+        color: color($buy-color, a200);
+    }
+    &.sell {
+        color: color($sell-color, a200);
     }
 }
 table.dense {
@@ -117,32 +157,10 @@ table.dense {
         }
     }
 }
-nice-number {
-    color: $white1;
-    &.buy {
-        color: color($buy-color, a200);
-    }
-    &.sell {
-        color: color($sell-color, a200);
-    }
-}
 .idx {
     color: $white3;
 }
-#ticker {
-    .content {
-        padding: 20px;
-    }
-    nice-number {
-        color: color($C2, a400);
-    }
-    .up {
-        color: color($sell-color, a200);
-    }
-    .down {
-        color: color($buy-color, a200);
-    }
-}
+
 #availableBalance {
     .content {
         color: white;
@@ -242,7 +260,7 @@ paper-button {
     border-radius: 0;
 }
 @media(min-width: 768px) {
-    #toolbar-ticker {
+    toolbar-ticker {
         display: inherit;
     }
     #ticker {

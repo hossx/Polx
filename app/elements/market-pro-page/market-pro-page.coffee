@@ -3,6 +3,7 @@
 Polymer 'market-pro-page',
   msgMap:
     'en':
+      id: "ID"
       ticker: "Ticker"
       availableBalance: "Available Balance"
       transfers: "Deposit/Withdrawal Records"
@@ -27,11 +28,15 @@ Polymer 'market-pro-page',
       lastPrice: "Last Price"
       volume: "24H Volume"
       change: "24H Change"
-      spread: "Spread"
+      
       refreshTooltip: "Refresh"
       refreshingMsg: "Refreshing market data..."
+      type: "Type"
+      operation: "Operation"
+
 
     'zh':
+      id: "ID"
       ticker: "市场概况"
       availableBalance: "可用余额"
       transfers: "充提记录"
@@ -56,9 +61,12 @@ Polymer 'market-pro-page',
       lastPrice: "最新成交价"
       volume: "24小时成交"
       change: "24小时价差"
-      spread: "买卖价差"
+      
       refreshTooltip: "更新数据"
       refreshingMsg: "正在更新市场数据..."
+      type: "类型"
+      operation: "操作"
+
 
   ready: () ->
     @M = @msgMap[window.lang]
@@ -91,7 +99,6 @@ Polymer 'market-pro-page',
     sellQuantity: 'updateSellEnabled'
   }
 
-
   forceRefresh: () ->
     @fire('display-message', {'message': @M.refreshingMsg})
     @refresh()
@@ -103,10 +110,10 @@ Polymer 'market-pro-page',
     setTimeout(reenable, 1000)
 
     this.$.ajaxTicker.go()
-    this.$.ajaxDepth.go()
+    this.$.orderBookSection.go()
     this.$.ajaxKline.go()
-    this.$.ajaxTradeHistory.go()
-    this.$.ajaxMyOrders.go()
+    this.$.tradeHistorySection.go()
+    this.$.myOrdersSection.go()
     work = () => @refresh() 
     @autoRefresh = setTimeout(work, window.config.refreshIntervals.pro)
 
@@ -118,3 +125,5 @@ Polymer 'market-pro-page',
 
   marketIdChanged: (o, n) ->
     @market = @config.markets[@marketId]
+
+  

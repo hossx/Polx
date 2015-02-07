@@ -205,7 +205,7 @@
     }
   },
   "refreshIntervals": {
-    "pro": 3000,
+    "pro": 300000,
     "depths": 5000,
     "tickers": 300000,
     "reserves": 300000

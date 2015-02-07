@@ -1,0 +1,21 @@
+@import "../../_colors";
+@import "../../_common";
+.op {
+    paper-icon-button {
+        padding: 4px;
+        &::shadow core-icon {
+            height: 16px;
+            width: 16px;
+        }
+        color: $white3;
+        &:hover {
+            color: $white1;
+        }
+    }
+    core-icon.no-op {
+        margin: 4px;
+        height: 16px;
+        width: 16px;
+        color: $white4;
+    }
+}
