@@ -20,7 +20,7 @@
       </thead>
       <tbody>
         <template repeat="{{order,idx in orders}}">
-          <tr class="{{order.operation}}">
+          <tr>
             <td class="idx">{{idx+1}}</td>
             <td><span class="{{order.operation}}">{{M[order.operation]}}</span>
             </td>
@@ -28,10 +28,10 @@
               <nice-number class="{{order.operation}}" v="{{order.price}}"></nice-number>
             </td>
             <td>
-              <nice-number class="{{order.operation}}" v="{{order.amount}}"></nice-number>
+              <nice-number v="{{order.amount}}"></nice-number>
             </td>
             <td>
-              <nice-number class="{{order.operation}}" v="{{order.amount*order.price}}"></nice-number>
+              <nice-number v="{{order.amount*order.price}}"></nice-number>
             </td>
             <td>
               {{order.created | formatTime}}

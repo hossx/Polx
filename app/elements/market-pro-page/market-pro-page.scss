@@ -95,14 +95,6 @@ toolbar-ticker {
             }
         }
     }
-    nice-number {
-        &.buy {
-            color: color($buy-color, a200);
-        }
-        &.sell {
-            color: color($sell-color, a200);
-        }
-    }
     .idx {
         color: $white3;
     }

@@ -394,3 +394,10 @@ $c3: #54AEAB;
 $body-color: color($C1, 500);
 
 
+.buy {
+    color: color($buy-color, a200);
+}
+.sell {
+    color: color($sell-color, a200);
+}
+
