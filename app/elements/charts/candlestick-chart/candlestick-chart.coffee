@@ -73,7 +73,7 @@ Polymer 'candlestick-chart',
           height: @height
           width: @width
           backgroundColor: null
-        colors: ["#0a8f08", "#9e9e9e"]
+        colors: ["#42bd41", "#9e9e9e"]
         credits:
           enabled: false
         title:

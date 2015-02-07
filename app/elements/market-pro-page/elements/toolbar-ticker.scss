@@ -1,8 +1,5 @@
 @import "../../_colors";
 @import "../../_common";
-nice-number {
-    color: color($C2, a400);
-}
 div.divider {
     margin: 0 10px;
     width: 1px;
@@ -11,9 +8,9 @@ div.divider {
 div.stat {
     padding: 0 10px;
     text-align: right;
+    color: color($C1, 700);
     :first-child {
         font-weight: bold;
-        color: color($C1, 700);
     }
     :last-child {
         font-size: 12px;
