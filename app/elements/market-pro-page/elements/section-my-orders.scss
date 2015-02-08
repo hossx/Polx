@@ -11,11 +11,13 @@
         &:hover {
             color: $white1;
         }
+        &:hover {
+            color: color($C3, a200);
+        }
     }
-    core-icon.no-op {
-        margin: 4px;
-        height: 16px;
-        width: 16px;
-        color: $white4;
+}
+
+#confirmDialog {
+    .content {
     }
 }

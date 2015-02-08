@@ -1,4 +1,6 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-dialog/paper-action-dialog.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../coinport-api/api-my-orders.html">
 
 <polymer-element name="section-my-orders" attributes="marketId" vertical layout>
@@ -15,6 +17,7 @@
           <td>{{M.quantity}}</td>
           <td>{{M.total}}</td>
           <td>{{M.time}}</td>
+          <td>{{M.status}}</td>
           <td></td>
         </tr>
       </thead>
@@ -36,26 +39,29 @@
             <td>
               {{order.created | formatTime}}
             </td>
+            <td>
+              {{M.statuses[order.status]}}
+            </td>
             <td class="op">
-              <template if="{{order.status == 0}}">
-                未成交
-                <paper-icon-button icon="cancel"></paper-icon-button>
-              </template>
-              <template if="{{order.status == 2}}">
-                成交成交
-                <paper-icon-button icon="cancel"></paper-icon-button>
-              </template>
-              <template if="{{order.status == 1}}">
-                完全成交
-              </template>
-              <template if="{{order.status ==3}}">
-                已经取消
+              <template if="{{order.status == 0 || order.status == 2}}">
+                <core-tooltip label="{{M.cancelTip}}">
+                  <paper-icon-button orderId="{{order.id}}" on-tap="{{cancelOrder}}" icon="clear"></paper-icon-button </core-tooltip>
               </template>
             </td>
           </tr>
+
         </template>
       </tbody>
     </table>
+
+    <paper-action-dialog id="confirmDialog" backDrop heading="{{M.cancelOrderDialogTitle}}" transition="core-transition-center">
+      <div vertical layout>
+        <div>{{M.cancelOrderDialogQuestion}}</div>
+        {{orderToCancel}}
+      </div>
+      <paper-button dismissive autofocus>{{M.no}}</paper-button>
+      <paper-button affirmative on-tap="{{doCancelOrder}}">{{M.yes}}</paper-button>
+    </paper-action-dialog>
   </template>
   <script src="section-my-orders.js"></script>
 </polymer-element>
