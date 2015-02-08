@@ -2,11 +2,13 @@
 <link rel="import" href="../../../bower_components/paper-dialog/paper-action-dialog.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../coinport-api/api-my-orders.html">
+<link rel="import" href="../../coinport-api/api-cancel-orders.html">
 
 <polymer-element name="section-my-orders" attributes="marketId" vertical layout>
   <template>
     <link rel="stylesheet" href="section-my-orders.css">
     <api-my-orders id="ajax" orders="{{orders}}" marketId="{{marketId}}" auto></api-my-orders>
+    <api-cancel-orders id="cancelOrderAjax" orderIds="{{orderIdsToCancel}}" cancelledIds="{{cancelledIds}}" failedIds="{{failedIds}}"></api-cancel-orders>
 
     <table class="dense">
       <thead>
@@ -43,7 +45,7 @@
               {{M.statuses[order.status]}}
             </td>
             <td class="op">
-              <template if="{{order.status == 0 || order.status == 2}}">
+              <template if="{{order.status == 0 || order.status == 1}}">
                 <core-tooltip label="{{M.cancelTip}}">
                   <paper-icon-button orderId="{{order.id}}" on-tap="{{cancelOrder}}" icon="clear"></paper-icon-button </core-tooltip>
               </template>

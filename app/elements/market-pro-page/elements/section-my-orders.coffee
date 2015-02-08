@@ -18,8 +18,8 @@ Polymer 'section-my-orders',
       cancelOrderDialogQuestion: "Do you really want to confirm this order?"
       statuses:
         0: "Pending"
-        1: "Filled"
-        2: "Partial Filled"
+        1: "Partial Filled"
+        2: "Filled"
         3: "Cancelled"
 
     'zh':
@@ -38,8 +38,8 @@ Polymer 'section-my-orders',
       status: "状态"
       statuses:
         0: "挂单中"
-        1: "完全成交"
-        2: "部分成交"
+        1: "部分成交"
+        2: "全部成交"
         3: "已经取消"
 
   ready: () ->
@@ -53,10 +53,22 @@ Polymer 'section-my-orders',
 
   cancelOrder: (e) ->
     @orderToCancel = (@orders.filter (o) -> o.id == e.target.getAttribute("orderid"))[0]
+    @orderIdsToCancel = [@orderToCancel.id]
     console.log(@orderToCancel)
     this.$.confirmDialog.toggle()
 
   doCancelOrder: () ->
-    console.debug("Canceling order: " + [@orderToCancel.id])
+    console.debug("Canceling order: " + @orderIdsToCancel)
+    this.$.cancelOrderAjax.go()
     work = () -> @go
     setTimeout(work, 500)
+
+  cancelledIdsChanged: (o, n) ->
+    if @cancelledIds and @cancelledIds.length > 0
+      @fire("display-message", {message: "Order (ID:%s) has been cancelled.".format(@cancelledIds[0])})
+      @cancelledIds = null
+
+  failedIdsChanged: (o, n) ->
+    if @failedIds and @failedIds.length > 0
+      @fire("display-message", {error: "Failed to cancel order (ID:%s).".format(@failedIds[0])})
+      @failedIds = null
