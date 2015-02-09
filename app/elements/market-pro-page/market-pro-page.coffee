@@ -36,6 +36,9 @@ Polymer 'market-pro-page',
   ready: () ->
     @M = @msgMap[window.lang]
     @config = window.config
+    @addEventListener 'refresh-market-data', (e) ->
+      work = () => @refresh()
+      setTimeout(work, 1000)
 
   created: () ->
     work = () => @refresh()
@@ -56,6 +59,7 @@ Polymer 'market-pro-page',
     this.$.orderBookSection.go()
     this.$.tradeHistorySection.go()
     this.$.myOrdersSection.go()
+
     work = () => @refresh() 
     @autoRefresh = setTimeout(work, window.config.refreshIntervals.pro)
 

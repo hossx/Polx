@@ -25,6 +25,3 @@ Polymer 'api-my-orders',
           if order.market == @marketId
             orders.push order
           @orders = orders
-
-      console.log(@orders)
-

@@ -8,7 +8,7 @@
   <template>
     <link rel="stylesheet" href="section-my-orders.css">
     <api-my-orders id="ajax" orders="{{orders}}" marketId="{{marketId}}" auto></api-my-orders>
-    <api-cancel-orders id="cancelOrderAjax" orderIds="{{orderIdsToCancel}}" cancelledIds="{{cancelledIds}}" failedIds="{{failedIds}}"></api-cancel-orders>
+    <api-cancel-orders id="cancelOrderAjax" cancelledIds="{{cancelledIds}}" failedIds="{{failedIds}}"></api-cancel-orders>
 
     <table class="dense">
       <thead>
@@ -33,10 +33,10 @@
               <nice-number class="{{order.operation}}" v="{{order.price}}"></nice-number>
             </td>
             <td>
-              <nice-number v="{{order.amount}}"></nice-number>
+              <nice-number p="4" v="{{order.amount}}"></nice-number>
             </td>
             <td>
-              <nice-number v="{{order.amount*order.price}}"></nice-number>
+              <nice-number p="4" v="{{order.amount*order.price}}"></nice-number>
             </td>
             <td>
               {{order.created | formatTime}}

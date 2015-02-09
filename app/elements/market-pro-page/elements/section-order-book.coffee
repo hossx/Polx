@@ -3,12 +3,16 @@
 Polymer 'section-order-book',
   msgMap:
     'en':
+      buy: "Buy"
+      sell: "Sell"
       price: "Price"
       quantity: "Quantity"
       accumulated: "Accumulated"
       spread: "Spread"
 
     'zh':
+      buy: "买"
+      sell: "卖"
       price: "价格"
       quantity: "数量"
       accumulated: "累积数量"

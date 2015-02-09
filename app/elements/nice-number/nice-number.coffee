@@ -5,7 +5,7 @@ Polymer 'nice-number',
   p: 8
   unit: ''
   part1: "0."
-  part2: "00000000"
+  part2: ""
 
   observe: {
     v: 'onChange'

@@ -46,6 +46,7 @@ Polymer 'section-my-orders',
     @M = @msgMap[window.lang]
 
   go: () ->
+    console.log("my-order.go")
     this.$.ajax.go()
 
   formatTime: (t) ->
@@ -53,20 +54,17 @@ Polymer 'section-my-orders',
 
   cancelOrder: (e) ->
     @orderToCancel = (@orders.filter (o) -> o.id == e.target.getAttribute("orderid"))[0]
-    @orderIdsToCancel = [@orderToCancel.id]
-    console.log(@orderToCancel)
     this.$.confirmDialog.toggle()
 
   doCancelOrder: () ->
-    console.debug("Canceling order: " + @orderIdsToCancel)
-    this.$.cancelOrderAjax.go()
-    work = () -> @go
-    setTimeout(work, 500)
+    console.debug("Canceling order: " + @orderToCancel.id)
+    this.$.cancelOrderAjax.cancelOrder(@orderToCancel.id)
 
   cancelledIdsChanged: (o, n) ->
     if @cancelledIds and @cancelledIds.length > 0
       @fire("display-message", {message: "Order (ID:%s) has been cancelled.".format(@cancelledIds[0])})
       @cancelledIds = null
+      @fire('refresh-market-data') 
 
   failedIdsChanged: (o, n) ->
     if @failedIds and @failedIds.length > 0

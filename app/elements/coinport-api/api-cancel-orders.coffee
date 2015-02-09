@@ -1,18 +1,14 @@
-'use strict'
-
 Polymer 'api-cancel-orders',
-  orderIds: []
 
-  orderIdsChanged: (o, n) ->
-    if @orderIds and @orderIds.length > 0
+  cancelOrder: (orderId) ->
+      @headers['Content-Type'] = 'application/json'  if @headers
+      @contentType = 'application/json'
       @method = 'POST'
-      @contentType = 'text/json'
-      @body ='{"order_ids": [%s]}'.format(@orderIds.join(','))
-      console.log(@body)
-      @url = window.protocol.userCancelOrders()
+      @body ='{"order_ids": [%s]}'.format(orderId)
+      @url = window.protocol.userCancelOrdersUrl()
+      @go()
 
   dataChanged: (o, n) ->
     if @data
-      console.log(@data)
       @cancelledIds = @data.cancelled
       @failedIds = @data.failed
