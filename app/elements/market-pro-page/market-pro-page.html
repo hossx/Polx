@@ -74,13 +74,13 @@
           </div>
           <div class="column" auto-vertical flex vertical layout>
             <div class="block" vertical layout>
-              <section-trade id="trade" class="section" market="{{market}}"></section-trade>
+              <section-trade id="trade" class="section" market="{{market}}" balance="{{balance}}" baseBalance="{{baseBalance}}"></section-trade>
             </div>
             <div class="block" id="availableBalance" vertical layout>
               <div class="head" center horizontal layout>
                 <div class="title">{{M.availableBalance}}</div>
               </div>
-              <section-my-balance id="myBalanceSection" class="section" market="{{market}}"></section-my-balance>
+              <section-my-balance id="myBalanceSection" class="section" market="{{market}}" balance="{{balance}}" baseBalance="{{baseBalance}}"></section-my-balance>
             </div>
             <div class="block" id="transfers" vertical layout>
               <div class="head" center horizontal layout>

@@ -149,6 +149,7 @@ Polymer 'the-app',
       userDepositsUrl: (coin) -> 'api_mock_my_deposits.json'
       userCancelOrdersUrl: () -> '%s/api/v2/user/cancel_orders'.format(@base)
       userSubmitOrdersUrl: () -> '%s/api/v2/user/submit_orders'.format(@base)
+      userBalanceUrl: () -> '%s/api/v2/user/balance'.format(@base)
 
 
   processDocuments: (config) ->

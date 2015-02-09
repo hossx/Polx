@@ -1,7 +1,7 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../coinport-api/api-submit-orders.html">
 
-<polymer-element name="section-trade" attributes="market" vertical layout>
+<polymer-element name="section-trade" attributes="market,balance,baseBalance" vertical layout>
   <template>
     <link rel="stylesheet" href="section-trade.css">
 
@@ -53,7 +53,7 @@
               <nice-number p="4" v="{{sellQuantity * sellPrice}}" unit="{{market.baseCurrency.unit}}"></nice-number>
             </div>
           </div>
-          <paper-button id="doSell" on-tap="{{doSell}}" id="sellButton" disabled?="{{!sellEnabled}}">{{M.sellAction}} {{market.currency.id}}</paper-button>
+          <paper-button id="doSell" on-tap="{{doSell}}" disabled?="{{!sellEnabled}}">{{M.sellAction}} {{market.currency.id}}</paper-button>
         </div>
       </section>
     </core-animated-pages>

@@ -10,6 +10,11 @@ Polymer 'section-trade',
       total: "Total"
       submittedMsg: "Your order has been submitted [order ID: %s]"
       submitionFailedMsg: "Failed to submit order. Please try again!"
+      errorUnknown: "Unknown error"
+      errorCode:
+        2001: "Price out of valid range"
+        2002: "Insufficient fund"
+        2003: "Invalid quantity"
 
     'zh':
       sellAction: "卖出"
@@ -18,7 +23,12 @@ Polymer 'section-trade',
       quantity: "数量"
       total: "总金额"
       submittedMsg: "您的订单提交成功。订单ID：%s"
-      submitionFailedMsg: "订单无法提交，请您重试！"
+      submitionFailedMsg: "订单无法提交！"
+      errorUnknown: "原因不明"
+      errorCode:
+        2001: "价格太大或太小"
+        2002: "账户余额不住"
+        2003: "数量太大或太小"
 
   ready: () ->
     @M = @msgMap[window.lang]
@@ -44,21 +54,13 @@ Polymer 'section-trade',
     sellQuantity: 'updateSellEnabled'
   }
 
-  updateBuyEnabled: () ->
-    if @buyPrice > 0 and @buyQuantity > 0
-      total = @buyPrice * @buyQuantity
-      if @market.baseCurrency.id == 'BTC' and total >= 0.001 or @market.baseCurrency.id == 'CNY' and total >= 1
-        @buyEnabled = true
-    else
-      @buyEnabled = false
+  updateBuyEnabled: () -> 
+    total = @buyPrice * @buyQuantity
+    @buyEnabled = @buyPrice > 0 and @buyQuantity > 0 and total <= @baseBalance and (@market.baseCurrency.id == 'BTC' and total >= 0.001 or @market.baseCurrency.id == 'CNY' and total >= 1)
 
-  updateSellEnabled: () ->
-    if @sellPrice > 0 and @sellQuantity > 0
-      total = @sellPrice * @sellQuantity
-      if @market.baseCurrency.id == 'BTC' and total >= 0.001 or @market.baseCurrency.id == 'CNY' and total >= 1
-        @sellEnabled = true
-    else
-      @sellEnabled = false
+  updateSellEnabled: () -> 
+    total = @sellPrice * @sellQuantity
+    @sellEnabled = @sellPrice > 0 and @sellQuantity > 0 and @sellQuantity <= @balance and (@market.baseCurrency.id == 'BTC' and total >= 0.001 or @market.baseCurrency.id == 'CNY' and total >= 1)
 
   doSell: () ->
     @sellEnabled = false
@@ -76,11 +78,11 @@ Polymer 'section-trade',
     if @results
       if @results.length > 0
         result = @results[0]
-        if not result.code
+        if not result.code or result.code == 0
           @fire('display-message', {message: @M.submittedMsg.format(@results[0].order_id)})
           @fire('refresh-market-data') 
         else
-          @fire('display-message', {error: @M.submitionFailedMsg + '  - ' + result.code})
+          @fire('display-message', {error: @M.submitionFailedMsg + '  - ' + result.code + ": " + (@M.errorCode[result.code] or @M.errorUnknown)})
     else
       @fire('display-message', {error: @M.submitionFailedMsg})
 

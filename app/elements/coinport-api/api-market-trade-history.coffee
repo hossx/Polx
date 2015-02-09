@@ -1,3 +1,5 @@
+'use strict'
+
 Polymer 'api-market-trade-history',
   limit: 50
   trades: []
@@ -6,11 +8,7 @@ Polymer 'api-market-trade-history',
   observe:
     limit: 'onChange'
     marketId: 'onChange'
-
-  ready: () ->
-    `this.super()`
-    @limit = window.config.viewParams.market.tradingRecordInitialSize
-
+    
   onChange: (o, n) ->
     @url = window.protocol.tradeHistoryUrl(@marketId, @limit)
 

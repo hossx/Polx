@@ -12,7 +12,7 @@ Polymer 'nice-number',
     p: 'onChange'
   }
   onChange: () ->
-    if @v and @p
+    if @p
       pad = "00000000"
       p = Math.max(0, Math.min(@p, 8))
       fixed = @v.toFixed(p)
