@@ -13,18 +13,23 @@ Polymer 'trade-history-subpage',
       total: "Total"
       sell: "Sell"
       buy: "Buy"
+      time: "Timestamp"
 
     'zh':
       chart: "触发类型图"
       tradeHistory: '成交记录'
       index: "序号"
       takerOrderType: "触发单类型"
-      price: "价格"
-      quantity: "数量"
+      price: "成交价"
+      quantity: "成交量"
       total: "成交额"
       sell: "卖单"
       buy: "买单"
+      time: "成交时间"
 
 
   ready: () ->
     @M = @msgMap[window.lang]
+
+  formatTime: (t) ->
+    moment(t).format("MM/DD-hh:mm:ss")

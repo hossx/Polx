@@ -33,6 +33,7 @@
                 <td>{{M.price}}</td>
                 <td>{{M.quantity}}</td>
                 <td>{{M.total}}</td>
+                <td>{{M.time}}</td>
               </tr>
             </thead>
             <tbody>
@@ -54,6 +55,9 @@
                   </td>
                   <td>
                     <nice-number v="{{record.total}}"></nice-number>
+                  </td>
+                  <td>
+                    {{record.timestamp |formatTime}}
                   </td>
                 </tr>
               </template>
