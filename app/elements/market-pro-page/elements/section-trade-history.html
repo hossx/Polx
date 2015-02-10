@@ -24,8 +24,9 @@
             <td>
               <nice-number p="4" v="{{record.amount}}"></nice-number>
             </td>
+
             <td>
-              {{record.timestamp}}
+              {{record.timestamp |formatTime}}
             </td>
           </tr>
         </template>

@@ -16,8 +16,6 @@
         }
     }
 }
-
-#confirmDialog {
-    .content {
-    }
+html /deep/ #confirmDialog::shadow {
+    @include has-simple-table();
 }

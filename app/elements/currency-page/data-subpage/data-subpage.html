@@ -19,7 +19,7 @@
           <p>{{currency.name | formatTransactionsComment}} </p>
         </div>
         <div class="card" vertical center layout>
-          <table>
+          <table class="simple">
             <thead>
               <tr>
                 <th>{{M.timestamp}}</th>
@@ -39,7 +39,7 @@
                   </td>
                   <td>{{tx[3]}}</td>
                   <td>{{tx[4]}}</td>
-                  <td >
+                  <td>
                     <a href="{{tx[5]}} | formatAddrUrl}}">
                       <crypto-address class="{{group.label}}" currency="{{currency}}" addr="{{tx[5]}}"></crypto-address>
                     </a>
@@ -61,7 +61,7 @@
           <p>{{currency.name | formatDistributionSnapshotsComment}}</p>
         </div>
         <div class="card" vertical center layout>
-          <table>
+          <table class="simple">
             <thead>
               <tr>
                 <th>{{M.timestamp}}</th>

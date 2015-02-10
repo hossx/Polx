@@ -144,6 +144,7 @@ Polymer 'the-app',
       klineUrl: (market, interval, start, end) -> '%s/api/v2/%s/kline?interval=%s&start=%s&end=%s'.format(@base, market.toLowerCase(), interval, start, end)
       ## private apis
       userOrdersUrl: (market) -> '%s/api/v2/user/orders?market=%s'.format(@base, market)
+      userTradesUrl: (market) -> '%s/api/v2/user/trades?market=%s'.format(@base, market)
       userProfileUrl: 'api_mock_my_profile.json'
       userAssetsUrl:  'api_mock_my_assets.json'
       userDepositsUrl: (coin) -> 'api_mock_my_deposits.json'

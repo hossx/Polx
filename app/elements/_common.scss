@@ -2,7 +2,6 @@
 *[text-left] {
     text-align: left;
 }
-
 @mixin has-white-link() {
     a {
         color: $white1;
@@ -39,30 +38,30 @@
     }
 }
 @mixin has-simple-table() {
-    table {
+    table.simple {
         width: 100%;
         border-collapse: collapse;
         border-spacing: 0px;
-    }
-    td, th {
-        padding: 4px 4px;
-        text-align: right;
-    }
-    thead {
-        color: $black1;
-        font-weight: bold;
-    }
-    tr {
-        border-bottom: 1px solid color($C1, 50);
-    }
-    tbody {
-        tr:hover {
-            background: color($C2, a100);
+        td, th {
+            padding: 4px 4px;
+            text-align: right;
         }
-    }
-    tfoot {
+        thead {
+            color: $black1;
+            font-weight: bold;
+        }
         tr {
-            background: color($C1, 50);
+            border-bottom: 1px solid color($C1, 50);
+        }
+        tbody {
+            tr:hover {
+                background: color($C2, a100);
+            }
+        }
+        tfoot {
+            tr {
+                background: color($C1, 50);
+            }
         }
     }
 }

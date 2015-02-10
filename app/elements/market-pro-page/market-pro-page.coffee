@@ -11,6 +11,7 @@ Polymer 'market-pro-page',
       priceChart: "Price Chart"
       depthChart: "Depth Chart"
       openOrders: "Open Orders"
+      myTrades: "My Trade History"
       tradeHistory: "Trade History"
       
       refreshTooltip: "Refresh"
@@ -27,6 +28,7 @@ Polymer 'market-pro-page',
       priceChart: "价格图表"
       depthChart: "深度图表"
       openOrders: "我的挂单"
+      myTrades: "我的成交"
       tradeHistory: '成交记录'
 
       refreshTooltip: "更新数据"
@@ -59,6 +61,7 @@ Polymer 'market-pro-page',
     this.$.orderBookSection.go()
     this.$.tradeHistorySection.go()
     this.$.myOrdersSection.go()
+    this.$.myTradesSection.go()
     this.$.myBalanceSection.go()
 
     work = () => @refresh() 

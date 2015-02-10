@@ -26,6 +26,7 @@
 <link rel="import" href="elements/section-trade-history.html">
 <link rel="import" href="elements/section-order-book.html">
 <link rel="import" href="elements/section-my-orders.html">
+<link rel="import" href="elements/section-my-trades.html">
 <link rel="import" href="elements/section-my-balance.html">
 <link rel="import" href="elements/section-trade.html">
 
@@ -127,6 +128,13 @@
                 <div class="title">{{M.openOrders}}</div>
               </div>
               <section-my-orders id="myOrdersSection" class="section" marketId="{{marketId}}"></section-my-orders>
+            </div>
+
+             <div class="block" id="orders" vertical layout>
+              <div class="head" center horizontal layout>
+                <div class="title">{{M.myTrades}}</div>
+              </div>
+              <section-my-trades id="myTradesSection" class="section" marketId="{{marketId}}"></section-my-trades>
             </div>
           </div>
 

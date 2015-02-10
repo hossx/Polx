@@ -6,5 +6,3 @@ Polymer 'api-my-balance',
 
   dataChanged: (o, n) ->
     @balance = @data if @data
-    console.log("balance: ")
-    console.log(@data)

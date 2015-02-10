@@ -5,6 +5,7 @@ Polymer 'section-my-orders',
     'en':
       yes: "YES"
       no: "NO"
+      id: "ID"
       type: "Type"
       price: "Price"
       quantity: "Quantity"
@@ -23,8 +24,9 @@ Polymer 'section-my-orders',
         3: "Cancelled"
 
     'zh':
-      yes: "决定取消"
+      yes: "取消订单"
       no: "先算了吧"
+      id: "ID"
       type: "类型"
       price: "价格"
       quantity: "数量"
@@ -46,7 +48,6 @@ Polymer 'section-my-orders',
     @M = @msgMap[window.lang]
 
   go: () ->
-    console.log("my-order.go")
     this.$.ajax.go()
 
   formatTime: (t) ->

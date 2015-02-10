@@ -1,21 +1,25 @@
 'use strict'
 
-Polymer 'api-market-trade-history',
+Polymer 'api-my-trades',
+  marketId: null
+  cursor: 0
   limit: 50
   trades: []
-  hasMore: false
 
   observe:
-    limit: 'onChange'
     marketId: 'onChange'
-    
-  onChange: (o, n) ->
-    @url = window.protocol.tradeHistoryUrl(@marketId, @limit)
+    cursor: 'onChange'
+    limit: 'onChange'
+
+  onChange: () ->
+    if @marketId
+      @url = window.protocol.userTradesUrl(@marketId,@cursor,@limit)
 
   dataChanged: (o, n) ->
-    if @data
+    if @data and @data.trades
       for item in @data.trades
         item.class = if item.isSell then "sell" else "buy"
         item.total = item.amount * item.price
-      @trades = @data.trades
+
       @hasMore = @data.hasMore
+      @trades = @data.trades

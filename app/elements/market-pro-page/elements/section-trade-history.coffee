@@ -5,12 +5,14 @@ Polymer 'section-trade-history',
     'en':
       price: "Price"
       quantity: "Quantity"
+      total: "Total"
       time: "Trade Time"
 
     'zh':
-      price: "价格"
-      quantity: "数量"
-      time: "成交时间"
+      price: "成交价"
+      quantity: "成交量"
+      total: "成交额"
+      time: "时间"
 
   ready: () ->
     @M = @msgMap[window.lang]
@@ -19,4 +21,4 @@ Polymer 'section-trade-history',
     this.$.ajax.go()
 
   formatTime: (t) ->
-    moment(@value).format("MM/DD-HH:mm")
+    moment(t).format("MM/DD-hh:mm:ss")

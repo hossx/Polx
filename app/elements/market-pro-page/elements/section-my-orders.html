@@ -59,7 +59,44 @@
     <paper-action-dialog id="confirmDialog" backDrop heading="{{M.cancelOrderDialogTitle}}" transition="core-transition-center">
       <div vertical layout>
         <div>{{M.cancelOrderDialogQuestion}}</div>
-        {{orderToCancel}}
+        <div id="tableContainer">
+          <table class="simple">
+            <thead>
+              <tr>
+                <td>{{M.id}}</td>
+                <td>{{M.type}}</td>
+                <td>{{M.price}}</td>
+                <td>{{M.quantity}}</td>
+                <td>{{M.total}}</td>
+                <td>{{M.time}}</td>
+                <td>{{M.status}}</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="idx">{{orderToCancel.id}}</td>
+                <td><span class="{{orderToCancel.operation}}">{{M[orderToCancel.operation]}}</span>
+                </td>
+                <td>
+                  <nice-number class="{{orderToCancel.operation}}" v="{{orderToCancel.price}}"></nice-number>
+                </td>
+                <td>
+                  <nice-number p="4" v="{{orderToCancel.amount}}"></nice-number>
+                </td>
+                <td>
+                  <nice-number p="4" v="{{ororderToCancelder.amount*order.price}}"></nice-number>
+                </td>
+                <td>
+                  {{orderToCancel.created | formatTime}}
+                </td>
+                <td>
+                  {{M.statuses[orderToCancel.status]}}
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
       </div>
       <paper-button dismissive autofocus>{{M.no}}</paper-button>
       <paper-button affirmative on-tap="{{doCancelOrder}}">{{M.yes}}</paper-button>

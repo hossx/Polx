@@ -19,8 +19,6 @@ Polymer 'section-my-balance',
   balanceMapChanged: (o, n) ->
     @balance = if @balanceMap[@market.currency.id] then @balanceMap[@market.currency.id][0] else 0
     @baseBalance = if @balanceMap[@market.baseCurrency.id] then @balanceMap[@market.baseCurrency.id][0] else 0
-    console.log(@balance)
-    console.log(@baseBalance)
 
   formatTime: (t) ->
     moment(@value).format("MM/DD-HH:mm")
