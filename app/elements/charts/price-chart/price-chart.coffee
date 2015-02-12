@@ -71,13 +71,6 @@ Polymer 'price-chart',
         plotOptions:
           series:
             animation: false
-            fillColor:
-              linearGradient: [0, 0, 0, 300],
-              stops: [
-                [0, 'rgba(255,235,59,.75'],
-                [1, 'rgba(255,235,59,0'],
-              ]
-               
           area:
             fillOpacity: 0.75
             marker:

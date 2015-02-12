@@ -1,8 +1,8 @@
 @import "../../_colors";
 @import "../../_common";
-$border-color: color($C1, 900);
-$background-color: color($C1, 800);
-$head-background-color: color($C1, 700);
+$border-color: color($C4, 900);
+$background-color: color($C4, 800);
+$head-background-color: color($C4, 700);
 $head-height: 36px;
 paper-button {
     border-radius: 0;
@@ -44,7 +44,7 @@ paper-tab {
     padding: 20px;
     paper-button {
         background: $white1;
-        color: color($C1, 500);
+        color: $black1;
         &#doSell:hover {
             background: color($sell-color, 500);
             color: white;

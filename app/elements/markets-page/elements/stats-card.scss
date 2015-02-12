@@ -24,7 +24,7 @@ a {
 #box {
     background: $white1;
     padding: 20px;
-    transition: 2s ease-in;
+    transition: 2s cubic-bezier(0, 1, 1, 1);
     &:hover {
         transform: scale(1.04);
     }

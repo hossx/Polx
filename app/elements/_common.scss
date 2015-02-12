@@ -2,6 +2,8 @@
 *[text-left] {
     text-align: left;
 }
+
+
 @mixin has-white-link() {
     a {
         color: $white1;
@@ -32,6 +34,31 @@
         }
     }
 }
+
+
+
+
+@mixin config-link-on-primary-color() {
+    a {
+        color: $white1;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+@mixin config-link-on-white-color() {
+    a {
+        color: $black1;
+        text-decoration: none;
+        &:hover {
+            color: color($C1, 500);
+            text-decoration: underline;
+        }
+    }
+}
+
 @mixin has-paper-spinner() {
     paper-spinner::shadow .circle {
         border-color: color($C2, a700);
@@ -51,16 +78,16 @@
             font-weight: bold;
         }
         tr {
-            border-bottom: 1px solid color($C1, 50);
+            border-bottom: 1px solid color($grey, 100);
         }
         tbody {
             tr:hover {
-                background: color($C2, a100);
+                background: color($C2, 100);
             }
         }
         tfoot {
             tr {
-                background: color($C1, 50);
+                background: color($grey, 100);
             }
         }
     }
@@ -102,81 +129,55 @@
 }
 @mixin config-toolbar() {
     background: white;
-    color: color($C1, 700);
+    color: $black1;
     a {
         height: 40px;
         text-decoration: none;
         font-size: 14px;
-        color: color($C1, 700);
-        font-weight: 500;
-        &:hover {
-            color: color($C2, a700);
-        }
-        core-button[active] {
-            color: color($C2, a700);
-        }
-        &:hover {
-            core-button {
-                color: color($C2, a700);
-            }
-        }
     }
     core-button, paper-button, paper-icon-button {
-        color: color($C1, 700);
+        color: $black1;
         margin: 0;
         min-width: 0;
-        font-weight: 500;
         text-transform: uppercase;
         font-size: 14px;
-        &[active] {
-            color: color($C2, a700);
-        }
         &:hover {
             color: color($C2, a700);
+        }
+        &[active] {
+            color: black;
+            font-weight: bold;
         }
     }
     #label {
-        color: color($C1, 700);
-        font-weight: 700;
+        color: $black1;
+        font-weight: bold;
     }
 }
 @mixin config-toolbar-dark() {
-    background: color($C1, 800);
-    color: $white2;
+    background: color($C1, 500);
+    color: $white1;
     a {
         height: 40px;
         text-decoration: none;
         font-size: 14px;
-        color: white;
-        font-weight: 500;
-        &:hover {
-            color: color($C2, a700);
-        }
-        core-button[active] {
-            color: color($C2, a700);
-        }
-        &:hover {
-            core-button {
-                color: color($C2, a700);
-            }
-        }
     }
     core-button, paper-button, paper-icon-button {
-        color: $white2;
+        color: $white1;
         margin: 0;
         min-width: 0;
-        font-weight: 500;
         text-transform: uppercase;
         font-size: 14px;
-        &[active] {
-            color: color($C2, a700);
-        }
         &:hover {
             color: color($C2, a700);
+        }
+        &[active] {
+            color: white;
+            font-weight: bold;
         }
     }
     #label {
-        color: white;
-        font-weight: 700;
+        color: $white1;
+        font-weight: bold;
     }
 }

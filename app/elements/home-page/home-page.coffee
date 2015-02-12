@@ -40,7 +40,7 @@ Polymer 'home-page',
   ready: () ->
     @M = @msgMap[window.lang]
     $(this.$['branding']).backstretch([
-       "http://okkerr.com/wp-content/uploads/2014/06/cool-wallpapers-hd-8114-8445-hd-wallpapers.jpg"
+       "/images/bg-wooden.jpg"
       ],
       {duration: 3000, fade: 750})
     $(this.$['mobile']).backstretch("/images/bg-desktop.jpg") #

@@ -14,6 +14,8 @@ Polymer 'trade-history-subpage',
       sell: "Sell"
       buy: "Buy"
       time: "Timestamp"
+      id: "Trade ID"
+      orderId: "Order ID"
 
     'zh':
       chart: "触发类型图"
@@ -26,6 +28,8 @@ Polymer 'trade-history-subpage',
       sell: "卖单"
       buy: "买单"
       time: "成交时间"
+      id: "成交号"
+      orderId: "订单号"
 
 
   ready: () ->

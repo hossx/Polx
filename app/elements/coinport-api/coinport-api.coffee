@@ -12,6 +12,7 @@ Polymer 'coinport-api',
   ready: ()->
     #@withCredentials = true
     @M = @msgMap[window.lang]
+    @withCredentials = true # enable CORS
     `this.super()`
 
   parseCookie: (name) ->
@@ -22,6 +23,8 @@ Polymer 'coinport-api',
         name: unescape(kv.slice(0, eq))
         value: unescape(kv.slice(eq + 1))
       }
+    console.log("=======COOKIES=========")
+    console.log(map)
     kv = map.filter((kv) ->  kv.name == name)[0]
     if kv and kv.value then kv.value else null
 
@@ -32,10 +35,13 @@ Polymer 'coinport-api',
       headers['X-XSRF-TOKEN'] = value
     
     # TO BE REMOVED !!!!!!!!
+      ##headers['Authorization'] = "Basic " + Base64.encode("dong77@gmail.com:freshforce")
+      console.log("------")
+      console.log(document.cookie)
+      @headers = headers
+    else
+      console.warn("XSRF-TOKEN cookie not found")
 
-    headers['Authorization'] = "Basic " + Base64.encode("dong77@gmail.com:freshforce")
-
-    @headers = headers
     console.debug("fetching : " + @url)
     `this.super()`
 

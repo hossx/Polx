@@ -40,7 +40,7 @@
 
     <core-drawer-panel forceNarrow>
       <core-header-panel mode="seamed" id="drawer" drawer>
-        <market-sidebar marketId="{{marketId}}" altview="{{true}}"></market-sidebar>
+        <market-sidebar dark marketId="{{marketId}}" altview="{{true}}"></market-sidebar>
       </core-header-panel>
 
       <core-header-panel id="main-panel" mode="waterfall" main>
@@ -52,10 +52,11 @@
           <div id="label">{{market.name}}</div>
 
           <toolbar-ticker id="toolbar-ticker" market="{{market}}" ticker="{{ticker}}"></toolbar-ticker>
-          <core-icon-button icon="refresh" id="refresh" on-tap="{{forceRefresh}}"></core-icon-button>
-          </core-animated-pages>
           <div flex></div>
 
+          <core-tooltip label="{{M.refreshTooltip}}" position="left">
+          <core-icon-button icon="refresh" id="refresh" on-tap="{{forceRefresh}}"></core-icon-button>
+          </core-tooltip>
           <a href="/#/market/{{marketId}}">
             <core-tooltip label="{{M.relaxMode}}" position="left">
               <paper-icon-button icon="explore"></paper-icon-button>
@@ -130,7 +131,7 @@
               <section-my-orders id="myOrdersSection" class="section" marketId="{{marketId}}"></section-my-orders>
             </div>
 
-             <div class="block" id="orders" vertical layout>
+            <div class="block" id="trades" vertical layout>
               <div class="head" center horizontal layout>
                 <div class="title">{{M.myTrades}}</div>
               </div>

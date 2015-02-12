@@ -1,30 +1,30 @@
 'use strict'
 
-# records are an array of {timestamp, isSell, price, quantity, total, typeClass, typeLabel}
+# trades are an array of {timestamp, isSell, price, quantity, total, typeClass, typeLabel}
 Polymer 'trade-history-chart',
   msgMap:
     'en':
       pointFormat: 'Quantity: {point.z}<br/>Price: {point.y}'
-      takerOrderTypeBuy: "Taker: Buy"
-      takerOrderTypeSell: "Taker: Sell"
+      takerOrderTypeBuy: "Buy Order Takes"
+      takerOrderTypeSell: "Sell Order Takes"
 
     'zh':
       pointFormat: '数量: {point.z}<br/>价格: {point.y}'
-      takerOrderTypeBuy: "触发单类型: 买单"
-      takerOrderTypeSell: "触发单类型: 卖单"
+      takerOrderTypeBuy: "买单触发的交易"
+      takerOrderTypeSell: "卖单触发的交易"
 
 
   market: null
   width: 600
   height: 260
   regulate: true
-  records: []
+  trades: []
 
   observe: {
     market: 'createChart'
     width: 'createChart'
     height:  'createChart'
-    records: 'createChart'
+    trades: 'createChart'
   }
 
   ready: () ->
@@ -36,10 +36,10 @@ Polymer 'trade-history-chart',
           fontFamily: "'Roboto Condensed','Lantinghei SC','Hiragino Sans GB','Microsoft Yahei',sans-serif"
 
   createChart: () ->
-    if @market and @records
+    if @market and @trades
       bought = []
       sold = []
-      for record in @records
+      for record in @trades
         if record.isSell
           sold.push [record.timestamp, record.price, record.amount]
         else

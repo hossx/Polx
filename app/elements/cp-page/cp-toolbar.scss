@@ -9,18 +9,18 @@
 }
 #toolbar {
     width: 100%;
-    color: color($C1, 500);
+    color: $black1;
     @include config-toolbar();
     #home {
         font-size: 15px;
         text-transform: none;
-        color: color($C1, 500);
+        color: $black1;
         text-decoration: none;
     }
     #xyz {
         display: none;
-        $color1: color($amber, a700);
-        $color2: color($cyan, 200);
+        $color1: color($light-blue, a700);
+        $color2: color($light-green, a700);
         #x {
             color: $color1;
             text-transform: uppercase;

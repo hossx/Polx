@@ -3,7 +3,7 @@
 Polymer 'section-my-trades',
   msgMap:
     'en':
-      id: "ID"
+      id: "Trade ID"
       orderId: "Order ID"
       type: "Type"
       price: "Price"
@@ -15,7 +15,7 @@ Polymer 'section-my-trades',
 
 
     'zh':
-      id: "交易号"
+      id: "成交号"
       orderId: "订单号"
       type: "类型"
       price: "成交价"
@@ -36,3 +36,11 @@ Polymer 'section-my-trades',
 
   formatLabel: (trade) ->
     if trade.isSell then @M.sell else @M.buy
+
+  extractOrderId: (id) ->
+    len = id.length
+    id.substring(0, len-3)
+
+  extractTradeIndex: (id) ->
+    len = id.length
+    id.substring(len-3)

@@ -2,7 +2,7 @@
 @import "../elements/_fonts";
 html {
     @include condensed-font();
-    font-size: 12px;
+    font-size: 13px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }

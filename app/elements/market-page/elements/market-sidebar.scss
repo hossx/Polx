@@ -3,6 +3,9 @@
     font-size: 13px;
     font-weight: 500px;
     height: 64px;
+    >paper-tab::shadow #ink {
+        color: white;
+    }
     &::shadow {
         #tabsContainer {
             background: color($C1, 700);
@@ -12,11 +15,24 @@
             background-color: color($C2, a700);
         }
     }
-    >paper-tab::shadow #ink {
-        color: white;
-    }
     paper-tab[active] {
         background: color($C1, 500);
+    }
+}
+:host-context([dark]) {
+    #market-tabs {
+        &::shadow {
+            #tabsContainer {
+                background: color($C4, 700);
+                color: white;
+            }
+            #selectionBar {
+                background-color: color($C2, a700);
+            }
+        }
+        paper-tab[active] {
+            background: color($C4, 500);
+        }
     }
 }
 #pages {

@@ -17,7 +17,7 @@
     <core-drawer-panel forceNarrow>
       <core-header-panel mode="seamed" id="drawer" drawer>
         <core-toolbar id="drawer-toolbar">
-          <div flex id="title">{{M.relatedDocs}}</div>
+          <div flex id="label">{{M.relatedDocs}}</div>
         </core-toolbar>
         <core-menu valueattr="file" selected="{{file}}">
           <template repeat="{{file in files}}">
@@ -32,7 +32,7 @@
             <paper-icon-button icon="arrow-back"></paper-icon-button>
           </a>
           <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
-          <div flex id="title">{{doclinks[file].label}}</div>
+          <div flex id="label">{{doclinks[file].label}}</div>
         </core-toolbar>
 
         <div id="canvas" center vertical layout main>

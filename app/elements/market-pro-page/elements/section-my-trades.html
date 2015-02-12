@@ -1,5 +1,6 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../coinport-api/api-my-trades.html">
+<link rel="import" href="no-record.html">
 
 <!--
 amount: 0.001
@@ -13,7 +14,7 @@ taker_order_id: "1000001642192"
 timestamp: 1423477405381
 
 -->
-<polymer-element name="section-my-trades" attributes="marketId" vertical layout>
+<polymer-element name="section-my-trades" attributes="marketId" vertical center layout>
   <template>
     <link rel="stylesheet" href="section-my-trades.css">
     <api-my-trades id="ajax" trades="{{trades}}" marketId="{{marketId}}" auto></api-my-trades>
@@ -27,7 +28,6 @@ timestamp: 1423477405381
           <td>{{M.total}}</td>
           <td>{{M.time}}</td>
           <td>{{M.id}}</td>
-          <td>{{M.orderId}}</td>
         </tr>
       </thead>
       <tbody>
@@ -42,24 +42,18 @@ timestamp: 1423477405381
               <nice-number p="4" v="{{trade.amount}}"></nice-number>
             </td>
             <td>
-              <nice-number p="4" v="{{trade.total}}"></nice-number>
+              <nice-number v="{{trade.total}}"></nice-number>
             </td>
             <td>
               {{trade.timestamp | formatTime}}
             </td>
-            <td>{{trade.id}}</td>
-            <td>
-              <template if="{{window.state.uid == trade.maker}}">
-                {{trade.maker_order_id}}
-              </template>
-              <template if="{{window.state.uid != trade.maker}}">
-                {{trade.taker_order_id}}
-              </template>
+            <td><span>{{trade.id | extractOrderId}}</span><span class="sub">{{trade.id | extractTradeIndex}}</span>
             </td>
           </tr>
         </template>
       </tbody>
     </table>
+    <no-record records="{{trades}}"></no-record>
   </template>
   <script src="section-my-trades.js"></script>
 </polymer-element>

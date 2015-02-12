@@ -2,14 +2,14 @@
 :host(:hover) {
     #item {
         color: white;
-        background: color($C2, a700);
+        background: color($C1, 700);
     }
 }
 :host([active]) {
     #item {
         color: white;
-        background: color($C1, 700);
         cursor: default;
+        background: color($C2, a700);
     }
 }
 #item {

@@ -1,6 +1,21 @@
 @import "../_colors";
 @import "../_common";
-@mixin config-pay-link() {
+:host {
+    box-sizing: border-box;
+    min-width: 40%;
+    display: block;
+    width:100%;
+    .group {
+        padding: 20px;
+    }
+    .group-label {
+        text-transform: uppercase;
+        padding-bottom: 10px;
+        color: $white2;
+    }
+    .link {
+        padding-bottom: 5px;
+    }
     .pay {
         a {
             background-color: white;
@@ -11,33 +26,15 @@
             border: 1px solid color($deep-purple, 500);
             &:hover {
                 background: color($deep-purple, 500);
-                color: white;
+                color: white !important;
             }
         }
     }
-}
-:host {
-    box-sizing: border-box;
-    min-width: 40%;
-    display: block;
-    @include has-white-link();
-    @include config-pay-link();
-    .group {
-        padding: 20px;
-    }
-    .group-label {
-        text-transform: uppercase;
-        padding-bottom: 10px;
-        color: $white3;
-    }
-    .link {
-        padding-bottom: 5px;
-    }
+    @include config-link-on-primary-color();
 }
 :host-context([dark]) {
     .group-label {
-        color: $black3;
+        color: $black2;
     }
-    @include has-grey-link();
-    @include config-pay-link();
+    @include config-link-on-white-color();
 }

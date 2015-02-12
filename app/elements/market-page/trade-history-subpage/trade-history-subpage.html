@@ -16,7 +16,7 @@
           <h2>{{market.id}} {{M.chart}}</h2>
         </div>
         <div class="card" vertical center layout>
-          <trade-history-chart market="{{market}}" width="720" records="{{trades}}"></trade-history-chart>
+          <trade-history-chart market="{{market}}" width="720" trades="{{trades}}"></trade-history-chart>
         </div>
       </paper-shadow>
 
@@ -34,31 +34,33 @@
                 <td>{{M.quantity}}</td>
                 <td>{{M.total}}</td>
                 <td>{{M.time}}</td>
+                <td>{{M.id}}</td>
               </tr>
             </thead>
             <tbody>
-              <template repeat="{{record,idx in trades}}">
-                <tr class="{{record.typeClass}}">
+              <template repeat="{{trade,idx in trades}}">
+                <tr class="{{trade.typeClass}}">
                   <td class="idx">{{idx+1}}</td>
-                  <template if="{{record.isSell}}">
+                  <template if="{{trade.isSell}}">
                     <td class="sell">{{M.sell}}</td>
                   </template>
-                  <template if="{{!record.isSell}}">
+                  <template if="{{!trade.isSell}}">
                     <td class="buy">{{M.buy}}</td>
                   </template>
                   </td>
                   <td>
-                    <nice-number class="price {{record.class}}" v="{{record.price}}"></nice-number>
+                    <nice-number class="price {{trade.class}}" v="{{trade.price}}"></nice-number>
                   </td>
                   <td>
-                    <nice-number v="{{record.amount}}"></nice-number>
+                    <nice-number p="4" v="{{trade.amount}}"></nice-number>
                   </td>
                   <td>
-                    <nice-number v="{{record.total}}"></nice-number>
+                    <nice-number p="4" v="{{trade.total}}"></nice-number>
                   </td>
                   <td>
-                    {{record.timestamp |formatTime}}
+                    {{trade.timestamp |formatTime}}
                   </td>
+                  <td>{{trade.id}}</td>
                 </tr>
               </template>
             </tbody>

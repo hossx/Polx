@@ -1,35 +1,16 @@
 @import "../_colors";
-@mixin config-color($color) {
-    #drawer {
-        background: color($color, 400);
-    }
-    #menu-toolbar {
-        background: color($color, 600);
-    }
-    #toolbar {
-        background: color($color, 600);
-    }
-}
+@import "../_common";
 :host {
     box-sizing: border-box;
-    @include config-color($C1);
-}
-#drawer {
-    color: $white1;
-    padding: 0;
 }
 #menu-toolbar {
-    color: $white2;
-    a {
-        height: 40px;
-    }
+    background: color($C1, 100);
+}
+#drawer {
+    padding: 0;
+    background: color($C1, 600);
 }
 #toolbar {
-    color: white;
-    a {
-        color: white;
-        height: 40px !important;
-    }
+    @include config-toolbar();
 }
-#pages {
-}
+#pages {}
