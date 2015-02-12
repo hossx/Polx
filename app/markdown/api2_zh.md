@@ -49,6 +49,13 @@
   | POST           | /api/v2/user/cancel_orders                        | 批量取消订单
   | POST           | /api/v2/user/submit_withdrawal                    | 提交一个提现申请
   | POST           | /api/v2/user/cancel_withdrawal                    | 取消一个提现申请
+  | POST           | /api/v2/reset_pwd_apply                           | 提交一个重置密码申请
+  | GET            | /api/v2/verify_pwd_reset_token                    | 验证重置密码的Token是否有效
+  | POST           | /api/v2/do_reset_pwd                              | 重置密码
+  | POST           | /api/v2/send_enable_email                         | 发送激活邮件
+  | POST           | /api/v2/enable_email                              | 激活邮件
+  | POST           | /api/v2/user/gen_verify_code                      | 发送验证码
+  | POST           | /api/v2/user/confirm_verify_code                  | 验证验证码
 
 ---
 
@@ -1015,4 +1022,136 @@ profile中的pwdhash将不会被返回。
     "result":"Ok"
   }
 
+```
+
+### POST /api/v2/reset_pwd_apply
+提交一个重置密码申请。
+
+####POST数据JSON格式
+```
+  {
+    "email": "example@coinport.com"
+  }
+```
+
+####返回值示例
+
+```
+  {
+    "result":"Ok"
+  }
+
+```
+
+### GET /api/v2/verify_pwd_reset_token?token={Token}
+验证重置密码的Token是否有效
+
+####URL参数
+- token：重置密码需要的token
+
+####返回值示例
+
+```
+  {
+    "result":"Ok"
+  }
+
+```
+
+### POST /api/v2/do_reset_pwd
+重置密码。
+
+####POST数据JSON格式
+```
+  {
+    "token" : "HJ4SFGGKBDGKXSYANTGK45G7LQJXK76M6ZE4C6QK",
+    "pwdHash": "tZwid9Lea5GPGPfBBU0xIQIZdnaly2k6fBdGf7plFMA="
+  }
+```
+
+####返回值示例
+
+```
+  {
+    "result":"Ok"
+  }
+
+```
+
+### POST /api/v2/send_enable_email
+发送激活邮件。
+
+####POST数据JSON格式
+```
+  {
+    "email" : "example@coinport.com"
+  }
+```
+
+####返回值示例
+
+```
+  {
+    "result":"Ok"
+  }
+```
+
+### POST /api/v2/enable_email
+激活邮箱。
+
+####POST数据JSON格式
+```
+  {
+    "token" : "JTOXCZKYUBE6P5XHHJADMSLPIKXDZHTULRZLRNVU"
+  }
+```
+
+####返回值示例
+
+```
+  {
+    "result":"Ok"
+  }
+```
+
+### POST /api/v2/user/gen_verify_code
+发送验证码。
+
+####POST数据JSON格式
+```
+  {
+    "phone" : "13761056306", // 邮箱和手机至少一个
+    "email" : "example@coinport.com" // 邮箱和手机至少一个
+  }
+```
+
+####返回值示例
+
+```
+  {
+    "sendToPhone" : true,
+    "sendToEmail" : false
+  }
+```
+
+### POST /api/v2/user/confirm_verify_code
+验证验证码。
+
+####POST数据JSON格式
+```
+  {
+    "email" : "174123",
+    "phone" : "923457",
+    "googleAuth" : "823475"
+  }
+```
+
+####返回值示例
+
+```
+  {
+    "emailVerified" : true,
+    "phoneVerified" : false,
+    "googleAuthVerified" : true
+  }
 ```
