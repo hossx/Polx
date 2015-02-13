@@ -12,13 +12,15 @@ a {
         text-decoration: none;
     }
 }
-#box {
-    padding: 20px;
-    background: $white1;
+#shadow {
     transition: 2s cubic-bezier(0, 1, 1, 1);
     &:hover {
         transform: scale(1.04);
     }
+}
+#box {
+    padding: 20px;
+    background: $white1;
 }
 #head {
     color: $black1;

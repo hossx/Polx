@@ -51,7 +51,7 @@ Polymer 'section-my-orders',
     this.$.ajax.go()
 
   formatTime: (t) ->
-    moment(@value).format("MM/DD-HH:mm")
+    moment(t).format("MM/DD-hh:mm:ss")
 
   cancelOrder: (e) ->
     @orderToCancel = (@orders.filter (o) -> o.id == e.target.getAttribute("orderid"))[0]

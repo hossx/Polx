@@ -15,6 +15,9 @@ Polymer 'data-subpage',
       transaction: "Transaction"
       file: "File"
       size: "Size"
+      operationsLabel:
+        0: "Deposit"
+        1: "Withdrawal"
 
     'zh':
       transactions: '转账记录'
@@ -29,52 +32,21 @@ Polymer 'data-subpage',
       transaction: "转账"
       file: "文件"
       size: "大小"
+      operationsLabel:
+        0: "提现"
+        1: "充值"
 
   formatTransactionsComment: (v) -> @msgMap[window.lang].formatTransactionsComment.format(v)
   formatDistributionSnapshotsComment: (v) -> @msgMap[window.lang].formatDistributionSnapshotsComment.format(v)
 
-
-  currency: null
-  txsUrl: ''
-  balanceSnapshotFilesUrl: ''
-  hasMoreTxs: false
-  hasMoreSnapshots: false
-
   ready: () ->
     @M = @msgMap[window.lang]
-    @transactions = []
-    @snapshots = []
 
-  currencyChanged: (o, n) ->
-      @txsUrl = window.protocol.cryptoTxsUrl(@currency.id)
-      @balanceSnapshotFilesUrl = window.protocol.balanceSnapshotFilesUrl(@currency.id)
+  loadMoreTxs: () -> this.$.ajax1.loadMore()
+  loadMoreSnapshots: () -> this.$.ajax2.loadMore()
 
-  handleTxsComplete: (e, detail, sender) ->
-    xhr = detail.xhr
-    if xhr and xhr.status != 200 or not xhr.response
-      @fire('network-error', {'url': @txsUrl})
-    else
-      resp = JSON.parse(xhr.response)
-      @hasMoreTxs = resp.hasMore
-      @transactions.push resp.txs...
-
-  handleSnapshotsComplete: (e, detail, sender) ->
-    xhr = detail.xhr
-    if xhr and xhr.status != 200 or not xhr.response
-      @fire('network-error', {'url': @snapshotUrl})
-    else 
-      resp = JSON.parse(xhr.response).data
-      @hasMoreSnapshots = resp.hasMore
-      @fileBase = resp.path
-      @snapshots.push resp.items...
-
-  loadMoreTxs: () -> this.$.txsAjax.go() if @hasMoreTxs
-  loadMoreSnapshots: () -> this.$.snapshotAjax.go() if @hasMoreSnapshots
-
-  ## TODO(dongw)
-  formatAddrUrl: (value) -> "http://addr/" + value
   formatTxUrl: (value) -> "http://aaaaa/" + value
-  formatUserUrl: (value) -> "/#/user/" + value
-  formatTime: (v) ->moment(v).format("MM/DD/YYYY-hh:mm") 
+  formatTxLabel: (value) -> value.substring(0, 10) + "..."
+  formatTime: (t) -> moment(t).format("MM/DD-hh:mm:ss")
 
   

@@ -5,7 +5,7 @@ Polymer 'api-market-ticker',
   ticker: null
 
   marketIdChanged: (o, n) ->
-    @url = window.protocol.tickerUrl(@marketId)
+    @url = window.protocol.marketTickerUrl(@marketId)
 
   dataChanged: (o, n) ->
     if @data and @data[@marketId]

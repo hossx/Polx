@@ -11,12 +11,26 @@ cp-toolbar {
         display: inherit;
     }
 }
-#footer {
+:host-context([primary-bg]) {
+    #main {
+        background: color($C1, 500);
+    }
+}
+:host-context([grey-bg]) {
+    #main {
+        background: color($grey, 100);
+    }
+}
+#content {
+    min-height: 100vh;
+}
+#footer-wrapper {
     display: none;
+    background: color($grey, 900);
 }
 @media(min-width:768px) {
     :host-context([has-footer]) {
-        #footer {
+        #footer-wrapper {
             display: inherit;
         }
     }

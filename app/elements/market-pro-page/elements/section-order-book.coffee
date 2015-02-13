@@ -25,4 +25,4 @@ Polymer 'section-order-book',
     this.$.ajax.go()
 
   formatTime: (t) ->
-    moment(@value).format("MM/DD-HH:mm")
+    moment(t).format("MM/DD-hh:mm:ss")

@@ -21,4 +21,4 @@ Polymer 'section-my-balance',
     @baseBalance = if @balanceMap[@market.baseCurrency.id] then @balanceMap[@market.baseCurrency.id][0] else 0
 
   formatTime: (t) ->
-    moment(@value).format("MM/DD-HH:mm")
+    moment(t).format("MM/DD-hh:mm:ss")

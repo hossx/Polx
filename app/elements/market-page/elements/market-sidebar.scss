@@ -1,42 +1,26 @@
 @import "../../_colors";
 #market-tabs {
     font-size: 13px;
-    font-weight: 500px;
+    font-weight: bold;
     height: 64px;
-    >paper-tab::shadow #ink {
-        color: white;
-    }
     &::shadow {
         #tabsContainer {
-            background: color($C1, 700);
-            color: white;
+            background: color($grey, 400);
+            color: $black1;
         }
         #selectionBar {
-            background-color: color($C2, a700);
+            background-color: color($C1, 500);
         }
+    }
+    >paper-tab::shadow #ink {
+        color: color($C2, a700);
     }
     paper-tab[active] {
-        background: color($C1, 500);
-    }
-}
-:host-context([dark]) {
-    #market-tabs {
-        &::shadow {
-            #tabsContainer {
-                background: color($C4, 700);
-                color: white;
-            }
-            #selectionBar {
-                background-color: color($C2, a700);
-            }
-        }
-        paper-tab[active] {
-            background: color($C4, 500);
-        }
+        background: white;
     }
 }
 #pages {
     core-menu {
-        color: white;
+        color: $black1;
     }
 }

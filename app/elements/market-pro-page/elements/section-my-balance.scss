@@ -6,13 +6,10 @@ $head-background-color: color($C4, 700);
 .actions {
     border-bottom: 1px solid $head-background-color;
     paper-button:hover {
-        color: color($C2, a400);
+        color: color($C1, 500);
         core-icon.small {
-            color: color($C2, a700);
+            color: color($C1, 500);
         }
-    }
-    core-icon.small {
-        color: color($C1, 300);
     }
 }
 .balance {

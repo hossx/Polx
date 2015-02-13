@@ -1,19 +1,19 @@
 @import "../../_colors";
 :host(:hover) {
     #item {
-        color: white;
-        background: color($C1, 700);
+        color: $white1;
+        background: color($C2, a700);
     }
 }
 :host([active]) {
     #item {
-        color: white;
+        color: $white1;
         cursor: default;
-        background: color($C2, a700);
+        background: color($C1, 500);
     }
 }
 #item {
-    color: white;
+    color: $black1;
     font-size: 13px;
 }
 #link {

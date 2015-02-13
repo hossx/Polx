@@ -2,14 +2,14 @@
 @import "../_common";
 $border-color: color($C4, 900);
 $background-color: color($C4, 800);
-$head-background-color: color($C4, 700);
+$head-background-color: color($C4, 500);
 :host {
     box-sizing: border-box;
 }
 //
 #drawer {
     padding: 0;
-    background: color($C4, 500);
+    background: white;
 }
 #toolbar {
     @include config-toolbar();

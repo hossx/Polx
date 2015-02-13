@@ -2,8 +2,12 @@
 @import "../../_common";
 $border-color: color($C4, 900);
 $background-color: color($C4, 800);
-$head-background-color: color($C4, 700);
+$head-background-color: color($C4, 500);
 $head-height: 36px;
+
+:host {
+    background: $head-background-color;
+}
 paper-button {
     border-radius: 0;
 }
@@ -15,7 +19,7 @@ paper-tabs {
         }
     }
     >paper-tab::shadow #ink {
-        color: color($C2, a700);
+        color: color($C1, 500);
     }
 }
 paper-tab {
@@ -64,6 +68,8 @@ paper-tab {
         border: 1px solid $white4;
         padding: 8px 10px;
         border-radius: 2px;
-        color: white;
+        font-weight: bold;
+        font-size: 14px;
+        color: color($C1, 300);
     }
 }

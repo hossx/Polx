@@ -133,15 +133,20 @@ Polymer 'the-app',
       loginUrl: () -> "%s/account/login".format(@base)
       logoutUrl:  () ->"%s/account/logout".format(@base)
       ## public apis
-      tickersUrl: (coin) -> "%s/api/v2/%s/tickers".format(@base, coin.toLowerCase())
-      tickerUrl: (market) -> "%s/api/v2/%s/ticker".format(@base, market.toLowerCase())
-      depthUrl: (market,limit) ->  "%s/api/v2/%s/depth?limit=%s".format(@base, market.toLowerCase(), limit)
-      tradeHistoryUrl: (market, limit) ->  "%s/api/v2/%s/trades?limit=%s".format(@base, market.toLowerCase(), limit)
-      cryptoTxsUrl: (coin) -> 'api_mock_open_crypto_txs.json'
-      reserveStatsUrl: () -> '%s/api/v2/reserve_stats'.format(@base)
-      reserveDetailsUrl: (coin) -> '%s/api/v2/%s/reserves'.format(@base, coin.toLowerCase())
-      balanceSnapshotFilesUrl: (coin) -> '%s/api/v2/%s/balance_snapshot_files'.format(@base, coin.toLowerCase())
-      klineUrl: (market, interval, start, end) -> '%s/api/v2/%s/kline?interval=%s&start=%s&end=%s'.format(@base, market.toLowerCase(), interval, start, end)
+     
+      currenciesReserveStatsUrl: () -> '%s/api/v2/reserve_stats'.format(@base)
+      currencyReservesUrl: (coin) -> '%s/api/v2/%s/reserves'.format(@base, coin.toLowerCase())
+      currencyBalanceSnapshotFilesUrl: (coin,cursor,limit) -> '%s/api/v2/%s/balance_snapshot_files'.format(@base, coin.toLowerCase(),cursor,limit)
+      currencyTransfersUrl: (coin) -> '%s/api/v2/%s/transfers'.format(@base, coin.toLowerCase())
+
+
+      marketsTickersUrl: (coin) -> "%s/api/v2/%s/tickers".format(@base, coin.toLowerCase())
+      marketTickerUrl: (market) -> "%s/api/v2/%s/ticker".format(@base, market.toLowerCase())
+      marketDepthUrl: (market,limit) ->  "%s/api/v2/%s/depth?limit=%s".format(@base, market.toLowerCase(), limit)
+      marketTradesUrl: (market, limit) ->  "%s/api/v2/%s/trades?limit=%s".format(@base, market.toLowerCase(), limit)
+      marketKlineUrl: (market, interval, start, end) -> '%s/api/v2/%s/kline?interval=%s&start=%s&end=%s'.format(@base, market.toLowerCase(), interval, start, end)
+      
+
       ## private apis
       userOrdersUrl: (market) -> '%s/api/v2/user/orders?market=%s'.format(@base, market)
       userTradesUrl: (market) -> '%s/api/v2/user/trades?market=%s'.format(@base, market)

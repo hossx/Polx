@@ -1,26 +1,26 @@
 @import "../../_colors";
 #currency-tabs {
     font-size: 13px;
-    font-weight: 500px;
+    font-weight: bold;
     height: 64px;
     &::shadow {
         #tabsContainer {
-            background: color($C1, 700);
-            color: white;
+            background: color($grey, 400);
+            color: $black1;
         }
         #selectionBar {
-            background-color: color($C2, a700);
+            background-color: color($C1, 500);
         }
     }
     >paper-tab::shadow #ink {
-        color: white;
+        color: color($C2, a700);
     }
     paper-tab[active] {
-        background: color($C1, 500);
+        background: white;
     }
 }
 #pages {
     core-menu {
-        color: white;
+        color: $black1;
     }
 }

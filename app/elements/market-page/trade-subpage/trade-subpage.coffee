@@ -34,7 +34,7 @@ Polymer 'trade-subpage',
 
   responseChanged: (o, n) ->
     if @response == ''
-      @fire('network-error', {'url': @depthUrl})
+      @fire('network-error', {'url': @marketDepthUrl})
     else if @response and @response.success
       @bids = @response.data["b"] 
       @asks = @response.data["a"] 
@@ -50,11 +50,11 @@ Polymer 'trade-subpage',
 
   startRefresh: () ->
     @stopRefresh()
-    @depthUrl = window.protocol.depthUrl(@market.id, 5)
+    @marketDepthUrl = window.protocol.marketDepthUrl(@market.id, 5)
     work = () =>this.$.depthAjax.go()
     @refreshJob = setInterval(work, @market.refreshInterval)
     work()
-    console.debug("start auto-refresh market " +  @market.id + " every " + @market.refreshInterval + "ms: " + @depthUrl)
+    console.debug("start auto-refresh market " +  @market.id + " every " + @market.refreshInterval + "ms: " + @marketDepthUrl)
 
   stopRefresh: () ->
     if @refreshJob

@@ -28,7 +28,7 @@
         color: color($C3, a400);
     }
     .inner {
-        background: color($C1, 400);
+        background: color($C1, 500);
         padding-left: 40px;
         padding-right: 40px;
         min-height: 200px;
@@ -59,7 +59,7 @@
     #msg {
         padding: 40px 20px;
         color: white;
-        background: color($C1, 400);
+        background: color($C1, 500);
         word-wrap: break-word;
     }
     #logout {
@@ -110,7 +110,7 @@
     }
 }
 .input {
-    background: color($C1, 400);
+    background: color($C1, 500);
     color: white;
     $placeholder-color: $white1;
     &[focused] {

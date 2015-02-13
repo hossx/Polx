@@ -15,7 +15,7 @@ Polymer 'api-market-depth',
     marketId: 'onChange'
 
   onChange: (o, n) ->
-    @url = window.protocol.depthUrl(@marketId, @limit)
+    @url = window.protocol.marketDepthUrl(@marketId, @limit)
 
   dataChanged: (o, n) ->
     if @data

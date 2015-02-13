@@ -3,6 +3,10 @@
 
 <center>当前版本：2.0</center>
 
+##TODO(xiaolu)
+
+- 很多API的cursor实现不对，而且文档中没有说明cursor是对应返回数据的哪个field。另外cursor是“”的时候API应该正确返回。
+
 ---
 
 ##我们开始吧
@@ -30,7 +34,7 @@
   | GET            | /api/v2/*{currency}*/tickers                      | 获取人民币或比特币所有市场的ticker数据
   | GET            | /api/v2/*{currency}*/reserves                     | 读取平台某数字资产的准备金统详细数据
   | GET            | /api/v2/*{currency}*/balance_snapshot_files       | 读取特定币种的资产分布快照数据文件列表
-  | GET            | /api/v2/*{currency}*/transfers              | 读取特定币种的充值提现记录文件列表
+  | GET            | /api/v2/*{currency}*/transfers                    | 读取特定币种的充值提现记录
   | GET            | /api/v2/*{market}*/trades                         | 获取某市场的历史成交记录
   | GET            | /api/v2/*{market}*/ticker                         | 获取某市场的ticker数据 
   | GET            | /api/v2/*{market}*/depth                          | 获取某市场的深度数据

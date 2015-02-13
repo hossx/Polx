@@ -10,7 +10,7 @@ Polymer 'api-market-trade-history',
     marketId: 'onChange'
     
   onChange: (o, n) ->
-    @url = window.protocol.tradeHistoryUrl(@marketId, @limit)
+    @url = window.protocol.marketTradesUrl(@marketId, @limit)
 
   dataChanged: (o, n) ->
     if @data

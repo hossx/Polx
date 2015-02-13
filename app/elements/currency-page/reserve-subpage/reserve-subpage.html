@@ -20,7 +20,7 @@
           <table class="simple">
             <thead>
               <tr>
-                <th nowrap>{{currency.id}} {{M.address}}</th>
+                <th>{{currency.id}} {{M.address}}</th>
                 <th>{{M.balance}}</th>
                 <th>{{M.label}}</th>
                 <th nowrap>{{M.signedMsg}}</th>
@@ -30,7 +30,7 @@
             <tbody>
               <template repeat="{{data,idx in distribution}}">
                 <tr>
-                  <td text-left>
+                  <td>
                     <crypto-address class="{{data[2]}}" currency="{{currency}}" addr="{{data[0]}}"></crypto-address>
                   </td>
                   <td>
@@ -49,7 +49,7 @@
             </tbody>
             <tfoot>
               <tr>
-                <td text-left>{{distribution.length}} {{M.addresses}}
+                <td>{{distribution.length}} {{M.addresses}}
                 </td>
                 <td>
                   <nice-number label="{{M.total}}" p="4" v="{{total}}"></nice-number>

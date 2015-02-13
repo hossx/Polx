@@ -31,13 +31,13 @@
           <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
           <div flex id="label">{{label}}</div>
           <template repeat="{{button,idx in buttons}}">
-              <paper-button class="btn" idx="{{idx}}" active?="{{page == idx}}" on-tap="{{switchPage}}">
+            <paper-button class="btn" idx="{{idx}}" active?="{{page == idx}}" on-tap="{{switchPage}}">
               {{button[1]}}
-              </paper-button>
+            </paper-button>
           </template>
         </core-toolbar>
 
-        <div flex vertical layout main>
+        <div vertical layout main>
           <core-animated-pages fit id="pages" selected="{{page}}" transitions="slide-from-right">
             <content select="section"></content>
           </core-animated-pages>

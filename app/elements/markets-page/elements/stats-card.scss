@@ -21,13 +21,15 @@ a {
         text-decoration: none;
     }
 }
-#box {
-    background: $white1;
-    padding: 20px;
+#shadow {
     transition: 2s cubic-bezier(0, 1, 1, 1);
     &:hover {
         transform: scale(1.04);
     }
+}
+#box {
+    background: $white1;
+    padding: 20px;
 }
 cp-coinport-icon {
     font-size: 24px;

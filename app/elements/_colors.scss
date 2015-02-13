@@ -380,10 +380,10 @@ $ice: (
 
 
 // color palette
-$C1: $light-blue;//mutate($brown, 200, 0, 1%);
+$C1: $light-blue;
 $C2: $light-green;
 $C3: $deep-orange;
-$C4: $steel;
+$C4: mutate($brown, 200, 0, 1%);
 
 $buy-color: $deep-orange;
 $sell-color: $green;

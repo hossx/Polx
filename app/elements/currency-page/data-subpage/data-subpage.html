@@ -6,14 +6,19 @@
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../crypto-address/crypto-address.html">
 <link rel="import" href="../../section-group/section-group.html">
+<link rel="import" href="../../nice-number/nice-number.html">
+<link rel="import" href="../../coinport-api/api-currency-transactions.html">
+<link rel="import" href="../../coinport-api/api-currency-balance-snapshots.html">
 
 <polymer-element name="data-subpage" attributes="currency" flex>
   <template>
     <link rel="stylesheet" href="data-subpage.css">
 
+    <api-currency-transactions id="ajax1" currencyId="{{currency.id}}" transactions="{{transactions}}" hasMore="{{hasMoreTxs}}" auto></api-currency-transactions>
+    <api-currency-balance-snapshots id="ajax2" currencyId="{{currency.id}}" snapshots="{{snapshots}}" hasMore="{{hasMoreSnapshots}}" auto></api-currency-balance-snapshots>
+
     <section-group has-footer>
       <paper-shadow>
-        <core-ajax id="txsAjax" url="{{txsUrl}}" on-core-complete="{{handleTxsComplete}}" auto></core-ajax>
         <div label>
           <h2>{{currency.name}} {{M.transactions}}</h2>
           <p>{{currency.name | formatTransactionsComment}} </p>
@@ -22,30 +27,28 @@
           <table class="simple">
             <thead>
               <tr>
-                <th>{{M.timestamp}}</th>
-                <th>{{M.userId}}</th>
-                <th>{{M.type}}</th>
-                <th>{{M.amount}}</th>
                 <th>{{currency.id}} {{M.address}}</th>
                 <th>{{currency.id}} {{M.transaction}}</th>
+                <th>{{M.type}}</th>
+                <th>{{M.userId}}</th>
+                <th text-right>{{M.amount}}</th>
+                <th>{{M.timestamp}}</th>
               </tr>
             </thead>
             <tbody>
               <template repeat="{{tx in transactions}}">
                 <tr>
-                  <td>{{tx[1]}}</td>
                   <td>
-                    <a href="{{tx[2]}} | formatUserUrl}}">{{tx[2]}}</a>
+                    <crypto-address class="{{group.label}}" currency="{{currency}}" addr="{{tx.address}}"></crypto-address>
                   </td>
-                  <td>{{tx[3]}}</td>
-                  <td>{{tx[4]}}</td>
-                  <td>
-                    <a href="{{tx[5]}} | formatAddrUrl}}">
-                      <crypto-address class="{{group.label}}" currency="{{currency}}" addr="{{tx[5]}}"></crypto-address>
-                    </a>
+                  <td><a href="{{tx.txid | formatTxUrl}}">{{tx.txid | formatTxLabel}}</a>
                   </td>
-                  <td><a href="{{tx[6] | formatTxUrl}}">{{tx[6]}}</a>
+                  <td>{{M.operationsLabel[tx.operation]}}</td>
+                  <td>{{tx.uid}}</td>
+                  <td text-right>
+                    <nice-number v="{{tx.amount}}" p="4"></nice-number>
                   </td>
+                  <td>{{tx.created | formatTime}}</td>
                 </tr>
               </template>
             </tbody>
@@ -55,7 +58,6 @@
       </paper-shadow>
 
       <paper-shadow>
-        <core-ajax id="snapshotAjax" url="{{balanceSnapshotFilesUrl}}" on-core-complete="{{handleSnapshotsComplete}}" auto></core-ajax>
         <div label>
           <h2>{{currency.name}} |{{M.distributionSnapshots}}</h2>
           <p>{{currency.name | formatDistributionSnapshotsComment}}</p>
@@ -64,20 +66,20 @@
           <table class="simple">
             <thead>
               <tr>
-                <th>{{M.timestamp}}</th>
                 <th>{{M.file}}</th>
                 <th>{{M.size}}</th>
+                <th>{{M.timestamp}}</th>
               </tr>
             </thead>
             <tbody>
               <template repeat="{{snapshot in snapshots}}">
                 <tr>
-                  <td>{{snapshot[2] | formatTime}}</td>
                   <td>
                     <a href="{{fileBase + snapshot[0]}}">
-                      <core-icon class="small" icon="file-download"></core-icon>{{snapshot[0]}}</a>
+                      {{snapshot[0]}}<core-icon class="small" icon="file-download"></core-icon></a>
                   </td>
                   <td>{{snapshot[1]}} Bytes</td>
+                  <td>{{snapshot[2] | formatTime}}</td>
                 </tr>
               </template>
             </tbody>

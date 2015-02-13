@@ -2,6 +2,9 @@
 :host {
     display: block;
 }
+cp-page /deep/ #main {
+    background: color($grey, 50);
+}
 #widget {
     width: 100%;
     padding: 20px 0;

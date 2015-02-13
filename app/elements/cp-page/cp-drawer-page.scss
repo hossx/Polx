@@ -5,7 +5,7 @@
 }
 #drawer {
     padding: 0;
-    background: color($C1, 500);
+    background: white;
 }
 #toolbar {
     @include config-toolbar();
@@ -15,6 +15,7 @@
 }
 #pages {
     padding-bottom: 200px;
+    background: color($C1, 500);
 }
 #nav-tabs {
     background: color($C1, 600);

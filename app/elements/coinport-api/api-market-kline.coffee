@@ -16,7 +16,7 @@ Polymer 'api-market-kline',
   onChange: (o, n) ->
     if @interval and @marketId
       end = if @end <=0 then Date.now() else @end
-      @url = window.protocol.klineUrl(@marketId, @interval, @start, end)
+      @url = window.protocol.marketKlineUrl(@marketId, @interval, @start, end)
 
   dataChanged: (o, n) ->
     if @data and @data.items
