@@ -105,9 +105,8 @@ Polymer 'signon-signin',
   signout: () -> @fire('logout-requested')
 
   ## login
-  loginEmail: ''
   loginDisabled: true
-  logMeIn: () -> this.$.loginForm.submit()
+  logMeIn: () -> this.$.loginAjax.login()
 
   validateLoginForm: () ->
     if not @loginEmail and not @loginPassword 

@@ -6,6 +6,7 @@
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../../../bower_components/paper-checkbox/paper-checkbox.html">
 <link rel="import" href="../../../bower_components/ajax-form/ajax-form.html">
+<link rel="import" href="../../coinport-api/api-login.html">
 
 <polymer-element name="signon-signin" attributes="page,z">
   <template>
@@ -13,6 +14,7 @@
 
     <core-animated-pages id="pages" flex valueattr="id" selected="{{page}}">
       <section flex id="signin">
+      <api-login id="loginAjax" email="{{loginEmail}}" password="{{loginPassword}}"></api-login>
         <paper-shadow z="{{z}}">
           <div class="container" vertical layout>
             <div class="label">Member Login</div>

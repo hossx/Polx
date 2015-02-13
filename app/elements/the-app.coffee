@@ -130,8 +130,11 @@ Polymer 'the-app',
       base: window.config.api.base
       ##
       registerUrl: () -> "%s/account/register".format(@base)
-      loginUrl: () -> "%s/account/login".format(@base)
       logoutUrl:  () ->"%s/account/logout".format(@base)
+
+
+      
+      loginUrl: () -> "%s/api/v2/login".format(@base)
       ## public apis
      
       currenciesReserveStatsUrl: () -> '%s/api/v2/reserve_stats'.format(@base)
