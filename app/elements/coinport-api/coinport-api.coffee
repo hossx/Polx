@@ -39,7 +39,9 @@ Polymer 'coinport-api',
   processError: (xhr) ->
     @data = null
     if xhr.status == 401
-      @fire('logout-requested')
+      window.profile = null
+      $.removeCookie('profile')
+      @fire('user-logged-out')
     else if xhr.status == 500
       console.error("500 response seen for url: " + @url)
       @fire('display-message', {'error': @M.internalServiceError.format(@url)})

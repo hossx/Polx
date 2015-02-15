@@ -1,15 +1,23 @@
 'use strict'
 
 Polymer 'the-router',
-
-  userId: null # null indicates initial state
-  sessionCookieName: 'PLAY_SESSION'
+  userLoggedIn: false
 
   ready: ()->
-    window.state.uid = null
-    @loginTestUrl = window.protocol.userProfileUrl
     @setupEventListeners()
-    @checkLoginStatus()
+
+    c = $.cookie('profile')
+    if c
+      profile = JSON.parse(c)
+      window.profile = profile
+      @fire("user-logged-in")
+
+  stateChange: (e) ->
+    path = e.detail.path
+    if not @userLoggedIn
+      if path == '/account' or path == '/account/:page' or path == '/member/logout'
+        e.preventDefault()
+        this.$.router.go('/member/login')
 
   setupEventListeners: () ->
     @addEventListener 'display-message', (e) ->
@@ -23,43 +31,20 @@ Polymer 'the-router',
         @message = e.detail.message
         this.$.messageToast.show()
 
-    @addEventListener 'logout-requested', (e) -> 
-      #$.removeCookie(@sessionCookieName)
-      @userId = ''
+    @addEventListener 'user-logged-in', (e) -> 
+      console.debug("------user-logged-in: " + JSON.stringify(window.profile))
+      @userLoggedIn = true
 
-    @addEventListener 'api-access-error', (e) ->
-      #$.removeCookie(@sessionCookieName)
-      @userId = ''
+      if location.hash == '#/member/login' or location.hash == '#/member/forgetpwd'
+        this.$.router.go('/account')
 
-    @addEventListener 'login-checked', (e) ->
-      @userId = e.detail.uid
+    @addEventListener 'user-logged-out', (e) -> 
+      console.debug("------user-logged-out")
+      @userLoggedIn = false
 
-  checkLoginStatus: () ->
-    sessionCookie = $.cookie(@sessionCookieName)
-    if not sessionCookie
-      @userId = '' 
-    else
-      console.debug("perform login status check using ajax")
-      this.$.loginTestAjax.go()
+      if location.hash == '#/member/logout'
+        this.$.router.go('/member/logged_out')
+      else if location.hash.indexOf('#/account') == 0
+        this.$.router.go('/member/login') 
+        
 
-  loginTestRespChanged: (o, n) ->
-    console.debug(@loginTestResp)
-    if @loginTestResp and @loginTestResp.data and @loginTestResp.data.uid
-      @userId = @loginTestResp.data.uid
-    else
-      @userId = ''
-
-  userIdChanged: (o, n) ->
-    if @user == null #special
-      window.state.uid = null
-      console.error("not supposed to see this")
-    else if @userId == ''
-      window.state.uid = null
-      console.log("user logged out: " + o)
-      if location.hash.indexOf('#/account') == 0 or location.hash == '#/member/signout'
-        this.$.router.go('/member/signedout') 
-    else
-      window.state.uid = @userId
-      console.log("user logged in: " + @userId)
-      if location.hash.indexOf('#/member') == 0
-        this.$.router.go('/account') 

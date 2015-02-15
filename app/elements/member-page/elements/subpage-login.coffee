@@ -3,35 +3,42 @@
 Polymer 'subpage-login',
   msgMap:
     'zh':
-      lastPrice: "最新成交价"
-      volume: "24小时总成交量"
-      change: "24小时价格变化"
+      email: "email"
+      password: "密码"
+      login: "登录"
+      register: "注册"
+      forgetpassword: "忘记密码？"
+      emailInvalid: ""
 
     'en':
-      lastPrice: "Last Price"
-      volume: "24H Volume"
-      change: "24H Change"
-
+      email: "email"
+      password: "password"
+      login: "Login"
+      register: "Register"
+      forgetpassword: "Forget password?"
+      emailInvalid: "Your email address is invalid"
 
   observe: {
     email: 'validateLoginForm'
     password: 'validateLoginForm'
+
+    profile: 'checkResult'
+    loading: 'checkResult'
   }
 
-  logMeIn: () -> this.$.loginAjax.login()
+  ready: () ->
+    @M = @msgMap[window.lang]
+
+  logMeIn: () -> 
+    this.$.loginAjax.login()
+
 
   validateLoginForm: () ->
-    if not @email and not @password 
+    if not @email or not @password
       @errorMsg = ''
       @buttonDisabled = true
-    else if not @email
-      @errorMsg = "Please provide your email"
-      @buttonDisabled = true
     else if not @validateEmail(@email)
-      @errorMsg = "Your email address is invalid"
-      @buttonDisabled = true
-    else if not @password
-      @errorMsg = "Please provide your password"
+      @errorMsg = @M.emailInvalid
       @buttonDisabled = true
     else
       @errorMsg = ''
@@ -40,3 +47,4 @@ Polymer 'subpage-login',
   validateEmail: (email) ->
     re = /^[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}$/
     re.test(email)
+

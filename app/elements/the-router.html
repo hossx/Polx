@@ -13,13 +13,10 @@
 <link rel="import" href="markdown-viewer/markdown-viewer.html">
 <link rel="import" href="notfound-page/notfound-page.html">
 
-
 <polymer-element name="the-router" flex>
   <template fit>
     <link rel="stylesheet" href="the-router.css">
-    <core-ajax url="{{loginTestUrl}}" response="{{loginTestResp}}" id="loginTestAjax"></core-ajax>
-    
-    <app-router id="router" mode="hash" trailingSlash="ignore">
+    <app-router id="router" mode="hash" trailingSlash="ignore" on-state-change="{{stateChange}}">
       <app-route path="/" element="home-page"></app-route>
       <app-route path="/member" element="member-page"></app-route>
       <app-route path="/member/:page" element="member-page"></app-route>
@@ -31,25 +28,16 @@
       <app-route path="/currency/:currencyId" element="currency-page"></app-route>
       <app-route path="/currency/:currencyId/:page" element="currency-page"></app-route>
       <app-route path="/doc/:file" element="markdown-viewer"></app-route>
-
-      <template if="{{userId}}">
-        <app-route path="/account" element="account-page"></app-route>
-        <app-route path="/account/:page" element="account-page"></app-route>
-        <app-route path="/member/login" redirect="/member/logout"></app-route>
-      </template>
-
-      <template if="{{!userId}}">
-        <app-route path="/account" redirect="/member/login"></app-route>
-        <app-route path="/account/:page" redirect="/member/login"></app-route>
-        <app-route path="/member/logout" redirect="/member/signedout"></app-route>
-      </template>
-
+      <app-route path="/account" element="account-page"></app-route>
+      <app-route path="/account/:page" element="account-page"></app-route>
+      <app-route path="/member/login" redirect="/account"></app-route>
+      <app-route path="/member/forgetpasswd" redirect="/account"></app-route>
       <app-route path="*" element="notfound-page"></app-route>
     </app-router>
 
     <paper-toast id="errorToast" duration="10000" text="{{error}}"></paper-toast>
     <paper-toast id="warningToast" duration="7000" text="{{warning}}"></paper-oast>
-    <paper-toast id="messageToast" text="{{message}}"></paper-toast>
+      <paper-toast id="messageToast" text="{{message}}"></paper-toast>
   </template>
 
   <script src="the-router.js"></script>

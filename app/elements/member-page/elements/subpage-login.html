@@ -7,30 +7,30 @@
   <template>
     <link rel="stylesheet" href="subpage-login.css">
 
-    <api-login id="loginAjax" email="{{email}}" password="{{password}}"></api-login>
+    <api-login id="loginAjax" email="{{email}}" password="{{password}}" profile="{{profile}}"></api-login>
 
     <div class="container" vertical layout>
-      <div class="label">Member Login</div>
+      <div class="label">{{M.login}}</div>
       <div class="outer">
         <div class="inner" center-justified vertical layout>
-          <paper-input-decorator class="input" label="Email" floatingLabel>
-            <input is="core-input" name="username" value="{{email}}">
+          <paper-input-decorator class="input" label="{{M.email}}" floatingLabel>
+            <input is="core-input" value="{{email}}">
           </paper-input-decorator required>
-          <paper-input-decorator class="input" label="Password" floatingLabel>
-            <input is="core-input" type="password" name="password" value="{{password}}">
+          <paper-input-decorator class="input" label="{{M.password}}" floatingLabel>
+            <input is="core-input" type="password" value="{{password}}">
           </paper-input-decorator required>
         </div>
         <div class="errorMsg">{{errorMsg}}</div>
         <div class="action" vertical layout>
-          <paper-button disabled?="{{buttonDisabled}}" on-tap="{{logMeIn}}">Login</paper-button>
+          <paper-button disabled?="{{buttonDisabled}}" on-tap="{{logMeIn}}">{{M.login}}</paper-button>
         </div>
       </div>
-      <div class="options" horizontal ƒƒcenter-justified layout>
+      <div class="options" horizontal center-justified layout>
         <a href="/#/member/register">
-          <paper-button class="highlight" noink>Become a member</paper-button>
+          <paper-button class="highlight" noink>{{M.register}}</paper-button>
         </a>
         <a href="/#/member/forgetpwd">
-          <paper-button noink>Forget password?</paper-button>
+          <paper-button noink>{{M.forgetpassword}}</paper-button>
         </a>
       </div>
     </div>
