@@ -1,0 +1,28 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input-decorator.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+
+<polymer-element name="subpage-logout">
+  <template>
+    <link rel="stylesheet" href="subpage-logout.css">
+
+    <div class="container" vertical layout>
+      <div class="label">Signout</div>
+      <div class="outer">
+        <div id="logout" center vertical layout>
+          <div>You have signed in already.</div>
+          <div id="userid"><a href="/#/account">Go to my Account</a>
+          </div>
+        </div>
+
+        <div class="action" vertical layout>
+          <paper-button on-tap="{{signout}}">Signout</paper-button>
+        </div>
+      </div>
+    </div>
+    <div class="options" horizontal center-justified layout>
+
+    </div>
+  </template>
+  <script src="subpage-logout.js"></script>
+</polymer-element>

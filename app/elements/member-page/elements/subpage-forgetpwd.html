@@ -1,0 +1,36 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input-decorator.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../coinport-api/api-login.html">
+
+<polymer-element name="subpage-forgetpwd">
+  <template>
+    <link rel="stylesheet" href="subpage-forgetpwd.css">
+
+    <api-login id="loginAjax" email="{{email}}" password="{{password}}"></api-login>
+
+    <div class="container" vertical layout>
+      <div class="label">Forget Password</div>
+      <div class="outer">
+        <div class="inner" center-justified vertical layout>
+          <paper-input-decorator class="input" label="Email" floatingLabel>
+            <input is="core-input" value="{{email}}">
+          </paper-input-decorator required>
+        </div>
+
+        <div class="action" vertical layout>
+          <paper-button>Retrieve Password</paper-button>
+        </div>
+      </div>
+      <div class="options" horizontal center-justified layout>
+        <a href="/#/member/login">
+          <paper-button noink>Member login</paper-button>
+        </a>
+        <a href="/#/member/register">
+          <paper-button class="highlight" noink>Become a member</paper-button>
+        </a>
+      </div>
+    </div>
+  </template>
+  <script src="subpage-forgetpwd.js"></script>
+</polymer-element>

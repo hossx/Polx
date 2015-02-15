@@ -1,0 +1,158 @@
+@import "../../_colors";
+:host {
+    display: block;
+    background: transparent;
+}
+#pages {
+    width: 100%;
+    height: 460px;
+}
+@mixin config-widget() {
+    .container {
+        height: 100%;
+        background: white;
+    }
+    .label {
+        color: $black2;
+        font-size: 16px;
+        font-weight: 500;
+        margin: 20px;
+    }
+    .outer {
+        border-top: solid 1px $black4;
+        min-height: 200px;
+        .errorMsg {
+            padding-top: 10px;
+            width: 100%;
+            text-align: center;
+            color: color($C3, a400);
+        }
+        .inner {
+            background: color($C1, 500);
+            padding-left: 40px;
+            padding-right: 40px;
+            min-height: 200px;
+        }
+        #agree {
+            text-align: left;
+            padding-top: 20px;
+            padding-left: 40px;
+            a {
+                color: $black1;
+                &:hover {
+                    color: color($C2, a700);
+                }
+            }
+            .checkbox {
+                color: color($C2, a700);
+                padding-right: 10px;
+                &::shadow {
+                    #ink[checked] {
+                        color: color($C1, 500);
+                    }
+                    #checkbox.checked {
+                        border-color: color($C1, 500);
+                    }
+                }
+            }
+        }
+        #msg {
+            padding: 40px 20px;
+            color: white;
+            background: color($C1, 500);
+            word-wrap: break-word;
+        }
+        #logout {
+            padding: 40px 20px;
+            color: $black2;
+            #userid {
+                color: $black1;
+                font-weight: 500;
+            }
+        }
+        .action {
+            padding: 40px 35px 0 35px;
+            paper-button {
+                background: color($C2, a700);
+                border: solid 1px color($C2, a700);
+                transition: background 420ms ease-in-out;
+                color: white;
+                &:hover {
+                    background: color($C2, a700);
+                }
+                &[disabled] {
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+    .options {
+        font-size: 12px;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        width: 100%;
+        background: white;
+        >div {
+            padding: 0 10px;
+        }
+        paper-button {
+            text-transform: None;
+            &:hover {
+                color: color($C2, a700);
+            }
+            &.highlight {
+                transition: color 200ms ease-in-out;
+                color: color($C3, a400);
+                &:hover {
+                    color: color($C2, a700);
+                }
+            }
+        }
+    }
+    .input {
+        background: color($C1, 500);
+        color: white;
+        $placeholder-color: $white1;
+        &[focused] {
+            color: color($C2, a700);
+        }
+        /deep/::-webkit-input-placeholder {
+            color: $placeholder-color;
+        }
+        /deep/::-moz-placeholder {
+            color: $placeholder-color;
+        }
+        /deep/:-ms-input-placeholder {
+            color: $placeholder-color;
+        }
+        /deep/ .label-text, /deep/ .error {
+            color: $placeholder-color;
+        }
+        /deep/ .unfocused-underline {
+            background-color: $white3;
+        }
+        /deep/ .floated-label .label-text {
+            color: $white1;
+            font-size: 13px;
+        }
+        /deep/ .focused-underline {
+            background-color: color($C2, a700);
+        }
+        &[focused] /deep/ {
+            .floated-label .label-text {
+                color: $white1;
+                font-size: 13px;
+            }
+        }
+        &.invalid /deep/ .floated-label .label-text, /deep/ .error {
+            color: $placeholder-color;
+        }
+        &.invalid /deep/ .focused-underline {
+            background-color: color($C3, a400);
+        }
+    }
+}
+@include config-widget();
+.subpage /deep/ {
+    @include config-widget();
+}

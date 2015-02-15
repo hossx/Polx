@@ -1,0 +1,47 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input-decorator.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/paper-checkbox/paper-checkbox.html">
+
+<polymer-element name="subpage-register">
+  <template>
+    <link rel="stylesheet" href="subpage-register.css">
+
+    <div class="container" vertical layout>
+      <div class="label">Become a Member</div>
+      <div class="outer">
+        <div class="inner" center-justified vertical layout>
+          <paper-input-decorator class="input" label="Email" floatingLabel>
+            <input is="core-input" name="email" value="{{email}}" required>
+          </paper-input-decorator>
+          <paper-input-decorator class="input" label="Password" floatingLabel>
+            <input is="core-input" name="password" type="password" value="{{password}}" required>
+          </paper-input-decorator>
+
+          <paper-input-decorator class="input" label="Confirm Password" floatingLabel>
+            <input is="core-input" type="password" value="{{password2}}">
+          </paper-input-decorator required>
+        </div>
+
+        <div id="agree" vertical layout>
+          <core-label center horizontal layout>
+            <paper-checkbox class="checkbox" checked="{{termsAgreed}}" on-change="{{agreeChanged}}" for></paper-checkbox>
+            <div> I read and agree to the <a href="/#/doc/tos" target="_blank">Terms of Service</a>
+            </div>
+          </core-label>
+        </div>
+        <div class="errorMsg">{{errorMsg}}</div>
+        <div class="action" vertical layout>
+          <paper-button id="registerButton" disabled?="{{registerDisabled}}" on-tap="{{registerMe}}">Register</paper-button>
+        </div>
+      </div>
+      <div class="options" horizontal center-justified layout>
+        <a href="/#/member/login">
+          <paper-button noink>Member login</paper-button>
+        </a>
+      </div>
+    </div>
+
+  </template>
+  <script src="subpage-register.js"></script>
+</polymer-element>

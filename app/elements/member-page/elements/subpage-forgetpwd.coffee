@@ -1,4 +1,6 @@
-Polymer 'member-page',
+'use strict'
+
+Polymer 'subpage-forgetpwd',
   msgMap:
     'zh':
       lastPrice: "最新成交价"
@@ -9,3 +11,5 @@ Polymer 'member-page',
       lastPrice: "Last Price"
       volume: "24H Volume"
       change: "24H Change"
+
+

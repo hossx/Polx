@@ -35,20 +35,20 @@
       <template if="{{userId}}">
         <app-route path="/account" element="account-page"></app-route>
         <app-route path="/account/:page" element="account-page"></app-route>
-        <app-route path="/member/signin" redirect="/member/signout"></app-route>
+        <app-route path="/member/login" redirect="/member/logout"></app-route>
       </template>
 
       <template if="{{!userId}}">
-        <app-route path="/account" redirect="/member/signin"></app-route>
-        <app-route path="/account/:page" redirect="/member/signin"></app-route>
-        <app-route path="/member/signout" redirect="/member/signedout"></app-route>
+        <app-route path="/account" redirect="/member/login"></app-route>
+        <app-route path="/account/:page" redirect="/member/login"></app-route>
+        <app-route path="/member/logout" redirect="/member/signedout"></app-route>
       </template>
 
       <app-route path="*" element="notfound-page"></app-route>
     </app-router>
 
     <paper-toast id="errorToast" duration="10000" text="{{error}}"></paper-toast>
-    <paper-toast id="warningToast" duration="7000" text="{{warning}}"></paper-toast>
+    <paper-toast id="warningToast" duration="7000" text="{{warning}}"></paper-oast>
     <paper-toast id="messageToast" text="{{message}}"></paper-toast>
   </template>
 

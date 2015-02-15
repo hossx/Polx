@@ -1,4 +1,4 @@
-Polymer 'member-page',
+Polymer 'subpage-logout',
   msgMap:
     'zh':
       lastPrice: "最新成交价"

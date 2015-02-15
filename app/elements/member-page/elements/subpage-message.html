@@ -1,0 +1,27 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<polymer-element name="subpage-message" attributes="msg">
+  <template>
+    <link rel="stylesheet" href="subpage-message.css">
+
+    <div class="container" vertical layout>
+      <div class="label">{{label}}</div>
+      <div class="outer">
+        <div id="msg" vertical layout>
+          <template repeat="{{detail in details}}">
+            <p>{{detail}}</p>
+          </template>
+        </div>
+      </div>
+      <div class="options" horizontal center-justified layout>
+        <a href="/#/member/login">
+          <paper-button noink>Member login</paper-button>
+        </a>
+        <a href="/#/member/register">
+          <paper-button class="highlight" noink>Become a member</paper-button>
+        </a>
+      </div>
+    </div>
+  </template>
+  <script src="subpage-message.js"></script>
+</polymer-element>

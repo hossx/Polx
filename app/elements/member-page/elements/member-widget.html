@@ -1,0 +1,78 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="subpage-login.html">
+<link rel="import" href="subpage-register.html">
+<link rel="import" href="subpage-forgetpwd.html">
+<link rel="import" href="subpage-logout.html">
+<link rel="import" href="subpage-message.html">
+
+<polymer-element name="member-widget" attributes="page">
+  <template>
+    <link rel="stylesheet" href="member-widget.css">
+
+    <core-animated-pages id="pages" flex valueattr="id" selected="{{page}}">
+      <section id="login">
+        <paper-shadow z="1">
+          <subpage-login class="subpage"></subpage-login>
+        </paper-shadow>
+      </section>
+
+      <section id="register">
+        <paper-shadow z="1">
+          <subpage-register class="subpage"></subpage-register>
+        </paper-shadow>
+      </section>
+
+      <section id="forgetpwd">
+        <paper-shadow z="1">
+          <subpage-forgetpwd class="subpage"></subpage-forgetpwd>
+        </paper-shadow>
+      </section>
+
+      <section id="logout">
+        <paper-shadow z="1">
+          <subpage-logout class="subpage"></subpage-logout>
+        </paper-shadow>
+      </section>
+
+      <section id="check_email">
+        <paper-shadow z="1">
+          <subpage-message class="subpage" msg="checkEmail"></subpage-message>
+        </paper-shadow>
+      </section>
+
+      <section id="email_verified">
+        <paper-shadow z="1">
+          <subpage-message class="subpage" msg="emailVerified"></subpage-message>
+        </paper-shadow>
+      </section>
+
+      <section id="email_verification_failed">
+        <paper-shadow z="1">
+          <subpage-message class="subpage" msg="emailVerificationFailed"></subpage-message>
+        </paper-shadow>
+      </section>
+
+      <section id="password_sent">
+        <paper-shadow z="1">
+          <subpage-message class="subpage" msg="passwordSent"></subpage-message>
+        </paper-shadow>
+      </section>
+
+      <section id="password_changed">
+        <paper-shadow z="1">
+          <subpage-message class="subpage" msg="passwordChanged"></subpage-message>
+        </paper-shadow>
+      </section>
+
+      <section id="logged_out">
+        <paper-shadow z="1">
+          <subpage-message class="subpage" msg="loggedOut"></subpage-message>
+        </paper-shadow>
+      </section>
+    </core-animated-pages>
+
+  </template>
+  <script src="member-widget.js"></script>
+</polymer-element>

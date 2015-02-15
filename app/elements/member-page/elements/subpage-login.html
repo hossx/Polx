@@ -1,0 +1,39 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input-decorator.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../coinport-api/api-login.html">
+
+<polymer-element name="subpage-login">
+  <template>
+    <link rel="stylesheet" href="subpage-login.css">
+
+    <api-login id="loginAjax" email="{{email}}" password="{{password}}"></api-login>
+
+    <div class="container" vertical layout>
+      <div class="label">Member Login</div>
+      <div class="outer">
+        <div class="inner" center-justified vertical layout>
+          <paper-input-decorator class="input" label="Email" floatingLabel>
+            <input is="core-input" name="username" value="{{email}}">
+          </paper-input-decorator required>
+          <paper-input-decorator class="input" label="Password" floatingLabel>
+            <input is="core-input" type="password" name="password" value="{{password}}">
+          </paper-input-decorator required>
+        </div>
+        <div class="errorMsg">{{errorMsg}}</div>
+        <div class="action" vertical layout>
+          <paper-button disabled?="{{buttonDisabled}}" on-tap="{{logMeIn}}">Login</paper-button>
+        </div>
+      </div>
+      <div class="options" horizontal ƒƒcenter-justified layout>
+        <a href="/#/member/register">
+          <paper-button class="highlight" noink>Become a member</paper-button>
+        </a>
+        <a href="/#/member/forgetpwd">
+          <paper-button noink>Forget password?</paper-button>
+        </a>
+      </div>
+    </div>
+  </template>
+  <script src="subpage-login.js"></script>
+</polymer-element>

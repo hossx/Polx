@@ -2,35 +2,16 @@
 <link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../../bower_components/core-animation/core-animation.html">
 <link rel="import" href="../cp-page/cp-page.html">
-<link rel="import" href="elements/signon-signin.html">
+<link rel="import" href="elements/member-widget.html">
 
 <polymer-element name="member-page" attributes="page">
   <template>
     <link rel="stylesheet" href="member-page.css">
     <cp-page grey-bg light narrow has-toolbar has-footer>
       <div id="widget">
-        <signon-signin page="{{page}}"></signon-signin>
+        <member-widget page="{{page}}"></member-widget>
       </div>
     </cp-page>
   </template>
-  <script>
-    (function() {
-      'use strict';
-      Polymer("member-page", {
-        ready: function(e) {
-          setTimeout(function() {
-            var animation = new CoreAnimation();
-            animation.duration = 500;
-            animation.keyframes = [{
-              opacity: 1
-            }, {
-              opacity: 0
-            }];
-            animation.target = document.getElementById('widget');
-            animation.play();
-          }, 1000);
-        }
-      });
-    })();
-  </script>
+<script src="member-page.js"></script>
 </polymer-element>
