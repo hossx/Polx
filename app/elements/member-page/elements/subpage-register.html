@@ -8,17 +8,17 @@
     <link rel="stylesheet" href="subpage-register.css">
 
     <div class="container" vertical layout>
-      <div class="label">Become a Member</div>
+      <div class="label">{{M.register}}</div>
       <div class="outer">
         <div class="inner" center-justified vertical layout>
-          <paper-input-decorator class="input" label="Email" floatingLabel>
-            <input is="core-input" name="email" value="{{email}}" required>
+          <paper-input-decorator class="input" label="{{M.email}}" floatingLabel>
+            <input is="core-input" value="{{email}}" required>
           </paper-input-decorator>
-          <paper-input-decorator class="input" label="Password" floatingLabel>
-            <input is="core-input" name="password" type="password" value="{{password}}" required>
+          <paper-input-decorator class="input" label="{{M.password}}" floatingLabel>
+            <input is="core-input"  type="password" value="{{password}}" required>
           </paper-input-decorator>
 
-          <paper-input-decorator class="input" label="Confirm Password" floatingLabel>
+          <paper-input-decorator class="input" label="{{M.password2}}" floatingLabel>
             <input is="core-input" type="password" value="{{password2}}">
           </paper-input-decorator required>
         </div>
@@ -26,18 +26,18 @@
         <div id="agree" vertical layout>
           <core-label center horizontal layout>
             <paper-checkbox class="checkbox" checked="{{termsAgreed}}" on-change="{{agreeChanged}}" for></paper-checkbox>
-            <div> I read and agree to the <a href="/#/doc/tos" target="_blank">Terms of Service</a>
+            <div>{{M.haveRead1}}<a href="/#/doc/tos" target="_blank">{{M.haveRead2}}</a>
             </div>
           </core-label>
         </div>
         <div class="errorMsg">{{errorMsg}}</div>
         <div class="action" vertical layout>
-          <paper-button id="registerButton" disabled?="{{registerDisabled}}" on-tap="{{registerMe}}">Register</paper-button>
+          <paper-button id="registerButton" disabled?="{{registerDisabled}}" on-tap="{{registerMe}}">{{M.register}}</paper-button>
         </div>
       </div>
       <div class="options" horizontal center-justified layout>
         <a href="/#/member/login">
-          <paper-button noink>Member login</paper-button>
+          <paper-button noink>{{M.login}}</paper-button>
         </a>
       </div>
     </div>

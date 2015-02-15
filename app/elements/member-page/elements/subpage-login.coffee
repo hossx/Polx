@@ -3,20 +3,20 @@
 Polymer 'subpage-login',
   msgMap:
     'zh':
-      email: "email"
+      email: "Email"
       password: "密码"
       login: "登录"
       register: "注册"
       forgetpassword: "忘记密码？"
-      emailInvalid: ""
+      emailInvalid: "Email地址格式不正确。"
 
     'en':
-      email: "email"
-      password: "password"
+      email: "Email"
+      password: "Password"
       login: "Login"
       register: "Register"
       forgetpassword: "Forget password?"
-      emailInvalid: "Your email address is invalid"
+      emailInvalid: "Your email address is invalid."
 
   observe: {
     email: 'validateLoginForm'

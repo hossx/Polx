@@ -1,4 +1,5 @@
 @import "../../_colors";
+@import "../../_common";
 :host {
     display: block;
     background: transparent;
@@ -11,6 +12,8 @@
     .container {
         height: 100%;
         background: white;
+
+        @include config-link-on-white-color();
     }
     .label {
         color: $black2;

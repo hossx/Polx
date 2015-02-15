@@ -7,16 +7,15 @@
     <link rel="stylesheet" href="subpage-logout.css">
 
     <div class="container" vertical layout>
-      <div class="label">Signout</div>
+      <div class="label">{{M.logout}}</div>
       <div class="outer">
         <div id="logout" center vertical layout>
-          <div>You have signed in already.</div>
-          <div id="userid"><a href="/#/account">Go to my Account</a>
-          </div>
+          <div>{{loggedInMessage}}</div>
+          <div id="gotoAccount"><a href="/#/account">{{M.gotoAccount}}</a> </div>
         </div>
 
         <div class="action" vertical layout>
-          <paper-button on-tap="{{signout}}">Signout</paper-button>
+          <paper-button on-tap="{{logout}}">{{M.logout}}</paper-button>
         </div>
       </div>
     </div>

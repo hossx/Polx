@@ -6,3 +6,7 @@
 
 - user-logged-in
   api-login -> the-router
+
+- user-request-logout
+  account-sidebar ->the-router
+  logout page -> the-router

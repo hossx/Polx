@@ -14,10 +14,17 @@ Polymer 'the-router',
 
   stateChange: (e) ->
     path = e.detail.path
-    if not @userLoggedIn
-      if path == '/account' or path == '/account/:page' or path == '/member/logout'
+    if @userLoggedIn
+      if path == '/member/login' or path == '/member/forgetpwd'
+        e.preventDefault()
+        this.$.router.go('/account')
+    else
+      if path.indexOf('#/account') == 0
         e.preventDefault()
         this.$.router.go('/member/login')
+      else if path == '/member/logout'
+        e.preventDefault()
+        this.$.router.go('/member/logged_out')
 
   setupEventListeners: () ->
     @addEventListener 'display-message', (e) ->
@@ -30,6 +37,15 @@ Polymer 'the-router',
       else if e.detail.message
         @message = e.detail.message
         this.$.messageToast.show()
+
+
+    @addEventListener 'user-request-logout', (e) -> 
+      console.debug("------user-request-logout: " + JSON.stringify(window.profile))
+      $.removeCookie('profile')
+      $.removeCookie('PLAY_SESSION', {domain: '.coinport.com'}) # this will fail due to httpOnly
+      $.removeCookie('XSRF-TOKEN', {domain: '.coinport.com'})
+      $.removeCookie('COINPORT_COOKIE_TIMESTAMP', {domain: '.coinport.com'})
+      @fire('user-logged-out')
 
     @addEventListener 'user-logged-in', (e) -> 
       console.debug("------user-logged-in: " + JSON.stringify(window.profile))

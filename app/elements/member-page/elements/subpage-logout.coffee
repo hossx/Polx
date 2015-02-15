@@ -1,11 +1,23 @@
+'use strict'
+
 Polymer 'subpage-logout',
   msgMap:
     'zh':
-      lastPrice: "最新成交价"
-      volume: "24小时总成交量"
-      change: "24小时价格变化"
+      logout: "登出"
+      signedInAlready: "你已经用%s登录"
+      gotoAccount: "查看账户"
 
     'en':
-      lastPrice: "Last Price"
-      volume: "24H Volume"
-      change: "24H Change"
+      logout: "Logout"
+      signedInAlready: "You have logged in as %s already."
+      gotoAccount: "Go to account"
+
+  created: () ->
+    @M = @msgMap[window.lang]
+    if window.profile and window.profile.email
+      @loggedInMessage = @M.signedInAlready.format(window.profile.email)
+
+
+  logout: () ->
+    @fire('user-request-logout')
+

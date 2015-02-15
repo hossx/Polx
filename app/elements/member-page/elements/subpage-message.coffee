@@ -3,6 +3,9 @@
 Polymer 'subpage-message',
   msgMap:
     zh:
+      login: "登录"
+      register: "还没有账号？注册一个吧。"
+
       checkEmail:
         label: "Check Your Email"
         details: [
@@ -37,12 +40,14 @@ Polymer 'subpage-message',
           "Thank you."]
 
       loggedOut:
-        label: "Logged Out"
+        label: "已经登出"
         details: [
-          "You have successfully logged out.",
-          "See you soon."]
+          "您已经成功登出系统。",
+          "回见。"]
 
     en:
+      login: "Login"
+      register: "Register an account?"
       checkEmail:
         label: "Check Your Email"
         details: [

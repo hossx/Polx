@@ -2,5 +2,4 @@
 
 Polymer 'account-sidebar',
   logout: () ->
-    $.removeCookie('profile')
-    @fire("user-logged-out")
+    @fire('user-request-logout')
