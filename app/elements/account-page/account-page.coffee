@@ -1,14 +1,22 @@
 'use strict'
 
 Polymer 'account-page',
-  page: "deposit"
-  
+  msgMap:
+    'en':
+      myAccount: "My Account"
+      tradeTooltip: "Trade Now"
+
+    'zh':
+      myAccount: "我的账号"
+      tradeTooltip: "交易"
+
   profileUrl: ''
   profileResp: null
   profile: null
   currencyId: ""
 
   ready: () ->
+    @M = @msgMap[window.lang]
     @profileUrl = window.protocol.userProfileUrl
 
   profileRespChanged: (o, n) ->

@@ -1,4 +1,9 @@
 @import "../_colors";
-:host {
-    background: white;
+
+a#shortcut {
+    color: $black1;
+    text-decoration: none;
+    &:hover {
+        color: color($C2, a700);
+    }
 }

@@ -1,19 +1,35 @@
 'use strict'
 
 Polymer 'assets-subpage',
-  assetsUrl: ''
-  assetsResp: null
-  assets: null
-  currentCollapse: null
+  msgMap:
+    'en':
+      assets: "Assets"
+      currency: "Currency"
+      total: "Total"
+      available: "Available"
+      locked: "Locked"
+      pendingWithdrawal: "Pending Withdrawal"
+      trade: "Trade "
+      deposit: "Deposit "
+      withdraw: "Withdraw "
+
+    'zh':
+      assets: "资产"
+      currency: "货币"
+      total: "总额"
+      available: "可用额度"
+      locked: "锁定额度"
+      pendingWithdrawal: "等待提现额度"
+      trade: "买卖"
+      deposit: "充值"
+      withdraw: "提现"
+
 
   ready: () ->
-    @assetsUrl = window.protocol.userAssetsUrl
+    @M = @msgMap[window.lang]
     @marketsFor = window.config.marketsForCurrency
 
-  assetsRespChanged: (o, n) ->
-    if @assetsResp and @assetsResp.code == 0
-       @assets = @assetsResp.data
-       @currencies = (window.config.currencies[k] for k in Object.keys(@assets).sort())
+  currentCollapse: null
 
   openMarkets: (e, detail, sender) -> 
     id = sender.getAttribute("id")
@@ -37,3 +53,26 @@ Polymer 'assets-subpage',
     window.state.currencyId = sender.getAttribute("currencyId")
     @page = "withdraw"
 
+
+  balanceChanged: (o, n) ->
+    currencyMap = window.config.currencies
+    currencyKeys = Object.keys(currencyMap).sort()
+    list = []
+
+    for c in currencyKeys
+      item = {
+        currency: currencyMap[c]
+      }
+      if @balance[c]
+        item.available = @balance[c][0]
+        item.locked = @balance[c][1]
+        item.pending = @balance[c][2]
+        item.total = @balance[c][3]
+      else
+        item.available = 0
+        item.locked = 0
+        item.pending = 0
+        item.total = 0
+      list.push item
+
+    @assets = list

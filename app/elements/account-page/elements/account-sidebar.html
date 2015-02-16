@@ -15,17 +15,17 @@
     <link rel="stylesheet" href="account-sidebar.css">
 
     <core-menu valueattr="page" selected="{{selected}}">
-      <core-item page="assets" icon="editor:attach-money" label="Assets"></core-item>
-      <core-item page="profile" icon="social:person-outline" label="Profile"></core-item>
-      <core-item page="deposit" icon="communication:call-received" label="Deposit"></core-item>
-      <core-item page="withdraw" icon="communication:call-made" label="Withdrawal"></core-item>
-      <core-item page="orders" icon="list" label="Open Orders"></core-item>
-      <core-item page="trading-history" icon="history" label="Trading History"></core-item>
+      <core-item page="assets" icon="editor:attach-money" label="{{M.assets}}"></core-item>
+      <core-item page="profile" icon="social:person-outline" label="{{M.profile}}"></core-item>
+      <core-item page="deposit" icon="communication:call-received" label="{{M.deposit}}"></core-item>
+      <core-item page="withdraw" icon="communication:call-made" label="{{M.withdrawal}}"></core-item>
+      <core-item page="orders" icon="list" label="{{M.orders}}"></core-item>
+      <core-item page="trading-history" icon="history" label="{{M.tradeHistory}}"></core-item>
 
     </core-menu>
     <div flex></div>
     <div>
-      <paper-button id="logout" on-tap="{{logout}}">Logout</paper-button>
+      <paper-button id="logout" on-tap="{{logout}}">{{M.logout}}</paper-button>
     </div>
   </template>
 

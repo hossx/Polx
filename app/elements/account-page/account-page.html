@@ -4,6 +4,8 @@
 <link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
 <link rel="import" href="../../bower_components/core-iconset-svg/core-iconset-svg.html">
+<link rel="import" href="../../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html">
 <link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../cp-page/cp-right-drawer-page.html">
 <link rel="import" href="../section-group/section-group.html">
@@ -18,9 +20,11 @@
 
     <core-ajax id="profileAjax" url="{{profileUrl}}" response="{{profileResp}}" auto></core-ajax>
 
-    <cp-right-drawer-page class="dpurple" backlink="/#/" label="My Account" id="pages" page="{{page}}">
-      <a href="/#/market" id="shortcut">
-        <paper-button active?="[[toolbarSelect === '/market']]">Go to markets</paper-button>
+    <cp-right-drawer-page class="dpurple" backlink="/#/" label="{{M.myAccount}}" id="pages" page="{{page}}">
+      <a href="/#/markets" id="shortcut">
+        <core-tooltip label="{{M.tradeTooltip}}">
+          <core-icon icon="swap-horiz"></core-icon>
+        </core-tooltip>
       </a>
       <account-sidebar id="sidebar" selected="{{page}}"></account-sidebar>
       <section page="assets">

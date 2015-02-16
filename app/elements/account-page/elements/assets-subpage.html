@@ -6,59 +6,64 @@
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../section-group/section-group.html">
+<link rel="import" href="../../nice-number/nice-number.html">
+<link rel="import" href="../../coinport-api/api-my-balance.html">
+
 
 <polymer-element name="assets-subpage" attributes="profile,page">
   <template>
     <link rel="stylesheet" href="assets-subpage.css">
-    <core-ajax id="assetsAjax" url="{{assetsUrl}}" response="{{assetsResp}}" auto></core-ajax>
+    <api-my-balance id="ajax" balance="{{balance}}" auto></api-my-balance>
 
     <section-group has-footer fit>
-      <div label>Assets</div>
       <paper-shadow z="1">
+        <div label>
+          <h2>{{M.assets}}</h2>
+        </div>
         <div vertical center layout id="table-container">
           <table>
             <thead>
               <tr>
-                <td>Currency</td>
-                <td>Total</td>
-                <td>Available</td>
-                <td>Locked</td>
-                <td>Pending Withdrawal</td>
+                <td text-left>{{M.currency}}</td>
+                <td>{{M.total}}</td>
+                <td>{{M.available}}</td>
+                <td>{{M.locked}}</td>
+                <td>{{M.pendingWithdrawal}}</td>
                 <td colspan=3></td>
               </tr>
             </thead>
             <tbody>
-              <template repeat="{{c in currencies}}">
+              <template repeat="{{item in assets}}">
                 <tr>
-                  <td>{{c.fullName}}</td>
-                  <td class="total">{{assets[c.id][3]}}</td>
-                  <td class="part">{{assets[c.id][0]}}</td>
-                  <td class="part">{{assets[c.id][1]}}</td>
-                  <td class="part">{{assets[c.id][2]}}</td>
+                  <td text-left>{{item.currency.fullName}}</td>
+                  <td class="total"><nice-number p="4" v="{{item.total}}"></nice-number></td>
+                  <td class="part"><nice-number p="4" v="{{item.available}}"></nice-number></td>
+                  <td class="part"><nice-number p="4" v="{{item.locked}}"></nice-number></td>
+                  <td class="part"><nice-number p="4" v="{{item.pending}}"></nice-number></td>
                   <td class="op">
-                    <core-tooltip label="Trade {{c.name}}">
-                      <paper-icon-button on-tap="{{openMarkets}}" id="{{c.id}}" icon="swap-horiz"></paper-icon-button>
+                    <core-tooltip label="{{M.trade}}{{item.currency.name}}">
+                      <paper-icon-button on-tap="{{openMarkets}}" id="{{item.currency.id}}" icon="swap-horiz"></paper-icon-button>
                     </core-tooltip>
                   </td>
                   <td class="op">
-                    <core-tooltip label="Deposit {{c.name}}">
-                      <paper-icon-button currencyId="{{c.id}}" on-tap="{{gotoDeposit}}" icon="communication:call-received"></paper-icon-button>
+                    <core-tooltip label="{{M.deposit}}{{item.currency.name}}">
+                      <paper-icon-button currencyId="{{item.currency.id}}" on-tap="{{gotoDeposit}}" icon="communication:call-received"></paper-icon-button>
                     </core-tooltip>
                   </td>
                   <td class="op">
-                    <core-tooltip label="Withdraw {{c.name}}">
-                      <paper-icon-button currencyId="{{c.id}}" on-tap="{{gotoWithdraw}}" icon="communication:call-made"></paper-icon-button>
+                    <core-tooltip label="{{M.withdraw}}{{item.currency.name}}">
+                      <paper-icon-button currencyId="{{item.currency.id}}" on-tap="{{gotoWithdraw}}" icon="communication:call-made"></paper-icon-button>
                     </core-tooltip>
                   </td>
                 </tr>
                 <tr>
                   <td colspan=8>
-                    <core-collapse class="markets" id="{{c.id}}markets">
+                    <core-collapse class="markets" id="{{item.currency.id}}markets">
                       <div vertical center layout>
                         <div class="heading" nowrap>Buy / sell {{c.name}} in the following market(s): </div>
                         <div center horizontal wrap layout>
-                          <template repeat="{{m in marketsFor(c.id)}}">
-                            <div class="market"><a href="/#/market/{{m.id}}">{{m.name}}</a>
+                          <template repeat="{{m in marketsFor(item.currency.id)}}">
+                            <div class="market"><a href="/#/marketpro/{{m.id}}">{{m.name}}</a>
                             </div>
                           </template>
                         </div>

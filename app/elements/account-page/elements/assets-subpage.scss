@@ -1,7 +1,8 @@
 @import "../../_colors";
-
+@import "../../_common";
 :host {
     display: block;
+    background: red;
 }
 table {
     width: 100%;
@@ -11,6 +12,13 @@ table {
 #table-container {
     background: white;
     color: $black1;
+    td {
+        text-align: right;
+        padding: 0 10px;
+        &[text-left] {
+            text-align: left;
+        }
+    }
     thead {
         color: $black2;
         td {
@@ -24,18 +32,9 @@ table {
         tr:nth-child(even) {
             background-color: $magic-grey;
             td {
-                padding: 0 10px;
-                &.part {
-                    color: $black2;
-                    font-weight: 700;
-                }
-                &.total {
-                    color: color($C3, a400);
-                    font-weight: 700;
-                }
                 &.op {
-                    color: $black3;
-                    text-align: center;
+                    color: $black1;
+                    text-align: center
                 }
             }
             &:hover {
@@ -44,10 +43,10 @@ table {
                     color: $white1;
                 }
                 td.op {
-                    background: color($C1, 400);
-                    color: $white3;
+                    background: color($grey, 800);
+                    color: white;
                     &:hover {
-                        color: white;
+                        color: color($C2, a700);
                     }
                 }
             }
@@ -64,12 +63,7 @@ table {
             }
             .market {
                 min-width: 120px;
-                a {
-                    color: white;
-                    &:hover {
-                        color: color($C2, a700);
-                    }
-                }
+                @include config-link-on-primary-color();
             }
         }
     }

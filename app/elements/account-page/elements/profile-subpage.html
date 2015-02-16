@@ -11,8 +11,10 @@
   <template>
     <link rel="stylesheet" href="profile-subpage.css">
     <section-group has-footer fit>
-      <div label>Profile</div>
       <paper-shadow z="1">
+        <div label>
+          <h2>Profile</h2>
+        </div>
         <div no-padding class="keyvalues" vertical layout>
           <div horizontal layout>
             <div>User ID</div>
@@ -50,21 +52,21 @@
           </div>
           <core-collapse id="enableGoogleAuthCollapse">
             <div>
-                <div class="outer" vertical center layout>
-                  <div class="inner" vertical center layout>
-                    <div>Scan the following QR code with your Google Authenticator app.</div>
-                    <div id="qrcode">
-                      <qr-code data="fdsjafldjsaljflsadjf;lajfldsa" size="200" margin="1"></qr-code>
-                    </div>
-                    <div>Input the 6-digit code (taggd with <span id="tag">COINPORT:{{profile.uid}}</span>) from your Google Authenticator
-                      app , then click OK.</div>
-                    <paper-input id="code" label="6-digit code"></paper-input>
-                    <div horizontal layout>
-                      <paper-button on-tap="{{toggleEnableGoogleAuth}}">Cancel</paper-button>
-                      <paper-button raised>OK</paper-button>
-                    </div>
+              <div class="outer" vertical center layout>
+                <div class="inner" vertical center layout>
+                  <div>Scan the following QR code with your Google Authenticator app.</div>
+                  <div id="qrcode">
+                    <qr-code data="fdsjafldjsaljflsadjf;lajfldsa" size="200" margin="1"></qr-code>
+                  </div>
+                  <div>Input the 6-digit code (taggd with <span id="tag">COINPORT:{{profile.uid}}</span>) from your Google Authenticator
+                    app , then click OK.</div>
+                  <paper-input id="code" label="6-digit code"></paper-input>
+                  <div horizontal layout>
+                    <paper-button on-tap="{{toggleEnableGoogleAuth}}">Cancel</paper-button>
+                    <paper-button raised>OK</paper-button>
                   </div>
                 </div>
+              </div>
             </div>
           </core-collapse>
 

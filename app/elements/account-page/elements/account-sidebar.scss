@@ -1,37 +1,23 @@
 @import "../../_colors";
-
-@mixin config-color($color) {
-    core-item {
-        &.core-selected {
-            background: color($color, 700);
-        }
-    }
-    core-submenu {
-        > core-item {
-            background: color($color, 400);
-        }
-    }
-}
 :host {
     height: 100%;
-    @include config-color($C1);
 }
 core-item {
-    font-weight: 400;
-    &.core-selected {
-        color: white;
-        font-weight: 500;
-    }
     &:hover {
         background: color($C2, a700);
     }
+    &.core-selected {
+        background: color($grey, 800);
+        color: white;
+        font-weight: 500;
+    }
 }
 core-submenu {
-    font-weight: 400;
     & > paper-item {
         font-size: 11px;
     }
     > core-item {
+        background: color($C1, 400);
         &.core-selected {
             background: color($C2, a700);
         }
@@ -52,6 +38,7 @@ core-submenu::shadow #submenu {
     border-radius: 0;
     margin: 0;
     color: white;
+    background: $black4;
     &:hover {
         background: color($C3, a400);
     }
