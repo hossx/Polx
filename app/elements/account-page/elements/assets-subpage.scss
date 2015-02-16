@@ -14,7 +14,6 @@ table {
     color: $black1;
     td {
         text-align: right;
-        padding: 0 10px;
         &[text-left] {
             text-align: left;
         }
@@ -22,16 +21,18 @@ table {
     thead {
         color: $black2;
         td {
+            padding: 0 10px;
             padding-bottom: 10px;
         }
     }
     tbody {
         tr:nth-child(odd) {
-            td {}
+            padding:0;
         }
         tr:nth-child(even) {
             background-color: $magic-grey;
             td {
+                padding: 0 10px;
                 &.op {
                     color: $black1;
                     text-align: center
@@ -55,7 +56,7 @@ table {
     .markets {
         >div {
             border-bottom: solid 10px white;
-            background: color($C1, 400);
+            background: color($C1, 500);
             padding: 15px;
             .heading {
                 color: $white2;

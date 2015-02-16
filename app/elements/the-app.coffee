@@ -153,13 +153,11 @@ Polymer 'the-app',
       ## private apis
       userOrdersUrl: (market) -> '%s/api/v2/user/orders?market=%s'.format(@base, market)
       userTradesUrl: (market) -> '%s/api/v2/user/trades?market=%s'.format(@base, market)
-      userProfileUrl: 'api_mock_my_profile.json'
-      userAssetsUrl:  'api_mock_my_assets.json'
       userDepositsUrl: (coin) -> 'api_mock_my_deposits.json'
       userCancelOrdersUrl: () -> '%s/api/v2/user/cancel_orders'.format(@base)
       userSubmitOrdersUrl: () -> '%s/api/v2/user/submit_orders'.format(@base)
       userBalanceUrl: () -> '%s/api/v2/user/balance'.format(@base)
-
+      userProfileUrl: () -> '%s/api/v2/user/profile'.format(@base)
 
   processDocuments: (config) ->
     tagMap = {}

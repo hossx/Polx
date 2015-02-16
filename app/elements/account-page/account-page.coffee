@@ -10,15 +10,8 @@ Polymer 'account-page',
       myAccount: "我的账号"
       tradeTooltip: "交易"
 
-  profileUrl: ''
-  profileResp: null
-  profile: null
   currencyId: ""
+  page: "profile"
 
   ready: () ->
     @M = @msgMap[window.lang]
-    @profileUrl = window.protocol.userProfileUrl
-
-  profileRespChanged: (o, n) ->
-    if @profileResp and @profileResp.code == 0
-      window.profile = @profile = @profileResp.data

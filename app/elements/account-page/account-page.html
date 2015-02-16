@@ -9,6 +9,7 @@
 <link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../cp-page/cp-right-drawer-page.html">
 <link rel="import" href="../section-group/section-group.html">
+<link rel="import" href="../coinport-api/api-my-profile.html">
 <link rel="import" href="elements/account-sidebar.html">
 <link rel="import" href="elements/profile-subpage.html">
 <link rel="import" href="elements/assets-subpage.html">
@@ -18,7 +19,7 @@
   <template>
     <link rel="stylesheet" href="account-page.css">
 
-    <core-ajax id="profileAjax" url="{{profileUrl}}" response="{{profileResp}}" auto></core-ajax>
+     <api-my-profile id="ajax" profile="{{profile}}" auto></api-my-profile>
 
     <cp-right-drawer-page class="dpurple" backlink="/#/" label="{{M.myAccount}}" id="pages" page="{{page}}">
       <a href="/#/markets" id="shortcut">

@@ -10,41 +10,57 @@
 <polymer-element name="profile-subpage" attributes="profile">
   <template>
     <link rel="stylesheet" href="profile-subpage.css">
+
     <section-group has-footer fit>
       <paper-shadow z="1">
         <div label>
-          <h2>Profile</h2>
+          <h2>{{M.profile}}</h2>
         </div>
         <div no-padding class="keyvalues" vertical layout>
           <div horizontal layout>
-            <div>User ID</div>
+            <div>{{M.userId}}</div>
             <div flex>{{profile.uid}}</div>
           </div>
 
           <div horizontal layout>
-            <div>Name</div>
+            <div>{{M.name}}</div>
             <div flex>{{profile.name}}</div>
           </div>
 
           <div horizontal layout>
-            <div>Cellphone Number</div>
+            <div>Email</div>
+            <div flex>{{profile.email}}</div>
+          </div>
+
+          <div horizontal layout>
+            <div>{{M.cellphone}}</div>
             <div flex>{{profile.mobile}}</div>
           </div>
 
           <div horizontal layout>
-            <div>Public Profile URL</div>
-            <div flex><a href="/#/user/{{profile.uid}}">
-            https://exchange.coinport.com/#/user/{{profile.uid}}</a>
+            <div>{{M.apiTokens}}</div>
+            <div flex vertical layout>
+              <table>
+                <thead>
+                  <tr>
+                    <td>{{M.token}}</td>
+                    <td>{{M.secret}}</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <template repeat="{{pairs in profile.apiTokenPairs}}">
+                    <tr>
+                      <td>{{pairs[0]}}</td>
+                      <td>{{pairs[1]}}</td>
+                    </tr>
+                  </template>
+                </tbody>
+              </table>
             </div>
           </div>
 
           <div horizontal layout>
-            <div>API Token</div>
-            <div flex>{{profile.apiToken}}</div>
-          </div>
-
-          <div horizontal layout>
-            <div>Two-factor Auth Enabled</div>
+            <div>{{M.twoFactorAuth}}</div>
             <div flex>
               <paper-toggle-button checked?={{profile.googleAuthEnabled}} on-change="{{toggleEnableGoogleAuth}}"></paper-toggle-button>
             </div>
@@ -54,16 +70,15 @@
             <div>
               <div class="outer" vertical center layout>
                 <div class="inner" vertical center layout>
-                  <div>Scan the following QR code with your Google Authenticator app.</div>
+                  <div>{{M.twoFactorScanInstruction1}}</div>
                   <div id="qrcode">
                     <qr-code data="fdsjafldjsaljflsadjf;lajfldsa" size="200" margin="1"></qr-code>
                   </div>
-                  <div>Input the 6-digit code (taggd with <span id="tag">COINPORT:{{profile.uid}}</span>) from your Google Authenticator
-                    app , then click OK.</div>
-                  <paper-input id="code" label="6-digit code"></paper-input>
+                  <div>{{twoFactorScanInstruction2}}</div>
+                  <paper-input id="code" label="{{M.inputPlaceholder}}"></paper-input>
                   <div horizontal layout>
                     <paper-button on-tap="{{toggleEnableGoogleAuth}}">Cancel</paper-button>
-                    <paper-button raised>OK</paper-button>
+                    <paper-button raised>Confirm</paper-button>
                   </div>
                 </div>
               </div>
@@ -71,7 +86,7 @@
           </core-collapse>
 
           <div horizontal layout>
-            <div>Cellphone Verified</div>
+            <div>{{M.cellphoneVerified}}[TODO]</div>
             <div flex>
               <paper-toggle-button checked?={{profile.mobileVerified}} disabled></paper-toggle-button>
             </div>

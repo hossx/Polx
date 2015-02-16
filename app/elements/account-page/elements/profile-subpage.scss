@@ -8,11 +8,9 @@
 @include has-paper-toggle-button($C1);
 core-collapse {
     >div {
-        background: color($C1, 400);
-        color: white;
-        border-top: solid 1px $black4;
-        border-bottom: solid 1px $black4;
-        padding: 20px;
+        background: color($grey, 100);
+        color: $black1;
+        padding: 40px 20px;
         text-align: center;
     }
     paper-button:hover {
@@ -23,21 +21,22 @@ core-collapse {
         color: $black1;
         &:hover {
             background: color($C2, a700);
+            color: white;
         }
     }
 }
 #qrcode {
     padding: 20px;
     margin: 20px;
-    background: $white4;
+    background: $black4;
 }
 paper-input#code {
     /deep/ input[is=core-input] {
         font-size: 18px;
         text-align: center;
-        color: white;
+        color: $black1;
     }
 }
 span#tag {
-    color: color($C2, a700);
+    color: color($C1, 500);
 }
