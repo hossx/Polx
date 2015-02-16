@@ -1,12 +1,11 @@
 @import "../../_colors";
 @import "../../_common";
-
+@include has-simple-table();
 :host {
     display: block;
     color: $black1;
 }
 @include has-simple-table();
-@include has-primary-link();
 .label {
     font-weight: 700;
     color: $black2;

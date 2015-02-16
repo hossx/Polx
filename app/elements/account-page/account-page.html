@@ -21,7 +21,7 @@
 
      <api-my-profile id="ajax" profile="{{profile}}" auto></api-my-profile>
 
-    <cp-right-drawer-page class="dpurple" backlink="/#/" label="{{M.myAccount}}" id="pages" page="{{page}}">
+    <cp-right-drawer-page  backlink="/#/" label="{{M.myAccount}}" id="pages" page="{{page}}">
       <a href="/#/markets" id="shortcut">
         <core-tooltip label="{{M.tradeTooltip}}">
           <core-icon icon="swap-horiz"></core-icon>
@@ -29,13 +29,13 @@
       </a>
       <account-sidebar id="sidebar" selected="{{page}}"></account-sidebar>
       <section page="assets">
-        <assets-subpage profile="{{profile}}" page="{{page}}"></assets-subpage>
+        <assets-subpage active="{{page == 'assets'}}" profile="{{profile}}"></assets-subpage>
       </section>
       <section page="profile">
         <profile-subpage profile="{{profile}}"></profile-subpage>
       </section>
       <section page="deposit">
-        <deposit-subpage profile="{{profile}}" page="{{page}}" currencyId="{{currencyId}}"></deposit-subpage>
+        <deposit-subpage active="{{page == 'deposit'}}" profile="{{profile}}" currencyId="{{currencyId}}"></deposit-subpage>
       </section>
       <section page="withdraw">
         <section-group>

@@ -33,7 +33,7 @@ Polymer 'coinport-api',
       headers['X-XSRF-TOKEN'] = xsrf
       @headers = headers
       
-    console.debug("fetching : " + @url)
+    console.debug('fetching : "' + @url+'"')
     `this.super()`
 
   processError: (xhr) ->
@@ -55,6 +55,9 @@ Polymer 'coinport-api',
       @data = null
     else
       try
+        if window.logAjax
+          console.debug('"'+@url+'"')
+          console.debug(xhr.responseText)
         json = JSON.parse(xhr.responseText)
         if json and json.data
           @data = json.data

@@ -10,10 +10,10 @@
 <link rel="import" href="../../coinport-api/api-my-balance.html">
 
 
-<polymer-element name="assets-subpage" attributes="profile,page">
+<polymer-element name="assets-subpage" attributes="profile,active">
   <template>
     <link rel="stylesheet" href="assets-subpage.css">
-    <api-my-balance id="ajax" balance="{{balance}}" auto></api-my-balance>
+    <api-my-balance id="ajax" balance="{{balance}}"></api-my-balance>
 
     <section-group has-footer fit>
       <paper-shadow z="1">

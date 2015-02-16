@@ -153,11 +153,20 @@ Polymer 'the-app',
       ## private apis
       userOrdersUrl: (market) -> '%s/api/v2/user/orders?market=%s'.format(@base, market)
       userTradesUrl: (market) -> '%s/api/v2/user/trades?market=%s'.format(@base, market)
-      userDepositsUrl: (coin) -> 'api_mock_my_deposits.json'
       userCancelOrdersUrl: () -> '%s/api/v2/user/cancel_orders'.format(@base)
       userSubmitOrdersUrl: () -> '%s/api/v2/user/submit_orders'.format(@base)
       userBalanceUrl: () -> '%s/api/v2/user/balance'.format(@base)
       userProfileUrl: () -> '%s/api/v2/user/profile'.format(@base)
+      userDepositsUrl: (coin,limit,cursor) -> 
+        if coin
+          '%s/api/v2/user/deposits?currency=%s&limit=%s&cursor=%s'.format(@base,coin.toLowerCase(),limit,cursor)
+        else
+          '%s/api/v2/user/deposits?limit=%s&cursor=%s'.format(@base,limit,cursor)
+      userWithdrawalsUrl: (coin,limit,cursor) ->
+        if coin
+          '%s/api/v2/user/withdrawals?currency=%s&limit=%s&cursor=%s'.format(@base,coin.toLowerCase(),limit,cursor)
+        else
+          '%s/api/v2/user/withdrawals?limit=%s&cursor=%s'.format(@base,limit,cursor)
 
   processDocuments: (config) ->
     tagMap = {}
@@ -179,7 +188,6 @@ Polymer 'the-app',
     console.dir({"config": window.config, "protocol": window.protocol})
 
     window.state = {}
-    window.state.currencyId = "BTC"
 
     @initRouter()
 

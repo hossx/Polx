@@ -29,6 +29,15 @@ Polymer 'assets-subpage',
     @M = @msgMap[window.lang]
     @marketsFor = window.config.marketsForCurrency
 
+  observe: {
+    currencyId: 'onChange'
+    active: 'onChange'
+  }
+
+  onChange: () ->
+    if @active
+      this.$.ajax.go()
+
   currentCollapse: null
 
   openMarkets: (e, detail, sender) -> 

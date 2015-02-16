@@ -10,8 +10,8 @@ Polymer 'account-page',
       myAccount: "我的账号"
       tradeTooltip: "交易"
 
-  currencyId: ""
-  page: "profile"
+  page: "deposit"
+  currencyId: 'BTC'
 
   ready: () ->
     @M = @msgMap[window.lang]

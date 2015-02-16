@@ -1,3 +1,5 @@
+'use strict'
+
 Polymer 'member-page',
   msgMap:
     'zh':

@@ -1,37 +1,40 @@
 'use strict'
 
 Polymer 'deposit-subpage',
-  currency: null
-  address: 'afafaa'
+  msgMap:
+    'en':
+      id: "ID"
+      address: "Address"
+      transaction: "Transaction"
+      quantity: "Quantity"
+      timestamp: "Time"
+      deposit: "Deposit"
+      history: "Deposit Records"
+
+    'zh':
+      id: "ID"
+      address: "地址"
+      transaction: "转账记录"
+      quantity: "金额"
+      timestamp: "时间"
+      deposit: "充值"
+      history: "充值记录"
+
 
   ready: () ->
+    @M = @msgMap[window.lang]
     @config = window.config
-    @deposits = []
-    @currencyKeys = Object.keys(window.config.currencies)
-    @currencyId = window.state.currencyId
-    @currency = window.config.currencies[@currencyId]
-    @depositsUrl = window.protocol.userDepositsUrl(@currencyId)
+    @currencyKeys = Object.keys(@config.currencies)
+
+  address: 'afafaa'
 
   currencyIdChanged: (o, n) ->
-    if @page == "deposit"
-      window.state.currencyId = @currencyId
-      @currency = window.config.currencies[window.state.currencyId]
-      @deposits = []
-      @depositsUrl = window.protocol.userDepositsUrl(@currencyId)
+    console.log(@currencyId)
+    if @currencyId
+      @currency = @config.currencies[@currencyId]
 
-  pageChanged: (o, n) ->
-    if @page == "deposit"
-      @currencyId = window.state.currencyId
-      @currency = window.config.currencies[window.state.currencyId]
-      @deposits = []
-      @depositsUrl = window.protocol.userDepositsUrl(@currencyId)
+  loadMore: () -> this.$.depositsAjax.loadMore()
 
-  depositsRespChanged: (o, n) ->
-    if @depositsResp
-      if @depositsResp == ''
-        @fire('network-error', {'url': @depositsUrl})
-      else
-        @hasMore = @depositsResp.data.hasMore || false
-        @deposits.push @depositsResp.data.deposits...
-
-  loadMore: () -> this.$.depositsAjax.go() if @hasMore
+  formatTxUrl: (value) -> "http://aaaaa/" + value
+  formatTxLabel: (value) -> value.substring(0, 10) + "..."
+  formatTime: (t) -> moment(t).format("MM/DD-hh:mm:ss")
