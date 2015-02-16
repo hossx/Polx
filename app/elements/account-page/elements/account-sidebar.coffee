@@ -14,7 +14,7 @@ Polymer 'account-sidebar',
     'zh':
       logout: "登出"
       assets: "资产"
-      profile: "账号"
+      profile: "账户"
       deposit: "充值"
       withdrawal: "提现"
       orders: "订单"

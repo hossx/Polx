@@ -146,13 +146,13 @@ Polymer 'the-app',
       marketsTickersUrl: (coin) -> "%s/api/v2/%s/tickers".format(@base, coin.toLowerCase())
       marketTickerUrl: (market) -> "%s/api/v2/%s/ticker".format(@base, market.toLowerCase())
       marketDepthUrl: (market,limit) ->  "%s/api/v2/%s/depth?limit=%s".format(@base, market.toLowerCase(), limit)
-      marketTradesUrl: (market, limit) ->  "%s/api/v2/%s/trades?limit=%s".format(@base, market.toLowerCase(), limit)
+      marketTradesUrl: (market, limit) ->"%s/api/v2/%s/trades?limit=%s".format(@base, market.toLowerCase(), limit)
       marketKlineUrl: (market, interval, start, end) -> '%s/api/v2/%s/kline?interval=%s&start=%s&end=%s'.format(@base, market.toLowerCase(), interval, start, end)
       
 
       ## private apis
       userOrdersUrl: (market) -> '%s/api/v2/user/orders?market=%s'.format(@base, market)
-      userTradesUrl: (market) -> '%s/api/v2/user/trades?market=%s'.format(@base, market)
+
       userCancelOrdersUrl: () -> '%s/api/v2/user/cancel_orders'.format(@base)
       userSubmitOrdersUrl: () -> '%s/api/v2/user/submit_orders'.format(@base)
       userBalanceUrl: () -> '%s/api/v2/user/balance'.format(@base)
@@ -162,6 +162,7 @@ Polymer 'the-app',
           '%s/api/v2/user/deposits?currency=%s&limit=%s&cursor=%s'.format(@base,coin.toLowerCase(),limit,cursor)
         else
           '%s/api/v2/user/deposits?limit=%s&cursor=%s'.format(@base,limit,cursor)
+
       userWithdrawalsUrl: (coin,limit,cursor) ->
         if coin
           '%s/api/v2/user/withdrawals?currency=%s&limit=%s&cursor=%s'.format(@base,coin.toLowerCase(),limit,cursor)

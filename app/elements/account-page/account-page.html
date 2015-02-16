@@ -14,6 +14,7 @@
 <link rel="import" href="elements/profile-subpage.html">
 <link rel="import" href="elements/assets-subpage.html">
 <link rel="import" href="elements/deposit-subpage.html">
+<link rel="import" href="elements/trades-subpage.html">
 
 <polymer-element name="account-page" attributes="page,currencyId">
   <template>
@@ -38,17 +39,12 @@
         <deposit-subpage active="{{page == 'deposit'}}" profile="{{profile}}" currencyId="{{currencyId}}"></deposit-subpage>
       </section>
       <section page="withdraw">
-        <section-group>
-          <paper-shadow z="0">
-            withdrawal
-          </paper-shadow>
-        </section-group>
       </section>
       <section page="orders">
         <div> Orders</div>
       </section>
-      <section page="trading-history">
-        <div> Trading history</div>
+      <section page="trades">
+        <trades-subpage active="{{page == 'trades'}}" ></trades-trades>
       </section>
     </cp-right-drawer-page>
   </template>

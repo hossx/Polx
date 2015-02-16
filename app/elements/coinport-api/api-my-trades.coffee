@@ -1,19 +1,18 @@
 'use strict'
 
 Polymer 'api-my-trades',
-  marketId: null
-  cursor: 0
-  limit: 50
   trades: []
 
   observe:
     marketId: 'onChange'
-    cursor: 'onChange'
     limit: 'onChange'
+    cursor: 'onChange'
+
+  created: () ->
+    @updateUrl()
 
   onChange: () ->
-    if @marketId
-      @url = window.protocol.userTradesUrl(@marketId,@cursor,@limit)
+    @updateUrl()
 
   dataChanged: (o, n) ->
     if @data and @data.trades
@@ -23,3 +22,12 @@ Polymer 'api-my-trades',
 
       @hasMore = @data.hasMore
       @trades = @data.trades
+
+  updateUrl: () ->
+    base = window.config.api.base
+    limit = if @limit > 0 then @limit else 50
+    url = '%s/api/v2/user/trades?limit=%s'.format(base,limit)
+    url = url + '%cursor=' + @cursor if @cursor > 0
+    url = url + '&market=' + @marketId.toLowerCase() if @marketId
+    @url = url
+      

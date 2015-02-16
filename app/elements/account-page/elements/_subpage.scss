@@ -26,6 +26,19 @@ a {
         }
     }
 }
+
+.load-button {
+    padding: 5px 20px;
+    background: transparent;
+    color: $black2;
+    &:hover {
+        color: color($C1, 500);
+    }
+    &[disabled] {
+        color: $black4;
+    }
+}
+
 @media(min-width:480px) {
     .keyvalues {
         >div {
