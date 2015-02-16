@@ -1,53 +1,37 @@
 @import "../../_colors";
 @import "../../_common";
-:host {
-    display: block;
-    background: red;
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-}
+@include has-simple-table();
 #table-container {
-    background: white;
-    color: $black1;
-    td {
-        text-align: right;
-        &[text-left] {
-            text-align: left;
-        }
-    }
-    thead {
-        color: $black2;
-        td {
-            padding: 0 10px;
-            padding-bottom: 10px;
-        }
-    }
-    tbody {
-        tr:nth-child(odd) {
-            padding:0;
-        }
-        tr:nth-child(even) {
-            background-color: $magic-grey;
-            td {
-                padding: 0 10px;
-                &.op {
-                    color: $black1;
-                    text-align: center
-                }
+    table.simple {
+        tbody {
+            td.marketsContainer {
+                margin: 0;
+                padding: 0;
             }
-            &:hover {
-                background: color($C2, a700);
+            tr:nth-child(odd) {
+                padding: 0;
+            }
+            tr:nth-child(even) {
+                border-bottom: none;
                 td {
-                    color: $white1;
+                    margin: 0;
+                    padding: 0 10px;
+                    &.op {
+                        color: $black1;
+                        text-align: center
+                    }
                 }
-                td.op {
-                    background: color($grey, 800);
-                    color: white;
-                    &:hover {
-                        color: color($C2, a700);
+                &:hover {
+                    background: color($C2, a700);
+                    td {
+                        color: $white1;
+                    }
+                    td.op {
+                        background: color($grey, 800);
+                        color: white;
+                        &:hover {
+                            color: color($C2, a700);
+                        }
                     }
                 }
             }
