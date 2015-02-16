@@ -1,0 +1,22 @@
+@import "../../_colors";
+@import "../../_common";
+@import "_subpage";
+@include has-simple-table();
+@include config-link-on-white-color();
+
+.op {
+    paper-icon-button {
+        padding: 4px;
+        &::shadow core-icon {
+            height: 16px;
+            width: 16px;
+        }
+        color: $black2;
+        &:hover {
+            color: $black1;
+        }
+        &:hover {
+            color: color($C1, 500);
+        }
+    }
+}

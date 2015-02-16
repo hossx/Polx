@@ -148,10 +148,6 @@ Polymer 'the-app',
       marketDepthUrl: (market,limit) ->  "%s/api/v2/%s/depth?limit=%s".format(@base, market.toLowerCase(), limit)
       marketTradesUrl: (market, limit) ->"%s/api/v2/%s/trades?limit=%s".format(@base, market.toLowerCase(), limit)
       marketKlineUrl: (market, interval, start, end) -> '%s/api/v2/%s/kline?interval=%s&start=%s&end=%s'.format(@base, market.toLowerCase(), interval, start, end)
-      
-
-      ## private apis
-      userOrdersUrl: (market) -> '%s/api/v2/user/orders?market=%s'.format(@base, market)
 
       userCancelOrdersUrl: () -> '%s/api/v2/user/cancel_orders'.format(@base)
       userSubmitOrdersUrl: () -> '%s/api/v2/user/submit_orders'.format(@base)

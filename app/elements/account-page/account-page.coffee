@@ -10,7 +10,7 @@ Polymer 'account-page',
       myAccount: "我的账号"
       tradeTooltip: "交易"
 
-  page: "trades"
+  page: "orders"
   currencyId: 'BTC'
 
   ready: () ->

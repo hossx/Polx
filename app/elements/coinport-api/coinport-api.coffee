@@ -12,7 +12,6 @@ Polymer 'coinport-api',
   ready: ()->
     #@withCredentials = true
     @M = @msgMap[window.lang]
-    @withCredentials = true # enable CORS
     `this.super()`
 
   parseCookie: (name) ->
@@ -27,6 +26,7 @@ Polymer 'coinport-api',
     if kv and kv.value then kv.value else null
 
   go: () ->
+    @withCredentials = true # enable CORS
     xsrf = @parseCookie('XSRF-TOKEN')
     if xsrf
       headers = @headers or {}
@@ -39,8 +39,6 @@ Polymer 'coinport-api',
   processError: (xhr) ->
     @data = null
     if xhr.status == 401
-      window.profile = null
-      $.removeCookie('profile')
       @fire('user-logged-out')
     else if xhr.status == 500
       console.error("500 response seen for url: " + @url)

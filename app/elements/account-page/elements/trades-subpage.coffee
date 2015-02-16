@@ -33,4 +33,4 @@ Polymer 'trades-subpage',
     @config = window.config
 
   formatTime: (t) ->
-    moment(t).format("YYYY-MM/DD-hh:mm:ss") 
+    moment(t).format("YYYY-MM/DD-hh:mm") 

@@ -21,9 +21,6 @@ Polymer 'subpage-login',
   observe: {
     email: 'validateLoginForm'
     password: 'validateLoginForm'
-
-    profile: 'checkResult'
-    loading: 'checkResult'
   }
 
   ready: () ->

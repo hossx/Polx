@@ -38,7 +38,6 @@ Polymer 'the-router',
         @message = e.detail.message
         this.$.messageToast.show()
 
-
     @addEventListener 'user-request-logout', (e) -> 
       console.debug("------user-request-logout: " + JSON.stringify(window.profile))
       $.removeCookie('profile')
@@ -56,6 +55,7 @@ Polymer 'the-router',
 
     @addEventListener 'user-logged-out', (e) -> 
       console.debug("------user-logged-out")
+      window.profile = null
       @userLoggedIn = false
 
       if location.hash == '#/member/logout'
