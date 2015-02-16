@@ -11,7 +11,7 @@
 <polymer-element name="trades-subpage" attributes="profile,active">
   <template>
     <link rel="stylesheet" href="trades-subpage.css">
-    <api-my-trades id="ajax" trades="{{trades}}" hasMore="{{hasMore}}" auto></api-my-trades>
+    <api-my-trades id="ajax" limit="100" trades="{{trades}}" hasMore="{{hasMore}}" auto></api-my-trades>
     <section-group has-footer fit>
       <paper-shadow z="1">
         <div label>
@@ -23,7 +23,7 @@
             <thead>
               <tr>
                 <td>{{M.id}}</td>
-                <td>{{M.market}}</td>
+                <td text-right>{{M.market}}</td>
                 <td>{{M.type}}</td>
                 <td text-right>{{M.price}}</td>
                 <td text-right>{{M.quantity}}</td>
@@ -35,7 +35,7 @@
               <template repeat="{{record in trades}}">
                 <tr class="{{record.class}}">
                   <td>{{record.id}}</td>
-                  <td><a href="/#/marketpro/{{record.market}}">{{config.markets[record.market].name}}</a>
+                  <td text-right><a href="/#/marketpro/{{record.market}}">{{config.markets[record.market].name}}</a>
                   <td>{{M.types[record.class]}}</a>
                   </td>
                   <td text-right>
