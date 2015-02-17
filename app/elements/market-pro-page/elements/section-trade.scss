@@ -1,8 +1,8 @@
 @import "../../_colors";
 @import "../../_common";
-$border-color: color($C4, 900);
-$background-color: color($C4, 800);
-$head-background-color: color($C4, 500);
+$border-color: black;
+$background-color: color($C4, 900);
+$head-background-color: color($C4, 700);
 $head-height: 36px;
 
 :host {
