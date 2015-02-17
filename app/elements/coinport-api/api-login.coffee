@@ -4,7 +4,6 @@ Polymer 'api-login',
   email: ''
   password: ''
 
-  
   login: () ->
     headers = @headers or {}
     headers['Authorization'] = "Basic " + Base64.encode(@email + ":" + @password)

@@ -78,4 +78,5 @@ Polymer 'the-router',
 
     @addEventListener 'user-request-logout', (e) -> 
       console.debug("------user-request-logout")
+      this.$.logoutAjax.logout()
       @onUserLogOut()

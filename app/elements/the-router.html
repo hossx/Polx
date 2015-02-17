@@ -1,6 +1,4 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
-
-<link rel="import" href="../bower_components/core-ajax/core-ajax.html">
 <link rel="import" href="../bower_components/paper-toast/paper-toast.html">
 <link rel="import" href="member-page/member-page.html">
 <link rel="import" href="home-page/home-page.html">
@@ -12,10 +10,12 @@
 <link rel="import" href="currency-page/currency-page.html">
 <link rel="import" href="markdown-viewer/markdown-viewer.html">
 <link rel="import" href="notfound-page/notfound-page.html">
+<link rel="import" href="coinport-api/api-logout.html">
 
 <polymer-element name="the-router" flex>
   <template fit>
     <link rel="stylesheet" href="the-router.css">
+
     <app-router id="router" mode="hash" trailingSlash="ignore" on-state-change="{{stateChange}}">
       <app-route path="/" element="home-page"></app-route>
       <app-route path="/member" element="member-page"></app-route>
@@ -34,8 +34,10 @@
     </app-router>
 
     <paper-toast id="errorToast" duration="10000" text="{{error}}"></paper-toast>
-    <paper-toast id="warningToast" duration="7000" text="{{warning}}"></paper-oast>
-      <paper-toast id="messageToast" text="{{message}}"></paper-toast>
+    <paper-toast id="warningToast" duration="7000" text="{{warning}}"></paper-toast>
+    <paper-toast id="messageToast" text="{{message}}"></paper-toast>
+    <api-logout id="logoutAjax"></api-logout>
+
   </template>
 
   <script src="the-router.js"></script>
