@@ -39,7 +39,7 @@ Polymer 'coinport-api',
   processError: (xhr) ->
     @data = null
     if xhr.status == 401
-      @fire('user-logged-out')
+      @fire('user-access-denied')
     else if xhr.status == 500
       console.error("500 response seen for url: " + @url)
       @fire('display-message', {'error': @M.internalServiceError.format(@url)})

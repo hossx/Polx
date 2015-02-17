@@ -1,30 +1,61 @@
 'use strict'
 
 Polymer 'the-router',
-  userLoggedIn: false
-
   ready: ()->
     @setupEventListeners()
 
-    c = $.cookie('profile')
+  created: () ->
+    c = $.cookie('POLX_SESSION')
     if c
-      profile = JSON.parse(c)
-      window.profile = profile
-      @fire("user-logged-in")
+      console.debug(c)
+      try
+        window.profile = JSON.parse(c)
+        @onUserLoggedIn()
+      catch e
+        window.profile = null
+    
+    if not window.profile
+      console.log("No user logged in")
 
   stateChange: (e) ->
     path = e.detail.path
-    if @userLoggedIn
+    if window.profile # logged in
       if path == '/member/login' or path == '/member/forgetpwd'
         e.preventDefault()
         this.$.router.go('/account')
+      else if path == '/member/logged_out'
+        e.preventDefault()
+        this.$.router.go('/member/logout')
     else
       if path.indexOf('#/account') == 0
-        e.preventDefault()
+        e.stopPropagation()
         this.$.router.go('/member/login')
       else if path == '/member/logout'
         e.preventDefault()
         this.$.router.go('/member/logged_out')
+
+  removeCookies: () ->
+      $.removeCookie('POLX_SESSION')
+      $.removeCookie('PLAY_SESSION', {domain: '.coinport.com'}) # this will fail due to httpOnly
+      $.removeCookie('XSRF-TOKEN', {domain: '.coinport.com'})
+      $.removeCookie('COINPORT_COOKIE_TIMESTAMP', {domain: '.coinport.com'})
+      window.profile = null
+
+  onUserLoggedIn: () ->
+    console.debug("------user-logged-in: " + JSON.stringify(window.profile))
+    if location.hash == '#/member/login' or location.hash == '#/member/forgetpwd'
+      this.$.router.go('/account')
+    else if location.hash == '#/member/logged_out'
+      this.$.router.go('/member/logout')
+
+  onUserLogOut: () ->
+    @removeCookies()
+    console.debug("------user-logged-out")
+    if location.hash == '#/member/logout'
+      this.$.router.go('/member/logged_out')
+    else if location.hash.indexOf('#/account') == 0
+      this.$.router.go('/member/login') 
+      
 
   setupEventListeners: () ->
     @addEventListener 'display-message', (e) ->
@@ -38,29 +69,13 @@ Polymer 'the-router',
         @message = e.detail.message
         this.$.messageToast.show()
 
+    @addEventListener 'user-logged-in', (e) ->
+      @onUserLoggedIn()
+
+    @addEventListener 'user-access-denied', (e) -> 
+      console.debug("------user-access-denied")
+      @onUserLogOut()
+
     @addEventListener 'user-request-logout', (e) -> 
-      console.debug("------user-request-logout: " + JSON.stringify(window.profile))
-      $.removeCookie('profile')
-      $.removeCookie('PLAY_SESSION', {domain: '.coinport.com'}) # this will fail due to httpOnly
-      $.removeCookie('XSRF-TOKEN', {domain: '.coinport.com'})
-      $.removeCookie('COINPORT_COOKIE_TIMESTAMP', {domain: '.coinport.com'})
-      @fire('user-logged-out')
-
-    @addEventListener 'user-logged-in', (e) -> 
-      console.debug("------user-logged-in: " + JSON.stringify(window.profile))
-      @userLoggedIn = true
-
-      if location.hash == '#/member/login' or location.hash == '#/member/forgetpwd'
-        this.$.router.go('/account')
-
-    @addEventListener 'user-logged-out', (e) -> 
-      console.debug("------user-logged-out")
-      window.profile = null
-      @userLoggedIn = false
-
-      if location.hash == '#/member/logout'
-        this.$.router.go('/member/logged_out')
-      else if location.hash.indexOf('#/account') == 0
-        this.$.router.go('/member/login') 
-        
-
+      console.debug("------user-request-logout")
+      @onUserLogOut()

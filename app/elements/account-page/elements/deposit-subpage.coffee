@@ -29,7 +29,6 @@ Polymer 'deposit-subpage',
   address: 'afafaa'
 
   currencyIdChanged: (o, n) ->
-    console.log(@currencyId)
     if @currencyId
       @currency = @config.currencies[@currencyId]
 

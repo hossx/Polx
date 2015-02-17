@@ -16,6 +16,6 @@ Polymer 'api-login',
   dataChanged: (o, n) ->
     if @data
       @profile = @data
+      $.cookie('POLX_SESSION', JSON.stringify(@profile));
       window.profile = @profile
-      $.cookie('profile', JSON.stringify(@profile));
       @fire('user-logged-in')
