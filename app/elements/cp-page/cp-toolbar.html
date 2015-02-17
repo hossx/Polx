@@ -17,9 +17,16 @@
       <a href="/#/currencies">
         <paper-button active?="[[toolbarSelect === '/currencies']]">{{M.currencies}}</paper-button>
       </a>
-      <a href="/#/account">
-        <paper-button active?="[[toolbarSelect === '/account']]">{{M.myAccount}}</paper-button>
-      </a>
+      <template if="{{window.profile}}">
+        <a href="/#/account">
+          <paper-button active?="[[toolbarSelect === '/account']]">{{M.myAccount}}</paper-button>
+        </a>
+      </template>
+      <template if="{{!window.profile}}">
+        <a href="/#/member/login">
+          <paper-button active?="[[toolbarSelect === '/account']]">{{M.myAccount}}</paper-button>
+        </a>
+      </template>
 
     </core-toolbar>
   </template>
