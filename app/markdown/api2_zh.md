@@ -6,7 +6,6 @@
 ##TODO(xiaolu)
 
 - 很多API的cursor实现不对，而且文档中没有说明cursor是对应返回数据的哪个field。另外cursor是“”的时候API应该正确返回。
-- 需要一个logout api，因为coinport.com domain的cookie用JS无法删除。
 ---
 
 ##我们开始吧
@@ -41,6 +40,7 @@
   | GET            | /api/v2/*{market}*/kline                          | 获取某市场的K线数据
   | POST           | /api/v2/register                                  | 新用户注册
   | GET            | /api/v2/login                                     | 用户登录
+  | GET            | /api/v2/logout                                    | 用户登出
   | GET            | /api/v2/user/profile                              | 读取授权用户的基本信息
   | GET            | /api/v2/user/balance                              | 读取用户的账户资产
   | GET            | /api/v2/user/trades                               | 读取用户交易记录
