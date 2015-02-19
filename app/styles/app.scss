@@ -22,3 +22,6 @@ a {
     color: $white1;
     font-size: 14px;
 }
+paper-button, paper-icon-button {
+    border-radius: 0;
+}

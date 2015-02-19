@@ -31,9 +31,9 @@
       <core-header-panel mode="seamed" main>
         <core-toolbar id="toolbar">
           <a href="/#/markets">
-            <paper-icon-button icon="arrow-back"></paper-icon-button>
+            <paper-icon-button noink icon="arrow-back"></paper-icon-button>
           </a>
-          <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
+          <paper-icon-button noink icon="menu" core-drawer-toggle></paper-icon-button>
           <div flex id="label">{{doclinks[file].label}}</div>
         </core-toolbar>
 
@@ -41,7 +41,7 @@
           <div>
             <marked-element id="marked" text="{{text}}"></marked-element>
           </div>
-          <cp-footer id="footer"></cp-footer>
+          <cp-footer dark id="footer"></cp-footer>
         </div>
 
       </core-header-panel>

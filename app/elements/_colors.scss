@@ -388,10 +388,6 @@ $C4: mutate($brown, 200, 0, 1%);
 $buy-color: $deep-orange;
 $sell-color: $green;
 
-$c1: #363d4a;
-$c2: #FE7665;
-$c3: #54AEAB;
-
 .buy {
     color: color($buy-color, 600);
 }

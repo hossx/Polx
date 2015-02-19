@@ -1,12 +1,11 @@
 @import "../_colors";
 @import "../_common";
-
 :host {
     display: inline-block;
     background: $white1;
     border: solid 1px $black4;
     color: $black1;
-    padding: 3px 8px;
+    padding: 0 8px;
     border-radius: 10px;
     font-size: 11px;
     font-weight: 500;
@@ -40,7 +39,7 @@
     }
 }
 :host(:hover) {
-    background: $black1;
+    background: color($C1, 800);
     color: $white1;
     #icon, #lead {
         color: $white2;
@@ -58,12 +57,11 @@ core-tooltip.fancy:hover::shadow .core-tooltip, core-tooltip.fancy:focus::shadow
 div[tip] {
     padding-top: 10px;
     background: $white1;
-    color:$black1;
+    color: $black1;
     > div {
         >div {
-        padding: 10px;
-        @include has-primary-link();
+            padding: 10px;
+            @include config-link-on-dark-color();
         }
     }
-
 }

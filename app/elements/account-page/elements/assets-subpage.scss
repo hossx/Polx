@@ -1,6 +1,6 @@
 @import "../../_colors";
 @import "../../_common";
-@include has-simple-table();
+@import "_subpage";
 #table-container {
     table.simple {
         tbody {

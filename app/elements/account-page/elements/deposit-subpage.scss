@@ -1,12 +1,10 @@
 @import "../../_colors";
 @import "../../_common";
-@include has-simple-table();
+@import "_subpage";
 :host {
     display: block;
     color: $black1;
 }
-@include has-simple-table();
-@include config-link-on-light-color();
 .label {
     font-weight: 700;
     color: $black2;
@@ -30,24 +28,24 @@
 .dropdownMenu {
     padding: 0 10px;
     min-width: 140px;
-    background: color($C1, 500);
+    background: color($C1, 800);
     color: $white1;
     font-weight: 700;
     padding: 0 10px;
     .dropdown {
         font-weight: 400;
-        background: color($C1, 400);
+        background: color($C1, 800);
         max-height: 400px;
         min-width: 160px;
         core-item {
             padding: 0 10px;
-            color: $white1;
             &:hover {
-                background: color($C2, a700);
+                background: color($C2, a400);
             }
             &[active] {
-                background: color($C1, 700);
+                background: white;
                 font-weight: 400;
+                color: $black1;
             }
         }
     }
@@ -63,4 +61,3 @@
     background: $black4;
     padding: 20px;
 }
-

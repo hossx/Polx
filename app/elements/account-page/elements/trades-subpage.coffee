@@ -22,7 +22,7 @@ Polymer 'trades-subpage',
       price: "成交价"
       quantity: "成交量"
       total: "成交额"
-      time: "时间"
+      time: "成交时间"
       type: "类型"
       types:
         buy: "买入"

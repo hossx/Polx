@@ -42,17 +42,17 @@
                   <td text-right><nice-number p="4" v="{{item.pending}}"></nice-number></td>
                   <td class="op">
                     <core-tooltip label="{{M.trade}}{{item.currency.name}}">
-                      <paper-icon-button on-tap="{{openMarkets}}" id="{{item.currency.id}}" icon="swap-horiz"></paper-icon-button>
+                      <paper-icon-button noink on-tap="{{openMarkets}}" id="{{item.currency.id}}" icon="swap-horiz"></paper-icon-button>
                     </core-tooltip>
                   </td>
                   <td class="op">
                     <core-tooltip label="{{M.deposit}}{{item.currency.name}}">
-                      <paper-icon-button currencyId="{{item.currency.id}}" on-tap="{{gotoDeposit}}" icon="communication:call-received"></paper-icon-button>
+                      <paper-icon-button noink currencyId="{{item.currency.id}}" on-tap="{{gotoDeposit}}" icon="communication:call-received"></paper-icon-button>
                     </core-tooltip>
                   </td>
                   <td class="op">
                     <core-tooltip label="{{M.withdraw}}{{item.currency.name}}">
-                      <paper-icon-button currencyId="{{item.currency.id}}" on-tap="{{gotoWithdraw}}" icon="communication:call-made"></paper-icon-button>
+                      <paper-icon-button noink currencyId="{{item.currency.id}}" on-tap="{{gotoWithdraw}}" icon="communication:call-made"></paper-icon-button>
                     </core-tooltip>
                   </td>
                 </tr>

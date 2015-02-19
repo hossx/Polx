@@ -1,5 +1,6 @@
 @import "../_colors";
 @import "../_common";
+@include config-link-on-light-color();
 :host {
     box-sizing: border-box;
 }
@@ -18,7 +19,6 @@ cp-page {
 .small-section {
     padding: 10px 40px;
 }
-@include has-primary-link();
 #branding {
     background: color($C2, 500);
     color: $white1;
