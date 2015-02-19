@@ -2,6 +2,7 @@
 
 Polymer 'api-my-trades',
   trades: []
+  hasMore: false
 
   observe:
     marketId: 'onChange'
@@ -15,13 +16,17 @@ Polymer 'api-my-trades',
     @updateUrl()
 
   dataChanged: (o, n) ->
-    if @data and @data.trades
+    if @data
+      @hasMore = @data.hasMore
       for item in @data.trades
         item.class = if item.isSell then "sell" else "buy"
         item.total = item.amount * item.price
 
       @hasMore = @data.hasMore
       @trades = @data.trades
+
+  loadMore: () ->
+    console.log("load more...")
 
   updateUrl: () ->
     base = window.config.api.base

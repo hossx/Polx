@@ -9,11 +9,11 @@
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../crypto-address/crypto-address.html">
 <link rel="import" href="../../coinport-api/api-my-orders.html">
+<link rel="import" href="../../load-data-widget/load-data-widget.html">
 
 <polymer-element name="orders-subpage" attributes="profile,active">
   <template>
     <link rel="stylesheet" href="orders-subpage.css">
-    <api-my-orders id="ajax" limit="100" orders="{{orders}}" hasMore="{{hasMore}}" auto></api-my-orders>
     <section-group hasFooter="true" fit>
       <paper-shadow z="0">
         <div label>
@@ -69,8 +69,8 @@
               </template>
             </tbody>
           </table>
-
-          <paper-button noink class="load-button" disabled?="{{!hasMore}}" on-tap="{{loadMore}}">Load more</paper-button>
+          <api-my-orders id="ajax" limit="10" orders="{{orders}}" hasMore="{{hasMore}}" loading="{{loading}}" loadMore="{{loadMore}}" auto></api-my-orders>
+          <load-data-widget hasMore="{{hasMore}}" loading="{{loading}}" data="{{orders}}" loadMore="{{loadMore}}"></load-data-widget>
         </div>
       </paper-shadow>
     </section-group>

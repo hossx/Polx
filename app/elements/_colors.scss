@@ -408,3 +408,7 @@ $sell-color: $green;
 .down {
     color: color($buy-color, 500);
 }
+
+paper-button, paper-icon-button {
+    border-radius: 0;
+}

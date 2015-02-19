@@ -32,7 +32,7 @@
                 <th>{{M.type}}</th>
                 <th>{{M.userId}}</th>
                 <th text-right>{{M.amount}}</th>
-                <th>{{M.timestamp}}</th>
+                <th text-right>{{M.timestamp}}</th>
               </tr>
             </thead>
             <tbody>
@@ -48,7 +48,7 @@
                   <td text-right>
                     <nice-number v="{{tx.amount}}" p="4"></nice-number>
                   </td>
-                  <td>{{tx.created | formatTime}}</td>
+                  <td text-right>{{tx.created | formatTime}}</td>
                 </tr>
               </template>
             </tbody>
@@ -68,7 +68,7 @@
               <tr>
                 <th>{{M.file}}</th>
                 <th>{{M.size}}</th>
-                <th>{{M.timestamp}}</th>
+                <th text-right>{{M.timestamp}}</th>
               </tr>
             </thead>
             <tbody>
@@ -79,7 +79,7 @@
                       {{snapshot[0]}}<core-icon class="small" icon="file-download"></core-icon></a>
                   </td>
                   <td>{{snapshot[1]}} Bytes</td>
-                  <td>{{snapshot[2] | formatTime}}</td>
+                  <td text-right>{{snapshot[2] | formatTime}}</td>
                 </tr>
               </template>
             </tbody>

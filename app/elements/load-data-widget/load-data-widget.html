@@ -1,0 +1,23 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-spinner/paper-spinner.html">
+
+<polymer-element name="load-data-widget" attributes="hasMore,loading,data,loadMore">
+  <template>
+    <link rel="stylesheet" href="load-data-widget.css">
+
+    <template if="{{!loading && (data == undefined || data == null || data.length == 0)}}">
+      <div id="empty">
+        {{M.empty}}
+      </div>
+    </template>
+
+    <template if="{{!loading}}">
+      <paper-button noink id="button" disabled?="{{!hasMore}}" on-tap="{{loadMore}}">{{M.loadMore}}</paper-button>
+    </template>
+    <template if="{{loading}}">
+      <paper-spinner active?="{{loading}}"></paper-spinner>
+    </template>
+  </template>
+  <script src="load-data-widget.js"></script>
+</polymer-element>

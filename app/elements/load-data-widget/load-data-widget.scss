@@ -1,0 +1,19 @@
+@import "../_colors";
+@import "../_common";
+@include has-paper-spinner();
+:host {
+    padding: 10px;
+}
+#button {
+    padding: 5px;
+    margin: 20px;
+    background: transparent;
+    border-radius: 0;
+    color: $black1;
+    &:hover {
+        background: color($C1, 100);
+    }
+    &[disabled] {
+        color: $black3;
+    }
+}

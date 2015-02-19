@@ -7,11 +7,12 @@
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../crypto-address/crypto-address.html">
 <link rel="import" href="../../coinport-api/api-my-trades.html">
+<link rel="import" href="../../load-data-widget/load-data-widget.html">
 
 <polymer-element name="trades-subpage" attributes="profile,active">
   <template>
     <link rel="stylesheet" href="trades-subpage.css">
-    <api-my-trades id="ajax" limit="100" trades="{{trades}}" hasMore="{{hasMore}}" auto></api-my-trades>
+
     <section-group hasFooter="true" fit>
       <paper-shadow z="0">
         <div label>
@@ -36,26 +37,26 @@
                 <tr class="{{record.class}}">
                   <td>{{record.id}}</td>
                   <td text-right><a href="/#/marketpro/{{record.market}}">{{config.markets[record.market].name}}</a>
-                  <td>{{M.types[record.class]}}</a>
-                  </td>
-                  <td text-right>
-                    <nice-number class="{{record.class}}" v="{{record.price}}"></nice-number>
-                  </td>
-                  <td text-right>
-                    <nice-number p="4" v="{{record.amount}}"></nice-number>
-                  </td>
-                  <td text-right>
-                    <nice-number v="{{record.total}}"></nice-number>
-                  </td>
-                  <td text-right>
-                    {{record.timestamp |formatTime}}
-                  </td>
+                    <td>{{M.types[record.class]}}</a>
+                    </td>
+                    <td text-right>
+                      <nice-number class="{{record.class}}" v="{{record.price}}"></nice-number>
+                    </td>
+                    <td text-right>
+                      <nice-number p="4" v="{{record.amount}}"></nice-number>
+                    </td>
+                    <td text-right>
+                      <nice-number v="{{record.total}}"></nice-number>
+                    </td>
+                    <td text-right>
+                      {{record.timestamp |formatTime}}
+                    </td>
                 </tr>
               </template>
             </tbody>
           </table>
-
-          <paper-button noink class="load-button" disabled?="{{!hasMore}}" on-tap="{{loadMore}}">Load more</paper-button>
+          <api-my-trades id="ajax" limit="100" trades="{{trades}}" hasMore="{{hasMore}}" loading="{{loading}}" loadMore="{{loadMore}}" auto></api-my-trades>
+          <load-data-widget hasMore="{{hasMore}}" loading="{{loading}}" data="{{trades}}" loadMore="{{loadMore}}"></load-data-widget>
         </div>
       </paper-shadow>
     </section-group>

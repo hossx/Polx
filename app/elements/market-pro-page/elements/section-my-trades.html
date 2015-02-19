@@ -1,19 +1,6 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../coinport-api/api-my-trades.html">
-<link rel="import" href="no-record.html">
 
-<!--
-amount: 0.001
-id: "1000001642192001"
-isSell: true
-maker: "1000001418"
-maker_order_id: "1000001640705"
-price: 1380
-taker: "1000000002"
-taker_order_id: "1000001642192"
-timestamp: 1423477405381
-
--->
 <polymer-element name="section-my-trades" attributes="marketId" vertical center layout>
   <template>
     <link rel="stylesheet" href="section-my-trades.css">
@@ -53,7 +40,6 @@ timestamp: 1423477405381
         </template>
       </tbody>
     </table>
-    <no-record records="{{trades}}"></no-record>
   </template>
   <script src="section-my-trades.js"></script>
 </polymer-element>

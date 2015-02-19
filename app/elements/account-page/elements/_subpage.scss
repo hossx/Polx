@@ -24,20 +24,6 @@
     }
 }
 
-.load-button {
-    padding: 5px;
-    margin: 20px;
-    background: transparent;
-    border-radius: 0;
-    color: $black1;
-    &:hover {
-        background: color($C1, 100);
-    }
-    &[disabled] {
-        color: $black3;
-    }
-}
-
 @media(min-width:480px) {
     .keyvalues {
         >div {

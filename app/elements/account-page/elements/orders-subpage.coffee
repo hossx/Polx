@@ -56,4 +56,3 @@ Polymer 'orders-subpage',
 
   formatTime: (t) ->
     moment(t).format("YYYY-MM/DD-hh:mm") 
-
