@@ -22,15 +22,12 @@
                     }
                 }
                 &:hover {
-                    background: color($C2, a700);
-                    td {
-                        color: $white1;
-                    }
+                    background: color($C2, a400);
                     td.op {
                         background: color($grey, 800);
                         color: $white1;
                         &:hover {
-                            color: color($C2, a700);
+                            color: color($C2, a400);
                         }
                     }
                 }
@@ -40,7 +37,7 @@
     .markets {
         >div {
             border-bottom: solid 10px $white1;
-            background: color($C1, 500);
+            background: color($C1, 800);
             padding: 15px;
             .heading {
                 color: $white2;

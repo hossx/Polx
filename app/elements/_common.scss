@@ -38,6 +38,7 @@
         text-decoration: none;
         &:hover {
             text-decoration: underline;
+            color: color($C2, a400);
         }
     }
 }
@@ -223,7 +224,31 @@
         display: block;
         padding: 20px;
         box-sizing: border-box;
-        animation: fadein 2s;
+        animation: fadein 400ms;
+        #shadow {
+            transition: 400ms cubic-bezier(0, 1, 1, 1);
+            background: color($C1, 50);
+            color: $black1;
+            border: 1px solid color($C1, 200);
+            a {
+                text-decoration: none;
+                color: $black1;
+            }
+            #box {
+                padding: 20px;
+            }
+            #head {
+                color: $black1;
+                font-weight: 700;
+                font-size: 16px;
+                text-align: center;
+                padding: 10px 0;
+                min-height: 25px;
+            }
+            &:hover {
+                border: 1px solid $black1;
+            }
+        }
     }
     @keyframes fadein {
         from {
@@ -232,29 +257,6 @@
         to {
             opacity: 1;
         }
-    }
-    a {
-        text-decoration: none;
-    }
-    #shadow {
-        transition: 2s cubic-bezier(0, 1, 1, 1);
-        background: color($C1, 100);
-        border: 1px solid color($C1, 200);
-        &:hover {
-            transform: scale(1.04);
-            background: color($C1, 200);
-        }
-    }
-    #box {
-        padding: 20px;
-    }
-    #head {
-        color: $black1;
-        font-weight: 700;
-        font-size: 16px;
-        text-align: center;
-        padding: 10px 0;
-        min-height: 25px;
     }
 }
 @mixin config-stats-card-group() {
