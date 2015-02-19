@@ -6,6 +6,7 @@
 ##TODO(xiaolu)
 
 - 很多API的cursor实现不对，而且文档中没有说明cursor是对应返回数据的哪个field。另外cursor是“”的时候API应该正确返回。
+- BUG: the hasMore value of /user/deposits is wrong
 
 ---
 

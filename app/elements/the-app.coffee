@@ -153,17 +153,6 @@ Polymer 'the-app',
       userSubmitOrdersUrl: () -> '%s/api/v2/user/submit_orders'.format(@base)
       userBalanceUrl: () -> '%s/api/v2/user/balance'.format(@base)
       userProfileUrl: () -> '%s/api/v2/user/profile'.format(@base)
-      userDepositsUrl: (coin,limit,cursor) -> 
-        if coin
-          '%s/api/v2/user/deposits?currency=%s&limit=%s&cursor=%s'.format(@base,coin.toLowerCase(),limit,cursor)
-        else
-          '%s/api/v2/user/deposits?limit=%s&cursor=%s'.format(@base,limit,cursor)
-
-      userWithdrawalsUrl: (coin,limit,cursor) ->
-        if coin
-          '%s/api/v2/user/withdrawals?currency=%s&limit=%s&cursor=%s'.format(@base,coin.toLowerCase(),limit,cursor)
-        else
-          '%s/api/v2/user/withdrawals?limit=%s&cursor=%s'.format(@base,limit,cursor)
 
   processDocuments: (config) ->
     tagMap = {}

@@ -4,6 +4,10 @@
 :host {
     padding: 10px;
 }
+.indicator {
+    padding: 20px;
+    color: $black3;
+}
 #button {
     padding: 5px;
     margin: 20px;
@@ -12,8 +16,5 @@
     color: $black1;
     &:hover {
         background: color($C1, 100);
-    }
-    &[disabled] {
-        color: $black3;
     }
 }

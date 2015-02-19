@@ -3,10 +3,12 @@
 Polymer 'load-data-widget',
   msgMap:
     'en':
-      empty: "No More Data"
+      empty: "No Data Available"
+      noMore: "No More Data"
       loadMore: "Load More"
     'zh':
-      empty: "无更多数据"
+      empty: "无数据"
+      noMore: "无更多数据"
       loadMore: "加载更多"
 
   ready: () ->

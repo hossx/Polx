@@ -29,10 +29,9 @@ Polymer 'deposit-subpage',
   address: 'afafaa'
 
   currencyIdChanged: (o, n) ->
+    @deposits = []
     if @currencyId
       @currency = @config.currencies[@currencyId]
-
-  loadMore: () -> this.$.depositsAjax.loadMore()
 
   formatTxUrl: (value) -> "http://aaaaa/" + value
   formatTxLabel: (value) -> value.substring(0, 10) + "..."
