@@ -380,8 +380,8 @@ $ice: (
 
 
 // color palette
-$C1: $light-blue;
-$C2: $light-green;
+$C1: $grey;
+$C2: $cyan;
 $C3: $deep-orange;
 $C4: mutate($brown, 200, 0, 1%);
 
@@ -391,9 +391,6 @@ $sell-color: $green;
 $c1: #363d4a;
 $c2: #FE7665;
 $c3: #54AEAB;
-
-$body-color: color($C1, 500);
-
 
 .buy {
     color: color($buy-color, 600);

@@ -16,8 +16,8 @@
     <core-ajax id="depositAddrAjax" url="{{depositAddrUrl}}" response="{{depositAddrResp}}" auto></core-ajax>
     <api-my-deposits id="depositsAjax" currencyId="{{currencyId}}" deposits="{{deposits}}" hasMore="{{hasMore}}" auto></api-my-deposits>
 
-    <section-group has-footer fit>
-      <paper-shadow z="1">
+    <section-group hasFooter="true" fit>
+      <paper-shadow z="0">
         <div label>
           <h2>{{M.deposit}}</h2>
         </div>
@@ -82,7 +82,7 @@
         </div>
       </paper-shadow>
 
-      <paper-shadow z="1">
+      <paper-shadow z="0">
         <div label>
           <h2>{{M.history}}</h2>
         </div>

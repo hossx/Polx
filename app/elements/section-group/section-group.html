@@ -2,14 +2,16 @@
 <link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../../bower_components/core-header-panel/core-header-panel.html">
 
-<polymer-element name="section-group" noscript flex vertical layout>
+<polymer-element name="section-group" attributes="hasFooter" noscript flex vertical layout>
   <template>
     <link rel="stylesheet" href="section-group.css">
     <core-header-panel flex mode="scroll">
       <div main horizontal center-justified layout>
         <div id="container" center center-justified vertical layout>
           <content></content>
-          <cp-footer id="footer"></cp-footer>
+          <template if="{{hasFooter}}">
+            <cp-footer dark id="footer"></cp-footer>
+          </template>
         </div>
       </div>
 

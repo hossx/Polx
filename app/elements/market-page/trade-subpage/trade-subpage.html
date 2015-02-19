@@ -19,7 +19,7 @@
 
     <core-ajax id="depthAjax" url="{{marketDepthUrl}}" handleAs="json" response="{{response}}" error="{{error}}" auto></core-ajax>
 
-    <section-group has-footer>
+    <section-group hasFooter="true" >
       <paper-shadow z="1">
         <div vertical layout>
           <toppending-card cross-fade bids="{{bids}}" asks="{{asks}}" market="{{market}}" smallup="{{smallup}}"></toppending-card>

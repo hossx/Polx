@@ -28,7 +28,7 @@
                     }
                     td.op {
                         background: color($grey, 800);
-                        color: white;
+                        color: $white1;
                         &:hover {
                             color: color($C2, a700);
                         }
@@ -39,7 +39,7 @@
     }
     .markets {
         >div {
-            border-bottom: solid 10px white;
+            border-bottom: solid 10px $white1;
             background: color($C1, 500);
             padding: 15px;
             .heading {
@@ -48,7 +48,7 @@
             }
             .market {
                 min-width: 120px;
-                @include config-link-on-primary-color();
+                @include config-link-on-dark-color();
             }
         }
     }

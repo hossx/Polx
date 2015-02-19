@@ -17,11 +17,11 @@ core-collapse {
         color: color($C2, a700);
     }
     paper-button[raised] {
-        background: white;
+        background: $white1;
         color: $black1;
         &:hover {
             background: color($C2, a700);
-            color: white;
+            color: $white1;
         }
     }
 }

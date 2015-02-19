@@ -21,7 +21,7 @@ cp-page {
 @include has-primary-link();
 #branding {
     background: color($C2, 500);
-    color: white;
+    color: $white1;
     text-shadow: 1px 1px $black3;
     width: 100%;
     position: relative;
@@ -40,14 +40,14 @@ cp-page {
         text-transform: uppercase;
         padding-bottom: 20px;
         font-weight: bold;
-        color: white;
+        color: $white1;
         animation: nameanimation 2s;
         animation-iteration-count: 1;
         animation-timing-function: ease;
     }
     #slogan {
         font-size: 18px;
-        color: white;
+        color: $white1;
         border-bottom: 2px solid $white1;
         font-weight: bold;
         animation: nameanimation 2s;
@@ -73,7 +73,7 @@ cp-page {
 }
 #announceWarning {
     background: color($C3, 400);
-    color: white;
+    color: $white1;
     border-bottom: 1px solid $black4;
     font-size: 14px;
     core-icon {
@@ -81,7 +81,7 @@ cp-page {
     }
 }
 #features {
-    background: white;
+    background: $white1;
     color: $black2;
     .feature {
         padding: 20px;
@@ -101,7 +101,7 @@ cp-page {
     }
 }
 #mobile {
-    color: white;
+    color: $white1;
     background-color: color($grey, 50);
     #words {
         #ready {

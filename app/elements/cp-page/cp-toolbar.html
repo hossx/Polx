@@ -12,19 +12,19 @@
       <span id="xyz"><span id="x">E</span><span id="y">X</span><span id="z">change</span></span></a>
       </div>
       <a href="/#/markets">
-        <paper-button active?="[[toolbarSelect === '/markets']]">{{M.markets}}</paper-button>
+        <paper-button noink active?="[[toolbarSelect === '/markets']]">{{M.markets}}</paper-button>
       </a>
       <a href="/#/currencies">
-        <paper-button active?="[[toolbarSelect === '/currencies']]">{{M.currencies}}</paper-button>
+        <paper-button noink active?="[[toolbarSelect === '/currencies']]">{{M.currencies}}</paper-button>
       </a>
       <template if="{{window.profile}}">
         <a href="/#/account">
-          <paper-button active?="[[toolbarSelect === '/account']]">{{M.myAccount}}</paper-button>
+          <paper-button noink active?="[[toolbarSelect === '/account']]">{{M.myAccount}}</paper-button>
         </a>
       </template>
       <template if="{{!window.profile}}">
         <a href="/#/member/login">
-          <paper-button active?="[[toolbarSelect === '/account']]">{{M.myAccount}}</paper-button>
+          <paper-button noink active?="[[toolbarSelect === '/account']]">{{M.myAccount}}</paper-button>
         </a>
       </template>
 

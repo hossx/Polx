@@ -22,7 +22,7 @@
             padding: 5px;
             font-weight: 700;
             font-size: 14px;
-            background: white;
+            background: $white1;
             border-bottom: solid 1px $magic-grey;
             color: $color;
             letter-spacing: 1px;
@@ -35,13 +35,13 @@
         font-weight: 800;
         height: 40px;
         &::shadow #ripple {
-            color: white;
+            color: $white1;
         }
         background: $black1;
-        color: white;
+        color: $white1;
         &:hover {
             background: $color;
-            color: white;
+            color: $white1;
         }
     }
     @media (min-width: 768px) {
@@ -52,12 +52,12 @@
             }
         }
         #action {
-            background: white;
+            background: $white1;
             color: $color;
             transition: background 420ms ease-in-out,color 420ms ease-in-out;
             &:hover {
                 background: $color;
-                color: white;
+                color: $white1;
             }
         }
     }

@@ -13,28 +13,24 @@
 
     <core-drawer-panel rightDrawer>
       <core-header-panel mode="seamed" id="drawer" drawer>
-        <core-toolbar id="menu-toolbar">
-          <div flex></div>
-          <content id="shortcut" select="#shortcut">
-          </content>
-         
-        </core-toolbar>
+        <content id="side-toolbar" select="#side-toolbar">
+        </content>
         <div main>
           <content select="#sidebar"></content>
         </div>
       </core-header-panel>
 
-      <core-header-panel mode="waterfall" main>
+      <core-header-panel mode="seamed" main>
         <core-toolbar class="core-header" id="toolbar">
           <a href="{{backlink}}" id="backlink">
-            <paper-icon-button icon="arrow-back"></paper-icon-button>
+            <paper-icon-button noink icon="arrow-back"></paper-icon-button>
           </a>
           <div flex id="label">{{label}}</div>
-          <paper-icon-button core-drawer-toggle icon="menu" core-drawer-toggle></paper-icon-button>
+          <paper-icon-button noink core-drawer-toggle icon="menu" core-drawer-toggle></paper-icon-button>
         </core-toolbar>
 
         <core-animated-pages main valueattr="page" fit id="pages" selected="{{page}}">
-          <content select="section"></content>
+          <content></content>
         </core-animated-pages>
       </core-header-panel>
     </core-drawer-panel>

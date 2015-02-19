@@ -1,15 +1,15 @@
 @import "../_colors";
 @import "../_common";
-$border-color: black;
+$border-color:$black1;
 $background-color: color($C4, 900);
-$head-background-color: color($C4, 700);
+$head-background-color: color($C4, 800);
 :host {
     box-sizing: border-box;
 }
 //
 #drawer {
     padding: 0;
-    background: white;
+    background: $white1;
 }
 #toolbar {
     @include config-toolbar();
@@ -45,7 +45,7 @@ $head-height: 36px;
             color: $white2;
             .title {
                 font-weight: 700;
-                color: white;
+                color: $white1;
                 font-size: 14px;
                 text-transform: uppercase;
             }

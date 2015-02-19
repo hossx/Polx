@@ -32,7 +32,7 @@
         }
     }
 }
-@mixin config-link-on-primary-color() {
+@mixin config-link-on-dark-color() {
     a {
         color: $white1;
         text-decoration: none;
@@ -41,12 +41,11 @@
         }
     }
 }
-@mixin config-link-on-white-color() {
+@mixin config-link-on-light-color() {
     a {
         color: $black1;
         text-decoration: none;
         &:hover {
-            color: color($C1, 500);
             text-decoration: underline;
         }
     }
@@ -123,25 +122,30 @@
     background-size: cover;
 }
 @mixin config-toolbar() {
-    background: white;
+    background: $white1;
     color: $black1;
     a {
+        color: $black1;
         height: 40px;
         text-decoration: none;
         font-size: 14px;
     }
-    core-button, paper-button, paper-icon-button {
+    paper-button, paper-icon-button {
+        border-radius: 0;
         color: $black1;
         margin: 0;
         min-width: 0;
         text-transform: uppercase;
         font-size: 14px;
         &:hover {
-            color: color($C2, a700);
+            background: color($C1, 100);
         }
         &[active] {
-            color: black;
-            font-weight: bold;
+            color: $white1;
+            background: color($C1, 800);
+        }
+        &[disabled] {
+            color: $black3;
         }
     }
     #label {
@@ -157,7 +161,7 @@
         text-decoration: none;
         font-size: 14px;
     }
-    core-button, paper-button, paper-icon-button {
+    paper-button, paper-icon-button {
         color: $white1;
         margin: 0;
         min-width: 0;
@@ -167,12 +171,150 @@
             color: color($C2, a700);
         }
         &[active] {
-            color: white;
+            color: $white1;
             font-weight: bold;
         }
     }
     #label {
         color: $white1;
         font-weight: bold;
+    }
+}
+@mixin config-sidebar-menu() {
+    a {
+        text-decoration: none;
+        color: $black1;
+    }
+    core-item {
+        padding-left: 20px;
+        &:hover {
+            background: color($C2, a400);
+        }
+        &[active], &.core-selected {
+            background: color($grey, 800);
+            color: $white1;
+        }
+    }
+    paper-tabs {
+        font-size: 13px;
+        font-weight: bold;
+        height: 64px;
+        &::shadow {
+            #tabsContainer {
+                background: color($C1, 200);
+                color: $black2;
+            }
+            #selectionBar {
+                background-color: $white1;
+            }
+        }
+        >paper-tab::shadow #ink {
+            color: color($C1, 50);
+        }
+        paper-tab[active] {
+            background: $white1;
+            color: $black1;
+        }
+    }
+}
+@mixin config-stats-card() {
+    :host {
+        width: 100%;
+        display: block;
+        padding: 20px;
+        box-sizing: border-box;
+        animation: fadein 2s;
+    }
+    @keyframes fadein {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    a {
+        text-decoration: none;
+    }
+    #shadow {
+        transition: 2s cubic-bezier(0, 1, 1, 1);
+        background: color($C1, 100);
+        border: 1px solid color($C1, 200);
+        &:hover {
+            transform: scale(1.04);
+            background: color($C1, 200);
+        }
+    }
+    #box {
+        padding: 20px;
+    }
+    #head {
+        color: $black1;
+        font-weight: 700;
+        font-size: 16px;
+        text-align: center;
+        padding: 10px 0;
+        min-height: 25px;
+    }
+}
+@mixin config-stats-card-group() {
+    @include has-paper-spinner();
+    :host {
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+        animation: fadein 2s;
+    }
+    @keyframes fadein {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    .canvas {
+        padding-top: 10px;
+        width: 100%;
+    }
+    .groupLabel {
+        padding-top: 20px;
+        font-size: 20px;
+        font-weight: 500;
+        color: $black1;
+        text-transform: uppercase;
+    }
+    .comment {
+        padding-bottom: 10px;
+        font-size: 12px;
+        color: $black2;
+    }
+    .card {
+        width: 100%;
+        max-width: 400px;
+    }
+    @media(min-width: 768px) and (max-width: 991px) {
+        .canvas {
+            width: 768px;
+        }
+        .card {
+            width: 50%;
+        }
+    }
+    @media(min-width: 992px) and (max-width: 1199px) {
+        .canvas {
+            width: 992px;
+        }
+        .card {
+            width: 33%;
+        }
+    }
+    @media(min-width: 1200px) {
+        .canvas {
+            width: 1200px;
+        }
+        .card {
+            width: 25%;
+        }
     }
 }

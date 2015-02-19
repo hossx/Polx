@@ -11,9 +11,9 @@
 @mixin config-widget() {
     .container {
         height: 100%;
-        background: white;
+        background: $white1;
 
-        @include config-link-on-white-color();
+        @include config-link-on-light-color();
     }
     .label {
         color: $black2;
@@ -61,7 +61,7 @@
         }
         #msg {
             padding: 40px 20px;
-            color: white;
+            color: $white1;
             background: color($C1, 500);
             word-wrap: break-word;
         }
@@ -79,7 +79,7 @@
                 background: color($C2, a700);
                 border: solid 1px color($C2, a700);
                 transition: background 420ms ease-in-out;
-                color: white;
+                color: $white1;
                 &:hover {
                     background: color($C2, a700);
                 }
@@ -94,7 +94,7 @@
         padding-top: 10px;
         padding-bottom: 20px;
         width: 100%;
-        background: white;
+        background: $white1;
         >div {
             padding: 0 10px;
         }
@@ -114,7 +114,7 @@
     }
     .input {
         background: color($C1, 500);
-        color: white;
+        color: $white1;
         $placeholder-color: $white1;
         &[focused] {
             color: color($C2, a700);

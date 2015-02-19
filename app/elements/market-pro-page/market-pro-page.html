@@ -7,7 +7,7 @@
 <link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html">
 <link rel="import" href="../../bower_components/core-icon/core-icon.html">
-<link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../bower_components/core-media-query/core-media-query.html">
 <link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../../bower_components/paper-tabs/paper-tab.html">
@@ -46,7 +46,7 @@
       <core-header-panel id="main-panel" mode="waterfall" main>
         <core-toolbar class="core-header" id="toolbar">
           <a href="/#/markets" id="backlink">
-            <paper-icon-button icon="arrow-back"></paper-icon-button>
+            <paper-icon-button noink icon="arrow-back"></paper-icon-button>
           </a>
           <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
           <div id="label">{{market.name}}</div>
@@ -55,7 +55,7 @@
           <div flex></div>
 
           <core-tooltip label="{{M.refreshTooltip}}" position="left">
-          <core-icon-button icon="refresh" id="refresh" on-tap="{{forceRefresh}}"></core-icon-button>
+            <paper-icon-button noink icon="refresh" id="refresh" on-tap="{{forceRefresh}}"></paper-icon-button>
           </core-tooltip>
           <a href="/#/market/{{marketId}}">
             <core-tooltip label="{{M.relaxMode}}" position="left">

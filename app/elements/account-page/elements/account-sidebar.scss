@@ -1,45 +1,13 @@
 @import "../../_colors";
-:host {
-    height: 100%;
-}
-core-item {
-    &:hover {
-        background: color($C2, a700);
-    }
-    &.core-selected {
-        background: color($grey, 800);
-        color: white;
-        font-weight: 500;
-    }
-}
-core-submenu {
-    & > paper-item {
-        font-size: 11px;
-    }
-    > core-item {
-        background: color($C1, 400);
-        &.core-selected {
-            background: color($C2, a700);
-        }
-    }
-    &.active, &[active] {
-        color: $white2;
-        core-item {
-            font-weight: 400;
-        }
-    }
-}
-core-submenu::shadow #submenu {
-    margin-left: 0px;
-    padding-left: 30px;
-}
+@import "../../_common";
+@include config-sidebar-menu();
 #logout {
     width: 100%;
     border-radius: 0;
     margin: 0;
-    color: white;
-    background: $black4;
+    color: $black1;
+    background: color($C2, 100);
     &:hover {
-        background: color($C3, a400);
+        background: color($C2, a400);
     }
 }

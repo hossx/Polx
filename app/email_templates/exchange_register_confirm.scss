@@ -19,7 +19,7 @@ body {
     border-top-right-radius: 5px;
     text-align: center;
     background: color($C1, 500);
-    color: white;
+    color: $white1;
     font-size: 14px;
     font-weight: 400;
     padding: 10px;
@@ -27,7 +27,7 @@ body {
 #content {
     border: solid 1px color($C1, 500);
     width: 100%;
-    background: white;
+    background: $white1;
     text-align: center;
     #box {
         width: 100%;
@@ -61,7 +61,7 @@ body {
             background: color($C2, a700);
             color: color($C2, a700);
             padding: 10px 10px;
-            color: white;
+            color: $white1;
             border-radius: 20px;
             &:hover {
                 background: color($C3, a400);

@@ -3,12 +3,12 @@
 div.divider {
     margin: 0 10px;
     width: 1px;
-    background: color($C1, 50)
+    background: color($C1, 100)
 }
 div.stat {
     padding: 0 10px;
     text-align: right;
-    color: color($C1, 500);
+    color: $black1;
     :first-child {
         font-weight: bold;
     }
