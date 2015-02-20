@@ -1,7 +1,8 @@
+'use strict'
+
 Polymer 'api-reserve-stats',
-  ready: () ->
-    `this.super()`
-    @url = window.protocol.currenciesReserveStatsUrl()
+  created: () ->
+    @url = '%s/api/v2/reserve_stats'.format(@base())
 
   dataChanged: (o, n) ->
     if @data

@@ -40,37 +40,40 @@
                 <tr class="{{order.operation}}">
                   <td>{{order.id}}</td>
                   <td text-right><a href="/#/marketpro/{{order.market}}">{{config.markets[order.market].name}}</a>
-                    <td>{{M[order.operation]}}</td>
-                    <td text-right>
-                      <nice-number v="{{order.price}}"></nice-number>
-                    </td>
-                    <td text-right>
-                      <nice-number p="4" v="{{order.amount}}"></nice-number>
-                    </td>
-                    <!--td text-right>
+                  </td>
+                  <td>{{M[order.operation]}}</td>
+                  <td text-right>
+                    <nice-number v="{{order.price}}"></nice-number>
+                  </td>
+                  <td text-right>
+                    <nice-number p="4" v="{{order.amount}}"></nice-number>
+                  </td>
+                  <!--td text-right>
                     <nice-number v="{{order.amount*order.price}}"></nice-number>
                   </td-->
-                    <td text-right>
-                      <nice-number p="4" v="{{order.dealed_amount}}"></nice-number>
-                    </td>
-                    <td text-right>
-                      {{order.created | formatTime}}
-                    </td>
-                    <td text-right>
-                      {{M.statuses[order.status]}}
-                    </td>
-                    <td class="op">
-                      <template if="{{order.status == 0 || order.status == 1}}">
-                        <core-tooltip label="{{M.cancelTip}}">
-                          <paper-icon-button orderId="{{order.id}}" on-tap="{{cancelOrder}}" icon="clear"></paper-icon-button </core-tooltip>
-                      </template>
-                    </td>
+                  <td text-right>
+                    <nice-number p="4" v="{{order.dealed_amount}}"></nice-number>
+                  </td>
+                  <td text-right>
+                    {{order.created | formatTime}}
+                  </td>
+                  <td text-right>
+                    {{M.statuses[order.status]}}
+                  </td>
+                  <td class="op">
+                    <template if="{{order.status == 0 || order.status == 1}}">
+                      <core-tooltip label="{{M.cancelTip}}">
+                        <paper-icon-button orderId="{{order.id}}" on-tap="{{cancelOrder}}" icon="clear"></paper-icon-button>
+                      </core-tooltip>
+                    </template>
+                  </td>
                 </tr>
               </template>
             </tbody>
           </table>
-          <api-my-orders id="ajax" limit="10" orders="{{orders}}" hasMore="{{hasMore}}" loading="{{loading}}" loadMore="{{loadMore}}" auto></api-my-orders>
-          <load-data-widget hasMore="{{hasMore}}" loading="{{loading}}" data="{{orders}}" loadMore="{{loadMore}}"></load-data-widget>
+
+          <api-my-orders id="ajax" limit="10" orders="{{orders}}" hasMore="{{hasMore}}" loading="{{loading}}" auto></api-my-orders>
+          <load-data-widget hasMore="{{hasMore}}" loading="{{loading}}" data="{{orders}}" on-load-more="{{loadMore}}"></load-data-widget>
         </div>
       </paper-shadow>
     </section-group>

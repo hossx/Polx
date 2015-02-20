@@ -9,10 +9,13 @@ Polymer 'coinport-api',
       serviceUnavailable: "币丰港服务暂时不可用。是不是你的网络有问题啦？"
       internalServiceError: "我们貌似遇到了一个后台服务内部错误，请联系币丰港客服提交一个bug吧。（URL: %s）"
 
+  base: () -> window.config.api.base
+  
   ready: ()->
+    `this.super()`
     #@withCredentials = true
     @M = @msgMap[window.lang]
-    `this.super()`
+    
 
   parseCookie: (name) ->
     pairs = document.cookie.split(/\s*;\s*/)

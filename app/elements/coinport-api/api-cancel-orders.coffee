@@ -1,3 +1,5 @@
+'use strict'
+
 Polymer 'api-cancel-orders',
 
   cancelOrder: (orderId) ->
@@ -5,7 +7,7 @@ Polymer 'api-cancel-orders',
       @contentType = 'application/json'
       @method = 'POST'
       @body ='{"order_ids": [%s]}'.format(orderId)
-      @url = window.protocol.userCancelOrdersUrl()
+      @url = '%s/api/v2/user/cancel_orders'.format(@base())
       @go()
 
   dataChanged: (o, n) ->

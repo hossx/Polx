@@ -9,15 +9,13 @@
 <link rel="import" href="../../nice-number/nice-number.html">
 <link rel="import" href="../../coinport-api/api-currency-transactions.html">
 <link rel="import" href="../../coinport-api/api-currency-balance-snapshots.html">
+<link rel="import" href="../../load-data-widget/load-data-widget.html">
 
 <polymer-element name="data-subpage" attributes="currency" flex>
   <template>
     <link rel="stylesheet" href="data-subpage.css">
 
-    <api-currency-transactions id="ajax1" currencyId="{{currency.id}}" transactions="{{transactions}}" hasMore="{{hasMoreTxs}}" auto></api-currency-transactions>
-    <api-currency-balance-snapshots id="ajax2" currencyId="{{currency.id}}" snapshots="{{snapshots}}" hasMore="{{hasMoreSnapshots}}" auto></api-currency-balance-snapshots>
-
-    <section-group hasFooter="true" >
+    <section-group hasFooter="true">
       <paper-shadow z="0">
         <div label>
           <h2>{{currency.name}} {{M.transactions}}</h2>
@@ -53,7 +51,10 @@
               </template>
             </tbody>
           </table>
-          <paper-button class="load-button" disabled?="{{!hasMoreTxs}}" on-tap="{{loadMoreTxs}}">Load more</paper-button>
+          <api-currency-transactions id="ajax1" currencyId="{{currency.id}}" transactions="{{transactions}}" hasMore="{{hasMoreTxs}}"
+          loading="{{loadingTxs}}" auto></api-currency-transactions>
+
+          <load-data-widget loading="{{loadingTxs}}" data="{{transactions}}" hasMore="{{hasMoreTxs}}" on-load-more="{{loadMoreTxs}}"></load-data-widget>
         </div>
       </paper-shadow>
 
@@ -84,7 +85,14 @@
               </template>
             </tbody>
           </table>
-          <paper-button class="load-button" disabled?="{{!hasMoreSnapshots}}" on-tap="{{loadMoreSnapshots}}">Load more</paper-button>
+
+          <api-currency-balance-snapshots id="ajax2" currencyId="{{currency.id}}" snapshots="{{snapshots}}" loading="{{LoadingSnapshots}}"
+          hasMore="{{hasMoreSnapshots}}" auto></api-currency-balance-snapshots>
+
+          <load-data-widget loading="{{LoadingSnapshots}}" data="{{snapshots}}" hasMore="{{hasMoreSnapshots}}"
+          on-load-more="{{loadMoreSnapshots}}"></load-data-widget>
+        </div>
+
         </div>
       </paper-shadow>
     </section-group>

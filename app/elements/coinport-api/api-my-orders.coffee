@@ -1,16 +1,17 @@
 'use strict'
 
 Polymer 'api-my-orders',
-  orders: []
   hasMore: false
+  orders: []
+
+  marketId: ''
+  limit: 40
+  cursor: 0
 
   observe:
     marketId: 'onChange'
     limit: 'onChange'
     cursor: 'onChange'
-
-  created: () ->
-    @updateUrl()
 
   onChange: () ->
     @updateUrl()
@@ -31,9 +32,8 @@ Polymer 'api-my-orders',
     console.log("load more......")
 
   updateUrl: () ->
-    base = window.config.api.base
     limit = if @limit > 0 then @limit else 50
-    url = '%s/api/v2/user/orders?limit=%s'.format(base,limit)
-    url = url + '%cursor=' + @cursor if @cursor > 0
+    url = '%s/api/v2/user/orders?limit=%s'.format(@base(),limit)
+    url = url + '&cursor=' + @cursor if @cursor > 0
     url = url + '&market=' + @marketId.toLowerCase() if @marketId
     @url = url

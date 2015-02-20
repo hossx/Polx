@@ -1,9 +1,9 @@
 'use strict'
 
 Polymer 'api-my-deposits',
-  currencyId: null
-  cursor: 0
+  currencyId: ''
   limit: 50
+  cursor: 0
 
   hasMore: false
   deposits: []
@@ -22,7 +22,7 @@ Polymer 'api-my-deposits',
   dataChanged: (o, n) ->
     if @data
       @hasMore = @data.hasMore
-      console.log("----")
+      console.log("api bug here----")
       console.log(@hasMore)
       @deposits = @data.deposits
 
@@ -31,9 +31,8 @@ Polymer 'api-my-deposits',
 
   updateUrl: () ->
     if @currencyId
-      base = window.config.api.base
       limit = if @limit > 0 then @limit else 50
-      url = '%s/api/v2/user/deposits?currency=%s&limit=%s'.format(base,@currencyId,limit)
-      url = url + '%cursor=' + @cursor if @cursor > 0
+      url = '%s/api/v2/user/deposits?currency=%s&limit=%s'.format(@base(),@currencyId,limit)
+      url = url + '&cursor=' + @cursor if @cursor > 0
       @url = url
 

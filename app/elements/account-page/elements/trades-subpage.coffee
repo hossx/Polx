@@ -34,3 +34,6 @@ Polymer 'trades-subpage',
 
   formatTime: (t) ->
     moment(t).format("YYYY-MM/DD-hh:mm") 
+
+  loadMore: () ->
+    this.$.ajax.loadMore()

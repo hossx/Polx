@@ -3,8 +3,8 @@
 
 Polymer 'api-my-withdrawals',
   currencyId: null
-  cursor: 0
   limit: 50
+  cursor: 0
 
   hasMore: false
   withdrawals: []
@@ -30,8 +30,7 @@ Polymer 'api-my-withdrawals',
 
   updateUrl: () ->
     if @currencyId
-      base = window.config.api.base
       limit = if @limit > 0 then @limit else 50
-      url = '%s/api/v2/user/withdrawals?currency=%s&limit=%s'.format(base,@currencyId,limit)
-      url = url + '%cursor=' + @cursor if @cursor > 0
+      url = '%s/api/v2/user/withdrawals?currency=%s&limit=%s'.format(@base(),@currencyId,limit)
+      url = url + '&cursor=' + @cursor if @cursor > 0
       @url = url

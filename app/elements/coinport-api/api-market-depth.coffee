@@ -1,21 +1,29 @@
+'use strict'
+
 Polymer 'api-market-depth',
-  
+  marketId: ''
   limit: 50
+  cursor: 0
+
   bids: []
   asks: []
   bidsReverse: []
   spread: 0
-
-  created: () ->
-    `this.super()`
-    @limit = window.config.viewParams.market.orderBookInitialSize
     
   observe:
-    limit: 'onChange'
     marketId: 'onChange'
+    limit: 'onChange'
+    cursor: 'onChange'
 
-  onChange: (o, n) ->
-    @url = window.protocol.marketDepthUrl(@marketId, @limit)
+  created: () -> @updateUrl()
+  onChange: (o, n) -> @updateUrl()
+
+  updateUrl: () ->
+    if @marketId
+      limit = if @limit > 0 then @limit else window.config.viewParams.market.orderBookInitialSize
+      url = '%s/api/v2/%s/depth?limit=%s'.format(@base(), @marketId.toLowerCase(), limit)
+      url = url + '&cursor=' + @cursor if @cursor > 0
+      @url = url
 
   dataChanged: (o, n) ->
     if @data

@@ -1,8 +1,11 @@
+'use strict';
+
 Polymer 'api-my-profile',
-  
-  ready: () ->
-    `this.super()`
-    @url = window.protocol.userProfileUrl()
+  created: () ->
+    @updateUrl()
 
   dataChanged: (o, n) ->
     @profile = @data if @data
+
+  updateUrl: () ->
+    @url = "%s/api/v2/user/profile".format(@base())

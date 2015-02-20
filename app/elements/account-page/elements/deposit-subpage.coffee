@@ -36,3 +36,6 @@ Polymer 'deposit-subpage',
   formatTxUrl: (value) -> "http://aaaaa/" + value
   formatTxLabel: (value) -> value.substring(0, 10) + "..."
   formatTime: (t) -> moment(t).format("MM/DD-hh:mm:ss")
+
+  loadMore: () ->
+    this.$.depositsAjax.loadMore()

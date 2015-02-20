@@ -13,3 +13,6 @@ Polymer 'load-data-widget',
 
   ready: () ->
     @M = @msgMap[window.lang]
+
+  loadMore: () ->
+    @fire("load-more")

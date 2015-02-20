@@ -3,18 +3,18 @@
 Polymer 'api-currency-balance-snapshots',
   hasMore: false
   continueLoading: false
-  cursor: '0'
+
+  currencyId: ''
   limit: 40
+  cursor: 0
 
   observe: {
-    currencyId: 'paramsChanged'
-    cursor: 'paramsChanged'
-    limit: 'paramsChanged'
+    currencyId: 'onChange'
+    limit: 'onChange'
+    cursor: 'onChange'
   }
 
-  paramsChanged: () ->
-    if @currencyId
-      @url = window.protocol.currencyBalanceSnapshotFilesUrl(@currencyId, @cursor, @limit)
+  onChange: () -> @updateUrl()
 
   dataChanged: (o, n) ->
     if @data
@@ -30,3 +30,9 @@ Polymer 'api-currency-balance-snapshots',
     @continueLoading = true
     @go()
 
+  updateUrl: () ->
+    if @currencyId
+      limit = if @limit > 0 then @limit else 40
+      url = '%s/api/v2/%s/balance_snapshot_files'.format(@base(), @currencyId.toLowerCase(), limit)
+      url = url + "&cursor=" + @cursor if @cursor > 0
+      @url = url
