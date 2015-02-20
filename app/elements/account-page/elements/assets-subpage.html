@@ -35,7 +35,7 @@
             <tbody>
               <template repeat="{{item in assets}}">
                 <tr>
-                  <td>{{item.currency.fullName}}</td>
+                  <td><a href="/#/currency/{{item.currency.id}}">{{item.currency.fullName}}</a></td>
                   <td text-right><nice-number p="4" v="{{item.total}}"></nice-number></td>
                   <td text-right><nice-number p="4" v="{{item.available}}"></nice-number></td>
                   <td text-right><nice-number p="4" v="{{item.locked}}"></nice-number></td>
