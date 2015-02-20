@@ -31,11 +31,11 @@
               <tr>
                 <td>{{M.index}}</td>
                 <td>{{M.takerOrderType}}</td>
-                <td>{{M.price}}</td>
-                <td>{{M.quantity}}</td>
-                <td>{{M.total}}</td>
-                <td>{{M.time}}</td>
-                <td>{{M.id}}</td>
+                <td text-right>{{M.price}}</td>
+                <td text-right>{{M.quantity}}</td>
+                <td text-right>{{M.total}}</td>
+                <td text-right>{{M.time}}</td>
+                <td text-right>{{M.id}}</td>
               </tr>
             </thead>
             <tbody>
@@ -49,19 +49,19 @@
                     <td class="buy">{{M.buy}}</td>
                   </template>
                   </td>
-                  <td>
+                  <td text-right>
                     <nice-number class="price {{trade.class}}" v="{{trade.price}}"></nice-number>
                   </td>
-                  <td>
+                  <td text-right>
                     <nice-number p="4" v="{{trade.amount}}"></nice-number>
                   </td>
-                  <td>
-                    <nice-number p="4" v="{{trade.total}}"></nice-number>
+                  <td text-right>
+                    <nice-number v="{{trade.total}}"></nice-number>
                   </td>
-                  <td>
+                  <td text-right>
                     {{trade.timestamp |formatTime}}
                   </td>
-                  <td>{{trade.id}}</td>
+                  <td text-right>{{trade.id}}</td>
                 </tr>
               </template>
             </tbody>
