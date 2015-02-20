@@ -4,6 +4,9 @@
     padding: 0;
     color: $black1;
     background: color($C1, 100);
+    /deep/ section {
+        background: white;
+    }
     /deep/ {
         @include config-sidebar-menu();
     }
@@ -11,6 +14,6 @@
 #toolbar {
     @include config-toolbar();
 }
-#pages {
+#main-pages {
     background: color($C1, 50);
 }

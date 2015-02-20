@@ -161,6 +161,10 @@
     a {
         text-decoration: none;
         color: $black1;
+        &:hover {
+            color: $black1;
+            text-decoration: none;
+        }
     }
     core-item {
         padding-left: 20px;
@@ -169,7 +173,7 @@
         }
         &[active], &.core-selected {
             background: color($C1, 900);
-            color: $white1;
+            color: $white1 !important;
         }
     }
     paper-tabs {
@@ -238,7 +242,7 @@
         width: 100%;
         display: block;
         box-sizing: border-box;
-        animation: fadein 2s;
+        animation: fadein 600ms;
     }
     @keyframes fadein {
         from {
