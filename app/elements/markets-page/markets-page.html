@@ -1,7 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../cp-media-query/cp-media-query.html">
 <link rel="import" href="../cp-page/cp-page.html">
-<link rel="import" href="../cp-footer/cp-footer.html">
 <link rel="import" href="elements/stats-card-group.html">
 
 <polymer-element name="markets-page">
@@ -9,7 +8,7 @@
     <link rel="stylesheet" href="markets-page.css">
 
     <cp-media-query smallup="{{smallup}}"></cp-media-query>
-    <cp-page primary-bg has-toolbar hasFooter="true" toolbarSelect="/markets">
+    <cp-page no-bg has-toolbar hasFooter="true" toolbarSelect="/markets">
       <template repeat="{{coin in marketGroupKeys}}">
         <stats-card-group currency="{{config.currencies[coin]}}" smallup="{{smallup}}"></stats-card-group>
       </template>

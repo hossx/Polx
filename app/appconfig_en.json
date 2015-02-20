@@ -5,13 +5,9 @@
       "color": "red",
       "notCripto": true,
       "fee": {
-        "deposit": {
-          "c": 0.3,
-          "p": 0.1
-        },
         "withdraw": {
-          "c": 0.3,
-          "p": 0.1
+          "p": 0.4,
+          "min": 2
         }
       },
       "tags": "人民币",
@@ -21,13 +17,8 @@
       "name": "Bitcoin",
       "color": "blue",
       "fee": {
-        "deposit": {
-          "c": 0.3,
-          "p": 0.1
-        },
         "withdraw": {
-          "c": 0.3,
-          "p": 0.1
+          "c": 0.0005
         }
       },
       "browser": {
@@ -42,13 +33,8 @@
       "color": "#f2f000",
       "officialSite": "http://litcoin.org",
       "fee": {
-        "deposit": {
-          "c": 0.3,
-          "p": 0.1
-        },
         "withdraw": {
-          "c": 0.3,
-          "p": 0.1
+          "c": 0.0005
         }
       },
       "browser": {
@@ -61,7 +47,12 @@
     "BTSX": {
       "name": "Bitshares",
       "tags": "比特股,Bitshare,BitsharesX,BTS",
-      "twitterWidgetId": "560707192261980160"
+      "twitterWidgetId": "560707192261980160",
+      "fee": {
+        "withdraw": {
+          "c": 2
+        }
+      }
     },
     "DOGE": {
       "name": "Dogecoin",
@@ -70,6 +61,11 @@
       "browser": {
         "addr": "https://coinplorer.com/DOGE/Addresses/%s",
         "tx": "https://coinplorer.com/DOGE/Transactions/%s"
+      },
+      "fee": {
+        "withdraw": {
+          "c": 2
+        }
       }
     },
     "BC": {
@@ -79,6 +75,11 @@
       "browser": {
         "addr": "https://coinplorer.com/BC/Addresses/%s",
         "tx": "https://coinplorer.com/BC/Transactions/%s"
+      },
+      "fee": {
+        "withdraw": {
+          "c": 0.0005
+        }
       }
     },
     "DRK": {
@@ -88,11 +89,21 @@
       "browser": {
         "addr": "https://coinplorer.com/DRK/Addresses/%s",
         "tx": "https://coinplorer.com/DRK/Transactions/%s"
+      },
+      "fee": {
+        "withdraw": {
+          "c": 0.0005
+        }
       }
     },
     "VRC": {
       "name": "VeriCoin",
-      "twitterWidgetId": "560706527330590720"
+      "twitterWidgetId": "560706527330590720",
+      "fee": {
+        "withdraw": {
+          "c": 0.0005
+        }
+      }
     },
     "ZET": {
       "name": "ZetaCoin",
@@ -100,6 +111,11 @@
       "browser": {
         "addr": "https://coinplorer.com/ZET/Addresses/%s",
         "tx": "https://coinplorer.com/ZET/Transactions/%s"
+      },
+      "fee": {
+        "withdraw": {
+          "c": 0.0005
+        }
       }
     },
     "NXT": {
@@ -108,12 +124,22 @@
       "browser": {
         "addr": "http://www.mynxt.info/account/%s",
         "tx": "http://www.mynxt.info/transaction/%s"
+      },
+      "fee": {
+        "withdraw": {
+          "c": 2
+        }
       }
     },
     "XRP": {
       "name": "Ripple",
       "tags": "瑞波币,Ripple,XRP",
-      "twitterWidgetId": "560707081905639424"
+      "twitterWidgetId": "560707081905639424",
+      "fee": {
+        "withdraw": {
+          "c": 1
+        }
+      }
     },
     "GOOC": {
       "notCripto": true,
@@ -130,16 +156,6 @@
           "totalPrecision": 2,
           "minSellAmountmt": 0.001,
           "minBuyAmount": 0.001,
-          "fee": {
-            "maker": {
-              "c": 0.3,
-              "p": 0.1
-            },
-            "taker": {
-              "constant": 0.3,
-              "percentage": 0.1
-            }
-          },
           "tags": ["featured"]
         },
         "LTC": {
@@ -147,16 +163,6 @@
           "totalPrecision": 2,
           "minSellAmountmt": 0.001,
           "minBuyAmount": 0.001,
-          "fee": {
-            "maker": {
-              "c": 0.3,
-              "p": 0.1
-            },
-            "taker": {
-              "c": 0.3,
-              "p": 0.1
-            }
-          },
           "tags": ["featured"]
         },
         "BTSX": {
@@ -170,7 +176,12 @@
         "GOOC": {
           "pricePrecision": 5,
           "quantityPrecision": 4,
-          "totalPrecision": 2
+          "totalPrecision": 2,
+          "fee": {
+            "trade": {
+              "p": 0.1
+            }
+          }
         }
       }
     },

@@ -8,6 +8,9 @@ Polymer 'cp-footer',
         links: [
           label: "Contact Us"
           url: "/#/doc/contactus"
+        ,
+          label: "Fees"
+          url: "/#/fees"
         ]
       ,
         label: "Legal"
@@ -56,6 +59,9 @@ Polymer 'cp-footer',
         ,
           label: "联系我们"
           url: "/#/doc/contactus"
+        ,
+          label: "费用"
+          url: "/#/fees"
         ]
       ,
         label: "法律"

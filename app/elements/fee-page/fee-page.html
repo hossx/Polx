@@ -1,0 +1,68 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="../cp-page/cp-page.html">
+<link rel="import" href="../section-group/section-group.html">
+
+<polymer-element name="fee-page">
+  <template>
+    <link rel="stylesheet" href="fee-page.css">
+    <cp-page has-toolbar toolbarSelect="/markets">
+      <section-group hasFooter="true" fit>
+        <paper-shadow z="0">
+          <div label>
+            <h2>{{M.depositWithdrawFees}}</h2>
+          </div>
+          <div vertical center layout>
+            <table class="simple">
+              <thead>
+                <tr>
+                  <td>{{M.currency}}</td>
+                  <td text-right>{{M.depositFee}}</td>
+                  <td text-right>{{M.withdrawFee}}</td>
+                </tr>
+              </thead>
+              <tbody>
+                <template repeat="{{fee in fees1}}">
+                  <tr>
+                    <td><a href="/#/currency/{{fee.currency.id}}">{{fee.currency.fullName}}</a></td>
+                    <td text-right>{{fee.deposit}}</td>
+                    <td text-right>{{fee.withdraw}}</td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </div>
+
+        </paper-shadow>
+
+        <paper-shadow z="0">
+          <div label>
+            <h2>{{M.tradingFees}}</h2>
+          </div>
+          <div vertical center layout>
+            <table class="simple">
+              <thead>
+                <tr>
+                  <td>{{M.market}}</td>
+                  <td text-right>{{M.sellerFee}}</td>
+                  <td text-right>{{M.buyerFee}}</td>
+                </tr>
+              </thead>
+              <tbody>
+                <template repeat="{{fee in fees2}}">
+                  <tr>
+                    <td><a href="/#/marketpro/{{fee.market.id}}">{{fee.market.name}}</a></td>
+                    <td text-right>{{fee.sellerFee}}</td>
+                    <td text-right>{{fee.buyerFee}}</td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </div>
+
+        </paper-shadow>
+      </section-group>
+    </cp-page>
+  </template>
+  <script src="fee-page.js"></script>
+</polymer-element>

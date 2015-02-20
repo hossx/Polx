@@ -7,6 +7,7 @@
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../crypto-address/crypto-address.html">
+<link rel="import" href="../../crypto-tx/crypto-tx.html">
 <link rel="import" href="../../coinport-api/api-my-deposits.html">
 <link rel="import" href="../../qr-code/qr-code.html">
 <link rel="import" href="../../load-data-widget/load-data-widget.html">
@@ -90,8 +91,10 @@
             <thead>
               <tr>
                 <th>{{M.id}}</th>
-                <th>{{currency.id}} {{M.address}}</th>
-                <th>{{currency.id}} {{M.transaction}}</th>
+                <template if="{{currency.isCrypto}}">
+                  <th>{{currency.id}} {{M.address}}</th>
+                  <th>{{currency.id}} {{M.transaction}}</th>
+                </template>
                 <th text-right>{{M.quantity}}</th>
                 <th>{{M.timestamp}}</th>
               </tr>
@@ -100,12 +103,15 @@
               <template repeat="{{d in deposits}}">
                 <tr>
                   <td>{{d.id}}</td>
-                  <td>
-                    <crypto-address currency="{{currency}}" addr="{{d.address}}"></crypto-address>
-                  </td>
-                  <td><a href="{{d.txid | formatTxUrl}}">{{d.txid | formatTxLabel}}</a>
-                  </td>
-                  <td text-right>
+                  <template if="{{currency.isCrypto}}">
+                    <td>
+                      <crypto-address currency="{{currency}}" addr="{{d.address}}"></crypto-address>
+                    </td>
+                    <td>
+                      <crypto-tx currency="{{currency}}" tx="{{d.txid}}"></crypto-tx>
+                    </td>
+                  </template>
+                  <td text-right class="deposit">
                     <nice-number v="{{d.amount}}" p="4"></nice-number>
                   </td>
                   <td>{{d.created | formatTime}}</td>
@@ -114,7 +120,8 @@
             </tbody>
           </table>
 
-          <api-my-deposits id="depositsAjax" currencyId="{{currencyId}}" deposits="{{deposits}}" loading="{{loading}}" hasMore="{{hasMore}}" loadMore="{{loadMore}}" auto></api-my-deposits>
+          <api-my-deposits id="depositsAjax" currencyId="{{currencyId}}" deposits="{{deposits}}" loading="{{loading}}" hasMore="{{hasMore}}"
+          loadMore="{{loadMore}}" auto></api-my-deposits>
           <load-data-widget hasMore="{{hasMore}}" loading="{{loading}}" data="{{deposits}}" loadMore="{{loadMore}}"></load-data-widget>
         </div>
       </paper-shadow>

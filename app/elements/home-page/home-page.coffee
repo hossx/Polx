@@ -18,7 +18,7 @@ Polymer 'home-page',
       support: "Supports Android 2.4.2 and up. iOS App coming soon."
       servedBy: "Powered by Coinport Technology Limited HK"
       #announceWarning: "This is the warning we can make."
-      announceInfo: "This is the info we can make."
+      #announceInfo: "This is the info we can make."
     'zh':
       coinport: "币丰港"
       slogan: "全透明数字资产交易平台"
@@ -35,6 +35,8 @@ Polymer 'home-page',
       download: "立即下载"
       support: "支持安卓2.4.2及以上版本. iOS App还在开发中。"
       servedBy: "币丰港交易平台由币丰港（香港）网络科技有限公司运营"
+      #announceWarning: "This is the warning we can make."
+      #announceInfo: "This is the info we can make."
 
 
   ready: () ->
@@ -43,5 +45,5 @@ Polymer 'home-page',
        "/images/bg-wooden.jpg"
       ],
       {duration: 3000, fade: 750})
-    $(this.$['mobile']).backstretch("/images/bg-desktop.jpg") #
+    $(this.$['mobile']).backstretch("/images/bg-desktop.jpg")
 

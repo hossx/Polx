@@ -33,8 +33,6 @@ Polymer 'deposit-subpage',
     if @currencyId
       @currency = @config.currencies[@currencyId]
 
-  formatTxUrl: (value) -> "http://aaaaa/" + value
-  formatTxLabel: (value) -> value.substring(0, 10) + "..."
   formatTime: (t) -> moment(t).format("MM/DD-hh:mm:ss")
 
   loadMore: () ->

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="home-page.css">
     <core-media-query query="min-width: 768px" queryMatches="{{smallup}}"></core-media-query>
 
-    <cp-page has-toolbar hasFooter="true">
+    <cp-page no-bg has-toolbar hasFooter="true">
       <div id="container" vertical layout>
         <template if="{{M.announceInfo && announceWarning === null}}">
           <div class="small-section" id="announceInfo" horizontal center-justified center layout>
@@ -56,7 +56,7 @@
 
           <div flex id="words" auto-vertical vertical center layout>
             <div id="ready">{{M.mobileReady}}</div>
-            <a href="#">
+            <a target="_blank" href="https://exchange.coinport.com/app/android/download">
               <paper-button raised id="download">{{M.download}}</paper-button>
             </a>
             <div id="supports">{{M.support}}</div>
@@ -70,7 +70,6 @@
           <img src="/images/watermark.png">
           <div>{{M.servedBy}}</div>
         </div>
-      </div>
       </div>
     </cp-page>
   </template>
