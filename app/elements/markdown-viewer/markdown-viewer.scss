@@ -2,27 +2,24 @@
 @import "../_common";
 @import "_markdown";
 
-#footer {
-    @include has-grey-link();
-}
-
 core-header-panel[main] {
-    background: white;
+    background: $white1;
 }
 #drawer {
-    background: white;
+    background: $white1;
     padding: 0;
+    @include config-sidebar-menu();
 }
 #toolbar, #drawer-toolbar {
     @include config-toolbar-dark();
 }
 #canvas {
-    background: white;
+    background: $white1;
     height: 100%;
 }
 #marked {
     padding: 40px 0 60px 0;
-    background: white;
+    background: $white1;
     color: $black1;
     display: block;
     height: 100%;

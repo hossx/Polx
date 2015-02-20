@@ -1,6 +1,6 @@
 @import "../../_colors";
 @import "../../_common";
-@include has-simple-table();
+@import "_subpage";
 #table-container {
     table.simple {
         tbody {
@@ -22,15 +22,12 @@
                     }
                 }
                 &:hover {
-                    background: color($C2, a700);
-                    td {
-                        color: $white1;
-                    }
+                    background: color($C2, a400);
                     td.op {
-                        background: color($grey, 800);
-                        color: white;
+                        background: color($C1, 900);
+                        color: $white1;
                         &:hover {
-                            color: color($C2, a700);
+                            color: color($C2, a400);
                         }
                     }
                 }
@@ -39,8 +36,8 @@
     }
     .markets {
         >div {
-            border-bottom: solid 10px white;
-            background: color($C1, 500);
+            border-bottom: solid 10px $white1;
+            background: color($C1, 900);
             padding: 15px;
             .heading {
                 color: $white2;
@@ -48,7 +45,7 @@
             }
             .market {
                 min-width: 120px;
-                @include config-link-on-primary-color();
+                @include config-link-on-dark-color();
             }
         }
     }

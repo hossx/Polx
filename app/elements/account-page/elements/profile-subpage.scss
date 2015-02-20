@@ -1,14 +1,13 @@
 @import "../../_colors";
 @import "../../_common";
 @import "_subpage";
-
+@include has-paper-toggle-button($C1);
 :host {
     display: block;
 }
-@include has-paper-toggle-button($C1);
 core-collapse {
     >div {
-        background: color($grey, 100);
+        background: color($C1, 100);
         color: $black1;
         padding: 40px 20px;
         text-align: center;
@@ -17,11 +16,11 @@ core-collapse {
         color: color($C2, a700);
     }
     paper-button[raised] {
-        background: white;
+        background: $white1;
         color: $black1;
         &:hover {
             background: color($C2, a700);
-            color: white;
+            color: $white1;
         }
     }
 }

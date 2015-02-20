@@ -12,7 +12,7 @@
     <div class="comment">{{refreshInterval | refreshFormatter}}</div>
     <div class="canvas" wrap?={{smallup}} layout center?={{!smallup}} vertical?={{!smallup}} horizontal?={{smallup}}>
       <template repeat="{{currencyId in currencieIds}}">
-        <reserve-card auto-vertical currencyId="{{currencyId}}" reserve="{{reserveStats[currencyId]}}"></reserve-card>
+        <reserve-card class="card" auto-vertical currencyId="{{currencyId}}" reserve="{{reserveStats[currencyId]}}"></reserve-card>
       </template>
     </div>
     <paper-spinner active?="{{reserveStats == null}}"></paper-spinner>

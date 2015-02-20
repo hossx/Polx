@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="home-page.css">
     <core-media-query query="min-width: 768px" queryMatches="{{smallup}}"></core-media-query>
 
-    <cp-page has-toolbar has-footer>
+    <cp-page has-toolbar hasFooter="true">
       <div id="container" vertical layout>
         <template if="{{M.announceInfo && announceWarning === null}}">
           <div class="small-section" id="announceInfo" horizontal center-justified center layout>

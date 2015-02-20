@@ -5,13 +5,14 @@
 <link rel="import" href="../../coinport-api/api-market-trade-history.html">
 
 <link rel="import" href="../../section-group/section-group.html">
+<link rel="import" href="../../load-data-widget/load-data-widget.html">
+
 <polymer-element name="trade-history-subpage" attributes="market,active" vertical layout>
   <template>
     <link rel="stylesheet" href="trade-history-subpage.css">
-    <api-market-trade-history id="ajax" marketId="{{market.id}}" trades="{{trades}}" hasMore="{{hasMore}}" auto></api-market-trade-history>
 
-    <section-group has-footer>
-      <paper-shadow>
+    <section-group hasFooter="true">
+      <paper-shadow z="0">
         <div label>
           <h2>{{market.id}} {{M.chart}}</h2>
         </div>
@@ -20,7 +21,7 @@
         </div>
       </paper-shadow>
 
-      <paper-shadow>
+      <paper-shadow z="0">
         <div label>
           <h2>{{market.id}} {{M.tradeHistory}}</h2>
         </div>
@@ -65,6 +66,9 @@
               </template>
             </tbody>
           </table>
+          <api-market-trade-history id="ajax" marketId="{{market.id}}" trades="{{trades}}" hasMore="{{hasMore}}" loading="{{loading}}" auto></api-market-trade-history>
+
+          <load-data-widget hasMore="{{hasMore}}" loading="{{loading}}" data="{{trades}}" on-load-more="{{loadMore}}"></load-data-widget>
         </div>
       </paper-shadow>
     </section-group>

@@ -16,7 +16,7 @@
         background: color($C3, a700);
     }
     a {
-        color: white;
+        color: $white1;
         text-decoration: none;
     }
 }
@@ -25,7 +25,7 @@
     color: color($C1, 500);
     /deep/ {
         #ink {
-            color: white;
+            color: $white1;
         }
         #selectionBar {
             background-color: color($C1, 500);

@@ -1,12 +1,9 @@
 @import "../../_colors";
-a {
-    color: $black1;
-    &:hover {
-        color: color($C1, 500);
-    }
-}
+@import "../../_common";
+@include has-simple-table();
+@include config-link-on-light-color();
 .keyvalues {
-    background: white;
+    background: $white1;
     padding: 10px;
     >div {
         >div {
@@ -24,18 +21,6 @@ a {
                 word-wrap: break-word;
             }
         }
-    }
-}
-
-.load-button {
-    padding: 5px 20px;
-    background: transparent;
-    color: $black2;
-    &:hover {
-        color: color($C1, 500);
-    }
-    &[disabled] {
-        color: $black4;
     }
 }
 

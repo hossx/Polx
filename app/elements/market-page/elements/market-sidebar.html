@@ -1,8 +1,8 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/core-animated-pages/core-animated-pages.html">
 <link rel="import" href="../../../bower_components/core-menu/core-menu.html">
+<link rel="import" href="../../../bower_components/core-item/core-item.html">
 <link rel="import" href="../../../bower_components/paper-tabs/paper-tabs.html">
-<link rel="import" href="market-sidebar-item.html">
 
 <polymer-element name="market-sidebar" vertical layout attributes="marketId,altview">
   <template>
@@ -10,16 +10,18 @@
 
     <paper-tabs id="market-tabs" valueattr="group" selected="{{selectedGroup}}">
       <template repeat="{{coin in marketGroupKeys}}">
-        <paper-tab group="{{coin}}">{{coin}} {{M.markets}}</paper-tab>
+        <paper-tab noink group="{{coin}}">{{coin}} {{M.markets}}</paper-tab>
       </template>
     </paper-tabs>
 
     <core-animated-pages id="pages" valueattr="group" flex selected="{{selectedGroup}}">
       <template repeat="{{coin in marketGroupKeys}}">
         <section group="{{coin}}">
-          <core-menu valueattr="market" selected="{{marketId}}">
+          <core-menu>
             <template repeat="{{market in config.marketGroups[selectedGroup]}}">
-              <market-sidebar-item active?="{{marketId===market.id}}" market="{{market}}" altview="{{altview}}"></market-sidebar-item>
+              <a href="/#/marketpro/{{market.id}}">
+                <core-item active?="{{marketId==market.id}}" icon="" label="{{market.name}}"></core-item>
+              </a>
             </template>
           </core-menu>
         </section>

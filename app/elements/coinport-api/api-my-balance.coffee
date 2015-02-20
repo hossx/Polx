@@ -1,8 +1,9 @@
+'use strict'
+
 Polymer 'api-my-balance',
-  
-  ready: () ->
-    `this.super()`
-    @url = window.protocol.userBalanceUrl()
+  created: () ->
+    @url = '%s/api/v2/user/balance'.format(@base())
 
   dataChanged: (o, n) ->
     @balance = @data if @data
+    

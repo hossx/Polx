@@ -9,15 +9,14 @@
 <link rel="import" href="../../crypto-address/crypto-address.html">
 <link rel="import" href="../../coinport-api/api-my-deposits.html">
 <link rel="import" href="../../qr-code/qr-code.html">
-
+<link rel="import" href="../../load-data-widget/load-data-widget.html">
 <polymer-element name="deposit-subpage" attributes="profile,currencyId,active">
   <template>
     <link rel="stylesheet" href="deposit-subpage.css">
     <core-ajax id="depositAddrAjax" url="{{depositAddrUrl}}" response="{{depositAddrResp}}" auto></core-ajax>
-    <api-my-deposits id="depositsAjax" currencyId="{{currencyId}}" deposits="{{deposits}}" hasMore="{{hasMore}}" auto></api-my-deposits>
 
-    <section-group has-footer fit>
-      <paper-shadow z="1">
+    <section-group hasFooter="true" fit>
+      <paper-shadow z="0">
         <div label>
           <h2>{{M.deposit}}</h2>
         </div>
@@ -82,7 +81,7 @@
         </div>
       </paper-shadow>
 
-      <paper-shadow z="1">
+      <paper-shadow z="0">
         <div label>
           <h2>{{M.history}}</h2>
         </div>
@@ -115,7 +114,8 @@
             </tbody>
           </table>
 
-          <paper-button class="load-button" disabled?="{{!hasMore}}" on-tap="{{loadMore}}">Load more</paper-button>
+          <api-my-deposits id="depositsAjax" currencyId="{{currencyId}}" deposits="{{deposits}}" loading="{{loading}}" hasMore="{{hasMore}}" loadMore="{{loadMore}}" auto></api-my-deposits>
+          <load-data-widget hasMore="{{hasMore}}" loading="{{loading}}" data="{{deposits}}" loadMore="{{loadMore}}"></load-data-widget>
         </div>
       </paper-shadow>
     </section-group>

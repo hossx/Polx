@@ -9,7 +9,7 @@
   <template>
     <link rel="stylesheet" href="stats-card.css">
 
-    <paper-shadow id="shadow" z="1">
+    <paper-shadow id="shadow" z="0">
       <a href="/#/marketpro/{{marketId}}">
         <div id="box" vertical center layout>
           <div id="head">
@@ -23,7 +23,9 @@
           <div id="stats" center-justified vertical layout>
             <div id="general" horizontal end layout>
               <div class="l">{{M.lastPrice}}: </div>
-              <div class="v"><nice-number v="{{ticker[0]}}" no-trailing-zeros></nice-number></div>
+              <div class="v">
+                <nice-number v="{{ticker[0]}}" no-trailing-zeros></nice-number>
+              </div>
             </div>
             <div id="sub">
               <div>

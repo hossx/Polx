@@ -1,11 +1,11 @@
 'use strict'
 
 Polymer 'api-market-ticker',
-  
   ticker: null
 
   marketIdChanged: (o, n) ->
-    @url = window.protocol.marketTickerUrl(@marketId)
+    if @marketId
+      @url = "%s/api/v2/%s/ticker".format(@base(), @marketId.toLowerCase())
 
   dataChanged: (o, n) ->
     if @data and @data[@marketId]

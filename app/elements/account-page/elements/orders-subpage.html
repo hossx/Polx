@@ -9,13 +9,13 @@
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../crypto-address/crypto-address.html">
 <link rel="import" href="../../coinport-api/api-my-orders.html">
+<link rel="import" href="../../load-data-widget/load-data-widget.html">
 
 <polymer-element name="orders-subpage" attributes="profile,active">
   <template>
     <link rel="stylesheet" href="orders-subpage.css">
-    <api-my-orders id="ajax" limit="100" orders="{{orders}}" hasMore="{{hasMore}}" auto></api-my-orders>
-    <section-group has-footer fit>
-      <paper-shadow z="1">
+    <section-group hasFooter="true" fit>
+      <paper-shadow z="0">
         <div label>
           <h2>{{M.orders}}</h2>
         </div>
@@ -30,8 +30,8 @@
                 <td text-right>{{M.quantity}}</td>
                 <!--td text-right>{{M.total}}</td-->
                 <td text-right>{{M.dealedQuantity}}</td>
-                <td>{{M.time}}</td>
-                <td>{{M.status}}</td>
+                <td text-right>{{M.time}}</td>
+                <td text-right>{{M.status}}</td>
                 <td></td>
               </tr>
             </thead>
@@ -40,9 +40,10 @@
                 <tr class="{{order.operation}}">
                   <td>{{order.id}}</td>
                   <td text-right><a href="/#/marketpro/{{order.market}}">{{config.markets[order.market].name}}</a>
+                  </td>
                   <td>{{M[order.operation]}}</td>
                   <td text-right>
-                    <nice-number  v="{{order.price}}"></nice-number>
+                    <nice-number v="{{order.price}}"></nice-number>
                   </td>
                   <td text-right>
                     <nice-number p="4" v="{{order.amount}}"></nice-number>
@@ -53,16 +54,17 @@
                   <td text-right>
                     <nice-number p="4" v="{{order.dealed_amount}}"></nice-number>
                   </td>
-                  <td>
+                  <td text-right>
                     {{order.created | formatTime}}
                   </td>
-                  <td>
+                  <td text-right>
                     {{M.statuses[order.status]}}
                   </td>
                   <td class="op">
                     <template if="{{order.status == 0 || order.status == 1}}">
                       <core-tooltip label="{{M.cancelTip}}">
-                        <paper-icon-button orderId="{{order.id}}" on-tap="{{cancelOrder}}" icon="clear"></paper-icon-button </core-tooltip>
+                        <paper-icon-button orderId="{{order.id}}" on-tap="{{cancelOrder}}" icon="clear"></paper-icon-button>
+                      </core-tooltip>
                     </template>
                   </td>
                 </tr>
@@ -70,7 +72,8 @@
             </tbody>
           </table>
 
-          <paper-button class="load-button" disabled?="{{!hasMore}}" on-tap="{{loadMore}}">Load more</paper-button>
+          <api-my-orders id="ajax" limit="10" orders="{{orders}}" hasMore="{{hasMore}}" loading="{{loading}}" auto></api-my-orders>
+          <load-data-widget hasMore="{{hasMore}}" loading="{{loading}}" data="{{orders}}" on-load-more="{{loadMore}}"></load-data-widget>
         </div>
       </paper-shadow>
     </section-group>

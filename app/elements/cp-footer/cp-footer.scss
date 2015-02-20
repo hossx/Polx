@@ -18,7 +18,7 @@
     }
     .pay {
         a {
-            background-color: white;
+            background-color: $white1;
             color: color($deep-purple, 500);
             padding-left: 6px;
             padding-right: 6px;
@@ -30,11 +30,11 @@
             }
         }
     }
-    @include config-link-on-primary-color();
+    @include config-link-on-dark-color();
 }
 :host-context([dark]) {
     .group-label {
         color: $black2;
     }
-    @include config-link-on-white-color();
+    @include config-link-on-light-color();
 }

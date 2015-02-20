@@ -1,8 +1,8 @@
 @import "../../_colors";
 @import "../../_common";
-$border-color: black;
+$border-color:$black1;
 $background-color: color($C4, 900);
-$head-background-color: color($C4, 700);
+$head-background-color: color($C4, 800);
 $head-height: 36px;
 
 :host {
@@ -26,12 +26,12 @@ paper-tab {
     background: $background-color;
     height: $head-height;
     font-weight: 700;
-    color: white;
+    color: $white1;
     font-size: 14px;
     text-transform: uppercase;
     &[active] {
         background: $head-background-color;
-        color: white;
+        color: $white1;
     }
 }
 .pages {
@@ -51,11 +51,11 @@ paper-tab {
         color: $black1;
         &#doSell:hover {
             background: color($sell-color, 500);
-            color: white;
+            color: $white1;
         }
         &#doBuy:hover {
             background: color($buy-color, 500);
-            color: white;
+            color: $white1;
         }
         font-weight: bold;
         font-size: 14px;

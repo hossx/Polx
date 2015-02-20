@@ -1,9 +1,6 @@
 @import "../_colors";
-
-a#shortcut {
-    color: $black1;
-    text-decoration: none;
-    &:hover {
-        color: color($C2, a700);
-    }
+@import "../_common";
+#side-toolbar {
+    @include config-toolbar();
+    background: color($grey, 50);
 }

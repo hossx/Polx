@@ -1,9 +1,10 @@
 'use strict'
 
 Polymer 'api-currency-reserves',
+
   currencyIdChanged: () ->
     if @currencyId
-      @url = window.protocol.currencyReservesUrl(@currencyId)
+      @url = '%s/api/v2/%s/reserves'.format(@base(), @currencyId.toLowerCase())
 
   dataChanged: (o, n) ->
     if @data

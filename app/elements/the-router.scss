@@ -3,14 +3,14 @@
 background: green;
     #errorToast {
         background: color($red, 500);
-        color: white;
+        color: $white1;
     }
         #warningToast {
         background: color($orange, 500);
-        color: white;
+        color: $white1;
     }
     #messageToast {
         background: color($C2, 500);
-        color: white;
+        color: $white1;
     }
 }

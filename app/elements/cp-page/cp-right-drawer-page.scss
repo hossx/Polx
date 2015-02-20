@@ -1,19 +1,16 @@
 @import "../_colors";
 @import "../_common";
-:host {
-    box-sizing: border-box;
-}
-#menu-toolbar {
-    background: color($grey, 200);
-    color: $black2;
-}
 #drawer {
     padding: 0;
-    background: color($C1, 600);
+    color: $black1;
+    background: color($C1, 100);
+    /deep/ {
+        @include config-sidebar-menu();
+    }
 }
 #toolbar {
     @include config-toolbar();
 }
 #pages {
-    background: color($C1, 500);
+    background: color($C1, 50);
 }

@@ -1,26 +1,3 @@
 @import "../../_colors";
-#currency-tabs {
-    font-size: 13px;
-    font-weight: bold;
-    height: 64px;
-    &::shadow {
-        #tabsContainer {
-            background: color($grey, 400);
-            color: $black1;
-        }
-        #selectionBar {
-            background-color: color($C1, 500);
-        }
-    }
-    >paper-tab::shadow #ink {
-        color: color($C2, a700);
-    }
-    paper-tab[active] {
-        background: white;
-    }
-}
-#pages {
-    core-menu {
-        color: $black1;
-    }
-}
+@import "../../_common";
+@include config-sidebar-menu();

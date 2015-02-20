@@ -5,20 +5,19 @@
 <link rel="import" href="../../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../crypto-address/crypto-address.html">
+<link rel="import" href="../../crypto-tx/crypto-tx.html">
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../nice-number/nice-number.html">
 <link rel="import" href="../../coinport-api/api-currency-transactions.html">
 <link rel="import" href="../../coinport-api/api-currency-balance-snapshots.html">
+<link rel="import" href="../../load-data-widget/load-data-widget.html">
 
 <polymer-element name="data-subpage" attributes="currency" flex>
   <template>
     <link rel="stylesheet" href="data-subpage.css">
 
-    <api-currency-transactions id="ajax1" currencyId="{{currency.id}}" transactions="{{transactions}}" hasMore="{{hasMoreTxs}}" auto></api-currency-transactions>
-    <api-currency-balance-snapshots id="ajax2" currencyId="{{currency.id}}" snapshots="{{snapshots}}" hasMore="{{hasMoreSnapshots}}" auto></api-currency-balance-snapshots>
-
-    <section-group has-footer>
-      <paper-shadow>
+    <section-group hasFooter="true">
+      <paper-shadow z="0">
         <div label>
           <h2>{{currency.name}} {{M.transactions}}</h2>
           <p>{{currency.name | formatTransactionsComment}} </p>
@@ -32,32 +31,37 @@
                 <th>{{M.type}}</th>
                 <th>{{M.userId}}</th>
                 <th text-right>{{M.amount}}</th>
-                <th>{{M.timestamp}}</th>
+                <th text-right>{{M.timestamp}}</th>
               </tr>
             </thead>
             <tbody>
               <template repeat="{{tx in transactions}}">
-                <tr>
+                <tr class="{{group.label}}">
                   <td>
-                    <crypto-address class="{{group.label}}" currency="{{currency}}" addr="{{tx.address}}"></crypto-address>
+                    <crypto-address currency="{{currency}}" addr="{{tx.address}}"></crypto-address>
                   </td>
-                  <td><a href="{{tx.txid | formatTxUrl}}">{{tx.txid | formatTxLabel}}</a>
+                  <td>
+                    <crypto-tx currency="{{currency}}" tx="{{tx.txid}}"></crypto-tx>
                   </td>
                   <td>{{M.operationsLabel[tx.operation]}}</td>
                   <td>{{tx.uid}}</td>
+
                   <td text-right>
                     <nice-number v="{{tx.amount}}" p="4"></nice-number>
                   </td>
-                  <td>{{tx.created | formatTime}}</td>
+                  <td text-right>{{tx.created | formatTime}}</td>
                 </tr>
               </template>
             </tbody>
           </table>
-          <paper-button class="load-button" disabled?="{{!hasMoreTxs}}" on-tap="{{loadMoreTxs}}">Load more</paper-button>
+          <api-currency-transactions id="ajax1" currencyId="{{currency.id}}" transactions="{{transactions}}" hasMore="{{hasMoreTxs}}"
+          loading="{{loadingTxs}}" auto></api-currency-transactions>
+
+          <load-data-widget loading="{{loadingTxs}}" data="{{transactions}}" hasMore="{{hasMoreTxs}}" on-load-more="{{loadMoreTxs}}"></load-data-widget>
         </div>
       </paper-shadow>
 
-      <paper-shadow>
+      <paper-shadow z="0">
         <div label>
           <h2>{{currency.name}} |{{M.distributionSnapshots}}</h2>
           <p>{{currency.name | formatDistributionSnapshotsComment}}</p>
@@ -68,7 +72,7 @@
               <tr>
                 <th>{{M.file}}</th>
                 <th>{{M.size}}</th>
-                <th>{{M.timestamp}}</th>
+                <th text-right>{{M.timestamp}}</th>
               </tr>
             </thead>
             <tbody>
@@ -79,12 +83,18 @@
                       {{snapshot[0]}}<core-icon class="small" icon="file-download"></core-icon></a>
                   </td>
                   <td>{{snapshot[1]}} Bytes</td>
-                  <td>{{snapshot[2] | formatTime}}</td>
+                  <td text-right>{{snapshot[2] | formatTime}}</td>
                 </tr>
               </template>
             </tbody>
           </table>
-          <paper-button class="load-button" disabled?="{{!hasMoreSnapshots}}" on-tap="{{loadMoreSnapshots}}">Load more</paper-button>
+
+          <api-currency-balance-snapshots id="ajax2" currencyId="{{currency.id}}" snapshots="{{snapshots}}" loading="{{LoadingSnapshots}}"
+          hasMore="{{hasMoreSnapshots}}" auto></api-currency-balance-snapshots>
+
+          <load-data-widget loading="{{LoadingSnapshots}}" data="{{snapshots}}" hasMore="{{hasMoreSnapshots}}" on-load-more="{{loadMoreSnapshots}}"></load-data-widget>
+        </div>
+
         </div>
       </paper-shadow>
     </section-group>

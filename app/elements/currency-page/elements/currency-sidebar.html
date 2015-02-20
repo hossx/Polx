@@ -1,26 +1,26 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/core-animated-pages/core-animated-pages.html">
 <link rel="import" href="../../../bower_components/core-menu/core-menu.html">
+<link rel="import" href="../../../bower_components/core-item/core-item.html">
 <link rel="import" href="../../../bower_components/paper-tabs/paper-tabs.html">
-<link rel="import" href="currency-sidebar-item.html">
 
 <polymer-element name="currency-sidebar" vertical layout attributes="currencyId">
   <template>
     <link rel="stylesheet" href="currency-sidebar.css">
-
-    <paper-tabs id="currency-tabs" valueattr="group" selected="{{selectedGroup}}">
+    <paper-tabs valueattr="group" selected="{{selectedGroup}}">
       <template repeat="{{g in currencyGroupKeys}}">
-        <paper-tab group="{{g}}">{{g}}</paper-tab>
+        <paper-tab noink group="{{g}}">{{g}}</paper-tab>
       </template>
     </paper-tabs>
 
     <core-animated-pages id="pages" valueattr="group" flex selected="{{selectedGroup}}">
       <template repeat="{{g in currencyGroupKeys}}">
         <section group="{{g}}">
-          <core-menu valueattr="currency" selected="{{currencyId}}">
+          <core-menu>
             <template repeat="{{currency in config.currencyGroups[selectedGroup]}}">
-            {{currency.id}}
-              <currency-sidebar-item active?="{{currencyId===currency.id}}" currency="{{currency}}"></currency-sidebar-item>
+              <a href="/#/currency/{{currency.id}}">
+                <core-item active?="{{currencyId===currency.id}}" icon="" label="{{currency.fullName}}"></core-item>
+              </a>
             </template>
           </core-menu>
         </section>

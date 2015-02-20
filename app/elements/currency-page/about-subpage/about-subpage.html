@@ -14,9 +14,9 @@
   <template>
     <link rel="stylesheet" href="about-subpage.css">
 
-    <section-group has-footer>
+    <section-group hasFooter="true" >
       <template if="{{markets.length > 0}}">
-        <paper-shadow>
+        <paper-shadow z="0">
           <div label>
             <h2>{{M.trend}}</h2>
           </div>
@@ -45,7 +45,7 @@
       </template>
 
       <template if="{{showWeibo}}">
-        <paper-shadow>
+        <paper-shadow z="0">
           <div label>
             <h2>{{M.buzz}}</h2>
           </div>
@@ -56,7 +56,7 @@
       </template>
 
       <template if="{{showTweets}}">
-        <paper-shadow>
+        <paper-shadow z="0">
           <div label>
             <h2>{{M.buzz}}</h2>
           </div>
@@ -68,7 +68,7 @@
 
       <core-ajax url="{{wikiFile}}" response="{{wiki}}" auto></core-ajax>
       <template if="{{wikiLinted !== ''}}">
-        <paper-shadow>
+        <paper-shadow z="0">
           <div label>
             <h2>{{M.about}} {{currency.name}}</h2>
           </div>

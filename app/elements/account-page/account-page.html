@@ -4,8 +4,8 @@
 <link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
 <link rel="import" href="../../bower_components/core-iconset-svg/core-iconset-svg.html">
-<link rel="import" href="../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../cp-page/cp-right-drawer-page.html">
 <link rel="import" href="../section-group/section-group.html">
@@ -21,14 +21,20 @@
   <template>
     <link rel="stylesheet" href="account-page.css">
 
-     <api-my-profile id="ajax" profile="{{profile}}" auto></api-my-profile>
+    <api-my-profile id="ajax" profile="{{profile}}" auto></api-my-profile>
 
-    <cp-right-drawer-page  backlink="/#/" label="{{M.myAccount}}" id="pages" page="{{page}}">
-      <a href="/#/markets" id="shortcut">
-        <core-tooltip label="{{M.tradeTooltip}}">
-          <core-icon icon="swap-horiz"></core-icon>
-        </core-tooltip>
-      </a>
+    <cp-right-drawer-page backlink="/#/" label="{{M.myAccount}}" id="pages" page="{{page}}">
+
+      <core-toolbar id="side-toolbar">
+        <div flex></div>
+        <a href="/#/markets">
+          <core-tooltip label="{{M.tradeTooltip}}">
+            <paper-icon-button noink icon="swap-horiz"></paper-icon-button>
+          </core-tooltip>
+        </a>
+        </content>
+      </core-toolbar>
+
       <account-sidebar id="sidebar" selected="{{page}}"></account-sidebar>
       <section page="assets">
         <assets-subpage active="{{page == 'assets'}}" profile="{{profile}}"></assets-subpage>
@@ -42,10 +48,10 @@
       <section page="withdraw">
       </section>
       <section page="orders">
-        <orders-subpage active="{{page == 'orders'}}" ></orders-trades>
+        <orders-subpage active="{{page == 'orders'}}"></orders-trades>
       </section>
       <section page="trades">
-        <trades-subpage active="{{page == 'trades'}}" ></trades-trades>
+        <trades-subpage active="{{page == 'trades'}}"></trades-trades>
       </section>
     </cp-right-drawer-page>
   </template>

@@ -1,12 +1,12 @@
 @import "../_colors";
 @import "../_common";
-
 :host {
     display: inline-block;
-    background: white;
+    background: $white1;
     border: solid 1px $black4;
     color: $black1;
-    padding: 3px 8px;
+    min-width: 240px;
+    padding: 0 8px;
     border-radius: 10px;
     font-size: 11px;
     font-weight: 500;
@@ -29,18 +29,8 @@
         color: $white2;
     }
 }
-:host-context(.cold) {
-    #icon {
-        color: color($blue, a400);
-    }
-}
-:host-context(.hot) {
-    #icon {
-        color: color($orange, a400);
-    }
-}
 :host(:hover) {
-    background: $black1;
+    background: color($C1, 900);
     color: $white1;
     #icon, #lead {
         color: $white2;
@@ -57,13 +47,12 @@ core-tooltip.fancy:hover::shadow .core-tooltip, core-tooltip.fancy:focus::shadow
 }
 div[tip] {
     padding-top: 10px;
-    background: white;
-    color: black;
+    background: $white1;
+    color: $black1;
     > div {
         >div {
-        padding: 10px;
-        @include has-primary-link();
+            padding: 10px;
+            @include config-link-on-dark-color();
         }
     }
-
 }

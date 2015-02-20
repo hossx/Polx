@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="markets-page.css">
 
     <cp-media-query smallup="{{smallup}}"></cp-media-query>
-    <cp-page primary-bg has-toolbar has-footer toolbarSelect="/markets">
+    <cp-page primary-bg has-toolbar hasFooter="true" toolbarSelect="/markets">
       <template repeat="{{coin in marketGroupKeys}}">
         <stats-card-group currency="{{config.currencies[coin]}}" smallup="{{smallup}}"></stats-card-group>
       </template>

@@ -5,6 +5,7 @@
 }
 #drawer {
     padding: 0;
+    color: $black1;
     background: white;
 }
 #toolbar {
@@ -15,7 +16,7 @@
 }
 #pages {
     padding-bottom: 200px;
-    background: color($C1, 500);
+    background: color($C1, 50);
 }
 #nav-tabs {
     background: color($C1, 600);

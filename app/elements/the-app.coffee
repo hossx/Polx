@@ -125,46 +125,6 @@ Polymer 'the-app',
         else
           1
 
-  processProtocols: () ->
-    window.protocol =
-      base: window.config.api.base
-      ##
-      registerUrl: () -> "%s/account/register".format(@base)
-      logoutUrl:  () ->"%s/account/logout".format(@base)
-
-
-      
-      loginUrl: () -> "%s/api/v2/login".format(@base)
-      ## public apis
-     
-      currenciesReserveStatsUrl: () -> '%s/api/v2/reserve_stats'.format(@base)
-      currencyReservesUrl: (coin) -> '%s/api/v2/%s/reserves'.format(@base, coin.toLowerCase())
-      currencyBalanceSnapshotFilesUrl: (coin,cursor,limit) -> '%s/api/v2/%s/balance_snapshot_files'.format(@base, coin.toLowerCase(),cursor,limit)
-      currencyTransfersUrl: (coin) -> '%s/api/v2/%s/transfers'.format(@base, coin.toLowerCase())
-
-
-      marketsTickersUrl: (coin) -> "%s/api/v2/%s/tickers".format(@base, coin.toLowerCase())
-      marketTickerUrl: (market) -> "%s/api/v2/%s/ticker".format(@base, market.toLowerCase())
-      marketDepthUrl: (market,limit) ->  "%s/api/v2/%s/depth?limit=%s".format(@base, market.toLowerCase(), limit)
-      marketTradesUrl: (market, limit) ->"%s/api/v2/%s/trades?limit=%s".format(@base, market.toLowerCase(), limit)
-      marketKlineUrl: (market, interval, start, end) -> '%s/api/v2/%s/kline?interval=%s&start=%s&end=%s'.format(@base, market.toLowerCase(), interval, start, end)
-
-      userCancelOrdersUrl: () -> '%s/api/v2/user/cancel_orders'.format(@base)
-      userSubmitOrdersUrl: () -> '%s/api/v2/user/submit_orders'.format(@base)
-      userBalanceUrl: () -> '%s/api/v2/user/balance'.format(@base)
-      userProfileUrl: () -> '%s/api/v2/user/profile'.format(@base)
-      userDepositsUrl: (coin,limit,cursor) -> 
-        if coin
-          '%s/api/v2/user/deposits?currency=%s&limit=%s&cursor=%s'.format(@base,coin.toLowerCase(),limit,cursor)
-        else
-          '%s/api/v2/user/deposits?limit=%s&cursor=%s'.format(@base,limit,cursor)
-
-      userWithdrawalsUrl: (coin,limit,cursor) ->
-        if coin
-          '%s/api/v2/user/withdrawals?currency=%s&limit=%s&cursor=%s'.format(@base,coin.toLowerCase(),limit,cursor)
-        else
-          '%s/api/v2/user/withdrawals?limit=%s&cursor=%s'.format(@base,limit,cursor)
-
   processDocuments: (config) ->
     tagMap = {}
     for k, v of window.config.documents
@@ -178,11 +138,10 @@ Polymer 'the-app',
   enrichConfig: (config) ->
     window.config = config
     @processCurrenciesAndMarkets()
-    @processProtocols()
     @processDocuments()
 
     console.debug("Loaded dynamic app-configurations:")
-    console.dir({"config": window.config, "protocol": window.protocol})
+    console.dir(window.config)
 
     window.state = {}
 

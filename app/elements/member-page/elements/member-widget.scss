@@ -8,12 +8,14 @@
     width: 100%;
     height: 460px;
 }
+section {
+    background: white;
+}
 @mixin config-widget() {
     .container {
         height: 100%;
-        background: white;
-
-        @include config-link-on-white-color();
+        background: $white1;
+        @include config-link-on-light-color();
     }
     .label {
         color: $black2;
@@ -31,7 +33,7 @@
             color: color($C3, a400);
         }
         .inner {
-            background: color($C1, 500);
+            background: color($C1, 50);
             padding-left: 40px;
             padding-right: 40px;
             min-height: 200px;
@@ -61,7 +63,7 @@
         }
         #msg {
             padding: 40px 20px;
-            color: white;
+            color: $white1;
             background: color($C1, 500);
             word-wrap: break-word;
         }
@@ -76,15 +78,15 @@
         .action {
             padding: 40px 35px 0 35px;
             paper-button {
-                background: color($C2, a700);
-                border: solid 1px color($C2, a700);
-                transition: background 420ms ease-in-out;
-                color: white;
+                background: color($C2, a400);
+                color: $black1;
                 &:hover {
-                    background: color($C2, a700);
+                    background: color($C1, 900);
+                    color: white;
                 }
                 &[disabled] {
-                    opacity: 0.5;
+                    background: color($C1, 100);
+                    color: $black2;
                 }
             }
         }
@@ -94,7 +96,7 @@
         padding-top: 10px;
         padding-bottom: 20px;
         width: 100%;
-        background: white;
+        background: $white1;
         >div {
             padding: 0 10px;
         }
@@ -113,9 +115,9 @@
         }
     }
     .input {
-        background: color($C1, 500);
-        color: white;
-        $placeholder-color: $white1;
+        background: color($C1, 50);
+        color: $black1;
+        $placeholder-color: $black2;
         &[focused] {
             color: color($C2, a700);
         }
@@ -135,15 +137,15 @@
             background-color: $white3;
         }
         /deep/ .floated-label .label-text {
-            color: $white1;
+            color: $black1;
             font-size: 13px;
         }
         /deep/ .focused-underline {
-            background-color: color($C2, a700);
+            background-color: color($C1, 900);
         }
         &[focused] /deep/ {
             .floated-label .label-text {
-                color: $white1;
+                color: $black1;
                 font-size: 13px;
             }
         }

@@ -11,8 +11,8 @@
 
     <api-market-depth id="ajax" marketId="{{market.id}}" bids="{{bids}}" asks="{{asks}}" auto></api-market-depth>
 
-    <section-group has-footer>
-      <paper-shadow>
+    <section-group hasFooter="true" >
+      <paper-shadow z="0">
         <div label>
           <h2>{{market.id}} {{M.depthChart}}</h2>
         </div>
@@ -21,7 +21,7 @@
         </div>
       </paper-shadow>
 
-      <paper-shadow>
+      <paper-shadow z="0">
         <div label>
           <h2>{{market.id}} {{M.orderBook}}</h2>
         </div>
