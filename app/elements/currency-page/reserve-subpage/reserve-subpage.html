@@ -10,62 +10,72 @@
   <template>
     <link rel="stylesheet" href="reserve-subpage.css">
 
-    <api-currency-reserves currencyId="{{currency.id}}" stats="{{stats}}" distribution="{{distribution}}" auto></api-currency-reserves>
-    <section-group hasFooter="true" >
+    <section-group hasFooter="true">
       <paper-shadow z="0">
         <div label>
           <h2>{{M.reserveDetails}}</h2>
         </div>
         <div class="card" vertical center layout>
-          <table class="simple">
-            <thead>
-              <tr>
-                <th>{{currency.id}} {{M.address}}</th>
-                <th>{{M.balance}}</th>
-                <th>{{M.label}}</th>
-                <th nowrap>{{M.signedMsg}}</th>
-                <th>{{M.signature}}</th>
-              </tr>
-            </thead>
-            <tbody>
-              <template repeat="{{data,idx in distribution}}">
+          <template if="{{currency.isCrypto}}">
+            <api-currency-reserves currencyId="{{currency.id}}" stats="{{stats}}" distribution="{{distribution}}" auto></api-currency-reserves>
+            <table class="simple">
+              <thead>
                 <tr>
-                  <td>
-                    <crypto-address class="{{data[2]}}" currency="{{currency}}" addr="{{data[0]}}"></crypto-address>
+                  <th>{{currency.id}} {{M.address}}</th>
+                  <th>{{M.balance}}</th>
+                  <th>{{M.label}}</th>
+                  <th nowrap>{{M.signedMsg}}</th>
+                  <th>{{M.signature}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <template repeat="{{data,idx in distribution}}">
+                  <tr>
+                    <td>
+                      <crypto-address class="{{data[2]}}" currency="{{currency}}" addr="{{data[0]}}"></crypto-address>
+                    </td>
+                    <td>
+                      <nice-number p="4" v="{{data[1]}}"></nice-number>
+                    </td>
+                    <td><span class="{{data[2]}}">{{M[data[2]]}}</span>
+                    </td>
+                    <td>
+                      <div class="msg">{{data[3]}}</div>
+                    </td>
+                    <td>
+                      <div class="sig">{{data[4]}}</div>
+                    </td>
+                  </tr>
+                </template>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td>{{distribution.length}} {{M.addresses}}
                   </td>
                   <td>
-                    <nice-number p="4" v="{{data[1]}}"></nice-number>
-                  </td>
-                  <td><span class="{{data[2]}}">{{M[data[2]]}}</span>
+                    <nice-number label="{{M.total}}" p="4" v="{{total}}"></nice-number>
                   </td>
                   <td>
-                    <div class="msg">{{data[3]}}</div>
                   </td>
                   <td>
-                    <div class="sig">{{data[4]}}</div>
+                  </td>
+                  <td>
                   </td>
                 </tr>
-              </template>
-            </tbody>
-            <tfoot>
-              <tr>
-                <td>{{distribution.length}} {{M.addresses}}
-                </td>
-                <td>
-                  <nice-number label="{{M.total}}" p="4" v="{{total}}"></nice-number>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-                <td>
-                </td>
-              </tr>
-            </tfoot>
-          </table>
+              </tfoot>
+            </table>
+          </template>
+
+          <template if="{{!currency.isCrypto}}">
+            <div id="noReserve" center vertical layout>
+              <core-icon icon="block"></core-icon>
+              <div>{{M.noReserveDataAvail}}</div>
+            </div>
+          </template>
         </div>
       </paper-shadow>
     </section-group>
+
   </template>
   <script src="reserve-subpage.js"></script>
 </polymer-element>

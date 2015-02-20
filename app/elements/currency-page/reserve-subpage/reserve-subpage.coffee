@@ -13,6 +13,7 @@ Polymer 'reserve-subpage',
       cold: "Cold"
       total: "Total"
       addresses: "addresses"
+      noReserveDataAvail: "No reserve data available for non-blockchain currencies!"
 
     'zh':
       reserveDetails: '准备金详情'
@@ -25,6 +26,8 @@ Polymer 'reserve-subpage',
       cold: "冷钱包"
       total: "总量"
       addresses: '个地址'
+      noReserveDataAvail: "对于非区块链货币我们暂不提供准备金证明。"
+
 
   ready: () ->
     @M = @msgMap[window.lang]

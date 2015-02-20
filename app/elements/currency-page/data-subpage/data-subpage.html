@@ -22,12 +22,14 @@
           <h2>{{currency.name}} {{M.transactions}}</h2>
           <p>{{currency.name | formatTransactionsComment}} </p>
         </div>
-        <div class="card" vertical center layout>
+        <div vertical center layout>
           <table class="simple">
             <thead>
               <tr>
-                <th>{{currency.id}} {{M.address}}</th>
-                <th>{{currency.id}} {{M.transaction}}</th>
+                <template if="{{currency.isCrypto}}">
+                  <th>{{currency.id}} {{M.address}}</th>
+                  <th>{{currency.id}} {{M.transaction}}</th>
+                </template>
                 <th>{{M.type}}</th>
                 <th>{{M.userId}}</th>
                 <th text-right>{{M.amount}}</th>
@@ -36,13 +38,15 @@
             </thead>
             <tbody>
               <template repeat="{{tx in transactions}}">
-                <tr class="{{group.label}}">
-                  <td>
-                    <crypto-address currency="{{currency}}" addr="{{tx.address}}"></crypto-address>
-                  </td>
-                  <td>
-                    <crypto-tx currency="{{currency}}" tx="{{tx.txid}}"></crypto-tx>
-                  </td>
+                <tr class="{{tx.operation | formatClass}}">
+                  <template if="{{currency.isCrypto}}">
+                    <td>
+                      <crypto-address currency="{{currency}}" addr="{{tx.address}}"></crypto-address>
+                    </td>
+                    <td>
+                      <crypto-tx currency="{{currency}}" tx="{{tx.txid}}"></crypto-tx>
+                    </td>
+                  </template>
                   <td>{{M.operationsLabel[tx.operation]}}</td>
                   <td>{{tx.uid}}</td>
 
@@ -66,7 +70,7 @@
           <h2>{{currency.name}} |{{M.distributionSnapshots}}</h2>
           <p>{{currency.name | formatDistributionSnapshotsComment}}</p>
         </div>
-        <div class="card" vertical center layout>
+        <div vertical center layout>
           <table class="simple">
             <thead>
               <tr>

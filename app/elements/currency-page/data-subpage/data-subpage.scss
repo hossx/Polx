@@ -1,29 +1,18 @@
 @import "../../_colors";
 @import "../../_common";
 @include has-simple-table();
+@include config-link-on-light-color();
 :host {
     display: block;
     height: 100%;
     color: $black1;
 }
-
-.card {
-    a {
-        color: $black1;
-        text-decoration: none;
-        &:hover {
-            color: color($C1, 500);
-            text-decoration: underline;
-            core-icon.small {
-                color: color($C1, 500);
-            }
-        }
-        core-icon.small {
-            height: 16px;
-            width: 16px;
-            padding-right: 10px;
-            color: transparent;
-        }
+table {
+    core-icon.small {
+        height: 16px;
+        width: 16px;
+        padding-right: 10px;
+        color: transparent;
     }
 }
 .load-button {

@@ -46,5 +46,4 @@ Polymer 'data-subpage',
   loadMoreSnapshots: () -> this.$.ajax2.loadMore()
   
   formatTime: (t) -> moment(t).format("MM/DD-hh:mm:ss")
-
-  
+  formatClass: (t) -> if t == 0 then "withdraw" else "deposit"

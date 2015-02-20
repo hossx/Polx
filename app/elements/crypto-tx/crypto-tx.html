@@ -5,12 +5,14 @@
 <polymer-element name="crypto-tx" attributes="currency,tx">
   <template>
     <link rel="stylesheet" href="crypto-tx.css">
-    <div center horizontal layout>
+    <div id="tx" center horizontal layout>
       <core-icon id="icon" icon="image:transform"></core-icon>
-      <div id="tx">
-        <div><a target="_blank" href="{{link}}">{{tx | formatTx}}</a>
-        </div>
-      </div>
+      <template if="{{link}}">
+        <a target="_blank" href="{{link}}">{{tx | formatTx}}</a>
+      </template>
+      <template if="{{!link}}">
+        {{tx | formatTx}}
+      </template>
     </div>
   </template>
   <script src="crypto-tx.js"></script>

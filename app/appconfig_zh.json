@@ -30,6 +30,10 @@
           "p": 0.1
         }
       },
+      "browser": {
+        "addr": "https://blockchain.info/address/%s",
+        "tx": "https://blockchain.info/tx/%s"
+      },
       "tags": "比特币,Bitcoin,BTC",
       "twitterWidgetId": "560618532224765952"
     },
@@ -48,8 +52,8 @@
         }
       },
       "browser": {
-        "addr": "https://ltbrowser/addr/%s",
-        "tx": "https://ltbrowser/addr/%s"
+        "addr": "http://block-explorer.com/address/%s",
+        "tx": "http://block-explorer.com/tx/%s"
       },
       "tags": "莱特币,Litecoin,LTC",
       "twitterWidgetId": "560699428831375361"
@@ -62,29 +66,49 @@
     "DOGE": {
       "name": "Dogecoin",
       "tags": "狗币,Dogecoin",
-      "twitterWidgetId": "560706157569134593"
+      "twitterWidgetId": "560706157569134593",
+      "browser": {
+        "addr": "https://bkchain.org/doge/address/%s",
+        "tx": "https://bkchain.org/doge/tx/%s"
+      }
     },
     "BC": {
       "name": "Blackcoin",
       "tags": "黑币,Blackcoin",
-      "twitterWidgetId": "560705827766804480"
+      "twitterWidgetId": "560705827766804480",
+      "browser": {
+        "addr": "https://coinplorer.com/BC/Addresses/%s",
+        "tx": "https://coinplorer.com/BC/Transactions/%s"
+      }
     },
     "DRK": {
       "name": "Darkcoin",
       "tags": "暗黑币,<Darkcoin></Darkcoin>",
-      "twitterWidgetId": "560705595456909312"
+      "twitterWidgetId": "560705595456909312",
+      "browser": {
+        "addr": "https://coinplorer.com/DRK/Addresses/%s",
+        "tx": "https://coinplorer.com/DRK/Transactions/%s"
+      }
     },
     "VRC": {
       "name": "VeriCoin",
       "twitterWidgetId": "560706527330590720"
     },
     "ZET": {
-      "name": "Zetacoin",
-      "twitterWidgetId": "560706759963475968"
+      "name": "ZetaCoin",
+      "twitterWidgetId": "560706759963475968",
+      "browser": {
+        "addr": "https://coinplorer.com/ZET/Addresses/%s",
+        "tx": "https://coinplorer.com/ZET/Transactions/%s"
+      }
     },
     "NXT": {
       "name": "NextCoin",
-      "twitterWidgetId": "560706898450972672"
+      "twitterWidgetId": "560706898450972672",
+      "browser": {
+        "addr": "http://www.mynxt.info/account/%s",
+        "tx": "http://www.mynxt.info/transaction/%s"
+      }
     },
     "XRP": {
       "name": "Ripple",
@@ -205,39 +229,47 @@
     }
   },
   "refreshIntervals": {
-    "pro": 300000,
+    "pro": 3000,
     "depths": 5000,
     "tickers": 300000,
     "reserves": 300000
   },
   "documents": {
     "terms": {
-      "label": "服务条款",
-      "tags": ["法律"]
+      "label": "Terms of Service",
+      "tags": ["legal"]
     },
     "privacy": {
-      "label": "隐私政策",
-      "tags": ["法律"]
+      "label": "Privacy Policies",
+      "tags": ["legal"]
     },
-    "aml": {
-      "label": "反洗钱",
-      "tags": ["法律"]
+    "aml-kyc": {
+      "label": "AML and KYC Policies",
+      "tags": ["legal"]
     },
     "jobs": {
-      "label": "工作机会",
-      "tags": ["关于"]
+      "label": "Jobs",
+      "tags": ["about"]
+    },
+    "team": {
+      "label": "Team",
+      "tags": ["about"]
     },
     "contactus": {
-      "label": "联系我们",
-      "tags": ["关于"]
+      "label": "Contact Us",
+      "tags": ["about"]
+    },
+    "dong": {
+      "label": "Daniel's Developer Notes",
+      "tags": ["developer"]
     },
     "api2": {
-      "label": "API",
-      "tags": ["资源"]
+      "label": "币丰港交易平台API",
+      "tags": ["developer"]
     },
-    "cny-ripple-deposit": {
-      "label": "瑞波网关充值",
-      "tags": ["资源"]
+    "cny-deposit-thru-ripple-gateways": {
+      "label": "CNY Deposit Through Ripple Gateways",
+      "tags": ["ripple", "deposit"]
     }
   }
 }

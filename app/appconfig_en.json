@@ -30,6 +30,10 @@
           "p": 0.1
         }
       },
+      "browser": {
+        "addr": "https://blockchain.info/address/%s",
+        "tx": "https://blockchain.info/tx/%s"
+      },
       "tags": "比特币,Bitcoin,BTC",
       "twitterWidgetId": "560618532224765952"
     },
@@ -48,8 +52,8 @@
         }
       },
       "browser": {
-        "addr": "https://ltbrowser/addr/%s",
-        "tx": "https://ltbrowser/addr/%s"
+        "addr": "http://block-explorer.com/address/%s",
+        "tx": "http://block-explorer.com/tx/%s"
       },
       "tags": "莱特币,Litecoin,LTC",
       "twitterWidgetId": "560699428831375361"
@@ -62,7 +66,11 @@
     "DOGE": {
       "name": "Dogecoin",
       "tags": "狗币,Dogecoin",
-      "twitterWidgetId": "560706157569134593"
+      "twitterWidgetId": "560706157569134593",
+      "browser": {
+        "addr": "https://coinplorer.com/DOGE/Addresses/%s",
+        "tx": "https://coinplorer.com/DOGE/Transactions/%s"
+      }
     },
     "BC": {
       "name": "Blackcoin",
@@ -87,12 +95,20 @@
       "twitterWidgetId": "560706527330590720"
     },
     "ZET": {
-      "name": "Zetacoin",
-      "twitterWidgetId": "560706759963475968"
+      "name": "ZetaCoin",
+      "twitterWidgetId": "560706759963475968",
+      "browser": {
+        "addr": "https://coinplorer.com/ZET/Addresses/%s",
+        "tx": "https://coinplorer.com/ZET/Transactions/%s"
+      }
     },
     "NXT": {
       "name": "NextCoin",
-      "twitterWidgetId": "560706898450972672"
+      "twitterWidgetId": "560706898450972672",
+      "browser": {
+        "addr": "http://www.mynxt.info/account/%s",
+        "tx": "http://www.mynxt.info/transaction/%s"
+      }
     },
     "XRP": {
       "name": "Ripple",
