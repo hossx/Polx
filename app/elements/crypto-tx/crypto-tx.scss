@@ -18,3 +18,13 @@
         padding-right: 5px;
     }
 }
+:host(:hover) {
+    background: color($C1, 900);
+    color: $white1;
+    #icon, #lead {
+        color: $white2;
+    }
+    #icon:hover {
+        color: color($C2, a400);
+    }
+}

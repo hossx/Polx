@@ -13,9 +13,7 @@ Polymer 'crypto-tx',
     @M = @msgMap[window.lang]
 
   currencyChanged: (o, n) ->
-    if @currency
-      if @tx and @currency.json.browser and @currency.json.browser.tx
-        @link = @currency.json.browser.tx.format(@tx)
-
+    if @currency and @tx and @currency.json.browser and @currency.json.browser.tx
+      @link = @currency.json.browser.tx.format(@tx)
 
   formatTx: (tx) -> if tx then tx.substr(0, 20) + "..." else ''
