@@ -5,6 +5,7 @@
     background: $white1;
     border: solid 1px $black4;
     color: $black1;
+    min-width: 240px;
     padding: 0 8px;
     border-radius: 10px;
     font-size: 11px;
@@ -26,16 +27,6 @@
     color: $white1;
     #icon, #lead {
         color: $white2;
-    }
-}
-:host-context(.cold) {
-    #icon {
-        color: color($blue, a400);
-    }
-}
-:host-context(.hot) {
-    #icon {
-        color: color($orange, a400);
     }
 }
 :host(:hover) {

@@ -44,9 +44,7 @@ Polymer 'data-subpage',
 
   loadMoreTxs: () -> this.$.ajax1.loadMore()
   loadMoreSnapshots: () -> this.$.ajax2.loadMore()
-
-  formatTxUrl: (value) -> "http://aaaaa/" + value
-  formatTxLabel: (value) -> value.substring(0, 10) + "..."
+  
   formatTime: (t) -> moment(t).format("MM/DD-hh:mm:ss")
 
   

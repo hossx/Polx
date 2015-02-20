@@ -67,12 +67,20 @@
     "BC": {
       "name": "Blackcoin",
       "tags": "黑币,Blackcoin",
-      "twitterWidgetId": "560705827766804480"
+      "twitterWidgetId": "560705827766804480",
+      "browser": {
+        "addr": "https://coinplorer.com/BC/Addresses/%s",
+        "tx": "https://coinplorer.com/BC/Transactions/%s"
+      }
     },
     "DRK": {
       "name": "Darkcoin",
       "tags": "暗黑币,<Darkcoin></Darkcoin>",
-      "twitterWidgetId": "560705595456909312"
+      "twitterWidgetId": "560705595456909312",
+      "browser": {
+        "addr": "https://coinplorer.com/DRK/Addresses/%s",
+        "tx": "https://coinplorer.com/DRK/Transactions/%s"
+      }
     },
     "VRC": {
       "name": "VeriCoin",

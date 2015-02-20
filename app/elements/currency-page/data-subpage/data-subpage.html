@@ -5,6 +5,7 @@
 <link rel="import" href="../../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../crypto-address/crypto-address.html">
+<link rel="import" href="../../crypto-tx/crypto-tx.html">
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../nice-number/nice-number.html">
 <link rel="import" href="../../coinport-api/api-currency-transactions.html">
@@ -35,14 +36,16 @@
             </thead>
             <tbody>
               <template repeat="{{tx in transactions}}">
-                <tr>
+                <tr class="{{group.label}}">
                   <td>
-                    <crypto-address class="{{group.label}}" currency="{{currency}}" addr="{{tx.address}}"></crypto-address>
+                    <crypto-address currency="{{currency}}" addr="{{tx.address}}"></crypto-address>
                   </td>
-                  <td><a href="{{tx.txid | formatTxUrl}}">{{tx.txid | formatTxLabel}}</a>
+                  <td>
+                    <crypto-tx currency="{{currency}}" tx="{{tx.txid}}"></crypto-tx>
                   </td>
                   <td>{{M.operationsLabel[tx.operation]}}</td>
                   <td>{{tx.uid}}</td>
+
                   <td text-right>
                     <nice-number v="{{tx.amount}}" p="4"></nice-number>
                   </td>
@@ -89,8 +92,7 @@
           <api-currency-balance-snapshots id="ajax2" currencyId="{{currency.id}}" snapshots="{{snapshots}}" loading="{{LoadingSnapshots}}"
           hasMore="{{hasMoreSnapshots}}" auto></api-currency-balance-snapshots>
 
-          <load-data-widget loading="{{LoadingSnapshots}}" data="{{snapshots}}" hasMore="{{hasMoreSnapshots}}"
-          on-load-more="{{loadMoreSnapshots}}"></load-data-widget>
+          <load-data-widget loading="{{LoadingSnapshots}}" data="{{snapshots}}" hasMore="{{hasMoreSnapshots}}" on-load-more="{{loadMoreSnapshots}}"></load-data-widget>
         </div>
 
         </div>

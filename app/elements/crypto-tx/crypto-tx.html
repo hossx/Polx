@@ -1,0 +1,17 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../../bower_components/core-icons/image-icons.html">
+
+<polymer-element name="crypto-tx" attributes="currency,tx">
+  <template>
+    <link rel="stylesheet" href="crypto-tx.css">
+    <div center horizontal layout>
+      <core-icon id="icon" icon="image:transform"></core-icon>
+      <div id="tx">
+        <div><a target="_blank" href="{{link}}">{{tx | formatTx}}</a>
+        </div>
+      </div>
+    </div>
+  </template>
+  <script src="crypto-tx.js"></script>
+</polymer-element>
