@@ -37,21 +37,21 @@
             </thead>
             <tbody>
               <template repeat="{{order in orders}}">
-                <tr class="{{order.operation}}">
+                <tr>
                   <td>{{order.id}}</td>
                   <td text-right><a href="/#/marketpro/{{order.market}}">{{config.markets[order.market].name}}</a>
                   </td>
-                  <td>{{M[order.operation]}}</td>
-                  <td text-right>
+                  <td class="{{order.operation}}">{{M[order.operation]}}</td>
+                  <td text-right class="{{order.operation}}">
                     <nice-number v="{{order.price}}"></nice-number>
                   </td>
-                  <td text-right>
+                  <td text-right class="{{order.operation}}">
                     <nice-number p="4" v="{{order.amount}}"></nice-number>
                   </td>
                   <!--td text-right>
                     <nice-number v="{{order.amount*order.price}}"></nice-number>
                   </td-->
-                  <td text-right>
+                  <td text-right class="{{order.operation}}">
                     <nice-number p="4" v="{{order.dealed_amount}}"></nice-number>
                   </td>
                   <td text-right>

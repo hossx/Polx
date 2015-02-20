@@ -9,7 +9,7 @@ Polymer 'api-login',
     headers['Authorization'] = "Basic " + Base64.encode(@email + ":" + @password)
     @headers = headers
     @withCredentials = false
-    @url = window.protocol.loginUrl()
+    @url = '%s/api/v2/login'.format(window.config.api.base)
     @go()
     
   dataChanged: (o, n) ->

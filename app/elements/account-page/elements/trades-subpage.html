@@ -34,18 +34,18 @@
             </thead>
             <tbody>
               <template repeat="{{record in trades}}">
-                <tr class="{{record.class}}">
+                <tr>
                   <td>{{record.id}}</td>
                   <td text-right><a href="/#/marketpro/{{record.market}}">{{config.markets[record.market].name}}</a>
-                    <td>{{M.types[record.class]}}</a>
+                    <td class="{{record.class}}">{{M.types[record.class]}}</a>
                     </td>
-                    <td text-right>
+                    <td text-right class="{{record.class}}">
                       <nice-number class="{{record.class}}" v="{{record.price}}"></nice-number>
                     </td>
-                    <td text-right>
+                    <td text-right class="{{record.class}}">
                       <nice-number p="4" v="{{record.amount}}"></nice-number>
                     </td>
-                    <td text-right>
+                    <td text-right class="{{record.class}}">
                       <nice-number v="{{record.total}}"></nice-number>
                     </td>
                     <td text-right>

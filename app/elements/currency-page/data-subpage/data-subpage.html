@@ -38,7 +38,7 @@
             </thead>
             <tbody>
               <template repeat="{{tx in transactions}}">
-                <tr class="{{tx.operation | formatClass}}">
+                <tr>
                   <template if="{{currency.isCrypto}}">
                     <td>
                       <crypto-address currency="{{currency}}" addr="{{tx.address}}"></crypto-address>
@@ -47,10 +47,10 @@
                       <crypto-tx currency="{{currency}}" tx="{{tx.txid}}"></crypto-tx>
                     </td>
                   </template>
-                  <td>{{M.operationsLabel[tx.operation]}}</td>
+                  <td class="{{tx.operation | formatClass}}">{{M.operationsLabel[tx.operation]}}</td>
                   <td>{{tx.uid}}</td>
 
-                  <td text-right>
+                  <td text-right class="{{tx.operation | formatClass}}">
                     <nice-number v="{{tx.amount}}" p="4"></nice-number>
                   </td>
                   <td text-right>{{tx.created | formatTime}}</td>
