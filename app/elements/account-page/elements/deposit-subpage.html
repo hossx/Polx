@@ -82,15 +82,7 @@
                   <crypto-address currency="{{currency}}" addr="50001"></crypto-address>
                 </div>
                 <div class="warning">
-                  <b>重要提示：</b>转账时请一定把 “<b>{{profile.uid}}</b>”（您的用户ID） 作为 memo 输入到钱包。不这么做您的充值不会成功！
-                </div>
-                <div class="alsoNote">
-                  <core-icon icon="info-outline"></core-icon>
-                  <ul>
-                    <li>每次充值的最小金额为 1000 {{currency.unit}}。</li>
-                    <li>{{currency.name}}充值需要人工处理，我们的服务时间是北京时间早10点到晚10点。</li>
-                    <li>在上述时间内，您的充值一般会在一个小时内到账。</li>
-                  </ul>
+                  <b>重要提示：</b>转账时请一定把 “<b>{{profile.uid}}</b>”（您的用户ID，而不是您注册所有的email） 作为 “Memo” 输入到钱包。不这么做您的充值不会成功！
                 </div>
               </template>
               <template if="{{lang == 'en'}}">
@@ -98,16 +90,8 @@
                   <crypto-address currency="{{currency}}" addr="50001"></crypto-address>
                 </div>
                 <div class="warning">
-                  <b>Attention:</b> Please make sure you put "{{profile.uid}}"(your user ID) as the exact memo. Failing to do so may
+                  <b>Attention:</b> Please make sure you put "{{profile.uid}}"(your user ID, not your email) as the exact "memo". Failing to do so may
                   invalid your deposit!
-                </div>
-                <div class="alsoNote">
-                  <core-icon icon="info-outline"></core-icon>
-                  <ul>
-                    <li>The minimum amount for deposit is 1000 {{currency.unit}}.</li>
-                    <li>Manual processing of {{currency.name}} is only available between 10:00AM and 10:00PM Beijing Time.</li>
-                    <li>During the above hours, we nomally credit your account within 1 hour.</li>
-                  </ul>
                 </div>
               </template>
             </div>
@@ -122,7 +106,7 @@
                   <crypto-address currency="{{currency}}" addr="coinportXrpDeposit"></crypto-address>
                 </div>
                 <div class="warning">
-                  <b>重要提示：</b> 转账时请一定把 “<b>{{profile.uid}}</b>”（您的用户ID） 作为 “Destination Tag” 输入到钱包。不这么做您的充值不会成功！
+                  <b>重要提示：</b> 转账时请一定把 “<b>{{profile.uid}}</b>”（您的用户ID，而不是您注册所有的email） 作为 “Destination Tag” 输入到钱包。不这么做您的充值不会成功！
                 </div>
               </template>
 
@@ -133,14 +117,41 @@
                   <crypto-address currency="{{currency}}" addr="coinportXrpDeposit"></crypto-address>
                 </div>
                 <div class="warning">
-                  <b>Attention:</b> Please make sure you put "{{profile.uid}}"(your user ID) as the "Destination Tag". Failing to
+                  <b>Attention:</b> Please make sure you put "{{profile.uid}}"(your user ID, not your email) as the "Destination Tag". Failing to
                   do so may invalid your deposit!
                 </div>
               </template>
             </div>
           </template>
 
-          <template if="{{currency.id != 'CNY' && currency.id != 'GOOC' && currency.id != 'XRP'}}">
+          <template if="{{currency.id == 'BTSX'}}">
+            <div class="instruction" vertical start layout>
+              <template if="{{lang == 'zh'}}">
+                <div>请将您的{{currency.name}}充值到:
+                  <crypto-address currency="{{currency}}" addr="BTS5FPJkXFwokNEsRLwfWvPKAbzriNLS5ut823rMzHbpKMg9QgYWZ"></crypto-address>
+                  或者
+                  <crypto-address currency="{{currency}}" addr="coinport-deposit"></crypto-address>
+                </div>
+                <div class="warning">
+                  <b>重要提示：</b> 转账时请一定把 “<b>{{profile.uid}}</b>”（您的用户ID） 作为 “Memo” 输入到钱包。不这么做您的充值不会成功！
+                </div>
+              </template>
+
+              <template if="{{lang == 'en'}}">
+                <div>Please send your {{currency.name}} to:
+                  <crypto-address currency="{{currency}}" addr="r9AzyYGGQAvgefdgeu3eDHaVdxLdpAvchE"></crypto-address>
+                  or
+                  <crypto-address currency="{{currency}}" addr="coinportXrpDeposit"></crypto-address>
+                </div>
+                <div class="warning">
+                  <b>Attention:</b> Please make sure you put "{{profile.uid}}"(your user ID) as the "Memo". Failing to do so may invalid
+                  your deposit!
+                </div>
+              </template>
+            </div>
+          </template>
+
+          <template if="{{currency.id != 'CNY' && currency.id != 'GOOC' && currency.id != 'XRP' && currency.id != 'BTSX'}}">
             <div class="instruction" vertical center layout>
               <div>Please send your {{currency.name}} to</div>
               <crypto-address currency="{{currency}}" addr="{{address}}"></crypto-address>

@@ -28,7 +28,7 @@ Polymer 'deposit-subpage',
     @lang = window.lang
     @profile = window.profile
     @config = window.config
-    @currencyKeys = Object.keys(@config.currencies)
+    @currencyKeys = Object.keys(@config.currencies).sort()
 
   currencyIdChanged: (o, n) ->
     @deposits = []
