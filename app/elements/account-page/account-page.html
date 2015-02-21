@@ -14,6 +14,7 @@
 <link rel="import" href="elements/profile-subpage.html">
 <link rel="import" href="elements/assets-subpage.html">
 <link rel="import" href="elements/deposit-subpage.html">
+<link rel="import" href="elements/withdraw-subpage.html">
 <link rel="import" href="elements/trades-subpage.html">
 <link rel="import" href="elements/orders-subpage.html">
 
@@ -46,6 +47,7 @@
         <deposit-subpage active="{{page == 'deposit'}}" profile="{{profile}}" currencyId="{{currencyId}}"></deposit-subpage>
       </section>
       <section page="withdraw">
+        <withdraw-subpage active="{{page == 'withdraw'}}" profile="{{profile}}" currencyId="{{currencyId}}"></withdraw-subpage>
       </section>
       <section page="orders">
         <orders-subpage active="{{page == 'orders'}}"></orders-trades>

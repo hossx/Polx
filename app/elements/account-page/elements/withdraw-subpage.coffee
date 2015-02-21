@@ -1,17 +1,18 @@
 'use strict'
 
-Polymer 'deposit-subpage',
+Polymer 'withdraw-subpage',
   msgMap:
     'en':
+      na: "N/A"
       id: "ID"
       address: "Address"
       transaction: "Transaction"
       quantity: "Quantity"
       timestamp: "Time"
-      deposit: "Deposit"
+      withdraw: "withdraw"
       status: "Status"
-      history: "Deposit Records"
-      currencyToDeposit: "Currency to deposit: "
+      history: "withdraw Records"
+      currencyTowithdraw: "Currency to withdraw: "
       scan: "Your wallet may support scaning of the following QR-Code:"
       statusLabels:
         0: "Pending"
@@ -34,15 +35,16 @@ Polymer 'deposit-subpage',
         17: "Internal Error"
 
     'zh':
+      na: "无"
       id: "ID"
       address: "地址"
       transaction: "转账记录"
       quantity: "金额"
       timestamp: "时间"
-      deposit: "充值"
+      withdraw: "提现"
       status: "状态"
-      history: "充值记录"
-      currencyToDeposit: "充值货币： "
+      history: "提现记录"
+      currencyTowithdraw: "提现货币： "
       scan: "如果钱包支持，您可以用钱包扫描下面二维码："
       statusLabels:
         0: "等待中"
@@ -64,9 +66,7 @@ Polymer 'deposit-subpage',
         16: "系统错误"
         17: "系统错误"
 
-  depositAddress: ''
-  addresses: {}
-  nxtAddressComponents: []
+  withdrawAddress: ''
 
   created: () ->
     @M = @msgMap[window.lang]
@@ -78,25 +78,13 @@ Polymer 'deposit-subpage',
     #this.$.newAddressAjax.createAddress('BTC')
 
   currencyIdChanged: (o, n) ->
-    @deposits = []
+    @withdrawals = []
     if @currencyId
       @currency = @config.currencies[@currencyId]
-      @updateDepositAddress()
-
-  addressesChanged: (o, n) ->
-    @updateDepositAddress()
 
 
   formatTime: (t) -> moment(t).format("YYYY/MM/DD-hh:mm")
 
   loadMore: () ->
-    this.$.depositsAjax.loadMore()
+    this.$.withdrawalsAjax.loadMore()
 
-  updateDepositAddress: () ->
-    if @currencyId and @addresses and @addresses[@currencyId] and @addresses[@currencyId].length > 0
-      @depositAddress = @addresses[@currencyId]
-
-      if @currencyId == 'NXT'
-        @nxtAddressComponents = @depositAddress.split("//")
-    else
-      @depositAddress = ''
