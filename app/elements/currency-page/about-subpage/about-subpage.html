@@ -14,7 +14,7 @@
   <template>
     <link rel="stylesheet" href="about-subpage.css">
 
-    <section-group hasFooter="true" >
+    <section-group hasFooter="true">
       <template if="{{markets.length > 0}}">
         <paper-shadow z="0">
           <div label>
@@ -35,8 +35,10 @@
                   <div class="candle">
                     <candlestick-chart market="{{market}}" width="728" height="420"></candlestick-chart>
                   </div>
-                  <paper-button class="trade-btn" raised><a href="/#/marketpro/{{market.id}}">Trade {{market.name}}</a>
-                  </paper-button>
+
+                  <a id="action" href="/#/marketpro/{{market.id}}">
+                    <paper-button noink >{{M.trade}} {{market.name}}</paper-button>
+                  </a>
                 </div>
             </core-animated-pages>
             </template>

@@ -31,8 +31,8 @@
                   <th>{{currency.id}} {{M.transaction}}</th>
                 </template>
                 <th>{{M.type}}</th>
-                <th>{{M.userId}}</th>
                 <th text-right>{{M.amount}}</th>
+                <th text-right>{{M.userId}}</th>
                 <th text-right>{{M.timestamp}}</th>
               </tr>
             </thead>
@@ -48,11 +48,10 @@
                     </td>
                   </template>
                   <td class="{{tx.operation | formatClass}}">{{M.operationsLabel[tx.operation]}}</td>
-                  <td>{{tx.uid}}</td>
-
                   <td text-right class="{{tx.operation | formatClass}}">
                     <nice-number v="{{tx.amount}}" p="4"></nice-number>
                   </td>
+                  <td text-right>{{tx.uid}}</td>
                   <td text-right>{{tx.created | formatTime}}</td>
                 </tr>
               </template>

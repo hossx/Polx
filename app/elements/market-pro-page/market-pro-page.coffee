@@ -10,7 +10,7 @@ Polymer 'market-pro-page',
       orderBook: "Order Book"
       priceChart: "Price Chart"
       depthChart: "Depth Chart"
-      openOrders: "Open Orders"
+      myOpenOrders: "Open Orders"
       myTrades: "My Trade History"
       tradeHistory: "Trade History"
       
@@ -27,7 +27,7 @@ Polymer 'market-pro-page',
       orderBook: "现有订单"
       priceChart: "价格图表"
       depthChart: "深度图表"
-      openOrders: "我的挂单"
+      myOpenOrders: "我的挂单"
       myTrades: "我的成交"
       tradeHistory: '成交记录'
 
@@ -40,7 +40,7 @@ Polymer 'market-pro-page',
     @config = window.config
     @addEventListener 'refresh-market-data', (e) ->
       work = () => @refresh()
-      setTimeout(work, 1200)
+      setTimeout(work, 3000)
 
   created: () ->
     work = () => @refresh()
@@ -60,14 +60,17 @@ Polymer 'market-pro-page',
     this.$.ajaxKline.go()
     this.$.orderBookSection.go()
     this.$.tradeHistorySection.go()
-    this.$.myOrdersSection.go()
-    this.$.myTradesSection.go()
-    this.$.myBalanceSection.go()
+    if window.profile
+      this.$.myOrdersSection.go()
+      this.$.myTradesSection.go()
+      this.$.myBalanceSection.go()
 
     work = () => @refresh() 
     @autoRefresh = setTimeout(work, window.config.refreshIntervals.pro)
 
   marketIdChanged: (o, n) ->
     @market = @config.markets[@marketId]
+
+  smallupChanged: (o, n) -> console.log(@smallup)
 
   

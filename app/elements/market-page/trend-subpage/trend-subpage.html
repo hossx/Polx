@@ -8,13 +8,18 @@
   <template>
     <link rel="stylesheet" href="trend-subpage.css">
 
-    <section-group hasFooter="true" >
+    <section-group hasFooter="true">
       <paper-shadow z="0">
         <div label>
           <h2>{{market.id}} {{M.priceChart}}</h2>
         </div>
-        <div>
-          <candlestick-chart market="{{market}}" width="728" height="420"></candlestick-chart>
+        <div vertical center layout>
+          <div>
+            <candlestick-chart market="{{market}}" width="728" height="420"></candlestick-chart>
+          </div>
+          <a id="action" href="/#/marketpro/{{market.id}}">
+            <paper-button noink>{{M.trade}} {{market.name}}</paper-button>
+          </a>
         </div>
       </paper-shadow>
 

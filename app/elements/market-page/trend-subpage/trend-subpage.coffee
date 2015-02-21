@@ -6,10 +6,12 @@ Polymer 'trend-subpage',
     'en':
       priceChart: "Price Chart"
       buzz: "Tweets"
+      trade: "Trade "
 
     'zh':
       priceChart: "价格图"
       buzz: "相关微博"
+      trade: "买卖"
 
   ready: () ->
     @M = @msgMap[window.lang]
