@@ -81,8 +81,8 @@ Polymer 'cp-footer',
           label: "API"
           url: "/#/doc/api"
         ,
-          label: "通过RIPPLE网关充值人民币"
-          url: "/#/doc/cny-ripple-deposit"
+          label: "通过Ripple网关充值"
+          url: "/#/doc/ripple-deposit"
         ,
           label: "币丰支付"
           url: "https://pay.coinport.com"

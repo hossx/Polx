@@ -270,8 +270,8 @@
       "label": "Contact Us",
       "tags": ["about"]
     },
-    "cny-ripple-deposit": {
-      "label": "通过RIPPLE网关充值人民币",
+    "ripple-deposit": {
+      "label": "通过RIPPLE网关充值",
       "tags": ["ripple", "deposit"]
     },
     "api": {
