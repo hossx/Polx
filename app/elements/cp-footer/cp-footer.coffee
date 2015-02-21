@@ -28,7 +28,7 @@ Polymer 'cp-footer',
         label: "Resources"
         links: [
           label: "API Spec"
-          url: "/#/doc/api2"
+          url: "/#/doc/api"
         ,
           label: "Coinport PAY"
           url: "https://pay.coinport.com"
@@ -79,9 +79,9 @@ Polymer 'cp-footer',
         label: "资源"
         links: [
           label: "API"
-          url: "/#/doc/api2"
+          url: "/#/doc/api"
         ,
-          label: "瑞波网关充值"
+          label: "通过RIPPLE网关充值人民币"
           url: "/#/doc/cny-ripple-deposit"
         ,
           label: "币丰支付"

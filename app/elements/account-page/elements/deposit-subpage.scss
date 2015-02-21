@@ -1,6 +1,7 @@
 @import "../../_colors";
 @import "../../_common";
 @import "_subpage";
+@include config-color-link-on-light-color();
 :host {
     display: block;
     color: $black1;
@@ -56,8 +57,25 @@
     >div {
         padding: 5px 0;
     }
+    crypto-address {
+        margin: 5px;
+        font-size: 14px;
+    }
+    .warning {
+        margin-top: 20px;
+        color: color($C3, a700);
+        padding: 20px;
+        border: 1px dashed color($C3, a700);
+    }
+    .alsoNote {
+        width: 100%;
+        color: $black2;
+        margin-top: 20px;
+        padding: 20px 0;
+        border-top: 1px solid $black4;
+    }
 }
 #qrcode {
-    background: $black4;
+    background: color($grey, 100);
     padding: 20px;
 }

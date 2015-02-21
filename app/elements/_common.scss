@@ -22,6 +22,16 @@
         }
     }
 }
+@mixin config-color-link-on-light-color() {
+    a {
+        color: color($C2, a700);
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+            color: color($C2, a700);
+        }
+    }
+}
 @mixin has-paper-spinner() {
     paper-spinner::shadow .circle {
         border-color: color($C1, 500);

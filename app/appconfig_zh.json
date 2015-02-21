@@ -270,17 +270,13 @@
       "label": "Contact Us",
       "tags": ["about"]
     },
-    "dong": {
-      "label": "Daniel's Developer Notes",
-      "tags": ["developer"]
+    "cny-ripple-deposit": {
+      "label": "通过RIPPLE网关充值人民币",
+      "tags": ["ripple", "deposit"]
     },
-    "api2": {
+    "api": {
       "label": "币丰港交易平台API",
       "tags": ["developer"]
-    },
-    "cny-deposit-thru-ripple-gateways": {
-      "label": "CNY Deposit Through Ripple Gateways",
-      "tags": ["ripple", "deposit"]
     }
   }
 }

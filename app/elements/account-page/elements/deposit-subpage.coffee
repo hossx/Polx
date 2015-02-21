@@ -10,6 +10,7 @@ Polymer 'deposit-subpage',
       timestamp: "Time"
       deposit: "Deposit"
       history: "Deposit Records"
+      currencyToDeposit: "Currency to deposit: "
 
     'zh':
       id: "ID"
@@ -19,14 +20,15 @@ Polymer 'deposit-subpage',
       timestamp: "时间"
       deposit: "充值"
       history: "充值记录"
+      currencyToDeposit: "充值货币： "
 
-
+  address: "fdaf"
   ready: () ->
     @M = @msgMap[window.lang]
+    @lang = window.lang
+    @profile = window.profile
     @config = window.config
     @currencyKeys = Object.keys(@config.currencies)
-
-  address: 'afafaa'
 
   currencyIdChanged: (o, n) ->
     @deposits = []

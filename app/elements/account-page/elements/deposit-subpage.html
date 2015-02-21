@@ -4,6 +4,7 @@
 <link rel="import" href="../../../bower_components/core-dropdown/core-dropdown.html">
 <link rel="import" href="../../../bower_components/core-menu/core-menu.html">
 <link rel="import" href="../../../bower_components/core-item/core-item.html">
+<link rel="import" href="../../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../crypto-address/crypto-address.html">
@@ -24,7 +25,7 @@
         <div vertical center layout class="container1">
 
           <div id="select" center horizontal layout>
-            <div class="label">Currency to deposit: </div>
+            <div class="label">{{M.currencyToDeposit}}</div>
             <core-dropdown-menu label="{{currency.fullName}}" class="dropdownMenu">
               <core-dropdown class="dropdown">
                 <core-menu valueattr="id" selected="{{currencyId}}">
@@ -37,48 +38,119 @@
           </div>
 
           <template if="{{currency.id == 'CNY'}}">
-            <div class="instruction" vertical layout>
-              <p>There are two ways for you to deposit CNY.
-              </p>
-              <h3>Method 1</h3>
-              <p>You can make {{currency.fullName}} deposits through our certified agents. Please contact them using Tencent
-                <span class="highlight">QQ 498073256</span>. They will tell you one of their CNY bank accounts that you need to transfer
-                money into.
-              </p>
-              <h3>Method 2</h3>
-              <p>You may also deposit {{currency.name}} through our trusted Ripple gateways. Ripple deposit is near realtime and is
-                more convinient. Please refer to <a href="/#/doc/cny-deposit-thru-ripple-gateways" target="_blank">this document</a>                for details.
-              </p>
-            </div>
-          </template>
-          <template if="{{currency.id == 'GOOC'}}">
-            <div class="instruction" vertical layout>
-              <p>Please send your {{currency.fullName}} to account <span class="highlight">50001</span> with and only with your id
-                <span class="memo">afdafas</span> as the exact memo.
-                <p>Please note:</p>
-                <ul>
-                  <li>The minimum amount for deposit is 1000 {{currency.unit}}.</li>
-                  <li>Manual processing of {{currency.name}} is only available between 10:00AM and 10:00PM Beijing Time.</li>
-                  <li>During the above hours, we nomally credit your account within 2 hours.</li>
-                </ul>
-                <p>Shall you have any questions, please contact us: <span class="highlight">QQ 1691767742</span>.
-                </p>
+            <div class="instruction" vertical start layout>
+              <template if="{{lang == 'zh'}}">
+                <div>币丰港提供两种人民币充值渠道。</div>
+                <h3>渠道一：</h3>
+                <div>您可以通过我们认证的代理进行人民币充值。 请通过
+                  <span class="highlight">QQ号：3115728063, 209063895</span>联系他们. 我们的代理会告诉您人民币账号充值的银行账号信息，您打款后代理商会联系我们，我们会尽快帮您完成充值。
+                </div>
+                <h3>渠道二：</h3>
+                <div>您还可以通过我们信任的瑞波网关进行充值。 瑞波网关充值更快更便捷。详情请参考<a href="/#/doc/cny-deposit-thru-ripple-gateways" target="_blank">本文档</a>。
+                </div>
+                <div class="alsoNote">
+                  <core-icon icon="info-outline"></core-icon>
+                  <ul>
+                    <li>每次充值的最小金额为 100 {{currency.unit}}。</li>
+                    <li>{{currency.name}}充值需要人工处理，我们的服务时间是北京时间早10点到晚10点。</li>
+                    <li>在上述时间内，您的充值一般会在一个小时内到账。</li>
+                  </ul>
+                </div>
+              </template>
+
+              <template if="{{lang == 'en'}}">
+                <div>You can make {{currency.fullName}} deposits through our certified agents. Please contact them using Tencent
+                  <span class="highlight">QQ 3115728063, 209063895</span>. They will tell you one of their CNY bank accounts that
+                  you need to transfer money into.
+                </div>
+                <div class="alsoNote">
+                  <core-icon icon="info-outline"></core-icon>
+                  <ul>
+                    <li>The minimum amount for deposit is 100 {{currency.unit}}.</li>
+                    <li>Manual processing of {{currency.name}} is only available between 10:00AM and 10:00PM Beijing Time.</li>
+                    <li>During the above hours, we nomally credit your account within 1 hour.</li>
+                  </ul>
+                </div>
+              </template>
             </div>
           </template>
 
-          <template if="{{currency.isCrypto}}">
+          <template if="{{currency.id == 'GOOC'}}">
+            <div class="instruction" vertical start layout>
+              <template if="{{lang == 'zh'}}">
+                <div>请将您的{{currency.fullName}}转账到账号：
+                  <crypto-address currency="{{currency}}" addr="50001"></crypto-address>
+                </div>
+                <div class="warning">
+                  <b>重要提示：</b>转账时请一定把 “<b>{{profile.uid}}</b>”（您的用户ID） 作为 memo 输入到钱包。不这么做您的充值不会成功！
+                </div>
+                <div class="alsoNote">
+                  <core-icon icon="info-outline"></core-icon>
+                  <ul>
+                    <li>每次充值的最小金额为 1000 {{currency.unit}}。</li>
+                    <li>{{currency.name}}充值需要人工处理，我们的服务时间是北京时间早10点到晚10点。</li>
+                    <li>在上述时间内，您的充值一般会在一个小时内到账。</li>
+                  </ul>
+                </div>
+              </template>
+              <template if="{{lang == 'en'}}">
+                <div>Please send your {{currency.fullName}} to account:
+                  <crypto-address currency="{{currency}}" addr="50001"></crypto-address>
+                </div>
+                <div class="warning">
+                  <b>Attention:</b> Please make sure you put "{{profile.uid}}"(your user ID) as the exact memo. Failing to do so may
+                  invalid your deposit!
+                </div>
+                <div class="alsoNote">
+                  <core-icon icon="info-outline"></core-icon>
+                  <ul>
+                    <li>The minimum amount for deposit is 1000 {{currency.unit}}.</li>
+                    <li>Manual processing of {{currency.name}} is only available between 10:00AM and 10:00PM Beijing Time.</li>
+                    <li>During the above hours, we nomally credit your account within 1 hour.</li>
+                  </ul>
+                </div>
+              </template>
+            </div>
+          </template>
+
+          <template if="{{currency.id == 'XRP'}}">
+            <div class="instruction" vertical start layout>
+              <template if="{{lang == 'zh'}}">
+                <div>请将您的{{currency.name}}充值到:
+                  <crypto-address currency="{{currency}}" addr="r9AzyYGGQAvgefdgeu3eDHaVdxLdpAvchE"></crypto-address>
+                  或者
+                  <crypto-address currency="{{currency}}" addr="coinportXrpDeposit"></crypto-address>
+                </div>
+                <div class="warning">
+                  <b>重要提示：</b> 转账时请一定把 “<b>{{profile.uid}}</b>”（您的用户ID） 作为 “Destination Tag” 输入到钱包。不这么做您的充值不会成功！
+                </div>
+              </template>
+
+              <template if="{{lang == 'en'}}">
+                <div>Please send your {{currency.name}} to:
+                  <crypto-address currency="{{currency}}" addr="r9AzyYGGQAvgefdgeu3eDHaVdxLdpAvchE"></crypto-address>
+                  or
+                  <crypto-address currency="{{currency}}" addr="coinportXrpDeposit"></crypto-address>
+                </div>
+                <div class="warning">
+                  <b>Attention:</b> Please make sure you put "{{profile.uid}}"(your user ID) as the "Destination Tag". Failing to
+                  do so may invalid your deposit!
+                </div>
+              </template>
+            </div>
+          </template>
+
+          <template if="{{currency.id != 'CNY' && currency.id != 'GOOC' && currency.id != 'XRP'}}">
             <div class="instruction" vertical center layout>
               <div>Please send your {{currency.name}} to</div>
-              <div>
-                <crypto-address class="attention" currency="{{currency}}" addr="{{address}}"></crypto-address>
-              </div>
+              <crypto-address currency="{{currency}}" addr="{{address}}"></crypto-address>
               <div>You can scan this QR code with your {{currency.name}} wallet</div>
             </div>
             <div id="qrcode">
               <qr-code data="{{address}}" size="200" margin="1"></qr-code>
             </div>
-
           </template>
+
         </div>
       </paper-shadow>
 
