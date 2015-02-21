@@ -9,10 +9,10 @@ div.stat {
     padding: 0 10px;
     text-align: right;
     color: $black1;
-    :first-child {
+    nice-number {
         font-weight: bold;
     }
-    :last-child {
+    .label {
         font-size: 12px;
         color: $black2;
     }

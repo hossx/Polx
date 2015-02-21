@@ -6,18 +6,18 @@
     <div class="divider"></div>
     <div class="stat" vertical layout>
       <nice-number v="{{ticker.price}}" unit="{{market.baseCurrency.unit}}" no-trailing-zeros></nice-number>
-      <div>{{M.lastPrice}}</div>
+      <div class="label">{{M.lastPrice}}</div>
     </div>
 
     <div class="stat" vertical layout>
       <nice-number v="{{ticker.volume}}" p="2" unit="{{market.currency.unit}}" no-trailing-zeros></nice-number>
-      <div>{{M.volume}}</div>
+      <div class="label">{{M.volume}}</div>
     </div>
 
     <div class="stat" vertical layout>
       <div class="{{ticker.changeType}}">{{ticker.changeTxt}}</nice-number>
       </div>
-      <div>{{M.change}}</div>
+      <div class="label">{{M.change}}</div>
     </div>
     <div class="divider"></div>
   </template>
