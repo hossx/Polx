@@ -2,6 +2,7 @@
 <link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
 <link rel="import" href="../../../bower_components/core-tooltip/core-tooltip.html">
 <link rel="import" href="../../../bower_components/core-icons/communication-icons.html">
+<link rel="import" href="../../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../../bower_components/core-collapse/core-collapse.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../../bower_components/paper-icon-button/paper-icon-button.html">
@@ -24,6 +25,7 @@
           <table class="simple">
             <thead>
               <tr>
+                <th></th>
                 <th text-left>{{M.currency}}</th>
                 <th text-right>{{M.total}}</th>
                 <th text-right>{{M.available}}</th>
@@ -36,11 +38,10 @@
               <template repeat="{{item in assets}}">
                 <tr>
                   <td>
-                    <div horizontal layout>
-                      <core-icon icon="crypto:{{item.currency.id}}"></core-icon>
-                      <div><a href="/#/currency/{{item.currency.id}}">{{item.currency.fullName}}</a>
-                      </div>
-                    </div>
+                    <core-icon icon="crypto:{{item.currency.id}}"></core-icon>
+                  </td>
+                  <td>
+                    <a href="/#/currency/{{item.currency.id}}">{{item.currency.fullName}}</a>
                   </td>
                   <td text-right>
                     <nice-number p="4" v="{{item.total}}"></nice-number>
