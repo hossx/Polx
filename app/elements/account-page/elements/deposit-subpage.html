@@ -10,12 +10,15 @@
 <link rel="import" href="../../crypto-address/crypto-address.html">
 <link rel="import" href="../../crypto-tx/crypto-tx.html">
 <link rel="import" href="../../coinport-api/api-my-deposits.html">
+<link rel="import" href="../../coinport-api/api-my-deposit-addresses.html">
+<link rel="import" href="../../coinport-api/api-create-deposit-address.html">
 <link rel="import" href="../../qr-code/qr-code.html">
 <link rel="import" href="../../load-data-widget/load-data-widget.html">
 <polymer-element name="deposit-subpage" attributes="profile,currencyId,active">
   <template>
     <link rel="stylesheet" href="deposit-subpage.css">
-    <core-ajax id="depositAddrAjax" url="{{depositAddrUrl}}" response="{{depositAddrResp}}" auto></core-ajax>
+    <api-my-deposit-addresses addressMap="{{addresses}}" auto></api-my-deposit-addresses>
+    <api-create-deposit-address id="newAddressAjax"></api-create-deposit-address>
 
     <section-group hasFooter="true" fit>
       <paper-shadow z="0">
@@ -43,7 +46,7 @@
                 <div>币丰港提供两种人民币充值渠道。</div>
                 <h3>渠道一：</h3>
                 <div>您可以通过我们认证的代理进行人民币充值。 请通过
-                  <span class="highlight">QQ号：3115728063, 209063895</span>联系他们. 我们的代理会告诉您人民币账号充值的银行账号信息，您打款后代理商会联系我们，我们会尽快帮您完成充值。
+                  <span class="highlight">QQ号：3115728063, 209063895 </span>联系他们. 我们的代理会告诉您人民币账号充值的银行账号信息，您打款后代理商会联系我们，我们会尽快帮您完成充值。
                 </div>
                 <h3>渠道二：</h3>
                 <div>您还可以通过我们信任的瑞波网关进行充值。 瑞波网关充值更快更便捷。详情请参考<a href="/#/doc/cny-deposit-thru-ripple-gateways" target="_blank">本文档</a>。
@@ -167,14 +170,35 @@
             </div>
           </template>
 
-          <template if="{{currency.id != 'CNY' && currency.id != 'GOOC' && currency.id != 'XRP' && currency.id != 'BTSX'}}">
+          <template if="{{currency.id == 'NXT'}}">
+            <div class="instruction" vertical start layout>
+              <div>Please send your {{currency.name}} to:
+                <crypto-address currency="{{currency}}" addr="{{nxtAddressComponents[0]}}"></crypto-address> or
+                <crypto-address currency="{{currency}}" addr="{{nxtAddressComponents[1]}}"></crypto-address>
+              </div>
+              <div>You can scan this QR code with your {{currency.name}} wallet:</div>
+
+              <div self-center id="qrcode">
+                <qr-code data="{{nxtAddressComponents[0]}}" size="200" margin="1"></qr-code>
+              </div>
+
+              <div class="alsoNote">
+                <core-icon icon="info-outline"></core-icon>
+                <ul>
+                  <li>This is a new address, pleae use it's public key: <span class="quote">{{nxtAddressComponents[2]}}</span>.</li>
+                </ul>
+              </div>
+            </div>
+          </template>
+
+          <template if="{{currency.id != 'CNY' && currency.id != 'GOOC' && currency.id != 'XRP' && currency.id != 'BTSX' && currency.id != 'NXT'}}">
             <div class="instruction" vertical center layout>
               <div>Please send your {{currency.name}} to</div>
-              <crypto-address currency="{{currency}}" addr="{{address}}"></crypto-address>
-              <div>You can scan this QR code with your {{currency.name}} wallet</div>
+              <crypto-address currency="{{currency}}" addr="{{depositAddress}}"></crypto-address>
+              <div>{{M.scan}}</div>
             </div>
             <div id="qrcode">
-              <qr-code data="{{address}}" size="200" margin="1"></qr-code>
+              <qr-code data="{{depositAddress}}" size="200" margin="1"></qr-code>
             </div>
           </template>
 
@@ -195,7 +219,8 @@
                   <th>{{currency.id}} {{M.transaction}}</th>
                 </template>
                 <th text-right>{{M.quantity}}</th>
-                <th>{{M.timestamp}}</th>
+                <th text-right>{{M.timestamp}}</th>
+                <th text-right>{{M.status}}
               </tr>
             </thead>
             <tbody>
@@ -213,7 +238,8 @@
                   <td text-right class="deposit">
                     <nice-number v="{{d.amount}}" p="4"></nice-number>
                   </td>
-                  <td>{{d.created | formatTime}}</td>
+                  <td text-right>{{d.created | formatTime}}</td>
+                  <td text-right>{{M.statusLabels[d.status]}}</td>
                 </tr>
               </template>
             </tbody>

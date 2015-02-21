@@ -15,6 +15,10 @@
         width: 12px;
         padding-right: 5px;
     }
+    #addr::selection {
+        background: black;
+        color: color($C2, a400);
+    }
 }
 :host-context(.attention) {
     background: color($C3, a400);

@@ -7,7 +7,7 @@
 
 - 很多API的cursor实现不对，而且文档中没有说明cursor是对应返回数据的哪个field。另外cursor是“”的时候API应该正确返回。
 - BUG: the hasMore value of /user/deposits is wrong
-
+- BUG？我的deposit历史又很早的为什么还是2（确认中）？
 ---
 
 
@@ -93,13 +93,13 @@
 
 - uid：用户ID，是个10位数字编号，如: 1000001023。
 
-- withdraw_status：提现状态码，其中：
+- 充值提现状态码：
   ```
     0 - 待处理（pending）
     1 - 处理中（processing）
     2 - 处理完成，等待网络确认（comfirming）
     3 - 已取消（pending）
-    4 - 成功（successed）
+    4 - 成功（succeeded）
     5 - 失败（failed）
   ```
 

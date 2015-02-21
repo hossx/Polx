@@ -22,9 +22,8 @@ Polymer 'api-my-deposits',
   dataChanged: (o, n) ->
     if @data
       @hasMore = @data.hasMore
-      console.log("api bug here----")
-      console.log(@hasMore)
       @deposits = @data.deposits
+      console.log(@deposits)
 
   loadMore: () ->
     console.log("load more deposits...")

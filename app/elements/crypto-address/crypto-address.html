@@ -5,7 +5,6 @@
 <polymer-element name="crypto-address" attributes="currency,addr">
   <template>
     <link rel="stylesheet" href="crypto-address.css">
-    <core-tooltip class="fancy">
       <div center horizontal layout>
         <template if="{{link}}">
           <a target="_blank" href="{{link}}">
@@ -17,7 +16,6 @@
         </template>
         <div id="addr">{{addr}}</div>
       </div>
-    </core-tooltip>
   </template>
   <script src="crypto-address.js"></script>
 </polymer-element>
