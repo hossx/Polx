@@ -3,21 +3,13 @@
     box-sizing: border-box;
     color: $black1;
 }
-cp-toolbar {
-    display: none;
-}
-:host-context([has-toolbar]) {
-    cp-toolbar {
-        display: inherit;
-    }
-}
 #content {
     min-height: 100vh;
-    background: color($C1, 50);
+    background: transparent;
 }
-:host-context([no-bg]) {
+:host-context([grey-bg]) {
     #content {
-        background: transparent;
+        background: color($C1, 50);
     }
 }
 #footer-wrapper {

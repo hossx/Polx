@@ -3,16 +3,18 @@
 <link rel="import" href="../../bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
 <link rel="import" href="cp-toolbar.html">
 
-<polymer-element name="cp-page" attributes="toolbarSelect,hasFooter" noscript fit>
+<polymer-element name="cp-page" attributes="toolbarSelect,noFooter,noToolbar" noscript fit>
   <template>
     <link rel="stylesheet" href="cp-page.css">
     <core-header-panel mode="waterfall" fit>
-      <cp-toolbar class="core-header" toolbarSelect="{{toolbarSelect}}"></cp-toolbar>
+      <template if="{{!noToolbar}}">
+        <cp-toolbar class="core-header" toolbarSelect="{{toolbarSelect}}"></cp-toolbar>
+      </template>
       <div id="main" vertical layout>
         <div id="content" center vertical layout>
           <content></content>
         </div>
-        <template if="{{hasFooter}}">
+        <template if="{{!noFooter}}">
           <div id="footer-wrapper" center vertical layout>
             <cp-footer id="footer" self-center></cp-footer>
           </div>
