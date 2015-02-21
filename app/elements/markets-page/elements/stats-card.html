@@ -2,7 +2,6 @@
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../cp-icons/crypto-icons.html">
-<link rel="import" href="../../cp-icons/cryptocode-icons.html">
 
 <polymer-element name="stats-card" attributes="marketId,ticker">
 
@@ -12,12 +11,13 @@
     <paper-shadow id="shadow" z="0">
       <a href="/#/marketpro/{{marketId}}">
         <div id="box" vertical center layout>
-          <div id="head">
-            <!--core-icon id="crypto-icon"></core-icon-->
-            {{market.name}}
-            <template if="{{market.json.priceUnit != null}}">
-              <span id="unit">{{market.json.priceUnit}}</span>
-            </template>
+          <div id="head" horizontal center-justified layout>
+            <core-icon icon="crypto:{{market.currency.id}}"></core-icon>
+            <div>{{market.name}}
+              <template if="{{market.json.priceUnit != null}}">
+                <span id="unit">{{market.json.priceUnit}}</span>
+              </template>
+            </div>
           </div>
 
           <div id="stats" center-justified vertical layout>

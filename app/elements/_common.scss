@@ -231,6 +231,10 @@
                 text-align: center;
                 padding: 10px 0;
                 min-height: 25px;
+                core-icon {
+                    margin-right: 5px;
+                    color: color($red, 500);
+                }
             }
             &:hover {
                 border: 1px solid color($grey, 900);

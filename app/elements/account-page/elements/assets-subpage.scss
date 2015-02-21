@@ -20,6 +20,9 @@
                         color: $black1;
                         text-align: center
                     }
+                    core-icon {
+                        margin-right: 5px;
+                    }
                 }
                 &:hover {
                     background: color($C2, a400);

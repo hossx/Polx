@@ -8,7 +8,7 @@
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../nice-number/nice-number.html">
 <link rel="import" href="../../coinport-api/api-my-balance.html">
-
+<link rel="import" href="../../cp-icons/crypto-icons.html">
 
 <polymer-element name="assets-subpage" attributes="profile,active">
   <template>
@@ -35,11 +35,25 @@
             <tbody>
               <template repeat="{{item in assets}}">
                 <tr>
-                  <td><a href="/#/currency/{{item.currency.id}}">{{item.currency.fullName}}</a></td>
-                  <td text-right><nice-number p="4" v="{{item.total}}"></nice-number></td>
-                  <td text-right><nice-number p="4" v="{{item.available}}"></nice-number></td>
-                  <td text-right><nice-number p="4" v="{{item.locked}}"></nice-number></td>
-                  <td text-right><nice-number p="4" v="{{item.pending}}"></nice-number></td>
+                  <td>
+                    <div horizontal layout>
+                      <core-icon icon="crypto:{{item.currency.id}}"></core-icon>
+                      <div><a href="/#/currency/{{item.currency.id}}">{{item.currency.fullName}}</a>
+                      </div>
+                    </div>
+                  </td>
+                  <td text-right>
+                    <nice-number p="4" v="{{item.total}}"></nice-number>
+                  </td>
+                  <td text-right>
+                    <nice-number p="4" v="{{item.available}}"></nice-number>
+                  </td>
+                  <td text-right>
+                    <nice-number p="4" v="{{item.locked}}"></nice-number>
+                  </td>
+                  <td text-right>
+                    <nice-number p="4" v="{{item.pending}}"></nice-number>
+                  </td>
                   <td class="op">
                     <core-tooltip label="{{M.trade}}{{item.currency.name}}">
                       <paper-icon-button noink on-tap="{{openMarkets}}" id="{{item.currency.id}}" icon="swap-horiz"></paper-icon-button>

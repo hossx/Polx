@@ -3,7 +3,6 @@
 <link rel="import" href="../../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../better-chart-pie/better-chart-pie.html">
 <link rel="import" href="../../cp-icons/crypto-icons.html">
-<link rel="import" href="../../cp-icons/cryptocode-icons.html">
 <link rel="import" href="../../nice-number/nice-number.html">
 
 <polymer-element name="reserve-card" attributes="currencyId,reserve">
@@ -14,7 +13,10 @@
     <paper-shadow id="shadow" z="0">
       <a href="/#/currency/{{currencyId}}">
         <div cross-fade id="box" vertical layout>
-          <div id="head">{{currency.fullName}}</div>
+          <div id="head" horizontal center-justified layout>
+            <core-icon icon="crypto:{{currency.id}}"></core-icon>
+            <div>{{currency.fullName}}</div>
+          </div>
 
           <div id="stats" center-justified vertical layout>
             <div id="general">
