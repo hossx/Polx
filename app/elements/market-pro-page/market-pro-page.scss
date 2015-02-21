@@ -32,11 +32,14 @@ $head-height: 36px;
     display: none;
 }
 .column {
-    min-width: 260px;
+    width: 100%;
+    box-sizing: border-box;
+    //min-width: 260px;
     border-left: 1px solid $border-color;
     border-right: 1px solid $border-color;
     .block {
         font-size: 12px;
+        box-sizing: border-box;
         border-top: 8px solid $border-color;
         .head {
             height: $head-height;
@@ -120,8 +123,25 @@ $head-height: 36px;
         display: inherit;
     }
     .column {
+        width: 50%;
         .block {
             border-top: 2px solid $border-color;
+        }
+    }
+}
+@media(min-width: 1024px) {
+    .column {
+        width: 30%;
+        &.two {
+            width: 40%;
+        }
+    }
+}
+@media(min-width: 1200px) {
+    .column {
+        width: 20%;
+        &.two {
+            width: 40%;
         }
     }
 }

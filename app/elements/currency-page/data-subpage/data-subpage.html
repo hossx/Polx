@@ -31,8 +31,8 @@
                   <th>{{currency.id}} {{M.transaction}}</th>
                 </template>
                 <th>{{M.type}}</th>
-                <th>{{M.userId}}</th>
                 <th text-right>{{M.amount}}</th>
+                <th text-right>{{M.userId}}</th>
                 <th text-right>{{M.timestamp}}</th>
               </tr>
             </thead>
@@ -48,11 +48,10 @@
                     </td>
                   </template>
                   <td class="{{tx.operation | formatClass}}">{{M.operationsLabel[tx.operation]}}</td>
-                  <td>{{tx.uid}}</td>
-
                   <td text-right class="{{tx.operation | formatClass}}">
                     <nice-number v="{{tx.amount}}" p="4"></nice-number>
                   </td>
+                  <td text-right>{{tx.uid}}</td>
                   <td text-right>{{tx.created | formatTime}}</td>
                 </tr>
               </template>
@@ -83,7 +82,7 @@
               <template repeat="{{snapshot in snapshots}}">
                 <tr>
                   <td>
-                    <a href="{{fileBase + snapshot[0]}}">
+                    <a href="{{path}}{{snapshot[0]}}">
                       {{snapshot[0]}}<core-icon class="small" icon="file-download"></core-icon></a>
                   </td>
                   <td>{{snapshot[1]}} Bytes</td>
@@ -93,7 +92,7 @@
             </tbody>
           </table>
 
-          <api-currency-balance-snapshots id="ajax2" currencyId="{{currency.id}}" snapshots="{{snapshots}}" loading="{{LoadingSnapshots}}"
+          <api-currency-balance-snapshots id="ajax2" currencyId="{{currency.id}}" path="{{path}}" snapshots="{{snapshots}}" loading="{{LoadingSnapshots}}"
           hasMore="{{hasMoreSnapshots}}" auto></api-currency-balance-snapshots>
 
           <load-data-widget loading="{{LoadingSnapshots}}" data="{{snapshots}}" hasMore="{{hasMoreSnapshots}}" on-load-more="{{loadMoreSnapshots}}"></load-data-widget>

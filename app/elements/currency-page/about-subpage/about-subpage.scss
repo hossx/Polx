@@ -7,17 +7,16 @@
 #kchart-pages {
     height: 480px;
 }
-.trade-btn {
+a#action {
+    color: $black1;
+    text-decoration: none;
     margin-top: 40px;
-    background: color($C2, a700);
-    font-weight: bold;
-    padding: 10px 20px;
-    &:hover {
-        background: color($C3, a700);
-    }
-    a {
-        color: $white1;
-        text-decoration: none;
+    paper-button {
+        background: color($C1, 100);
+        font-weight: bold;
+        &:hover {
+            background: color($C2, a400);
+        }
     }
 }
 #market-tabs {

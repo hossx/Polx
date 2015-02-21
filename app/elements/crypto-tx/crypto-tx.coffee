@@ -16,4 +16,4 @@ Polymer 'crypto-tx',
     if @currency and @tx and @currency.json.browser and @currency.json.browser.tx
       @link = @currency.json.browser.tx.format(@tx)
 
-  formatTx: (tx) -> if tx then tx.substr(0, 20) + "..." else ''
+  formatTx: (tx) -> if tx then tx.substr(0, 10) + "..." else ''

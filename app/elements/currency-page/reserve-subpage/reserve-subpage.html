@@ -40,10 +40,20 @@
                     <td><span class="{{data[2]}}">{{M[data[2]]}}</span>
                     </td>
                     <td>
-                      <div class="msg">{{data[3]}}</div>
+                      <template if="{{data[3]}}">
+                        <div class="msg">{{data[3]}}</div>
+                      </template>
+                      <template if="{{!data[3]}}">
+                        <div>{{M.sigNotAvailable}}</div>
+                      </template>
                     </td>
                     <td>
-                      <div class="sig">{{data[4]}}</div>
+                      <template if="{{data[4]}}">
+                        <div class="sig">{{data[4]}}</div>
+                      </template>
+                      <template if="{{!data[4]}}">
+                        <div>{{M.sigNotAvailable}}</div>
+                      </template>
                     </td>
                   </tr>
                 </template>

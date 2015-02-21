@@ -10,7 +10,7 @@
 
     <div class="groupLabel">{{currency.name}}{{M.markets}}</div>
     <div class="comment">{{refreshInterval | refreshFormatter}}</div>
-    <div class="canvas" wrap?={{smallup}} layout center?={{!smallup}} vertical?={{!smallup}} horizontal?={{smallup}}>
+    <div class="canvas" wrap?="{{smallup}}" layout center?="{{!smallup}}" vertical?="{{!smallup}}" horizontal?="{{smallup}}">
       <template repeat="{{id in marketIds}}">
         <stats-card class="card" auto-vertical marketId="{{id}}" ticker="{{tickers[id]}}"></stats-card>
       </template>

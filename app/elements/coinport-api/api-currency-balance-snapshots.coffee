@@ -18,6 +18,7 @@ Polymer 'api-currency-balance-snapshots',
 
   dataChanged: (o, n) ->
     if @data
+      @path = @data.path
       @hasMore = @data.hasMore
       if @continueLoading
         @snapshots.push @data.items...

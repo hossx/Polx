@@ -13,6 +13,7 @@ Polymer 'reserve-subpage',
       cold: "Cold"
       total: "Total"
       addresses: "addresses"
+      sigNotAvailable: "N/A"
       noReserveDataAvail: "No reserve data available for non-blockchain currencies!"
 
     'zh':
@@ -26,6 +27,7 @@ Polymer 'reserve-subpage',
       cold: "冷钱包"
       total: "总量"
       addresses: '个地址'
+      sigNotAvailable: "暂无"
       noReserveDataAvail: "对于非区块链货币我们暂不提供准备金证明。"
 
 

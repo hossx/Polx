@@ -64,8 +64,9 @@
           </a>
         </core-toolbar>
 
-        <div id="main" wrap flex vertical?={{!smallup}} horizontal?={{smallup}} layout main>
-          <div class="column" id="ticker" auto-vertical flex vertical layout>
+        <div id="main" wrap flex horizontal layout main>
+
+          <div class="column" id="ticker" auto-vertical vertical layout>
             <div class="block" vertical layout>
               <div class="head" center horizontal layout>
                 <div class="title">{{M.ticker}}</div>
@@ -74,7 +75,8 @@
             </div>
 
           </div>
-          <div class="column" auto-vertical flex vertical layout>
+
+          <div class="column" auto-vertical vertical layout>
             <div class="block" vertical layout>
               <section-trade id="trade" class="section" market="{{market}}" balance="{{balance}}" baseBalance="{{baseBalance}}"></section-trade>
             </div>
@@ -96,7 +98,7 @@
             </div>
           </div>
 
-          <div class="column" auto-vertical flex vertical layout>
+          <div class="column" auto-vertical vertical layout>
             <div class="block" id="orderbook" vertical layout>
               <div class="head" center horizontal layout>
                 <div class="title">{{M.orderBook}}</div>
@@ -105,7 +107,7 @@
             </div>
           </div>
 
-          <div class="column" auto-vertical flex two vertical layout>
+          <div class="column two" auto-vertical vertical layout>
             <div class="block" vertical layout>
               <div class="head" center horizontal layout>
                 <div class="title">{{M.priceChart}}</div>
@@ -124,22 +126,24 @@
               </div>
             </div>
 
-            <div class="block" id="orders" vertical layout>
-              <div class="head" center horizontal layout>
-                <div class="title">{{M.openOrders}}</div>
+            <template if="{{window.profile}}">
+              <div class="block" id="orders" vertical layout>
+                <div class="head" center horizontal layout>
+                  <div class="title">{{M.openOrders}}</div>
+                </div>
+                <section-my-orders id="myOrdersSection" class="section" marketId="{{marketId}}"></section-my-orders>
               </div>
-              <section-my-orders id="myOrdersSection" class="section" marketId="{{marketId}}"></section-my-orders>
-            </div>
 
-            <div class="block" id="trades" vertical layout>
-              <div class="head" center horizontal layout>
-                <div class="title">{{M.myTrades}}</div>
+              <div class="block" id="trades" vertical layout>
+                <div class="head" center horizontal layout>
+                  <div class="title">{{M.myTrades}}</div>
+                </div>
+                <section-my-trades id="myTradesSection" class="section" marketId="{{marketId}}"></section-my-trades>
               </div>
-              <section-my-trades id="myTradesSection" class="section" marketId="{{marketId}}"></section-my-trades>
-            </div>
+            </template>
           </div>
 
-          <div class="column" auto-vertical flex vertical layout>
+          <div class="column" auto-vertical vertical layout>
             <div class="block" vertical layout>
               <div class="head" center horizontal layout>
                 <div class="title">{{M.tradeHistory}}</div>
