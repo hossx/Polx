@@ -24,7 +24,7 @@
             <template if="{{markets.length > 1}}">
               <paper-tabs id="market-tabs" selected="{{tab}}">
                 <template repeat="{{market in markets}}">
-                  <paper-tab> {{market.name}} </paper-tab>
+                  <paper-tab noink>{{market.name}} {{M.market}}</paper-tab>
                 </template>
               </paper-tabs>
             </template>
@@ -37,7 +37,7 @@
                   </div>
 
                   <a id="action" href="/#/marketpro/{{market.id}}">
-                    <paper-button noink >{{M.trade}} {{market.name}}</paper-button>
+                    <paper-button noink>{{M.trade}} {{market.name}}</paper-button>
                   </a>
                 </div>
             </core-animated-pages>

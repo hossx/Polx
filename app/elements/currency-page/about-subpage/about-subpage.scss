@@ -21,13 +21,21 @@ a#action {
 }
 #market-tabs {
     width: 100%;
-    color: color($C1, 500);
-    /deep/ {
-        #ink {
-            color: $white1;
+    font-size: 13px;
+    font-weight: bold;
+    height: 64px;
+    color: $black1;
+    &::shadow {
+        #tabsContainer {
+            background: color($C1, 200);
+            color: $black1;
         }
         #selectionBar {
-            background-color: color($C1, 500);
+            background: color($C1, 900);
         }
+    }
+    paper-tab[active] {
+        background: color($C1, 900);
+        color: $white1;
     }
 }

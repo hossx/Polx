@@ -7,12 +7,14 @@ Polymer 'about-subpage',
       about: "About"
       buzz: "Tweets"
       trade: "Trade "
+      market: "Market"
 
     'zh':
       trend: "价格走势"
       about: "关于"
       buzz: "相关微博"
       trade: "买卖"
+      market: "市场"
 
   ready: () ->
     @M = @msgMap[window.lang]
