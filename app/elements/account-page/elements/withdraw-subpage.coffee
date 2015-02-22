@@ -12,7 +12,8 @@ Polymer 'withdraw-subpage',
       withdraw: "withdraw"
       status: "Status"
       history: "withdraw Records"
-      currencyTowithdraw: "Currency to withdraw: "
+      currencyToWithdraw: "Currency: "
+      balance: "Balance:"
       scan: "Your wallet may support scaning of the following QR-Code:"
       statusLabels:
         0: "Pending"
@@ -44,7 +45,8 @@ Polymer 'withdraw-subpage',
       withdraw: "提现"
       status: "状态"
       history: "提现记录"
-      currencyTowithdraw: "提现货币： "
+      currencyToWithdraw: "货币： "
+      balance: "余额："
       scan: "如果钱包支持，您可以用钱包扫描下面二维码："
       statusLabels:
         0: "等待中"
@@ -66,7 +68,7 @@ Polymer 'withdraw-subpage',
         16: "系统错误"
         17: "系统错误"
 
-  withdrawAddress: ''
+  selectedBalance: 0
 
   created: () ->
     @M = @msgMap[window.lang]
@@ -77,11 +79,24 @@ Polymer 'withdraw-subpage',
 
     #this.$.newAddressAjax.createAddress('BTC')
 
+  observe: {
+    balance: 'onChange' 
+  }
+
   currencyIdChanged: (o, n) ->
     @withdrawals = []
     if @currencyId
       @currency = @config.currencies[@currencyId]
+      @onChange()
 
+  onChange: () ->
+    if @currencyId
+      if @balance and @balance[@currencyId]
+        @selectedBalance = @balance[@currencyId][3]
+      else
+        @selectedBalance = 0
+    else
+      @selectedBalance = 0
 
   formatTime: (t) -> moment(t).format("YYYY/MM/DD-hh:mm")
 

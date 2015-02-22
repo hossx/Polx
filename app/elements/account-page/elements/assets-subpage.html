@@ -8,14 +8,11 @@
 <link rel="import" href="../../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../nice-number/nice-number.html">
-<link rel="import" href="../../coinport-api/api-my-balance.html">
 <link rel="import" href="../../cp-icons/crypto-icons.html">
 
-<polymer-element name="assets-subpage" attributes="profile,active">
+<polymer-element name="assets-subpage" attributes="profile,active,balance">
   <template>
     <link rel="stylesheet" href="assets-subpage.css">
-    <api-my-balance id="ajax" balance="{{balance}}"></api-my-balance>
-
     <section-group hasFooter="true" fit>
       <paper-shadow z="0">
         <div label>

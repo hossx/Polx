@@ -9,12 +9,13 @@
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../crypto-address/crypto-address.html">
 <link rel="import" href="../../crypto-tx/crypto-tx.html">
+<link rel="import" href="../../nice-number/nice-number.html">
 <link rel="import" href="../../coinport-api/api-my-deposits.html">
 <link rel="import" href="../../coinport-api/api-my-deposit-addresses.html">
 <link rel="import" href="../../coinport-api/api-create-deposit-address.html">
 <link rel="import" href="../../qr-code/qr-code.html">
 <link rel="import" href="../../load-data-widget/load-data-widget.html">
-<polymer-element name="deposit-subpage" attributes="profile,currencyId,active">
+<polymer-element name="deposit-subpage" attributes="profile,currencyId,active,balance">
   <template>
     <link rel="stylesheet" href="deposit-subpage.css">
     <api-my-deposit-addresses addressMap="{{addresses}}" auto></api-my-deposit-addresses>
@@ -26,19 +27,28 @@
           <h2>{{M.deposit}}</h2>
         </div>
         <div vertical center layout class="container1">
-
-          <div id="select" center horizontal layout>
-            <div class="label">{{M.currencyToDeposit}}</div>
-            <core-dropdown-menu label="{{currency.fullName}}" class="dropdownMenu">
-              <core-dropdown class="dropdown">
-                <core-menu valueattr="id" selected="{{currencyId}}">
-                  <template repeat="{{c in currencyKeys}}">
-                    <core-item id="{{c}}">{{config.currencies[c].fullName}}</core-item>
-                  </template>
-                </core-menu>
-              </core-dropdown>
-            </core-dropdown-menu>
-          </div>
+          <table>
+            <tbody>
+              <tr>
+                <th text-right>{{M.currencyToDeposit}}</th>
+                <td>
+                  <core-dropdown-menu label="{{currency.fullName}}" class="dropdownMenu">
+                    <core-dropdown class="dropdown">
+                      <core-menu valueattr="id" selected="{{currencyId}}">
+                        <template repeat="{{c in currencyKeys}}">
+                          <core-item id="{{c}}">{{config.currencies[c].fullName}}</core-item>
+                        </template>
+                      </core-menu>
+                    </core-dropdown>
+                  </core-dropdown-menu>
+                </td>
+              </tr>
+              <tr>
+                <th text-right>{{M.balance}}</th>
+                <td id="balance"><nice-number p="4" v="{{selectedBalance}}" currency="{{currency}}" unit="{{currency.unit}}"></nice-number></td>
+              </tr>
+            </tbody>
+          </table>
 
           <template if="{{currency.id == 'CNY'}}">
             <div class="instruction" vertical start layout>

@@ -11,7 +11,8 @@ Polymer 'deposit-subpage',
       deposit: "Deposit"
       status: "Status"
       history: "Deposit Records"
-      currencyToDeposit: "Currency to deposit: "
+      currencyToDeposit: "Currency: "
+      balance: "Balance:"
       scan: "Your wallet may support scaning of the following QR-Code:"
       statusLabels:
         0: "Pending"
@@ -42,7 +43,8 @@ Polymer 'deposit-subpage',
       deposit: "充值"
       status: "状态"
       history: "充值记录"
-      currencyToDeposit: "充值货币： "
+      currencyToDeposit: "货币： "
+      balance: "余额："
       scan: "如果钱包支持，您可以用钱包扫描下面二维码："
       statusLabels:
         0: "等待中"
@@ -67,6 +69,7 @@ Polymer 'deposit-subpage',
   depositAddress: ''
   addresses: {}
   nxtAddressComponents: []
+  selectedBalance: 0
 
   created: () ->
     @M = @msgMap[window.lang]
@@ -77,26 +80,38 @@ Polymer 'deposit-subpage',
 
     #this.$.newAddressAjax.createAddress('BTC')
 
+  observe: {
+    balance: 'onChange' 
+    addresses: 'onChange'
+  }
+
   currencyIdChanged: (o, n) ->
     @deposits = []
     if @currencyId
       @currency = @config.currencies[@currencyId]
-      @updateDepositAddress()
+      @onChange()
 
-  addressesChanged: (o, n) ->
-    @updateDepositAddress()
+  onChange: () ->
+    console.log(@balance)
+    console.log(@addresses)
+    if @currencyId
+      if @addresses and @addresses[@currencyId] and @addresses[@currencyId].length > 0
+        @depositAddress = @addresses[@currencyId]
+        if @currencyId == 'NXT'
+          @nxtAddressComponents = @depositAddress.split("//")
+      else
+         @depositAddress = ''
 
+      if @balance and @balance[@currencyId]
+        @selectedBalance = @balance[@currencyId][3]
+      else
+        @selectedBalance = 0
 
-  formatTime: (t) -> moment(t).format("YYYY/MM/DD-hh:mm")
-
-  loadMore: () ->
-    this.$.depositsAjax.loadMore()
-
-  updateDepositAddress: () ->
-    if @currencyId and @addresses and @addresses[@currencyId] and @addresses[@currencyId].length > 0
-      @depositAddress = @addresses[@currencyId]
-
-      if @currencyId == 'NXT'
-        @nxtAddressComponents = @depositAddress.split("//")
     else
       @depositAddress = ''
+      @selectedBalance = 0
+
+      
+
+  formatTime: (t) -> moment(t).format("YYYY/MM/DD-hh:mm")
+  loadMore: () -> this.$.depositsAjax.loadMore()

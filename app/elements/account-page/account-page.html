@@ -10,6 +10,7 @@
 <link rel="import" href="../cp-page/cp-right-drawer-page.html">
 <link rel="import" href="../section-group/section-group.html">
 <link rel="import" href="../coinport-api/api-my-profile.html">
+<link rel="import" href="../coinport-api/api-my-balance.html">
 <link rel="import" href="elements/account-sidebar.html">
 <link rel="import" href="elements/profile-subpage.html">
 <link rel="import" href="elements/assets-subpage.html">
@@ -22,7 +23,8 @@
   <template>
     <link rel="stylesheet" href="account-page.css">
 
-    <api-my-profile id="ajax" profile="{{profile}}" auto></api-my-profile>
+    <api-my-profile id="profileAjax" profile="{{profile}}" auto></api-my-profile>
+    <api-my-balance id="balanceAjax" balance="{{balance}}" auto></api-my-balance>
 
     <cp-right-drawer-page backlink="/#/" label="{{M.myAccount}}" id="pages" page="{{page}}">
 
@@ -38,16 +40,16 @@
 
       <account-sidebar id="sidebar" selected="{{page}}"></account-sidebar>
       <section page="assets">
-        <assets-subpage active="{{page == 'assets'}}" profile="{{profile}}"></assets-subpage>
+        <assets-subpage active="{{page == 'assets'}}" profile="{{profile}}" balance="{{balance}}"></assets-subpage>
       </section>
       <section page="profile">
         <profile-subpage profile="{{profile}}"></profile-subpage>
       </section>
       <section page="deposit">
-        <deposit-subpage active="{{page == 'deposit'}}" profile="{{profile}}" currencyId="{{currencyId}}"></deposit-subpage>
+        <deposit-subpage active="{{page == 'deposit'}}" profile="{{profile}}" balance="{{balance}}" currencyId="{{currencyId}}"></deposit-subpage>
       </section>
       <section page="withdraw">
-        <withdraw-subpage active="{{page == 'withdraw'}}" profile="{{profile}}" currencyId="{{currencyId}}"></withdraw-subpage>
+        <withdraw-subpage active="{{page == 'withdraw'}}" profile="{{profile}}" balance="{{balance}}" currencyId="{{currencyId}}"></withdraw-subpage>
       </section>
       <section page="orders">
         <orders-subpage active="{{page == 'orders'}}"></orders-trades>

@@ -25,6 +25,13 @@
         padding: 2px 10px;
         border-radius: 3px;
     }
+    table {
+        td {
+            padding: 10px;
+            vertical-align: top;
+        }
+        border-bottom: 2px solid color($grey, 100);
+    }
 }
 .dropdownMenu {
     padding: 0 10px;
@@ -40,7 +47,7 @@
         min-width: 160px;
         core-item {
             padding: 0 10px;
-            &:hoverƒ {
+            &:hover {
                 background: color($C2, a400);
             }
             &[active] {
@@ -50,6 +57,10 @@
             }
         }
     }
+}
+#balance {
+    font-weight: 700;
+    font-size: 24px;    
 }
 .instruction {
     color: $black1;
