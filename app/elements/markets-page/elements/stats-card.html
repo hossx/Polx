@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="stats-card.css">
 
     <div id="wrapper">
-      <paper-shadow id="shadow" z="0" style="border-bottom-color:{{market.currency.json.color}}">
+      <paper-shadow id="shadow" z="0">
         <a href="/#/marketpro/{{marketId}}">
           <div id="box" vertical center layout>
             <div id="head" horizontal center-justified layout>
-              <core-icon icon="crypto:{{market.currency.id}}"></core-icon>
+              <core-icon icon="crypto:{{market.currency.id}}" style="color:{{market.currency.json.color}}"></core-icon>
               <div>{{market.name}}
                 <template if="{{market.json.priceUnit != null}}">
                   <span id="unit">{{market.json.priceUnit}}</span>
