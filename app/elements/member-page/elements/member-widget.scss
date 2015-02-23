@@ -6,7 +6,6 @@
 }
 #pages {
     width: 100%;
-    height: 460px;
 }
 section {
     background: white;
@@ -23,71 +22,95 @@ section {
         font-weight: 500;
         margin: 20px;
     }
-    .outer {
+    .form {
         border-top: solid 1px $black4;
-        min-height: 200px;
+        min-height: 280px;
         .errorMsg {
+            height: 40px;
             padding-top: 10px;
             width: 100%;
             text-align: center;
             color: color($C3, a400);
         }
         .inner {
-            background: color($C1, 50);
-            padding-left: 40px;
-            padding-right: 40px;
-            min-height: 200px;
-        }
-        #agree {
-            text-align: left;
-            padding-top: 20px;
-            padding-left: 40px;
-            a {
+            border-bottom: solid 1px color($C1, 200);
+            background: color($C1, 100);
+            padding: 0 40px;
+            min-height: 180px;
+            $border-color: color($C1, 300);
+            $radius: 2px;
+            input[is=core-input].input {
+                background: white;
+                box-sizing: border-box;
                 color: $black1;
-                &:hover {
+                width: 100%;
+                height: 40px;
+                padding: 10px;
+                $placeholder-color: $black2;
+                border-left: 1px solid $border-color;
+                border-right: 1px solid $border-color;
+                border-top: 1px solid $border-color;
+                border-radius: 0px;
+                &[focused] {
                     color: color($C2, a700);
                 }
-            }
-            .checkbox {
-                color: color($C2, a700);
-                padding-right: 10px;
-                &::shadow {
-                    #ink[checked] {
-                        color: color($C1, 500);
-                    }
-                    #checkbox.checked {
-                        border-color: color($C1, 500);
-                    }
+                &.first {
+                    border-top-left-radius: $radius;
+                    border-top-right-radius: $radius;
+                }
+                &.last {
+                    border-bottom-left-radius: $radius;
+                    border-bottom-right-radius: $radius;
+                    border-bottom: 1px solid $border-color;
                 }
             }
         }
-        #msg {
-            padding: 40px 20px;
-            color: $white1;
-            background: color($C1, 500);
-            word-wrap: break-word;
-        }
-        #logout {
-            padding: 40px 20px;
-            color: $black2;
-            #userid {
-                color: $black1;
-                font-weight: 500;
+    }
+    #agree {
+        text-align: left;
+        padding-top: 20px;
+        padding-left: 40px;
+        @include config-color-link-on-light-color();
+        .checkbox {
+            color: color($C2, a400);
+            padding-right: 10px;
+            &::shadow {
+                #ink[checked] {
+                    color: color($C2, a400);
+                }
+                #checkbox.checked {
+                    border-color: color($C2, a400);
+                    background-color: color($C2, a400);
+                }
             }
         }
-        .action {
-            padding: 40px 35px 0 35px;
-            paper-button {
-                background: color($C2, a400);
-                color: $black1;
-                &:hover {
-                    background: color($C1, 900);
-                    color: white;
-                }
-                &[disabled] {
-                    background: color($C1, 100);
-                    color: $black2;
-                }
+    }
+    #msg {
+        padding: 40px 20px;
+        color: $white1;
+        background: color($C1, 500);
+        word-wrap: break-word;
+    }
+    #logout {
+        padding: 40px 20px;
+        color: $black2;
+        #userid {
+            color: $black1;
+            font-weight: 500;
+        }
+    }
+    .action {
+        padding: 20px 35px 0 35px;
+        paper-button.sub {
+            background: color($C2, a400);
+            color: $black1;
+            &:hover {
+                background: color($C1, 900);
+                color: white;
+            }
+            &[disabled] {
+                background: color($C1, 100);
+                color: $black2;
             }
         }
     }
@@ -109,51 +132,9 @@ section {
                 transition: color 200ms ease-in-out;
                 color: color($C3, a400);
                 &:hover {
-                    color: color($C2, a700);
+                    color: color($C2, a400);
                 }
             }
-        }
-    }
-    .input {
-        background: color($C1, 50);
-        color: $black1;
-        $placeholder-color: $black2;
-        &[focused] {
-            color: color($C2, a700);
-        }
-        /deep/::-webkit-input-placeholder {
-            color: $placeholder-color;
-        }
-        /deep/::-moz-placeholder {
-            color: $placeholder-color;
-        }
-        /deep/:-ms-input-placeholder {
-            color: $placeholder-color;
-        }
-        /deep/ .label-text, /deep/ .error {
-            color: $placeholder-color;
-        }
-        /deep/ .unfocused-underline {
-            background-color: $white3;
-        }
-        /deep/ .floated-label .label-text {
-            color: $black1;
-            font-size: 13px;
-        }
-        /deep/ .focused-underline {
-            background-color: color($C1, 900);
-        }
-        &[focused] /deep/ {
-            .floated-label .label-text {
-                color: $black1;
-                font-size: 13px;
-            }
-        }
-        &.invalid /deep/ .floated-label .label-text, /deep/ .error {
-            color: $placeholder-color;
-        }
-        &.invalid /deep/ .focused-underline {
-            background-color: color($C3, a400);
         }
     }
 }

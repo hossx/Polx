@@ -311,3 +311,32 @@
         }
     }
 }
+paper-button.primary {
+    border-radius: 0px;
+    background: fade-out(color($C2, a400), 0.8);
+    border: 1px solid color($C2, a400);
+    color: $black1;
+    font-weight: bold;
+    min-width: 160px;
+    &:hover {
+        background: color($C2, a400);
+    }
+    &[disabled] {
+        background: fade-out(color($C2, a400), 0.5);
+        color: $black3;
+    }
+}
+paper-button.secondary {
+    border-radius: 3px;
+    background: $black4;
+    border: 1px solid $black3;
+    color: $black2;
+    font-weight: bold;
+    &:hover {
+        background: $black3;
+    }
+    &:disabled {
+        color: $black3;
+        background: white;
+    }
+}

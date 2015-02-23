@@ -1,0 +1,46 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/core-icon/core-icon.html">
+<link rel="import" href="../../../bower_components/core-input/core-input.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+
+<polymer-element name="withdraw-widget" attributes="selectedBalance,currency,needPubkey,needMemo" vertical layout>
+  <template>
+    <link rel="stylesheet" href="withdraw-widget.css">
+    <div class="form-wrapper" vertical layout>
+      <div class="inner-wrapper" horizontal center-justified layout>
+        <input flex is="core-input" placeholder="{{M.quantity}}" value="{{quantity}}" committedValue="{{committedQuantity}}">
+      </div>
+
+      <div class="inner-wrapper" horizontal center-justified layout>
+        <input flex is="core-input" placeholder="{{M.address}}" value="{{address}}" committedValue="{{committedAddress}}">
+      </div>
+
+      <template if="{{needMemo}}">
+        <div class="inner-wrapper" horizontal center-justified layout>
+          <input flex is="core-input" placeholder="{{M.memo}}" value="{{memo}}" committedValue="{{committedMemo}}">
+        </div>
+      </template>
+
+      <template if="{{needPubkey}}">
+        <div class="inner-wrapper" horizontal center-justified layout>
+          <input flex is="core-input" placeholder="{{M.pubkeyPlaceholder}}" value="{{pubkey}}" committedValue="{{committedPubkey}}">
+        </div>
+      </template>
+
+      <div class="inner-wrapper" horizontal center-justified layout>
+        <input flex is="core-input" placeholder="{{M.smsVCode}}" value="{{smsVCode}}" committedValue="{{committedSmsVCode}}">
+        <paper-button>{{M.retrieveSmsVCode}}</paper-button>
+      </div>
+
+      <div class="inner-wrapper" horizontal center-justified layout>
+        <input flex is="core-input" placeholder="{{M.emailVCode}}" value="{{emailVCode}}" committedValue="{{committedEmailVCode}}">
+        <paper-button>{{M.retrieveEmailVCode}}</paper-button>
+      </div>
+      <div class="action" self-center>
+        <paper-button class="primary">{{M.withdraw}}</paper-button>
+      </div>
+    </div>
+  </template>
+
+  <script src="withdraw-widget.js"></script>
+</polymer-element>

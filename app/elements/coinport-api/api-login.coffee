@@ -13,6 +13,7 @@ Polymer 'api-login',
     @go()
     
   dataChanged: (o, n) ->
+    console.log
     if @data
       @profile = @data
       $.cookie('POLX_SESSION', JSON.stringify(@profile));

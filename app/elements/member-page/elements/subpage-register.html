@@ -1,5 +1,5 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../../bower_components/paper-input/paper-input-decorator.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../../bower_components/paper-checkbox/paper-checkbox.html">
 
@@ -9,18 +9,11 @@
 
     <div class="container" vertical layout>
       <div class="label">{{M.register}}</div>
-      <div class="outer">
+      <div class="form">
         <div class="inner" center-justified vertical layout>
-          <paper-input-decorator class="input" label="{{M.email}}" floatingLabel>
-            <input is="core-input" value="{{email}}" required>
-          </paper-input-decorator>
-          <paper-input-decorator class="input" label="{{M.password}}" floatingLabel>
-            <input is="core-input"  type="password" value="{{password}}" required>
-          </paper-input-decorator>
-
-          <paper-input-decorator class="input" label="{{M.password2}}" floatingLabel>
-            <input is="core-input" type="password" value="{{password2}}">
-          </paper-input-decorator required>
+          <input is="core-input" class="input first" type="email" value="{{email}}" placeholder="{{M.email}}">
+          <input is="core-input" class="input" type="password" value="{{password}}" placeholder="{{M.password}}">
+          <input is="core-input" class="input last" type="password" value="{{password2}}" placeholder="{{M.password2}}">
         </div>
 
         <div id="agree" vertical layout>
@@ -31,13 +24,15 @@
           </core-label>
         </div>
         <div class="errorMsg">{{errorMsg}}</div>
-        <div class="action" vertical layout>
-          <paper-button id="registerButton" disabled?="{{registerDisabled}}" on-tap="{{registerMe}}">{{M.register}}</paper-button>
-        </div>
       </div>
+
+      <div class="action" vertical layout>
+        <paper-button id="registerButton" class="primary" disabled?="{{registerDisabled}}" on-tap="{{registerMe}}">{{M.register}}</paper-button>
+      </div>
+
       <div class="options" horizontal center-justified layout>
         <a href="/#/member/login">
-          <paper-button noink>{{M.login}}</paper-button>
+          <paper-button class="sub" noink>{{M.login}}</paper-button>
         </a>
       </div>
     </div>

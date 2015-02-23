@@ -8,6 +8,9 @@
 - 很多API的cursor实现不对，而且文档中没有说明cursor是对应返回数据的哪个field。另外cursor是“”的时候API应该正确返回。
 - BUG: the hasMore value of /user/deposits is wrong
 - BUG？我的deposit历史又很早的为什么还是2（确认中）？
+- 提现API需要完善一下说明 - 每个币种都需要说明。
+- 需要读取，删除，增加（货币地址，人民币银行卡）的API
+
 ---
 
 
@@ -997,6 +1000,19 @@ profile中的pwdhash将不会被返回。
 提交一个提现申请。
 
 ####POST数据JSON格式
+
+- 提现BTC：
+
+```
+  {
+     "currency" : "BTC",
+     "address" ： "17ZFHKXPqoxeHcCTiJ5CZrKLrUJN1TD7Uj",
+     "amount" : 0.1,
+  }
+```
+
+- 提现NXT：
+
 ```
   {
      "currency" : "BTC",
@@ -1005,9 +1021,11 @@ profile中的pwdhash将不会被返回。
      "nxt_public_key" ："NXT-YP69-FGG3-GV6R-3A5BN", // nxt币提现用publicKey，其他币种不需要填写这个字段
      "memo": "btc38-btsx-octo-72722" // BTSX提现memo，其他币种不需要填写这个字段
   }
+```
 
-提现人民币：
+- 提现人民币：
 
+```
   {
     "currency":"CNY",
     "address":"吴小露|cny1@coinport.com|支付宝|,

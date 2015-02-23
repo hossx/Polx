@@ -57,7 +57,7 @@ Polymer 'coinport-api',
     else
       try
         if window.logAjax
-          console.debug('"'+@url+'"')
+          console.debug(@url)
           console.debug(xhr.responseText)
         json = JSON.parse(xhr.responseText)
         if json and json.data

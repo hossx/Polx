@@ -10,8 +10,8 @@
 <link rel="import" href="../../crypto-address/crypto-address.html">
 <link rel="import" href="../../crypto-tx/crypto-tx.html">
 <link rel="import" href="../../coinport-api/api-my-withdrawals.html">
-<link rel="import" href="../../qr-code/qr-code.html">
 <link rel="import" href="../../load-data-widget/load-data-widget.html">
+<link rel="import" href="withdraw-widget.html">
 
 <polymer-element name="withdraw-subpage" attributes="profile,currencyId,active,balance">
   <template>
@@ -177,12 +177,7 @@
 
           <template if="{{currency.id != 'CNY' && currency.id != 'GOOC' && currency.id != 'XRP' && currency.id != 'BTSX' && currency.id != 'NXT'}}">
             <div class="instruction" vertical center layout>
-              <div>Please send your {{currency.name}} to</div>
-              <crypto-address currency="{{currency}}" addr="{{withdrawAddress}}"></crypto-address>
-              <div>{{M.scan}}</div>
-            </div>
-            <div id="qrcode">
-              <qr-code data="{{withdrawAddress}}" size="200" margin="1"></qr-code>
+            <withdraw-widget currency="{{currency}}" balance="{{selectedBalance}}"></withdraw-widget>
             </div>
           </template>
 

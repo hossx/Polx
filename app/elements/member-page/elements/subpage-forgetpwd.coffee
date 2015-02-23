@@ -2,14 +2,18 @@
 
 Polymer 'subpage-forgetpwd',
   msgMap:
-    'zh':
-      lastPrice: "最新成交价"
-      volume: "24小时总成交量"
-      change: "24小时价格变化"
-
     'en':
-      lastPrice: "Last Price"
-      volume: "24H Volume"
-      change: "24H Change"
+      title: "Forgot Password?"
+      email: "Email"
+      login: "Login"
+      register: "Register"
+      reset: "Reset Password"
+    'zh':
+      title: "忘记密码"
+      email: "Email"
+      login: "登录"
+      register: "注册"
+      reset: "重置密码"
 
-
+  ready: () ->
+    @M = @msgMap[window.lang]

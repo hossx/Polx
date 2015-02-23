@@ -1,6 +1,9 @@
 @import "../../_colors";
 @import "../../_common";
 @import "_subpage";
+a.market-link:hover {
+    color: $white1;
+}
 #table-container {
     table.simple {
         tbody {

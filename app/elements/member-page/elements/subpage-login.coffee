@@ -9,6 +9,7 @@ Polymer 'subpage-login',
       register: "注册"
       forgetpassword: "忘记密码？"
       emailInvalid: "Email地址格式不正确。"
+      invalidEmailOrPasswd: "用户名或密码错误！"
 
     'en':
       email: "Email"
@@ -17,6 +18,8 @@ Polymer 'subpage-login',
       register: "Register"
       forgetpassword: "Forget password?"
       emailInvalid: "Your email address is invalid."
+      invalidEmailOrPasswd: "Invalid email or password!"
+  errorMsg: ' '
 
   observe: {
     email: 'validateLoginForm'
@@ -25,20 +28,22 @@ Polymer 'subpage-login',
 
   ready: () ->
     @M = @msgMap[window.lang]
+    @addEventListener 'user-access-denied', (e) ->
+      @errorMsg = @M.invalidEmailOrPasswd
+      @buttonDisabled = true
 
   logMeIn: () -> 
     this.$.loginAjax.login()
 
-
   validateLoginForm: () ->
     if not @email or not @password
-      @errorMsg = ''
+      @errorMsg = ' '
       @buttonDisabled = true
     else if not @validateEmail(@email)
       @errorMsg = @M.emailInvalid
       @buttonDisabled = true
     else
-      @errorMsg = ''
+      @errorMsg = ' '
       @buttonDisabled = false
 
   validateEmail: (email) ->

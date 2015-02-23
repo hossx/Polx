@@ -1,5 +1,5 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../../bower_components/paper-input/paper-input-decorator.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../coinport-api/api-login.html">
 
@@ -10,24 +10,22 @@
     <api-login id="loginAjax" email="{{email}}" password="{{password}}"></api-login>
 
     <div class="container" vertical layout>
-      <div class="label">Forget Password</div>
-      <div class="outer">
+      <div class="label">{{M.title}}</div>
+      <div class="form">
         <div class="inner" center-justified vertical layout>
-          <paper-input-decorator class="input" label="Email" floatingLabel>
-            <input is="core-input" value="{{email}}">
-          </paper-input-decorator required>
+          <input is="core-input" class="input first last" placeholder="{{M.email}}" value="{{email}}">
         </div>
-
-        <div class="action" vertical layout>
-          <paper-button>Retrieve Password</paper-button>
-        </div>
+        <div class="errorMsg">{{errorMsg}}</div>
+      </div>
+      <div class="action" vertical center-justified layout>
+        <paper-button class="primary">{{M.reset}}</paper-button>
       </div>
       <div class="options" horizontal center-justified layout>
         <a href="/#/member/login">
-          <paper-button noink>Member login</paper-button>
+          <paper-button class="sub" noink>{{M.login}}</paper-button>
         </a>
         <a href="/#/member/register">
-          <paper-button class="highlight" noink>Become a member</paper-button>
+          <paper-button class="highlight sub" noink>{{M.register}}</paper-button>
         </a>
       </div>
     </div>

@@ -1,0 +1,40 @@
+@import "../../_colors";
+@import "../../_common";
+:host {
+    .form-wrapper {
+        $border-color: color($grey, 400);
+        $height: 36px;
+        $border-radius: 2px;
+        margin: 5px;
+        .inner-wrapper {
+            margin: 2px 0;
+            border: 1px solid $border-color;
+            border-radius: $border-radius;
+            height: $height;
+            input[is=core-input] {
+                padding: 0 10px;
+                background: transparent;
+            }
+            paper-button {
+                text-transform: none;
+                border: 0;
+                border-left: 1px solid $border-color;
+                border-radius-top-right: $border-radius;
+                border-radius-bottom-right: $border-radius;
+                min-width: 150px;
+                background: color($grey, 200);
+                color: $black2;
+                font-weight: bold;
+                height: $height;
+                border-radius: 0;
+                margin: 0;
+                &:hover {
+                    background: color($grey, 50);
+                }
+            }
+        }
+        .action {
+            margin-top: 20px;
+        }
+    }
+}
