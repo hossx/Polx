@@ -15,7 +15,7 @@
     },
     "BTC": {
       "name": "Bitcoin",
-      "color": "blue",
+      "color": "#F7931A",
       "fee": {
         "withdraw": {
           "c": 0.0005
@@ -30,7 +30,7 @@
     },
     "LTC": {
       "name": "Litecoin",
-      "color": "#f2f000",
+      "color": "#D8D8D8",
       "officialSite": "http://litcoin.org",
       "fee": {
         "withdraw": {
@@ -46,6 +46,7 @@
     },
     "BTSX": {
       "name": "Bitshares",
+      "color": "#00A9E0",
       "tags": "比特股,Bitshare,BitsharesX,BTS",
       "twitterWidgetId": "560707192261980160",
       "fee": {
@@ -56,6 +57,7 @@
     },
     "DOGE": {
       "name": "Dogecoin",
+      "color": "#BA9F5B",
       "tags": "狗币,Dogecoin",
       "twitterWidgetId": "560706157569134593",
       "browser": {
@@ -70,6 +72,7 @@
     },
     "BC": {
       "name": "Blackcoin",
+      "color": "#574830",
       "tags": "黑币,Blackcoin",
       "twitterWidgetId": "560705827766804480",
       "browser": {
@@ -84,6 +87,7 @@
     },
     "DRK": {
       "name": "Darkcoin",
+      "color": "#3998CA",
       "tags": "暗黑币,<Darkcoin></Darkcoin>",
       "twitterWidgetId": "560705595456909312",
       "browser": {
@@ -98,6 +102,7 @@
     },
     "VRC": {
       "name": "VeriCoin",
+      "color": "#458CC8",
       "twitterWidgetId": "560706527330590720",
       "fee": {
         "withdraw": {
@@ -107,6 +112,7 @@
     },
     "ZET": {
       "name": "ZetaCoin",
+      "color": "#1D8A99",
       "twitterWidgetId": "560706759963475968",
       "browser": {
         "addr": "https://coinplorer.com/ZET/Addresses/%s",
@@ -120,6 +126,7 @@
     },
     "NXT": {
       "name": "NextCoin",
+      "color": "#008FBB",
       "twitterWidgetId": "560706898450972672",
       "browser": {
         "addr": "http://www.mynxt.info/account/%s",
@@ -133,6 +140,7 @@
     },
     "XRP": {
       "name": "Ripple",
+      "color": "#28619D",
       "tags": "瑞波币,Ripple,XRP",
       "twitterWidgetId": "560707081905639424",
       "fee": {
@@ -143,6 +151,7 @@
     },
     "GOOC": {
       "notCripto": true,
+      "color": "#FBE332",
       "name": "谷壳宝",
       "tags": "谷壳币,谷壳宝"
     }

@@ -7,18 +7,18 @@ Polymer 'account-sidebar',
       assets: "Assets"
       profile: "Profile"
       deposit: "Deposit"
-      withdrawal: "Withdrawal"
+      withdraw: "Withdrawal"
       orders: "Orders"
-      tradeHistory: "Trade History"
+      trades: "Trade History"
 
     'zh':
       logout: "登出"
       assets: "资产"
       profile: "账户"
       deposit: "充值"
-      withdrawal: "提现"
+      withdraw: "提现"
       orders: "订单"
-      tradeHistory: "成交"
+      trades: "成交"
 
   ready: () ->
     @M = @msgMap[window.lang]

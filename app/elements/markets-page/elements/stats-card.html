@@ -8,37 +8,39 @@
   <template>
     <link rel="stylesheet" href="stats-card.css">
 
-    <paper-shadow id="shadow" z="0">
-      <a href="/#/marketpro/{{marketId}}">
-        <div id="box" vertical center layout>
-          <div id="head" horizontal center-justified layout>
-            <core-icon icon="crypto:{{market.currency.id}}"></core-icon>
-            <div>{{market.name}}
-              <template if="{{market.json.priceUnit != null}}">
-                <span id="unit">{{market.json.priceUnit}}</span>
-              </template>
+    <div id="wrapper">
+      <paper-shadow id="shadow" z="0" style="border-bottom-color:{{market.currency.json.color}}">
+        <a href="/#/marketpro/{{marketId}}">
+          <div id="box" vertical center layout>
+            <div id="head" horizontal center-justified layout>
+              <core-icon icon="crypto:{{market.currency.id}}"></core-icon>
+              <div>{{market.name}}
+                <template if="{{market.json.priceUnit != null}}">
+                  <span id="unit">{{market.json.priceUnit}}</span>
+                </template>
+              </div>
             </div>
-          </div>
 
-          <div id="stats" center-justified vertical layout>
-            <div id="general" horizontal end layout>
-              <div class="l">{{M.lastPrice}}: </div>
-              <div class="v">
-                <nice-number v="{{ticker[0]}}" no-trailing-zeros></nice-number>
+            <div id="stats" center-justified vertical layout>
+              <div id="general" horizontal end layout>
+                <div class="l">{{M.lastPrice}}: </div>
+                <div class="v">
+                  <nice-number v="{{ticker[0]}}" no-trailing-zeros></nice-number>
+                </div>
               </div>
-            </div>
-            <div id="sub">
-              <div>
-                <span class="l">{{M.volume}}:</span><span class="v">{{ticker[3]}}</span>
-              </div>
-              <div>
-                <span class="l">{{M.change}}:</span><span class="v  {{changeClass}}">{{ticker[4] | formatChange}}</span>
+              <div id="sub">
+                <div>
+                  <span class="l">{{M.volume}}:</span><span class="v">{{ticker[3]}}</span>
+                </div>
+                <div>
+                  <span class="l">{{M.change}}:</span><span class="v  {{changeClass}}">{{ticker[4] | formatChange}}</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </a>
-    </paper-shadow>
+        </a>
+      </paper-shadow>
+    </div>
 
   </template>
   <script src="stats-card.js"></script>

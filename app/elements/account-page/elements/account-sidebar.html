@@ -14,13 +14,25 @@
   <template>
     <link rel="stylesheet" href="account-sidebar.css">
 
-    <core-menu valueattr="page" selected="{{selected}}">
-      <core-item page="assets" icon="account-balance-wallet" label="{{M.assets}}"></core-item>
-      <core-item page="profile" icon="social:person-outline" label="{{M.profile}}"></core-item>
-      <core-item page="deposit" icon="communication:call-received" label="{{M.deposit}}"></core-item>
-      <core-item page="withdraw" icon="communication:call-made" label="{{M.withdrawal}}"></core-item>
-      <core-item page="orders" icon="list" label="{{M.orders}}"></core-item>
-      <core-item page="trades" icon="history" label="{{M.tradeHistory}}"></core-item>
+    <core-menu>
+      <a href="/#/account/assets">
+        <core-item active?="{{selected=='assets'}}" icon="account-balance-wallet" label="{{M.assets}}"></core-item>
+      </a>
+      <a href="/#/account/profile">
+        <core-item active?="{{selected=='profile'}}" icon="social:person-outline" label="{{M.profile}}"></core-item>
+      </a>
+      <a href="/#/account/deposit">
+        <core-item active?="{{selected=='deposit'}}" icon="communication:call-received" label="{{M.deposit}}"></core-item>
+      </a>
+      <a href="/#/account/withdraw">
+        <core-item active?="{{selected=='withdraw'}}" icon="communication:call-made" label="{{M.withdraw}}"></core-item>
+      </a>
+      <a href="/#/account/orders">
+        <core-item active?="{{selected=='orders'}}" icon="list" label="{{M.orders}}"></core-item>
+      </a>
+      <a href="/#/account/trades">
+        <core-item active?="{{selected=='trades'}}" icon="history" label="{{M.trades}}"></core-item>
+      </a>
     </core-menu>
     <div flex></div>
     <div>
