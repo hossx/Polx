@@ -252,8 +252,7 @@
   "refreshIntervals": {
     "pro": 3000,
     "depths": 5000,
-    "tickers": 300000,
-    "reserves": 300000
+    "tickers": 30000
   },
   "documents": {
     "terms": {

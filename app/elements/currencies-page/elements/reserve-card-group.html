@@ -9,7 +9,6 @@
     <api-reserve-stats id="ajax" reserveStats="{{reserveStats}}" auto></api-reserve-stats>
 
     <div class="groupLabel">{{M.reserveStats}}</div>
-    <div class="comment">{{refreshInterval | refreshFormatter}}</div>
     <div class="canvas" wrap?="{{smallup}}" layout center?="{{!smallup}}" vertical?="{{!smallup}}" horizontal?="{{smallup}}">
       <template repeat="{{currencyId in currencieIds}}">
         <reserve-card class="card" auto-vertical currencyId="{{currencyId}}" reserve="{{reserveStats[currencyId]}}"></reserve-card>
