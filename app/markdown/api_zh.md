@@ -12,7 +12,6 @@
 - 需要读取，删除，增加（货币地址，人民币银行卡）的API
 - Basic Auth中的密码也应该先用sha256先加密。这样用户的实际密码我们永远不知道。
 - BUG? 用已经用过的emai注册，返回值错误码不对。实际上应该明确说明各种错误码，并对密码要求做出说明。
-
 ---
 
 
@@ -34,10 +33,10 @@
 ##接口列表
 目前支持的API列表如下：
 
-  |HTTP 方法        | URL                                             | 说明
-  | -------------- | -----------------------                         | ------------
-  | GET            | /api/v2/reserve_stats                           | 读取平台所有数字资产的准备金统计数据
-  | GET            | /api/v2/tickers                                 | 获取所有市场ticker数据 
+  |HTTP 方法        | URL                                              | 说明
+  | -------------- | -----------------------                           | ------------
+  | GET            | /api/v2/reserve_stats                             | 读取平台所有数字资产的准备金统计数据
+  | GET            | /api/v2/tickers                                   | 获取所有市场ticker数据 
   | GET            | /api/v2/*{currency}*/tickers                      | 获取人民币或比特币所有市场的ticker数据
   | GET            | /api/v2/*{currency}*/reserves                     | 读取平台某数字资产的准备金统详细数据
   | GET            | /api/v2/*{currency}*/balance_snapshot_files       | 读取特定币种的资产分布快照数据文件列表
@@ -61,13 +60,13 @@
   | POST           | /api/v2/user/cancel_orders                        | 批量取消订单
   | POST           | /api/v2/user/submit_withdrawal                    | 提交一个提现申请
   | POST           | /api/v2/user/cancel_withdrawal                    | 取消一个提现申请
-  | POST           | /api/v2/reset_pwd_apply                           | 提交一个重置密码申请
-  | GET            | /api/v2/verify_pwd_reset_token                    | 验证重置密码的Token是否有效
-  | POST           | /api/v2/do_reset_pwd                              | 重置密码
-  | POST           | /api/v2/send_enable_email                         | 发送激活邮件
-  | POST           | /api/v2/enable_email                              | 激活邮件
-  | POST           | /api/v2/user/gen_verify_code                      | 发送验证码
-  | POST           | /api/v2/user/confirm_verify_code                  | 验证验证码
+  | POST           | /api/v2/request_password_reset                    | 提交一个重置密码申请
+  | GET            | /api/v2/verify_password_reset_token               | 验证重置密码的Token是否有效
+  | POST           | /api/v2/reset_password                            | 重置密码
+  | POST           | /api/v2/resend_activation_code                    | 发送账号激活码（目前是通过发送含有激活链接的邮件）
+  | POST           | /api/v2/check_activation_code                     | 验证账号激活码
+  | POST           | /api/v2/user/request_verification_code            | 发送一次性邮件或者手机验证码
+  | POST           | /api/v2/user/check_verification_code              | 验证一次性邮件或者手机验证码
 
 ---
 
@@ -1065,7 +1064,7 @@ profile中的pwdhash将不会被返回。
 
 ```
 
-### POST /api/v2/reset_pwd_apply
+### POST /api/v2/request_password_reset
 提交一个重置密码申请。
 
 ####POST数据JSON格式
@@ -1084,7 +1083,7 @@ profile中的pwdhash将不会被返回。
 
 ```
 
-### GET /api/v2/verify_pwd_reset_token?token={Token}
+### GET /api/v2/verify_password_reset_token?token={Token}
 验证重置密码的Token是否有效
 
 ####URL参数
@@ -1099,7 +1098,7 @@ profile中的pwdhash将不会被返回。
 
 ```
 
-### POST /api/v2/do_reset_pwd
+### POST /api/v2/reset_password
 重置密码。
 
 ####POST数据JSON格式
@@ -1119,8 +1118,8 @@ profile中的pwdhash将不会被返回。
 
 ```
 
-### POST /api/v2/send_enable_email
-发送激活邮件。
+### POST /api/v2/resend_activation_code
+发送账号激活码（目前是通过发送含有激活链接的邮件）
 
 ####POST数据JSON格式
 ```
@@ -1137,8 +1136,8 @@ profile中的pwdhash将不会被返回。
   }
 ```
 
-### POST /api/v2/enable_email
-激活邮箱。
+### POST /api/v2/check_activation_code
+验证账号激活码。
 
 ####POST数据JSON格式
 ```
@@ -1155,8 +1154,8 @@ profile中的pwdhash将不会被返回。
   }
 ```
 
-### POST /api/v2/user/gen_verify_code
-发送验证码。
+### POST /api/v2/user/request_verification_code
+发送一次性邮件或者手机验证码。
 
 ####POST数据JSON格式
 ```
@@ -1175,8 +1174,8 @@ profile中的pwdhash将不会被返回。
   }
 ```
 
-### POST /api/v2/user/confirm_verify_code
-验证验证码。
+### POST /api/v2/user/check_verification_code
+验证一次性邮件或者手机验证码
 
 ####POST数据JSON格式
 ```
