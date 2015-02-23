@@ -1,7 +1,6 @@
 @import "../../_colors";
 @import "../../_common";
 @include config-stats-card();
-
 #stats {
     padding-bottom: 10px;
     table {
@@ -32,6 +31,7 @@
             font-weight: 100;
             text-align: center;
             color: color($C2, a700);
+            padding: 0 4px;
         }
         &:after {
             content: "";
@@ -40,6 +40,15 @@
             height: 1px;
             width: 100%;
             border-top: solid 1px $black4;
+        }
+    }
+}
+.warning {
+    #stats #general {
+        .v {
+            border-radius: 3px;
+            background: color($red, 500);
+            color: white;
         }
     }
 }

@@ -10,7 +10,7 @@
   <template>
     <link rel="stylesheet" href="reserve-card.css">
     <div id="wrapper">
-      <paper-shadow id="shadow" z="0">
+      <paper-shadow id="shadow" z="0" class="{{ {warning: needWarn} | tokenList}}">
         <a href="/#/currency/{{currencyId}}">
           <div cross-fade id="box" vertical layout>
             <div id="head" horizontal center-justified layout>

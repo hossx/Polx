@@ -2,16 +2,18 @@
 <link rel="import" href="../cp-media-query/cp-media-query.html">
 <link rel="import" href="../cp-page/cp-page.html">
 <link rel="import" href="elements/stats-card-group.html">
+<link rel="import" href="elements/external-stats-card-group.html">
 
 <polymer-element name="markets-page">
   <template>
     <link rel="stylesheet" href="markets-page.css">
 
     <cp-media-query smallup="{{smallup}}"></cp-media-query>
-    <cp-page  toolbarSelect="/markets">
+    <cp-page toolbarSelect="/markets">
       <template repeat="{{coin in marketGroupKeys}}">
         <stats-card-group currency="{{config.currencies[coin]}}" smallup="{{smallup}}"></stats-card-group>
       </template>
+      <!--external-stats-card-group currency="{{config.currencies['BTC']}}" smallup="{{smallup}}"> </external-stats-card-group-->
     </cp-page>
 
   </template>

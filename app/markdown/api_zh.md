@@ -12,6 +12,8 @@
 - 需要读取，删除，增加（货币地址，人民币银行卡）的API
 - Basic Auth中的密码也应该先用sha256先加密。这样用户的实际密码我们永远不知道。
 - BUG? 用已经用过的emai注册，返回值错误码不对。实际上应该明确说明各种错误码，并对密码要求做出说明。
+- 增加一个返回huobi,okcoin,coinbase,等其他交易所ticker的api -> /api/v2/external_tickers
+
 ---
 
 
@@ -37,6 +39,7 @@
   | -------------- | -----------------------                           | ------------
   | GET            | /api/v2/reserve_stats                             | 读取平台所有数字资产的准备金统计数据
   | GET            | /api/v2/tickers                                   | 获取所有市场ticker数据 
+  | GET            | /api/v2/external_tickers                          | 获取几个外部BTC市场的ticker数据 
   | GET            | /api/v2/*{currency}*/tickers                      | 获取人民币或比特币所有市场的ticker数据
   | GET            | /api/v2/*{currency}*/reserves                     | 读取平台某数字资产的准备金统详细数据
   | GET            | /api/v2/*{currency}*/balance_snapshot_files       | 读取特定币种的资产分布快照数据文件列表
@@ -352,6 +355,30 @@
 
 <br><br>
 
+
+### GET /api/v2/external_btc_tickers
+获取几个外部BTC市场的ticker数据。
+  
+####返回值示例
+  ```
+    {
+      "BTC-CNY": {
+        "HUOBI" : [11.91,12.11,11.16,2902.40675502,0.045654082528533764],
+        "OKCOIN" : [5.116E-5,5.24E-5,5.116E-5,4068.638,-0.02366412213740461]
+        "LAKEBTC" : [5.116E-5,5.24E-5,5.116E-5,4068.638,-0.02366412213740461]
+      },
+      "BTC-USD": {
+        "COINBASE"  : [8.728E-5,8.747E-5,8.25E-5,248.70040274,0.026823529411764687],
+        "BITSTAMP" : [8.0E-5,0.0,0.0,0.0,0.0]
+      }
+    }
+  ```
+返回值中数组中的数字依次代表：[最近成交价，24小时最高价，24小是最低价，24小时成交量, 24小时涨跌幅]。
+
+####示例
+ - [https://exchange.coinport.com/api/v2/tickers](https://exchange.coinport.com/api/v2/tickers)
+
+<br><br>
 
 ### GET /api/v2/*{currency}*/tickers
 获取人民币或比特币所有市场的ticker数据。

@@ -243,6 +243,7 @@
     "base": "https://exchange.coinport.com"
   },
   "viewParams": {
+    "reserveRatioWarningThreshold": 90,
     "market": {
       "orderBookInitialSize": 100,
       "tradingRecordInitialSize": 100

@@ -50,6 +50,7 @@ Polymer 'reserve-card',
       @coldRatio = 100 * @reserve[1]/balance
       @userRatio = 100 * @reserve[2]/balance
       @reserveRatio = 100 - @shortageRatio
+      @needWarn = @reserveRatio <= window.config.viewParams.reserveRatioWarningThreshold
       if @shortage > 0
         @asset = [@reserve[0], @reserve[1], @reserve[2], @shortage]
       else 
