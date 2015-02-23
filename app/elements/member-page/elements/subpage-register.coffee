@@ -16,6 +16,7 @@ Polymer 'subpage-register',
       errPasswordTooSimple: "您的密码过于简单"
       errPasswordsMisMatch: "两次密码输入不一致"
       errPasswordMissing: "请输入密码"
+      errRegisterFailed: "注册失败"
 
     'en':
       register: "Register"
@@ -30,6 +31,7 @@ Polymer 'subpage-register',
       errPasswordTooSimple: "Your password is too weak"
       errPasswordsMisMatch: "Passwords do not match"
       errPasswordMissing: "Please provide a password"
+      errRegisterFailed: "Registeration Failed!"
 
   ## register
   validateEmail: (email) ->
@@ -50,29 +52,34 @@ Polymer 'subpage-register',
 
   ready: () ->
     @M = @msgMap[window.lang]
+    @addEventListener 'user-register-failed', (e) ->
+      console.debug("------user-register-failed")
+      @errorMsg =  @M.errRegisterFailed
+      @password = @password2 = ''
+      @registerDisabled = true
 
   registerMe: () ->
-    this.$.ajax.go()
+    this.$.ajax.register()
 
   validateRegisterForm: ()->
-    if not @registerEmail and not @registerPassword and not @registerPassword2
+    if not @email and not @password and not @password2
       @errorMsg = ''
       @registerDisabled = true
-    else if not @registerEmail
+    else if not @email
       @errorMsg = @M.errProvideEmail
       @registerDisabled = true
-    else if not @validateEmail(@registerEmail)
+    else if @password and not @validateEmail(@email)
       @errorMsg = @M.errEmailInvalid
       @registerDisabled = true
-    else if not @registerPassword and not @registerPassword2
-      @errorMsg = @M.errPasswordMissing
-      @registerDisabled = true
-    else if @registerPassword.length < 6
+    else if @password2 and @password.length < 6
       @errorMsg = @M.errPasswordTooSimple
       @registerDisabled = true
-    else if  @registerPassword != @registerPassword2
+    else if @password and @password2 and @password != @password2
       @errorMsg = @M.errPasswordsMisMatch
       @registerDisabled = true
     else
       @errorMsg = ''
       @registerDisabled = not @termsAgreed
+
+  resultChanged: (o, n) ->
+    console.log(@result)

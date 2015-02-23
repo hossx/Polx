@@ -17,9 +17,9 @@ section {
         @include config-link-on-light-color();
     }
     .label {
-        color: $black2;
+        color: $black1;
         font-size: 16px;
-        font-weight: 500;
+        font-weight: bold;
         margin: 20px;
     }
     .form {
@@ -86,9 +86,10 @@ section {
         }
     }
     #msg {
-        padding: 40px 20px;
-        color: $white1;
-        background: color($C1, 500);
+        padding: 40px;
+        min-height: 180px;
+        color: $black1;
+        background: color($C1, 100);
         word-wrap: break-word;
     }
     #logout {

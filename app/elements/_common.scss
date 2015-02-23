@@ -322,7 +322,8 @@ paper-button.primary {
         background: color($C2, a400);
     }
     &[disabled] {
-        background: fade-out(color($C2, a400), 0.5);
+        background: fade-out(color($grey, 400), 0.5);
+        border: 1px solid color($grey, 400);
         color: $black3;
     }
 }

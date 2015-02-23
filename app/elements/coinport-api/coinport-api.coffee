@@ -4,16 +4,16 @@ Polymer 'coinport-api',
     'en':
       serviceUnavailable: "Service is temporarily unavailable."
       internalServiceError: "We encountered an internal server error. Please report this to Coinport support team. (URL: %s)"
-
+      badRequest: "Bad request."
     'zh':
       serviceUnavailable: "币丰港服务暂时不可用。是不是你的网络有问题啦？"
       internalServiceError: "我们貌似遇到了一个后台服务内部错误，请联系币丰港客服提交一个bug吧。（URL: %s）"
+      badRequest: "非法API请求。"
 
   base: () -> window.config.api.base
   
   ready: ()->
     `this.super()`
-    #@withCredentials = true
     @M = @msgMap[window.lang]
     
 
@@ -41,7 +41,9 @@ Polymer 'coinport-api',
 
   processError: (xhr) ->
     @data = null
-    if xhr.status == 401
+    if xhr.status == 400
+      @fire('display-message', {'error': @M.badRequest.format(@url)})
+    else if xhr.status == 401
       @fire('user-access-denied')
     else if xhr.status == 500
       console.error("500 response seen for url: " + @url)
@@ -59,9 +61,9 @@ Polymer 'coinport-api',
         if window.logAjax
           console.debug(@url)
           console.debug(xhr.responseText)
-        json = JSON.parse(xhr.responseText)
-        if json and json.data
-          @data = json.data
+        @response = JSON.parse(xhr.responseText)
+        @data = @response.data if @response
+          
       catch x
         console.warn('core-ajax caught an exception trying to parse response as JSON:');
         console.warn('url:', this.url);

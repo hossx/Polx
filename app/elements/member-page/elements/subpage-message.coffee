@@ -47,11 +47,11 @@ Polymer 'subpage-message',
 
     en:
       login: "Login"
-      register: "Register an account?"
+      register: "Don't have an acccount? Register Now"
       checkEmail:
         label: "Check Your Email"
         details: [
-          "We just send you an email for your membership confirmation. You need to click on the link in the email to activate your account.",
+          "We just send you an email for your account confirmation. You need to click on the link in the email to activate your account.",
           "Please give the email a couple of minutes to arrive. If you still don't find it in your mailbox after a while, go ahead and check the spam folder."
           "Thank you."]
 

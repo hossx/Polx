@@ -80,3 +80,9 @@ Polymer 'the-router',
       console.debug("------user-request-logout")
       this.$.logoutAjax.logout()
       @onUserLogOut()
+
+    @addEventListener 'user-register-ok', (e) ->
+      console.debug("------user-register-ok")
+      if location.hash == '#/member/register'
+        this.$.router.go('/member/check_email')
+

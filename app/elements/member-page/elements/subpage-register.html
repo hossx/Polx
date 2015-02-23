@@ -2,11 +2,13 @@
 <link rel="import" href="../../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../../bower_components/paper-checkbox/paper-checkbox.html">
+<link rel="import" href="../../coinport-api/api-register.html">
 
 <polymer-element name="subpage-register">
   <template>
     <link rel="stylesheet" href="subpage-register.css">
 
+    <api-register id="ajax" email="{{email}}" password="{{password}}" result="{{result}}"></api-register>
     <div class="container" vertical layout>
       <div class="label">{{M.register}}</div>
       <div class="form">
