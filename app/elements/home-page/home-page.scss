@@ -66,6 +66,7 @@ cp-page /deep/ #main {
     }
 }
 #announceInfo {
+    min-height: 100px;
     background: color($C2, 100);
     color: $black1;
     border-bottom: 1px solid $black4;
@@ -75,6 +76,7 @@ cp-page /deep/ #main {
     }
 }
 #announceWarning {
+    min-height: 100px;
     background: color($C3, 400);
     color: $white1;
     border-bottom: 1px solid $black4;
@@ -102,7 +104,7 @@ cp-page /deep/ #main {
     }
 }
 #mobile {
-    background-color: color($C2, a400);
+    background-color: color($C2, 100);
     color: $black1;
     #words {
         #ready {

@@ -1,4 +1,8 @@
 {
+  "announcement": {
+    "info": "",
+    "warning": "Warning can be isssued by editting appconfig_en.json or appconfig_zh.json!"
+  },
   "currencies": {
     "CNY": {
       "name": "Chinese Yuan",

@@ -21,8 +21,6 @@ Polymer 'home-page',
       pleaseLogin1: "or "
       pleaseLogin2: "log in"
       pleaseLogin3: " if you have registed already."
-      #announceWarning: "This is the warning we can make."
-      #announceInfo: "This is the info we can make."
     'zh':
       slogan1: "放心交易 优化收益"
       slogan2: "全透明数字资产交易平台"
@@ -43,12 +41,13 @@ Polymer 'home-page',
       pleaseLogin1: "如果您已经注册，请"
       pleaseLogin2: "登陆"
       pleaseLogin3: "。"
-      #announceWarning: "This is the warning we can make."
-      #announceInfo: "This is the info we can make."
 
 
   ready: () ->
     @lang = window.lang
+    @profile = window.profile
+    @announceWarning = window.config.announcement.warning
+    @announceInfo = window.config.announcement.info
     @M = @msgMap[window.lang]
     work = () =>
       $(this.$['branding']).backstretch([

@@ -1,4 +1,8 @@
 {
+  "announcement": {
+    "info": "网站声明可以通过 appconfig_zh.json 以及 appconfig_en.json更新。",
+    "warning": ""
+  },
   "currencies": {
     "CNY": {
       "name": "Chinese Yuan",

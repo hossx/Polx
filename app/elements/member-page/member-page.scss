@@ -3,7 +3,7 @@
     display: block;
 }
 cp-page /deep/ #main {
-    background: color($C2, a400);
+    background: color($C2, 100);
     ::content {
         min-height: 260px;
     }

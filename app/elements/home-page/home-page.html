@@ -12,17 +12,17 @@
 
     <cp-page>
       <div id="container" vertical layout>
-        <template if="{{M.announceInfo && announceWarning === null}}">
-          <div class="small-section" id="announceInfo" horizontal center-justified center layout>
+        <template if="{{announceInfo && !announceWarning}}">
+          <div class="tiny-section" id="announceInfo" horizontal center-justified center layout>
             <core-icon icon="announcement"></core-icon>
-            <div> {{M.announceInfo}}</div>
+            <div> {{announceInfo}}</div>
           </div>
         </template>
 
-        <template if="{{M.announceWarning}}">
-          <div class="small-section" id="announceWarning" horizontal center-justified center layout>
-            <core-icon icon="announcement"></core-icon>
-            <div> {{M.announceWarning}}</div>
+        <template if="{{announceWarning}}">
+          <div class="tiny-section" id="announceWarning" horizontal center-justified center layout>
+            <core-icon icon="warning"></core-icon>
+            <div> {{announceWarning}}</div>
           </div>
         </template>
 
@@ -72,14 +72,17 @@
           </div>
         </div>
 
-        <div class="small-section" id="member" vertical center center-justified layout>
-          <div>
-            <a href="/#/member/register">
-              <paper-button id="register" class="primary">{{M.registerAndTrade}}</paper-button>
-            </a>
+        <template if="{{!profile}}">
+          <div class="small-section" id="member" vertical center center-justified layout>
+            <div>
+              <a href="/#/member/register">
+                <paper-button id="register" class="primary">{{M.registerAndTrade}}</paper-button>
+              </a>
+            </div>
+            <div>{{M.pleaseLogin1}}<a href="/#/member/login">{{M.pleaseLogin2}}</a>{{M.pleaseLogin3}}</div>
           </div>
-          <div>{{M.pleaseLogin1}}<a href="/#/member/login">{{M.pleaseLogin2}}</a>{{M.pleaseLogin3}}</div>
-        </div>
+        </template>
+
       </div>
     </cp-page>
   </template>
