@@ -30,9 +30,12 @@ Polymer 'about-subpage',
   showWeibo: false
 
   wikiChanged: (o, n) ->
+    console.log("=======")
+    console.log(@wiki)
     prefix = "coinport:wiki\n"
     if @wiki and @wiki.indexOf(prefix) == 0
       @wikiLinted = @wiki.substring(prefix.length)
+      console.log(@wikiLinted)
 
   currencyChanged: (o, n) ->
     @markets =[]
@@ -46,9 +49,11 @@ Polymer 'about-subpage',
         @showTweets = true
       else
         @showTweets = false
-
-
-      @wikiFile = "../markdown/currencies/%s/%s.md".format(window.lang, @currency.id)
+      console.log("-----")
+      console.log(@showWeibo)
+      console.log(@showTweets)
+      @wikiFile = "/markdown/currencies/%s_%s.md".format(@currency.id, window.lang)
+      console.log(@wikiFile)
       for k, m of window.config.markets
         if m.currency.id == @currency.id
           @markets.push m
