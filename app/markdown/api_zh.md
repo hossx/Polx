@@ -5,9 +5,8 @@
 
 ##TODO(xiaolu)
 
-- 很多API的cursor实现不对，而且文档中没有说明cursor是对应返回数据的哪个field。另外cursor是“”的时候API应该正确返回。
+- 很多API的cursor实现不对，而且文档中没有说明cursor是对应返回数据的哪个field。另外cursor是0或者是空字符串的时候API应该正确返回。
 - BUG: the hasMore value of /user/deposits is wrong
-- BUG？我的deposit历史又很早的为什么还是2（确认中）？
 - 提现API需要完善一下说明 - 每个币种都需要说明。
 - 需要读取，删除，增加（货币地址，人民币银行卡）的API
 - Basic Auth中的密码也应该先用sha256先加密。这样用户的实际密码我们永远不知道。
@@ -102,12 +101,20 @@
 
 - 充值提现状态码：
   ```
-    0 - 待处理（pending）
-    1 - 处理中（processing）
-    2 - 处理完成，等待网络确认（comfirming）
-    3 - 已取消（pending）
-    4 - 成功（succeeded）
-    5 - 失败（failed）
+    0  - 等待中(Pending)
+    1  - 已提交(Accepted)
+    2  - 确认中(Confirming)
+    3  - 已确认(Confirmed)
+    4  - 已成功(Succeeded)
+    5  - 已失败(Failed)
+    6  - 区块链重组中(Re-organizing)
+    7  - 区块链已重组(Re-org OK)
+    8  - 已取消(Cancelled)
+    9  - 已被拒(Rejected)
+    10  - 热钱包不足(Insufficient Hot Wallet)
+    11  - 处理中(Processing)
+    12~17  - 系统错误(Internal Error)
+
   ```
 
 - cursor和limit：在几个API URL参数中，我们会用cursor和limit来指定返回数据的起始位置和数量。返回数据不包括cursor指向的那条数据（如果存在），如果想返回ID是0的数据，cursor的值应该是1。如果没有说明，cursor默认值是1，limit的默认值是50。每个API对limit可能与上限设置，如果设定的limit值大于这个上限，系统将用该上限作为limit的实际值。
