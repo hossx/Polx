@@ -46,6 +46,9 @@ Polymer 'market-pro-page',
     work = () => @refresh()
     @autoRefresh = setTimeout(work, window.config.refreshIntervals.pro)
 
+  detached: () ->
+    clearTimeout(@autoRefresh)
+
   forceRefresh: () ->
     @fire('display-message', {'message': @M.refreshingMsg})
     @refresh()
@@ -72,5 +75,8 @@ Polymer 'market-pro-page',
     @market = @config.markets[@marketId]
 
   smallupChanged: (o, n) -> console.log(@smallup)
+
+
+
 
   

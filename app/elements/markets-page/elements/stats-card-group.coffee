@@ -19,6 +19,9 @@ Polymer 'stats-card-group',
     work = () =>this.$.ajax.go()
     @refreshJob = setInterval(work, @refreshInterval)
 
+  detached: () ->
+    clearInterval(@refreshJob)
+
   tickersChanged: (o, n) ->
     if @tickers
       @marketIds = Object.keys(@tickers).sort()

@@ -5,6 +5,3 @@ Polymer 'markets-page',
     @config = window.config
     @marketGroupKeys = Object.keys(@config.marketGroups)
 
-
-  detached: () ->
-    console.log "detached: markets-page"
