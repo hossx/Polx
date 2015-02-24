@@ -52,10 +52,10 @@ Polymer 'home-page',
     @M = @msgMap[window.lang]
     work = () =>
       $(this.$['branding']).backstretch([
-         "/images/bg-sea-1.jpg",
-         "/images/bg-sea-2.jpg",
-         "/images/bg-sea-3.jpg",
-         "/images/bg-sea-4.jpg"
+         "/images/bg/bg-sea-1.jpg",
+         "/images/bg/bg-sea-2.jpg",
+         "/images/bg/bg-sea-3.jpg",
+         "/images/bg/bg-sea-4.jpg"
         ],
         {duration: 10000, fade: 750})
       #$(this.$['mobile']).backstretch("/images/bg-grey.jpg")
