@@ -65,25 +65,23 @@ cp-page /deep/ #main {
         position: absolute;
     }
 }
-#announceInfo {
+#announceInfo,#announceWarning  {
     min-height: 100px;
-    background: color($C2, 100);
-    color: $black1;
-    border-bottom: 1px solid $black4;
-    font-size: 14px;
+    padding: 5px 30px;
+    font-size: 16px;
     core-icon {
+        height: 40px;
+        width: 40px;
         padding-right: 20px;
     }
 }
+#announceInfo {
+    background: color($C2, 100);
+    color: $black1;
+}
 #announceWarning {
-    min-height: 100px;
     background: color($C3, 400);
     color: $white1;
-    border-bottom: 1px solid $black4;
-    font-size: 14px;
-    core-icon {
-        padding-right: 20px;
-    }
 }
 #features {
     background-color: white;
