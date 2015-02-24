@@ -316,17 +316,19 @@
 }
 paper-button.primary {
     border-radius: 0px;
-    background: color($C2, a400);
+    background: white;
+    border: 2px solid color($grey, 300);
     color: $black1;
     text-transform: none;
     font-weight: bold;
     min-width: 200px;
     &:hover {
-        background: color($C3, a400);
-        color: $white1;
+        background: color($C2, a400);
+        color: $black1;
+        border: 2px solid color($grey, 900);
     }
     &[disabled] {
-        background: color($grey, 400);
+        background: color($grey, 200);
         color: $black3;
     }
 }

@@ -9,13 +9,6 @@ a#action {
     color: $black1;
     text-decoration: none;
     margin-top: 40px;
-    paper-button {
-        background: color($C1, 100);
-        font-weight: bold;
-        &:hover {
-            background: color($C2, a400);
-        }
-    }
 }
 
 @media (min-width: 768px) {
