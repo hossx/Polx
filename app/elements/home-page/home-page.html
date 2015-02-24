@@ -32,12 +32,16 @@
         </div>
 
         <div class="tiny-section" id="powered" horizontal center-justified layout>
-          <img class="qrcode" src="/images/qrcode/weibo.png">
+          <template if="{{lang='zh'}}">
+            <img class="qrcode" src="/images/qrcode/weibo.png">
+          </template>
           <div flex vertical center center-justified layout>
             <img id="logo" src="/images/logo.png">
             <div>{{M.servedBy}}</div>
           </div>
-          <img class="qrcode" src="/images/qrcode/wexin.png">
+          <template if="{{lang='zh'}}">
+            <img class="qrcode" src="/images/qrcode/weixin.png">
+          </template>
         </div>
 
         <div class="section" id="features" vertical?="{{!smallup}}" horizontal?="{{smallup}}" center center-justified layout>

@@ -20,6 +20,7 @@
     min-height: 0;
 }
 #branding {
+    background: color($grey, 700);
     color: $white1;
     text-shadow: 1px 1px $black3;
     width: 100%;
@@ -114,7 +115,8 @@
             font-size: 20px;
             text-transform: none;
             &:hover {
-                background: color($C3, a400);
+                background: white;
+                color: $black1;
             }
         }
         #supports {
@@ -139,7 +141,8 @@
     background: white;
     border-bottom: 1px solid $black4;
     color: $black2;
-    font-size: 12px;
+    font-size: 10px;
+    padding: 4px;
     text-align: center;
     padding: 0 30px;
     img {

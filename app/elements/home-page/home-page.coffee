@@ -50,12 +50,15 @@ Polymer 'home-page',
   ready: () ->
     @lang = window.lang
     @M = @msgMap[window.lang]
-    $(this.$['branding']).backstretch([
-       "/images/bg-sea-1.jpg",
-       "/images/bg-sea-2.jpg",
-       "/images/bg-sea-3.jpg",
-       "/images/bg-sea-4.jpg"
-      ],
-      {duration: 10000, fade: 750})
-    #$(this.$['mobile']).backstretch("/images/bg-grey.jpg")
+    work = () =>
+      $(this.$['branding']).backstretch([
+         "/images/bg-sea-1.jpg",
+         "/images/bg-sea-2.jpg",
+         "/images/bg-sea-3.jpg",
+         "/images/bg-sea-4.jpg"
+        ],
+        {duration: 10000, fade: 750})
+      #$(this.$['mobile']).backstretch("/images/bg-grey.jpg")
+    setTimeout(work)
+    
 
