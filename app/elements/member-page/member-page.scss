@@ -3,7 +3,10 @@
     display: block;
 }
 cp-page /deep/ #main {
-    background: color($grey, 700);
+    background: color($C2, a400);
+    ::content {
+        min-height: 260px;
+    }
 }
 #widget {
     width: 100%;

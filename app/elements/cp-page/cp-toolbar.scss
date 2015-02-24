@@ -19,8 +19,8 @@
     }
     #xyz {
         display: none;
-        $color1: color($light-blue, a700);
-        $color2: color($light-green, a700);
+        $color1: color($cyan, a400);
+        $color2: color($light-green, a400);
         #x {
             color: $color1;
             text-transform: uppercase;
