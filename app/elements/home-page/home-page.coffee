@@ -24,7 +24,7 @@ Polymer 'home-page',
       #announceWarning: "This is the warning we can make."
       #announceInfo: "This is the info we can make."
     'zh':
-      slogan1: "放心交易 保障安全"
+      slogan1: "放心交易 优化收益"
       slogan2: "全透明数字资产交易平台"
       feature1: "代码开源"
       explain1_1: "我们的交易引擎已"
@@ -37,7 +37,7 @@ Polymer 'home-page',
 
       mobileReady: "安卓手机有APP可用哦"
       download: "立即下载"
-      support: "支持安卓2.4.2及以上版本. iOS App还在开发中。"
+      support: "支持安卓2.4.2及以上版本。iOS App还在开发中。"
       servedBy: "币丰港交易平台由币丰港（香港）网络科技有限公司运营"
       registerAndTrade: "注册并开始使用币丰港交易所"
       pleaseLogin1: "如果您已经注册，请"
