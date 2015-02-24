@@ -1,26 +1,29 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../../../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
 <link rel="import" href="../../../bower_components/marked-element/marked-element.html">
 <link rel="import" href="../../../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../../../bower_components/paper-tabs/paper-tab.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
-<link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../charts/candlestick-chart/candlestick-chart.html">
+<link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../weibo-wall/weibo-wall.html">
 <link rel="import" href="../../tweet-wall/tweet-wall.html">
 
-<polymer-element name="about-subpage" attributes="currency" flex>
+<polymer-element name="about-subpage" attributes="currency,active">
   <template>
     <link rel="stylesheet" href="about-subpage.css">
 
     <section-group hasFooter="true">
+
       <template if="{{markets.length > 0}}">
         <paper-shadow z="0">
           <div label>
             <h2>{{M.trend}}</h2>
           </div>
           <div>
+
             <template if="{{markets.length > 1}}">
               <paper-tabs id="market-tabs" selected="{{tab}}">
                 <template repeat="{{market in markets}}">
@@ -35,13 +38,13 @@
                   <div class="candle">
                     <candlestick-chart market="{{market}}" width="728" height="420"></candlestick-chart>
                   </div>
-
                   <a id="action" href="/#/marketpro/{{market.id}}">
                     <paper-button noink>{{M.trade}} {{market.name}}</paper-button>
                   </a>
                 </div>
+              </template>
             </core-animated-pages>
-            </template>
+
           </div>
         </paper-shadow>
       </template>
@@ -69,7 +72,7 @@
       </template>
 
       <core-ajax url="{{wikiFile}}" response="{{wiki}}" auto></core-ajax>
-      <template if="{{wikiLinted !== ''}}">
+      <template if="{{wikiLinted != ''}}">
         <paper-shadow z="0">
           <div label>
             <h2>{{M.about}} {{currency.name}}</h2>
@@ -79,7 +82,6 @@
           </div>
         </paper-shadow>
       </template>
-
     </section-group>
   </template>
   <script src="about-subpage.js"></script>

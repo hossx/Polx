@@ -1,8 +1,12 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="../../../bower_components/marked-element/marked-element.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../charts/candlestick-chart/candlestick-chart.html">
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../weibo-wall/weibo-wall.html">
+<link rel="import" href="../../tweet-wall/tweet-wall.html">
 
 <polymer-element name="trend-subpage" attributes="market,active">
   <template>
@@ -44,8 +48,19 @@
           </div>
         </paper-shadow>
       </template>
-    </section-group>
 
+      <core-ajax url="{{wikiFile}}" response="{{wiki}}" auto></core-ajax>
+      <template if="{{wikiLinted != ''}}">
+        <paper-shadow z="0">
+          <div label>
+            <h2>{{M.about}} {{currency.name}}</h2>
+          </div>
+          <div>
+            <marked-element id="marked" text="{{wikiLinted}}"></marked-element>
+          </div>
+        </paper-shadow>
+      </template>
+    </section-group>
   </template>
   <script src="trend-subpage.js"></script>
 </polymer-element>
