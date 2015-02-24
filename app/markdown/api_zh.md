@@ -12,7 +12,7 @@
 - Basic Auth中的密码也应该先用sha256先加密。这样用户的实际密码我们永远不知道。
 - BUG? 用已经用过的emai注册，返回值错误码不对。实际上应该明确说明各种错误码，并对密码要求做出说明。
 - 增加一个返回huobi,okcoin,coinbase,等其他交易所ticker的api -> /api/v2/external_tickers
-
+- 发送短信，email接口应该支持一个lang参数，现在只有'zh'和’en'两个值。
 ---
 
 
