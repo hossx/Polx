@@ -314,6 +314,36 @@
         }
     }
 }
+@mixin diagonal-fill($color1, $overlay: $white3) {
+    position: relative;
+    overflow: hidden;
+    background-color: $color1;
+    $mode: random(4);
+    &:before {
+        content: '';
+        position: absolute;
+        @if $mode == 1 {
+            top: -100%;
+        }
+        @if $mode == 2 {
+            top: -100%;
+            left: -500%;
+        }
+        @if $mode == 3 {
+            top: -400%;
+            left: -500%;
+        }
+
+        @if $mode == 4 {
+            top: -400%;
+        }
+        width: 600%;
+        height: 600%;
+        border-radius: 50%;
+        background-color: $overlay;
+        //transform: rotate(45deg);
+    }
+}
 paper-button.primary {
     border-radius: 0px;
     background: white;

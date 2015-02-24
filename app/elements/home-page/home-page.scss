@@ -65,7 +65,7 @@ cp-page /deep/ #main {
         position: absolute;
     }
 }
-#announceInfo,#announceWarning  {
+#announceInfo, #announceWarning {
     min-height: 100px;
     padding: 5px 30px;
     font-size: 16px;
@@ -102,7 +102,7 @@ cp-page /deep/ #main {
     }
 }
 #mobile {
-    background-color: color($C2, 100);
+    @include diagonal-fill(color($C2, 100));
     color: $black1;
     #words {
         #ready {
@@ -131,6 +131,7 @@ cp-page /deep/ #main {
     img#android-app {
         height: 80%;
         transition: 5s cubic-bezier(0, 1, 1, 1);
+        z-index: 100;
     }
     .backstretch:before {
         content: "";

@@ -1,9 +1,10 @@
 @import "../_colors";
+@import "../_common";
 :host {
     display: block;
 }
 cp-page /deep/ #main {
-    background: color($C2, 100);
+@include diagonal-fill(color($C2, 100));
     ::content {
         min-height: 260px;
     }
@@ -11,6 +12,7 @@ cp-page /deep/ #main {
 #widget {
     width: 100%;
     padding: 20px 0;
+    
 }
 @media(min-width:320px) {
     #widget {
