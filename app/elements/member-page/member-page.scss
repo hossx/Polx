@@ -3,7 +3,7 @@
     display: block;
 }
 cp-page /deep/ #main {
-    background: transparent;
+    background: color($grey, 700);
 }
 #widget {
     width: 100%;
