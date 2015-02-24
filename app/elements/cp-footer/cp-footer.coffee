@@ -33,7 +33,6 @@ Polymer 'cp-footer',
           label: "Coinport PAY"
           url: "https://pay.coinport.com"
           class: "pay"
-          tooltip: "Accept bitcoin payment for your business."
           target: "_blank"
         ]
       ,
@@ -87,7 +86,6 @@ Polymer 'cp-footer',
           label: "币丰支付"
           url: "https://pay.coinport.com"
           class: "pay"
-          tooltip: "币丰支付助力您的企业接收全球用户的比特币付款"
           target: "_blank"
         ]
       ,

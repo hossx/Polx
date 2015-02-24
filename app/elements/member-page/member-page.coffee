@@ -1,13 +1,12 @@
 'use strict'
 
 Polymer 'member-page',
-  msgMap:
-    'zh':
-      lastPrice: "最新成交价"
-      volume: "24小时总成交量"
-      change: "24小时价格变化"
-
-    'en':
-      lastPrice: "Last Price"
-      volume: "24H Volume"
-      change: "24H Change"
+  ready: () ->
+    console.log(this.$['wrapper'])
+    $(this.$['page']).backstretch([
+       "/images/bg-sea-1.jpg",
+       "/images/bg-sea-2.jpg",
+       "/images/bg-sea-3.jpg",
+       "/images/bg-sea-4.jpg"
+      ],
+      {duration: 10000, fade: 750})

@@ -1,16 +1,16 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../bower_components/core-media-query/core-media-query.html">
-<link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/polymer-fontawesome/polymer-fontawesome.html">
 <link rel="import" href="../cp-page/cp-page.html">
 
-<polymer-element name="home-page" attributes="">
+<polymer-element name="home-page">
   <template>
     <link rel="stylesheet" href="home-page.css">
     <core-media-query query="min-width: 768px" queryMatches="{{smallup}}"></core-media-query>
 
-    <cp-page >
+    <cp-page>
       <div id="container" vertical layout>
         <template if="{{M.announceInfo && announceWarning === null}}">
           <div class="small-section" id="announceInfo" horizontal center-justified center layout>
@@ -27,8 +27,17 @@
         </template>
 
         <div class="section" id="branding" vertical center-justified center layout>
-          <div id="name">{{M.coinport}}</div>
-          <div id="slogan">{{M.slogan}}</div>
+          <div id="name">{{M.slogan1}}</div>
+          <div id="slogan">{{M.slogan2}}</div>
+        </div>
+
+        <div class="tiny-section" id="powered" horizontal center-justified layout>
+          <img class="qrcode" src="/images/qrcode/weibo.png">
+          <div flex vertical center center-justified layout>
+            <img id="logo" src="/images/logo.png">
+            <div>{{M.servedBy}}</div>
+          </div>
+          <img class="qrcode" src="/images/qrcode/wexin.png">
         </div>
 
         <div class="section" id="features" vertical?="{{!smallup}}" horizontal?="{{smallup}}" center center-justified layout>
@@ -53,11 +62,10 @@
         </div>
 
         <div class="section" id="mobile" vertical?="{{!smallup}}" horizontal?="{{smallup}}" center center-justified layout>
-
           <div flex id="words" auto-vertical vertical center layout>
             <div id="ready">{{M.mobileReady}}</div>
             <a target="_blank" href="https://exchange.coinport.com/app/android/download">
-              <paper-button raised id="download">{{M.download}}</paper-button>
+              <paper-button id="download">{{M.download}}</paper-button>
             </a>
             <div id="supports">{{M.support}}</div>
           </div>
@@ -66,9 +74,13 @@
           </div>
         </div>
 
-        <div class="small-section" id="powered" vertical center center-justified layout>
-          <img src="/images/watermark.png">
-          <div>{{M.servedBy}}</div>
+        <div class="small-section" id="member" vertical center center-justified layout>
+          <div>
+            <a href="/#/member/register">
+              <paper-button id="register" raised class="primary">{{M.registerAndTrade}}</paper-button>
+            </a>
+          </div>
+          <div>{{M.pleaseLogin1}}<a href="/#/member/login">{{M.pleaseLogin2}}</a>{{M.pleaseLogin3}}</div>
         </div>
       </div>
     </cp-page>

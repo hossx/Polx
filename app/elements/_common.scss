@@ -316,17 +316,17 @@
 }
 paper-button.primary {
     border-radius: 0px;
-    background: fade-out(color($C2, a400), 0.8);
-    border: 1px solid color($C2, a400);
+    background: color($C2, a400);
     color: $black1;
+    text-transform: none;
     font-weight: bold;
-    min-width: 160px;
+    min-width: 200px;
     &:hover {
-        background: color($C2, a400);
+        background: color($C3, a400);
+        color: $white1;
     }
     &[disabled] {
-        background: fade-out(color($grey, 400), 0.5);
-        border: 1px solid color($grey, 400);
+        background: color($grey, 400);
         color: $black3;
     }
 }

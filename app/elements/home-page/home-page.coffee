@@ -3,8 +3,8 @@
 Polymer 'home-page',
   msgMap:
     'en':
-      coinport: "Coinport"
-      slogan: "Crypto-Asset Exchange for Cool People"
+      slogan1: "Trade Safe, Rest Assured"
+      slogan2: "Crypto-Asset Exchange for Cool People"
       feature1: "Open-Source"
       explain1_1: "Our matching engine has been "
       explain1_2: "open-sourced on Github"
@@ -17,13 +17,17 @@ Polymer 'home-page',
       download: "Download App"
       support: "Supports Android 2.4.2 and up. iOS App coming soon."
       servedBy: "Powered by Coinport Technology Limited HK"
+      registerAndTrade: "Register and Start Trading"
+      pleaseLogin1: "or "
+      pleaseLogin2: "log in"
+      pleaseLogin3: " if you have registed already."
       #announceWarning: "This is the warning we can make."
       #announceInfo: "This is the info we can make."
     'zh':
-      coinport: "币丰港"
-      slogan: "全透明数字资产交易平台"
+      slogan1: "放心交易 保障安全"
+      slogan2: "全透明数字资产交易平台"
       feature1: "代码开源"
-      explain1_1: "我们的交易匹配引擎已"
+      explain1_1: "我们的交易引擎已"
       explain1_2: "托管在Github上"
       explain1_3: "。 您可以访问我们的代码库获取源代码，查看任何您感兴趣的部分。 我们鼓励用户了解所有细节，并帮助我们不断完善交易系统。"
       feature2: "数据开放"
@@ -35,15 +39,23 @@ Polymer 'home-page',
       download: "立即下载"
       support: "支持安卓2.4.2及以上版本. iOS App还在开发中。"
       servedBy: "币丰港交易平台由币丰港（香港）网络科技有限公司运营"
+      registerAndTrade: "注册并开始使用币丰港交易所"
+      pleaseLogin1: "如果您已经注册，请"
+      pleaseLogin2: "登陆"
+      pleaseLogin3: "。"
       #announceWarning: "This is the warning we can make."
       #announceInfo: "This is the info we can make."
 
 
   ready: () ->
+    @lang = window.lang
     @M = @msgMap[window.lang]
     $(this.$['branding']).backstretch([
-       "/images/bg-wooden.jpg"
+       "/images/bg-sea-1.jpg",
+       "/images/bg-sea-2.jpg",
+       "/images/bg-sea-3.jpg",
+       "/images/bg-sea-4.jpg"
       ],
-      {duration: 3000, fade: 750})
-    $(this.$['mobile']).backstretch("/images/bg-desktop.jpg")
+      {duration: 10000, fade: 750})
+    #$(this.$['mobile']).backstretch("/images/bg-grey.jpg")
 

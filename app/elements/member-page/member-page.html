@@ -7,11 +7,11 @@
 <polymer-element name="member-page" attributes="page">
   <template>
     <link rel="stylesheet" href="member-page.css">
-    <cp-page narrow  toolbarSelect="/account">
+    <cp-page id="page" toolbarSelect="/account">
       <div id="widget">
-        <member-widget page="{{page}}"></member-widget>
+        <member-widget self-center page="{{page}}"></member-widget>
       </div>
     </cp-page>
   </template>
-<script src="member-page.js"></script>
+  <script src="member-page.js"></script>
 </polymer-element>
