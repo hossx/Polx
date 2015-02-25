@@ -289,6 +289,7 @@ module.exports = function(grunt) {
                         '*.json',
                         'CNAME',
                         'markdown/**',
+                        'configs/**',
                         'images/**',
                         'elements/**',
                         'email_templates/**',
