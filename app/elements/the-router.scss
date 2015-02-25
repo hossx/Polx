@@ -1,11 +1,14 @@
 @import "_colors";
 :host {
-background: green;
+    paper-toast {
+        left: auto;
+        right: 0;
+    }
     #errorToast {
         background: color($red, 500);
         color: $white1;
     }
-        #warningToast {
+    #warningToast {
         background: color($orange, 500);
         color: $white1;
     }
