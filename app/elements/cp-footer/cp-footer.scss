@@ -12,7 +12,7 @@
     .group-label {
         text-transform: uppercase;
         padding-bottom: 10px;
-        color: $white2;
+        color: $black2;
     }
     .link {
         padding-bottom: 5px;
@@ -30,12 +30,6 @@
                 color: white !important;
             }
         }
-    }
-    @include config-link-on-dark-color();
-}
-:host-context([dark]) {
-    .group-label {
-        color: $black2;
     }
     @include config-link-on-light-color();
 }
