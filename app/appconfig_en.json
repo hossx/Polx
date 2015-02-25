@@ -1,7 +1,7 @@
 {
   "announcement": {
     "info": "",
-    "warning": "Warning can be isssued by editting appconfig_en.json or appconfig_zh.json!"
+    "warning": "This Exchange is still in Dev mode. Please do not use it for non-testing purpose. However, all trades are real and final!"
   },
   "currencies": {
     "CNY": {
