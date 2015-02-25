@@ -213,7 +213,7 @@
     &:before {
         content: '';
         position: absolute;
-        animation: dest 3s ease-in forwards;
+        animation: dest 2s ease-out forwards;
         @if $mode == 1 {
             width: 600%;
             height: 600%;
@@ -236,7 +236,7 @@
             @keyframes dest {
               0% {
                 top: 0%;
-                left: 0%;
+                left: -600%;
                 transform: rotate(0deg);
               }
               100% {
@@ -254,8 +254,8 @@
             border-radius: 50%;
             @keyframes dest {
               0% {
-                top: 0%;
-                left: 0%;
+                top: -600%;
+                left: -600%;
                 transform: rotate(0deg);
               }
               100% {
@@ -271,7 +271,7 @@
             border-radius: 50%;
             @keyframes dest {
               0% {
-                top: 0%;
+                top: -600%;
                 transform: rotate(0deg);
               }
               100% {
