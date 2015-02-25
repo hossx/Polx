@@ -43,7 +43,9 @@ Polymer 'the-router',
 
   onUserLoggedIn: () ->
     console.debug("------user-logged-in: " + JSON.stringify(window.profile))
-    $zopim () -> $zopim.livechat.setName('U' + window.profile.uid)
+    $zopim () -> 
+      $zopim.livechat.setName('U' + window.profile.uid)
+      $zopim.livechat.setNotes(JSON.stringify(window.profile))
 
     if location.hash == '#/member/login' or location.hash == '#/member/forgetpwd'
       this.$.router.go('/account')
@@ -52,7 +54,10 @@ Polymer 'the-router',
 
   onUserLogOut: () ->
     @removeCookies()
-    $zopim () -> $zopim.livechat.setName('')
+    $zopim () ->
+      $zopim.livechat.setName('')
+      $zopim.livechat.endChat()
+
 
     console.debug("------user-logged-out")
     if location.hash == '#/member/logout'
