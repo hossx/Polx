@@ -213,20 +213,38 @@
     &:before {
         content: '';
         position: absolute;
+        animation: dest 1s ease-in forwards;
         @if $mode == 1 {
-            top: -100%;
             width: 600%;
             height: 600%;
             border-radius: 50%;
-            transform: rotate(-5deg + $rotate);
+            @keyframes dest {
+              0% {
+                top: 0%;
+                transform: rotate(0deg);
+              }
+              100% {
+                top: -100%;
+                transform: rotate(-5deg + $rotate);
+              }
+            }
         }
         @if $mode == 2 {
-            top: -100%;
-            left: -500%;
             width: 600%;
             height: 600%;
             border-radius: 50%;
-            transform: rotate(-5deg + $rotate);
+            @keyframes dest {
+              0% {
+                top: 0%;
+                left: 0%;
+                transform: rotate(0deg);
+              }
+              100% {
+                top: -100%;
+                left: -500%;
+                transform: rotate(-5deg + $rotate);
+              }
+            }
         }
         @if $mode == 3 {
             top: -400%;
@@ -234,19 +252,45 @@
             width: 600%;
             height: 600%;
             border-radius: 50%;
-            transform: rotate(-5deg + $rotate);
+            @keyframes dest {
+              0% {
+                top: 0%;
+                left: 0%;
+                transform: rotate(0deg);
+              }
+              100% {
+                top: -400%;
+                left: -500%;
+                transform: rotate(-5deg + $rotate);
+              }
+            }
         }
         @if $mode == 4 {
-            top: -400%;
             width: 600%;
             height: 600%;
             border-radius: 50%;
-            transform: rotate(-5deg + $rotate);
+            @keyframes dest {
+              0% {
+                top: 0%;
+                transform: rotate(0deg);
+              }
+              100% {
+                top: -400%;
+                transform: rotate(-5deg + $rotate);
+              }
+            }
         }
         @if $mode == 0 or $mode > 4 {
             width: 200%;
             height: 200%;
-            transform: rotate(130deg + $rotate);
+            @keyframes dest {
+              0% {
+                transform: rotate(0deg);
+              }
+              100% {
+                transform: rotate(-40deg - $rotate);
+              }
+            }
         }
         background-color: $overlay;
     }

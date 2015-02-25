@@ -8,8 +8,9 @@
   <template>
     <link rel="stylesheet" href="member-page.css">
     <cp-page id="page" toolbarSelect="/account">
-      <div id="widget">
-        <member-widget self-center page="{{page}}"></member-widget>
+      <div id="container" flex center vertical layout>
+        <member-widget page="{{page}}"></member-widget>
+        <div flex></div>
       </div>
     </cp-page>
   </template>

@@ -1,11 +1,10 @@
 @import "../../_colors";
 @import "../../_common";
 :host {
-    display: block;
+    display: inline-block;
     background: transparent;
 }
 #pages {
-    width: 100%;
 }
 section {
     background: white;

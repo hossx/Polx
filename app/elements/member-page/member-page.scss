@@ -4,19 +4,27 @@
     display: block;
 }
 cp-page /deep/ #main {
-@include diagonal-fill(color($C2, 100));
     ::content {
-        min-height: 260px;
+        min-height: 360px;
     }
 }
-#widget {
+#container {
+    position: relative;
+    @include diagonal-fill(color($C2, 100));
+    min-height: 260px;
     width: 100%;
-    padding: 20px 0;
-    
+    overflow: hidden;
+    member-widget {
+        height: 360px;
+        width: 320px;
+        display: inline-block;
+    }
 }
 @media(min-width:320px) {
-    #widget {
-        padding: 40px 0;
+    #container {
+        padding-top: 40px;
+    }
+    member-widget {
         width: 320px;
     }
 }
