@@ -30,7 +30,7 @@
     if (window.lang === 'zh') {
       $zopim.livechat.setLanguage('zh_CN');
       $zopim.livechat.setGreetings({
-        'offline': '对不起，币丰港客服不在线上。请留言，我们将尽快回复您。',
+        'offline': '对不起，币丰港客服不在线上。请留言。',
         'online': '客服MM在线，一起聊聊吧？'
       });
       $zopim.livechat.concierge.setName('币丰港');
