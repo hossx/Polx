@@ -213,7 +213,7 @@
     &:before {
         content: '';
         position: absolute;
-        animation: dest 1s ease-in forwards;
+        animation: dest 3s ease-in forwards;
         @if $mode == 1 {
             width: 600%;
             height: 600%;
