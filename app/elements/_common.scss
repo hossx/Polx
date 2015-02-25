@@ -213,17 +213,21 @@
     &:before {
         content: '';
         position: absolute;
-        animation: dest 2s ease-out forwards;
+        animation: dest 2s ease-in-out forwards;
+        animation-delay: 2s;
+        opacity: 0;
         @if $mode == 1 {
             width: 600%;
             height: 600%;
             border-radius: 50%;
             @keyframes dest {
               0% {
+                opacity: 0;
                 top: 0%;
                 transform: rotate(0deg);
               }
               100% {
+                opacity: 1;
                 top: -100%;
                 transform: rotate(-5deg + $rotate);
               }
@@ -235,11 +239,13 @@
             border-radius: 50%;
             @keyframes dest {
               0% {
+                opacity: 0;
                 top: 0%;
                 left: -600%;
                 transform: rotate(0deg);
               }
               100% {
+                opacity: 1;
                 top: -100%;
                 left: -500%;
                 transform: rotate(-5deg + $rotate);
@@ -254,11 +260,13 @@
             border-radius: 50%;
             @keyframes dest {
               0% {
+                opacity: 0;
                 top: -600%;
                 left: -600%;
                 transform: rotate(0deg);
               }
               100% {
+                opacity: 1;
                 top: -400%;
                 left: -500%;
                 transform: rotate(-5deg + $rotate);
@@ -271,10 +279,12 @@
             border-radius: 50%;
             @keyframes dest {
               0% {
+                opacity: 0;
                 top: -600%;
                 transform: rotate(0deg);
               }
               100% {
+                opacity: 1;
                 top: -400%;
                 transform: rotate(-5deg + $rotate);
               }
@@ -285,9 +295,11 @@
             height: 200%;
             @keyframes dest {
               0% {
+                opacity: 0;
                 transform: rotate(0deg);
               }
               100% {
+                opacity: 1;
                 transform: rotate(-40deg - $rotate);
               }
             }
