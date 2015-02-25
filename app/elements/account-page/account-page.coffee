@@ -23,3 +23,7 @@ Polymer 'account-page',
     if o == 'profile' or n == 'profile'
       this.$.profileAjax.go()
     
+  profileChanged: (o, n) ->
+    if @profile and @profile.name
+      name  = @profile.name
+      $zopim () -> $zopim.livechat.setName(name)

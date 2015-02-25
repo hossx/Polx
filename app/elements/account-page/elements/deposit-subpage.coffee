@@ -92,8 +92,6 @@ Polymer 'deposit-subpage',
       @onChange()
 
   onChange: () ->
-    console.log(@balance)
-    console.log(@addresses)
     if @currencyId
       if @addresses and @addresses[@currencyId] and @addresses[@currencyId].length > 0
         @depositAddress = @addresses[@currencyId]
