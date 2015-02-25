@@ -1,7 +1,8 @@
 {
   "announcement": {
-    "info": "",
-    "warning": "This Exchange is still in Dev mode. Please do not use it for non-testing purpose. However, all trades are real and final!"
+    "message": "This Exchange is still in Dev mode. Please do not use it for non-testing purpose. However, all trades are real and final!",
+    "critical": false,
+    "link": "http://exchange.coinport.com"
   },
   "currencies": {
     "CNY": {

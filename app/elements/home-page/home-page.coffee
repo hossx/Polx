@@ -21,6 +21,7 @@ Polymer 'home-page',
       pleaseLogin1: "or "
       pleaseLogin2: "log in"
       pleaseLogin3: " if you have registed already."
+      learnMore: "Learn more."
     'zh':
       slogan1: "放心交易 优化收益"
       slogan2: "全透明数字资产交易平台"
@@ -41,13 +42,17 @@ Polymer 'home-page',
       pleaseLogin1: "如果您已经注册，请"
       pleaseLogin2: "登陆"
       pleaseLogin3: "。"
+      learnMore: "了解详情。"
 
 
   ready: () ->
     @lang = window.lang
     @profile = window.profile
-    @announceWarning = window.config.announcement.warning
-    @announceInfo = window.config.announcement.info
+    if window.config.announcement
+      @announceMsg = window.config.announcement.message
+      @announceCritical = window.config.announcement.critical
+      console.log(@announceCritical)
+      @announceLink = window.config.announcement.link
     @M = @msgMap[window.lang]
     work = () =>
       $(this.$['branding']).backstretch([

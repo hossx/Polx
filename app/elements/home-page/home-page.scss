@@ -65,7 +65,7 @@ cp-page /deep/ #main {
         position: absolute;
     }
 }
-#announceInfo, #announceWarning {
+#announce {
     min-height: 100px;
     padding: 5px 30px;
     font-size: 16px;
@@ -74,14 +74,20 @@ cp-page /deep/ #main {
         width: 40px;
         padding-right: 20px;
     }
-}
-#announceInfo {
     background: color($C2, 100);
     color: $black1;
-}
-#announceWarning {
-    background: color($C3, 400);
-    color: $white1;
+    a {
+        padding-left: 10px;
+        color: $black1;
+        text-decoration: underline;
+    }
+    &.critical {
+        background: color($C3, 400);
+        color: $white1;
+        a {
+            color: $white1;
+        }
+    }
 }
 #features {
     background-color: white;
