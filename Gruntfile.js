@@ -258,21 +258,19 @@ module.exports = function(grunt) {
         minifyHtml: {
             options: {
                 comments: false,
-                conditionals: true,
+                conditionals: false,
                 spare: true,
                 quotes: true,
                 loose: true,
                 empty: true
             },
-            app: {
             dist: {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.dist %>',
-                    src: ['*.html'],
+                    src: '*.html',
                     dest: '<%= yeoman.dist %>'
                 }]
-            }
             }
         },
         copy: {
