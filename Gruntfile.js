@@ -342,8 +342,7 @@ module.exports = function(grunt) {
             options: {
                 base: 'dist'
             },
-            src: ['*', 'styles/*.{css,ttf}', 'scripts/*.js', 'images/**', 'markdown/**', 'email_templates/*',
-            'bower_components/fontawesome/fonts/*']
+            src: ['*', 'styles/*.{css,ttf}', 'scripts/*.js', 'images/**', 'markdown/**', 'email_templates/*', 'configs/*', 'bower_components/fontawesome/fonts/*']
         }
     });
 

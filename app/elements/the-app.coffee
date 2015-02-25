@@ -64,7 +64,7 @@ Polymer 'the-app',
 
   ready: () ->
     @M = @msgMap[window.lang]
-    @configFile = "../appconfig_" + window.lang + ".json"
+    @configFile = "/configs/appconfig_" + window.lang + ".json"
 
   onConfigLoaded: (event, data) ->
     try

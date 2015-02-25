@@ -1,7 +1,7 @@
 {
   "announcement": {
-    "info": "网站声明可以通过 appconfig_zh.json 以及 appconfig_en.json更新。",
-    "warning": "该网站还在开发模式，非币丰港开发人员请不要使用。另：所有该网站的交易全部是真实的！！！"
+    "info": "",
+    "warning": "This Exchange is still in Dev mode. Please do not use it for non-testing purpose. However, all trades are real and final!"
   },
   "currencies": {
     "CNY": {
@@ -92,7 +92,7 @@
     "DRK": {
       "name": "Darkcoin",
       "color": "#3998CA",
-      "tags": "暗黑币,<Darkcoin></Darkcoin>",
+      "tags": "暗黑币,Darkcoin",
       "twitterWidgetId": "560705595456909312",
       "browser": {
         "addr": "https://coinplorer.com/DRK/Addresses/%s",
