@@ -26,6 +26,28 @@
     console.log('Polymer is ready to rock!');
   });
 
+  $zopim(function() {
+    $zopim.livechat.setNotes(JSON.stringify(window.profile))
+    $zopim.livechat.setEmail('exchange_support@coinport.com');
+    if (window.profile) {
+      $zopim.livechat.setName('U' + window.profile.uid);
+      console.log('chat name: " + window.profile.uid')
+    }
+    if (window.lang == 'zh') {
+      $zopim.livechat.setLanguage('zh_CN');
+      $zopim.livechat.setGreetings({
+        "offline": "对不起，币丰港客服不在线上。请留言，我们将尽快回复您。",
+        "online": "客服MM在线，一起聊聊吧？"
+      });
+      $zopim.livechat.concierge.setName('币丰港客服');
+      $zopim.livechat.concierge.setTitle('今天你买卖什么币了吗？');
+    } else {
+      $zopim.livechat.setLanguage('en');
+      $zopim.livechat.concierge.setName('Coinport Customer Service');
+      $zopim.livechat.concierge.setTitle('Did you trade today?');
+    }
+  });
+
   window.logAndContinue = function() {
     var missing = Polymer.waitingFor();
     if (missing.length) {
