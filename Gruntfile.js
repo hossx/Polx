@@ -233,6 +233,21 @@ module.exports = function(grunt) {
                 }
             }
         },
+        uglify: {
+            default: {
+                options: {
+                    report: 'min',
+                    screwIE8: true,
+                    mangle: false
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= yeoman.dist %>/elements',
+                    src: '{,*/,*/*/,*/*/*/}*.js',
+                    dest: '<%= yeoman.dist %>/elements'
+                }]
+            }
+        },
         vulcanize: {
             default: {
                 options: {
@@ -333,7 +348,7 @@ module.exports = function(grunt) {
             },
             desktop: {
                 options: {
-                    url: "https://developers.google.com/web/fundamentals/",
+                    url: "http://x.coinport.com/#/markets",
                     locale: "en_GB",
                     strategy: "desktop",
                     threshold: 99
