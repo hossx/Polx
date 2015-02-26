@@ -259,9 +259,9 @@ module.exports = function(grunt) {
             options: {
                 comments: false,
                 conditionals: false,
-                spare: true,
-                quotes: true,
-                loose: true,
+                spare: false,
+                quotes: false,
+                loose: false,
                 empty: true
             },
             dist: {
