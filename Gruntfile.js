@@ -39,54 +39,53 @@ module.exports = function(grunt) {
                     livereload: true
                 },
                 files: [
-                    '<%= yeoman.app %>/*.html',
-                    '<%= yeoman.app %>/email_templates/*.*',
-                    '<%= yeoman.app %>/elements/{,*/,*/*/,*/*/*/}*.html',
-                    '{.tmp,<%= yeoman.app %>}/elements/{,*/,*/*/,*/*/*/}*.css',
-                    '{.tmp,<%= yeoman.app %>}/elements/{,*/,*/*/,*/*/*/}*.{js,coffee}',
-                    '{.tmp,<%= yeoman.app %>}/styles/{,*/,*/*/,*/*/*/}*.css',
-                    '{.tmp,<%= yeoman.app %>}/scripts/{,*/,*/*/,*/*/*/}*.{js,coffee}',
-                    '<%= yeoman.app %>/images/{,*/,*/*/,*/*/*/}*.{png,jpg,jpeg,gif,webp}'
+                    '{.tmp,<%= yeoman.app %>}/*.html',
+                    '{.tmp,<%= yeoman.app %>}/elements/{,*/,*/*/,*/*/*/}*.{html,css,scss,js,coffee}',
+                    '{.tmp,<%= yeoman.app %>}/styles/*.{css,scss}',
+                    '{.tmp,<%= yeoman.app %>}/scripts/*.{js,coffee}',
+                    '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}'
                 ]
             },
             js: {
-                files: ['<%= yeoman.app %>/scripts/{,*/,*/*/,*/*/*/}*.js'],
-                tasks: ['copy:scripts', 'jshint']
+                files: [
+                    '<%= yeoman.app %>/scripts/*.js',
+                    '<%= yeoman.app %>/elements/{,*/,*/*/,*/*/*/}*.js'
+                ],
+                tasks: ['jshint', 'copy:scripts']
             },
             coffee: {
                 files: [
-                    '<%= yeoman.app %>/scripts/{,*/,*/*/,*/*/*/}*.coffee',
+                    '<%= yeoman.app %>/scripts/*.coffee',
                     '<%= yeoman.app %>/elements/{,*/,*/*/,*/*/*/}*.coffee'
                 ],
-                tasks: ['coffee:server', 'copy:scripts', 'jshint']
+                tasks: ['coffee:server', 'jshint', 'copy:scripts']
             },
             styles: {
                 files: [
-                    '<%= yeoman.app %>/styles/{,*/,*/*/,*/*/*/}*.css',
+                    '<%= yeoman.app %>/styles/*.css',
                     '<%= yeoman.app %>/elements/{,*/,*/*/,*/*/*/}*.css'
                 ],
                 tasks: ['copy:styles', 'autoprefixer:server']
             },
             sass: {
                 files: [
-                    '<%= yeoman.app %>/email_templates/*.scss',
-                    '<%= yeoman.app %>/styles/{,*/,*/*/,*/*/*/}*.{scss,sass}',
+                    '<%= yeoman.app %>/styles/*.{scss,sass}',
                     '<%= yeoman.app %>/elements/{,*/,*/*/,*/*/*/}*.{scss,sass}'
                 ],
-                tasks: ['sass:server', 'autoprefixer:server']
+                tasks: ['sass:server', 'copy:styles', 'autoprefixer:server']
             }
         },
         // Compile coffee scripts to js
         coffee: {
             options: {
                 bare: false,
-                join: false
+                join: true
             },
             dist: {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.app %>',
-                    src: ['scripts/{,*/,*/*/,*/*/*/}*.coffee', 'elements/{,*/,*/*/,*/*/*/}*.coffee'],
+                    src: ['scripts/*.coffee', 'elements/{,*/,*/*/,*/*/*/}*.coffee'],
                     dest: '<%= yeoman.dist %>',
                     ext: '.js'
                 }]
@@ -98,7 +97,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.app %>',
-                    src: ['scripts/{,*/,*/*/,*/*/*/}*.coffee', 'elements/{,*/,*/*/,*/*/*/}*.coffee'],
+                    src: ['scripts/*.coffee', 'elements/{,*/,*/*/,*/*/*/}*.coffee'],
                     dest: '.tmp',
                     ext: '.js'
                 }]
@@ -116,7 +115,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.app %>',
-                    src: ['styles/{,*/,*/*/,*/*/*/}*.{scss,sass}', 'elements/{,*/,*/*/,*/*/*/}*.{scss,sass}', 'email_templates/*.scss'],
+                    src: ['styles/*.{scss,sass}', 'elements/{,*/,*/*/,*/*/*/}*.{scss,sass}'],
                     dest: '<%= yeoman.dist %>',
                     ext: '.css'
                 }]
@@ -125,7 +124,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.app %>',
-                    src: ['styles/{,*/,*/*/,*/*/*/}*.{scss,sass}', 'elements/{,*/,*/*/,*/*/*/}*.{scss,sass}', 'email_templates/*.scss'],
+                    src: ['styles/*.{scss,sass}', 'elements/{,*/,*/*/,*/*/*/}*.{scss,sass}'],
                     dest: '.tmp',
                     ext: '.css'
                 }]
@@ -135,20 +134,21 @@ module.exports = function(grunt) {
             options: {
                 browsers: ['last 2 versions']
             },
-            server: {
-                files: [{
-                    expand: true,
-                    cwd: '.tmp',
-                    src: '**/*.css',
-                    dest: '.tmp'
-                }]
-            },
+
             dist: {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.dist %>',
                     src: ['**/*.css', '!bower_components/**/*.css'],
                     dest: '<%= yeoman.dist %>'
+                }]
+            },
+            server: {
+                files: [{
+                    expand: true,
+                    cwd: '.tmp',
+                    src: '**/*.css',
+                    dest: '.tmp'
                 }]
             }
         },
@@ -173,7 +173,7 @@ module.exports = function(grunt) {
             test: {
                 options: {
                     open: {
-                        target: 'http://localhost:<%= connect.options.port %>/test'
+                        target: 'http://localhost:<%= connect.options.port %>'
                     },
                     middleware: function(connect) {
                         return [
@@ -209,7 +209,8 @@ module.exports = function(grunt) {
                 ignores: ['<%= yeoman.app %>/scripts/jquery.sha256.js']
             },
             all: [
-                '<%= yeoman.app %>/scripts/{,*/,*/*/,*/*/*/}*.js',
+                '<%= yeoman.app %>/scripts/*.js',
+                '<%= yeoman.app %>/elements/{,*/,*/*/,*/*/*/}*.js',
                 '!<%= yeoman.app %>/scripts/vendor/*',
                 'test/spec/{,*/}*.js'
             ]
@@ -222,7 +223,7 @@ module.exports = function(grunt) {
         },
         usemin: {
             html: ['<%= yeoman.dist %>/{,*/,*/*/,*/*/*/}*.html'],
-            css: ['<%= yeoman.dist %>/styles/{,*/,*/*/,*/*/*/}*.css'],
+            css: ['<%= yeoman.dist %>/styles/*.css', '<%= yeoman.dist %>/elements{,*/,*/*/,*/*/*/}*.css'],
             options: {
                 dirs: ['<%= yeoman.dist %>'],
                 blockReplacements: {
@@ -235,8 +236,7 @@ module.exports = function(grunt) {
         vulcanize: {
             default: {
                 options: {
-                    strip: true,
-                    inline: false
+                    strip: true
                 },
                 files: {
                     '<%= yeoman.dist %>/app.html': [
@@ -257,11 +257,7 @@ module.exports = function(grunt) {
         },
         minifyHtml: {
             options: {
-                comments: false,
-                conditionals: false,
-                spare: false,
-                quotes: false,
-                loose: false,
+                quotes: true,
                 empty: true
             },
             dist: {
@@ -281,22 +277,21 @@ module.exports = function(grunt) {
                     cwd: '<%= yeoman.app %>',
                     dest: '<%= yeoman.dist %>',
                     src: [
-                        '*.{ico,txt}',
+                        '*.{ico,txt,md}',
                         '.htaccess',
                         '*.html',
                         '*.json',
                         'CNAME',
+                        'bower_components/**',
+                        'elements/**',
+                        'styles/*.ttf',
+                        'scripts/**',
+                        'images/**',
                         'markdown/**',
                         'configs/**',
                         'images/**',
-                        'elements/**',
-                        'email_templates/**',
-                        'styles/*.ttf',
-                        'scripts/**',
-                        '!elements/**/*.scss',
-                        '!elements/**/*.coffee',
-                        'images/{,*/}*.{webp,gif}',
-                        'bower_components/**'
+                        '!**/*.scss',
+                        '!**/*.coffee'
                     ]
                 }]
             },
@@ -305,7 +300,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: '<%= yeoman.app %>',
                     dest: '.tmp',
-                    src: ['{styles,elements,email_templates}/{,*/,*/*/,*/*/*/}*.css']
+                    src: ['{styles,elements}/{,*/,*/*/,*/*/*/}*.css']
                 }]
             },
             scripts: {
@@ -330,10 +325,18 @@ module.exports = function(grunt) {
             // Update `url` below to the public URL for your site
             mobile: {
                 options: {
-                    url: "http://x.coinport.com",
+                    url: "http://x.coinport.com/#/markets",
                     locale: "en_GB",
                     strategy: "mobile",
                     threshold: 80
+                }
+            },
+            desktop: {
+                options: {
+                    url: "https://developers.google.com/web/fundamentals/",
+                    locale: "en_GB",
+                    strategy: "desktop",
+                    threshold: 99
                 }
             }
         },
@@ -382,8 +385,8 @@ module.exports = function(grunt) {
         'imagemin',
         'concat',
         'autoprefixer',
-        'vulcanize',
         'uglify',
+        'vulcanize',
         'usemin',
         'minifyHtml'
     ]);
