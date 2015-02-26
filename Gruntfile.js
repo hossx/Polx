@@ -330,7 +330,7 @@ module.exports = function(grunt) {
             // Update `url` below to the public URL for your site
             mobile: {
                 options: {
-                    url: "https://developers.google.com/web/fundamentals/",
+                    url: "http://x.coinport.com",
                     locale: "en_GB",
                     strategy: "mobile",
                     threshold: 80
@@ -341,7 +341,7 @@ module.exports = function(grunt) {
             options: {
                 base: 'dist'
             },
-            src: ['*', 'styles/*.{css,ttf}', 'scripts/*.js', 'images/**', 'markdown/**', 'email_templates/*', 'configs/*', 'bower_components/fontawesome/fonts/*']
+            src: ['**']
         }
     });
 
