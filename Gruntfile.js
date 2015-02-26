@@ -236,7 +236,7 @@ module.exports = function(grunt) {
             default: {
                 options: {
                     strip: true,
-                    inline: true
+                    inline: false
                 },
                 files: {
                     '<%= yeoman.dist %>/app.html': [
