@@ -45,7 +45,9 @@
               </tr>
               <tr>
                 <th text-right>{{M.balance}}</th>
-                <td id="balance"><nice-number p="4" v="{{selectedBalance}}" currency="{{currency}}" unit="{{currency.unit}}"></nice-number></td>
+                <td id="balance">
+                  <nice-number p="4" v="{{selectedBalance}}" currency="{{currency}}" unit="{{currency.unit}}"></nice-number>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -242,7 +244,12 @@
                       <crypto-address currency="{{currency}}" addr="{{d.address}}"></crypto-address>
                     </td>
                     <td>
-                      <crypto-tx currency="{{currency}}" tx="{{d.txid}}"></crypto-tx>
+                      <template if="{{d.txid}}">
+                        <crypto-tx currency="{{currency}}" tx="{{d.txid}}"></crypto-tx>
+                      </template>
+                      <template if="{{!d.txid}}">
+                        {{M.na}}
+                      </template>
                     </td>
                   </template>
                   <td text-right class="deposit">

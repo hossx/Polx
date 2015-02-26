@@ -1,5 +1,6 @@
 @import "../../_colors";
 @import "../../_common";
+@include config-color-link-on-light-color();
 :host {
     display: block;
     height: 100%;
@@ -8,7 +9,7 @@
 a#action {
     color: $black1;
     text-decoration: none;
-    margin-top: 40px;
+    margin: 40px 0 10px 0;
 }
 
 @media (min-width: 768px) {

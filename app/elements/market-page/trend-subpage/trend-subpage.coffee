@@ -8,12 +8,15 @@ Polymer 'trend-subpage',
       buzz: "Tweets"
       trade: "Trade "
       about: "About"
+      orLearnMoreAbout: "or learn more about "
 
     'zh':
       priceChart: "价格图"
       buzz: "相关微博"
       trade: "买卖"
       about: "关于"
+      orLearnMoreAbout: "或进一步了解"
+
 
   ready: () ->
     @M = @msgMap[window.lang]

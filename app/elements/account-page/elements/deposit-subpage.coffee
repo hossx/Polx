@@ -3,6 +3,7 @@
 Polymer 'deposit-subpage',
   msgMap:
     'en':
+      na: "N/A"
       id: "ID"
       address: "Address"
       transaction: "Transaction"
@@ -35,6 +36,7 @@ Polymer 'deposit-subpage',
         17: "Internal Error"
 
     'zh':
+      na: "无"
       id: "ID"
       address: "地址"
       transaction: "转账记录"

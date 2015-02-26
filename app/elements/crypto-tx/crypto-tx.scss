@@ -6,8 +6,6 @@
     background: $white1;
     border: solid 1px $black4;
     color: $black1;
-    width: 70px;
-    overflow: hidden;
     padding: 0 4px;
     font-size: 11px;
     font-weight: 500;
@@ -24,7 +22,10 @@
     #icon, #lead {
         color: $white2;
     }
-    #icon:hover {
-        color: color($C2, a400);
+    a:hover {
+        #icon {
+            color: color($C2, a400);
+            cursor: hand;
+        }
     }
 }

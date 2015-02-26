@@ -44,7 +44,12 @@
                       <crypto-address currency="{{currency}}" addr="{{tx.address}}"></crypto-address>
                     </td>
                     <td>
-                      <crypto-tx currency="{{currency}}" tx="{{tx.txid}}"></crypto-tx>
+                      <template if="{{tx.txid}}">
+                        <crypto-tx currency="{{currency}}" tx="{{tx.txid}}"></crypto-tx>
+                      </template>
+                      <template if="{{!tx.txid}}">
+                        {{M.na}}
+                      </template>
                     </td>
                   </template>
                   <td class="{{tx.operation | formatClass}}">{{M.operationsLabel[tx.operation]}}</td>

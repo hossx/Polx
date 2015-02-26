@@ -41,7 +41,9 @@
               </tr>
               <tr>
                 <th text-right>{{M.balance}}</th>
-                <td id="balance"><nice-number p="4" v="{{selectedBalance}}" currency="{{currency}}" unit="{{currency.unit}}"></nice-number></td>
+                <td id="balance">
+                  <nice-number p="4" v="{{selectedBalance}}" currency="{{currency}}" unit="{{currency.unit}}"></nice-number>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -177,7 +179,7 @@
 
           <template if="{{currency.id != 'CNY' && currency.id != 'GOOC' && currency.id != 'XRP' && currency.id != 'BTSX' && currency.id != 'NXT'}}">
             <div class="instruction" vertical center layout>
-            <withdraw-widget currency="{{currency}}" balance="{{selectedBalance}}"></withdraw-widget>
+              <withdraw-widget currency="{{currency}}" balance="{{selectedBalance}}"></withdraw-widget>
             </div>
           </template>
 
@@ -214,7 +216,7 @@
                       <template if="{{d.txid}}">
                         <crypto-tx currency="{{currency}}" tx="{{d.txid}}"></crypto-tx>
                       </template>
-                         <template if="{{!d.txid}}">
+                      <template if="{{!d.txid}}">
                         {{M.na}}
                       </template>
                     </td>
