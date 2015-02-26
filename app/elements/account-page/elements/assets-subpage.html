@@ -35,7 +35,9 @@
               <template repeat="{{item in assets}}">
                 <tr>
                   <td>
-                    <core-icon icon="crypto:{{item.currency.id}}"></core-icon>
+                    <template if="{{item.total > 0}}">
+                      <core-icon icon="crypto:{{item.currency.id}}"></core-icon>
+                    </template>
                   </td>
                   <td>
                     <a class="market-link" href="/#/currency/{{item.currency.id}}">{{item.currency.fullName}}</a>
