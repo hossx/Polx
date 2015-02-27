@@ -26,21 +26,6 @@
     console.log('Polymer is ready to rock!');
   });
 
-  $zopim(function() {
-    if (window.lang === 'zh') {
-      $zopim.livechat.setLanguage('zh_CN');
-      $zopim.livechat.setGreetings({
-        'offline': '对不起，币丰港客服不在线上。请留言。',
-        'online': '客服MM在线，一起聊聊吧？'
-      });
-      $zopim.livechat.concierge.setName('币丰港');
-      $zopim.livechat.concierge.setTitle('今天你买卖什么币了吗？');
-    } else {
-      $zopim.livechat.setLanguage('en');
-      $zopim.livechat.concierge.setTitle('Did you trade today?');
-    }
-  });
-
   window.logAndContinue = function() {
     var missing = Polymer.waitingFor();
     if (missing.length) {
@@ -51,6 +36,48 @@
       Polymer.forceReady();
     }
   };
+
+  if (/Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor)) {
+    setTimeout(function() {
+      (function(d, s) {
+        var z = window.$zopim = function(c) {
+          z._.push(c)
+        }
+        var x = z.s = d.createElement(s);
+        var e = d.getElementsByTagName(s)[0];
+        z.set = function(o) {
+          z.set._.push(o)
+        };
+        z._ = [];
+        z.set._ = [];
+        x.async = !0;
+        x.setAttribute('charset', 'utf-8');
+        x.src = '//v2.zopim.com/?2p7MBUmM53iXkyPP647DjIW7WeuknrJ1';
+        z.t = +new Date;
+        x.type = 'text/javascript';
+        e.parentNode.insertBefore(x, e);
+      })(document, 'script');
+
+      if (window.$zopim) {
+        window.$zopim(function() {
+          var z = window.$zopim;
+          if (window.lang === 'zh') {
+            z.livechat.setLanguage('zh_CN');
+            z.livechat.setGreetings({
+              'offline': '对不起，币丰港客服不在线上。请留言。',
+              'online': '客服MM在线，一起聊聊吧？'
+            });
+            z.livechat.concierge.setName('币丰港');
+            z.livechat.concierge.setTitle('今天你买卖什么币了吗？');
+          } else {
+            z.livechat.setLanguage('en');
+            z.livechat.concierge.setTitle('Did you trade today?');
+          }
+        });
+      }
+    }, 2000);
+  }
+
   // wrap document so it plays nice with other libraries
   // http://www.polymer-project.org/platform/shadow-dom.html#wrappers
 })(wrap(document));

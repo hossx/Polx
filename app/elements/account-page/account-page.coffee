@@ -26,4 +26,6 @@ Polymer 'account-page',
   profileChanged: (o, n) ->
     if @profile and @profile.name
       name  = @profile.name
-      $zopim () -> $zopim.livechat.setName(name)
+      z = window.$zopim
+      if z
+        z () -> z.livechat.setName(name)
