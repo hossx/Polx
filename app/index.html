@@ -29,6 +29,28 @@
   <link rel="import" href="elements/the-app.html">
   <!-- endbuild-->
 
+  <!-- Load font-files ASAP -->
+  <style>
+    @font-face {
+      font-family: 'Roboto Condensed';
+      font-weight: 300;
+      font-style: normal;
+      src: local('RobotoCondensed-Light'), local('Roboto Condensed Light'), url('/styles/RobotoCondensed-Light.ttf');
+    }
+    @font-face {
+      font-family: 'Roboto Condensed';
+      font-weight: 400;
+      font-style: normal;
+      src: local('RobotoCondensed-Regular'), local('Roboto Condensed Regular'), url('/styles/RobotoCondensed-Regular.ttf');
+    }
+    @font-face {
+      font-family: 'Roboto Condensed';
+      font-weight: 700;
+      font-style: normal;
+      src: local('RobotoCondensed-Bold'), local('Roboto Condensed Bold'), url('/styles/RobotoCondensed-Bold.ttf');
+    }
+  </style>
+
   <!-- build:css styles/index.css -->
   <link rel="stylesheet" href="styles/index.css">
   <!-- endbuild-->
@@ -49,7 +71,7 @@
   <script src="bower_components/highstock-release/highcharts-more.js"></script>
   <script src="scripts/jquery.sha256.js"></script>
   <!-- endbuild-->
-  
+
   <!-- build:js scripts/index.js -->
   <script src="scripts/index.js"></script>
   <!-- endbuild-->

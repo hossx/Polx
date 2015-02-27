@@ -1,5 +1,5 @@
 @import "../elements/_colors";
-@import "../elements/_fonts";
+@import "../elements/_common";
 html {
     @include condensed-font();
     font-size: 13px;

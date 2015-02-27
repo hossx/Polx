@@ -2,6 +2,9 @@
 *[text-left] {
     text-align: left;
 }
+@mixin condensed-font() {
+    font-family: 'Roboto Condensed', arial, "Microsoft Yahei", "Hiragino Sans GB", sans-serif;
+}
 @mixin config-link-on-dark-color() {
     a {
         color: $white1;
