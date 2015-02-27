@@ -363,7 +363,7 @@ module.exports = function(grunt) {
                     url: "http://x.coinport.com/#/markets",
                     locale: "en_GB",
                     strategy: "desktop",
-                    threshold: 99
+                    threshold: 80
                 }
             }
         },
@@ -371,7 +371,7 @@ module.exports = function(grunt) {
             options: {
                 base: 'dist'
             },
-            src: ['**', 'elements/**', '!bower_components/**']
+            src: ['**', 'elements/**', 'bower_components/fontawesome/fonts/*']
         }
     });
 
