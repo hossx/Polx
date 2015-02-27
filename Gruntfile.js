@@ -221,6 +221,28 @@ module.exports = function(grunt) {
                 dest: '<%= yeoman.dist %>'
             }
         },
+        filerev: {
+            options: {
+                algorithm: 'md5',
+                length: 8
+            },
+            step1: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= yeoman.dist %>',
+                    src: ['the-app.js', 'scripts/*.js', 'styles/*.css'],
+                    dest: '<%= yeoman.dist %>'
+                }]
+            },
+            step2: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= yeoman.dist %>',
+                    src: ['the-app.html'],
+                    dest: '<%= yeoman.dist %>'
+                }]
+            }
+        },
         usemin: {
             html: ['<%= yeoman.dist %>/{,*/,*/*/,*/*/*/}*.html'],
             css: ['<%= yeoman.dist %>/styles/*.css', '<%= yeoman.dist %>/elements{,*/,*/*/,*/*/*/}*.css'],
@@ -233,28 +255,15 @@ module.exports = function(grunt) {
                 }
             }
         },
-        uglify: {
-            default: {
-                options: {
-                    report: 'min',
-                    screwIE8: true,
-                    mangle: false
-                },
-                files: [{
-                    expand: true,
-                    cwd: '<%= yeoman.dist %>/elements',
-                    src: '{,*/,*/*/,*/*/*/}*.js',
-                    dest: '<%= yeoman.dist %>/elements'
-                }]
-            }
-        },
         vulcanize: {
             default: {
                 options: {
-                    strip: true
+                    strip: true,
+                    csp: true,
+                    inline: true
                 },
                 files: {
-                    '<%= yeoman.dist %>/app.html': [
+                    '<%= yeoman.dist %>/the-app.html': [
                         '<%= yeoman.dist %>/elements/the-app.html'
                     ]
                 }
@@ -359,7 +368,7 @@ module.exports = function(grunt) {
             options: {
                 base: 'dist'
             },
-            src: ['**']
+            src: ['**', 'elements/**', '!bower_components/**']
         }
     });
 
@@ -402,6 +411,8 @@ module.exports = function(grunt) {
         'autoprefixer',
         'uglify',
         'vulcanize',
+        'filerev:step1',
+        'filerev:step2',
         'usemin',
         'minifyHtml'
     ]);
