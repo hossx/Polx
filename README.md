@@ -1,9 +1,14 @@
 ##Initialize the environment
 ```
 bower install
-sudo npm install grunt
 sudo npm install
-
+sudo npm install grunt
+sudo npm install grunt-cli
+```
+##Need ruby as well as sass
+(install ruby if needed)
+```
+sudo gem install sass
 ```
 
 ##Run in live-preview mode
