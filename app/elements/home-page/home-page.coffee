@@ -15,7 +15,7 @@ Polymer 'home-page',
       explain3: "We never invest user asset for our own profit. To prove this, our platform publishes new events and system snapshots hourly. You can verify our reserve ratios based on these open data with simple maths."
       mobileReady: "Mobile App Ready for Android"
       download: "Download App"
-      support: "Supports Android 2.4.2 and up. iOS App coming soon."
+      support: "Supports Android 4.0.0 and up. iOS App coming soon."
       servedBy: "Powered by Coinport Technology Limited HK"
       registerAndTrade: "Register and Start Trading"
       pleaseLogin1: "or "
@@ -36,7 +36,7 @@ Polymer 'home-page',
 
       mobileReady: "安卓手机有APP可用哦"
       download: "立即下载"
-      support: "支持安卓2.4.2及以上版本。iOS App还在开发中。"
+      support: "支持安卓4.0.0及以上版本。iOS App还在开发中。"
       servedBy: "币丰港交易平台由币丰港（香港）网络科技有限公司运营"
       registerAndTrade: "注册并开始使用币丰港交易所"
       pleaseLogin1: "如果您已经注册，请"
