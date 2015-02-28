@@ -4,6 +4,7 @@ bower install
 sudo npm install
 sudo npm install grunt
 sudo npm install grunt-cli
+sudo npm install grunt-filerev
 ```
 ##Need ruby as well as sass
 (install ruby if needed)
