@@ -1,8 +1,8 @@
 @import "../_colors";
 @import "../_common";
-$border-color: transparent;
-$background-color: white;
-$head-background-color: color($grey, 200);
+$border-color:$black1;
+$background-color: color($C4, 900);
+$head-background-color: color($C4, 800);
 :host {
     box-sizing: border-box;
 }
@@ -35,8 +35,8 @@ $head-height: 36px;
     width: 100%;
     box-sizing: border-box;
     //min-width: 260px;
-    border-left: 2px solid $border-color;
-    border-right: 2px solid $border-color;
+    border-left: 1px solid $border-color;
+    border-right: 1px solid $border-color;
     .block {
         font-size: 12px;
         box-sizing: border-box;
@@ -45,17 +45,17 @@ $head-height: 36px;
             height: $head-height;
             padding-left: 15px;
             background: $head-background-color;
-            color: $black1;
+            color: $white2;
             .title {
                 font-weight: 700;
-                color: $black1;
+                color: $white1;
                 font-size: 14px;
                 text-transform: uppercase;
             }
         }
         .content, .section {
             padding: 0 0 10px 0;
-            color: $black1;
+            color: $white2;
         }
     }
 }
@@ -70,7 +70,7 @@ $head-height: 36px;
         }
         thead {
             tr {
-                color: $black2;
+                color: $white2;
                 height: 20px;
                 padding: 2px;
                 border-bottom: 2px solid $head-background-color;
@@ -82,18 +82,17 @@ $head-height: 36px;
         tbody {
             tr {
                 padding: 2px;
-                border-bottom: 1px solid rgba(black, 0.02);
+                border-bottom: 1px solid rgba(white, 0.02);
                 &:hover {
-                    background: color($C2, 100);
+                    background: $head-background-color;
                 }
-                cursor: pointer;
             }
             td#spread {
                 border-top: 1px solid $head-background-color;
                 border-bottom: 1px solid $head-background-color;
                 text-align: center;
                 padding: 4px;
-                color: $black2;
+                color: $white2;
                 font-weight: bold;
                 #container {
                     >div {
@@ -102,6 +101,15 @@ $head-height: 36px;
                 }
             }
         }
+    }
+    .idx {
+        color: $white3;
+    }
+    .buy {
+        color: color($buy-color, a200);
+    }
+    .sell {
+        color: color($sell-color, a200);
     }
 }
 @media(min-width: 768px) {

@@ -383,7 +383,7 @@ $ice: (
 $C1: $grey;
 $C2: $cyan;
 $C3: $red;
-$C4: $grey;//mutate($brown, 200, 0, 1%);
+$C4: mutate($brown, 200, 0, 1%);
 
 $buy-color: $deep-orange;
 $sell-color: $green;
