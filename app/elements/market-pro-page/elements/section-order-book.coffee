@@ -21,6 +21,12 @@ Polymer 'section-order-book',
   ready: () ->
     @M = @msgMap[window.lang]
 
+  buyClicked: (e, detail, sender)->
+   @fire('buy-clicked', {buy: e.target.templateInstance.model.bid})
+
+  sellClicked: (e, detail, sender)->
+   @fire('sell-clicked', {sell: e.target.templateInstance.model.ask})
+
   go: () ->
     this.$.ajax.go()
 

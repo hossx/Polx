@@ -17,7 +17,7 @@
       </thead>
       <tbody>
         <template repeat="{{bid,idx in bidsReverse}}">
-          <tr>
+          <tr on-tap="{{buyClicked}}">
             <td class="idx">{{M.buy}}{{bidsReverse.length - idx}}</td>
             <td>
               <nice-number class="buy" v="{{bid.price}}"></nice-number>
@@ -42,7 +42,7 @@
           </td>
         </tr>
         <template repeat="{{ask,idx in asks}}">
-          <tr>
+          <tr on-tap="{{sellClicked}}">
             <td class="idx">{{M.sell}}{{idx+1}}</td>
             <td>
               <nice-number class="sell" v="{{ask.price}}"></nice-number>

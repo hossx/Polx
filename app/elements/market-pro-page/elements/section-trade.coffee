@@ -54,6 +54,18 @@ Polymer 'section-trade',
     sellQuantity: 'updateSellEnabled'
   }
 
+  initState: (sellOrBuy, price, quantity) ->
+    if sellOrBuy == 'buy'
+      @selected = 0
+      @buyPrice = price
+      @buyQuantity = quantity
+
+    else if sellOrBuy == 'sell'
+      @selected = 1
+      @sellPrice = price
+      @sellQuantity = quantity
+
+
   updateBuyEnabled: () -> 
     total = @buyPrice * @buyQuantity
     @buyEnabled = @buyPrice > 0 and @buyQuantity > 0 and total <= @baseBalance and (@market.baseCurrency.id == 'BTC' and total >= 0.001 or @market.baseCurrency.id == 'CNY' and total >= 1)

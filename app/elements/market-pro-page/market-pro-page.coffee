@@ -42,6 +42,14 @@ Polymer 'market-pro-page',
       work = () => @refresh()
       setTimeout(work, 3000)
 
+    @addEventListener 'buy-clicked', (e) ->
+      buy = e.detail.buy
+      this.$.trade.initState('sell', buy.price, buy.accumulated)
+
+    @addEventListener 'sell-clicked', (e) ->
+      sell = e.detail.sell
+      this.$.trade.initState('buy', sell.price, sell.accumulated)
+
   created: () ->
     work = () => @refresh()
     @autoRefresh = setTimeout(work, window.config.refreshIntervals.pro)
