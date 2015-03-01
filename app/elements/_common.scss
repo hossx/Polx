@@ -35,9 +35,9 @@
         }
     }
 }
-@mixin has-paper-spinner() {
+@mixin has-paper-spinner($color: color($C1, 500)) {
     paper-spinner::shadow .circle {
-        border-color: color($C1, 500);
+        border-color: $color;
     }
 }
 @mixin has-simple-table() {

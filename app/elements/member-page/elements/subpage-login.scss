@@ -1,2 +1,6 @@
 @import "../../_colors";
 @import "../../_common";
+
+:host {
+  @include has-paper-spinner(color($C2, a400));
+}

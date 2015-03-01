@@ -1,25 +1,32 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-input/paper-input-decorator.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/paper-spinner/paper-spinner.html">
 <link rel="import" href="../../coinport-api/api-login.html">
 
 <polymer-element name="subpage-login">
   <template>
     <link rel="stylesheet" href="subpage-login.css">
 
-    <api-login id="loginAjax" email="{{email}}" password="{{password}}" profile="{{profile}}"></api-login>
+    <api-login id="loginAjax" loading="{{loading}}" email="{{email}}" password="{{password}}" profile="{{profile}}"></api-login>
 
     <div class="container" vertical layout>
       <div class="label">{{M.login}}</div>
       <div class="form">
         <div class="inner" center-justified vertical layout>
-          <input is="core-input" class="input first" value="{{email}}" placeholder="{{M.email}}">
-          <input is="core-input" class="input last" type="password" value="{{password}}" placeholder="{{M.password}}">
+          <input readonly?="{{loading}}" is="core-input" class="input first" value="{{email}}" placeholder="{{M.email}}">
+          <input readonly?="{{loading}}" is="core-input" class="input last" type="password" value="{{password}}" placeholder="{{M.password}}">
         </div>
         <div class="errorMsg">{{errorMsg}}</div>
       </div>
+
       <div class="action" vertical center-justified layout>
-        <paper-button class="primary" disabled?="{{buttonDisabled}}" on-tap="{{logMeIn}}">{{M.login}}</paper-button>
+        <template if="{{loading}}">
+          <paper-spinner self-center active?="{{loading}}"></paper-spinner>
+        </template>
+        <template if="{{!loading}}">
+          <paper-button class="primary" disabled?="{{buttonDisabled}}" on-tap="{{logMeIn}}">{{M.login}}</paper-button>
+        </template>
       </div>
       <div class="options" horizontal center-justified layout>
         <a href="/#/member/register">
@@ -29,6 +36,7 @@
           <paper-button class="sub" noink>{{M.forgetpassword}}</paper-button>
         </a>
       </div>
+
     </div>
   </template>
   <script src="subpage-login.js"></script>
