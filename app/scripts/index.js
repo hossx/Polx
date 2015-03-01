@@ -68,10 +68,10 @@
               'online': '客服MM在线，一起聊聊吧？'
             });
             z.livechat.concierge.setName('币丰港');
-            z.livechat.concierge.setTitle('今天你买卖什么币了吗？');
+            z.livechat.concierge.setTitle('有什么可以帮您的？');
           } else {
             z.livechat.setLanguage('en');
-            z.livechat.concierge.setTitle('Did you trade today?');
+            z.livechat.concierge.setTitle('How can I help you?');
           }
         });
       }

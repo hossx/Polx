@@ -1,11 +1,9 @@
 @import "../../_colors";
 @import "../../_common";
 nice-number {
-    color: color($C2, a400);
+    color: color($C2, 500);
 }
-.up {
-    color: color($sell-color, a200);
-}
-.down {
-    color: color($buy-color, a200);
+.change, nice-number {
+    font-weight: bold;
+    font-size: 14px;
 }

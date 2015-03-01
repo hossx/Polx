@@ -1,6 +1,6 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 
-<polymer-element name="section-ticker" attributes="market,ticker" vertical layout>
+<polymer-element name="section-ticker" attributes="market,ticker" vertical center-justified layout>
   <template>
     <link rel="stylesheet" href="section-ticker.css">
     <table class="dense">
@@ -13,7 +13,7 @@
             <nice-number v="{{ticker.volume}}" p="2" unit="{{market.currency.unit}}" no-trailing-zeros></nice-number>
           </td>
           <td>
-            <div class="{{ticker.changeType}}">{{ticker.changeTxt}}</div>
+            <div class="change {{ticker.changeType}}">{{ticker.changeTxt}}</div>
           </td>
         </tr>
       </tbody>

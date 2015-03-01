@@ -9,7 +9,7 @@ div.stat {
     padding: 0 10px;
     text-align: right;
     color: $black1;
-    nice-number {
+    .change,nice-number {
         font-weight: bold;
     }
     .label {
