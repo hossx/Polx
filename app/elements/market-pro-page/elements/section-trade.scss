@@ -1,10 +1,9 @@
 @import "../../_colors";
 @import "../../_common";
-$border-color:$black1;
-$background-color: color($C4, 900);
-$head-background-color: color($C4, 800);
+$border-color: transparent;
+$background-color: white;
+$head-background-color: color($C2, 100);
 $head-height: 36px;
-
 :host {
     background: $head-background-color;
 }
@@ -19,19 +18,19 @@ paper-tabs {
         }
     }
     >paper-tab::shadow #ink {
-        color: color($C1, 500);
+        color: color($C2, 100);
     }
 }
 paper-tab {
     background: $background-color;
     height: $head-height;
     font-weight: 700;
-    color: $white1;
+    color: $black1;
     font-size: 14px;
     text-transform: uppercase;
     &[active] {
         background: $head-background-color;
-        color: $white1;
+        color: $black1;
     }
 }
 .pages {
@@ -61,15 +60,21 @@ paper-tab {
         font-size: 14px;
         margin-top: 20px;
         &[disabled] {
-            background: $white3;
+            background: color($grey, 200);
+            color: $black3;
         }
     }
     input[is=core-input] {
-        border: 1px solid $white4;
+        border: 1px solid color($C2, 200);
         padding: 8px 10px;
         border-radius: 2px;
         font-weight: bold;
         font-size: 14px;
-        color: color($C1, 300);
+        color: $black1;
+        background: white;
     }
+}
+.total {
+    font-weight: bold;
+    font-size: 14px;
 }

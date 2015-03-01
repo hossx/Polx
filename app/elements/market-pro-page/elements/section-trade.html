@@ -28,7 +28,7 @@
           <div horizontal center layout>
             <div flex>{{M.total}}</div>
             <div flex two>
-              <nice-number p="4" v="{{buyQuantity * buyPrice}}" unit="{{market.baseCurrency.unit}}"></nice-number>
+              <nice-number class="total" p="4" v="{{buyQuantity * buyPrice}}" unit="{{market.baseCurrency.unit}}"></nice-number>
             </div>
           </div>
           <paper-button id="doBuy" on-tap="{{doBuy}}" disabled?="{{!buyEnabled}}">{{M.buyAction}} {{market.currency.id}}</paper-button>
@@ -50,7 +50,7 @@
           <div horizontal center layout>
             <div flex>{{M.total}}</div>
             <div flex two>
-              <nice-number p="4" v="{{sellQuantity * sellPrice}}" unit="{{market.baseCurrency.unit}}"></nice-number>
+              <nice-number class="total" p="4" v="{{sellQuantity * sellPrice}}" unit="{{market.baseCurrency.unit}}"></nice-number>
             </div>
           </div>
           <paper-button id="doSell" on-tap="{{doSell}}" disabled?="{{!sellEnabled}}">{{M.sellAction}} {{market.currency.id}}</paper-button>
