@@ -4,7 +4,6 @@ $border-color:$black1;
 $background-color: color($C4, 900);
 $head-background-color: color($C4, 800);
 $head-height: 36px;
-
 :host {
     background: $head-background-color;
 }
@@ -71,5 +70,9 @@ paper-tab {
         font-weight: bold;
         font-size: 14px;
         color: color($C1, 300);
+    }
+    .total {
+        font-weight: bold;
+        font-size: 14px;
     }
 }

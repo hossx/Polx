@@ -1,5 +1,11 @@
 @import "../../_colors";
 @import "../../_common";
+table {
+    td {
+        padding: 5px 5px;
+        text-align: right;
+    }
+}
 nice-number {
     color: color($C2, 500);
 }
