@@ -1,6 +1,7 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/core-a11y-keys/core-a11y-keys.html">
 <link rel="import" href="../../../bower_components/paper-checkbox/paper-checkbox.html">
 <link rel="import" href="../../coinport-api/api-register.html">
 
@@ -30,6 +31,7 @@
 
       <div class="action" vertical layout>
         <paper-button id="registerButton" class="primary" disabled?="{{registerDisabled}}" on-tap="{{registerMe}}">{{M.register}}</paper-button>
+        <core-a11y-keys target="{{}}" keys="enter" on-keys-pressed="{{registerMe}}"></core-a11y-keys>
       </div>
 
       <div class="options" horizontal center-justified layout>

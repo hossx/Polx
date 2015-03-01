@@ -58,7 +58,8 @@ Polymer 'subpage-register',
       @registerDisabled = true
 
   registerMe: () ->
-    this.$.ajax.register()
+    if not @registerDisabled
+      this.$.ajax.register()
 
   validateRegisterForm: ()->
     if not @email and not @password and not @password2

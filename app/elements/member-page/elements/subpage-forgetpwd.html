@@ -1,6 +1,7 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/core-a11y-keys/core-a11y-keys.html">
 <link rel="import" href="../../coinport-api/api-login.html">
 
 <polymer-element name="subpage-forgetpwd">
@@ -18,7 +19,8 @@
         <div class="errorMsg">{{errorMsg}}</div>
       </div>
       <div class="action" vertical center-justified layout>
-        <paper-button class="primary">{{M.reset}}</paper-button>
+        <paper-button class="primary" on-tap="{{doReset}}">{{M.reset}}</paper-button>
+        <core-a11y-keys target="{{}}" keys="enter" on-keys-pressed="{{doReset}}"></core-a11y-keys>
       </div>
       <div class="options" horizontal center-justified layout>
         <a href="/#/member/register">

@@ -1,6 +1,7 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-input/paper-input-decorator.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/core-a11y-keys/core-a11y-keys.html">
 <link rel="import" href="../../../bower_components/paper-spinner/paper-spinner.html">
 <link rel="import" href="../../coinport-api/api-login.html">
 
@@ -26,6 +27,7 @@
         </template>
         <template if="{{!loading}}">
           <paper-button class="primary" disabled?="{{buttonDisabled}}" on-tap="{{logMeIn}}">{{M.login}}</paper-button>
+          <core-a11y-keys target="{{}}" keys="enter" on-keys-pressed="{{logMeIn}}"></core-a11y-keys>
         </template>
       </div>
       <div class="options" horizontal center-justified layout>

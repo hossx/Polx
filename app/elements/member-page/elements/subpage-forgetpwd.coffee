@@ -17,3 +17,6 @@ Polymer 'subpage-forgetpwd',
 
   ready: () ->
     @M = @msgMap[window.lang]
+
+  doReset: () ->
+    console.log("TODO: doReset")

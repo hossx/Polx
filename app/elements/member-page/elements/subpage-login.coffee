@@ -33,7 +33,8 @@ Polymer 'subpage-login',
       @buttonDisabled = true
 
   logMeIn: () -> 
-    this.$.loginAjax.login()
+    if not @buttonDisabled
+      this.$.loginAjax.login()
 
   validateLoginForm: () ->
     if not @email or not @password
