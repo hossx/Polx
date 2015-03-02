@@ -17,8 +17,8 @@ Polymer 'assets-subpage',
 
     'zh':
       assets:
-        0: "资产（非区块链）"
-        1: "资产（基于区块链的加密货币）"  
+        0: "非区块链资产"
+        1: "区块链资产"  
       currency: "货币"
       total: "总额"
       available: "可用金额"

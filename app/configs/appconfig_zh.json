@@ -91,7 +91,7 @@
       }
     },
     "DRK": {
-      "name": "暗黑比",
+      "name": "暗黑币",
       "color": "#3998CA",
       "tags": "暗黑币,Darkcoin",
       "twitterWidgetId": "560705595456909312",
@@ -108,6 +108,7 @@
     "VRC": {
       "name": "维理币",
       "color": "#458CC8",
+      "tags": "维理币,VeriCoin",
       "twitterWidgetId": "560706527330590720",
       "fee": {
         "withdraw": {
@@ -118,6 +119,7 @@
     "ZET": {
       "name": "泽塔币",
       "color": "#1D8A99",
+      "tags": "泽塔币,ZetaCoin",
       "twitterWidgetId": "560706759963475968",
       "browser": {
         "addr": "https://coinplorer.com/ZET/Addresses/%s",
@@ -132,6 +134,7 @@
     "NXT": {
       "name": "未来币",
       "color": "#008FBB",
+      "tags": "NxtCoin",
       "twitterWidgetId": "560706898450972672",
       "browser": {
         "addr": "http://www.mynxt.info/account/%s",
@@ -155,10 +158,10 @@
       }
     },
     "GOOC": {
-      "name": "谷壳币",
+      "name": "谷壳宝",
       "notCripto": true,
       "color": "#FBE332",
-      "tags": "谷壳币,谷壳宝"
+      "tags": "谷壳宝,GooCoin"
     }
   },
   "marketGroups": {

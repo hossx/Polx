@@ -20,7 +20,7 @@
       <template if="{{markets.length > 0}}">
         <paper-shadow z="0">
           <div label>
-            <h2>{{M.trend}}</h2>
+            <h2>{{currency.name}} {{M.trend}}</h2>
           </div>
           <div>
 
@@ -52,7 +52,7 @@
       <template if="{{showWeibo}}">
         <paper-shadow z="0">
           <div label>
-            <h2>{{M.buzz}}</h2>
+            <h2>{{currency.name}} {{M.buzz}}</h2>
           </div>
           <div>
             <weibo-wall currency="{{currency}}"></weibo-wall>
@@ -63,7 +63,7 @@
       <template if="{{showTweets}}">
         <paper-shadow z="0">
           <div label>
-            <h2>{{M.buzz}}</h2>
+            <h2>{{currency.name}} {{M.buzz}}</h2>
           </div>
           <div>
             <tweet-wall currency="{{currency}}"></tweet-wall>
