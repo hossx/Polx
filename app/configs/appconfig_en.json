@@ -155,9 +155,9 @@
       }
     },
     "GOOC": {
+      "name": "Gooc",
       "notCripto": true,
       "color": "#FBE332",
-      "name": "谷壳宝",
       "tags": "谷壳币,谷壳宝"
     }
   },

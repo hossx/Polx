@@ -1,12 +1,12 @@
 {
   "announcement": {
-    "message": "该网站还在开发模式，非币丰港开发人员请不要使用。另：所有该网站的交易全部是真实的！！！",
-    "critical": true,
+    "message": "This Exchange is still in Dev mode. Please do not use it for non-testing purpose. However, all trades are real and final!",
+    "critical": false,
     "link": "http://exchange.coinport.com"
   },
   "currencies": {
     "CNY": {
-      "name": "Chinese Yuan",
+      "name": "人民币",
       "color": "red",
       "notCripto": true,
       "fee": {
@@ -19,7 +19,7 @@
       "twitterWidgetId": "560699182839640064"
     },
     "BTC": {
-      "name": "Bitcoin",
+      "name": "比特币",
       "color": "#F7931A",
       "fee": {
         "withdraw": {
@@ -34,7 +34,7 @@
       "twitterWidgetId": "560618532224765952"
     },
     "LTC": {
-      "name": "Litecoin",
+      "name": "莱特币",
       "color": "#D8D8D8",
       "officialSite": "http://litcoin.org",
       "fee": {
@@ -50,7 +50,7 @@
       "twitterWidgetId": "560699428831375361"
     },
     "BTSX": {
-      "name": "Bitshares",
+      "name": "比特股",
       "color": "#00A9E0",
       "tags": "比特股,Bitshare,BitsharesX,BTS",
       "twitterWidgetId": "560707192261980160",
@@ -61,7 +61,7 @@
       }
     },
     "DOGE": {
-      "name": "Dogecoin",
+      "name": "狗币",
       "color": "#BA9F5B",
       "tags": "狗币,Dogecoin",
       "twitterWidgetId": "560706157569134593",
@@ -76,7 +76,7 @@
       }
     },
     "BC": {
-      "name": "Blackcoin",
+      "name": "黑币",
       "color": "#574830",
       "tags": "黑币,Blackcoin",
       "twitterWidgetId": "560705827766804480",
@@ -91,7 +91,7 @@
       }
     },
     "DRK": {
-      "name": "Darkcoin",
+      "name": "暗黑比",
       "color": "#3998CA",
       "tags": "暗黑币,Darkcoin",
       "twitterWidgetId": "560705595456909312",
@@ -106,7 +106,7 @@
       }
     },
     "VRC": {
-      "name": "VeriCoin",
+      "name": "维理币",
       "color": "#458CC8",
       "twitterWidgetId": "560706527330590720",
       "fee": {
@@ -116,7 +116,7 @@
       }
     },
     "ZET": {
-      "name": "ZetaCoin",
+      "name": "泽塔币",
       "color": "#1D8A99",
       "twitterWidgetId": "560706759963475968",
       "browser": {
@@ -130,7 +130,7 @@
       }
     },
     "NXT": {
-      "name": "NextCoin",
+      "name": "未来币",
       "color": "#008FBB",
       "twitterWidgetId": "560706898450972672",
       "browser": {
@@ -144,7 +144,7 @@
       }
     },
     "XRP": {
-      "name": "Ripple",
+      "name": "瑞波币",
       "color": "#28619D",
       "tags": "瑞波币,Ripple,XRP",
       "twitterWidgetId": "560707081905639424",
@@ -155,9 +155,9 @@
       }
     },
     "GOOC": {
+      "name": "顾各币",
       "notCripto": true,
       "color": "#FBE332",
-      "name": "谷壳宝",
       "tags": "谷壳币,谷壳宝"
     }
   },
