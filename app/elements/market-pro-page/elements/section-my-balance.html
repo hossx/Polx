@@ -8,9 +8,14 @@
 
     <div class="actions" horizontal layout>
       <paper-button flex>
-        <core-icon class="small" icon="communication:call-received"></core-icon>{{M.deposit}}</paper-button>
+        <a href="/#/account/deposit">
+          <core-icon class="small" icon="communication:call-received"></core-icon>{{M.deposit}}
+        </a>
+      </paper-button>
       <paper-button flex>
-        <core-icon class="small" icon="communication:call-made"></core-icon>{{M.withdraw}}</paper-button>
+        <a href="/#/account/withdraw">
+          <core-icon class="small" icon="communication:call-made"></core-icon>{{M.withdraw}}</a>
+      </paper-button>
     </div>
 
     <div class="balance" horizontal layout>

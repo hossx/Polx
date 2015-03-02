@@ -1,29 +1,33 @@
 @import "../../_colors";
 @import "../../_common";
-
 $border-color:$black1;
 $background-color: color($C4, 900);
 $head-background-color: color($C4, 700);
-
 .actions {
     border-bottom: 1px solid $head-background-color;
     paper-button:hover {
-        color: color($C1, 500);
-        core-icon.small {
-            color: color($C1, 500);
-        }
+        color: color($C2, a700);
     }
 }
 .balance {
     padding: 4px 20px;
     text-align: center;
+    nice-number {
+        font-weight: bold;
+        font-size: 14px;
+    }
 }
 a {
     text-decoration: none;
     font-weight: bold;
     color: $white2;
+    core-icon.small {
+        color: color($C1, 500);
+    }
     &:hover {
         color: color($C2, a700);
-        text-decoration: underline;
+        core-icon.small {
+            color: color($C2, a700);
+        }
     }
 }

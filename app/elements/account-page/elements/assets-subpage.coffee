@@ -46,13 +46,11 @@ Polymer 'assets-subpage',
         @currentCollapse = null
 
   gotoDeposit: (e, detail, sender) ->
-    window.state.currencyId = sender.getAttribute("currencyId")
-    @page = "deposit"
+    @fire("goto-account-subpage", {page: 'deposit', currencyId: sender.getAttribute("currencyId")})
 
 
   gotoWithdraw: (e, detail, sender) ->
-    window.state.currencyId = sender.getAttribute("currencyId")
-    @page = "withdraw"
+   @fire("goto-account-subpage", {page: 'withdraw', currencyId: sender.getAttribute("currencyId")})
 
 
   balanceChanged: (o, n) ->
