@@ -3,7 +3,9 @@
 Polymer 'assets-subpage',
   msgMap:
     'en':
-      assets: "Assets"
+      assets:
+        0: "Assets (Non-Crypto)"
+        1: "Crypto Assets"
       currency: "Currency"
       total: "Total"
       available: "Available"
@@ -14,7 +16,9 @@ Polymer 'assets-subpage',
       withdraw: "Withdraw "
 
     'zh':
-      assets: "资产"
+      assets:
+        0: "资产（非区块链）"
+        1: "资产（基于区块链的加密货币）"  
       currency: "货币"
       total: "总额"
       available: "可用金额"
@@ -56,7 +60,8 @@ Polymer 'assets-subpage',
   balanceChanged: (o, n) ->
     currencyMap = window.config.currencies
     currencyKeys = Object.keys(currencyMap).sort()
-    list = []
+    crypto = []
+    nonCrypto = []
 
     for c in currencyKeys
       item = {
@@ -72,6 +77,10 @@ Polymer 'assets-subpage',
         item.locked = 0
         item.pending = 0
         item.total = 0
-      list.push item
 
-    @assets = list
+      if item.currency.isCrypto
+        crypto.push item
+      else 
+        nonCrypto.push item
+    @assetGroups = [nonCrypto, crypto]
+    console.log(@assetGroups)
