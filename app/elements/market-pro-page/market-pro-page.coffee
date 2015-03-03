@@ -44,11 +44,11 @@ Polymer 'market-pro-page',
 
     @addEventListener 'buy-clicked', (e) ->
       buy = e.detail.buy
-      this.$.trade.initState('sell', buy.price, buy.accumulated)
+      this.$.trade.initState(buy.price, buy.accumulated)
 
     @addEventListener 'sell-clicked', (e) ->
       sell = e.detail.sell
-      this.$.trade.initState('buy', sell.price, sell.accumulated)
+      this.$.trade.initState(sell.price, sell.accumulated)
 
   created: () ->
     work = () => @refresh()

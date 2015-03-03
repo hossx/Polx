@@ -54,14 +54,11 @@ Polymer 'section-trade',
     sellQuantity: 'updateSellEnabled'
   }
 
-  initState: (sellOrBuy, price, quantity) ->
-    if sellOrBuy == 'buy'
-      @selected = 0
+  initState: (price, quantity) ->
+    if @selected == 0
       @buyPrice = price
       @buyQuantity = quantity
-
-    else if sellOrBuy == 'sell'
-      @selected = 1
+    else if @selected == 1
       @sellPrice = price
       @sellQuantity = quantity
 
