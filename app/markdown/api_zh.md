@@ -486,7 +486,7 @@
 
 ####URL参数
 - currency：货币ID。
-- cursor：请参考「术语约定」。
+- cursor：请参考「术语约定」。该接口cursor为文件列表中时间戳。
 - limit：请参考「术语约定」，默认值50，上限100。
 
 ####返回值示例
@@ -1045,6 +1045,11 @@ profile中的pwdhash将不会被返回。
      "currency" : "BTC",
      "address" ： "17ZFHKXPqoxeHcCTiJ5CZrKLrUJN1TD7Uj",
      "amount" : 0.1,
+     "emailUuid" : "09f1317a-2e57-44ad-a561-2c225ea6f32f",
+     "emailCode" : "184762",
+     "phoneUuid" : "0d16a76f-ab21-4002-8f71-d75b4c83ee7b",
+     "phoneCode" : "837532",
+     "googleCode" : "284758"
   }
 ```
 
@@ -1114,7 +1119,7 @@ profile中的pwdhash将不会被返回。
 
 ```
   {
-    "result":"Ok"
+    "result" : true
   }
 
 ```
@@ -1129,7 +1134,7 @@ profile中的pwdhash将不会被返回。
 
 ```
   {
-    "result":"Ok"
+    "result" : true
   }
 
 ```
@@ -1149,12 +1154,12 @@ profile中的pwdhash将不会被返回。
 
 ```
   {
-    "result":"Ok"
+    "result" : true
   }
 
 ```
 
-### POST /api/v2/resend_activation_code
+### POST /api/v2/send_activation_code
 发送账号激活码（目前是通过发送含有激活链接的邮件）
 
 ####POST数据JSON格式
@@ -1168,29 +1173,22 @@ profile中的pwdhash将不会被返回。
 
 ```
   {
-    "result":"Ok"
+    "result" : true
   }
 ```
 
-### POST /api/v2/check_activation_code
+### GET /api/v2/verify_activation_code?token={token}
 验证账号激活码。
-
-####POST数据JSON格式
-```
-  {
-    "token" : "JTOXCZKYUBE6P5XHHJADMSLPIKXDZHTULRZLRNVU"
-  }
-```
 
 ####返回值示例
 
 ```
   {
-    "result":"Ok"
+    "result" : true
   }
 ```
 
-### POST /api/v2/user/request_verification_code
+### POST /api/v2/user/send_verification_code
 发送一次性邮件或者手机验证码。
 
 ####POST数据JSON格式
@@ -1206,11 +1204,12 @@ profile中的pwdhash将不会被返回。
 ```
   {
     "sendToPhone" : true,
-    "sendToEmail" : false
+    "phoneUuid" : "xsd03-sdfkx-sdkfj-23kjs-23jx7",
+    "sendToEmail" : false // 发送成功才会有uuid返回, uuid在校验验证码一并发送给服务器
   }
 ```
 
-### POST /api/v2/user/check_verification_code
+### POST /api/v2/user/verify_verification_code
 验证一次性邮件或者手机验证码
 
 ####POST数据JSON格式
