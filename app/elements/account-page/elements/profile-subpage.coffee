@@ -12,11 +12,41 @@ Polymer 'profile-subpage',
       secret: "Secret"
       twoFactorAuth: "Two-factor Auth Enabled"
       cellphoneVerified: "Cellphone Verified"
+      emailVerified: "Email Verified"
+      identityVerify: "Identity Verification"
+      identityVerified: "Verified"
       twoFactorScanInstruction1: "Scan the following QR code with your Google Authenticator app."
       twoFactorScanInstruction2: "Input the 6-digit code (taggd with COINPORT:%s) from your Google Authenticator app , then click Confirm."
       inputPlaceholder: "6-digit code"
       cancel: "Cancel"
       confirm: "Confirm"
+      realname: "real name"
+      id: "ID"
+      country: "China"
+      idType: "ID Card"
+      china: "China"
+      america: "America"
+      elseCountry: "Else Country"
+      idCard: "ID Card"
+      password: "Passport"
+      loginPassword: "Login password"
+      changePassword: "Change password"
+      cancelChangePassword: "Cancel"
+      cellphoneNumber: "Phone number"
+      bindCellphone: "Bind phone"
+      cancelBindCellphone: "Cancel"
+      smsCode: "Sms verification code"
+      sendSmsCode: "Send sms code"
+      oldPw: "Old password"
+      newPw: "New password"
+      confirmPw: "Confirm new password"
+      smsHasBeenSent: "Sms code has been sent, please input the sms code:"
+      emailAddress: "Email address"
+      bindEmail: "Bind email"
+      cancelBindEmail: "Cancel"
+      emailCode: "Email code"
+      sendEmailCode: "Send email code"
+      emailHasBeenSent: "Email code has been sent, please input the email code:"
     'zh':
       profile: "账户"
       userId: "用户识别号"
@@ -27,17 +57,105 @@ Polymer 'profile-subpage',
       secret: "Secret"
       twoFactorAuth: "二次验证"
       cellphoneVerified: "手机验证"
+      emailVerified: "邮箱验证"
+      identityVerify: "实名认证"
+      identityVerified: "已认证"
       twoFactorScanInstruction1: "请用谷歌Authenticator APP扫描下面的二维码。"
       twoFactorScanInstruction2: "输入谷歌Authenticator APP中标记为 COINPORT:%s 的6位数字，然后点击确认按钮。"
       inputPlaceholder: "6位数字"
       cancel: "取消"
       confirm: "确认"
+      realname: "真实姓名"
+      id: "证件号码"
+      country: "中国"
+      idType: "身份证"
+      china: "中国"
+      america: "美国"
+      elseCountry: "其他地区"
+      idCard: "身份证"
+      passport: "护照"
+      loginPassword: "登陆密码"
+      changePassword: "修改密码"
+      cancelChangePassword: "取消修改"
+      cellphoneNumber: "手机号码"
+      bindCellphone: "绑定手机"
+      cancelBindCellphone: "取消绑定"
+      smsCode: "短信验证码"
+      sendSmsCode: "发送短信验证码"
+      oldPw: "当前密码"
+      newPw: "新密码"
+      confirmPw: "确认新密码"
+      smsHasBeenSent: "验证短信已发送，请输入短信验证码："
+      emailAddress: "邮箱地址"
+      bindEmail: "绑定手机"
+      cancelBindEmail: "取消绑定"
+      emailCode: "邮件验证码"
+      sendEmailCode: "发送邮件验证码"
+      emailHasBeenSent: "验证邮件已发送，请输入邮件验证码："
 
   ready: () ->
     @M = @msgMap[window.lang]
 
+  # ============== google auth =============
+  cancelEnableGoogleAuth:() ->
+      this.$.googleAuthToggleButton.checked = false
+      @toggleEnableGoogleAuth()
+
+  confirmEnableGoogleAuth:() ->
+      this.$.googleAuthToggleButton.checked = true
+      @toggleEnableGoogleAuth()
+
   toggleEnableGoogleAuth: (e) ->
-    this.$.enableGoogleAuthCollapse.toggle()
+      this.$.enableGoogleAuthCollapse.toggle()
+
+  # ============== cell phone =============
+  toggleBindCellphoneCollapse:() ->
+      this.$.bindCellphoneCollapse.toggle()
+
+  cancelBindCellphone:() ->
+      this.$.bindCellphoneCollapse.toggle()
+  confirmBindCellphone:() ->
+      this.$.bindCellphoneCollapse.toggle()
+
+  cancelEnableCellphoneVerify:() ->
+      this.$.cellphoneToggleButton.checked = !this.$.cellphoneToggleButton.checked
+      @toggleEnableCellphoneAuth()
+
+  confirmEnableCellphoneVerify:() ->
+      @toggleEnableCellphoneAuth()
+
+  toggleEnableCellphoneAuth: (e) ->
+      this.$.cellphoneSmsCodeCollapse.toggle()
+
+  # ============== email =============
+  toggleBindEmailCollapse:() ->
+      this.$.bindEmailCollapse.toggle()
+
+  cancelBindEmail:() ->
+      this.$.bindEmailCollapse.toggle()
+  confirmBindEmail:() ->
+      this.$.bindEmailCollapse.toggle()
+
+  cancelEnableEmailVerify:() ->
+      this.$.emailToggleButton.checked = !this.$.emailToggleButton.checked
+      @toggleEnableEmailAuth()
+
+  confirmEnableEmailVerify:() ->
+      @toggleEnableEmailAuth()
+
+  toggleEnableEmailAuth: (e) ->
+      if not @profile.emailVerified
+          this.$.emailVerifyCollapse.toggle()
+      else
+          this.$.emailCodeCollapse.toggle()
+
+  # ============== identity verify =============
+  toggleEnableIdentityVerify:() ->
+      this.$.identityVerifyCollapse.toggle()
+
+  # ============== pw changed =============
+  toggleChangePw: () ->
+      this.$.changepwCollapse.toggle()
 
   profileChanged: (o, n) ->
     @twoFactorScanInstruction2 = @M.twoFactorScanInstruction2.format(@profile.uid)
