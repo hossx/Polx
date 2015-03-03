@@ -7,6 +7,7 @@
         border-collapse: collapse;
         border-spacing: 0px;
         td {
+            white-space: nowrap;
             &.l {
                 text-align: right;
                 color: $black3;
