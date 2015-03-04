@@ -70,9 +70,18 @@
   | POST           | /api/v2/resend_activation_code                    | 发送账号激活码（目前是通过发送含有激活链接的邮件）
   | POST           | /api/v2/check_activation_code                     | 验证账号激活码
   | POST           | /api/v2/user/request_verification_code            | 发送一次性邮件或者手机验证码
-  | POST           | /api/v2/user/check_verification_code              | 验证一次性邮件或者手机验证码
   | POST           | /api/v2/user/verify_realname                      | 实名认证
   | POST           | /api/v2/user/change_pwd                           | 修改密码
+  | POST           | /api/v2/user/update_nickname                      | 更新昵称
+  | POST           | /api/v2/user/set_email_auth                       | 设置email认证开启或者关闭
+  | POST           | /api/v2/user/set_phone_auth                       | 设置手机认证开启或者关闭
+  | POST           | /api/v2/user/bind_or_update_mobile                | 绑定或者更新手机号
+  | POST           | /api/v2/user/bind_google_auth                     | 绑定Google Auth
+  | POST           | /api/v2/user/unbind_google_auth                   | 解绑Google Auth
+  | GET            | /api/v2/user/get_google_auth                      | 获取Google Auth Secret 和Url
+  | POST           | /api/v2/user/add_bankcard                         | 绑定银行卡或者支付宝
+  | POST           | /api/v2/user/delete_bankcard                      | 解绑银行卡或者支付宝
+  | GET            | /api/v2/user/query_bankcards                      | 获取已绑定银行卡或者支付宝信息
 
 ---
 
@@ -1272,4 +1281,195 @@ profile中的pwdhash将不会被返回。
   {
     "result" : true
   }
+```
+
+### POST /api/v2/user/update_nickname
+修改昵称
+
+####POST数据JSON格式
+```
+  {
+    "nickname" : "testnickname"
+  }
+```
+
+####返回值示例
+
+```
+  {
+    "result" : true
+  }
+```
+
+### POST /api/v2/user/set_email_auth
+开启或者关闭email认证
+
+####POST数据JSON格式
+```
+  {
+    "uuid" : "xsd03-sdfkx-sdkfj-23kjs-23jx7",
+    "emailCode" : "902348",
+    "emailPrefer" : "1", // 1, 打开; 0, 关闭
+  }
+```
+
+####返回值示例
+
+```
+  {
+    "result" : true
+  }
+```
+
+### POST /api/v2/user/set_phone_auth
+开启或者关闭手机认证
+
+####POST数据JSON格式
+```
+  {
+    "uuid" : "xsd03-sdfkx-sdkfj-23kjs-23jx7",
+    "phoneCode" : "902348",
+    "phonePrefer" : "1", // 1, 打开; 0, 关闭
+  }
+```
+
+####返回值示例
+
+```
+  {
+    "result" : true
+  }
+```
+
+### POST /api/v2/user/bind_or_update_mobile
+绑定或者更新手机号
+
+####POST数据JSON格式
+```
+  {
+    "mobile" : "18747576234", // 要绑定或者更新地手机号
+    "verifyCodeUuidOld" : "385573",
+    "verifyCodeOld" : "5cf04b35-9465-4997-9ab3-94c57b3c9afa",
+    "verifyCodeUuid" : "734650",
+    "verifyCode" : "93488234-sd98j3-123-234kx7-sdkfj"
+  }
+```
+
+####返回值示例
+
+```
+  {
+    "result" : true
+  }
+```
+
+### POST /api/v2/user/bind_google_auth
+绑定Google Auth
+
+####POST数据JSON格式
+```
+  {
+    "googlesecret" : "FR6YLCDLCJS7ZQX6",
+    "googlecode" : "932457"
+  }
+```
+
+####返回值示例
+
+```
+  {
+    "result" : true
+  }
+```
+
+### POST /api/v2/user/unbind_google_auth
+解除绑定Google Auth
+
+####POST数据JSON格式
+```
+  {
+    "googlecode" : "932457"
+  }
+```
+
+####返回值示例
+
+```
+  {
+    "result" : true
+  }
+```
+
+### GET /api/v2/user/get_google_auth
+获取Google Auth Secret 和 生成二维码Url
+
+####返回值示例
+
+```
+  {
+    "authUrl" : "otpauth://totp/COINPORT:1000000015?secret=L3KSDNX5FSJCZBGK",
+    "secret" : "FR6YLCDLCJS7ZQX6"
+  }
+```
+
+### POST /api/v2/user/add_bankcard
+绑定银行卡或者支付宝
+
+####POST数据JSON格式
+```
+  {
+    "bankName" : "招商银行",
+    "U_RN" : "吴三",
+    "cardNumber" : "2934723894572398749",
+    "branchBankName" : "海淀支行",
+    "emailUuid" : "4417aede-b09b-49eb-83be-7b71d86eb6a8",
+    "emailCode" : "239048"
+  }
+```
+
+####返回值示例
+
+```
+  {
+    "result" : true
+  }
+```
+### POST /api/v2/user/delete_bankcard
+删除银行卡或者支付宝
+
+####POST数据JSON格式
+```
+  {
+    "cardNumber" : "2934723894572398749"
+  }
+```
+
+####返回值示例
+
+```
+  {
+    "result" : true
+  }
+```
+
+### GET /api/v2/user/get_google_auth
+获取Google Auth Secret 和 生成二维码Url
+
+####返回值示例
+
+```
+  [
+    {
+      "bankName":"中国银行",
+      "ownerName":"吴三桂",
+      "cardNumber":"293749237598232342",
+      "branchBankName":"海淀支行"
+    },
+    {
+      "bankName":"招商银行",
+      "ownerName":"吴三",
+      "cardNumber":"234234235723894234",
+      "branchBankName":"海淀支行2"
+    }
+  ]
 ```
