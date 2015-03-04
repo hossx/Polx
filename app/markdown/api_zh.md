@@ -71,6 +71,8 @@
   | POST           | /api/v2/check_activation_code                     | 验证账号激活码
   | POST           | /api/v2/user/request_verification_code            | 发送一次性邮件或者手机验证码
   | POST           | /api/v2/user/check_verification_code              | 验证一次性邮件或者手机验证码
+  | POST           | /api/v2/user/verify_realname                      | 实名认证
+  | POST           | /api/v2/user/change_pwd                           | 修改密码
 
 ---
 
@@ -1228,5 +1230,46 @@ profile中的pwdhash将不会被返回。
     "emailVerified" : true,
     "phoneVerified" : false,
     "googleAuthVerified" : true
+  }
+```
+
+### POST /api/v2/user/verify_realname
+实名认证
+
+####POST数据JSON格式
+```
+  {
+    "realName" : "吴小野",
+    "location" : "zh-CN", // 1. zh-CN：中国; 2. USA: 美国; 3. other: 其他
+    "identiType" : "idcard" // 1. idcard: 身份证; 2. passport: 护照号
+    "idNumber" : "421012198909090813" // 身份证号或者护照号
+  }
+```
+
+####返回值示例
+
+```
+  {
+    "result" : true
+  }
+```
+
+### POST /api/v2/user/change_pwd
+修改密码
+
+####POST数据JSON格式
+```
+  {
+    "email" : "cp_test_1@coinport.com",
+    "oldPassword" : "FU80PoZJqdWXvKRCiG11uv4s/z8usqqs5+w1w+N3rsU=", // 密码明文先做sha256加密，再做base64加密出来地结果
+    "newPassword" : "0Plg7TSi3ahiD6mN4cVbS6WxPvtkgFkXAxkJnnYHHUE=" // 密码明文先做sha256加密，再做base64加密出来地结果
+  }
+```
+
+####返回值示例
+
+```
+  {
+    "result" : true
   }
 ```
