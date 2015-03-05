@@ -50,6 +50,8 @@ Polymer 'profile-subpage',
       bindGoogleAuthError: "Fail to bind google auth"
       unbindGoogleAuthError: "Fail to unbind google auth"
       disableGoogleAuth: "Disable google auth"
+      confirmPwFailed: "Password not consitent"
+      changePwFailed: "Change password failed"
     'zh':
       profile: "账户"
       userId: "用户识别号"
@@ -98,6 +100,8 @@ Polymer 'profile-subpage',
       bindGoogleAuthError: "绑定谷歌二次验证码失败"
       unbindGoogleAuthError: "解除绑定谷歌二次验证码失败"
       disableGoogleAuth: "解除双重校验绑定"
+      confirmPwFailed: "两次输入的密码不一致"
+      changePwFailed: "修改密码失败"
 
   ready: () ->
     @M = @msgMap[window.lang]
@@ -189,4 +193,19 @@ Polymer 'profile-subpage',
       this.$.changepwCollapse.toggle()
 
   profileChanged: (o, n) ->
-    @twoFactorScanInstruction2 = @M.twoFactorScanInstruction2.format(@profile.uid)
+      @twoFactorScanInstruction2 = @M.twoFactorScanInstruction2.format(@profile.uid)
+
+  cancelChangePw: () ->
+      @toggleChangePw()
+
+  confirmChangePw: () ->
+      if @newPw != @confirmPw
+          @fire('display-message', {error: @M.confirmPwFailed})
+      else
+          this.$.changePwAjax.changePw(@profile.email, $.sha256b64(@oldPw), $.sha256b64(@newPw))
+
+  onChangePwSuccess: (e) ->
+      if e.detail.data.result
+          this.$.changepwCollapse.opened = false
+      else
+          @fire('display-message', {error: @M.changePwFailed})

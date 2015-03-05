@@ -6,11 +6,13 @@
 <link rel="import" href="../../../bower_components/core-collapse/core-collapse.html">
 <link rel="import" href="../../../bower_components/core-menu/core-menu.html">
 <link rel="import" href="../../../bower_components/paper-dropdown/paper-dropdown.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input-decorator.html">
 <link rel="import" href="../../../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../qr-code/qr-code.html">
 <link rel="import" href="../../coinport-api/api-bind-google-auth.html">
+<link rel="import" href="../../coinport-api/api-change-pw.html">
 <link rel="import" href="../../coinport-api/api-get-google-auth.html">
 <link rel="import" href="../../coinport-api/api-unbind-google-auth.html">
 
@@ -66,6 +68,7 @@
             </div>
           </div>
 
+          <api-change-pw id="changePwAjax" on-success="{{onChangePwSuccess}}"></api-change-pw>
           <div horizontal layout>
             <div>{{M.loginPassword}}</div>
             <paper-button on-tap="{{toggleChangePw}}">{{cpwOpened ? M.cancelChangePassword : M.changePassword}}</paper-button>
@@ -74,9 +77,15 @@
           <div>
               <div class="outer" vertical center layout>
                   <div class="inner" vertical left layout>
-                      <paper-input label="{{M.oldPw}}"></paper-input>
-                      <paper-input label="{{M.newPw}}"></paper-input>
-                      <paper-input label="{{M.confirmPw}}"></paper-input>
+                      <paper-input-decorator label="{{M.oldPw}}">
+                          <input is="core-input" type="password" value="{{oldPw}}"></input>
+                      </paper-input-decorator>
+                      <paper-input-decorator label="{{M.newPw}}">
+                          <input is="core-input" type="password" value="{{newPw}}"></input>
+                      </paper-input-decorator>
+                      <paper-input-decorator label="{{M.confirmPw}}">
+                          <input is="core=input" type="password" value="{{confirmPw}}"></input>
+                      </paper-input-decorator>
                       <div horizontal layout>
                           <paper-button on-tap="{{cancelChangePw}}">{{M.cancel}}</paper-button>
                           <paper-button raised on-tap="{{confirmChangePw}}">{{M.confirm}}</paper-button>
