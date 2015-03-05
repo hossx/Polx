@@ -11,7 +11,7 @@ Polymer 'weibo-wall',
         tags = @currency.json.tags
       else
         tags = @currency.name
-      tags = tags + ",币丰港,币丰支付,coinport"
+      tags = tags + ",币丰港"
 
       @content = 
       '<html xmlns:wb=“http://open.weibo.com/wb”>
@@ -19,7 +19,7 @@ Polymer 'weibo-wall',
         <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js"></script>
       </head>
       <body>
-       <wb:topic topmid="z8ClGsZa8" column="n" border="n" width="728"
+       <wb:topic uid="1904178193" topmid="C7dJbdvTw" column="n" border="n" width="728"
         height="'+ (@height-20) + '"
         tags="' + encodeURIComponent(tags) + '"
         color="333333%2Cffffff%2C00b8d4%2Cf5f5f5%2C333333%2Cfafeff%2C0078b6%2Ccccccc%2Cffffff%2Cf5f5f5"
@@ -29,5 +29,3 @@ Polymer 'weibo-wall',
        </body>
       </html>
       '
-
-
