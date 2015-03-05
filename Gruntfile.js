@@ -39,9 +39,9 @@ module.exports = function(grunt) {
                     livereload: true
                 },
                 files: [
-                    '{.tmp,<%= yeoman.app %>}/*.html',
+                    '{.tmp,<%= yeoman.app %>}/{,email/}*.html',
                     '{.tmp,<%= yeoman.app %>}/elements/{,*/,*/*/,*/*/*/}*.{html,css,scss,js,coffee}',
-                    '{.tmp,<%= yeoman.app %>}/styles/*.{css,scss}',
+                    '{.tmp,<%= yeoman.app %>}/{styles,email}/*.{css,scss}',
                     '{.tmp,<%= yeoman.app %>}/scripts/*.{js,coffee}',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}'
                 ]
@@ -62,14 +62,14 @@ module.exports = function(grunt) {
             },
             styles: {
                 files: [
-                    '<%= yeoman.app %>/styles/*.css',
+                    '<%= yeoman.app %>/{styles,email}/*.css',
                     '<%= yeoman.app %>/elements/{,*/,*/*/,*/*/*/}*.css'
                 ],
                 tasks: ['copy:styles', 'autoprefixer:server']
             },
             sass: {
                 files: [
-                    '<%= yeoman.app %>/styles/*.{scss,sass}',
+                    '<%= yeoman.app %>/{styles,email}/*.{scss,sass}',
                     '<%= yeoman.app %>/elements/{,*/,*/*/,*/*/*/}*.{scss,sass}'
                 ],
                 tasks: ['sass:server', 'copy:styles', 'autoprefixer:server']
@@ -115,7 +115,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.app %>',
-                    src: ['styles/*.{scss,sass}', 'elements/{,*/,*/*/,*/*/*/}*.{scss,sass}'],
+                    src: ['{styles,email}/*.{scss,sass}', 'elements/{,*/,*/*/,*/*/*/}*.{scss,sass}'],
                     dest: '<%= yeoman.dist %>',
                     ext: '.css'
                 }]
@@ -124,7 +124,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.app %>',
-                    src: ['styles/*.{scss,sass}', 'elements/{,*/,*/*/,*/*/*/}*.{scss,sass}'],
+                    src: ['{styles,email}/*.{scss,sass}', 'elements/{,*/,*/*/,*/*/*/}*.{scss,sass}'],
                     dest: '.tmp',
                     ext: '.css'
                 }]
@@ -245,7 +245,7 @@ module.exports = function(grunt) {
         },
         usemin: {
             html: ['<%= yeoman.dist %>/{,*/,*/*/,*/*/*/}*.html'],
-            css: ['<%= yeoman.dist %>/styles/*.css', '<%= yeoman.dist %>/elements{,*/,*/*/,*/*/*/}*.css'],
+            css: ['<%= yeoman.dist %>/{styles,email}/*.css', '<%= yeoman.dist %>/elements{,*/,*/*/,*/*/*/}*.css'],
             options: {
                 dirs: ['<%= yeoman.dist %>'],
                 blockReplacements: {
@@ -267,6 +267,18 @@ module.exports = function(grunt) {
                         '<%= yeoman.dist %>/elements/the-app.html'
                     ]
                 }
+            },
+            email: {
+                options: {
+                    strip: true,
+                    inline: true
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= yeoman.dist %>/email',
+                    src: '*.html',
+                    dest: '<%= yeoman.dist %>/email'
+                }]
             }
         },
         imagemin: {
@@ -291,7 +303,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.dist %>',
-                    src: '*.html',
+                    src: '{,email/*}.html',
                     dest: '<%= yeoman.dist %>'
                 }]
             }
@@ -315,6 +327,7 @@ module.exports = function(grunt) {
                         'scripts/**',
                         'images/**',
                         'markdown/**',
+                        'email/**',
                         'configs/**',
                         'images/**',
                         '!**/*.scss',
@@ -327,7 +340,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: '<%= yeoman.app %>',
                     dest: '.tmp',
-                    src: ['{styles,elements}/{,*/,*/*/,*/*/*/}*.css']
+                    src: ['{styles,email,elements}/{,*/,*/*/,*/*/*/}*.css']
                 }]
             },
             scripts: {
@@ -413,7 +426,8 @@ module.exports = function(grunt) {
         'concat',
         'autoprefixer',
         'uglify',
-        'vulcanize',
+        'vulcanize:default',
+        'vulcanize:email',
         'filerev:step1',
         'filerev:step2',
         'usemin',
