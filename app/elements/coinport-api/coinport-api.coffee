@@ -11,11 +11,11 @@ Polymer 'coinport-api',
       badRequest: "非法API请求。"
 
   base: () -> window.config.api.base
-  
+
   ready: ()->
     `this.super()`
     @M = @msgMap[window.lang]
-    
+
 
   parseCookie: (name) ->
     pairs = document.cookie.split(/\s*;\s*/)
@@ -35,7 +35,7 @@ Polymer 'coinport-api',
       headers = @headers or {}
       headers['X-XSRF-TOKEN'] = xsrf
       @headers = headers
-      
+
     console.debug('fetching : "' + @url+'"')
     `this.super()`
 
@@ -51,7 +51,7 @@ Polymer 'coinport-api',
     else
       console.error("unexpected status code: " + xhr.status)
       @fire('display-message', {'error': @M.serviceUnavailable})
-    
+
   processResponse: (xhr) ->
     if xhr.status == 0
       @fire('display-message', {'error': @M.internalServiceError.format(@url)})
@@ -63,10 +63,11 @@ Polymer 'coinport-api',
           console.debug(xhr.responseText)
         @response = JSON.parse(xhr.responseText)
         @data = @response.data if @response
-          
+        this.fire('success', {data: @data})
+
       catch x
-        console.warn('core-ajax caught an exception trying to parse response as JSON:');
-        console.warn('url:', this.url);
-        console.warn(x);
+        console.warn('core-ajax caught an exception trying to parse response as JSON:')
+        console.warn('url:', this.url)
+        console.warn(x)
         @data = null
 

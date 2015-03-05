@@ -47,6 +47,9 @@ Polymer 'profile-subpage',
       emailCode: "Email code"
       sendEmailCode: "Send email code"
       emailHasBeenSent: "Email code has been sent, please input the email code:"
+      bindGoogleAuthError: "Fail to bind google auth"
+      unbindGoogleAuthError: "Fail to unbind google auth"
+      disableGoogleAuth: "Disable google auth"
     'zh':
       profile: "账户"
       userId: "用户识别号"
@@ -92,6 +95,9 @@ Polymer 'profile-subpage',
       emailCode: "邮件验证码"
       sendEmailCode: "发送邮件验证码"
       emailHasBeenSent: "验证邮件已发送，请输入邮件验证码："
+      bindGoogleAuthError: "绑定谷歌二次验证码失败"
+      unbindGoogleAuthError: "解除绑定谷歌二次验证码失败"
+      disableGoogleAuth: "解除双重校验绑定"
 
   ready: () ->
     @M = @msgMap[window.lang]
@@ -99,14 +105,39 @@ Polymer 'profile-subpage',
   # ============== google auth =============
   cancelEnableGoogleAuth:() ->
       this.$.googleAuthToggleButton.checked = false
-      @toggleEnableGoogleAuth()
+      this.$.enableGoogleAuthCollapse.opened = false
 
   confirmEnableGoogleAuth:() ->
+      this.$.bindGoogleAuthAjax.bindGoogleAuth(@secret, @enGACode)
+
+  cancelDisableGoogleAuth: () ->
       this.$.googleAuthToggleButton.checked = true
-      @toggleEnableGoogleAuth()
+      this.$.disableGoogleAuthCollapse.opened = false
+
+  confirmDisableGoogleAuth: () ->
+      this.$.unbindGoogleAuthAjax.unbindGoogleAuth(@disGACode)
 
   toggleEnableGoogleAuth: (e) ->
-      this.$.enableGoogleAuthCollapse.toggle()
+      if @profile.googleAuthEnabled
+          this.$.disableGoogleAuthCollapse.toggle()
+      else
+          this.$.enableGoogleAuthCollapse.toggle()
+
+  onBindGASuccess: (e) ->
+      if e.detail.data.result
+          @profile.googleAuthEnabled = true
+          this.$.googleAuthToggleButton.checked = true
+          this.$.enableGoogleAuthCollapse.opened = false
+      else
+          @fire('display-message', {error: @M.bindGoogleAuthError})
+
+  onUnbindGASuccess: (e) ->
+      if e.detail.data.result
+          @profile.googleAuthEnabled = false
+          this.$.googleAuthToggleButton.checked = false
+          this.$.disableGoogleAuthCollapse.opened = false
+      else
+          @fire('display-message', {error: @M.unbindGoogleAuthError})
 
   # ============== cell phone =============
   toggleBindCellphoneCollapse:() ->

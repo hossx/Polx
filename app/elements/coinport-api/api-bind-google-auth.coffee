@@ -1,16 +1,10 @@
 'use strict'
 
 Polymer 'api-bind-google-auth',
-
-  bind: (secret, code) ->
+  bindGoogleAuth: (secret, code) ->
       @headers['Content-Type'] = 'application/json'  if @headers
       @contentType = 'application/json'
       @method = 'POST'
-      @body ='{"googlecode": %s, "googlesecret": %s}'.format(code, secret)
-      @url = '%s/api/v2/tbd'.format(@base())
+      @body ='{"googlesecret": "%s", "googlecode": "%s"}'.format(secret, code)
+      @url = '%s/api/v2/user/bind_google_auth'.format(@base())
       @go()
-
-  dataChanged: (o, n) ->
-    if @data
-      @cancelledIds = @data.cancelled
-      @failedIds = @data.failed

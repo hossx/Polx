@@ -10,4 +10,4 @@ Polymer 'api-get-google-auth',
       @secret = @data.secret
 
   updateUrl:() ->
-    @url = '%s/googleauth/get'.format(@base())
+    @url = '%s/api/v2/user/get_google_auth'.format(@base())

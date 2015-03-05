@@ -10,7 +10,9 @@
 <link rel="import" href="../../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../qr-code/qr-code.html">
+<link rel="import" href="../../coinport-api/api-bind-google-auth.html">
 <link rel="import" href="../../coinport-api/api-get-google-auth.html">
+<link rel="import" href="../../coinport-api/api-unbind-google-auth.html">
 
 <polymer-element name="profile-subpage" attributes="profile">
   <template>
@@ -231,7 +233,23 @@
             </div>
           </div>
 
-          <api-get-google-auth auto?="{{opened}}" authUrl="{{authUrl}}" secret="{{section}}"></api-get-google-auth>
+          <api-get-google-auth auto?="{{opened}}" authUrl="{{authUrl}}" secret="{{secret}}"></api-get-google-auth>
+          <api-bind-google-auth id="bindGoogleAuthAjax" on-success="{{onBindGASuccess}}"></api-bind-google-auth>
+          <api-unbind-google-auth id="unbindGoogleAuthAjax" on-success="{{onUnbindGASuccess}}"></api-unbind-google-auth>
+          <core-collapse id="disableGoogleAuthCollapse">
+          <div>
+              <div class="outer" vertical center layout>
+                  <div class="inner" vertical center layout>
+                      <div>{{M.disableGoogleAuth}}</div>
+                      <paper-input id="code" label="{{M.inputPlaceholder}}" value="{{disGACode}}"></paper-input>
+                      <div horizontal layout>
+                          <paper-button on-tap="{{cancelDisableGoogleAuth}}">{{M.cancel}}</paper-button>
+                          <paper-button raised on-tap="{{confirmDisableGoogleAuth}}">{{M.confirm}}</paper-button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          </core-collapse>
           <core-collapse id="enableGoogleAuthCollapse" opened="{{opened}}">
           <div>
               <div class="outer" vertical center layout>
@@ -241,7 +259,7 @@
                           <qr-code data={{authUrl}} size="200" margin="1"></qr-code>
                       </div>
                       <div>{{twoFactorScanInstruction2}}</div>
-                      <paper-input id="code" label="{{M.inputPlaceholder}}"></paper-input>
+                      <paper-input id="code" label="{{M.inputPlaceholder}}" value="{{enGACode}}"></paper-input>
                       <div horizontal layout>
                           <paper-button on-tap="{{cancelEnableGoogleAuth}}">{{M.cancel}}</paper-button>
                           <paper-button raised on-tap="{{confirmEnableGoogleAuth}}">{{M.confirm}}</paper-button>
