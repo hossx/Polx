@@ -5,7 +5,7 @@ Polymer 'api-submit-orders',
       @headers['Content-Type'] = 'application/json' if @headers
       @contentType = 'application/json'
       @method = 'POST'
-      @url = window.protocol.userSubmitOrdersUrl()
+      @url = '%s/api/v2/user/submit_orders'.format(@base())
       @body = '{"orders": [%s]}'.format(order)
       console.log(@body)
       @go()
