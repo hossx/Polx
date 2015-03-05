@@ -13,8 +13,7 @@
     <cp-page>
       <div id="container" vertical layout>
         <template if="{{announceMsg}}">
-          <div class="tiny-section {{ {critical:announceCritical}| tokenList}}" id="announce" horizontal center-justified
-          center layout>
+          <div class="tiny-section {{ {critical:announceCritical}| tokenList}}" id="announce" horizontal center-justified center layout>
             <template if="{{!announceCritical}}">
               <core-icon icon="announcement"></core-icon>
             </template>
@@ -72,6 +71,16 @@
           </div>
           <div flex id="screenshot" auto-vertical vertical center layout>
             <img id="android-app" src="/images/android-app-cut.png">
+          </div>
+        </div>
+
+        <div class="section" id="media" vertical center center-justified layout>
+          <div id="quote">
+            <i>[Coinport Exchange] is offering its customers unprecedented transparency mechanisms, including automatic proof-of-reserves
+            tests...</i>
+            </div>
+          <div id="media-container" horizontal layout>
+            <img self-center id="coindesk" src="/images/coindesk.png">
           </div>
         </div>
 
