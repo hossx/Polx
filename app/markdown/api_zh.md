@@ -716,7 +716,9 @@ items中的每条数据是一个长度为6的数组，依次表示：[时间戳�
 ```
   {
     "email": "example@coinport.com",
-    "pwdhash": "G41DK2iy8OmzdTgpjPKXFvI82wI6CEj/BfaGdfGNDgQ=" // pwdhash 生成方法为：BASE64.encode(SHA256(pwd))
+    "pwdhash": "G41DK2iy8OmzdTgpjPKXFvI82wI6CEj/BfaGdfGNDgQ=", // pwdhash 生成方法为：BASE64.encode(SHA256(pwd))
+    "exchangeVersion": "v2", // 可选字段，如果要填，目前只支持v2, 为x.coinport.com
+    "lang": "zh" // 1. zh 使用中文邮件模板, 2. en 使用英文邮件模板
   }
 ```
 ####返回值示例
@@ -1124,7 +1126,9 @@ btsx提现，需要指定memo字段。
 ####POST数据JSON格式
 ```
   {
-    "email": "example@coinport.com"
+    "email": "example@coinport.com",
+    "exchangeVersion": "v2", // 可选字段，如果要填，目前只支持v2, 为x.coinport.com
+    "lang": "zh" // 1. zh 使用中文邮件模板, 2. en 使用英文邮件模板
   }
 ```
 
@@ -1178,7 +1182,9 @@ btsx提现，需要指定memo字段。
 ####POST数据JSON格式
 ```
   {
-    "email" : "example@coinport.com"
+    "email" : "example@coinport.com",
+    "exchangeVersion": "v2", // 可选字段，如果要填，目前只支持v2, 为x.coinport.com
+    "lang": "zh" // 1. zh 使用中文邮件模板, 2. en 使用英文邮件模板
   }
 ```
 
