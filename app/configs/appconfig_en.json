@@ -15,7 +15,7 @@
           "min": 2
         }
       },
-      "tags": "人民币",
+      "tags": "RMB",
       "twitterWidgetId": "560699182839640064"
     },
     "BTC": {
@@ -255,12 +255,8 @@
       "label": "Contact Us",
       "tags": ["about"]
     },
-    "ripple-deposit": {
-      "label": "通过RIPPLE网关充值",
-      "tags": ["ripple", "deposit"]
-    },
     "api": {
-      "label": "币丰港交易平台API",
+      "label": "API",
       "tags": ["developer"]
     }
   }

@@ -27,7 +27,7 @@ Polymer 'cp-footer',
       ,
         label: "Resources"
         links: [
-          label: "API Spec"
+          label: "API"
           url: "/#/doc/api"
         ,
           label: "Coinport PAY"
