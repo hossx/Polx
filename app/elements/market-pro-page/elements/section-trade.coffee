@@ -57,10 +57,11 @@ Polymer 'section-trade',
   initState: (price, quantity) ->
     if @selected == 0
       @buyPrice = @committedBuyPrice = price
-      @buyQuantity = @committedBuyQuantity = quantity
+      max = (Math.floor(10000 * @baseBalance/price) / 10000).toFixed(4)
+      @buyQuantity = @committedBuyQuantity = Math.min(quantity, max)
     else if @selected == 1
       @sellPrice = @committedSellPrice = price
-      @sellQuantity = @committedSellQuantity = quantity
+      @sellQuantity = @committedSellQuantity = Math.min(quantity, @balance)
 
 
   updateBuyEnabled: () -> 
