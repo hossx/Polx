@@ -1,7 +1,7 @@
 @import "../../_colors";
 @import "../../_common";
 @import "_subpage";
-@include has-paper-toggle-button($C1);
+@include has-paper-toggle-button($C2);
 :host {
     display: block;
 }
@@ -43,14 +43,4 @@ span#tag {
 paper-dropdown-menu {
     text-align: left;
 }
-paper-toggle-button::shadow {
-    [checked] .toggle-ink {
-        color: color($C2, a400);
-    }
-    [checked] .toggle {
-        background-color: color($C2, a400);
-    }
-    .toggle-button {
-        background-color: color($grey, 500);
-    }
-}
+

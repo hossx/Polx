@@ -87,30 +87,27 @@ paper-button, paper-icon-button {
         }
     }
 }
-@mixin has-paper-toggle-button($color) {
+@mixin has-paper-toggle-button($color: $C2) {
     paper-toggle-button::shadow {
-        paper-radio-button::shadow {
-            #ink[checked] {
-                color: color($color, 700);
-            }
-            #ink {
-                color: color($color, 500);
-            }
-            #onRadio {
-                background-color: color($color, 500);
-            }
-            #offRadio {
-                background-color: $black4;
-            }
+        .toggle-ink {
+            color: color($grey, 400);
         }
-        #toggleBar {
-            background-color: $black2;
+         .toggle {
+            background-color: color($grey, 500);
         }
-        #toggleBar[checked] {
-            background-color: color($color, 500);
+        [checked] {
+            .toggle-ink {
+                color: color($color, a400);
+            }
+            .toggle-button {
+                background-color: color($color, a400);
+            }
+            .toggle-bar {
+                background-color: color($grey, 400);
+            }
         }
         #toggleContainer[disabled] {
-            opacity: 0.7;
+            opacity: 0.3;
             pointer-events: none;
         }
     }
