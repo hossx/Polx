@@ -1352,10 +1352,10 @@ btsx提现，需要指定memo字段。
 ```
   {
     "mobile" : "18747576234", // 要绑定或者更新地手机号
-    "verifyCodeUuidOld" : "385573",
-    "verifyCodeOld" : "5cf04b35-9465-4997-9ab3-94c57b3c9afa",
-    "verifyCodeUuid" : "734650",
-    "verifyCode" : "93488234-sd98j3-123-234kx7-sdkfj"
+    "verifyCodeUuidOld" : "5cf04b35-9465-4997-9ab3-94c57b3c9afa",
+    "verifyCodeOld" : "385573",
+    "verifyCodeUuid" : "93488234-sd98j3-123-234kx7-sdkfj",
+    "verifyCode" : "734650"
   }
 ```
 
