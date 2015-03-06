@@ -12,15 +12,18 @@ core-collapse {
         padding: 40px 20px;
         text-align: center;
     }
-    paper-button:hover {
-        color: color($C2, a700);
-    }
-    paper-button[raised] {
-        background: $white1;
-        color: $black1;
+    paper-button {
+        font-weight: bold;
         &:hover {
-            background: color($C2, a700);
-            color: $white1;
+            color: color($C2, a400);
+        }
+        &[raised] {
+            background: $white1;
+            color: $black1;
+            &:hover {
+                background: color($C2, a400);
+                color: $white1;
+            }
         }
     }
 }
@@ -30,11 +33,22 @@ core-collapse {
     height: 200px;
     background: $black4;
 }
+paper-input, paper-input-decorator {
+    /deep/ {
+        .unfocused-underline {
+            background-color: $black3;
+        }
+        .focused-underline {
+            background-color: $black1;
+        }
+    }
+}
 paper-input#code {
     /deep/ input[is=core-input] {
         font-size: 18px;
         text-align: center;
         color: $black1;
+        letter-spacing: 3px;
     }
 }
 span#tag {
@@ -43,4 +57,3 @@ span#tag {
 paper-dropdown-menu {
     text-align: left;
 }
-
