@@ -56,11 +56,11 @@ Polymer 'section-trade',
 
   initState: (price, quantity) ->
     if @selected == 0
-      @buyPrice = price
-      @buyQuantity = quantity
+      @buyPrice = @committedBuyPrice = price
+      @buyQuantity = @committedBuyQuantity = quantity
     else if @selected == 1
-      @sellPrice = price
-      @sellQuantity = quantity
+      @sellPrice = @committedSellPrice = price
+      @sellQuantity = @committedSellQuantity = quantity
 
 
   updateBuyEnabled: () -> 
