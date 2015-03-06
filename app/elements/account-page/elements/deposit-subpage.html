@@ -54,7 +54,7 @@
 
           <template if="{{currency.id == 'CNY'}}">
             <div class="instruction" vertical start layout>
-              <template if="{{lang == 'zh'}}">
+              <template if="{{lang === 'zh'}}">
                 <div>币丰港提供两种人民币充值渠道。</div>
                 <h3>渠道一：</h3>
                 <div>您可以通过我们认证的代理进行人民币充值。 请通过
@@ -73,7 +73,7 @@
                 </div>
               </template>
 
-              <template if="{{lang == 'en'}}">
+              <template if="{{lang === 'en'}}">
                 <div>You can make {{currency.fullName}} deposits through our certified agents. Please contact them using Tencent
                   <span class="highlight">QQ 3115728063, 209063895</span>. They will tell you one of their CNY bank accounts that
                   you need to transfer money into.
@@ -90,9 +90,9 @@
             </div>
           </template>
 
-          <template if="{{currency.id == 'GOOC'}}">
+          <template if="{{currency.id === 'GOOC'}}">
             <div class="instruction" vertical start layout>
-              <template if="{{lang == 'zh'}}">
+              <template if="{{lang === 'zh'}}">
                 <div>请将您的{{currency.fullName}}转账到账号：
                   <crypto-address currency="{{currency}}" addr="50001"></crypto-address>
                 </div>
@@ -108,7 +108,7 @@
                   </ul>
                 </div>
               </template>
-              <template if="{{lang == 'en'}}">
+              <template if="{{lang === 'en'}}">
                 <div>Please send your {{currency.fullName}} to account:
                   <crypto-address currency="{{currency}}" addr="50001"></crypto-address>
                 </div>
@@ -121,7 +121,8 @@
                   <ul>
                     <li>The minimum amount for deposit is 1000 {{currency.unit}}.</li>
                     <li>Manual processing of {{currency.name}} is only available between 10:00AM and 10:00PM Beijing Time.</li>
-                    <li>During the above hours, we nomally credit your account within 1 hour.</li>
+                    <li>During the above
+                      <ho></ho>urs, we nomally credit your account within 1 hour.</li>
                   </ul>
                 </div>
               </template>
@@ -130,7 +131,7 @@
 
           <template if="{{currency.id == 'XRP'}}">
             <div class="instruction" vertical start layout>
-              <template if="{{lang == 'zh'}}">
+              <template if="{{lang === 'zh'}}">
                 <div>请将您的{{currency.name}}充值到:
                   <crypto-address currency="{{currency}}" addr="r9AzyYGGQAvgefdgeu3eDHaVdxLdpAvchE"></crypto-address>
                   或者
@@ -141,7 +142,7 @@
                 </div>
               </template>
 
-              <template if="{{lang == 'en'}}">
+              <template if="{{lang === 'en'}}">
                 <div>Please send your {{currency.name}} to:
                   <crypto-address currency="{{currency}}" addr="r9AzyYGGQAvgefdgeu3eDHaVdxLdpAvchE"></crypto-address>
                   or
@@ -157,7 +158,7 @@
 
           <template if="{{currency.id == 'BTSX'}}">
             <div class="instruction" vertical start layout>
-              <template if="{{lang == 'zh'}}">
+              <template if="{{lang === 'zh'}}">
                 <div>请将您的{{currency.name}}充值到:
                   <crypto-address currency="{{currency}}" addr="BTS5FPJkXFwokNEsRLwfWvPKAbzriNLS5ut823rMzHbpKMg9QgYWZ"></crypto-address>
                   或者
@@ -168,7 +169,7 @@
                 </div>
               </template>
 
-              <template if="{{lang == 'en'}}">
+              <template if="{{lang === 'en'}}">
                 <div>Please send your {{currency.name}} to:
                   <crypto-address currency="{{currency}}" addr="r9AzyYGGQAvgefdgeu3eDHaVdxLdpAvchE"></crypto-address>
                   or
@@ -184,28 +185,53 @@
 
           <template if="{{currency.id == 'NXT'}}">
             <div class="instruction" vertical start layout>
-              <div>Please send your {{currency.name}} to:
-                <crypto-address currency="{{currency}}" addr="{{nxtAddressComponents[0]}}"></crypto-address> or
-                <crypto-address currency="{{currency}}" addr="{{nxtAddressComponents[1]}}"></crypto-address>
-              </div>
-              <div>You can scan this QR code with your {{currency.name}} wallet:</div>
 
-              <div self-center id="qrcode">
-                <qr-code data="{{nxtAddressComponents[0]}}" size="200" margin="1"></qr-code>
-              </div>
+              <template if="{{lang === 'zh'}}">
+                <div>请将您的{{currency.name}}充值到:
+                  <crypto-address currency="{{currency}}" addr="{{nxtAddressComponents[0]}}"></crypto-address> or
+                  <crypto-address currency="{{currency}}" addr="{{nxtAddressComponents[1]}}"></crypto-address>
+                </div>
 
-              <div class="alsoNote">
-                <core-icon icon="info-outline"></core-icon>
-                <ul>
-                  <li>This is a new address, pleae use it's public key: <span class="quote">{{nxtAddressComponents[2]}}</span>.</li>
-                </ul>
-              </div>
+                <div>您也可以用{{currency.name}}钱包扫描下面的二维码:</div>
+
+                <div self-center id="qrcode">
+                  <qr-code data="{{nxtAddressComponents[0]}}" size="200" margin="1"></qr-code>
+                </div>
+                <div class="alsoNote">
+                  <core-icon icon="info-outline"></core-icon>
+                  <ul>
+                    <li>第一次使用的时候，请你使用该地址的公钥: <span class="quote">{{nxtAddressComponents[2]}}</span>。</li>
+                  </ul>
+                </div>
+              </template>
+              <template if="{{lang === 'en'}}">
+                <div>Please send your {{currency.name}} to:
+                  <crypto-address currency="{{currency}}" addr="{{nxtAddressComponents[0]}}"></crypto-address> or
+                  <crypto-address currency="{{currency}}" addr="{{nxtAddressComponents[1]}}"></crypto-address>
+                </div>
+                <div>You can scan this QR code with your {{currency.name}} wallet:</div>
+                <div self-center id="qrcode">
+                  <qr-code data="{{nxtAddressComponents[0]}}" size="200" margin="1"></qr-code>
+                </div>
+
+                <div class="alsoNote">
+                  <core-icon icon="info-outline"></core-icon>
+                  <ul>
+                    <li>This is a new address, pleae use it's public key: <span class="quote">{{nxtAddressComponents[2]}}</span>.</li>
+                  </ul>
+                </div>
+              </template>
             </div>
           </template>
 
           <template if="{{currency.id != 'CNY' && currency.id != 'GOOC' && currency.id != 'XRP' && currency.id != 'BTSX' && currency.id != 'NXT'}}">
             <div class="instruction" vertical center layout>
-              <div>Please send your {{currency.name}} to</div>
+              <template if="{{lang === 'zh'}}">
+                <div>请将您的{{currency.name}}充值到</div>
+              </template>
+              <template if="{{lang === 'en'}}">
+                <div>Please send your {{currency.name}} to</div>
+              </template>
               <crypto-address currency="{{currency}}" addr="{{depositAddress}}"></crypto-address>
               <div>{{M.scan}}</div>
             </div>
