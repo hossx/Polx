@@ -52,6 +52,7 @@ Polymer 'profile-subpage',
       disableGoogleAuth: "Disable google auth"
       confirmPwFailed: "Password not consitent"
       changePwFailed: "Change password failed"
+      identityVerifyError: "Identity verify fail"
     'zh':
       profile: "账户"
       userId: "用户识别号"
@@ -102,9 +103,12 @@ Polymer 'profile-subpage',
       disableGoogleAuth: "解除双重校验绑定"
       confirmPwFailed: "两次输入的密码不一致"
       changePwFailed: "修改密码失败"
+      identityVerifyError: "实名验证失败"
 
   ready: () ->
     @M = @msgMap[window.lang]
+    @selectedCountry = "zh-CN"
+    @selectedIdType = "idcard"
 
   # ============== google auth =============
   cancelEnableGoogleAuth:() ->
@@ -187,6 +191,21 @@ Polymer 'profile-subpage',
   # ============== identity verify =============
   toggleEnableIdentityVerify:() ->
       this.$.identityVerifyCollapse.toggle()
+
+  cancelEnableIdentityVerify: () ->
+      this.$.identityVerifyCollapse.opened = false
+      this.$.identityVerifyToggle.checked = false
+
+  confirmEnableIdentityVerify: () ->
+      this.$.identityVerifyAjax.identityVerify(@realName, @selectedCountry, @selectedIdType, @idNumber)
+
+  onIdentityVerifySuccess: (e) ->
+      if e.detail.data.result
+          @profile.realName = @realName
+          this.$.identityVerifyCollapse.opened = false
+          this.$.identityVerifyToggle.checked = true
+      else
+          @fire('display-message', {error: @M.identityVerifyError})
 
   # ============== pw changed =============
   toggleChangePw: () ->

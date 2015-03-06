@@ -14,6 +14,7 @@
 <link rel="import" href="../../coinport-api/api-bind-google-auth.html">
 <link rel="import" href="../../coinport-api/api-change-pw.html">
 <link rel="import" href="../../coinport-api/api-get-google-auth.html">
+<link rel="import" href="../../coinport-api/api-identity-verify.html">
 <link rel="import" href="../../coinport-api/api-unbind-google-auth.html">
 
 <polymer-element name="profile-subpage" attributes="profile">
@@ -98,33 +99,35 @@
           <div horizontal layout>
             <div>{{M.identityVerify}}</div>
             <div flex>
-                <paper-toggle-button checked?={{profile.realName}} on-change="{{toggleEnableIdentityVerify}}"
+                <paper-toggle-button id="identityVerifyToggle" checked?={{profile.realName}} on-change="{{toggleEnableIdentityVerify}}"
                     disabled?={{profile.realName}}></paper-toggle-button>
             </div>
           </div>
+
+          <api-identity-verify id="identityVerifyAjax" on-success="{{onIdentityVerifySuccess}}"></api-identity-verify>
           <core-collapse id="identityVerifyCollapse">
           <div>
               <div class="outer" vertical center layout>
                   <div class="inner" vertical left layout>
-                      <paper-input id="realname" label="{{M.realname}}"></paper-input>
+                      <paper-input id="realname" label="{{M.realname}}" value="{{realName}}"></paper-input>
                       <paper-dropdown-menu label="{{M.country}}">
                           <paper-dropdown class="dropdown">
-                              <core-menu class="menu">
-                                  <paper-item>{{M.china}}</paper-item>
-                                  <paper-item>{{M.america}}</paper-item>
-                                  <paper-item>{{M.elseCountry}}</paper-item>
+                              <core-menu class="menu" selected="{{selectedCountry}}">
+                                  <paper-item name="zh-CN">{{M.china}}</paper-item>
+                                  <paper-item name="USA">{{M.america}}</paper-item>
+                                  <paper-item name="other">{{M.elseCountry}}</paper-item>
                               </core-menu>
                           </paper-dropdown>
                       </paper-dropdown-menu>
                       <paper-dropdown-menu label="{{M.idType}}">
                           <paper-dropdown class="dropdown">
-                              <core-menu class="menu">
-                                  <paper-item>{{M.idCard}}</paper-item>
-                                  <paper-item>{{M.passport}}</paper-item>
+                              <core-menu class="menu" selected="{{selectedIdType}}">
+                                  <paper-item name="idcard">{{M.idCard}}</paper-item>
+                                  <paper-item name="passport">{{M.passport}}</paper-item>
                               </core-menu>
                           </paper-dropdown>
                       </paper-dropdown-menu>
-                      <paper-input id="realid" label="{{M.id}}"></paper-input>
+                      <paper-input id="realid" label="{{M.id}}" value="{{idNumber}}"></paper-input>
                       <div horizontal layout>
                           <paper-button on-tap="{{cancelEnableIdentityVerify}}">{{M.cancel}}</paper-button>
                           <paper-button raised on-tap="{{confirmEnableIdentityVerify}}">{{M.confirm}}</paper-button>
