@@ -64,9 +64,10 @@
   | POST           | /api/v2/request_password_reset                    | 提交一个重置密码申请
   | GET            | /api/v2/verify_password_reset_token               | 验证重置密码的Token是否有效
   | POST           | /api/v2/reset_password                            | 重置密码
-  | POST           | /api/v2/resend_activation_code                    | 发送账号激活码（目前是通过发送含有激活链接的邮件）
+  | POST           | /api/v2/send_activation_code                      | 发送账号激活码（目前是通过发送含有激活链接的邮件）
   | POST           | /api/v2/check_activation_code                     | 验证账号激活码
-  | POST           | /api/v2/user/request_verification_code            | 发送一次性邮件或者手机验证码
+  | POST           | /api/v2/user/send_verification_code               | 发送一次性邮件或者手机验证码
+  | POST           | /api/v2/user/send_mobile_bind_verify_code         | 发送绑定手机用手机验证码
   | POST           | /api/v2/user/verify_realname                      | 实名认证
   | POST           | /api/v2/user/change_pwd                           | 修改密码
   | POST           | /api/v2/user/update_nickname                      | 更新昵称
@@ -1189,7 +1190,7 @@ btsx提现，需要指定memo字段。
   }
 ```
 
-### GET /api/v2/verify_activation_code?token={token}
+### GET /api/v2/check_activation_code?token={token}
 验证账号激活码。
 
 ####返回值示例
@@ -1206,8 +1207,8 @@ btsx提现，需要指定memo字段。
 ####POST数据JSON格式
 ```
   {
-    "phone" : "13761056306", // 邮箱和手机至少一个
-    "email" : "example@coinport.com" // 邮箱和手机至少一个
+    "toPhone" : true, // 邮箱和手机至少一个
+    "toEmail" : false // 邮箱和手机至少一个
   }
 ```
 
@@ -1215,21 +1216,19 @@ btsx提现，需要指定memo字段。
 
 ```
   {
-    "sendToPhone" : true,
+    "sentToPhone" : true,
     "phoneUuid" : "xsd03-sdfkx-sdkfj-23kjs-23jx7",
-    "sendToEmail" : false // 发送成功才会有uuid返回, uuid在校验验证码一并发送给服务器
+    "sentToEmail" : false // 发送成功才会有uuid返回, uuid在校验验证码一并发送给服务器
   }
 ```
 
-### POST /api/v2/user/verify_verification_code
-验证一次性邮件或者手机验证码
+### POST /api/v2/user/send_mobile_bind_verify_code
+发送手机绑定用手机验证码。
 
 ####POST数据JSON格式
 ```
   {
-    "email" : "174123",
-    "phone" : "923457",
-    "googleAuth" : "823475"
+    "phone" : "13873647282"
   }
 ```
 
@@ -1237,9 +1236,7 @@ btsx提现，需要指定memo字段。
 
 ```
   {
-    "emailVerified" : true,
-    "phoneVerified" : false,
-    "googleAuthVerified" : true
+    "phoneUuid" : "xsd03-sdfkx-sdkfj-23kjs-23jx7"
   }
 ```
 
