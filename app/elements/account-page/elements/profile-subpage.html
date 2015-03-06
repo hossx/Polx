@@ -16,6 +16,9 @@
 <link rel="import" href="../../coinport-api/api-get-google-auth.html">
 <link rel="import" href="../../coinport-api/api-identity-verify.html">
 <link rel="import" href="../../coinport-api/api-unbind-google-auth.html">
+<link rel="import" href="../../coinport-api/api-send-mobile-bind-verify-code.html">
+<link rel="import" href="../../coinport-api/api-bind-update-phone.html">
+<link rel="import" href="../../cp-widget/ticker-button.html">
 
 <polymer-element name="profile-subpage" attributes="profile">
   <template>
@@ -183,6 +186,8 @@
           </div>
           </core-collapse>
 
+          <api-send-mobile-bind-verify-code id="sendBindPhoneCodeAjax" bindPhoneUuid="{{bindPhoneUuid}}"> </api-send-mobile-bind-verify-code>
+          <api-bind-update-phone id="bindUpdatePhoneAjax" on-success="{{onBindUpdatePhoneSuccess}}"></api-bind-update-phone>
           <div horizontal layout>
             <div>{{M.cellphoneVerified}}</div>
             <template if="{{profile.mobileVerified}}">
@@ -201,17 +206,17 @@
                   <div class="inner" vertical left layout>
                       <paper-dropdown-menu label="{{M.country}}">
                           <paper-dropdown class="dropdown">
-                              <core-menu class="menu">
-                                  <paper-item>{{M.china}}</paper-item>
-                                  <paper-item>{{M.america}}</paper-item>
-                                  <paper-item>{{M.elseCountry}}</paper-item>
+                              <core-menu class="menu" selected="{{selectedPhoneCountry}}">
+                                  <paper-item name="zh-CN">{{M.china}}</paper-item>
+                                  <paper-item name="USA">{{M.america}}</paper-item>
+                                  <paper-item name="other">{{M.elseCountry}}</paper-item>
                               </core-menu>
                           </paper-dropdown>
                       </paper-dropdown-menu>
-                      <paper-input id="realid" label="{{M.cellphoneNumber}}"></paper-input>
+                      <paper-input id="realid" label="{{M.cellphoneNumber}}" value="{{phoneNumber}}"></paper-input>
                       <div horizontal layout>
-                          <paper-input id="realid" label="{{M.smsCode}}"></paper-input>
-                          <paper-button>{{M.sendSmsCode}}</paper-button>
+                          <paper-input id="realid" label="{{M.smsCode}}" value="{{bindPhoneCode}}"></paper-input>
+                          <ticker-button id="getBindPhoneCode" on-tap="{{sendBindPhoneCode}}" disableInterval=60>{{M.sendSmsCode}}</ticker-button>
                       </div>
                       <div class="inner" vertical center layout>
                           <div horizontal layout>

@@ -53,6 +53,8 @@ Polymer 'profile-subpage',
       confirmPwFailed: "Password not consitent"
       changePwFailed: "Change password failed"
       identityVerifyError: "Identity verify fail"
+      badPhoneNumber: "The phone number is incorrect"
+      bindUpdatePhoneError: "Bind phone failed"
     'zh':
       profile: "账户"
       userId: "用户识别号"
@@ -98,17 +100,21 @@ Polymer 'profile-subpage',
       emailCode: "邮件验证码"
       sendEmailCode: "发送邮件验证码"
       emailHasBeenSent: "验证邮件已发送，请输入邮件验证码："
-      bindGoogleAuthError: "绑定谷歌二次验证码失败"
-      unbindGoogleAuthError: "解除绑定谷歌二次验证码失败"
+      bindGoogleAuthError: "绑定谷歌二次验证码失败, 请确保验证码输入正确"
+      unbindGoogleAuthError: "解除绑定谷歌二次验证码失败, 请确保验证码输入正确"
       disableGoogleAuth: "解除双重校验绑定"
       confirmPwFailed: "两次输入的密码不一致"
-      changePwFailed: "修改密码失败"
+      changePwFailed: "修改密码失败, 请检查旧密码是否输入正确"
       identityVerifyError: "实名验证失败"
+      badPhoneNumber: "您输入的手机号码有误"
+      bindUpdatePhoneError: "绑定手机失败, 请检查验证码是否输入正确"
 
   ready: () ->
     @M = @msgMap[window.lang]
     @selectedCountry = "zh-CN"
     @selectedIdType = "idcard"
+    @selectedPhoneCountry = "zh-CN"
+    @sendingBindPhoneCode = false
 
   # ============== google auth =============
   cancelEnableGoogleAuth:() ->
@@ -148,13 +154,44 @@ Polymer 'profile-subpage',
           @fire('display-message', {error: @M.unbindGoogleAuthError})
 
   # ============== cell phone =============
+  regularMobileNumber: (location, number) ->
+      numberTrimed = number.trim()
+      if (location == 'zh-CN')
+          if (numberTrimed.indexOf("+86") == 0)
+              "+86" + numberTrimed.substring(3).trim()
+          else if (numberTrimed.indexOf("0086") == 0)
+              "+86" + numberTrimed.substring(4).trim()
+          else
+              "+86" + numberTrimed
+      else
+          numberTrimed
+
+  validateMobileNumber: (location, number) ->
+      if (location && number)
+          numberTrimed = number.trim()
+          if (location == 'zh-CN')
+              ((numberTrimed.indexOf("+86") == 0) && (numberTrimed.substring(3).trim().length == 11)) || ((numberTrimed.indexOf("0086") == 0) && (numberTrimed.substring(4).trim().length == 11)) || (numberTrimed.length == 11)
+          else if (location == 'USA')
+              numberTrimed.length >= 9
+          else if (location == 'other')
+              numberTrimed.length >= 9
+          else
+              false
+      else
+          false
+
   toggleBindCellphoneCollapse:() ->
       this.$.bindCellphoneCollapse.toggle()
 
   cancelBindCellphone:() ->
       this.$.bindCellphoneCollapse.toggle()
+
   confirmBindCellphone:() ->
-      this.$.bindCellphoneCollapse.toggle()
+      regularPhoneNumber = @regularMobileNumber(@selectedPhoneCountry, @phoneNumber)
+      if (@validateMobileNumber(@selectedPhoneCountry, @phoneNumber))
+          this.$.bindUpdatePhoneAjax.bindUpdatePhone(regularPhoneNumber, "", "", @bindPhoneUuid, @bindPhoneCode)
+      else
+          @fire('display-message', {error: @M.badPhoneNumber})
 
   cancelEnableCellphoneVerify:() ->
       this.$.cellphoneToggleButton.checked = !this.$.cellphoneToggleButton.checked
@@ -165,6 +202,20 @@ Polymer 'profile-subpage',
 
   toggleEnableCellphoneAuth: (e) ->
       this.$.cellphoneSmsCodeCollapse.toggle()
+
+  sendBindPhoneCode: () ->
+      regularPhoneNumber = @regularMobileNumber(@selectedPhoneCountry, @phoneNumber)
+      if (@validateMobileNumber(@selectedPhoneCountry, @phoneNumber))
+          this.$.sendBindPhoneCodeAjax.requireCode(regularPhoneNumber)
+      else
+          @fire('display-message', {error: @M.badPhoneNumber})
+
+  onBindUpdatePhoneSuccess: (e) ->
+      if e.detail.data.result
+          @profile.mobileVerified = true
+          this.$.bindCellphoneCollapse.opened = false
+      else
+          @fire('display-message', {error: @M.bindUpdatePhoneError})
 
   # ============== email =============
   toggleBindEmailCollapse:() ->
