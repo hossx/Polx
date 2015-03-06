@@ -7,7 +7,7 @@
 
 - 很多API的cursor实现不对，而且文档中没有说明cursor是对应返回数据的哪个field。另外cursor是0或者是空字符串的时候API应该正确返回。
 - BUG: the hasMore value of /user/deposits is wrong
-- BUG? 用已经用过的emai注册，返回值错误码不对。实际上应该明确说明各种错误码，并对密码要求做出说明。
+- BUG? 用已经用过的emai注册，返回值错误码不对。实际上应该明确说明各种错误码
 - 增加一个返回huobi,okcoin,coinbase,等其他交易所ticker的api -> /api/v2/external_tickers
 
 ---
@@ -164,7 +164,7 @@
   |code          |说明            |
   | ------------ | ------------- |
   | 0    | 无错误，正常返回 |
-  | 1001 | 缺少的参数说明,参数：{parameter} |
+  | 1001 | 该邮箱已经被注册 |
   | 1002 | 超过流量上限 |
   | 1003 | 系统内部错误 |
   | 1004 | 用户不存在   |
