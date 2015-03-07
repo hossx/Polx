@@ -52,10 +52,10 @@
         <withdraw-subpage active="{{page == 'withdraw'}}" profile="{{profile}}" balance="{{balance}}" currencyId="{{currencyId}}"></withdraw-subpage>
       </section>
       <section page="orders">
-        <orders-subpage active="{{page == 'orders'}}"></orders-trades>
+        <orders-subpage active="{{page == 'orders'}}" profile="{{profile}}"></orders-trades>
       </section>
       <section page="trades">
-        <trades-subpage active="{{page == 'trades'}}"></trades-trades>
+        <trades-subpage active="{{page == 'trades'}}" profile="{{profile}}"></trades-trades>
       </section>
     </cp-right-drawer-page>
   </template>

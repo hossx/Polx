@@ -25,270 +25,268 @@
     <link rel="stylesheet" href="profile-subpage.css">
 
     <section-group hasFooter="true" fit>
-      <paper-shadow z="0">
-        <div label>
-          <h2>{{M.profile}}</h2>
-        </div>
-        <div no-padding class="keyvalues" vertical layout>
-          <div horizontal layout>
-            <div>{{M.userId}}</div>
-            <div flex>{{profile.uid}}</div>
+      <template if="{{profile}}">
+        <paper-shadow z="0">
+          <div label>
+            <h2>{{M.profile}}</h2>
           </div>
+          <div no-padding class="keyvalues" vertical layout>
+            <div horizontal layout>
+              <div>{{M.userId}}</div>
+              <div flex>{{profile.uid}}</div>
+            </div>
 
-          <div horizontal layout>
-            <div>{{M.name}}</div>
-            <div flex>{{profile.realName}}</div>
-          </div>
+            <div horizontal layout>
+              <div>{{M.name}}</div>
+              <div flex>{{profile.realName}}</div>
+            </div>
 
-          <div horizontal layout>
-            <div>Email</div>
-            <div flex>{{profile.email}}</div>
-          </div>
+            <div horizontal layout>
+              <div>Email</div>
+              <div flex>{{profile.email}}</div>
+            </div>
 
-          <div horizontal layout>
-            <div>{{M.cellphone}}</div>
-            <div flex>{{profile.mobile}}</div>
-          </div>
+            <div horizontal layout>
+              <div>{{M.cellphone}}</div>
+              <div flex>{{profile.mobile}}</div>
+            </div>
 
-          <div horizontal layout>
-            <div>{{M.apiTokens}}</div>
-            <div flex vertical layout>
-              <table>
-                <thead>
-                  <tr>
-                    <td>{{M.token}}</td>
-                    <td>{{M.secret}}</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <template repeat="{{pairs in profile.apiTokenPairs}}">
+            <div horizontal layout>
+              <div>{{M.apiTokens}}</div>
+              <div flex vertical layout>
+                <table>
+                  <thead>
                     <tr>
-                      <td>{{pairs[0]}}</td>
-                      <td>{{pairs[1]}}</td>
+                      <td>{{M.token}}</td>
+                      <td>{{M.secret}}</td>
                     </tr>
-                  </template>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <api-change-pw id="changePwAjax" on-success="{{onChangePwSuccess}}"></api-change-pw>
-          <div horizontal layout>
-            <div>{{M.loginPassword}}</div>
-            <paper-button on-tap="{{toggleChangePw}}">{{cpwOpened ? M.cancelChangePassword : M.changePassword}}</paper-button>
-          </div>
-          <core-collapse id="changepwCollapse" opened="{{cpwOpened}}">
-          <div>
-              <div class="outer" vertical center layout>
-                  <div class="inner" vertical left layout>
-                      <paper-input-decorator label="{{M.oldPw}}">
-                          <input is="core-input" type="password" value="{{oldPw}}"></input>
-                      </paper-input-decorator>
-                      <paper-input-decorator label="{{M.newPw}}">
-                          <input is="core-input" type="password" value="{{newPw}}"></input>
-                      </paper-input-decorator>
-                      <paper-input-decorator label="{{M.confirmPw}}">
-                          <input is="core=input" type="password" value="{{confirmPw}}"></input>
-                      </paper-input-decorator>
-                      <div horizontal layout>
-                          <paper-button on-tap="{{cancelChangePw}}">{{M.cancel}}</paper-button>
-                          <paper-button raised on-tap="{{confirmChangePw}}">{{M.confirm}}</paper-button>
-                      </div>
-                  </div>
+                  </thead>
+                  <tbody>
+                    <template repeat="{{pairs in profile.apiTokenPairs}}">
+                      <tr>
+                        <td>{{pairs[0]}}</td>
+                        <td>{{pairs[1]}}</td>
+                      </tr>
+                    </template>
+                  </tbody>
+                </table>
               </div>
-          </div>
-          </core-collapse>
-
-          <div horizontal layout>
-            <div>{{M.identityVerify}}</div>
-            <div flex>
-                <paper-toggle-button id="identityVerifyToggle" checked?={{profile.realName}} on-change="{{toggleEnableIdentityVerify}}"
-                    disabled?={{profile.realName}}></paper-toggle-button>
             </div>
-          </div>
 
-          <api-identity-verify id="identityVerifyAjax" on-success="{{onIdentityVerifySuccess}}"></api-identity-verify>
-          <core-collapse id="identityVerifyCollapse">
-          <div>
-              <div class="outer" vertical center layout>
+            <api-change-pw id="changePwAjax" on-success="{{onChangePwSuccess}}"></api-change-pw>
+            <div horizontal layout>
+              <div>{{M.loginPassword}}</div>
+              <paper-button on-tap="{{toggleChangePw}}">{{cpwOpened ? M.cancelChangePassword : M.changePassword}}</paper-button>
+            </div>
+            <core-collapse id="changepwCollapse" opened="{{cpwOpened}}">
+              <div>
+                <div class="outer" vertical center layout>
                   <div class="inner" vertical left layout>
-                      <paper-input id="realname" label="{{M.realname}}" value="{{realName}}"></paper-input>
-                      <paper-dropdown-menu label="{{M.country}}">
-                          <paper-dropdown class="dropdown">
-                              <core-menu class="menu" selected="{{selectedCountry}}">
-                                  <paper-item name="zh-CN">{{M.china}}</paper-item>
-                                  <paper-item name="USA">{{M.america}}</paper-item>
-                                  <paper-item name="other">{{M.elseCountry}}</paper-item>
-                              </core-menu>
-                          </paper-dropdown>
-                      </paper-dropdown-menu>
-                      <paper-dropdown-menu label="{{M.idType}}">
-                          <paper-dropdown class="dropdown">
-                              <core-menu class="menu" selected="{{selectedIdType}}">
-                                  <paper-item name="idcard">{{M.idCard}}</paper-item>
-                                  <paper-item name="passport">{{M.passport}}</paper-item>
-                              </core-menu>
-                          </paper-dropdown>
-                      </paper-dropdown-menu>
-                      <paper-input id="realid" label="{{M.id}}" value="{{idNumber}}"></paper-input>
-                      <div horizontal layout>
-                          <paper-button on-tap="{{cancelEnableIdentityVerify}}">{{M.cancel}}</paper-button>
-                          <paper-button raised on-tap="{{confirmEnableIdentityVerify}}">{{M.confirm}}</paper-button>
-                      </div>
+                    <paper-input-decorator label="{{M.oldPw}}">
+                      <input is="core-input" type="password" value="{{oldPw}}"></input>
+                    </paper-input-decorator>
+                    <paper-input-decorator label="{{M.newPw}}">
+                      <input is="core-input" type="password" value="{{newPw}}"></input>
+                    </paper-input-decorator>
+                    <paper-input-decorator label="{{M.confirmPw}}">
+                      <input is="core=input" type="password" value="{{confirmPw}}"></input>
+                    </paper-input-decorator>
+                    <div horizontal layout>
+                      <paper-button on-tap="{{cancelChangePw}}">{{M.cancel}}</paper-button>
+                      <paper-button raised on-tap="{{confirmChangePw}}">{{M.confirm}}</paper-button>
+                    </div>
                   </div>
-              </div>
-          </div>
-          </core-collapse>
-
-          <div horizontal layout>
-            <div>{{M.emailVerified}}</div>
-            <template if="{{profile.emailVerified}}">
-                <div flex>
-                  <paper-toggle-button id="emailToggleButton" checked?="{{profile.emailAuthEnabled}}"
-                  on-change="{{toggleEnableEmailAuth}}"></paper-toggle-button>
                 </div>
-            </template>
-            <template if="{{!profile.emailVerified}}">
+              </div>
+            </core-collapse>
+
+            <div horizontal layout>
+              <div>{{M.identityVerify}}</div>
+              <div flex>
+                <paper-toggle-button id="identityVerifyToggle" checked?={{profile.realName}} on-change="{{toggleEnableIdentityVerify}}" disabled?={{profile.realName}}></paper-toggle-button>
+              </div>
+            </div>
+
+            <api-identity-verify id="identityVerifyAjax" on-success="{{onIdentityVerifySuccess}}"></api-identity-verify>
+            <core-collapse id="identityVerifyCollapse">
+              <div>
+                <div class="outer" vertical center layout>
+                  <div class="inner" vertical left layout>
+                    <paper-input id="realname" label="{{M.realname}}" value="{{realName}}"></paper-input>
+                    <paper-dropdown-menu label="{{M.country}}">
+                      <paper-dropdown class="dropdown">
+                        <core-menu class="menu" selected="{{selectedCountry}}">
+                          <paper-item name="zh-CN">{{M.china}}</paper-item>
+                          <paper-item name="USA">{{M.america}}</paper-item>
+                          <paper-item name="other">{{M.elseCountry}}</paper-item>
+                        </core-menu>
+                      </paper-dropdown>
+                    </paper-dropdown-menu>
+                    <paper-dropdown-menu label="{{M.idType}}">
+                      <paper-dropdown class="dropdown">
+                        <core-menu class="menu" selected="{{selectedIdType}}">
+                          <paper-item name="idcard">{{M.idCard}}</paper-item>
+                          <paper-item name="passport">{{M.passport}}</paper-item>
+                        </core-menu>
+                      </paper-dropdown>
+                    </paper-dropdown-menu>
+                    <paper-input id="realid" label="{{M.id}}" value="{{idNumber}}"></paper-input>
+                    <div horizontal layout>
+                      <paper-button on-tap="{{cancelEnableIdentityVerify}}">{{M.cancel}}</paper-button>
+                      <paper-button raised on-tap="{{confirmEnableIdentityVerify}}">{{M.confirm}}</paper-button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </core-collapse>
+
+            <div horizontal layout>
+              <div>{{M.emailVerified}}</div>
+              <template if="{{profile.emailVerified}}">
+                <div flex>
+                  <paper-toggle-button id="emailToggleButton" checked?="{{profile.emailAuthEnabled}}" on-change="{{toggleEnableEmailAuth}}"></paper-toggle-button>
+                </div>
+              </template>
+              <template if="{{!profile.emailVerified}}">
                 <paper-button on-tap="{{toggleBindEmailCollapse}}">{{becOpened ? M.cancelBindEmail: M.bindEmail}}</paper-button>
-            </template>
-          </div>
-          <core-collapse id="bindEmailCollapse" opened="{{becOpened}}">
-          <div>
-              <div class="outer" vertical center layout>
-                  <div class="inner" vertical left layout>
-                      <paper-input id="realid" label="{{M.emailAddress}}"></paper-input>
-                      <div horizontal layout>
-                          <paper-input id="realid" label="{{M.emailCode}}"></paper-input>
-                          <paper-button>{{M.sendEmailCode}}</paper-button>
-                      </div>
-                      <div class="inner" vertical center layout>
-                          <div horizontal layout>
-                              <paper-button on-tap="{{cancelBindEmail}}">{{M.cancel}}</paper-button>
-                              <paper-button raised on-tap="{{confirmBindEmail}}">{{M.confirm}}</paper-button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          </core-collapse>
-          <core-collapse id="emailCodeCollapse">
-          <div>
-              <div class="outer" vertical center layout>
-                  <div class="inner" vertical center layout>
-                      <div>{{M.emailHasBeenSent}}</div>
-                      <paper-input id="code" label="{{M.emailCode}}"></paper-input>
-                      <div horizontal layout>
-                          <paper-button on-tap="{{cancelEnableEmailVerify}}">{{M.cancel}}</paper-button>
-                          <paper-button raised on-tap="{{confirmEnableEmailVerify}}">{{M.confirm}}</paper-button>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          </core-collapse>
-
-          <api-send-mobile-bind-verify-code id="sendBindPhoneCodeAjax" bindPhoneUuid="{{bindPhoneUuid}}"> </api-send-mobile-bind-verify-code>
-          <api-bind-update-phone id="bindUpdatePhoneAjax" on-success="{{onBindUpdatePhoneSuccess}}"></api-bind-update-phone>
-          <div horizontal layout>
-            <div>{{M.cellphoneVerified}}</div>
-            <template if="{{profile.mobileVerified}}">
-                <div flex>
-                  <paper-toggle-button id="cellphoneToggleButton" checked?="{{profile.mobileAuthEnabled}}"
-                  on-change="{{toggleEnableCellphoneAuth}}"></paper-toggle-button>
-                </div>
-            </template>
-            <template if="{{!profile.mobileVerified}}">
-                <paper-button on-tap="{{toggleBindCellphoneCollapse}}">{{cvcOpened ? M.cancelBindCellphone: M.bindCellphone}}</paper-button>
-            </template>
-          </div>
-          <core-collapse id="bindCellphoneCollapse" opened="{{cvcOpened}}">
-          <div>
-              <div class="outer" vertical center layout>
-                  <div class="inner" vertical left layout>
-                      <paper-dropdown-menu label="{{M.country}}">
-                          <paper-dropdown class="dropdown">
-                              <core-menu class="menu" selected="{{selectedPhoneCountry}}">
-                                  <paper-item name="zh-CN">{{M.china}}</paper-item>
-                                  <paper-item name="USA">{{M.america}}</paper-item>
-                                  <paper-item name="other">{{M.elseCountry}}</paper-item>
-                              </core-menu>
-                          </paper-dropdown>
-                      </paper-dropdown-menu>
-                      <paper-input id="realid" label="{{M.cellphoneNumber}}" value="{{phoneNumber}}"></paper-input>
-                      <div horizontal layout>
-                          <paper-input id="realid" label="{{M.smsCode}}" value="{{bindPhoneCode}}"></paper-input>
-                          <ticker-button id="getBindPhoneCode" on-tap="{{sendBindPhoneCode}}" disableInterval=60>{{M.sendSmsCode}}</ticker-button>
-                      </div>
-                      <div class="inner" vertical center layout>
-                          <div horizontal layout>
-                              <paper-button on-tap="{{cancelBindCellphone}}">{{M.cancel}}</paper-button>
-                              <paper-button raised on-tap="{{confirmBindCellphone}}">{{M.confirm}}</paper-button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          </core-collapse>
-          <core-collapse id="cellphoneSmsCodeCollapse">
-          <div>
-              <div class="outer" vertical center layout>
-                  <div class="inner" vertical center layout>
-                      <div>{{M.smsHasBeenSent}}</div>
-                      <paper-input id="code" label="{{M.smsCode}}"></paper-input>
-                      <div horizontal layout>
-                          <paper-button on-tap="{{cancelEnableCellphoneVerify}}">{{M.cancel}}</paper-button>
-                          <paper-button raised on-tap="{{confirmEnableCellphoneVerify}}">{{M.confirm}}</paper-button>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          </core-collapse>
-
-          <div horizontal layout>
-            <div>{{M.twoFactorAuth}}</div>
-            <div flex>
-              <paper-toggle-button id="googleAuthToggleButton" checked?={{profile.googleAuthEnabled}} on-change="{{toggleEnableGoogleAuth}}"></paper-toggle-button>
+              </template>
             </div>
-          </div>
-
-          <api-get-google-auth auto?="{{opened}}" authUrl="{{authUrl}}" secret="{{secret}}"></api-get-google-auth>
-          <api-bind-google-auth id="bindGoogleAuthAjax" on-success="{{onBindGASuccess}}"></api-bind-google-auth>
-          <api-unbind-google-auth id="unbindGoogleAuthAjax" on-success="{{onUnbindGASuccess}}"></api-unbind-google-auth>
-          <core-collapse id="disableGoogleAuthCollapse">
-          <div>
-              <div class="outer" vertical center layout>
-                  <div class="inner" vertical center layout>
-                      <div>{{M.disableGoogleAuth}}</div>
-                      <paper-input id="code" label="{{M.inputPlaceholder}}" value="{{disGACode}}"></paper-input>
+            <core-collapse id="bindEmailCollapse" opened="{{becOpened}}">
+              <div>
+                <div class="outer" vertical center layout>
+                  <div class="inner" vertical left layout>
+                    <paper-input id="realid" label="{{M.emailAddress}}"></paper-input>
+                    <div horizontal layout>
+                      <paper-input id="realid" label="{{M.emailCode}}"></paper-input>
+                      <paper-button>{{M.sendEmailCode}}</paper-button>
+                    </div>
+                    <div class="inner" vertical center layout>
                       <div horizontal layout>
-                          <paper-button on-tap="{{cancelDisableGoogleAuth}}">{{M.cancel}}</paper-button>
-                          <paper-button raised on-tap="{{confirmDisableGoogleAuth}}">{{M.confirm}}</paper-button>
+                        <paper-button on-tap="{{cancelBindEmail}}">{{M.cancel}}</paper-button>
+                        <paper-button raised on-tap="{{confirmBindEmail}}">{{M.confirm}}</paper-button>
                       </div>
+                    </div>
                   </div>
+                </div>
               </div>
-          </div>
-          </core-collapse>
-          <core-collapse id="enableGoogleAuthCollapse" opened="{{opened}}">
-          <div>
-              <div class="outer" vertical center layout>
+            </core-collapse>
+            <core-collapse id="emailCodeCollapse">
+              <div>
+                <div class="outer" vertical center layout>
                   <div class="inner" vertical center layout>
-                      <div>{{M.twoFactorScanInstruction1}}</div>
-                      <div id="qrcode">
-                          <qr-code data={{authUrl}} size="200" margin="1"></qr-code>
-                      </div>
-                      <div>{{twoFactorScanInstruction2}}</div>
-                      <paper-input id="code" label="{{M.inputPlaceholder}}" value="{{enGACode}}"></paper-input>
-                      <div horizontal layout>
-                          <paper-button on-tap="{{cancelEnableGoogleAuth}}">{{M.cancel}}</paper-button>
-                          <paper-button raised on-tap="{{confirmEnableGoogleAuth}}">{{M.confirm}}</paper-button>
-                      </div>
+                    <div>{{M.emailHasBeenSent}}</div>
+                    <paper-input id="code" label="{{M.emailCode}}"></paper-input>
+                    <div horizontal layout>
+                      <paper-button on-tap="{{cancelEnableEmailVerify}}">{{M.cancel}}</paper-button>
+                      <paper-button raised on-tap="{{confirmEnableEmailVerify}}">{{M.confirm}}</paper-button>
+                    </div>
                   </div>
+                </div>
               </div>
+            </core-collapse>
+
+            <api-send-mobile-bind-verify-code id="sendBindPhoneCodeAjax" bindPhoneUuid="{{bindPhoneUuid}}"> </api-send-mobile-bind-verify-code>
+            <api-bind-update-phone id="bindUpdatePhoneAjax" on-success="{{onBindUpdatePhoneSuccess}}"></api-bind-update-phone>
+            <div horizontal layout>
+              <div>{{M.cellphoneVerified}}</div>
+              <template if="{{profile.mobileVerified}}">
+                <div flex>
+                  <paper-toggle-button id="cellphoneToggleButton" checked?="{{profile.mobileAuthEnabled}}" on-change="{{toggleEnableCellphoneAuth}}"></paper-toggle-button>
+                </div>
+              </template>
+              <template if="{{!profile.mobileVerified}}">
+                <paper-button on-tap="{{toggleBindCellphoneCollapse}}">{{cvcOpened ? M.cancelBindCellphone: M.bindCellphone}}</paper-button>
+              </template>
+            </div>
+            <core-collapse id="bindCellphoneCollapse" opened="{{cvcOpened}}">
+              <div>
+                <div class="outer" vertical center layout>
+                  <div class="inner" vertical left layout>
+                    <paper-dropdown-menu label="{{M.country}}">
+                      <paper-dropdown class="dropdown">
+                        <core-menu class="menu" selected="{{selectedPhoneCountry}}">
+                          <paper-item name="zh-CN">{{M.china}}</paper-item>
+                          <paper-item name="USA">{{M.america}}</paper-item>
+                          <paper-item name="other">{{M.elseCountry}}</paper-item>
+                        </core-menu>
+                      </paper-dropdown>
+                    </paper-dropdown-menu>
+                    <paper-input id="realid" label="{{M.cellphoneNumber}}" value="{{phoneNumber}}"></paper-input>
+                    <div horizontal layout>
+                      <paper-input id="realid" label="{{M.smsCode}}" value="{{bindPhoneCode}}"></paper-input>
+                      <ticker-button id="getBindPhoneCode" on-tap="{{sendBindPhoneCode}}" disableInterval=60>{{M.sendSmsCode}}</ticker-button>
+                    </div>
+                    <div class="inner" vertical center layout>
+                      <div horizontal layout>
+                        <paper-button on-tap="{{cancelBindCellphone}}">{{M.cancel}}</paper-button>
+                        <paper-button raised on-tap="{{confirmBindCellphone}}">{{M.confirm}}</paper-button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </core-collapse>
+            <core-collapse id="cellphoneSmsCodeCollapse">
+              <div>
+                <div class="outer" vertical center layout>
+                  <div class="inner" vertical center layout>
+                    <div>{{M.smsHasBeenSent}}</div>
+                    <paper-input id="code" label="{{M.smsCode}}"></paper-input>
+                    <div horizontal layout>
+                      <paper-button on-tap="{{cancelEnableCellphoneVerify}}">{{M.cancel}}</paper-button>
+                      <paper-button raised on-tap="{{confirmEnableCellphoneVerify}}">{{M.confirm}}</paper-button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </core-collapse>
+
+            <div horizontal layout>
+              <div>{{M.twoFactorAuth}}</div>
+              <div flex>
+                <paper-toggle-button id="googleAuthToggleButton" checked?={{profile.googleAuthEnabled}} on-change="{{toggleEnableGoogleAuth}}"></paper-toggle-button>
+              </div>
+            </div>
+
+            <api-get-google-auth auto?="{{opened}}" authUrl="{{authUrl}}" secret="{{secret}}"></api-get-google-auth>
+            <api-bind-google-auth id="bindGoogleAuthAjax" on-success="{{onBindGASuccess}}"></api-bind-google-auth>
+            <api-unbind-google-auth id="unbindGoogleAuthAjax" on-success="{{onUnbindGASuccess}}"></api-unbind-google-auth>
+            <core-collapse id="disableGoogleAuthCollapse">
+              <div>
+                <div class="outer" vertical center layout>
+                  <div class="inner" vertical center layout>
+                    <div>{{M.disableGoogleAuth}}</div>
+                    <paper-input id="code" label="{{M.inputPlaceholder}}" value="{{disGACode}}"></paper-input>
+                    <div horizontal layout>
+                      <paper-button on-tap="{{cancelDisableGoogleAuth}}">{{M.cancel}}</paper-button>
+                      <paper-button raised on-tap="{{confirmDisableGoogleAuth}}">{{M.confirm}}</paper-button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </core-collapse>
+            <core-collapse id="enableGoogleAuthCollapse" opened="{{opened}}">
+              <div>
+                <div class="outer" vertical center layout>
+                  <div class="inner" vertical center layout>
+                    <div>{{M.twoFactorScanInstruction1}}</div>
+                    <div id="qrcode">
+                      <qr-code data={{authUrl}} size="200" margin="1"></qr-code>
+                    </div>
+                    <div>{{twoFactorScanInstruction2}}</div>
+                    <paper-input id="code" label="{{M.inputPlaceholder}}" value="{{enGACode}}"></paper-input>
+                    <div horizontal layout>
+                      <paper-button on-tap="{{cancelEnableGoogleAuth}}">{{M.cancel}}</paper-button>
+                      <paper-button raised on-tap="{{confirmEnableGoogleAuth}}">{{M.confirm}}</paper-button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </core-collapse>
+
           </div>
-          </core-collapse>
-
-        </div>
-      </paper-shadow>
-
+        </paper-shadow>
+      </template>
     </section-group>
   </template>
 
