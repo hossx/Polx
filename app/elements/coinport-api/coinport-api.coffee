@@ -45,6 +45,9 @@ Polymer 'coinport-api',
       @fire('display-message', {'error': @M.badRequest.format(@url)})
     else if xhr.status == 401
       @fire('user-access-denied')
+    else if xhr.status == 404
+      console.error("404 response seen for url: " + @url)
+      @fire('display-message', {'error': @M.internalServiceError.format(@url)})
     else if xhr.status == 500
       console.error("500 response seen for url: " + @url)
       @fire('display-message', {'error': @M.internalServiceError.format(@url)})

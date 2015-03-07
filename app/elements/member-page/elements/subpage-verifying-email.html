@@ -1,14 +1,17 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-spinner/paper-spinner.html">
+<link rel="import" href="../../coinport-api/api-check-activation-code.html">
+
 <polymer-element name="subpage-verifying-email" attributes="token">
   <template>
     <link rel="stylesheet" href="subpage-verifying-email.css">
+    <api-check-activation-code token="{{token}}" loading="{{loading}}" ok="{{ok}" id="ajax"></api-check-activation-code>
 
     <div class="container" vertical layout>
       <div class="label">{{M.label}}</div>
       <div class="form" vertical center center-justified layout>
         <div>
-          <paper-spinner active></paper-spinner>
+          <paper-spinner active?="{{loadding}}"></paper-spinner>
         </div>
         <div>{{M.verifying}}</div>
       </div>
