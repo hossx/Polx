@@ -56,6 +56,7 @@ Polymer 'profile-subpage',
       badPhoneNumber: "The phone number is incorrect"
       bindUpdatePhoneError: "Bind phone failed"
       changePhoneAuthError: "Change phone auth failed"
+      changeEmailAuthError: "Change email auth failed"
     'zh':
       profile: "账户"
       userId: "用户识别号"
@@ -110,6 +111,7 @@ Polymer 'profile-subpage',
       badPhoneNumber: "您输入的手机号码有误"
       bindUpdatePhoneError: "绑定手机失败, 请检查验证码是否输入正确"
       changePhoneAuthError: "更改短信验证设置失败, 请检查验证码是否输入正确"
+      changeEmailAuthError: "更改邮件验证设置失败, 请检查验证码是否输入正确"
 
   ready: () ->
     @M = @msgMap[window.lang]
@@ -240,17 +242,25 @@ Polymer 'profile-subpage',
       this.$.bindEmailCollapse.toggle()
 
   cancelEnableEmailVerify:() ->
-      this.$.emailToggleButton.checked = !this.$.emailToggleButton.checked
-      @toggleEnableEmailAuth()
+      etb = document.querySelectorAll("paper-shadow /deep/ #emailToggleButton")[0]
+      etb.checked = !etb.checked
+      this.$.emailCodeCollapse.toggle()
 
   confirmEnableEmailVerify:() ->
-      @toggleEnableEmailAuth()
+      enableAuth = if @profile.emailAuthEnabled then "0" else "1"
+      this.$.setEmailAuthAjax.setEmailAuth(@emailAuthUuid, @emailVerifyCode, enableAuth)
 
   toggleEnableEmailAuth: (e) ->
-      if not @profile.emailVerified
-          this.$.emailVerifyCollapse.toggle()
+      if !this.$.emailCodeCollapse.opened
+          this.$.getCodeForEmailAuthAjax.getCode(false, true)
+      this.$.emailCodeCollapse.toggle()
+
+  onSetEmailAuthSuccess: (e) ->
+      if e.detail.data.result
+          @profile.emailAuthEnabled = !@profile.emailAuthEnabled
+          this.$.emailCodeCollapse.opened = false
       else
-          this.$.emailCodeCollapse.toggle()
+          @fire('display-message', {error: @M.changeEmailAuthError})
 
   # ============== identity verify =============
   toggleEnableIdentityVerify:() ->

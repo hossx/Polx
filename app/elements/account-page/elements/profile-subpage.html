@@ -12,14 +12,15 @@
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../qr-code/qr-code.html">
 <link rel="import" href="../../coinport-api/api-bind-google-auth.html">
+<link rel="import" href="../../coinport-api/api-bind-update-phone.html">
 <link rel="import" href="../../coinport-api/api-change-pw.html">
 <link rel="import" href="../../coinport-api/api-get-google-auth.html">
 <link rel="import" href="../../coinport-api/api-identity-verify.html">
-<link rel="import" href="../../coinport-api/api-unbind-google-auth.html">
 <link rel="import" href="../../coinport-api/api-send-mobile-bind-verify-code.html">
-<link rel="import" href="../../coinport-api/api-bind-update-phone.html">
 <link rel="import" href="../../coinport-api/api-send-verification-code.html">
+<link rel="import" href="../../coinport-api/api-set-email-auth.html">
 <link rel="import" href="../../coinport-api/api-set-phone-auth.html">
+<link rel="import" href="../../coinport-api/api-unbind-google-auth.html">
 <link rel="import" href="../../cp-widget/ticker-button.html">
 
 <polymer-element name="profile-subpage" attributes="profile">
@@ -141,6 +142,8 @@
             </div>
           </core-collapse>
 
+          <api-send-verification-code id="getCodeForEmailAuthAjax" emailUuid="{{emailAuthUuid}}"> </api-send-verification-code>
+          <api-set-email-auth id="setEmailAuthAjax" on-success="{{onSetEmailAuthSuccess}}"></api-set-email-auth>
           <div horizontal layout>
             <div>{{M.emailVerified}}</div>
             <template if="{{profile.emailVerified}}">
@@ -176,7 +179,7 @@
               <div class="outer" vertical center layout>
                 <div class="inner" vertical center layout>
                   <div>{{M.emailHasBeenSent}}</div>
-                  <paper-input id="code" label="{{M.emailCode}}"></paper-input>
+                  <paper-input id="code" label="{{M.emailCode}}" value="{{emailVerifyCode}}"></paper-input>
                   <div horizontal layout>
                     <paper-button on-tap="{{cancelEnableEmailVerify}}">{{M.cancel}}</paper-button>
                     <paper-button raised on-tap="{{confirmEnableEmailVerify}}">{{M.confirm}}</paper-button>
