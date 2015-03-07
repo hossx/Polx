@@ -1,0 +1,18 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-spinner/paper-spinner.html">
+<polymer-element name="subpage-verifying-email" attributes="token">
+  <template>
+    <link rel="stylesheet" href="subpage-verifying-email.css">
+
+    <div class="container" vertical layout>
+      <div class="label">{{M.label}}</div>
+      <div class="form" vertical center center-justified layout>
+        <div>
+          <paper-spinner active></paper-spinner>
+        </div>
+        <div>{{M.verifying}}</div>
+      </div>
+    </div>
+  </template>
+  <script src="subpage-verifying-email.js"></script>
+</polymer-element>
