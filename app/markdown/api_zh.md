@@ -12,6 +12,7 @@
 - login api需要有些小改动，请见基于用户名和密码的授权部分。 username:password => username:base64_encoded_sha256_of_password
 - GET https://exchange.coinport.com/api/v2/check_activation_code?token=HWW3DU3FUNRHKIFZWPNUIYON7MX5PDC5D3RBQMCB 404 (Not Found)
 - request password reset returns FALSE !!!
+- send_mobile_bind_verify_code and send_verification_code needs to support `version` and `lang`, and use our new template: x2_dynamic_code_(en/zh).
 ---
 
 

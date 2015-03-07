@@ -106,10 +106,6 @@ paper-button, paper-icon-button {
                 background-color: color($grey, 400);
             }
         }
-        #toggleContainer[disabled] {
-            opacity: 0.3;
-            pointer-events: none;
-        }
     }
 }
 @mixin has-background-image($img) {

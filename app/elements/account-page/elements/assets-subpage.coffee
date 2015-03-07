@@ -4,7 +4,7 @@ Polymer 'assets-subpage',
   msgMap:
     'en':
       assets:
-        0: "Assets (Non-Crypto)"
+        0: "Non-Crypto Assets"
         1: "Crypto Assets"
       currency: "Currency"
       total: "Total"

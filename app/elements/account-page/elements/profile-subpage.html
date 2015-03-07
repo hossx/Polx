@@ -179,7 +179,7 @@
               <div class="outer" vertical center layout>
                 <div class="inner" vertical center layout>
                   <div>{{M.emailHasBeenSent}}</div>
-                  <paper-input id="code" label="{{M.emailCode}}" value="{{emailVerifyCode}}"></paper-input>
+                  <paper-input id="code" label="000000" value="{{emailVerifyCode}}"></paper-input>
                   <div horizontal layout>
                     <paper-button on-tap="{{cancelEnableEmailVerify}}">{{M.cancel}}</paper-button>
                     <paper-button raised on-tap="{{confirmEnableEmailVerify}}">{{M.confirm}}</paper-button>
@@ -217,7 +217,7 @@
                       </core-menu>
                     </paper-dropdown>
                   </paper-dropdown-menu>
-                  <paper-input id="realid" label="{{M.cellphoneNumber}}" value="{{phoneNumber}}"></paper-input>
+                  <paper-input id="realid" label="000000" value="{{phoneNumber}}"></paper-input>
                   <div horizontal layout>
                     <paper-input id="realid" label="{{M.smsCode}}" value="{{bindPhoneCode}}"></paper-input>
                     <ticker-button id="getBindPhoneCode" on-tap="{{sendBindPhoneCode}}" disableInterval=60>{{M.sendSmsCode}}</ticker-button>
@@ -237,7 +237,7 @@
               <div class="outer" vertical center layout>
                 <div class="inner" vertical center layout>
                   <div>{{M.smsHasBeenSent}}</div>
-                  <paper-input id="code" label="{{M.smsCode}}" value="{{smsVerifyCode}}"></paper-input>
+                  <paper-input id="code" label="000000" value="{{smsVerifyCode}}"></paper-input>
                   <div horizontal layout>
                     <paper-button on-tap="{{cancelEnableCellphoneVerify}}">{{M.cancel}}</paper-button>
                     <paper-button raised on-tap="{{confirmEnableCellphoneVerify}}">{{M.confirm}}</paper-button>
@@ -262,7 +262,7 @@
               <div class="outer" vertical center layout>
                 <div class="inner" vertical center layout>
                   <div>{{M.disableGoogleAuth}}</div>
-                  <paper-input id="code" label="{{M.inputPlaceholder}}" value="{{disGACode}}"></paper-input>
+                  <paper-input id="code" label="000000" value="{{disGACode}}"></paper-input>
                   <div horizontal layout>
                     <paper-button on-tap="{{cancelDisableGoogleAuth}}">{{M.cancel}}</paper-button>
                     <paper-button raised on-tap="{{confirmDisableGoogleAuth}}">{{M.confirm}}</paper-button>
