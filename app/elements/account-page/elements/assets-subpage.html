@@ -14,90 +14,87 @@
   <template>
     <link rel="stylesheet" href="assets-subpage.css">
     <section-group hasFooter="true" fit>
-      <template if="{{profile}}">
-        <template repeat="{{group,idx in assetGroups}}">
-          <paper-shadow z="0">
-            <div label>
-              <h2>{{M.assets[idx]}}</h2>
-            </div>
-            <div vertical center layout id="table-container">
-              <table class="simple">
-                <thead>
+      <template repeat="{{group,idx in assetGroups}}">
+        <paper-shadow z="0">
+          <div label>
+            <h2>{{M.assets[idx]}}</h2>
+          </div>
+          <div vertical center layout id="table-container">
+            <table class="simple">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th text-left>{{M.currency}}</th>
+                  <th text-right>{{M.total}}</th>
+                  <th text-right>{{M.available}}</th>
+                  <th text-right>{{M.locked}}</th>
+                  <th text-right>{{M.pendingWithdrawal}}</th>
+                  <th colspan=3></th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <template repeat="{{item in group}}">
                   <tr>
-                    <th></th>
-                    <th text-left>{{M.currency}}</th>
-                    <th text-right>{{M.total}}</th>
-                    <th text-right>{{M.available}}</th>
-                    <th text-right>{{M.locked}}</th>
-                    <th text-right>{{M.pendingWithdrawal}}</th>
-                    <th colspan=3></th>
+                    <td>
+                      <template if="{{item.total > 0}}">
+                        <core-icon icon="crypto:{{item.currency.id}}"></core-icon>
+                      </template>
+                    </td>
+                    <td>
+                      <a class="market-link" href="/#/currency/{{item.currency.id}}">{{item.currency.fullName}}</a>
+                    </td>
+                    <td text-right>
+                      <nice-number p="4" v="{{item.total}}"></nice-number>
+                    </td>
+                    <td text-right>
+                      <nice-number p="4" v="{{item.available}}"></nice-number>
+                    </td>
+                    <td text-right>
+                      <nice-number p="4" v="{{item.locked}}"></nice-number>
+                    </td>
+                    <td text-right>
+                      <nice-number p="4" v="{{item.pending}}"></nice-number>
+                    </td>
+                    <td class="op">
+                      <core-tooltip label="{{M.trade}}{{item.currency.name}}">
+                        <paper-icon-button noink on-tap="{{openMarkets}}" id="{{item.currency.id}}" icon="swap-horiz"></paper-icon-button>
+                      </core-tooltip>
+                    </td>
+                    <td class="op">
+                      <core-tooltip label="{{M.deposit}}{{item.currency.name}}">
+                        <paper-icon-button noink currencyId="{{item.currency.id}}" on-tap="{{gotoDeposit}}" icon="communication:call-received"></paper-icon-button>
+                      </core-tooltip>
+                    </td>
+                    <td class="op">
+                      <core-tooltip label="{{M.withdraw}}{{item.currency.name}}">
+                        <paper-icon-button noink currencyId="{{item.currency.id}}" on-tap="{{gotoWithdraw}}" icon="communication:call-made"></paper-icon-button>
+                      </core-tooltip>
+                    </td>
                   </tr>
-                </thead>
-                <tbody>
-
-                  <template repeat="{{item in group}}">
-                    <tr>
-                      <td>
-                        <template if="{{item.total > 0}}">
-                          <core-icon icon="crypto:{{item.currency.id}}"></core-icon>
-                        </template>
-                      </td>
-                      <td>
-                        <a class="market-link" href="/#/currency/{{item.currency.id}}">{{item.currency.fullName}}</a>
-                      </td>
-                      <td text-right>
-                        <nice-number p="4" v="{{item.total}}"></nice-number>
-                      </td>
-                      <td text-right>
-                        <nice-number p="4" v="{{item.available}}"></nice-number>
-                      </td>
-                      <td text-right>
-                        <nice-number p="4" v="{{item.locked}}"></nice-number>
-                      </td>
-                      <td text-right>
-                        <nice-number p="4" v="{{item.pending}}"></nice-number>
-                      </td>
-                      <td class="op">
-                        <core-tooltip label="{{M.trade}}{{item.currency.name}}">
-                          <paper-icon-button noink on-tap="{{openMarkets}}" id="{{item.currency.id}}" icon="swap-horiz"></paper-icon-button>
-                        </core-tooltip>
-                      </td>
-                      <td class="op">
-                        <core-tooltip label="{{M.deposit}}{{item.currency.name}}">
-                          <paper-icon-button noink currencyId="{{item.currency.id}}" on-tap="{{gotoDeposit}}" icon="communication:call-received"></paper-icon-button>
-                        </core-tooltip>
-                      </td>
-                      <td class="op">
-                        <core-tooltip label="{{M.withdraw}}{{item.currency.name}}">
-                          <paper-icon-button noink currencyId="{{item.currency.id}}" on-tap="{{gotoWithdraw}}" icon="communication:call-made"></paper-icon-button>
-                        </core-tooltip>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="marketsContainer" colspan=9>
-                        <core-collapse class="markets" id="{{item.currency.id}}markets">
-                          <div vertical center layout>
-                            <div class="heading" nowrap>Buy / sell {{c.name}} in the following market(s): </div>
-                            <div center horizontal wrap layout>
-                              <template repeat="{{m in marketsFor(item.currency.id)}}">
-                                <div class="market"><a href="/#/marketpro/{{m.id}}">{{m.name}}</a>
-                                </div>
-                              </template>
-                            </div>
+                  <tr>
+                    <td class="marketsContainer" colspan=9>
+                      <core-collapse class="markets" id="{{item.currency.id}}markets">
+                        <div vertical center layout>
+                          <div class="heading" nowrap>Buy / sell {{c.name}} in the following market(s): </div>
+                          <div center horizontal wrap layout>
+                            <template repeat="{{m in marketsFor(item.currency.id)}}">
+                              <div class="market"><a href="/#/marketpro/{{m.id}}">{{m.name}}</a>
+                              </div>
+                            </template>
                           </div>
-                        </core-collapse>
-                      </td>
-                    </tr>
-                  </template>
+                        </div>
+                      </core-collapse>
+                    </td>
+                  </tr>
+                </template>
 
-                </tbody>
-              </table>
-            </div>
-          </paper-shadow>
-        </template>
+              </tbody>
+            </table>
+          </div>
+        </paper-shadow>
       </template>
     </section-group>
-
   </template>
 
   <script src="assets-subpage.js"></script>
