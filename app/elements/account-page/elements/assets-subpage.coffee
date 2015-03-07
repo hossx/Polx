@@ -83,4 +83,3 @@ Polymer 'assets-subpage',
       else 
         nonCrypto.push item
     @assetGroups = [nonCrypto, crypto]
-    console.log(@assetGroups)
