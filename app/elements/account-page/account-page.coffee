@@ -18,15 +18,19 @@ Polymer 'account-page',
     @addEventListener 'goto-account-subpage', (e) ->
       @gotoPage(e.detail.page, e.detail.currencyId)
 
+    @triggerAjax(@page)
+
   gotoPage: (page, currencyId) ->
       @currencyId = currencyId if currencyId
       @page = page if page
 
-  pageChanged: (o, n) ->
-    if n == 'deposit' or n == 'withdraw' or n == 'assets'
+  pageChanged: (o, n) -> @triggerAjax(n)
+
+  triggerAjax: (p) ->
+    if p == 'deposit' or p == 'withdraw' or p == 'assets'
       this.$.balanceAjax.go()
 
-    if n == 'profile'
+    if p == 'profile'
       this.$.profileAjax.go()
 
   profileChanged: (o, n) ->

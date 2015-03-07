@@ -7,7 +7,7 @@ Polymer 'the-router',
   created: () ->
     c = $.cookie('POLX_SESSION')
     if c
-      console.debug(c)
+      console.debug('POLX_SESSION:' + c)
       try
         window.profile = JSON.parse(c)
         @onUserLoggedIn()
