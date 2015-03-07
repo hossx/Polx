@@ -1,7 +1,7 @@
 Polymer 'ticker-button',
     msgMap:
         'en':
-            ticking: "Recend after %ss"
+            ticking: "Resend after %ss"
         'zh':
             ticking: "%s秒后重发"
 
