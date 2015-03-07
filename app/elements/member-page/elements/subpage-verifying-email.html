@@ -5,7 +5,7 @@
 <polymer-element name="subpage-verifying-email" attributes="token">
   <template>
     <link rel="stylesheet" href="subpage-verifying-email.css">
-    <api-check-activation-code token="{{token}}" loading="{{loading}}" ok="{{ok}" id="ajax"></api-check-activation-code>
+    <api-check-activation-code loading="{{loading}}" id="ajax"></api-check-activation-code>
 
     <div class="container" vertical layout>
       <div class="label">{{M.label}}</div>
@@ -14,6 +14,8 @@
           <paper-spinner active?="{{loadding}}"></paper-spinner>
         </div>
         <div>{{M.verifying}}</div>
+      </div>
+      <div class="options">
       </div>
     </div>
   </template>

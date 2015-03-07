@@ -99,3 +99,10 @@ Polymer 'the-router',
       if location.hash == '#/member/register'
         this.$.router.go('/member/check_email')
 
+    @addEventListener 'verify-email-done', (e) ->
+      console.debug("------verify-email-done")
+      if e.detail.ok
+        this.$.router.go('/member/email_verified')
+      else
+        this.$.router.go('/member/email_verification_failed')
+

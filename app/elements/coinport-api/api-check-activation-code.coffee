@@ -1,7 +1,6 @@
 'use strict'
 
 Polymer 'api-check-activation-code',
-  ok: false
 
   check: (token) ->
     @withCredentials = false
@@ -10,4 +9,5 @@ Polymer 'api-check-activation-code',
     
   dataChanged: (o, n) ->
     console.log(@data)
-    @ok = @data.result || false if @data
+    ok = if @data then @data.result else false 
+    @fire('verify-email-done', {ok: ok})
