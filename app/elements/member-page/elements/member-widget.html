@@ -6,8 +6,9 @@
 <link rel="import" href="subpage-forgetpwd.html">
 <link rel="import" href="subpage-logout.html">
 <link rel="import" href="subpage-message.html">
+<link rel="import" href="subpage-verifying-email.html">
 
-<polymer-element name="member-widget" attributes="page">
+<polymer-element name="member-widget" attributes="page,params">
   <template>
     <link rel="stylesheet" href="member-widget.css">
 
@@ -42,6 +43,13 @@
         </paper-shadow>
       </section>
 
+
+      <section id="verify_email">
+        <paper-shadow z="1">
+          <subpage-verifying-email class="subpage" token="{{params}}"></subpage-verifying-email>
+        </paper-shadow>
+      </section>
+
       <section id="email_verified">
         <paper-shadow z="1">
           <subpage-message class="subpage" msg="emailVerified"></subpage-message>
@@ -57,6 +65,15 @@
       <section id="password_sent">
         <paper-shadow z="1">
           <subpage-message class="subpage" msg="passwordSent"></subpage-message>
+        </paper-shadow>
+      </section>
+
+      <section id="verify_pwreset_token">
+        <paper-shadow z="1">
+         
+
+
+
         </paper-shadow>
       </section>
 

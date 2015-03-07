@@ -3,12 +3,12 @@
 <link rel="import" href="../cp-page/cp-page.html">
 <link rel="import" href="elements/member-widget.html">
 
-<polymer-element name="member-page" attributes="page">
+<polymer-element name="member-page" attributes="page,params">
   <template>
     <link rel="stylesheet" href="member-page.css">
     <cp-page id="page" toolbarSelect="/account">
       <div id="container" flex center vertical layout>
-        <member-widget page="{{page}}"></member-widget>
+        <member-widget page="{{page}}" params="{{params}}"></member-widget>
         <div flex></div>
       </div>
     </cp-page>

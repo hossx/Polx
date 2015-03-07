@@ -1,0 +1,6 @@
+@import "../../_colors";
+@import "../../_common";
+@include has-paper-spinner(color($C2, a400));
+.form >div {
+    padding: 40px;
+}
