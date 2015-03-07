@@ -55,6 +55,7 @@ Polymer 'profile-subpage',
       identityVerifyError: "Identity verify fail"
       badPhoneNumber: "The phone number is incorrect"
       bindUpdatePhoneError: "Bind phone failed"
+      changePhoneAuthError: "Change phone auth failed"
     'zh':
       profile: "账户"
       userId: "用户识别号"
@@ -108,6 +109,7 @@ Polymer 'profile-subpage',
       identityVerifyError: "实名验证失败"
       badPhoneNumber: "您输入的手机号码有误"
       bindUpdatePhoneError: "绑定手机失败, 请检查验证码是否输入正确"
+      changePhoneAuthError: "更改短信验证设置失败, 请检查验证码是否输入正确"
 
   ready: () ->
     @M = @msgMap[window.lang]
@@ -184,7 +186,7 @@ Polymer 'profile-subpage',
       this.$.bindCellphoneCollapse.toggle()
 
   cancelBindCellphone:() ->
-      this.$.bindCellphoneCollapse.toggle()
+      this.$.bindCellphoneCollapse.opened = false
 
   confirmBindCellphone:() ->
       regularPhoneNumber = @regularMobileNumber(@selectedPhoneCountry, @phoneNumber)
@@ -194,13 +196,17 @@ Polymer 'profile-subpage',
           @fire('display-message', {error: @M.badPhoneNumber})
 
   cancelEnableCellphoneVerify:() ->
-      this.$.cellphoneToggleButton.checked = !this.$.cellphoneToggleButton.checked
-      @toggleEnableCellphoneAuth()
+      ctb = document.querySelectorAll("paper-shadow /deep/ #cellphoneToggleButton")[0]
+      ctb.checked = !ctb.checked
+      this.$.cellphoneSmsCodeCollapse.opened = false
 
   confirmEnableCellphoneVerify:() ->
-      @toggleEnableCellphoneAuth()
+      enableAuth = if @profile.mobileAuthEnabled then "0" else "1"
+      this.$.setPhoneAuthAjax.setPhoneAuth(@phoneAuthUuid, @smsVerifyCode, enableAuth)
 
   toggleEnableCellphoneAuth: (e) ->
+      if !this.$.cellphoneSmsCodeCollapse.opened
+          this.$.getCodeForPhoneAuthAjax.getCode(true, false)
       this.$.cellphoneSmsCodeCollapse.toggle()
 
   sendBindPhoneCode: () ->
@@ -216,6 +222,13 @@ Polymer 'profile-subpage',
           this.$.bindCellphoneCollapse.opened = false
       else
           @fire('display-message', {error: @M.bindUpdatePhoneError})
+
+  onSetPhoneAuthSuccess: (e) ->
+      if e.detail.data.result
+          @profile.mobileAuthEnabled = !@profile.mobileAuthEnabled
+          this.$.cellphoneSmsCodeCollapse.opened = false
+      else
+          @fire('display-message', {error: @M.changePhoneAuthError})
 
   # ============== email =============
   toggleBindEmailCollapse:() ->

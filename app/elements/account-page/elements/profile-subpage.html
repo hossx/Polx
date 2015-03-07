@@ -18,6 +18,8 @@
 <link rel="import" href="../../coinport-api/api-unbind-google-auth.html">
 <link rel="import" href="../../coinport-api/api-send-mobile-bind-verify-code.html">
 <link rel="import" href="../../coinport-api/api-bind-update-phone.html">
+<link rel="import" href="../../coinport-api/api-send-verification-code.html">
+<link rel="import" href="../../coinport-api/api-set-phone-auth.html">
 <link rel="import" href="../../cp-widget/ticker-button.html">
 
 <polymer-element name="profile-subpage" attributes="profile">
@@ -185,11 +187,13 @@
               </div>
             </core-collapse>
 
-            <api-send-mobile-bind-verify-code id="sendBindPhoneCodeAjax" bindPhoneUuid="{{bindPhoneUuid}}"> </api-send-mobile-bind-verify-code>
-            <api-bind-update-phone id="bindUpdatePhoneAjax" on-success="{{onBindUpdatePhoneSuccess}}"></api-bind-update-phone>
-            <div horizontal layout>
-              <div>{{M.cellphoneVerified}}</div>
-              <template if="{{profile.mobileVerified}}">
+          <api-send-mobile-bind-verify-code id="sendBindPhoneCodeAjax" bindPhoneUuid="{{bindPhoneUuid}}"> </api-send-mobile-bind-verify-code>
+          <api-bind-update-phone id="bindUpdatePhoneAjax" on-success="{{onBindUpdatePhoneSuccess}}"></api-bind-update-phone>
+          <api-send-verification-code id="getCodeForPhoneAuthAjax" phoneUuid="{{phoneAuthUuid}}"> </api-send-verification-code>
+          <api-set-phone-auth id="setPhoneAuthAjax" on-success="{{onSetPhoneAuthSuccess}}"></api-set-phone-auth>
+          <div horizontal layout>
+            <div>{{M.cellphoneVerified}}</div>
+            <template if="{{profile.mobileVerified}}">
                 <div flex>
                   <paper-toggle-button id="cellphoneToggleButton" checked?="{{profile.mobileAuthEnabled}}" on-change="{{toggleEnableCellphoneAuth}}"></paper-toggle-button>
                 </div>
@@ -230,12 +234,12 @@
               <div>
                 <div class="outer" vertical center layout>
                   <div class="inner" vertical center layout>
-                    <div>{{M.smsHasBeenSent}}</div>
-                    <paper-input id="code" label="{{M.smsCode}}"></paper-input>
-                    <div horizontal layout>
-                      <paper-button on-tap="{{cancelEnableCellphoneVerify}}">{{M.cancel}}</paper-button>
-                      <paper-button raised on-tap="{{confirmEnableCellphoneVerify}}">{{M.confirm}}</paper-button>
-                    </div>
+                      <div>{{M.smsHasBeenSent}}</div>
+                      <paper-input id="code" label="{{M.smsCode}}" value="{{smsVerifyCode}}"></paper-input>
+                      <div horizontal layout>
+                          <paper-button on-tap="{{cancelEnableCellphoneVerify}}">{{M.cancel}}</paper-button>
+                          <paper-button raised on-tap="{{confirmEnableCellphoneVerify}}">{{M.confirm}}</paper-button>
+                      </div>
                   </div>
                 </div>
               </div>
