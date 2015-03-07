@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 Polymer 'api-my-profile',
   created: () ->

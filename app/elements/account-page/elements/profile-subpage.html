@@ -220,7 +220,7 @@
                   <paper-input id="realid" label="000000" value="{{phoneNumber}}"></paper-input>
                   <div horizontal layout>
                     <paper-input id="realid" label="{{M.smsCode}}" value="{{bindPhoneCode}}"></paper-input>
-                    <ticker-button id="getBindPhoneCode" on-tap="{{sendBindPhoneCode}}" disableInterval=60>{{M.sendSmsCode}}</ticker-button>
+                    <ticker-button on-tap="{{sendBindPhoneCode}}" disableInterval=60>{{M.sendSmsCode}}</ticker-button>
                   </div>
                   <div class="inner" vertical center layout>
                     <div horizontal layout>

@@ -79,6 +79,15 @@
         padding: 20px;
         border: 1px dashed color($C3, a700);
     }
+    .red {
+        color: color($C3, a700);
+    }
+    .info {
+        margin-top: 20px;
+        color: color($C3, a070);
+        padding: 20px;
+        border: 1px dashed color($C3, a070);
+    }
     .alsoNote {
         width: 100%;
         color: $black2;

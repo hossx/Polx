@@ -54,7 +54,8 @@
                 <div class="alsoNote">
                   <core-icon icon="info-outline"></core-icon>
                   <ul>
-                    <li>每次提现的最小金额为 100 {{currency.unit}}。</li>
+                    <li>每次提现的最小金额为 {{fee['CNY']['l']}}。</li>
+                    <li>提现手续费： {{fee['CNY']['f']}}。</li>
                     <li>{{currency.name}}提现需要人工处理，我们的服务时间是北京时间早10点到晚10点。</li>
                     <li>在上述时间内，您的提现一般会在一个小时内被处理。</li>
                   </ul>
@@ -66,6 +67,7 @@
                   <core-icon icon="info-outline"></core-icon>
                   <ul>
                     <li>The minimum amount for withdraw is 100 {{currency.unit}}.</li>
+                    <li>CNY withdrawal fee: {{fee['CNY']['f']}}.</li>
                     <li>Manual processing of {{currency.name}} is only available between 10:00AM and 10:00PM Beijing Time.</li>
                     <li>During the above hours, we nomally process your requests within 1 hour.</li>
                   </ul>
@@ -74,115 +76,49 @@
             </div>
           </template>
 
-          <template if="{{currency.id == 'GOOC'}}">
-            <div class="instruction" vertical start layout>
-              <template if="{{lang == 'zh'}}">
-                <div class="alsoNote">
-                  <core-icon icon="info-outline"></core-icon>
-                  <ul>
-                    <li>每次提现的最小金额为 1000 {{currency.unit}}。</li>
-                    <li>{{currency.name}}提现需要人工处理，我们的服务时间是北京时间早10点到晚10点。</li>
-                    <li>在上述时间内，您的提现一般会在一个小时内到账。</li>
-                  </ul>
-                </div>
-              </template>
-              <template if="{{lang == 'en'}}">
-                <div>Please send your {{currency.fullName}} to account:
-                  <crypto-address currency="{{currency}}" addr="50001"></crypto-address>
-                </div>
-                <div class="alsoNote">
-                  <core-icon icon="info-outline"></core-icon>
-                  <ul>
-                    <li>The minimum amount for withdraw is 1000 {{currency.unit}}.</li>
-                    <li>Manual processing of {{currency.name}} is only available between 10:00AM and 10:00PM Beijing Time.</li>
-                    <li>During the above hours, we nomally credit your account within 1 hour.</li>
-                  </ul>
-                </div>
-              </template>
-            </div>
-          </template>
-
-          <template if="{{currency.id == 'XRP'}}">
-            <div class="instruction" vertical start layout>
-              <template if="{{lang == 'zh'}}">
-                <div>请将您的{{currency.name}}提现到:
-                  <crypto-address currency="{{currency}}" addr="r9AzyYGGQAvgefdgeu3eDHaVdxLdpAvchE"></crypto-address>
-                  或者
-                  <crypto-address currency="{{currency}}" addr="coinportXrpwithdraw"></crypto-address>
-                </div>
-                <div class="warning">
-                  <b>重要提示：</b> 转账时请一定把 “<b>{{profile.uid}}</b>”（您的用户ID，而不是您注册所有的email） 作为 “Destination Tag” 输入到钱包。不这么做您的提现不会成功！
-                </div>
-              </template>
-
-              <template if="{{lang == 'en'}}">
-                <div>Please send your {{currency.name}} to:
-                  <crypto-address currency="{{currency}}" addr="r9AzyYGGQAvgefdgeu3eDHaVdxLdpAvchE"></crypto-address>
-                  or
-                  <crypto-address currency="{{currency}}" addr="coinportXrpwithdraw"></crypto-address>
-                </div>
-                <div class="warning">
-                  <b>Attention:</b> Please make sure you put "{{profile.uid}}"(your user ID, not your email) as the "Destination Tag".
-                  Failing to do so may invalid your withdraw!
-                </div>
-              </template>
-            </div>
-          </template>
-
-          <template if="{{currency.id == 'BTSX'}}">
-            <div class="instruction" vertical start layout>
-              <template if="{{lang == 'zh'}}">
-                <div>请将您的{{currency.name}}提现到:
-                  <crypto-address currency="{{currency}}" addr="BTS5FPJkXFwokNEsRLwfWvPKAbzriNLS5ut823rMzHbpKMg9QgYWZ"></crypto-address>
-                  或者
-                  <crypto-address currency="{{currency}}" addr="coinport-withdraw"></crypto-address>
-                </div>
-                <div class="warning">
-                  <b>重要提示：</b> 转账时请一定把 “<b>{{profile.uid}}</b>”（您的用户ID） 作为 “Memo” 输入到钱包。不这么做您的提现不会成功！
-                </div>
-              </template>
-
-              <template if="{{lang == 'en'}}">
-                <div>Please send your {{currency.name}} to:
-                  <crypto-address currency="{{currency}}" addr="r9AzyYGGQAvgefdgeu3eDHaVdxLdpAvchE"></crypto-address>
-                  or
-                  <crypto-address currency="{{currency}}" addr="coinportXrpwithdraw"></crypto-address>
-                </div>
-                <div class="warning">
-                  <b>Attention:</b> Please make sure you put "{{profile.uid}}"(your user ID) as the "Memo". Failing to do so may invalid
-                  your withdraw!
-                </div>
-              </template>
-            </div>
-          </template>
-
-          <template if="{{currency.id == 'NXT'}}">
-            <div class="instruction" vertical start layout>
-              <div>Please send your {{currency.name}} to:
-                <crypto-address currency="{{currency}}" addr="{{nxtAddressComponents[0]}}"></crypto-address> or
-                <crypto-address currency="{{currency}}" addr="{{nxtAddressComponents[1]}}"></crypto-address>
+          <template if="{{currency.id != 'CNY'}}">
+              <div class="instruction" vertical center layout>
+                  <div class="info">
+                      {{currency.id | genWithdrawalDesc}}
+                      <template if="{{currency.id == 'BTSX'}}">
+                          <div class="red">
+                              <template if="{{lang=='zh'}}">
+                                  BTSX目前只支持使用已注册的帐号提币（比如coinport-deposit）。
+                              </template>
+                              <template if="{{lang=='en'}}">
+                                  Due to BTSX's API, now only support registered ID(Eg. coinport-deposit) to withdraw.
+                              </template>
+                          </div>
+                      </template>
+                  </div>
               </div>
-              <div>You can scan this QR code with your {{currency.name}} wallet:</div>
-
-              <div self-center id="qrcode">
-                <qr-code data="{{nxtAddressComponents[0]}}" size="200" margin="1"></qr-code>
-              </div>
-
-              <div class="alsoNote">
-                <core-icon icon="info-outline"></core-icon>
-                <ul>
-                  <li>This is a new address, pleae use it's public key: <span class="quote">{{nxtAddressComponents[2]}}</span>.</li>
-                </ul>
-              </div>
-            </div>
           </template>
-
-          <template if="{{currency.id != 'CNY' && currency.id != 'GOOC' && currency.id != 'XRP' && currency.id != 'BTSX' && currency.id != 'NXT'}}">
-            <div class="instruction" vertical center layout>
-              <withdraw-widget currency="{{currency}}" balance="{{selectedBalance}}"></withdraw-widget>
-            </div>
-          </template>
-
+          <div class="instruction" vertical center layout>
+            <withdraw-widget
+            balance="{{selectedBalance}}"
+            limit="{{getWithdrawalLimit(currency.id)}}"
+            currency="{{currency.id}}"
+            needEmailAuth="{{profile.emailAuthEnabled}}"
+            needMobileAuth="{{profile.mobileAuthEnabled}}"
+            needGoogleAuth="{{profile.googleAuthEnabled}}"
+            needWithdrawalAddress="{{currency.id != 'CNY'}}"
+            needBankAddress="{{currency.id == 'CNY'}}"
+            address="{{withdrawalAddress}}"
+            cnyAddress="{{cnyAddress}}"
+            quantity="{{quantity}}"
+            emailVCode="{{emailVCode}}"
+            smsVCode="{{smsVCode}}"
+            googleVCode="{{googleVCode}}"
+            emailUuid="{{emailUuid}}"
+            phoneUuid="{{phoneUuid}}"
+            pubkey="{{pubkey}}"
+            memo="{{memo}}"
+            needPubkey="{{currency.id == 'NXT'}}"
+            needMemo="{{currency.id == 'BTSX'}}"
+            realname="{{profile.realName}}"
+            on-withdraw-succeed="{{onWithdrawSucceed}}"
+            ></withdraw-widget>
+          </div>
         </div>
       </paper-shadow>
 

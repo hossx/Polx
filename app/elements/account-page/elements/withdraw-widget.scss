@@ -21,7 +21,24 @@
                 border-left: 1px solid $border-color;
                 border-radius-top-right: $border-radius;
                 border-radius-bottom-right: $border-radius;
-                min-width: 150px;
+                min-width: 40px;
+                background: color($grey, 200);
+                color: $black2;
+                font-weight: bold;
+                height: $height;
+                border-radius: 0;
+                margin: 0;
+                &:hover {
+                    background: color($grey, 50);
+                }
+            }
+            ticker-button {
+                text-transform: none;
+                border: 0;
+                border-left: 1px solid $border-color;
+                border-radius-top-right: $border-radius;
+                border-radius-bottom-right: $border-radius;
+                min-width: 106px;
                 background: color($grey, 200);
                 color: $black2;
                 font-weight: bold;
@@ -35,6 +52,34 @@
         }
         .action {
             margin-top: 20px;
+        }
+    }
+    #addBankCardCollapse {
+        padding-bottom: 7px;
+    }
+}
+.dropdownMenu {
+    padding: 0 10px;
+    width: 250px;
+    background: color($C1, 900);
+    color: $white1;
+    font-weight: 700;
+    padding: 0 10px;
+    .dropdown {
+        font-weight: 400;
+        background: color($C1, 900);
+        max-height: 400px;
+        min-width: 160px;
+        core-item {
+            padding: 0 10px;
+            &:hover {
+                background: color($C2, a400);
+            }
+            &[active] {
+                background: white;
+                font-weight: 400;
+                color: $black1;
+            }
         }
     }
 }

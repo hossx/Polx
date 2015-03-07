@@ -26,5 +26,5 @@ Polymer 'account-page',
     if n == 'deposit' or n == 'withdraw' or n == 'assets'
       this.$.balanceAjax.go()
 
-    if n == 'profile'
+    if n == 'profile' or n == 'withdraw'
       this.$.profileAjax.go()

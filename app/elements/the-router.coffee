@@ -50,7 +50,7 @@ Polymer 'the-router',
         z.livechat.setNotes(JSON.stringify(window.profile))
 
     if location.hash == '#/member/login' or location.hash == '#/member/forgetpwd'
-      this.$.router.go('/account/profile')
+      this.$.router.go('/account/withdraw')
     else if location.hash == '#/member/logged_out'
       this.$.router.go('/member/logout')
 

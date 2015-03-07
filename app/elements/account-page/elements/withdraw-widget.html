@@ -1,18 +1,79 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/core-collapse/core-collapse.html">
 <link rel="import" href="../../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../../bower_components/core-input/core-input.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../coinport-api/api-send-verification-code.html">
+<link rel="import" href="../../coinport-api/api-submit-withdrawal.html">
+<link rel="import" href="../../coinport-api/api-query-bankcards.html">
+<link rel="import" href="../../coinport-api/api-remove-bankcard.html">
+<link rel="import" href="../../coinport-api/api-add-bankcard.html">
+<link rel="import" href="../../cp-widget/ticker-button.html">
 
-<polymer-element name="withdraw-widget" attributes="selectedBalance,currency,needPubkey,needMemo" vertical layout>
+<polymer-element name="withdraw-widget" attributes="balance,limit,currency,needPubkey,needMemo,needEmailAuth,needMobileAuth,
+  needGoogleAuth,needWithdrawalAddress,needBankAddress,address,cnyAddress,quantity,emailVCode,smsVCode,googleVCode,pubkey,memo,emailUuid,phoneUuid,realname" vertical layout>
   <template>
     <link rel="stylesheet" href="withdraw-widget.css">
     <div class="form-wrapper" vertical layout>
-      <div class="inner-wrapper" horizontal center-justified layout>
-        <input flex is="core-input" placeholder="{{M.quantity}}" value="{{quantity}}" committedValue="{{committedQuantity}}">
-      </div>
+      <template if="{{needWithdrawalAddress}}">
+        <div class="inner-wrapper" horizontal center-justified layout>
+          <input flex is="core-input" placeholder="{{M.address}}" value="{{address}}" committedValue="{{committedAddress}}">
+        </div>
+      </template>
+      <template if="{{needBankAddress}}">
+        <api-query-bankcards id="queryCardsAjax" auto cards="{{cards}}"></api-query-bankcards>
+        <api-remove-bankcard id="removeBankCardAjax" on-success="{{removeBankCardSuccess}}"></api-remove-bankcard>
+        <div class="inner-wrapper" horizontal center-justified layout>
+          <core-dropdown-menu flex label="{{M.chooseBankCard}}" class="dropdownMenu" disabled?="{{cards.length==0}}">
+            <core-dropdown class="dropdown">
+              <core-menu selected="{{cnyAddress}}" selectedIndex="{{cardIndex}}">
+                <template repeat="{{card in cards}}">
+                  <core-item name="{{bankCardToString(card)}}">{{bankCardToString(card)}}</core-item>
+                </template>
+              </core-menu>
+            </core-dropdown>
+          </core-dropdown-menu>
+          <paper-button disabled?="{{cards.length==0}}" on-tap="{{removeBankCard}}">{{M.removeBankcard}}</paper-button>
+          <paper-button on-tap="{{toggleAddBankCardCollapse}}">{{M.addBankcard}}</paper-button>
+        </div>
+      </template>
+      <api-send-verification-code id="getEmailCodeForAddCardAjax" emailUuid="{{emailUuidForAddCard}}"> </api-send-verification-code>
+      <api-add-bankcard id="addBankCardAjax" on-success="{{addBankCardSuccess}}"></api-add-bankcard>
+      <core-collapse id="addBankCardCollapse">
+          <div class="outer" vertical center layout>
+              <div class="inner" vertical left layout>
+                  <paper-input value="{{realname}}" disabled></paper-input>
+                  <paper-input label="{{M.account}}" value="{{account}}"></paper-input>
+
+                  <div class="inner-wrapper" horizontal center-justified layout>
+                    <core-dropdown-menu flex label="{{M.chooseBank}}" class="dropdownMenu">
+                      <core-dropdown class="dropdown">
+                        <core-menu selected="{{bank}}">
+                          <template repeat="{{b in banks}}">
+                            <core-item name="{{b}}">{{b}}</core-item>
+                          </template>
+                        </core-menu>
+                      </core-dropdown>
+                    </core-dropdown-menu>
+                  </div>
+
+                  <paper-input label="{{M.branch}}" value="{{branch}}"></paper-input>
+                  <div horizontal layout>
+                    <paper-input flex label="{{M.emailVCode}}" value="{{emailVCodeForAddCard}}"></paper-input>
+                    <ticker-button on-tap="{{retrieveEmailCodeForAddCard}}" disableInterval=60>{{M.retrieveEmailVCode}}</ticker-button>
+                  </div>
+                  <div class="inner" vertical center layout>
+                    <div horizontal layout>
+                      <paper-button on-tap="{{cancelAddCard}}">{{M.cancel}}</paper-button>
+                      <paper-button raised on-tap="{{confirmAddCard}}">{{M.confirm}}</paper-button>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </core-collapse>
 
       <div class="inner-wrapper" horizontal center-justified layout>
-        <input flex is="core-input" placeholder="{{M.address}}" value="{{address}}" committedValue="{{committedAddress}}">
+        <input flex is="core-input" placeholder="{{M.quantity}}" value="{{quantity}}" committedValue="{{committedQuantity}}">
       </div>
 
       <template if="{{needMemo}}">
@@ -27,17 +88,31 @@
         </div>
       </template>
 
-      <div class="inner-wrapper" horizontal center-justified layout>
-        <input flex is="core-input" placeholder="{{M.smsVCode}}" value="{{smsVCode}}" committedValue="{{committedSmsVCode}}">
-        <paper-button>{{M.retrieveSmsVCode}}</paper-button>
-      </div>
+      <api-send-verification-code id="getEmailCodeAjax" emailUuid="{{emailUuid}}"> </api-send-verification-code>
+      <template if="{{needEmailAuth}}">
+        <div class="inner-wrapper" horizontal center-justified layout>
+          <input flex is="core-input" placeholder="{{M.emailVCode}}" value="{{emailVCode}}" committedValue="{{committedEmailVCode}}">
+          <ticker-button on-tap="{{retrieveEmailCode}}" disableInterval=60>{{M.retrieveEmailVCode}}</ticker-button>
+        </div>
+      </template>
 
-      <div class="inner-wrapper" horizontal center-justified layout>
-        <input flex is="core-input" placeholder="{{M.emailVCode}}" value="{{emailVCode}}" committedValue="{{committedEmailVCode}}">
-        <paper-button>{{M.retrieveEmailVCode}}</paper-button>
-      </div>
+      <api-send-verification-code id="getPhoneCodeAjax" phoneUuid="{{phoneUuid}}"> </api-send-verification-code>
+      <template if="{{needMobileAuth}}">
+        <div class="inner-wrapper" horizontal center-justified layout>
+          <input flex is="core-input" placeholder="{{M.smsVCode}}" value="{{smsVCode}}" committedValue="{{committedSmsVCode}}">
+          <ticker-button on-tap="{{retrievePhoneCode}}" disableInterval=60>{{M.retrieveSmsVCode}}</ticker-button>
+        </div>
+      </template>
+
+      <template if="{{needGoogleAuth}}">
+        <div class="inner-wrapper" horizontal center-justified layout>
+          <input flex is="core-input" placeholder="{{M.googleVCode}}" value="{{googleVCode}}" committedValue="{{committedSmsVCode}}">
+        </div>
+      </template>
+
+      <api-submit-withdrawal id="submitWithdrawalAjax" on-success="{{onSubmitWithdrawalSuccess}}"> </api-submit-withdrawal>
       <div class="action" self-center>
-        <paper-button class="primary">{{M.withdraw}}</paper-button>
+        <paper-button class="primary" on-tap="{{submitWithdrawal}}">{{M.withdraw}}</paper-button>
       </div>
     </div>
   </template>
