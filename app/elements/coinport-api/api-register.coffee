@@ -10,7 +10,6 @@ Polymer 'api-register',
     pwdhash = $.sha256b64(@password)
     @method = 'POST'
     @contentType = 'application/json'
-    console.log(pwdhash)
     @body = '{"email":"%s","pwdhash":"%s","exchangeVersion":"v2","lang":"%s"}'.format(@email, pwdhash,window.lang)
     console.log(@body)
     @go()

@@ -7,40 +7,45 @@ Polymer 'subpage-message',
       register: "还没有账号？注册一个吧。"
 
       checkEmail:
-        label: "Check Your Email"
+        label: "请检查邮箱"
         details: [
-          "We just send you an email for your membership confirmation. You need to click the link in the email to activate your account.",
-          "Please give the email a couple of minutes to arrive. If you still don't find it in your mailbox after a while, go ahead and check the spam folder."
-          "Thank you."]
+          "感谢您注册币丰港交易所账号。我们刚刚发送了一封email给您，请点击其中的链接对您的邮箱进行验证。",
+          "如果您几分钟后依然没收到邮件，请检查下垃圾邮件。"
+          "谢谢。"]
 
       emailVerified:
-        label: "Email Verified"
+        label: "邮箱验证完成"
         details: [
-          "We have verified your email address.",
-          "You can take advantage of all Coinport services."
-          "Happy trading!"]
+          "我们已经验证了您的邮箱。",
+          "现在您可以使用币丰港进行各种交易了。"]
 
       emailVerificationFailed:
-        label: "Email Verification Failed"
+        label: "邮箱验证失败"
         details: [
-          "We cannot verify your email address.",
-          "You many need to try again."]
+          "您试图使用的邮箱验证令牌无效。",
+          "请联系我们。"]
 
-      passwordSent:
-        label: "Check Your Email"
+      pwresetTokenSent:
+        label: "请检查邮箱"
         details: [
-          "We just send you an email to with a link to reset your password. Your current password is still valid until a new one is set.",
-          "Please give the email a couple of minutes to arrive. If you still don't find it in your mailbox after a while, go ahead and check the spam folder."
-          "Thank you."]
+          "如果您的email已经在币丰港注册，您将很快收到重置密码的email。请按照其中的指示操作。",
+          "如果您几分钟后依然没收到邮件，请检查下垃圾邮件。"
+          "谢谢。"]
+
+      pwresetTokenInvalid:
+        label: "无法重置密码"
+        details: [
+          "您试图使用的重置密码令牌无效。",
+          "你需要再次请求重置密码。"]
 
       passwordChanged:
-        label: "Password Changed"
+        label: "密码更改成功"
         details: [
-          "Your password has bee successfully changed.",
-          "Thank you."]
+          "您的密码已经更改成功。",
+          "谢谢。"]
 
       loggedOut:
-        label: "已经登出"
+        label: "已登出系统"
         details: [
           "您已经成功登出系统。",
           "回见。"]
@@ -68,12 +73,19 @@ Polymer 'subpage-message',
           "We cannot verify your email address.",
           "You many need to try again."]
 
-      passwordSent:
+      pwresetTokenSent:
         label: "Check Your Email"
         details: [
-          "We just send you an email to with a link to reset your password. Your current password is still valid until a new one is set.",
+          "If your email has been registered already, we will send you an email with a link to reset your password. Your current password is still valid until a new one is set.",
           "Please give the email a couple of minutes to arrive. If you still don't find it in your mailbox after a while, go ahead and check the spam folder."
           "Thank you."]
+
+      pwresetTokenInvalid:
+        label: "Unable to Reset Password"
+        details: [
+          "Your token for resetting password is invalid.",
+          "You many need to try again."]
+
 
       passwordChanged:
         label: "Password Changed"

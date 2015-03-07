@@ -10,6 +10,8 @@
 - BUG? 用已经用过的emai注册，返回值错误码不对。实际上应该明确说明各种错误码
 - 增加一个返回huobi,okcoin,coinbase,等其他交易所ticker的api -> /api/v2/external_tickers
 - login api需要有些小改动，请见基于用户名和密码的授权部分。 username:password => username:base64_encoded_sha256_of_password
+- GET https://exchange.coinport.com/api/v2/check_activation_code?token=HWW3DU3FUNRHKIFZWPNUIYON7MX5PDC5D3RBQMCB 404 (Not Found)
+- request password reset returns FALSE !!!
 ---
 
 

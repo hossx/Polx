@@ -2,14 +2,13 @@
 <link rel="import" href="../../../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../../bower_components/core-a11y-keys/core-a11y-keys.html">
-<link rel="import" href="../../coinport-api/api-login.html">
+<link rel="import" href="../../coinport-api/api-request-password-reset.html">
 
 <polymer-element name="subpage-forgetpwd">
   <template>
     <link rel="stylesheet" href="subpage-forgetpwd.css">
 
-    <api-login id="loginAjax" email="{{email}}" password="{{password}}"></api-login>
-
+    <api-request-password-reset id="ajax"></api-request-password-reset>
     <div class="container" vertical layout>
       <div class="label">{{M.title}}</div>
       <div class="form">
@@ -19,8 +18,8 @@
         <div class="errorMsg">{{errorMsg}}</div>
       </div>
       <div class="action" vertical center-justified layout>
-        <paper-button class="primary" on-tap="{{doReset}}">{{M.reset}}</paper-button>
-        <core-a11y-keys target="{{}}" keys="enter" on-keys-pressed="{{doReset}}"></core-a11y-keys>
+        <paper-button class="primary" on-tap="{{requestResetPasswd}}">{{M.reset}}</paper-button>
+        <core-a11y-keys target="{{}}" keys="enter" on-keys-pressed="{{requestResetPasswd}}"></core-a11y-keys>
       </div>
       <div class="options" horizontal center-justified layout>
         <a href="/#/member/register">

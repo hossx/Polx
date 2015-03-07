@@ -106,3 +106,9 @@ Polymer 'the-router',
       else
         this.$.router.go('/member/email_verification_failed')
 
+    @addEventListener 'request-passwd-reset-done', (e) ->
+      console.debug("------request-passwd-reset-done")
+      this.$.router.go('/member/pwreset_token_sent')
+
+
+

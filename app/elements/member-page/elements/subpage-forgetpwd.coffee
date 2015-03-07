@@ -18,5 +18,6 @@ Polymer 'subpage-forgetpwd',
   ready: () ->
     @M = @msgMap[window.lang]
 
-  doReset: () ->
-    console.log("TODO: doReset")
+  requestResetPasswd: () ->
+    console.log("TODO: requestResetPasswd")
+    this.$.ajax.request(@email) if @email
