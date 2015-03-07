@@ -9,7 +9,7 @@
 - BUG: the hasMore value of /user/deposits is wrong
 - BUG? 用已经用过的emai注册，返回值错误码不对。实际上应该明确说明各种错误码
 - 增加一个返回huobi,okcoin,coinbase,等其他交易所ticker的api -> /api/v2/external_tickers
-
+- login api需要有些小改动，请见基于用户名和密码的授权部分。 username:password => username:base64_encoded_sha256_of_password
 ---
 
 
@@ -188,9 +188,9 @@
 通过Authorization Header认证流程如下：
 
 ###1. 基于用户名密码的认证授权
-1. 将用户名和sha256加密过的密码用":"连在一起，得到：
+1. 将用户名和sha256加密并用base64编码过的密码用":"连在一起，得到：
   ```
-    username:password
+    username:base64_encoded_sha256_of_password
   ```
 2. 将上述字符串用Base64进行编码，得到： 
   ```
