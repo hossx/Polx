@@ -6,6 +6,7 @@
             margin: 4,
             eccLevel: "L",
             size: 200,
+            data:[],
             observe: {
                 data: 'generate',
                 format: 'generate',
@@ -33,6 +34,7 @@
                     this.clear();
                     this.appendChild(img);
                 } catch (e) {
+                    console.log(e)
                     console.log('no canvas support');
                 }
             },

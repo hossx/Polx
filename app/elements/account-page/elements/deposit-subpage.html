@@ -18,7 +18,7 @@
 <polymer-element name="deposit-subpage" attributes="profile,currencyId,active,balance">
   <template>
     <link rel="stylesheet" href="deposit-subpage.css">
-    <api-my-deposit-addresses addressMap="{{addresses}}" auto></api-my-deposit-addresses>
+    <api-my-deposit-addresses addressMap="{{addresses}}" auto?="{{active}}"></api-my-deposit-addresses>
     <api-create-deposit-address id="newAddressAjax"></api-create-deposit-address>
 
     <section-group hasFooter="true" fit>
@@ -290,7 +290,7 @@
           </table>
 
           <api-my-deposits id="depositsAjax" currencyId="{{currencyId}}" deposits="{{deposits}}" loading="{{loading}}" hasMore="{{hasMore}}"
-          loadMore="{{loadMore}}" auto></api-my-deposits>
+          loadMore="{{loadMore}}" auto?="{{active}}"></api-my-deposits>
           <load-data-widget hasMore="{{hasMore}}" loading="{{loading}}" data="{{deposits}}" loadMore="{{loadMore}}"></load-data-widget>
         </div>
       </paper-shadow>
