@@ -14,55 +14,53 @@
     <link rel="stylesheet" href="trades-subpage.css">
 
     <section-group hasFooter="true" fit>
-      <template if="{{profile}}">
-        <paper-shadow z="0">
-          <div label>
-            <h2>{{M.trades}}</h2>
-          </div>
-          <div vertical center layout class="container1">
+      <paper-shadow z="0">
+        <div label>
+          <h2>{{M.trades}}</h2>
+        </div>
+        <div vertical center layout class="container1">
 
-            <table class="simple">
-              <thead>
+          <table class="simple">
+            <thead>
+              <tr>
+                <td>{{M.id}}</td>
+                <td text-right>{{M.market}}</td>
+                <td>{{M.type}}</td>
+                <td text-right>{{M.price}}</td>
+                <td text-right>{{M.quantity}}</td>
+                <td text-right>{{M.total}}</td>
+                <td text-right>{{M.time}}</td>
+              </tr>
+            </thead>
+            <tbody>
+              <template repeat="{{record in trades}}">
                 <tr>
-                  <td>{{M.id}}</td>
-                  <td text-right>{{M.market}}</td>
-                  <td>{{M.type}}</td>
-                  <td text-right>{{M.price}}</td>
-                  <td text-right>{{M.quantity}}</td>
-                  <td text-right>{{M.total}}</td>
-                  <td text-right>{{M.time}}</td>
+                  <td>{{record.id}}</td>
+                  <td text-right><a href="/#/marketpro/{{record.market}}">{{config.markets[record.market].name}}</a>
+                  </td>
+                  <td class="{{record.class}}">{{M.types[record.class]}}</a>
+                  </td>
+                  <td text-right class="{{record.class}}">
+                    <nice-number class="{{record.class}}" v="{{record.price}}"></nice-number>
+                  </td>
+                  <td text-right class="{{record.class}}">
+                    <nice-number p="4" v="{{record.amount}}"></nice-number>
+                  </td>
+                  <td text-right class="{{record.class}}">
+                    <nice-number v="{{record.total}}"></nice-number>
+                  </td>
+                  <td text-right>
+                    {{record.timestamp |formatTime}}
+                  </td>
                 </tr>
-              </thead>
-              <tbody>
-                <template repeat="{{record in trades}}">
-                  <tr>
-                    <td>{{record.id}}</td>
-                    <td text-right><a href="/#/marketpro/{{record.market}}">{{config.markets[record.market].name}}</a>
-                    </td>
-                    <td class="{{record.class}}">{{M.types[record.class]}}</a>
-                    </td>
-                    <td text-right class="{{record.class}}">
-                      <nice-number class="{{record.class}}" v="{{record.price}}"></nice-number>
-                    </td>
-                    <td text-right class="{{record.class}}">
-                      <nice-number p="4" v="{{record.amount}}"></nice-number>
-                    </td>
-                    <td text-right class="{{record.class}}">
-                      <nice-number v="{{record.total}}"></nice-number>
-                    </td>
-                    <td text-right>
-                      {{record.timestamp |formatTime}}
-                    </td>
-                  </tr>
-                </template>
-              </tbody>
-            </table>
-            <api-my-trades id="ajax" limit="100" trades="{{trades}}" hasMore="{{hasMore}}" loading="{{loading}}" loadMore="{{loadMore}}"
-            auto></api-my-trades>
-            <load-data-widget hasMore="{{hasMore}}" loading="{{loading}}" data="{{trades}}" on-load-more="{{loadMore}}"></load-data-widget>
-          </div>
-        </paper-shadow>
-      </template>
+              </template>
+            </tbody>
+          </table>
+          <api-my-trades id="ajax" limit="100" trades="{{trades}}" hasMore="{{hasMore}}" loading="{{loading}}" loadMore="{{loadMore}}"
+          auto></api-my-trades>
+          <load-data-widget hasMore="{{hasMore}}" loading="{{loading}}" data="{{trades}}" on-load-more="{{loadMore}}"></load-data-widget>
+        </div>
+      </paper-shadow>
     </section-group>
 
   </template>
