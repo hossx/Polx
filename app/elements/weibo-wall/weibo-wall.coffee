@@ -1,7 +1,7 @@
 'use strict'
 
 Polymer 'weibo-wall',
-  height: 1000 
+  height: 800 
   content: ''
   tags: "no-tag"
 

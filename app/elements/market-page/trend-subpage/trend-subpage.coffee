@@ -9,6 +9,7 @@ Polymer 'trend-subpage',
       trade: "Trade "
       about: "About"
       orLearnMoreAbout: "or learn more about "
+      aboutWeiboWall: ""
 
     'zh':
       priceChart: "价格图"
@@ -16,6 +17,7 @@ Polymer 'trend-subpage',
       trade: "买卖"
       about: "关于"
       orLearnMoreAbout: "或进一步了解"
+      aboutWeiboWall: "如果微博条数太少，可以点击“全部”，“认证用户”，或者“我关注的”来刷新一下。"
 
 
   ready: () ->

@@ -8,6 +8,7 @@ Polymer 'about-subpage',
       buzz: "Tweets"
       trade: "Trade "
       market: "Market"
+      aboutWeiboWall: ''
 
     'zh':
       trend: "价格走势"
@@ -15,6 +16,7 @@ Polymer 'about-subpage',
       buzz: "相关微博"
       trade: "买卖"
       market: "市场"
+      aboutWeiboWall: "如果微博条数太少，可以点击“全部”，“认证用户”，或者“我关注的”来刷新一下。"
 
   ready: () ->
     @M = @msgMap[window.lang]
