@@ -165,14 +165,12 @@
     "CNY": {
       "markets": {
         "BTC": {
-          "refreshInterval": 1000,
-          "minSellAmountmt": 0.001,
+          "refreshInterval": 3000,
+          "minSellAmount": 0.001,
           "minBuyAmount": 0.001,
           "tags": ["featured"]
         },
         "LTC": {
-          "minSellAmountmt": 0.001,
-          "minBuyAmount": 0.001,
           "tags": ["featured"]
         },
         "BTSX": {
@@ -180,6 +178,8 @@
         "XRP": {
         },
         "GOOC": {
+          "minSellAmount": 1000,
+          "minBuyAmount": 1000,
           "fee": {
             "trade": {
               "p": 0.1
@@ -191,8 +191,6 @@
     "BTC": {
       "markets": {
         "LTC": {
-          "minSellAmountmt": 0.001,
-          "minBuyAmount": 0.001,
           "tags": ["featured"]
         },
         "DOGE": {

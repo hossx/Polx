@@ -34,7 +34,7 @@ paper-tab {
     }
 }
 .pages {
-    height: 242px;
+    height: 280px;
 }
 .content {
     background: $head-background-color;
@@ -62,6 +62,11 @@ paper-tab {
         &[disabled] {
             background: $white3;
         }
+    }
+    .note {
+        color: $white3;
+        text-align: center;
+        padding-top: 10px;
     }
     input[is=core-input] {
         border: 1px solid $white4;

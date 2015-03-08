@@ -11,6 +11,8 @@ Polymer 'section-trade',
       submittedMsg: "Your order has been submitted [order ID: %s]"
       submitionFailedMsg: "Failed to submit order. Please try again!"
       errorUnknown: "Unknown error"
+      minBuyAmount: "Minimum Buy"
+      minSellAmount: "Minimum Sell"
       errorCode:
         2001: "Price out of valid range"
         2002: "Insufficient fund"
@@ -25,6 +27,8 @@ Polymer 'section-trade',
       submittedMsg: "您的订单提交成功。订单ID：%s"
       submitionFailedMsg: "订单无法提交！"
       errorUnknown: "原因不明"
+      minBuyAmount: "最小买单"
+      minSellAmount: "最小卖单"
       errorCode:
         2001: "价格太大或太小"
         2002: "账户余额不住"
@@ -32,6 +36,7 @@ Polymer 'section-trade',
 
   ready: () ->
     @M = @msgMap[window.lang]
+
 
   buyPrice: 0.0
   committedBuyPrice: 0.0
@@ -46,6 +51,8 @@ Polymer 'section-trade',
   sellEnabled: false
 
   orderToSubmit: null
+  minBuyAmount: 0.01
+  minSellAmount: 0.01
 
   observe: {
     buyPrice: 'updateBuyEnabled'
@@ -63,14 +70,17 @@ Polymer 'section-trade',
       @sellPrice = @committedSellPrice = price
       @sellQuantity = @committedSellQuantity = Math.min(quantity, @balance)
 
+  marketChanged: (o, n) ->
+    @minBuyAmount = @market.json.minBuyAmount if @market.json.minBuyAmount
+    @minSellAmount = @market.json.minSellAmount if @market.json.minSellAmount
 
   updateBuyEnabled: () -> 
     total = @buyPrice * @buyQuantity
-    @buyEnabled = @buyPrice > 0 and @buyQuantity > 0 and total <= @baseBalance and (@market.baseCurrency.id == 'BTC' and total >= 0.001 or @market.baseCurrency.id == 'CNY' and total >= 1)
+    @buyEnabled = @buyPrice > 0 and @buyQuantity >= @minBuyAmount and total <= @baseBalance
 
   updateSellEnabled: () -> 
     total = @sellPrice * @sellQuantity
-    @sellEnabled = @sellPrice > 0 and @sellQuantity > 0 and @sellQuantity <= @balance and (@market.baseCurrency.id == 'BTC' and total >= 0.001 or @market.baseCurrency.id == 'CNY' and total >= 1)
+    @sellEnabled = @sellPrice > 0 and @sellQuantity >= @minSellAmount and @sellQuantity <= @balance
 
   doSell: () ->
     @sellEnabled = false

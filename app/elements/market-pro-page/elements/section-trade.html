@@ -31,7 +31,8 @@
               <nice-number class="total" p="4" v="{{buyQuantity * buyPrice}}" unit="{{market.baseCurrency.unit}}"></nice-number>
             </div>
           </div>
-          <paper-button id="doBuy" on-tap="{{doBuy}}" disabled?="{{!buyEnabled}}">{{M.buyAction}} {{market.currency.id}}</paper-button>
+          <paper-button id="doBuy" on-tap="{{doBuy}}" disabled?="{{!buyEnabled}}">{{M.buyAction}} {{market.currency.fullName}}</paper-button>
+          <div class="note">{{M.minBuyAmount}} {{minBuyAmount}} {{market.currency.unit}}</div>
         </div>
       </section>
       <section>
@@ -53,7 +54,8 @@
               <nice-number class="total" p="4" v="{{sellQuantity * sellPrice}}" unit="{{market.baseCurrency.unit}}"></nice-number>
             </div>
           </div>
-          <paper-button id="doSell" on-tap="{{doSell}}" disabled?="{{!sellEnabled}}">{{M.sellAction}} {{market.currency.id}}</paper-button>
+          <paper-button id="doSell" on-tap="{{doSell}}" disabled?="{{!sellEnabled}}">{{M.sellAction}} {{market.currency.fullName}}</paper-button>
+          <div class="note">{{M.minSellAmount}} {{minSellAmount}} {{market.currency.unit}}</div>
         </div>
       </section>
     </core-animated-pages>
