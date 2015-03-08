@@ -1,7 +1,7 @@
 'use strict'
 
 Polymer 'weibo-wall',
-  height: 800 
+  height: 920 
   content: ''
   tags: "no-tag"
 
@@ -20,7 +20,7 @@ Polymer 'weibo-wall',
       </head>
       <body>
        <wb:topic uid="1904178193" topmid="C7dJbdvTw" column="n" border="n" width="728"
-        height="'+ (@height-20) + '"
+        height="'+ (@height) + '"
         tags="' + encodeURIComponent(tags) + '"
         color="333333%2Cffffff%2C00b8d4%2Cf5f5f5%2C333333%2Cfafeff%2C0078b6%2Ccccccc%2Cffffff%2Cf5f5f5"
         language="zh_cn" version="base" appkey="2WElLa" footbar="y"

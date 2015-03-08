@@ -1,8 +1,13 @@
 @import "../../_colors";
 @import "../../_common";
 @import "_subpage";
+@include has-paper-spinner();
 a.market-link:hover {
     color: $white1;
+}
+
+#spinner {
+    min-height: 200px;
 }
 #table-container {
     table.simple {

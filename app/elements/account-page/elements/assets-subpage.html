@@ -5,15 +5,24 @@
 <link rel="import" href="../../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../../bower_components/core-collapse/core-collapse.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/paper-spinner/paper-spinner.html">
 <link rel="import" href="../../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../nice-number/nice-number.html">
 <link rel="import" href="../../cp-icons/crypto-icons.html">
 
-<polymer-element name="assets-subpage" attributes="profile,active,balance">
+<polymer-element name="assets-subpage" attributes="profile,active,balance,loading">
   <template>
     <link rel="stylesheet" href="assets-subpage.css">
     <section-group hasFooter="true" fit>
+      <template if="{{loading}}">
+        <paper-shadow z="0">
+          <div id="spinner" vertical center center-justified layout>
+            <paper-spinner active></paper-spinner>
+          </div>
+        </paper-shadow>
+      </template>
+
       <template repeat="{{group,idx in assetGroups}}">
         <paper-shadow z="0">
           <div label>
