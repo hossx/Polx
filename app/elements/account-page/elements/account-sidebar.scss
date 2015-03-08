@@ -1,6 +1,9 @@
 @import "../../_colors";
 @import "../../_common";
 @include config-sidebar-menu();
+:host {
+  min-height: 300px;
+}
 #logout {
     width: 100%;
     border-radius: 0;
