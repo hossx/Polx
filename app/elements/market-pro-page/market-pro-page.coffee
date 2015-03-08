@@ -51,18 +51,25 @@ Polymer 'market-pro-page',
       this.$.trade.initState(sell.price, sell.accumulated)
 
   created: () ->
+    @refreshInterval = window.config.refreshIntervals.pro
     work = () => @refresh()
     @autoRefresh = setTimeout(work)
 
+    # every 30 seconds, increase the refresh interval by 20%, max 5 minutes.
+    @autoDelayRefresh = setInterval ()=>
+      @refreshInterval = Math.min(Math.round(@refreshInterval  * 1.2), 300000)
+    , 30000
+
   detached: () ->
     clearTimeout(@autoRefresh)
+    clearInterval(@autoDelayRefresh)
 
   forceRefresh: () ->
     @fire('display-message', {'message': @M.refreshingMsg})
     @refresh()
 
   refresh: () ->
-    clearTimeout(@autoRefresh) if @autoRefresh
+    clearTimeout(@autoRefresh)
     this.$.refresh.setAttribute("disabled","")
     reenable = () => this.$.refresh.removeAttribute("disabled")
     setTimeout(reenable, 1000)
@@ -77,7 +84,7 @@ Polymer 'market-pro-page',
       this.$.myBalanceSection.go()
 
     work = () => @refresh() 
-    @autoRefresh = setTimeout(work, window.config.refreshIntervals.pro)
+    @autoRefresh = setTimeout(work, @refreshInterval)
 
   marketIdChanged: (o, n) ->
     @market = @config.markets[@marketId]
