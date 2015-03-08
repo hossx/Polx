@@ -92,7 +92,7 @@
                 <div class="title">{{M.news}}</div>
               </div>
               <div class="content" vertical layout>
-                <section-news market="{{market}}" ></section-news>
+                <section-news market="{{market}}"></section-news>
               </div>
             </div>
           </div>
@@ -138,6 +138,14 @@
               </div>
               <section-my-trades id="myTradesSection" class="section" marketId="{{marketId}}"></section-my-trades>
             </div>
+
+            <template if="{{!loggedIn}}">
+              <div class="block" id="login" vertical center center-justified layout>
+                <a href="/#/member/login">
+                  <paper-button class="primary">{{M.login}}</paper-button>
+                </a>
+              </div>
+            </template>
 
           </div>
 

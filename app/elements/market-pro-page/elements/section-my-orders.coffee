@@ -17,6 +17,7 @@ Polymer 'section-my-orders',
       cancelTip: "Cancel this order"
       cancelOrderDialogTitle: "Candel Order"
       cancelOrderDialogQuestion: "Do you really want to confirm this order?"
+      noOrders: "No Orders"
       statuses:
         0: "Pending"
         1: "Partial Filled"
@@ -38,6 +39,7 @@ Polymer 'section-my-orders',
       cancelOrderDialogTitle: "取消订单"
       cancelOrderDialogQuestion: "您真的要取消下面这个订单吗？"
       status: "状态"
+      noOrders: "没有订单"
       statuses:
         0: "挂单中"
         1: "部分成交"

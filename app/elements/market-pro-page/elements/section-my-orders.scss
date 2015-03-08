@@ -19,3 +19,8 @@
 html /deep/ #confirmDialog::shadow {
     @include has-simple-table();
 }
+
+#noOrders {
+    color: $white3;
+    padding: 10px;
+}

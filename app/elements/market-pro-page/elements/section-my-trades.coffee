@@ -12,6 +12,7 @@ Polymer 'section-my-trades',
       time: "Timestamp"
       buy: "Buy"
       sell: "Sell"
+      noTrades: "No Trades"
 
 
     'zh':
@@ -24,6 +25,7 @@ Polymer 'section-my-trades',
       time: "时间"
       buy: "买入"
       sell: "卖出"
+      noTrades: "没有成交记录"
 
   ready: () ->
     @M = @msgMap[window.lang]

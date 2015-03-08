@@ -40,6 +40,10 @@
         </template>
       </tbody>
     </table>
+
+    <template if="{{trades.length == 0}}">
+      <div self-center id="noTrades">{{M.noTrades}}</div>
+    </template>
   </template>
   <script src="section-my-trades.js"></script>
 </polymer-element>

@@ -13,6 +13,7 @@ Polymer 'market-pro-page',
       myOpenOrders: "Open Orders"
       myTrades: "My Trade History"
       tradeHistory: "Trade History"
+      login: "Login"
       
       refreshTooltip: "Refresh"
       refreshingMsg: "Refreshing market data..."
@@ -30,10 +31,12 @@ Polymer 'market-pro-page',
       myOpenOrders: "我的挂单"
       myTrades: "我的成交"
       tradeHistory: '成交记录'
+      login: "登陆"
 
       refreshTooltip: "更新数据"
       refreshingMsg: "正在更新市场数据..."
 
+  loggedIn: true
 
   ready: () ->
     @M = @msgMap[window.lang]
@@ -69,15 +72,17 @@ Polymer 'market-pro-page',
     @refresh()
 
   refresh: () ->
+    @loggedIn = if window.profile then true else false
+    console.log(@loggedIn)
     clearTimeout(@autoRefresh)
     this.$.refresh.setAttribute("disabled","")
     reenable = () => this.$.refresh.removeAttribute("disabled")
     setTimeout(reenable, 1000)
-
     this.$.ajaxTicker.go()
     this.$.ajaxKline.go()
     this.$.orderBookSection.go()
     this.$.tradeHistorySection.go()
+    
     if window.profile
       this.$.myOrdersSection.go()
       this.$.myTradesSection.go()

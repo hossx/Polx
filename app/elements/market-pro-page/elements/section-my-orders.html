@@ -55,6 +55,9 @@
         </template>
       </tbody>
     </table>
+    <template if="{{orders.length == 0}}">
+      <div self-center id="noOrders">{{M.noOrders}}</div>
+    </template>
 
     <paper-action-dialog id="confirmDialog" backDrop heading="{{M.cancelOrderDialogTitle}}" transition="core-transition-center">
       <div vertical layout>
