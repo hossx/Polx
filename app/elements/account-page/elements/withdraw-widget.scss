@@ -32,7 +32,7 @@
                     background: color($grey, 50);
                 }
             }
-            ticker-button {
+            timer-button {
                 text-transform: none;
                 border: 0;
                 border-left: 1px solid $border-color;
@@ -47,6 +47,9 @@
                 margin: 0;
                 &:hover {
                     background: color($grey, 50);
+                }
+                &[disabled] {
+                    color: $black3;
                 }
             }
         }

@@ -8,7 +8,7 @@
 <link rel="import" href="../../coinport-api/api-query-bankcards.html">
 <link rel="import" href="../../coinport-api/api-remove-bankcard.html">
 <link rel="import" href="../../coinport-api/api-add-bankcard.html">
-<link rel="import" href="../../cp-widget/ticker-button.html">
+<link rel="import" href="../../timer-button/timer-button.html">
 
 <polymer-element name="withdraw-widget" attributes="balance,limit,currency,needPubkey,needMemo,needEmailAuth,needMobileAuth,
   needGoogleAuth,needWithdrawalAddress,needBankAddress,address,cnyAddress,quantity,emailVCode,smsVCode,googleVCode,pubkey,memo,emailUuid,phoneUuid,realname" vertical layout>
@@ -60,7 +60,7 @@
                   <paper-input label="{{M.branch}}" value="{{branch}}"></paper-input>
                   <div horizontal layout>
                     <paper-input flex label="{{M.emailVCode}}" value="{{emailVCodeForAddCard}}"></paper-input>
-                    <ticker-button on-tap="{{retrieveEmailCodeForAddCard}}" disableInterval=60>{{M.retrieveEmailVCode}}</ticker-button>
+                    <timer-button on-tap="{{retrieveEmailCodeForAddCard}}" disableInterval=60>{{M.retrieveEmailVCode}}</timer-button>
                   </div>
                   <div class="inner" vertical center layout>
                     <div horizontal layout>
@@ -92,7 +92,7 @@
       <template if="{{needEmailAuth}}">
         <div class="inner-wrapper" horizontal center-justified layout>
           <input flex is="core-input" placeholder="{{M.emailVCode}}" value="{{emailVCode}}" committedValue="{{committedEmailVCode}}">
-          <ticker-button on-tap="{{retrieveEmailCode}}" disableInterval=60>{{M.retrieveEmailVCode}}</ticker-button>
+          <timer-button on-tap="{{retrieveEmailCode}}" disableInterval=60>{{M.retrieveEmailVCode}}</timer-button>
         </div>
       </template>
 
@@ -100,7 +100,7 @@
       <template if="{{needMobileAuth}}">
         <div class="inner-wrapper" horizontal center-justified layout>
           <input flex is="core-input" placeholder="{{M.smsVCode}}" value="{{smsVCode}}" committedValue="{{committedSmsVCode}}">
-          <ticker-button on-tap="{{retrievePhoneCode}}" disableInterval=60>{{M.retrieveSmsVCode}}</ticker-button>
+          <timer-button on-tap="{{retrievePhoneCode}}" disableInterval=60>{{M.retrieveSmsVCode}}</timer-button>
         </div>
       </template>
 

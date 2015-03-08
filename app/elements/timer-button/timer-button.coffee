@@ -1,7 +1,7 @@
-Polymer 'ticker-button',
+Polymer 'timer-button',
     msgMap:
         'en':
-            ticking: "Resend after %ss"
+            ticking: "Re-send after %ss"
         'zh':
             ticking: "%s秒后重发"
 
@@ -10,12 +10,10 @@ Polymer 'ticker-button',
 
     ready: () ->
         `this.super()`
-
         @M = @msgMap[window.lang]
 
     upAction: () ->
         `this.super()`
-
         @oriLabel = this.innerHTML
         @interval = @disableInterval
         this.disabled = true

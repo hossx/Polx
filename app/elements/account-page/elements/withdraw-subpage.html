@@ -78,7 +78,7 @@
 
           <template if="{{currency.id != 'CNY'}}">
               <div class="instruction" vertical center layout>
-                  <div class="info">
+                  <div class="warning">
                       {{currency.id | genWithdrawalDesc}}
                       <template if="{{currency.id == 'BTSX'}}">
                           <div class="red">

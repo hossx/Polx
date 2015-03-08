@@ -14,7 +14,7 @@ Polymer 'account-page',
 
   ready: () ->
     @M = @msgMap[window.lang]
-    @page = "withdraw"
+    @page = "assets"
     @addEventListener 'goto-account-subpage', (e) ->
       @gotoPage(e.detail.page, e.detail.currencyId)
     

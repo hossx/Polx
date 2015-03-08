@@ -21,7 +21,7 @@
 <link rel="import" href="../../coinport-api/api-set-email-auth.html">
 <link rel="import" href="../../coinport-api/api-set-phone-auth.html">
 <link rel="import" href="../../coinport-api/api-unbind-google-auth.html">
-<link rel="import" href="../../cp-widget/ticker-button.html">
+<link rel="import" href="../../timer-button/timer-button.html">
 
 <polymer-element name="profile-subpage" attributes="profile">
   <template>
@@ -220,7 +220,7 @@
                   <paper-input id="realid" label="000000" value="{{phoneNumber}}"></paper-input>
                   <div horizontal layout>
                     <paper-input id="realid" label="{{M.smsCode}}" value="{{bindPhoneCode}}"></paper-input>
-                    <ticker-button on-tap="{{sendBindPhoneCode}}" disableInterval=60>{{M.sendSmsCode}}</ticker-button>
+                    <timer-button on-tap="{{sendBindPhoneCode}}" disableInterval=60>{{M.sendSmsCode}}</timer-button>
                   </div>
                   <div class="inner" vertical center layout>
                     <div horizontal layout>
