@@ -60,7 +60,7 @@
                   <paper-input label="{{M.branch}}" value="{{branch}}"></paper-input>
                   <div horizontal layout>
                     <paper-input flex label="{{M.emailVCode}}" value="{{emailVCodeForAddCard}}"></paper-input>
-                    <timer-button on-tap="{{retrieveEmailCodeForAddCard}}" disableInterval=60>{{M.retrieveEmailVCode}}</timer-button>
+                    <timer-button class="timerbutton" on-tap="{{retrieveEmailCodeForAddCard}}" disableInterval=60>{{M.retrieveEmailVCode}}</timer-button>
                   </div>
                   <div class="inner" vertical center layout>
                     <div horizontal layout>
@@ -92,7 +92,7 @@
       <template if="{{needEmailAuth}}">
         <div class="inner-wrapper" horizontal center-justified layout>
           <input flex is="core-input" placeholder="{{M.emailVCode}}" value="{{emailVCode}}" committedValue="{{committedEmailVCode}}">
-          <timer-button on-tap="{{retrieveEmailCode}}" disableInterval=60>{{M.retrieveEmailVCode}}</timer-button>
+          <timer-button class="timerbutton" on-tap="{{retrieveEmailCode}}" disableInterval=60>{{M.retrieveEmailVCode}}</timer-button>
         </div>
       </template>
 
@@ -100,7 +100,7 @@
       <template if="{{needMobileAuth}}">
         <div class="inner-wrapper" horizontal center-justified layout>
           <input flex is="core-input" placeholder="{{M.smsVCode}}" value="{{smsVCode}}" committedValue="{{committedSmsVCode}}">
-          <timer-button on-tap="{{retrievePhoneCode}}" disableInterval=60>{{M.retrieveSmsVCode}}</timer-button>
+          <timer-button class="timerbutton" on-tap="{{retrievePhoneCode}}" disableInterval=60>{{M.retrieveSmsVCode}}</timer-button>
         </div>
       </template>
 

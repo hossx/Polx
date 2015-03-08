@@ -48,10 +48,37 @@
             </tbody>
           </table>
 
+          <div class="instruction" vertical center layout>
+            <withdraw-widget
+            balance="{{selectedBalance}}"
+            limit="{{getWithdrawalLimit(currency.id)}}"
+            currency="{{currency.id}}"
+            needEmailAuth="{{profile.emailAuthEnabled}}"
+            needMobileAuth="{{profile.mobileAuthEnabled}}"
+            needGoogleAuth="{{profile.googleAuthEnabled}}"
+            needWithdrawalAddress="{{currency.id != 'CNY'}}"
+            needBankAddress="{{currency.id == 'CNY'}}"
+            address="{{withdrawalAddress}}"
+            cnyAddress="{{cnyAddress}}"
+            quantity="{{quantity}}"
+            emailVCode="{{emailVCode}}"
+            smsVCode="{{smsVCode}}"
+            googleVCode="{{googleVCode}}"
+            emailUuid="{{emailUuid}}"
+            phoneUuid="{{phoneUuid}}"
+            pubkey="{{pubkey}}"
+            memo="{{memo}}"
+            needPubkey="{{currency.id == 'NXT'}}"
+            needMemo="{{currency.id == 'BTSX'}}"
+            realname="{{profile.realName}}"
+            on-withdraw-succeed="{{onWithdrawSucceed}}"
+            ></withdraw-widget>
+          </div>
+
           <template if="{{currency.id == 'CNY'}}">
             <div class="instruction" vertical start layout>
               <template if="{{lang == 'zh'}}">
-                <div class="alsoNote">
+                <div class="alsoNote" horizontal center layout>
                   <core-icon icon="info-outline"></core-icon>
                   <ul>
                     <li>每次提现的最小金额为 {{fee['CNY']['l']}}。</li>
@@ -63,7 +90,7 @@
               </template>
 
               <template if="{{lang == 'en'}}">
-                <div class="alsoNote">
+                <div class="alsoNote" horizontal center layout>
                   <core-icon icon="info-outline"></core-icon>
                   <ul>
                     <li>The minimum amount for withdraw is 100 {{currency.unit}}.</li>
@@ -93,32 +120,6 @@
                   </div>
               </div>
           </template>
-          <div class="instruction" vertical center layout>
-            <withdraw-widget
-            balance="{{selectedBalance}}"
-            limit="{{getWithdrawalLimit(currency.id)}}"
-            currency="{{currency.id}}"
-            needEmailAuth="{{profile.emailAuthEnabled}}"
-            needMobileAuth="{{profile.mobileAuthEnabled}}"
-            needGoogleAuth="{{profile.googleAuthEnabled}}"
-            needWithdrawalAddress="{{currency.id != 'CNY'}}"
-            needBankAddress="{{currency.id == 'CNY'}}"
-            address="{{withdrawalAddress}}"
-            cnyAddress="{{cnyAddress}}"
-            quantity="{{quantity}}"
-            emailVCode="{{emailVCode}}"
-            smsVCode="{{smsVCode}}"
-            googleVCode="{{googleVCode}}"
-            emailUuid="{{emailUuid}}"
-            phoneUuid="{{phoneUuid}}"
-            pubkey="{{pubkey}}"
-            memo="{{memo}}"
-            needPubkey="{{currency.id == 'NXT'}}"
-            needMemo="{{currency.id == 'BTSX'}}"
-            realname="{{profile.realName}}"
-            on-withdraw-succeed="{{onWithdrawSucceed}}"
-            ></withdraw-widget>
-          </div>
         </div>
       </paper-shadow>
 

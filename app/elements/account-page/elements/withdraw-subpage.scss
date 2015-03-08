@@ -60,7 +60,7 @@
 }
 #balance {
     font-weight: 700;
-    font-size: 24px;    
+    font-size: 24px;
 }
 .instruction {
     color: $black1;
@@ -94,6 +94,10 @@
         margin-top: 20px;
         padding: 20px 0;
         border-top: 1px solid color($grey, 100);
+        core-icon {
+            height: 40px;
+            width: 40px;
+        }
     }
 }
 #qrcode {
