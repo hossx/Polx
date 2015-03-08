@@ -35,8 +35,8 @@
     <link rel="stylesheet" href="market-pro-page.css">
     <core-media-query query="min-width: 768px" queryMatches="{{smallup}}"></core-media-query>
 
-    <api-market-ticker id="ajaxTicker" marketId="{{marketId}}" ticker="{{ticker}}" auto></api-market-ticker>
-    <api-market-kline id="ajaxKline" marketId="{{marketId}}" start="0" candles="{{candles}}" auto></api-market-kline>
+    <api-market-ticker id="ajaxTicker" marketId="{{marketId}}" ticker="{{ticker}}"></api-market-ticker>
+    <api-market-kline id="ajaxKline" marketId="{{marketId}}" start="0" candles="{{candles}}"></api-market-kline>
 
     <core-drawer-panel forceNarrow>
       <core-header-panel mode="seamed" id="drawer" drawer>
@@ -91,9 +91,7 @@
                 <div class="title">{{M.transfers}}</div>
               </div>
               <div class="content" vertical layout>
-                <!--div style="height:400px;">
-                  <iframe style='overflow:hidden;width:100%;height:100%;' frameborder='0' border='0' src="http://chat.zoho.com/shout.sas?k=%7B%22g%22%3A%22Anonymous%22%2C%22c%22%3A%226f1b48e8b06eacb64e46a85d278d774ed98b63fec9caeb5b%22%2C%22o%22%3A%2246a5ccbfcb47cca25547739b0c0e4f1d%22%7D&chaturl=XXXX&V=000000-FFFFFF-FFFFFF-FF0000-YYYY"></iframe>
-                </div-->
+
               </div>
             </div>
           </div>

@@ -7,7 +7,7 @@
 <polymer-element name="section-my-orders" attributes="marketId" vertical layout>
   <template>
     <link rel="stylesheet" href="section-my-orders.css">
-    <api-my-orders id="ajax" orders="{{orders}}" marketId="{{marketId}}" auto></api-my-orders>
+    <api-my-orders id="ajax" orders="{{orders}}" marketId="{{marketId}}"></api-my-orders>
     <api-cancel-orders id="cancelOrderAjax" cancelledIds="{{cancelledIds}}" failedIds="{{failedIds}}"></api-cancel-orders>
 
     <table class="dense">

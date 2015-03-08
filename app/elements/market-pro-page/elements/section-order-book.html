@@ -4,7 +4,7 @@
 <polymer-element name="section-order-book" attributes="market,bids,asks,bidsReverse" vertical layout>
   <template>
     <link rel="stylesheet" href="section-order-book.css">
-    <api-market-depth id="ajax" marketId="{{market.id}}" limit="20" bids="{{bids}}" bidsReverse="{{bidsReverse}}" asks="{{asks}}" spread="{{spread}}" auto></api-market-depth>
+    <api-market-depth id="ajax" marketId="{{market.id}}" limit="20" bids="{{bids}}" bidsReverse="{{bidsReverse}}" asks="{{asks}}" spread="{{spread}}"></api-market-depth>
 
     <table class="dense">
       <thead>
