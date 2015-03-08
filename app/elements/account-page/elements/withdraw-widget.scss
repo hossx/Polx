@@ -55,6 +55,9 @@
         &[disabled] {
             color: $black3;
         }
+        &.no-border {
+            border-left: 0;
+        }
     }
     }
     #addBankCardCollapse {

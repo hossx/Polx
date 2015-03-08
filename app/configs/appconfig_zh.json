@@ -8,6 +8,7 @@
     "CNY": {
       "name": "人民币",
       "color": "red",
+      "unit": "元",
       "notCripto": true,
       "fee": {
         "withdraw": {

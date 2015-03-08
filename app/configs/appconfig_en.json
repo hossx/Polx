@@ -9,6 +9,7 @@
       "name": "Chinese Yuan",
       "color": "red",
       "notCripto": true,
+      "unit": "Yuan",
       "fee": {
         "withdraw": {
           "p": 0.4,
