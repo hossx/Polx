@@ -29,6 +29,7 @@
 <link rel="import" href="elements/section-my-trades.html">
 <link rel="import" href="elements/section-my-balance.html">
 <link rel="import" href="elements/section-trade.html">
+<link rel="import" href="elements/section-news.html">
 
 <polymer-element name="market-pro-page" attributes="marketId">
   <template>
@@ -86,12 +87,12 @@
               </div>
               <section-my-balance id="myBalanceSection" class="section" market="{{market}}" balance="{{balance}}" baseBalance="{{baseBalance}}"></section-my-balance>
             </div>
-            <div class="block" id="transfers" vertical layout>
+            <div class="block" id="news" vertical layout>
               <div class="head" center horizontal layout>
-                <div class="title">{{M.transfers}}</div>
+                <div class="title">{{M.news}}</div>
               </div>
               <div class="content" vertical layout>
-
+                <section-news market="{{market}}" ></section-news>
               </div>
             </div>
           </div>

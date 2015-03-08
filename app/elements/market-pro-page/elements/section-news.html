@@ -1,0 +1,14 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/marked-element/marked-element.html">
+<link rel="import" href="../../../bower_components/core-ajax/core-ajax.html">
+
+<polymer-element name="section-news" attributes="market">
+  <template>
+    <link rel="stylesheet" href="section-news.css">
+    <core-ajax url="{{newsFile}}" response="{{news}}" auto></core-ajax>
+    <div id="container">
+      <marked-element text="{{newsLinted}}"></marked-element>
+    </div>
+  </template>
+  <script src="section-news.js"></script>
+</polymer-element>

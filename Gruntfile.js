@@ -206,7 +206,10 @@ module.exports = function(grunt) {
             options: {
                 jshintrc: '.jshintrc',
                 reporter: require('jshint-stylish'),
-                ignores: ['<%= yeoman.app %>/scripts/jquery.sha256.js']
+                ignores: [
+                    '<%= yeoman.app %>/scripts/jquery.sha256.js',
+                    '<%= yeoman.app %>/elements/qr-code/qr.js'
+                ]
             },
             all: [
                 '<%= yeoman.app %>/scripts/*.js',

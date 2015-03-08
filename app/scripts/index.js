@@ -41,19 +41,19 @@
   setTimeout(function() {
     (function(d, s) {
       var z = window.$zopim = function(c) {
-        z._.push(c)
-      }
+        z._.push(c);
+      };
       var x = z.s = d.createElement(s);
       var e = d.getElementsByTagName(s)[0];
       z.set = function(o) {
-        z.set._.push(o)
+        z.set._.push(o);
       };
       z._ = [];
       z.set._ = [];
       x.async = !0;
       x.setAttribute('charset', 'utf-8');
       x.src = '//v2.zopim.com/?2p7MBUmM53iXkyPP647DjIW7WeuknrJ1';
-      z.t = +new Date;
+      z.t = +new Date();
       x.type = 'text/javascript';
       e.parentNode.insertBefore(x, e);
     })(document, 'script');
