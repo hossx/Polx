@@ -14,10 +14,9 @@ Polymer 'api-register',
     console.log(@body)
     @go()
     
-  responseChanged: (o, n) ->
-    if @response
-      if (not @response.code or @response.code == 0) and @data and @data.uid and @data.uid > 0
+  codeChanged: (o, n) ->
+    if @code == 0 and @data and @data.uid and @data.uid > 0
         @fire('user-register-ok')
       else
-        @fire('user-register-failed', {code: @response.code || 0})
+        @fire('user-register-failed', {code: @code})
       

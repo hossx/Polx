@@ -1,0 +1,50 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/core-a11y-keys/core-a11y-keys.html">
+<link rel="import" href="../../../bower_components/paper-spinner/paper-spinner.html">
+<link rel="import" href="../../coinport-api/api-reset-password.html">
+<polymer-element name="subpage-resetpwd" attributes="token">
+  <template>
+    <link rel="stylesheet" href="subpage-resetpwd.css">
+    <api-reset-password id="ajax"></api-reset-password>
+
+    <div class="container" vertical layout>
+      <div class="label">{{M.reset}}</div>
+      <div class="form">
+        <div class="inner" center-justified vertical layout>
+          <input is="core-input" type="password" disabled?="{{!formEnabled}}" class="input first" placeholder="{{M.password}}" value="{{password}}">
+          <input is="core-input" type="password" disabled?="{{!formEnabled}}" class="input last" placeholder="{{M.password2}}" value="{{password2}}">
+        </div>
+        <template if="{{formEnabled}}">
+          <div class="errorMsg">{{errorMsg}}</div>
+        </template>
+        <template if="{{profile}}">
+          <div class="errorMsg">{{M.errors.loggedIn}}</div>
+        </template>
+        <template if="{{!token}}">
+          <div vertical center layout>
+            <div class="errorMsg">{{M.errors.noToken}}</div>
+            <a href="/#/member/forgetpwd">
+              <paper-button class="sub" noink>{{M.resend}}</paper-button>
+            </a>
+          </div>
+
+        </template>
+      </div>
+      <div class="action" vertical center-justified layout>
+        <paper-button class="primary" on-tap="{{resetPasswd}}" disabled?="{{!enabled}}">{{M.reset}}</paper-button>
+        <core-a11y-keys target="{{}}" keys="enter" on-keys-pressed="{{requestResetPasswd}}"></core-a11y-keys>
+      </div>
+      <div class="options" horizontal center-justified layout>
+        <a href="/#/member/register">
+          <paper-button class="highlight sub" noink>{{M.register}}</paper-button>
+        </a>
+        <a href="/#/member/login">
+          <paper-button class="sub" noink>{{M.login}}</paper-button>
+        </a>
+      </div>
+    </div>
+  </template>
+  <script src="subpage-resetpwd.js"></script>
+</polymer-element>

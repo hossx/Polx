@@ -1,0 +1,35 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../../bower_components/core-a11y-keys/core-a11y-keys.html">
+<link rel="import" href="../../coinport-api/api-send-activation-code.html">
+
+<polymer-element name="subpage-resend-activation">
+  <template>
+    <link rel="stylesheet" href="subpage-resend-activation.css">
+
+    <api-send-activation-code id="ajax"></api-send-activation-code>
+    <div class="container" vertical layout>
+      <div class="label">{{M.title}}</div>
+      <div class="form">
+        <div class="inner" center-justified vertical layout>
+          <input is="core-input" class="input first last" placeholder="{{M.email}}" value="{{email}}">
+        </div>
+        <div class="errorMsg">{{errorMsg}}</div>
+      </div>
+      <div class="action" vertical center-justified layout>
+        <paper-button class="primary" on-tap="{{requestResetPasswd}}">{{M.reset}}</paper-button>
+        <core-a11y-keys target="{{}}" keys="enter" on-keys-pressed="{{requestResetPasswd}}"></core-a11y-keys>
+      </div>
+      <div class="options" horizontal center-justified layout>
+        <a href="/#/member/register">
+          <paper-button class="highlight sub" noink>{{M.register}}</paper-button>
+        </a>
+        <a href="/#/member/login">
+          <paper-button class="sub" noink>{{M.login}}</paper-button>
+        </a>
+      </div>
+    </div>
+  </template>
+  <script src="subpage-resend-activation.js"></script>
+</polymer-element>

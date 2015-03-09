@@ -66,6 +66,7 @@ Polymer 'coinport-api',
           console.debug(xhr.responseText)
         @response = JSON.parse(xhr.responseText)
         @data = @response.data if @response
+        @code = if @response.code == null then -1 else @response.code
         this.fire('success', {data: @data})
 
       catch x

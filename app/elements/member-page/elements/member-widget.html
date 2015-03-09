@@ -1,103 +1,107 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../../bower_components/core-animated-pages/core-animated-pages.html">
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="subpage-login.html">
 <link rel="import" href="subpage-register.html">
 <link rel="import" href="subpage-forgetpwd.html">
+<link rel="import" href="subpage-resend-activation.html">
+<link rel="import" href="subpage-resetpwd.html">
 <link rel="import" href="subpage-logout.html">
 <link rel="import" href="subpage-message.html">
 <link rel="import" href="subpage-verifying-email.html">
 
-<polymer-element name="member-widget" attributes="page,params">
+<polymer-element name="member-widget" attributes="page,params" flex>
   <template>
     <link rel="stylesheet" href="member-widget.css">
 
-    <core-animated-pages id="pages" flex valueattr="id" selected="{{page}}">
-      <section id="login">
-        <paper-shadow z="1">
-          <subpage-login class="subpage"></subpage-login>
-        </paper-shadow>
-      </section>
+    <template if="{{page =='login'}}">
+      <paper-shadow z="1">
+        <subpage-login class="subpage"></subpage-login>
+      </paper-shadow>
+    </template>
 
-      <section id="register">
-        <paper-shadow z="1">
-          <subpage-register class="subpage"></subpage-register>
-        </paper-shadow>
-      </section>
+    <template if="{{page =='register'}}">
+      <paper-shadow z="1">
+        <subpage-register class="subpage"></subpage-register>
+      </paper-shadow>
+    </template>
 
-      <section id="forgetpwd">
-        <paper-shadow z="1">
-          <subpage-forgetpwd class="subpage"></subpage-forgetpwd>
-        </paper-shadow>
-      </section>
+    <template if="{{page =='forgetpwd'}}">
+      <paper-shadow z="1">
+        <subpage-forgetpwd class="subpage"></subpage-forgetpwd>
+      </paper-shadow>
+    </template>
 
-      <section id="logout">
-        <paper-shadow z="1">
-          <subpage-logout class="subpage"></subpage-logout>
-        </paper-shadow>
-      </section>
+    <template if="{{page =='resend_activation'}}">
+      <paper-shadow z="1">
+        <subpage-resend-activation class="subpage"></subpage-resend-activation>
+      </paper-shadow>
+    </template>
 
-      <section id="check_email">
-        <paper-shadow z="1">
-          <subpage-message class="subpage" msg="checkEmail"></subpage-message>
-        </paper-shadow>
-      </section>
+    <template if="{{page =='reset_password'}}">
+      <paper-shadow z="1">
+        <subpage-resetpwd class="subpage" token="{{params}}"></subpage-resetpwd>
+      </paper-shadow>
+    </template>
 
-      <section id="verify_email">
-        <paper-shadow z="1">
-          <subpage-verifying-email class="subpage" token="{{params}}"></subpage-verifying-email>
-        </paper-shadow>
-      </section>
+    <template if="{{page =='logout'}}">
+      <paper-shadow z="1">
+        <subpage-logout class="subpage"></subpage-logout>
+      </paper-shadow>
+    </template>
 
-      <section id="email_verified">
-        <paper-shadow z="1">
-          <subpage-message class="subpage" msg="emailVerified"></subpage-message>
-        </paper-shadow>
-      </section>
+    <template if="{{page =='check_email'}}">
+      <paper-shadow z="1">
+        <subpage-message class="subpage" msg="checkEmail"></subpage-message>
+      </paper-shadow>
+    </template>
 
-      <section id="email_verification_failed">
-        <paper-shadow z="1">
-          <subpage-message class="subpage" msg="emailVerificationFailed"></subpage-message>
-        </paper-shadow>
-      </section>
+    <template if="{{page =='verify_email'}}">
+      <paper-shadow z="1">
+        <subpage-verifying-email class="subpage" token="{{params}}"></subpage-verifying-email>
+      </paper-shadow>
+    </template>
 
-      <section id="pwreset_token_sent">
-        <paper-shadow z="1">
-          <subpage-message class="subpage" msg="pwresetTokenSent"></subpage-message>
-        </paper-shadow>
-      </section>
+    <template if="{{page =='email_verified'}}">
+      <paper-shadow z="1">
+        <subpage-message class="subpage" msg="emailVerified"></subpage-message>
+      </paper-shadow>
+    </template>
 
-      <section id="verify_pwreset_token">
-        <paper-shadow z="1">
+    <template if="{{page =='email_verification_failed'}}">
+      <paper-shadow z="1">
+        <subpage-message class="subpage" msg="emailVerificationFailed"></subpage-message>
+      </paper-shadow>
+    </template>
 
-        </paper-shadow>
-      </section>
+    <template if="{{page =='pwreset_token_sent'}}">
+      <paper-shadow z="1">
+        <subpage-message class="subpage" msg="pwresetTokenSent"></subpage-message>
+      </paper-shadow>
+    </template>
 
-      <section id="reset_password">
-        <paper-shadow z="1">
+    <template if="{{page =='activation_token_sent'}}">
+      <paper-shadow z="1">
+        <subpage-message class="subpage" msg="activationTokenSent"></subpage-message>
+      </paper-shadow>
+    </template>
 
-        </paper-shadow>
-      </section>
+    <template if="{{page =='pwreset_token_invalid'}}">
+      <paper-shadow z="1">
+        <subpage-message class="subpage" msg="pwresetTokenInvalid"></subpage-message>
+      </paper-shadow>
+    </template>
 
-      <section id="pwreset_token_invalid">
-        <paper-shadow z="1">
-          <subpage-message class="subpage" msg="pwresetTokenInvalid"></subpage-message>
-        </paper-shadow>
-      </section>
+    <template if="{{page =='password_changed'}}">
+      <paper-shadow z="1">
+        <subpage-message class="subpage" msg="passwordChanged"></subpage-message>
+      </paper-shadow>
+    </template>
 
-      <section id="password_changed">
-        <paper-shadow z="1">
-          <subpage-message class="subpage" msg="passwordChanged"></subpage-message>
-        </paper-shadow>
-      </section>
-
-      <section id="logged_out">
-        <paper-shadow z="1">
-          <subpage-message class="subpage" msg="loggedOut"></subpage-message>
-        </paper-shadow>
-      </section>
-    </core-animated-pages>
-
+    <template if="{{page =='logged_out'}}">
+      <paper-shadow z="1">
+        <subpage-message class="subpage" msg="loggedOut"></subpage-message>
+      </paper-shadow>
+    </template>
   </template>
   <script src="member-widget.js"></script>
 </polymer-element>

@@ -4,11 +4,11 @@ Polymer 'subpage-verifying-email',
   msgMap:
     'zh':
       label: "验证邮箱"
-      verifying: "正在验证您的邮箱..."
+      verifying: "正在验证您的邮箱 ..."
 
     'en':
       label: "Verify Email"
-      verifying: "Verifying Email..."
+      verifying: "Verifying your email ..."
 
   loading: true
 

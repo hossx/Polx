@@ -23,12 +23,19 @@ Polymer 'subpage-message',
         label: "邮箱验证失败"
         details: [
           "您试图使用的邮箱验证令牌无效。",
-          "请联系我们。"]
+          "请您重试。"]
 
       pwresetTokenSent:
         label: "请检查邮箱"
         details: [
           "如果您的email已经在币丰港注册，您将很快收到重置密码的email。请按照其中的指示操作。",
+          "如果您几分钟后依然没收到邮件，请检查下垃圾邮件。"
+          "谢谢。"]
+
+      activationTokenSent:
+        label: "请检查邮箱"
+        details: [
+          "如果您的email已经在币丰港注册并且还未被验证，您将很快收到激活邮箱的email。请按照其中的指示操作。",
           "如果您几分钟后依然没收到邮件，请检查下垃圾邮件。"
           "谢谢。"]
 
@@ -77,6 +84,13 @@ Polymer 'subpage-message',
         label: "Check Your Email"
         details: [
           "If your email has been registered already, we will send you an email with a link to reset your password. Your current password is still valid until a new one is set.",
+          "Please give the email a couple of minutes to arrive. If you still don't find it in your mailbox after a while, go ahead and check the spam folder."
+          "Thank you."]
+
+      activationTokenSent:
+        label: "Check Your Email"
+        details: [
+          "If your email has been registered already and your email has not been verified yet, we will send you an email with a link to verify your email.",
           "Please give the email a couple of minutes to arrive. If you still don't find it in your mailbox after a while, go ahead and check the spam folder."
           "Thank you."]
 

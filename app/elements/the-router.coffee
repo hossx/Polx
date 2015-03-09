@@ -99,12 +99,26 @@ Polymer 'the-router',
       if location.hash == '#/member/register'
         this.$.router.go('/member/check_email')
 
+    @addEventListener 'request-activation-code-done', (e) ->
+      console.debug("------request-activation-code-done")
+      if location.hash == '#/member/resend_activation'
+        this.$.router.go('/member/activation_token_sent')
+
     @addEventListener 'verify-email-done', (e) ->
-      console.debug("------verify-email-done")
+      console.debug("------verify-email-done: " + JSON.stringify(e.detail))
       if e.detail.ok
         this.$.router.go('/member/email_verified')
       else
         this.$.router.go('/member/email_verification_failed')
+
+    @addEventListener 'change-password-done', (e) ->
+      console.debug("------change-password-done: " + JSON.stringify(e.detail))
+      if e.detail.ok
+        if location.hash.indexOf('#/member/reset_password/') == 0
+          this.$.router.go('/member/login')
+      else
+        #(TODO): check on code
+        this.$.router.go('/member/pwreset_token_invalid')
 
     @addEventListener 'request-passwd-reset-done', (e) ->
       console.debug("------request-passwd-reset-done")

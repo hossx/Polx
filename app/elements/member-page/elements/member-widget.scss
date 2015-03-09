@@ -4,9 +4,7 @@
     display: inline-block;
     background: transparent;
 }
-#pages {
-}
-section {
+#pages {} section {
     background: white;
 }
 @mixin config-widget() {
@@ -102,18 +100,6 @@ section {
     .action {
         padding: 20px 35px 0 35px;
         height: 45px;
-        paper-button.sub {
-            background: color($C2, a400);
-            color: $black1;
-            &:hover {
-                background: color($C1, 900);
-                color: white;
-            }
-            &[disabled] {
-                background: color($C1, 100);
-                color: $black2;
-            }
-        }
     }
     .options {
         font-size: 12px;
@@ -124,18 +110,15 @@ section {
         >div {
             padding: 0 10px;
         }
-        paper-button {
-            text-transform: None;
-            &:hover {
-                color: color($C2, a700);
-            }
-            &.highlight {
-                transition: color 200ms ease-in-out;
-                color: color($C3, a400);
-                &:hover {
-                    color: color($C2, a400);
-                }
-            }
+    }
+    paper-button.sub {
+        text-transform: None;
+        &.highlight {
+            transition: color 200ms ease-in-out;
+            color: color($C2, a400);
+        }
+        &:hover {
+            color: color($C2, a700);
         }
     }
 }
