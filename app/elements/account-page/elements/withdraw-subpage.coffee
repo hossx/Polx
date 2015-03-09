@@ -35,6 +35,8 @@ Polymer 'withdraw-subpage',
         16: "Internal Error"
         17: "Internal Error"
       withdrawalDesc: "The minimum amount of withdrawal should equal or greater than %s %s, which include %s, as fee you have to pay. Any withdrawal request will be processed in 24 hours. Our working hours are between 12:00 and 24:00 in HongKong Time."
+      identityVerifyRequirement: "Need identity verification to withdraw CNY"
+      identityVerify: "Identity verify"
 
     'zh':
       na: "无"
@@ -69,6 +71,8 @@ Polymer 'withdraw-subpage',
         16: "系统错误"
         17: "系统错误"
       withdrawalDesc: "最小提现不能小于 %s %s，无最大数量限制。 我们会从提现数目中扣除 %s作为手续费。提现请求会在24小时内处理完成。我们的工作时间是香港时间12:00-24:00，周末无休。如有其他问题，请联系客服人员。"
+      identityVerifyRequirement: "根据相关政策，您需要进行实名认证才能够提现人民币。"
+      identityVerify: "实名认证"
 
   feeMap:
     'en':
