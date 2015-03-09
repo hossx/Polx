@@ -16,4 +16,4 @@ Polymer 'subpage-verifying-email',
     @M = @msgMap[window.lang]
 
   tokenChanged: (o, n) ->
-    this.$.ajax.check(@token) if @token
+    this.$.ajax.verify(@token) if @token

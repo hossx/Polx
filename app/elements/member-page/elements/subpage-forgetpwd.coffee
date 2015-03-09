@@ -20,4 +20,5 @@ Polymer 'subpage-forgetpwd',
 
   requestResetPasswd: () ->
     console.log("TODO: requestResetPasswd")
+    console.log(@email)
     this.$.ajax.request(@email) if @email

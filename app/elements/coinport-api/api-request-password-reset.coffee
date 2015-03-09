@@ -7,7 +7,8 @@ Polymer 'api-request-password-reset',
     @method = 'POST'
     @contentType = 'application/json'
     @url = '%s/api/v2/request_password_reset'.format(window.config.api.base)
-    @body = '{"email":"%s","exchangeVersion":"v2","lang":"%s"}'.format(@email,window.lang)
+    @body = '{"email":"%s","exchangeVersion":"v2","lang":"%s"}'.format(email,window.lang)
+    console.log(@body)
     @go()
     
   dataChanged: (o, n) ->

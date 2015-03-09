@@ -11,7 +11,7 @@ cp-page /deep/ #main {
 #container {
     position: relative;
     @include diagonal-fill(color($C2, 100));
-    min-height: 260px;
+    min-height: 540px;
     width: 100%;
     overflow: hidden;
     member-widget {
