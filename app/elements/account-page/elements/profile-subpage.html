@@ -220,12 +220,12 @@
                   <paper-input id="realid" label="000000" value="{{phoneNumber}}"></paper-input>
                   <div horizontal layout>
                     <paper-input id="realid" label="{{M.smsCode}}" value="{{bindPhoneCode}}"></paper-input>
-                    <timer-button noink class="secondary" on-tap="{{sendBindPhoneCode}}" disableInterval=60>{{M.sendSmsCode}}</timer-button>
+                    <timer-button noink class="secondary" on-tap="{{sendBindPhoneCode}}" disableInterval=60 disabled?="{{!phoneNumber}}">{{M.sendSmsCode}}</timer-button>
                   </div>
                   <div class="inner" vertical center layout>
                     <div horizontal layout>
                       <paper-button on-tap="{{cancelBindCellphone}}">{{M.cancel}}</paper-button>
-                      <paper-button raised on-tap="{{confirmBindCellphone}}">{{M.confirm}}</paper-button>
+                      <paper-button raised on-tap="{{confirmBindCellphone}}" disabled?="{{!bindPhoneCode || !phoneNumber}}">{{M.confirm}}</paper-button>
                     </div>
                   </div>
                 </div>
