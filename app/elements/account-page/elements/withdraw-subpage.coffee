@@ -37,6 +37,11 @@ Polymer 'withdraw-subpage',
       withdrawalDesc: "The minimum amount of withdrawal should equal or greater than %s %s, which include %s, as fee you have to pay. Any withdrawal request will be processed in 24 hours. Our working hours are between 12:00 and 24:00 in HongKong Time."
       identityVerifyRequirement: "Need identity verification to withdraw CNY"
       identityVerify: "Identity verify"
+      withdrawalHint1: "The minimum amount for withdraw is: %s"
+      withdrawalHint2: "Withdrawal fee: %s"
+      withdrawalHint3: "Manual processing of %s is only available between 10:00AM and 10:00PM Beijing Time."
+      withdrawalHint4: "We nomally process your requests within 1 hour."
+      withdrawalHintBtsx: "Due to BTSX's API, now only support registered ID(Eg. coinport-deposit) to withdraw."
 
     'zh':
       na: "无"
@@ -73,6 +78,11 @@ Polymer 'withdraw-subpage',
       withdrawalDesc: "最小提现不能小于 %s %s，无最大数量限制。 我们会从提现数目中扣除 %s作为手续费。提现请求会在24小时内处理完成。我们的工作时间是香港时间12:00-24:00，周末无休。如有其他问题，请联系客服人员。"
       identityVerifyRequirement: "根据相关政策，您需要进行实名认证才能够提现人民币。"
       identityVerify: "实名认证"
+      withdrawalHint1: "每次提现的最小金额为: %s %s"
+      withdrawalHint2: "提现手续费: %s"
+      withdrawalHint3: "%s提现需要人工处理，我们的服务时间是北京时间早10点到晚10点。"
+      withdrawalHint4: "您的提现一般会在一个小时内被处理。"
+      withdrawalHintBtsx: "BTSX目前只支持使用已注册的帐号提币（比如coinport-deposit）。"
 
   feeMap:
     'en':
@@ -198,3 +208,6 @@ Polymer 'withdraw-subpage',
 
   onWithdrawSucceed: (e) ->
       this.$.withdrawalsAjax.go()
+
+  genMessage: (format, content) ->
+      format.format.apply(format, content)

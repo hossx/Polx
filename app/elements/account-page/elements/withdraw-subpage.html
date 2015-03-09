@@ -84,51 +84,22 @@
             </div>
           </template>
 
-          <template if="{{currency.id == 'CNY'}}">
-            <div class="instruction" vertical start layout>
-              <template if="{{lang == 'zh'}}">
-                <div class="alsoNote" horizontal center layout>
+          <div class="instruction" vertical start layout>
+              <div class="alsoNote" horizontal center layout>
                   <core-icon icon="info-outline"></core-icon>
                   <ul>
-                    <li>每次提现的最小金额为 {{fee['CNY']['l']}}。</li>
-                    <li>提现手续费： {{fee['CNY']['f']}}。</li>
-                    <li>{{currency.name}}提现需要人工处理，我们的服务时间是北京时间早10点到晚10点。</li>
-                    <li>在上述时间内，您的提现一般会在一个小时内被处理。</li>
-                  </ul>
-                </div>
-              </template>
-
-              <template if="{{lang == 'en'}}">
-                <div class="alsoNote" horizontal center layout>
-                  <core-icon icon="info-outline"></core-icon>
-                  <ul>
-                    <li>The minimum amount for withdraw is 100 {{currency.unit}}.</li>
-                    <li>CNY withdrawal fee: {{fee['CNY']['f']}}.</li>
-                    <li>Manual processing of {{currency.name}} is only available between 10:00AM and 10:00PM Beijing Time.</li>
-                    <li>During the above hours, we nomally process your requests within 1 hour.</li>
-                  </ul>
-                </div>
-              </template>
-            </div>
-          </template>
-
-          <template if="{{currency.id != 'CNY'}}">
-              <div class="instruction" vertical center layout>
-                  <div class="warning">
-                      {{currency.id | genWithdrawalDesc}}
-                      <template if="{{currency.id == 'BTSX'}}">
-                          <div class="red">
-                              <template if="{{lang=='zh'}}">
-                                  BTSX目前只支持使用已注册的帐号提币（比如coinport-deposit）。
-                              </template>
-                              <template if="{{lang=='en'}}">
-                                  Due to BTSX's API, now only support registered ID(Eg. coinport-deposit) to withdraw.
-                              </template>
-                          </div>
+                      <li>{{genMessage(M.withdrawalHint1, [fee[currency.id]['l'], currency.id])}}。</li>
+                      <li>{{genMessage(M.withdrawalHint2, [fee[currency.id]['f']])}}。</li>
+                      <template if="{{currency.id=='CNY' || currency.id=='GOOC'}}">
+                          <li>{{genMessage(M.withdrawalHint3, [currency.name])}}</li>
                       </template>
-                  </div>
+                      <li>{{M.withdrawalHint4}}</li>
+                      <template if="{{currency.id=='BTSX'}}">
+                          <li class="red"> {{M.withdrawalHintBtsx}} </li>
+                      </template>
+                  </ul>
               </div>
-          </template>
+          </div>
         </div>
       </paper-shadow>
 
