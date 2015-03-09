@@ -38,7 +38,7 @@
         </div>
       </template>
       <api-send-verification-code id="getEmailCodeForAddCardAjax" emailUuid="{{emailUuidForAddCard}}"> </api-send-verification-code>
-      <api-add-bankcard id="addBankCardAjax" on-success="{{addBankCardSuccess}}"></api-add-bankcard>
+      <api-add-bankcard id="addBankCardAjax" on-success="{{addBankCardSuccess}}" loading="{{abLoading}}"></api-add-bankcard>
       <core-collapse id="addBankCardCollapse">
           <div class="outer" vertical center layout>
               <div class="inner" vertical left layout>
@@ -65,7 +65,7 @@
                   <div class="inner" vertical center layout>
                     <div horizontal layout>
                       <paper-button on-tap="{{cancelAddCard}}">{{M.cancel}}</paper-button>
-                      <paper-button raised on-tap="{{confirmAddCard}}">{{M.confirm}}</paper-button>
+                      <paper-button raised on-tap="{{confirmAddCard}}" disabled?="{{!account || !emailVCodeForAddCard || abLoading}}">{{M.confirm}}</paper-button>
                     </div>
                   </div>
               </div>
