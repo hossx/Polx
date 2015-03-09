@@ -16,7 +16,8 @@ Polymer 'subpage-register',
       errPasswordTooSimple: "您的密码过于简单"
       errPasswordsMisMatch: "两次密码输入不一致"
       errPasswordMissing: "请输入密码"
-      errRegisterFailed: 
+      errRegisterFailed:
+        0: "未知错误 - 请联系客服。" 
         1001: "注册失败：该email已经注册。"
 
     'en':
@@ -33,6 +34,7 @@ Polymer 'subpage-register',
       errPasswordsMisMatch: "Passwords do not match"
       errPasswordMissing: "Please provide a password"
       errRegisterFailed:
+        0: "Unknown error! Please contact our customer service." 
         1001: "Registeration Failed: Email already registered."
 
   ## register
@@ -44,19 +46,18 @@ Polymer 'subpage-register',
     password: 'validateRegisterForm'
     password2: 'validateRegisterForm'
     termsAgreed: 'validateRegisterForm'
-
   }
 
   email: ''
   termsAgreed: false
   registerDisabled: true
+  errorMsg: ''
 
   ready: () ->
     @M = @msgMap[window.lang]
-    @addEventListener 'user-register-failed', (e) ->
-      console.debug("------user-register-failed", e.detail.code)
+    @addEventListener 'user-register-failed', (e) -> 
       @errorMsg =  @M.errRegisterFailed[e.detail.code]
-      @password = @password2 = ''
+      console.debug("------user-register-failed", e.detail.code, @errorMsg)
       @registerDisabled = true
 
   registerMe: () ->
@@ -82,6 +83,3 @@ Polymer 'subpage-register',
     else
       @errorMsg = ''
       @registerDisabled = not @termsAgreed
-
-  resultChanged: (o, n) ->
-    console.log(@result)

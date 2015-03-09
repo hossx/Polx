@@ -6,8 +6,7 @@ Polymer 'api-login',
 
   login: () ->
     headers = @headers or {}
-    headers['Authorization'] = "Basic " + Base64.encode(@email + ":" + @password)
-    #headers['Authorization'] = "Basic " + Base64.encode(@email + ":" + $.sha256b64(@password))
+    headers['Authorization'] = "Basic " + @email + ":" + $.sha256b64(@password)
     @headers = headers
     @withCredentials = false
     @url = '%s/api/v2/login'.format(window.config.api.base)

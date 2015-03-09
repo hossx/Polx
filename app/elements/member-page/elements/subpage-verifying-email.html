@@ -1,11 +1,11 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-spinner/paper-spinner.html">
-<link rel="import" href="../../coinport-api/api-check-activation-code.html">
+<link rel="import" href="../../coinport-api/api-verify-activation-code.html">
 
 <polymer-element name="subpage-verifying-email" attributes="token">
   <template>
     <link rel="stylesheet" href="subpage-verifying-email.css">
-    <api-check-activation-code loading="{{loading}}" id="ajax"></api-check-activation-code>
+    <api-verify-activation-code loading="{{loading}}" id="ajax"></api-verify-activation-code>
 
     <div class="container" vertical layout>
       <div class="label">{{M.label}}</div>
