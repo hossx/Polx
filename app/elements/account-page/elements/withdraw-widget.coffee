@@ -95,10 +95,27 @@ Polymer 'withdraw-widget',
   needMemo: false
   needWithdrawalAddress: true
   needBankAddress: false
+  errorMsg: ''
+
   ready: () ->
     @M = @msgMap[window.lang]
     @banks = @banksMap[window.lang]
     @bank = @banks[0]
+    @isSWBDisable = true
+
+  observe: {
+      needGoogleAuth: 'submitButtonIsDisabled'
+      needEmailAuth: 'submitButtonIsDisabled'
+      needMobileAuth: 'submitButtonIsDisabled'
+      googleVCode: 'submitButtonIsDisabled'
+      emailVCode: 'submitButtonIsDisabled'
+      smsVCode: 'submitButtonIsDisabled'
+      address: 'submitButtonIsDisabled'
+      quantity: 'submitButtonIsDisabled'
+      needMemo: 'submitButtonIsDisabled'
+      memo: 'submitButtonIsDisabled'
+  }
+
   bankCardToString:(card) ->
       if (!card)
           ''
@@ -113,15 +130,24 @@ Polymer 'withdraw-widget',
   retrievePhoneCode:() ->
       this.$.getPhoneCodeAjax.getCode(true, false)
 
-  submitWithdrawal:() ->
-      if @quantity > @balance || @quantity < @limit
-          @fire('display-message', {error: @M.notValidWithdrawAmount})
+  submitButtonIsDisabled: () ->
+      @isSWBDisable = ((@needGoogleAuth && !@googleVCode) || (@needEmailAuth && !@emailVCode) || (@needMobileAuth && !@smsVCode) || (@currency != 'CNY' && !@address) || (@currency == 'CNY' && !@cnyAddress) || !@quantity || (@needMemo && !@memo) || (@quantity > @balance) || (@quantity < @limit))
+      if (@quantity > @balance || @quantity < @limit)
+          @errorMsg = @M.notValidWithdrawAmount
       else
+          @errorMsg = ''
+
+  submitWithdrawal:() ->
+      if @quantity && @quantity <= @balance && @quantity >= @limit
+          this.$.submitWithdrawButton.disabled = true
           adds = if @currency == 'CNY' then @cnyAddress else @address
-          this.$.submitWithdrawalAjax.withdraw(@currency, adds, @quantity, @emailUuid, @emailVCode, @phoneUuid, @smsVCode, @googleVCode, @pubkey, @memo, "v2", window.lang)
+          this.$.submitWithdrawalAjax.withdraw(@currency, adds, @quantity, @emailUuid, @emailVCode, @phoneUuid,
+              @smsVCode, @googleVCode, @pubkey, @memo, "v2", window.lang)
 
   onSubmitWithdrawalSuccess:(e) ->
+      this.$.submitWithdrawButton.disabled = true
       if e.detail.data && e.detail.data.withdraw_status == 0
+          @quantity = 0
           @fire('display-message', {message: @M.withdrawSuccess})
           @fire('withdraw-succeed', {data: e.detail.data})
       else

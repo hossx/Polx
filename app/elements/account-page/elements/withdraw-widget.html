@@ -111,8 +111,9 @@
       </template>
 
       <api-submit-withdrawal id="submitWithdrawalAjax" on-success="{{onSubmitWithdrawalSuccess}}"> </api-submit-withdrawal>
+      <div class="errorMsg">{{errorMsg}}</div>
       <div class="action" self-center>
-        <paper-button noink class="primary" on-tap="{{submitWithdrawal}}">{{M.withdraw}}</paper-button>
+        <paper-button noink id="submitWithdrawButton" class="primary" on-tap="{{submitWithdrawal}}" disabled?="{{isSWBDisable}}">{{M.withdraw}}</paper-button>
       </div>
     </div>
   </template>
