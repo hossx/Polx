@@ -5,14 +5,7 @@
 
 ##TODO(xiaolu)
 
-- 很多API的cursor实现不对，而且文档中没有说明cursor是对应返回数据的哪个field。另外cursor是0或者是空字符串的时候API应该正确返回。
-- BUG: the hasMore value of /user/deposits is wrong
-- BUG? 用已经用过的emai注册，返回值错误码不对。实际上应该明确说明各种错误码
 - 增加一个返回huobi,okcoin,coinbase,等其他交易所ticker的api -> /api/v2/external_tickers
-- login api需要有些小改动，请见基于用户名和密码的授权部分。 username:password => username:base64_encoded_sha256_of_password // 现在已经是这样子得了： base64_encoded(username:sha256_of_password)
-- GET https://exchange.coinport.com/api/v2/check_activation_code?token=HWW3DU3FUNRHKIFZWPNUIYON7MX5PDC5D3RBQMCB 404 (Not Found) // 文档写错了，check_activation_code -> verify_activation_code
-- request password reset returns FALSE !!!  // 早上我又测试了一下，没有问题啊，你请求得json是什么样de？
-- send_mobile_bind_verify_code and send_verification_code needs to support `version` and `lang`, and use our new template: x2_dynamic_code_(en/zh). // send_mobile_bind_verify_code 是发送手机验证码，不需要指定模板，send_verification_code 已经更新文档
 ---
 
 
@@ -496,7 +489,7 @@
 
 ####URL参数
 - currency：货币ID。
-- cursor：请参考「术语约定」。该接口cursor为文件列表中时间戳。
+- cursor：请参考「术语约定」。此处值为时间戳，即对应返回数据中的"items"中每一条最后一个字段, 如："1423017188827"。如果指定，访问时间戳小于1423017188827的items。
 - limit：请参考「术语约定」，默认值50，上限100。
 
 ####返回值示例
@@ -532,7 +525,7 @@
 
 ####URL参数
 - currency：货币ID。
-- cursor：请参考「术语约定」。
+- cursor：请参考「术语约定」。此处值为充值记录ID，即对应返回数据中的"id"项。
 - limit：请参考「术语约定」，默认值50，上限100。
 
 ####返回值示例
@@ -570,7 +563,7 @@
 
 ####示例
 - [https://exchange.coinport.com/api/v2/ltc/transfers](https://exchange.coinport.com/api/v2/ltc/transfers) - 读取最新50条LTC资产分布快照数据文件列表。
-- [https://exchange.coinport.com/api/v2/btc/transfers?cursor=1121321&limit=20](https://exchange.coinport.com/api/v2/btc/transfers?cursor=1121321&limit=20) - 读取1121321之前的20条BTC资产分布快照数据文件列表。
+- [https://exchange.coinport.com/api/v2/btc/transfers?cursor=1000000051345&limit=20](https://exchange.coinport.com/api/v2/btc/transfers?cursor=1000000051345&limit=20) - 读取1000000051345之前的20条BTC资产分布快照数据文件列表。
 
 <br><br>
 
@@ -583,7 +576,7 @@
 
 ####URL参数
 - market：市场ID。
-- cursor：请参考「术语约定」，此处值为订单号，即对应返回数据中的"trade_id"项。
+- cursor：请参考「术语约定」，此处值为订单号，即对应返回数据中的"id"项。
 - limit：请参考「术语约定」，默认值100，上限200。
 
 ####返回值示例
@@ -819,7 +812,7 @@ profile中的pwdhash将不会被返回。
 
 ####URL参数
 - market：市场ID。如果不设置，将返回所有市场的交易记录。
-- cursor：请参考「术语约定」，此处值为交易记录ID，即对应返回数据中的"trade_id"项。
+- cursor：请参考「术语约定」，此处值为交易记录ID，即对应返回数据中的"id"项。
 - limit：请参考「术语约定」，默认值100，上限200。
 - ids：逗号分隔的成交记录ID列表。该参数如被设置，market，cursor,和limit将被忽略。
 
@@ -848,7 +841,7 @@ profile中的pwdhash将不会被返回。
 
 ####URL参数
 - market：市场ID。如果不设置，将返回所有市场的订单记录。
-- cursor：请参考「术语约定」，此处值为订单ID，即对应返回数据中的"order_id"项。
+- cursor：请参考「术语约定」，此处值为订单ID，即对应返回数据中的"id"项。
 - limit：请参考「术语约定」，默认值50，上限200。
 - order_status：订单状态码，默认获取所有状态的订单。
 - ids：逗号分隔的订单号列表。该参数如被设置，market，cursor,limit和order_status将被忽略。
@@ -886,7 +879,7 @@ profile中的pwdhash将不会被返回。
 
 ####URL参数
 - currency：货币ID。如果不设置，将返回所有货币的订单记录。
-- cursor：请参考「术语约定」，此处值为充值记录ID，即对应返回数据中的"transfer_id"项。
+- cursor：请参考「术语约定」，此处值为充值记录ID，即对应返回数据中的"id"项。
 - limit：请参考「术语约定」，默认值30，上限200。
 - ids：逗号分隔的充值记录ID列表。该参数如被设置，currency，cursor,和limit将被忽略。
 
@@ -914,7 +907,7 @@ profile中的pwdhash将不会被返回。
 
 ####URL参数
 - currency：货币ID。如果不设置，将返回所有货币的订单记录。
-- cursor：请参考「术语约定」，此处值为充值记录ID，即对应返回数据中的"transfer_id"项。
+- cursor：请参考「术语约定」，此处值为充值记录ID，即对应返回数据中的"id"项。
 - limit：请参考「术语约定」，默认值30，上限200。
 - ids：逗号分隔的提现记录ID列表。该参数如被设置，currency，cursor,和limit将被忽略。
 
