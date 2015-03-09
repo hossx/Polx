@@ -56,7 +56,6 @@
   | POST           | /api/v2/user/submit_withdrawal                    | 提交一个提现申请
   | POST           | /api/v2/user/cancel_withdrawal                    | 取消一个提现申请
   | POST           | /api/v2/request_password_reset                    | 提交一个重置密码申请
-  | GET            | /api/v2/verify_password_reset_token               | 验证重置密码的Token是否有效
   | POST           | /api/v2/reset_password                            | 重置密码
   | POST           | /api/v2/send_activation_code                      | 发送账号激活码（目前是通过发送含有激活链接的邮件）
   | POST           | /api/v2/verify_activation_code                     | 验证账号激活码
@@ -164,7 +163,7 @@
   | 1002 | 超过流量上限 |
   | 1003 | 系统内部错误 |
   | 1004 | 用户不存在   |
-  | 1005 | 用户帐号不可用 |
+  | 1005 | TOKEN不匹配 |
   | 1006 | 签名不匹配 |
   | 1007 | 不正确或多余的参数：参数：{parameter} |
   | 2002 | 余额不足 |
@@ -1125,21 +1124,6 @@ btsx提现，需要指定memo字段。
     "lang": "zh" // 1. zh 使用中文邮件模板, 2. en 使用英文邮件模板
   }
 ```
-
-####返回值示例
-
-```
-  {
-    "result" : true
-  }
-
-```
-
-### GET /api/v2/verify_password_reset_token?token={Token}
-验证重置密码的Token是否有效
-
-####URL参数
-- token：重置密码需要的token
 
 ####返回值示例
 
