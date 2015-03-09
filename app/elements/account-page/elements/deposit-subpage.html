@@ -63,8 +63,7 @@
                 <h3>渠道二：</h3>
                 <div>您还可以通过我们信任的瑞波网关进行充值。 瑞波网关充值更快更便捷。详情请参考<a href="/#/doc/cny-deposit-thru-ripple-gateways" target="_blank">本文档</a>。
                 </div>
-                <div class="alsoNote" horizontal center layout>
-                  <core-icon icon="info-outline"></core-icon>
+                <div class="alsoNote">
                   <ul>
                     <li>每次充值的最小金额为 100 {{currency.unit}}。</li>
                     <li>{{currency.name}}充值需要人工处理，我们的服务时间是北京时间早10点到晚10点。</li>
@@ -78,11 +77,10 @@
                   <span class="highlight">QQ 3115728063, 209063895</span>. They will tell you one of their CNY bank accounts that
                   you need to transfer money into.
                 </div>
-                <div class="alsoNote" horizontal center layout>
-                  <core-icon icon="info-outline"></core-icon>
+                <div class="alsoNote">
                   <ul>
                     <li>The minimum amount for deposit is 100 {{currency.unit}}.</li>
-                    <li>Manual processing of {{currency.name}} is only available between 10:00AM and 10:00PM Beijing Time.</li>
+                    <li>Manual processing of {{currency.name}} is only available between 10:00AM and 10:00PM Hong Kong Time.</li>
                     <li>During the above hours, we nomally credit your account within 1 hour.</li>
                   </ul>
                 </div>
@@ -91,18 +89,17 @@
           </template>
 
           <template if="{{currency.id === 'GOOC'}}">
-            <div class="instruction" vertical start layout>
+            <div class="instruction" vertical center layout>
               <template if="{{lang === 'zh'}}">
                 <div>请将您的{{currency.fullName}}转账到账号：
                   <crypto-address currency="{{currency}}" addr="50001"></crypto-address>
                 </div>
-                <div class="alsoNote" horiziontal layout>
-                  <core-icon icon="info-outline"></core-icon>
+                <div class="alsoNote">
                   <ul>
+                    <li class="red"><b>重要提示：</b>转账时请一定把 “<b>{{profile.uid}}</b>”（您的用户ID，而不是您注册所有的email） 作为 “Memo” 输入到钱包。不这么做您的充值不会成功！</li>
                     <li>每次充值的最小金额为 1000 {{currency.unit}}。</li>
                     <li>{{currency.name}}充值需要人工处理，我们的服务时间是北京时间早10点到晚10点。</li>
                     <li>在上述时间内，您的充值一般会在一个小时内到账。</li>
-                    <li class="red"><b>重要提示：</b>转账时请一定把 “<b>{{profile.uid}}</b>”（您的用户ID，而不是您注册所有的email） 作为 “Memo” 输入到钱包。不这么做您的充值不会成功！</li>
                   </ul>
                 </div>
               </template>
@@ -110,15 +107,13 @@
                 <div>Please send your {{currency.fullName}} to account:
                   <crypto-address currency="{{currency}}" addr="50001"></crypto-address>
                 </div>
-                <div class="alsoNote" horiziontal layout>
-                  <core-icon icon="info-outline"></core-icon>
+                <div class="alsoNote">
                   <ul>
+                    <li class="red"><b>Attention:</b> Please make sure you put "{{profile.uid}}"(your user ID, not your email) as the exact "memo". Failing to do so may invalid your deposit!</li>
                     <li>The minimum amount for deposit is 1000 {{currency.unit}}.</li>
-                    <li>Manual processing of {{currency.name}} is only available between 10:00AM and 10:00PM Beijing Time.</li>
-                    <li>During the above
-                      <ho></ho>urs, we nomally credit your account within 1 hour.</li>
-                    <li class="red"><b>Attention:</b> Please make sure you put "{{profile.uid}}"(your user ID, not your email) as the exact "memo".
-                      Failing to do so may invalid your deposit!</li>
+                    <li>Manual processing of {{currency.name}} is only available between 10:00AM and 10:00PM Hong Kong Time.</li>
+                    <li>During the above hours, we nomally credit your account within 1 hour.</li>
+
                   </ul>
                 </div>
               </template>
@@ -133,8 +128,7 @@
                   或者
                   <crypto-address currency="{{currency}}" addr="coinportXrpDeposit"></crypto-address>
                 </div>
-                <div class="alsoNote" horiziontal layout>
-                  <core-icon icon="info-outline"></core-icon>
+                <div class="alsoNote">
                   <ul>
                     <li class="red"><b>重要提示：</b> 转账时请一定把 “<b>{{profile.uid}}</b>”（您的用户ID，而不是您注册所有的email） 作为 “Destination Tag” 输入到钱包。不这么做您的充值不会成功！</li>
                   </ul>
@@ -147,12 +141,11 @@
                   or
                   <crypto-address currency="{{currency}}" addr="coinportXrpDeposit"></crypto-address>
                 </div>
-                <div class="alsoNote" horiziontal layout>
-                  <core-icon icon="info-outline"></core-icon>
+                <div class="alsoNote">
                   <ul>
                     <li class="red">
-                      <b>Attention:</b> Please make sure you put "{{profile.uid}}"(your user ID, not your email) as the "Destination Tag".
-                      Failing to do so may invalid your deposit!
+                      <b>Attention:</b> Please make sure you put "{{profile.uid}}"(your user ID, not your email) as the "Destination
+                      Tag". Failing to do so may invalid your deposit!
                     </li>
                   </ul>
                 </div>
@@ -161,35 +154,29 @@
           </template>
 
           <template if="{{currency.id == 'BTSX'}}">
-            <div class="instruction" vertical start layout>
+            <div class="instruction" vertical center layout>
               <template if="{{lang === 'zh'}}">
-                <div>请将您的{{currency.name}}充值到:
-                  <crypto-address currency="{{currency}}" addr="BTS5FPJkXFwokNEsRLwfWvPKAbzriNLS5ut823rMzHbpKMg9QgYWZ"></crypto-address>
-                  或者
-                  <crypto-address currency="{{currency}}" addr="coinport-deposit"></crypto-address>
-                </div>
-                <div class="alsoNote" horiziontal layout>
-                  <core-icon icon="info-outline"></core-icon>
+                <div>请将您的{{currency.name}}充值到:</div>
+                <crypto-address currency="{{currency}}" addr="BTS5FPJkXFwokNEsRLwfWvPKAbzriNLS5ut823rMzHbpKMg9QgYWZ"></crypto-address>
+                <div>或者</div>
+                <crypto-address currency="{{currency}}" addr="coinport-deposit"></crypto-address>
+                <div class="alsoNote">
                   <ul>
-                    <li class="red">
-                      <b>重要提示：</b> 转账时请一定把 “<b>{{profile.uid}}</b>”（您的用户ID） 作为 “Memo” 输入到钱包。不这么做您的充值不会成功！
-                    </li>
+                    <li class="red"><b>重要提示：</b> 转账时请一定把 “<b>{{profile.uid}}</b>”（您的用户ID） 作为 “Memo” 输入到钱包。不这么做您的充值不会成功！</li>
                   </ul>
                 </div>
               </template>
 
               <template if="{{lang === 'en'}}">
-                <div>Please send your {{currency.name}} to:
-                  <crypto-address currency="{{currency}}" addr="r9AzyYGGQAvgefdgeu3eDHaVdxLdpAvchE"></crypto-address>
-                  or
-                  <crypto-address currency="{{currency}}" addr="coinportXrpDeposit"></crypto-address>
-                </div>
-                <div class="alsoNote" horiziontal layout>
-                  <core-icon icon="info-outline"></core-icon>
+                <div>Please send your {{currency.name}} to:</div>
+                <crypto-address currency="{{currency}}" addr="r9AzyYGGQAvgefdgeu3eDHaVdxLdpAvchE"></crypto-address>
+                <div>or</div>
+                <crypto-address currency="{{currency}}" addr="coinportXrpDeposit"></crypto-address>
+                <div class="alsoNote">
                   <ul>
                     <li class="red">
-                      <b>Attention:</b> Please make sure you put "{{profile.uid}}"(your user ID) as the "Memo". Failing to do so may invalid
-                      your deposit!
+                      <b>Attention:</b> Please make sure you put "{{profile.uid}}"(your user ID) as the "Memo". Failing to do so may
+                      invalid your deposit!
                     </li>
                   </ul>
                 </div>
@@ -198,38 +185,34 @@
           </template>
 
           <template if="{{currency.id == 'NXT'}}">
-            <div class="instruction" vertical start layout>
+            <div class="instruction" vertical center layout>
 
               <template if="{{lang === 'zh'}}">
-                <div>请将您的{{currency.name}}充值到:
-                  <crypto-address currency="{{currency}}" addr="{{nxtAddressComponents[0]}}"></crypto-address> or
-                  <crypto-address currency="{{currency}}" addr="{{nxtAddressComponents[1]}}"></crypto-address>
-                </div>
+                <div>请将您的{{currency.name}}充值到:</div>
+                <crypto-address currency="{{currency}}" addr="{{nxtAddressComponents[0]}}"></crypto-address> or
+                <crypto-address currency="{{currency}}" addr="{{nxtAddressComponents[1]}}"></crypto-address>
 
                 <div>您也可以用{{currency.name}}钱包扫描下面的二维码:</div>
 
-                <div self-center id="qrcode">
+                <div id="qrcode">
                   <qr-code data="{{nxtAddressComponents[0]}}" size="200" margin="1"></qr-code>
                 </div>
-                <div class="alsoNote" horizontal center layout>
-                  <core-icon icon="info-outline"></core-icon>
+                <div class="alsoNote">
                   <ul>
                     <li>该地址的公钥为: <span class="quote">{{nxtAddressComponents[2]}}</span>。您第一次充值给币丰港的时候可能需要。</li>
                   </ul>
                 </div>
               </template>
               <template if="{{lang === 'en'}}">
-                <div>Please send your {{currency.name}} to:
-                  <crypto-address currency="{{currency}}" addr="{{nxtAddressComponents[0]}}"></crypto-address> or
-                  <crypto-address currency="{{currency}}" addr="{{nxtAddressComponents[1]}}"></crypto-address>
-                </div>
+                <div>Please send your {{currency.name}} to:</div>
+                <crypto-address currency="{{currency}}" addr="{{nxtAddressComponents[0]}}"></crypto-address> or
+                <crypto-address currency="{{currency}}" addr="{{nxtAddressComponents[1]}}"></crypto-address>
                 <div>You can scan this QR code with your {{currency.name}} wallet:</div>
-                <div self-center id="qrcode">
+                <div id="qrcode">
                   <qr-code data="{{nxtAddressComponents[0]}}" size="200" margin="1"></qr-code>
                 </div>
 
-                <div class="alsoNote" horizontal center layout>
-                  <core-icon icon="info-outline"></core-icon>
+                <div class="alsoNote">
                   <ul>
                     <li>This address's public key is <span class="quote">{{nxtAddressComponents[2]}}</span>. You many need to use it for
                       your deposit.</li>
@@ -303,7 +286,8 @@
             </tbody>
           </table>
 
-          <api-my-deposits id="depositsAjax" currencyId="{{currencyId}}" deposits="{{deposits}}" loading="{{loading}}" hasMore="{{hasMore}}" auto?="{{active}}"></api-my-deposits>
+          <api-my-deposits id="depositsAjax" currencyId="{{currencyId}}" deposits="{{deposits}}" loading="{{loading}}" hasMore="{{hasMore}}"
+          auto?="{{active}}"></api-my-deposits>
           <load-data-widget hasMore="{{hasMore}}" loading="{{loading}}" data="{{deposits}}" loadMore="{{loadMore}}"></load-data-widget>
         </div>
       </paper-shadow>

@@ -33,8 +33,8 @@
               </core-menu>
             </core-dropdown>
           </core-dropdown-menu>
-          <paper-button disabled?="{{cards.length==0}}" on-tap="{{removeBankCard}}">{{M.removeBankcard}}</paper-button>
-          <paper-button on-tap="{{toggleAddBankCardCollapse}}">{{M.addBankcard}}</paper-button>
+          <paper-button noink disabled?="{{cards.length==0}}" on-tap="{{removeBankCard}}">{{M.removeBankcard}}</paper-button>
+          <paper-button noink on-tap="{{toggleAddBankCardCollapse}}">{{M.addBankcard}}</paper-button>
         </div>
       </template>
       <api-send-verification-code id="getEmailCodeForAddCardAjax" emailUuid="{{emailUuidForAddCard}}"> </api-send-verification-code>
@@ -112,7 +112,7 @@
 
       <api-submit-withdrawal id="submitWithdrawalAjax" on-success="{{onSubmitWithdrawalSuccess}}"> </api-submit-withdrawal>
       <div class="action" self-center>
-        <paper-button class="primary" on-tap="{{submitWithdrawal}}">{{M.withdraw}}</paper-button>
+        <paper-button noink class="primary" on-tap="{{submitWithdrawal}}">{{M.withdraw}}</paper-button>
       </div>
     </div>
   </template>

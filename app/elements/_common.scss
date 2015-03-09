@@ -430,19 +430,18 @@ paper-button, paper-icon-button {
 }
 paper-button.primary {
     border-radius: 0px;
-    background: white;
-    border: 2px solid color($grey, 300);
+    background: fade-out(color($C2, a400), 0.3);
     color: $black1;
+    border: 1px solid color($C2, a400);
+    border-radius: 1px;
     text-transform: none;
     font-weight: bold;
     min-width: 200px;
     &:hover {
         background: color($C2, a400);
-        color: $black1;
-        border: 2px solid color($grey, 900);
     }
     &[disabled] {
-        background: color($grey, 200);
+        background: fade-out(color($C2, a400), 0.5);
         color: $black3;
     }
 }
