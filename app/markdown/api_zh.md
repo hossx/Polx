@@ -9,10 +9,10 @@
 - BUG: the hasMore value of /user/deposits is wrong
 - BUG? 用已经用过的emai注册，返回值错误码不对。实际上应该明确说明各种错误码
 - 增加一个返回huobi,okcoin,coinbase,等其他交易所ticker的api -> /api/v2/external_tickers
-- login api需要有些小改动，请见基于用户名和密码的授权部分。 username:password => username:base64_encoded_sha256_of_password
-- GET https://exchange.coinport.com/api/v2/check_activation_code?token=HWW3DU3FUNRHKIFZWPNUIYON7MX5PDC5D3RBQMCB 404 (Not Found)
-- request password reset returns FALSE !!!
-- send_mobile_bind_verify_code and send_verification_code needs to support `version` and `lang`, and use our new template: x2_dynamic_code_(en/zh).
+- login api需要有些小改动，请见基于用户名和密码的授权部分。 username:password => username:base64_encoded_sha256_of_password // 现在已经是这样子得了： base64_encoded(username:sha256_of_password)
+- GET https://exchange.coinport.com/api/v2/check_activation_code?token=HWW3DU3FUNRHKIFZWPNUIYON7MX5PDC5D3RBQMCB 404 (Not Found) // 文档写错了，check_activation_code -> verify_activation_code
+- request password reset returns FALSE !!!  // 早上我又测试了一下，没有问题啊，你请求得json是什么样de？
+- send_mobile_bind_verify_code and send_verification_code needs to support `version` and `lang`, and use our new template: x2_dynamic_code_(en/zh). // send_mobile_bind_verify_code 是发送手机验证码，不需要指定模板，send_verification_code 已经更新文档
 ---
 
 
@@ -66,7 +66,7 @@
   | GET            | /api/v2/verify_password_reset_token               | 验证重置密码的Token是否有效
   | POST           | /api/v2/reset_password                            | 重置密码
   | POST           | /api/v2/send_activation_code                      | 发送账号激活码（目前是通过发送含有激活链接的邮件）
-  | POST           | /api/v2/check_activation_code                     | 验证账号激活码
+  | POST           | /api/v2/verify_activation_code                     | 验证账号激活码
   | POST           | /api/v2/user/send_verification_code               | 发送一次性邮件或者手机验证码
   | POST           | /api/v2/user/send_mobile_bind_verify_code         | 发送绑定手机用手机验证码
   | POST           | /api/v2/user/verify_realname                      | 实名认证
@@ -1197,7 +1197,7 @@ btsx提现，需要指定memo字段。
   }
 ```
 
-### GET /api/v2/check_activation_code?token={token}
+### GET /api/v2/verify_activation_code?token={token}
 验证账号激活码。
 
 ####返回值示例
@@ -1215,7 +1215,9 @@ btsx提现，需要指定memo字段。
 ```
   {
     "toPhone" : true, // 邮箱和手机至少一个
-    "toEmail" : false // 邮箱和手机至少一个
+    "toEmail" : false, // 邮箱和手机至少一个
+    "exchangeVersion": "v2", // 可选字段，如果要填，目前只支持v2, 为x.coinport.com
+    "lang": "zh" // 1. zh 使用中文邮件模板, 2. en 使用英文邮件模板
   }
 ```
 
