@@ -139,13 +139,11 @@ Polymer 'withdraw-widget',
 
   submitWithdrawal:() ->
       if @quantity && @quantity <= @balance && @quantity >= @limit
-          this.$.submitWithdrawButton.disabled = true
           adds = if @currency == 'CNY' then @cnyAddress else @address
           this.$.submitWithdrawalAjax.withdraw(@currency, adds, @quantity, @emailUuid, @emailVCode, @phoneUuid,
               @smsVCode, @googleVCode, @pubkey, @memo, "v2", window.lang)
 
   onSubmitWithdrawalSuccess:(e) ->
-      this.$.submitWithdrawButton.disabled = true
       if e.detail.data && e.detail.data.withdraw_status == 0
           @quantity = 0
           @fire('display-message', {message: @M.withdrawSuccess})
