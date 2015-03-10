@@ -121,7 +121,7 @@
 
   ```
 
-- cursor和limit：在几个API URL参数中，我们会用cursor和limit来指定返回数据的起始位置和数量。返回数据不包括cursor指向的那条数据（如果存在），如果想返回ID是0的数据，cursor的值应该是1。如果没有说明，cursor默认值是1，limit的默认值是50。每个API对limit可能与上限设置，如果设定的limit值大于这个上限，系统将用该上限作为limit的实际值。
+- cursor和limit：在几个API URL参数中，我们会用cursor和limit来指定返回数据的起始位置和数量。返回数据不包括cursor指向的那条数据（如果存在），如果想返回ID是0的数据，cursor的值应该是1。如果没有说明，cursor默认值是“”，limit的默认值是50。每个API对limit可能与上限设置，如果设定的limit值大于这个上限，系统将用该上限作为limit的实际值。
 
 - hasMore：在一些API的返回数据中，hasMore如果是True，代表有更多数据可以返回；如果是False，代表没有更多数据可以返回。
 
