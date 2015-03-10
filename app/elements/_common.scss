@@ -441,7 +441,8 @@ paper-button.primary {
         background: color($C2, a400);
     }
     &[disabled] {
-        background: $black3;
+        background: color($grey, 100);
+        border-color: $black4;
         color: $black3;
     }
 }

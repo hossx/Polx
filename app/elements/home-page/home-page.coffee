@@ -50,7 +50,7 @@ Polymer 'home-page',
       pleaseLogin3: "。"
       learnMore: "了解详情。"
       betterUx: "更好的用户体验"
-      builtInCs: "网络内置聊天，您无需登录也无需任何聊天软件账号。"
+      builtInCs: "网站内置聊天功能，您无需登录也无需任何聊天软件账号。"
       builtWithAPIs: "完全基于币丰港API开发。"
       niceUI: "更优雅简洁的界面。"
 
