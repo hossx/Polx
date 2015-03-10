@@ -44,7 +44,7 @@ Polymer 'the-router',
   onUserLoggedIn: () ->
     console.debug("------user-logged-in: " + JSON.stringify(window.profile))
     z = window.$zopim
-    if z
+    if z and z.livechat
       z () -> 
         z.livechat.setName('U' + window.profile.uid)
         z.livechat.setNotes(JSON.stringify(window.profile))
@@ -57,7 +57,7 @@ Polymer 'the-router',
   onUserLogOut: () ->
     @removeCookies()
     z = window.$zopim
-    if z
+    if z and z.livechat
       z () ->
         z.livechat.setName('')
         z.livechat.endChat()

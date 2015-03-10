@@ -6,7 +6,7 @@ Polymer 'api-my-orders',
   orders: []
 
   marketId: ''
-  limit: 0
+  limit: 40
   cursor: 0
 
   observe:

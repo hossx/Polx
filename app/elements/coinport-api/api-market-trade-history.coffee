@@ -6,7 +6,7 @@ Polymer 'api-market-trade-history',
   tailCursor: 0
 
   marketId: ''
-  limit: 50
+  limit: 40
   cursor: 0
 
   observe:

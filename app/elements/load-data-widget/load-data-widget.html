@@ -6,12 +6,6 @@
   <template>
     <link rel="stylesheet" href="load-data-widget.css">
 
-    <template if="{{!loading && (data == undefined || data == null || data.length == 0)}}">
-      <div class="indicator">
-        {{M.empty}}
-      </div>
-    </template>
-
     <template if="{{!loading && hasMore}}">
       <paper-button noink id="button" on-tap="{{loadMore}}">{{M.loadMore}}</paper-button>
     </template>

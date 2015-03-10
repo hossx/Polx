@@ -64,10 +64,10 @@
         if (window.lang === 'zh') {
           z.livechat.setLanguage('zh_CN');
           z.livechat.setGreetings({
-            'offline': '对不起，币丰港客服不在线上。请留言。',
+            'offline': 'Sorry，币丰港客服不在线上。请留言。',
             'online': '客服MM在线，一起聊聊吧？'
           });
-          z.livechat.concierge.setName('币丰港');
+          z.livechat.concierge.setName('币丰港客服');
           z.livechat.concierge.setTitle('有什么可以帮您的？');
         } else {
           z.livechat.setLanguage('en');
