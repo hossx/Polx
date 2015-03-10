@@ -3,9 +3,6 @@
 
 <center>当前版本：2.0</center>
 
-##TODO(xiaolu)
-
-- 增加一个返回huobi,okcoin,coinbase,等其他交易所ticker的api -> /api/v2/external_tickers
 ---
 
 
@@ -31,7 +28,7 @@
   | -------------- | -----------------------                           | ------------
   | GET            | /api/v2/reserve_stats                             | 读取平台所有数字资产的准备金统计数据
   | GET            | /api/v2/tickers                                   | 获取所有市场ticker数据 
-  | GET            | /api/v2/external_tickers                          | 获取几个外部BTC市场的ticker数据 
+  | GET            | /api/v2/*{currency}*/external_tickers             | 获取几个外部市场的ticker数据(暂时只支持BTC)
   | GET            | /api/v2/*{currency}*/tickers                      | 获取人民币或比特币所有市场的ticker数据
   | GET            | /api/v2/*{currency}*/reserves                     | 读取平台某数字资产的准备金统详细数据
   | GET            | /api/v2/*{currency}*/balance_snapshot_files       | 读取特定币种的资产分布快照数据文件列表
@@ -58,7 +55,7 @@
   | POST           | /api/v2/request_password_reset                    | 提交一个重置密码申请
   | POST           | /api/v2/reset_password                            | 重置密码
   | POST           | /api/v2/send_activation_code                      | 发送账号激活码（目前是通过发送含有激活链接的邮件）
-  | POST           | /api/v2/verify_activation_code                     | 验证账号激活码
+  | POST           | /api/v2/verify_activation_code                    | 验证账号激活码
   | POST           | /api/v2/user/send_verification_code               | 发送一次性邮件或者手机验证码
   | POST           | /api/v2/user/send_mobile_bind_verify_code         | 发送绑定手机用手机验证码
   | POST           | /api/v2/user/verify_realname                      | 实名认证
@@ -73,6 +70,8 @@
   | POST           | /api/v2/user/add_bankcard                         | 绑定银行卡或者支付宝
   | POST           | /api/v2/user/delete_bankcard                      | 解绑银行卡或者支付宝
   | GET            | /api/v2/user/query_bankcards                      | 获取已绑定银行卡或者支付宝信息
+  | POST           | /api/v2/user/add_api_token                        | 增加一条api token pair
+  | POST           | /api/v2/user/delete_api_token                     | 删除一条api token pair
 
 ---
 
@@ -367,8 +366,9 @@
 <br><br>
 
 
-### GET /api/v2/external_btc_tickers
-获取几个外部BTC市场的ticker数据。
+### GET /api/v2/*{currency}*/external_tickers
+获取几个外部市场的ticker数据。
+currency参数暂时只支持BTC。
   
 ####返回值示例
   ```
@@ -1418,6 +1418,7 @@ btsx提现，需要指定memo字段。
     "result" : true
   }
 ```
+
 ### POST /api/v2/user/delete_bankcard
 删除银行卡或者支付宝
 
@@ -1456,4 +1457,39 @@ btsx提现，需要指定memo字段。
       "branchBankName":"海淀支行2"
     }
   ]
+```
+
+### POST /api/v2/user/add_api_token
+增加一条api token pair
+
+####POST数据JSON格式(无POST数据)
+```
+  {}
+```
+
+####返回值示例
+
+```
+  {
+    "result" : true
+  }
+```
+
+### POST /api/v2/user/delete_api_token
+删除一条api token pair
+
+####POST数据JSON格式
+
+```
+  {
+    "token": "1943208167396811712"
+  }
+```
+
+####返回值示例
+
+```
+  {
+    "result" : true
+  }
 ```
