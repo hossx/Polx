@@ -55,8 +55,22 @@ Polymer 'orders-subpage',
     @config = window.config
 
   formatTime: (t) ->
-    moment(t).format('YYYY-MM/DD-hh:mm') 
+    moment(t).format('YYYY-MM/DD-hh:mm')
 
   loadMore: () ->
     this.$.ajax.loadMore()
-    
+
+  cancelOrder: (e) ->
+    this.$.cancelOrderAjax.cancelOrder(e.target.getAttribute("orderId"))
+
+  cancelledIdsChanged: (o, n) ->
+    if @cancelledIds and @cancelledIds.length > 0
+      @fire("display-message", {message: "Order (ID:%s) has been cancelled.".format(@cancelledIds[0])})
+      @cancelledIds = null
+      this.$.ajax.go()
+
+
+  failedIdsChanged: (o, n) ->
+    if @failedIds and @failedIds.length > 0
+      @fire("display-message", {error: "Failed to cancel order (ID:%s).".format(@failedIds[0])})
+      @failedIds = null

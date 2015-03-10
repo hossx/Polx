@@ -8,6 +8,7 @@
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../crypto-address/crypto-address.html">
+<link rel="import" href="../../coinport-api/api-cancel-orders.html">
 <link rel="import" href="../../coinport-api/api-my-orders.html">
 <link rel="import" href="../../load-data-widget/load-data-widget.html">
 
@@ -19,6 +20,7 @@
         <div label>
           <h2>{{M.orders}}</h2>
         </div>
+        <api-cancel-orders id="cancelOrderAjax" cancelledIds="{{cancelledIds}}" failedIds="{{failedIds}}"></api-cancel-orders>
         <div vertical center layout class="container1">
           <table class="simple">
             <thead>
