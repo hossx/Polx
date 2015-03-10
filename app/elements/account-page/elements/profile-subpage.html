@@ -11,9 +11,11 @@
 <link rel="import" href="../../../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="../../section-group/section-group.html">
 <link rel="import" href="../../qr-code/qr-code.html">
+<link rel="import" href="../../coinport-api/api-add-api-token.html">
 <link rel="import" href="../../coinport-api/api-bind-google-auth.html">
 <link rel="import" href="../../coinport-api/api-bind-update-phone.html">
 <link rel="import" href="../../coinport-api/api-change-pw.html">
+<link rel="import" href="../../coinport-api/api-delete-api-token.html">
 <link rel="import" href="../../coinport-api/api-get-google-auth.html">
 <link rel="import" href="../../coinport-api/api-identity-verify.html">
 <link rel="import" href="../../coinport-api/api-send-mobile-bind-verify-code.html">
@@ -53,9 +55,12 @@
             <div flex>{{profile.mobile}}</div>
           </div>
 
+          <api-add-api-token id="addApiTokenAjax" on-success="{{onAddApiTokenSuccess}}"> </api-add-api-token>
+          <api-delete-api-token id="deleteApiTokenAjax" on-success="{{onDeleteApiTokenSuccess}}"> </api-delete-api-token>
           <div horizontal layout>
             <div>{{M.apiTokens}}</div>
             <div flex vertical layout>
+              <a on-tap="{{addApiToken}}"> {{M.addApiToken}} </a>
               <table>
                 <thead>
                   <tr>
@@ -68,6 +73,7 @@
                     <tr>
                       <td>{{pairs[0]}}</td>
                       <td>{{pairs[1]}}</td>
+                      <td> <a on-tap="{{deleteApiToken}}" tokenId="{{pairs[0]}}"> {{M.removeApiToken}} </a> </td>
                     </tr>
                   </template>
                 </tbody>
@@ -78,7 +84,9 @@
           <api-change-pw id="changePwAjax" on-success="{{onChangePwSuccess}}" loading="{{cpaLoading}}"></api-change-pw>
           <div horizontal layout>
             <div>{{M.loginPassword}}</div>
-            <paper-button on-tap="{{toggleChangePw}}">{{cpwOpened ? M.cancelChangePassword : M.changePassword}}</paper-button>
+            <div flex vertical layout>
+              <a on-tap="{{toggleChangePw}}">{{cpwOpened ? M.cancelChangePassword : M.changePassword}}</a>
+            </div>
           </div>
           <core-collapse id="changepwCollapse" opened="{{cpwOpened}}">
             <div>

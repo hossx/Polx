@@ -15,9 +15,8 @@ Polymer 'account-page',
   ready: () ->
     @M = @msgMap[window.lang]
     @page = "assets"
-    @addEventListener 'goto-account-subpage', (e) ->
-      @gotoPage(e.detail.page, e.detail.currencyId)
-    
+    @setupEventListeners()
+
   gotoPage: (page, currencyId) ->
       @currencyId = currencyId if currencyId
       @page = page if page
@@ -28,3 +27,10 @@ Polymer 'account-page',
 
     if n == 'profile' or n == 'withdraw'
       this.$.profileAjax.go()
+
+  setupEventListeners:() ->
+    @addEventListener 'refresh-profile', (e) ->
+      this.$.profileAjax.go()
+
+    @addEventListener 'goto-account-subpage', (e) ->
+      @gotoPage(e.detail.page, e.detail.currencyId)

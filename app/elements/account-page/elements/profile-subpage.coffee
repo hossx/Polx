@@ -58,6 +58,12 @@ Polymer 'profile-subpage',
       bindUpdatePhoneError: "Faild to bind cellphone."
       changePhoneAuthError: "Failed to update cellphone authentication settings."
       changeEmailAuthError: "Failed to update email authentication settings."
+      addApiToken: "Add"
+      removeApiToken: "Remove"
+      addApiTokenError: "Add api token failed"
+      addApiTokenSuccess: "Api token added"
+      deleteApiTokenError: "Delete api token failed"
+      deleteApiTokenSuccess: "Api token deleted"
     'zh':
       profile: "账户"
       userId: "用户识别号"
@@ -114,6 +120,12 @@ Polymer 'profile-subpage',
       bindUpdatePhoneError: "绑定手机失败, 请检查验证码是否输入正确"
       changePhoneAuthError: "更改短信验证设置失败, 请检查验证码是否输入正确"
       changeEmailAuthError: "更改邮件验证设置失败, 请检查验证码是否输入正确"
+      addApiToken: "添加"
+      removeApiToken: "删除"
+      addApiTokenError: "添加失败"
+      addApiTokenSuccess: "添加成功"
+      deleteApiTokenError: "删除失败"
+      deleteApiTokenSuccess: "删除成功"
 
   ready: () ->
     @M = @msgMap[window.lang]
@@ -320,3 +332,23 @@ Polymer 'profile-subpage',
           this.$.changepwCollapse.opened = false
       else
           @fire('display-message', {error: @M.changePwFailed})
+
+  addApiToken: () ->
+      this.$.addApiTokenAjax.go()
+
+  deleteApiToken: (e) ->
+      this.$.deleteApiTokenAjax.deleteApiToken(e.target.getAttribute("tokenId"))
+
+  onAddApiTokenSuccess: (e) ->
+      if e.detail.data.result
+          @fire('display-message', {message: @M.addApiTokenSuccess})
+          @fire('refresh-profile', {})
+      else
+          @fire('display-message', {error: @M.addApiTokenError})
+
+  onDeleteApiTokenSuccess: (e) ->
+      if e.detail.data.result
+          @fire('display-message', {message: @M.deleteApiTokenSuccess})
+          @fire('refresh-profile', {})
+      else
+          @fire('display-message', {error: @M.deleteApiTokenError})

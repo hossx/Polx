@@ -5,6 +5,12 @@
 :host {
     display: block;
 }
+a {
+    color: blue;
+    float: right;
+    margin-right:4px;
+    margin-left:4px;
+}
 core-collapse {
     >div {
         background: color($C1, 100);
@@ -65,4 +71,7 @@ paper-dropdown-menu {
 .errorMsg {
     color: color($C3, a700);
     margin-bottom: 10px;
+}
+table {
+    width: 100%
 }
