@@ -2,7 +2,8 @@
 
 Polymer 'api-currency-transactions',
   hasMore: false
-  transactions: []
+  loadingMore: false
+  tailCursor: 0
 
   currencyId: ''
   limit: 40
@@ -19,7 +20,19 @@ Polymer 'api-currency-transactions',
   dataChanged: (o, n) ->
     if @data
       @hasMore = @data.hasMore
-      @transactions = @data.transfers
+      if @loadingMore
+        @loadingMore = false
+        @transactions.push @data.transfers...
+      else
+        @transactions = @data.transfers
+
+      len = @transactions.length
+      if len >= 1
+        @tailCursor = @transactions[len-1].id
+
+  loadMore: () ->
+    @loadingMore = true
+    @cursor = @tailCursor
 
   updateUrl: () ->
     if @currencyId
@@ -27,7 +40,3 @@ Polymer 'api-currency-transactions',
       url = '%s/api/v2/%s/transfers?limit=%s'.format(@base(), @currencyId.toLowerCase(),limit)
       url = url + "&cursor=" + @cursor if @cursor > 0
       @url = url
-
-
-  loadMore: () ->
-    console.log("TODO")

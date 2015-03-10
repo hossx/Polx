@@ -30,7 +30,6 @@ Polymer 'api-currency-balance-snapshots',
       len = @snapshots.length
       if len >= 1
         @tailCursor = @snapshots[len-1][2]
-        console.log(@tailCursor) 
 
   loadMore: () ->
     @loadingMore = true
@@ -39,6 +38,6 @@ Polymer 'api-currency-balance-snapshots',
   updateUrl: () ->
     if @currencyId
       limit = if @limit > 0 then @limit else 40
-      url = '%s/api/v2/%s/balance_snapshot_files'.format(@base(), @currencyId.toLowerCase(), limit)
-      url = url + "?cursor=" + @cursor if @cursor > 0
+      url = '%s/api/v2/%s/balance_snapshot_files?limit=%s'.format(@base(), @currencyId.toLowerCase(), limit)
+      url = url + "&cursor=" + @cursor if @cursor > 0
       @url = url
