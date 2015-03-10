@@ -233,7 +233,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.dist %>',
-                    src: ['app/the-app.js', 'scripts/*.js', 'styles/*.css'],
+                    src: ['the-app.js', 'scripts/*.js', 'styles/*.css'],
                     dest: '<%= yeoman.dist %>'
                 }]
             },
@@ -241,7 +241,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.dist %>',
-                    src: ['app/the-app.html'],
+                    src: ['the-app.html'],
                     dest: '<%= yeoman.dist %>'
                 }]
             }
@@ -266,7 +266,7 @@ module.exports = function(grunt) {
                     inline: true
                 },
                 files: {
-                    '<%= yeoman.dist %>/app/the-app.html': [
+                    '<%= yeoman.dist %>/the-app.html': [
                         '<%= yeoman.dist %>/elements/the-app.html'
                     ]
                 }
@@ -333,7 +333,6 @@ module.exports = function(grunt) {
                         'email/**',
                         'configs/**',
                         'images/**',
-                        'app/**',
                         '!**/*.scss',
                         '!**/*.coffee'
                     ]
@@ -344,7 +343,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: '<%= yeoman.app %>',
                     dest: '.tmp',
-                    src: ['{styles,app,email,elements}/{,*/,*/*/,*/*/*/}*.css']
+                    src: ['{styles,email,elements}/{,*/,*/*/,*/*/*/}*.css']
                 }]
             },
             scripts: {
@@ -352,7 +351,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: '<%= yeoman.app %>',
                     dest: '.tmp',
-                    src: ['{scripts,app,elements}/{,*/,*/*/,*/*/*/}*.js']
+                    src: ['{scripts,elements}/{,*/,*/*/,*/*/*/}*.js']
                 }]
             }
         },
