@@ -312,7 +312,7 @@ paper-button, paper-icon-button {
               }
               100% {
                 opacity: 1;
-                transform: rotate(-40deg - $rotate);
+                transform: rotate(-45deg);
               }
             }
         }
@@ -430,7 +430,7 @@ paper-button, paper-icon-button {
 }
 paper-button.primary {
     border-radius: 0px;
-    background: fade-out(color($C2, a400), 0.3);
+    background: fade-out(color($C2, a400), 0.5);
     color: $black1;
     border: 1px solid color($C2, a400);
     border-radius: 1px;
@@ -441,7 +441,7 @@ paper-button.primary {
         background: color($C2, a400);
     }
     &[disabled] {
-        background: fade-out(color($C2, a400), 0.5);
+        background: $black3;
         color: $black3;
     }
 }

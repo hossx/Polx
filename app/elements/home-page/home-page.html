@@ -42,7 +42,7 @@
 
         <div class="section" id="features" vertical?="{{!smallup}}" horizontal?="{{smallup}}" center center-justified layout>
           <div class="feature" flex auto-vertical vertical center layout>
-            <div vertical center center-justified layout class="icon-wrapper">
+            <div vertical center center-justified layout class="icon-wrapper" id="feature1">
               <font-awesome icon="github" size="5x"></font-awesome>
             </div>
             <div class="label">{{M.feature1}}</div>
@@ -52,14 +52,14 @@
 
           </div>
           <div class="feature" flex auto-vertical vertical center layout>
-            <div vertical center center-justified layout class="icon-wrapper">
+            <div vertical center center-justified layout class="icon-wrapper" id="feature2">
               <font-awesome icon="lightbulb-o" size="5x"></font-awesome>
             </div>
             <div class="label">{{M.feature2}}</div>
             <div class="explain">{{M.explain2}}</div>
           </div>
           <div class="feature" flex auto-vertical vertical center layout>
-            <div vertical center center-justified layout class="icon-wrapper">
+            <div vertical center center-justified layout class="icon-wrapper" id="feature3">
               <font-awesome icon="shield" size="5x"></font-awesome>
             </div>
             <div class="label">{{M.feature3}}</div>
@@ -80,13 +80,23 @@
           </div>
         </div>
 
+        <div class="section" id="desktop" vertical center center-justified layout>
+          <div id="betterux">{{M.betterUx}}</div>
+          <div id="wrapper">
+            <ul>
+              <li>{{M.builtInCs}}</li>
+              <li>{{M.builtWithAPIs}}</li>
+              <li>{{M.niceUI}}</li>
+            </ul>
+          </div>
+        </div>
+
         <div class="section" id="media" vertical center center-justified layout>
           <div id="quote">
-            <i>[Coinport Exchange] is offering its customers unprecedented transparency mechanisms, including automatic proof-of-reserves
-            tests...</i>
+            <i>[Coinport Exchange] is offering its customers unprecedented transparency mechanisms, ...</i>
           </div>
           <div id="media-container" horizontal layout>
-            <img self-center id="coindesk" src="/images/coindesk.png">
+            <img self-center id="coindesk" src="/images/home-page/coindesk.png">
           </div>
         </div>
 

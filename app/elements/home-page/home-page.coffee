@@ -22,6 +22,12 @@ Polymer 'home-page',
       pleaseLogin2: "log in"
       pleaseLogin3: " if you have registed already."
       learnMore: "Learn more."
+
+      betterUx: "Better User Experience"
+      builtInCs: "Built-in customer support. No login or IM account required."
+      builtWithAPIs: "Built entirely on top of our public APIs."
+      niceUI: "Elegent and clean UI."
+
     'zh':
       slogan1: "放心交易 优化收益"
       slogan2: "全透明数字资产交易平台"
@@ -43,6 +49,12 @@ Polymer 'home-page',
       pleaseLogin2: "登陆"
       pleaseLogin3: "。"
       learnMore: "了解详情。"
+      betterUx: "更好的用户体验"
+      builtInCs: "网络内置聊天，您无需登录也无需任何聊天软件账号。"
+      builtWithAPIs: "完全基于币丰港API开发。"
+      niceUI: "更优雅简洁的界面。"
+
+
 
 
   ready: () ->
@@ -62,7 +74,7 @@ Polymer 'home-page',
          "/images/bg/bg-sea-4.jpg"
         ],
         {duration: 10000, fade: 750})
-      #$(this.$['mobile']).backstretch("/images/bg-grey.jpg")
+      #$(this.$['features']).backstretch('/images/home-page/banner-tablet-white.jpg');
     setTimeout(work)
     
 
