@@ -75,7 +75,7 @@
             </div>
           </div>
 
-          <api-change-pw id="changePwAjax" on-success="{{onChangePwSuccess}}"></api-change-pw>
+          <api-change-pw id="changePwAjax" on-success="{{onChangePwSuccess}}" loading="{{cpaLoading}}"></api-change-pw>
           <div horizontal layout>
             <div>{{M.loginPassword}}</div>
             <paper-button on-tap="{{toggleChangePw}}">{{cpwOpened ? M.cancelChangePassword : M.changePassword}}</paper-button>
@@ -93,9 +93,10 @@
                   <paper-input-decorator label="{{M.confirmPw}}">
                     <input is="core=input" type="password" value="{{confirmPw}}"></input>
                   </paper-input-decorator>
+                  <div class="errorMsg"> {{errorMsg}} </div>
                   <div horizontal layout>
                     <paper-button on-tap="{{cancelChangePw}}">{{M.cancel}}</paper-button>
-                    <paper-button raised on-tap="{{confirmChangePw}}">{{M.confirm}}</paper-button>
+                    <paper-button raised on-tap="{{confirmChangePw}}" disabled?="{{isCPWDisable || cpaLoading}}">{{M.confirm}}</paper-button>
                   </div>
                 </div>
               </div>

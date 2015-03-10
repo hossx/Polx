@@ -50,7 +50,8 @@ Polymer 'profile-subpage',
       bindGoogleAuthError: "Failed to bind Google Authenticator"
       unbindGoogleAuthError: "Failed to unbind Google Authenticator"
       disableGoogleAuth: "Please input the 6-digit code from your Google Authenticator app to disable two-factor authentication."
-      confirmPwFailed: "Passwords do not match"
+      pwInputError1: "Password can't be none"
+      pwInputError2: "Password not match"
       changePwFailed: "Failed to change password"
       identityVerifyError: "Identity verification failed"
       badPhoneNumber: "Invalid cellphoen number"
@@ -105,7 +106,8 @@ Polymer 'profile-subpage',
       bindGoogleAuthError: "绑定谷歌二次验证码失败, 请确保验证码输入正确"
       unbindGoogleAuthError: "解除绑定谷歌二次验证码失败, 请确保验证码输入正确"
       disableGoogleAuth: "解除双重校验绑定"
-      confirmPwFailed: "两次输入的密码不一致"
+      pwInputError1: "密码不能为空"
+      pwInputError2: "两次输入密码不一致"
       changePwFailed: "修改密码失败, 请检查旧密码是否输入正确"
       identityVerifyError: "实名验证失败"
       badPhoneNumber: "您输入的手机号码有误"
@@ -119,6 +121,14 @@ Polymer 'profile-subpage',
     @selectedIdType = "idcard"
     @selectedPhoneCountry = "zh-CN"
     @sendingBindPhoneCode = false
+    @isCPWDisable = true
+    @errorMsg = ""
+
+  observe: {
+      oldPw: 'checkChangePw'
+      newPw: 'checkChangePw'
+      confirmPw: 'checkChangePw'
+  }
 
   # ============== google auth =============
   cancelEnableGoogleAuth:() ->
@@ -292,10 +302,18 @@ Polymer 'profile-subpage',
       @toggleChangePw()
 
   confirmChangePw: () ->
-      if @newPw != @confirmPw
-          @fire('display-message', {error: @M.confirmPwFailed})
-      else
+      if @newPw == @confirmPw
           this.$.changePwAjax.changePw(@profile.email, $.sha256b64(@oldPw), $.sha256b64(@newPw))
+
+  checkChangePw: () ->
+      @isCPWDisable = !@oldPw || !@newPw || !@confirmPw || (@newPw != @confirmPw)
+      if @isCPWDisable
+          if !@oldPw || !@newPw || !@confirmPw
+              @errorMsg = @M.pwInputError1
+          else if @newPw != @confirmPw
+              @errorMsg = @M.pwInputError2
+      else
+          @errorMsg = ""
 
   onChangePwSuccess: (e) ->
       if e.detail.data.result
