@@ -22,7 +22,7 @@ Polymer 'api-my-orders',
       @hasMore = @data.hasMore
       if @loadingMore
         @loadingMore = false
-        @orders.push order for order in @data.orders
+        @orders.push @data.orders...
       else
         @orders = @data.orders
 
