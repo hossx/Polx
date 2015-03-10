@@ -10,12 +10,9 @@ Polymer 'api-my-orders',
   cursor: 0
 
   observe:
-    marketId: 'onChange'
-    limit: 'onChange'
-    cursor: 'onChange'
-
-  onChange: () ->
-    @updateUrl()
+    marketId: 'updateUrl'
+    limit: 'updateUrl'
+    cursor: 'updateUrl'
 
   dataChanged: (o, n) ->
     if @data
@@ -29,7 +26,6 @@ Polymer 'api-my-orders',
       len = @orders.length
       if len >= 1
         @tailCursor = @orders[len-1].id
-        console.log(@tailCursor) 
 
   loadMore: () ->
     @loadingMore = true

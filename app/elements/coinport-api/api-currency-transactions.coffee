@@ -10,12 +10,9 @@ Polymer 'api-currency-transactions',
   cursor: 0
 
   observe:
-    currencyId: 'onChange'
-    limit: 'onChange'
-    cursor: 'onChange'
-
-  onChange: () ->
-    @updateUrl()
+    currencyId: 'updateUrl'
+    limit: 'updateUrl'
+    cursor: 'updateUrl'
 
   dataChanged: (o, n) ->
     if @data

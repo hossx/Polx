@@ -9,13 +9,10 @@ Polymer 'api-currency-balance-snapshots',
   limit: 40
   cursor: 0
 
-  observe: {
-    currencyId: 'onChange'
-    limit: 'onChange'
-    cursor: 'onChange'
-  }
-
-  onChange: () -> @updateUrl()
+  observe:
+    currencyId: 'updateUrl'
+    limit: 'updateUrl'
+    cursor: 'updateUrl'
 
   dataChanged: (o, n) ->
     if @data
