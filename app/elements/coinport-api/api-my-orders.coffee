@@ -2,10 +2,11 @@
 
 Polymer 'api-my-orders',
   hasMore: false
+  loadingMore: false
   orders: []
 
   marketId: ''
-  limit: 40
+  limit: 0
   cursor: 0
 
   observe:
@@ -19,17 +20,20 @@ Polymer 'api-my-orders',
   dataChanged: (o, n) ->
     if @data
       @hasMore = @data.hasMore
-      if not @marketId or @marketId == ''
-        @orders = @data.orders
+      if @loadingMore
+        @loadingMore = false
+        @orders.push order for order in @data.orders
       else
-        orders = []
-        for order in @data.orders
-          if order.market == @marketId
-            orders.push order
-          @orders = orders
+        @orders = @data.orders
+
+      len = @orders.length
+      if len >= 1
+        @tailCursor = @orders[len-1].id
+        console.log(@tailCursor) 
 
   loadMore: () ->
-    console.log("load more......")
+    @loadingMore = true
+    @cursor = @tailCursor
 
   updateUrl: () ->
     limit = if @limit > 0 then @limit else 50
