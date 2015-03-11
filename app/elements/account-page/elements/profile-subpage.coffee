@@ -340,15 +340,15 @@ Polymer 'profile-subpage',
       this.$.deleteApiTokenAjax.deleteApiToken(e.target.getAttribute("tokenId"))
 
   onAddApiTokenSuccess: (e) ->
-      if e.detail.data.result
+      if e.detail.data && e.detail.data.token
           @fire('display-message', {message: @M.addApiTokenSuccess})
-          @fire('refresh-profile', {})
+          @profile.apiTokenPairs.push [e.detail.data.token, e.detail.data.secret]
       else
           @fire('display-message', {error: @M.addApiTokenError})
 
   onDeleteApiTokenSuccess: (e) ->
-      if e.detail.data.result
+      if e.detail.data && e.detail.data.token
           @fire('display-message', {message: @M.deleteApiTokenSuccess})
-          @fire('refresh-profile', {})
+          @profile.apiTokenPairs = @profile.apiTokenPairs.filter (t) -> t[0] isnt e.detail.data.token
       else
           @fire('display-message', {error: @M.deleteApiTokenError})

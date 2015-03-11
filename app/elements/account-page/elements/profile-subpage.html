@@ -55,32 +55,6 @@
             <div flex>{{profile.mobile}}</div>
           </div>
 
-          <api-add-api-token id="addApiTokenAjax" on-success="{{onAddApiTokenSuccess}}"> </api-add-api-token>
-          <api-delete-api-token id="deleteApiTokenAjax" on-success="{{onDeleteApiTokenSuccess}}"> </api-delete-api-token>
-          <div horizontal layout>
-            <div>{{M.apiTokens}}</div>
-            <div flex vertical layout>
-              <a on-tap="{{addApiToken}}"> {{M.addApiToken}} </a>
-              <table>
-                <thead>
-                  <tr>
-                    <td>{{M.token}}</td>
-                    <td>{{M.secret}}</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <template repeat="{{pairs in profile.apiTokenPairs}}">
-                    <tr>
-                      <td>{{pairs[0]}}</td>
-                      <td>{{pairs[1]}}</td>
-                      <td> <a on-tap="{{deleteApiToken}}" tokenId="{{pairs[0]}}"> {{M.removeApiToken}} </a> </td>
-                    </tr>
-                  </template>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
           <api-change-pw id="changePwAjax" on-success="{{onChangePwSuccess}}" loading="{{cpaLoading}}"></api-change-pw>
           <div horizontal layout>
             <div>{{M.loginPassword}}</div>
@@ -298,6 +272,32 @@
               </div>
             </div>
           </core-collapse>
+
+          <api-add-api-token id="addApiTokenAjax" on-success="{{onAddApiTokenSuccess}}" loading="{{addTokenLoading}}"> </api-add-api-token>
+          <api-delete-api-token id="deleteApiTokenAjax" on-success="{{onDeleteApiTokenSuccess}}" loading="{{deleteTokenLoading}}"> </api-delete-api-token>
+          <div horizontal layout>
+            <div>{{M.apiTokens}}</div>
+            <div flex vertical layout>
+              <a on-tap="{{addApiToken}}" disabled?="addTokenLoading"> {{M.addApiToken}} </a>
+              <table>
+                <thead>
+                  <tr>
+                    <td>{{M.token}}</td>
+                    <td>{{M.secret}}</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <template repeat="{{pairs in profile.apiTokenPairs}}">
+                    <tr>
+                      <td>{{pairs[0]}}</td>
+                      <td>{{pairs[1]}}</td>
+                      <td> <a on-tap="{{deleteApiToken}}" tokenId="{{pairs[0]}}" disabled?="{{deleteTokenLoading}}"> {{M.removeApiToken}} </a> </td>
+                    </tr>
+                  </template>
+                </tbody>
+              </table>
+            </div>
+          </div>
 
         </div>
       </paper-shadow>
