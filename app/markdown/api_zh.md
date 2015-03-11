@@ -172,6 +172,7 @@
   | 1012 | 请求url不正确 |
   | 1013 | 币种不存在，币种：{currency}  |
   | 1014 | 认证失败 |
+  | 5002 | 无效api token |
   
 
 ---
@@ -1471,12 +1472,13 @@ btsx提现，需要指定memo字段。
 
 ```
   {
-    "result" : true
+    "token" : "5755623810144082803",
+    "secret" : "90c4393451b035bd979760ff39f4c9ea"
   }
 ```
 
 ### POST /api/v2/user/delete_api_token
-删除一条api token pair
+删除一条api token pair。如果token无效，会返回5002错误码。
 
 ####POST数据JSON格式
 
@@ -1490,6 +1492,6 @@ btsx提现，需要指定memo字段。
 
 ```
   {
-    "result" : true
+    "token" : "1943208167396811712"
   }
 ```
