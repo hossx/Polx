@@ -49,13 +49,22 @@
                     <td class="v">{{currency.unit}}</td>
                   </tr>
                   <tr>
-                    <template if="{{isShort}}">
+                    <template if="{{shortageRatio > 0}}">
                       <td class="l s">{{M.shortage}}:</td>
                       <td class="v s">{{shortageRatio | ratioFormat}} =</td>
                       <td class="v s">
                         <nice-number p="4" v="{{shortage}}"></nice-number>
                       </td>
                       <td class="v s">{{currency.unit}}</td>
+                    </template>
+
+                      <template if="{{extraRatio > 0}}">
+                      <td class="l e">{{M.extra}}:</td>
+                      <td class="v e">{{extraRatio | ratioFormat}} =</td>
+                      <td class="v e">
+                        <nice-number p="4" v="{{-shortage}}"></nice-number>
+                      </td>
+                      <td class="v e">{{currency.unit}}</td>
                     </template>
                   </tr>
                 </table>

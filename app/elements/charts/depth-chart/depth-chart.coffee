@@ -66,7 +66,7 @@ Polymer 'depth-chart',
           height: @height
           backgroundColor: null
           #width: @width
-        colors: ["#ff8a65","#42bd41"]
+        colors: ["#42bd41","#ff8a65"]
         legend:
           enabled: false
         credits:

@@ -1,6 +1,6 @@
 @import "_colors";
-.buy {color: color($buy-color, 600); }
-.sell {color: color($sell-color, 600); }
+.sell {color: color($buy-color, 600); }
+.buy {color: color($sell-color, 600); }
 
 .deposit {color: color($buy-color, 600); }
 .withdraw {color: color($sell-color, 600); }
@@ -8,8 +8,8 @@
 .cold {color: color($cyan, 500); }
 .hot {color: color($deep-orange, 500); }
 
-.up {color: color($sell-color, 500); }
-.down {color: color($buy-color, 500); }
+.up {color: color($buy-color, 500); }
+.down {color: color($sell-color, 500); }
 
 paper-button, paper-icon-button {
     border-radius: 0;
