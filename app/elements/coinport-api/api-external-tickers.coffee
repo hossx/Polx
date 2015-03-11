@@ -16,6 +16,3 @@ Polymer 'api-external-tickers',
           name: window.config.externalMarkets[k].name
           data: v
         }
-     
-      console.log(@tickers)
-
