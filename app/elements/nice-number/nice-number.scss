@@ -6,6 +6,12 @@
 :host-context(.bold) {
     font-weight: 700;
 }
+:host-context(.light-tooltips) {
+    core-tooltip::shadow .core-tooltip {
+        background: white;
+        color: $black1;
+    }
+}
 :host-context([no-trailing-zeros]) {
     #p2 {
         display: none;
