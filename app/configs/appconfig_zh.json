@@ -234,32 +234,32 @@
   },
   "documents": {
     "terms": {
-      "label": "Terms of Service",
-      "tags": ["legal"]
+      "label": "服务条款",
+      "tags": ["法律"]
     },
     "privacy": {
-      "label": "Privacy Policies",
-      "tags": ["legal"]
+      "label": "隐私政策",
+      "tags": ["法律"]
     },
     "aml-kyc": {
-      "label": "AML and KYC Policies",
-      "tags": ["legal"]
+      "label": "反洗钱与客户调查",
+      "tags": ["法律"]
     },
     "jobs": {
-      "label": "Jobs",
-      "tags": ["about"]
+      "label": "工作机会",
+      "tags": ["关于"]
     },
     "team": {
-      "label": "Team",
-      "tags": ["about"]
+      "label": "团队",
+      "tags": ["关于"]
     },
     "contactus": {
-      "label": "Contact Us",
-      "tags": ["about"]
+      "label": "联系我们",
+      "tags": ["关于"]
     },
     "ripple-deposit": {
       "label": "通过RIPPLE网关充值",
-      "tags": ["ripple", "deposit"]
+      "tags": ["瑞波", "充值"]
     },
     "api": {
       "label": "币丰港交易平台API",
