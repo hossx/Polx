@@ -1,18 +1,24 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-spinner/paper-spinner.html">
+<link rel="import" href="../../coinport-api/api-external-tickers.html">
 <link rel="import" href="stats-card.html">
 
-<polymer-element name="external-stats-card-group" attributes="currency,smallup" center vertical layout>
+<polymer-element name="external-stats-card-group" attributes="smallup" center vertical layout>
   <template>
     <link rel="stylesheet" href="external-stats-card-group.css">
+
+ <api-external-tickers id="ajax" loading="{{loading}}" tickers="{{tickers}}" auto></api-external-tickers>
+
+
     <div class="groupLabel">{{currency.name}}{{M.markets}}</div>
     <div class="comment">{{refreshInterval | refreshFormatter}}</div>
+
     <div class="canvas" wrap?="{{smallup}}" layout center?="{{!smallup}}" vertical?="{{!smallup}}" horizontal?="{{smallup}}">
-      <template repeat="{{id in marketIds}}">
-        <stats-card class="card" auto-vertical marketId="{{id}}" ticker="{{tickers[id]}}"></stats-card>
+      <template repeat="{{t in tickers}}">
+        <stats-card class="card" source="{{t.name}}" auto-vertical marketId="BTC-CNY" ticker="{{t.data}}"></stats-card>
       </template>
     </div>
-    <paper-spinner active?="{{huobiLoading}}" ></paper-spinner>
+    <paper-spinner active?="{{loading}}" ></paper-spinner>
   </template>
   <script src="external-stats-card-group.js"></script>
 </polymer-element>

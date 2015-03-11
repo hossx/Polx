@@ -36,3 +36,5 @@ Polymer 'stats-card',
     else
       percent
 
+  formatVolume: (v) ->
+    v.toFixed(4)

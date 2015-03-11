@@ -3,7 +3,7 @@
 <link rel="import" href="../../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../cp-icons/crypto-icons.html">
 
-<polymer-element name="stats-card" attributes="marketId,ticker">
+<polymer-element name="stats-card" attributes="marketId,ticker,source">
 
   <template>
     <link rel="stylesheet" href="stats-card.css">
@@ -12,6 +12,10 @@
       <paper-shadow id="shadow" z="0">
         <a href="/#/marketpro/{{marketId}}">
           <div id="box" vertical center layout>
+            <template if="{{source}}">
+              <div id="source">{{source}}</div>
+            </template>
+
             <div id="head" horizontal center-justified layout>
               <core-icon icon="crypto:{{market.currency.id}}" style="color:{{market.currency.json.color}}"></core-icon>
               <div>{{market.name}}
@@ -30,11 +34,13 @@
               </div>
               <div id="sub">
                 <div>
-                  <span class="l">{{M.volume}}:</span><span class="v">{{ticker[3]}}</span>
+                  <span class="l">{{M.volume}}:</span><span class="v">{{ticker[3] | formatVolume}}</span>
                 </div>
-                <div>
-                  <span class="l">{{M.change}}:</span><span class="v  {{changeClass}}">{{ticker[4] | formatChange}}</span>
-                </div>
+                <template if="{{!source}}">
+                  <div>
+                    <span class="l">{{M.change}}:</span><span class="v  {{changeClass}}">{{ticker[4] | formatChange}}</span>
+                  </div>
+                </template>
               </div>
             </div>
           </div>

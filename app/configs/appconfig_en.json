@@ -174,10 +174,8 @@
         "LTC": {
           "tags": ["featured"]
         },
-        "BTSX": {
-        },
-        "XRP": {
-        },
+        "BTSX": {},
+        "XRP": {},
         "GOOC": {
           "minSellAmount": 1000,
           "minBuyAmount": 1000,
@@ -194,24 +192,31 @@
         "LTC": {
           "tags": ["featured"]
         },
-        "DOGE": {
-        },
-        "BC": {
-        },
-        "DRK": {
-        },
-        "VRC": {
-        },
+        "DOGE": {},
+        "BC": {},
+        "DRK": {},
+        "VRC": {},
         "ZET": {
           "priceUnit": "ZET/CNY"
         },
-        "BTSX": {
-        },
-        "NXT": {
-        },
-        "XRP": {
-        }
+        "BTSX": {},
+        "NXT": {},
+        "XRP": {}
       }
+    }
+  },
+  "externalMarkets": {
+    "HUOBI": {
+      "name": "Huobi"
+    },
+    "BTCCHINA": {
+      "name": "BTC China"
+    },
+    "OKCOIN": {
+      "name": "OKCoin"
+    },
+    "LAKEBTC": {
+      "name": "LakeBTC"
     }
   },
   "api": {
