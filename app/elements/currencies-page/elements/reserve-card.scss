@@ -6,6 +6,9 @@
     table {
         border-collapse: collapse;
         border-spacing: 0px;
+        tr {
+         vertical-align:middle;
+        }
         td {
             white-space: nowrap;
             &.l {
@@ -14,7 +17,6 @@
             }
             &.v {
                 text-align: right;
-                font-weight: 500;
                 color: $black2;
                 &.s {
                     color: color($C3, a400);

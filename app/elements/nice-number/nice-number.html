@@ -1,12 +1,12 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html">
-<polymer-element name="nice-number" attributes="label,v,p,unit">
+<polymer-element name="nice-number" attributes="label,v,p,unit" end vertical layout>
   <template>
     <link rel="stylesheet" href="nice-number.css">
     <core-tooltip large label="{{v}}">
       <div horizontal end layout>
         <div>{{label}}</div>
-        <div flex id="p1" class="{{ {fade : x1 === '0.'}| tokenList  }}">{{x1}}</div>
+        <div flex id="p1" class="{{ {fade : x1 === '0.'}| tokenList}}">{{x1}}</div>
         <div id="p2" class="fade">{{x2}}</div>
         <div id="unit"> {{unit}}</div>
       </div>
