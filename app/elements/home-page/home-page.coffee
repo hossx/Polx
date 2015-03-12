@@ -66,13 +66,17 @@ Polymer 'home-page',
       console.log(@announceCritical)
       @announceLink = window.config.announcement.link
     @M = @msgMap[window.lang]
+    ###
     work = () =>
+     
       $(this.$['branding']).backstretch([
          "/images/bg/bg-sea-1.jpg",
          "/images/bg/bg-sea-2.jpg"
         ],
         {duration: 10000, fade: 500})
-      #$(this.$['features']).backstretch('/images/home-page/banner-tablet-white.jpg');
+      $(this.$['features']).backstretch('/images/home-page/banner-tablet-white.jpg');
+
     setTimeout(work, 5000)
+    ###
     
 
