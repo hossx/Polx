@@ -1,4 +1,4 @@
-'use strict';
+    'use strict';
 var LIVERELOAD_PORT = 35729;
 var lrSnippet = require('connect-livereload')({
     port: LIVERELOAD_PORT
@@ -371,7 +371,7 @@ module.exports = function(grunt) {
                     url: "http://x.coinport.com/#/markets",
                     locale: "en_GB",
                     strategy: "mobile",
-                    threshold: 80
+                    threshold: 95
                 }
             },
             desktop: {
@@ -379,7 +379,7 @@ module.exports = function(grunt) {
                     url: "http://x.coinport.com/#/markets",
                     locale: "en_GB",
                     strategy: "desktop",
-                    threshold: 80
+                    threshold: 95
                 }
             }
         },
