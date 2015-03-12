@@ -1,0 +1,8 @@
+@import "../_colors";
+@mixin has-water-bk() {
+    $colorX: color($C4, 900);
+    $colorY: color($C4, 800);
+    background-color: $colorX;
+    background-image: radial-gradient(circle at 100% 150%, $colorX 24%, $colorY 25%, $colorY 28%, $colorX 29%, $colorX 36%, $colorY 36%, $colorY 40%, transparent 40%, transparent), radial-gradient(circle at 0 150%, $colorX 24%, $colorY 25%, $colorY 28%, $colorX 29%, $colorX 36%, $colorY 36%, $colorY 40%, transparent 40%, transparent), radial-gradient(circle at 50% 100%, $colorY 10%, $colorX 11%, $colorX 23%, $colorY 24%, $colorY 30%, $colorX 31%, $colorX 43%, $colorY 44%, $colorY 50%, $colorX 51%, $colorX 63%, $colorY 64%, $colorY 71%, transparent 71%, transparent), radial-gradient(circle at 100% 50%, $colorY 5%, $colorX 6%, $colorX 15%, $colorY 16%, $colorY 20%, $colorX 21%, $colorX 30%, $colorY 31%, $colorY 35%, $colorX 36%, $colorX 45%, $colorY 46%, $colorY 49%, transparent 50%, transparent), radial-gradient(circle at 0 50%, $colorY 5%, $colorX 6%, $colorX 15%, $colorY 16%, $colorY 20%, $colorX 21%, $colorX 30%, $colorY 31%, $colorY 35%, $colorX 36%, $colorX 45%, $colorY 46%, $colorY 49%, transparent 50%, transparent);
+    background-size: 40px 20px;
+}

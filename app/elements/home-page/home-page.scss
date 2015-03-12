@@ -1,5 +1,7 @@
 @import "../_colors";
 @import "../_common";
+@import "_water";
+
 @include config-link-on-light-color();
 :host {
     box-sizing: border-box;
@@ -23,7 +25,9 @@ cp-page /deep/ #main {
     min-height: 0;
 }
 #branding {
-    background: color($C4, 600);
+    
+@include has-water-bk();
+
     color: $white1;
     text-shadow: 1px 1px $black3;
     width: 100%;

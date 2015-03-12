@@ -69,12 +69,10 @@ Polymer 'home-page',
     work = () =>
       $(this.$['branding']).backstretch([
          "/images/bg/bg-sea-1.jpg",
-         "/images/bg/bg-sea-2.jpg",
-         "/images/bg/bg-sea-3.jpg",
-         "/images/bg/bg-sea-4.jpg"
+         "/images/bg/bg-sea-2.jpg"
         ],
-        {duration: 10000, fade: 750})
+        {duration: 10000, fade: 500})
       #$(this.$['features']).backstretch('/images/home-page/banner-tablet-white.jpg');
-    setTimeout(work)
+    setTimeout(work, 5000)
     
 
