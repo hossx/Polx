@@ -56,8 +56,6 @@ Polymer 'reserve-card',
       @userRatio = 100 * @reserve[2]/balance
       @reserveRatio = @hotRatio + @coldRatio + @userRatio 
 
-      console.log(@reserveRatio)
-
       @needWarn = @reserveRatio <= window.config.viewParams.reserveRatioWarningThreshold
       if @shortageRatio > 0
         @asset = [@reserve[0], @reserve[1], @reserve[2], 0, @shortage]
@@ -66,7 +64,6 @@ Polymer 'reserve-card',
       else
         @asset = [@reserve[0], @reserve[1], @reserve[2], 0, 0]
 
-      
 
   ratioFormat: (value) ->
     value.toFixed(2) + "%"
