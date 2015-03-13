@@ -2,7 +2,7 @@
 @import "_common";
 #main {
     #loading, #error {
-        color: $white1;
+        color: $black1;
         height: 100vh;
         font-size: 14px;
         @include has-paper-spinner();
