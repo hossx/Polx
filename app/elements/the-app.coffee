@@ -70,13 +70,9 @@ Polymer 'the-app',
     try
       this.$.loading.setAttribute("hide", "")
       @enrichConfig(data.response)
-    catch e
-      console.error(e)
+    catch error
+      console.error(error)
       this.$.error.removeAttribute("hide")
-
-  onConfigError: (e) ->
-    console.error(e)
-    this.$.error.removeAttribute("hide")
 
   initRouter: () ->
     router = document.createElement('the-router')
