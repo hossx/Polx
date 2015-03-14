@@ -64,6 +64,7 @@ Polymer 'the-app',
 
   ready: () ->
     @M = @msgMap[window.lang]
+    $('#loading').remove()
     @configFile = "/configs/appconfig_" + window.lang + ".json"
 
   onConfigLoaded: (event, data) ->

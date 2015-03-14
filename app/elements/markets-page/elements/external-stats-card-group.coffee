@@ -19,3 +19,6 @@ Polymer 'external-stats-card-group',
     @refreshJob = setInterval(work, @refreshInterval)
 
   refreshFormatter: (v) -> @msgMap[window.lang].refresh.format(v/1000)
+
+  detached: () ->
+    clearInterval(@refreshJob)

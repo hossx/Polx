@@ -47,20 +47,19 @@
   <link rel="stylesheet" href="styles/index.css">
   <!-- endbuild-->
 
-  <!-- build:js scripts/webcomponents.js -->
-  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
-  <!-- endbuild-->
-
-  <!-- build:vulcanized the-app.html -->
-  <link rel="import" href="elements/the-app.html">
-  <!-- endbuild-->
-  
 </head>
 
 <body fullbleed layout center vertical>
-  <the-app></the-app>
+  <div id="loading">
+    <h2>Loading the app ...</h2>
+    <div>This may take seconds for the initial loading,</div>
+    <div>But it will be must faster once this is done. </div>
+  </div>
 
+
+ 
   <!-- build:js scripts/index.js -->
+  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/jquery-cookie/jquery.cookie.js"></script>
   <!--script src="bower_components/jquery-backstretch/jquery.backstretch.min.js"></script-->
@@ -73,6 +72,11 @@
   <script src="scripts/jquery.sha256.js"></script>
   <script src="scripts/index.js"></script>
   <!-- endbuild-->
+
+   <!-- build:vulcanized the-app.html -->
+  <link rel="import" href="elements/the-app.html">
+  <!-- endbuild-->
+
 </body>
 
 </html>

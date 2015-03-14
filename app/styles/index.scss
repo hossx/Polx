@@ -18,8 +18,14 @@ a {
     }
 }
 #loading {
-    z-index: -1999998;
-    color: $white1;
-    font-size: 14px;
+    color: $black1;
+    font-size: 13px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -75px;
+    margin-left: -150px;
+    width: 300px;
+    height: 150px;
+    font-family: ‘Arial Narrow’, sans-serif;
 }
-
