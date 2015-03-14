@@ -2,15 +2,9 @@
 @import "../../_common";
 @import "_subpage";
 @include has-paper-toggle-button($C2);
+@include config-color-link-on-light-color();
 :host {
     display: block;
-}
-a {
-    color: blue;
-    float: right;
-    margin-right:4px;
-    margin-left:4px;
-    width: 60px;
 }
 core-collapse {
     >div {
