@@ -39,9 +39,7 @@ Polymer 'subpage-login',
       this.$.loginAjax.login()
 
   responseChanged: (o, n) ->
-    console.log("@fdafaafdafdalsfjlsa ")
-    if @response.code != 0
-      console.log(@response.code)
+    if @response and @response.code != 0
       if @response.code == 9013
         @errorMsg = @M.tooManyFailure.format(@response.data)
         @buttonDisabled = true
