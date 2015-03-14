@@ -75,7 +75,7 @@
         }
       });
     }
-  });
+  }, 5000);
   // }
 
   // wrap document so it plays nice with other libraries
