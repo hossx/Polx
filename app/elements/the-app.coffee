@@ -51,12 +51,10 @@ class Market
 Polymer 'the-app',
   msgMap:
     'en':
-      loading: "Loading..."
       error: "Failed to load configurations!"
       errorComment: "(Please check your network connection.)"
 
     'zh':
-      loading: "加载中..."
       error: "无法加载应用配置！"
       errorComment: "（请检查网络连接）"
 
@@ -69,7 +67,6 @@ Polymer 'the-app',
 
   onConfigLoaded: (event, data) ->
     try
-      this.$.loading.setAttribute("hide", "")
       @enrichConfig(data.response)
     catch e
       console.error(e)

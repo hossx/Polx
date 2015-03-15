@@ -10,10 +10,6 @@
     <link rel="stylesheet" href="the-app.css">
     <core-ajax url="{{configFile}}" on-core-response="{{onConfigLoaded}}" on-core-error="{{onConfigError}}" auto></core-ajax>
     <div id="main" flex>
-      <div id="loading" flex vertical center center-justified layout>
-        <paper-spinner active></paper-spinner>
-       {{M.loading}}
-      </div>
       <div id="error" hide flex vertical center center-justified layout>
         <core-icon icon="error"></core-icon>
         <div class="error" duration="5000">{{M.error}}</div>
