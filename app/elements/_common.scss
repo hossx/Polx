@@ -18,9 +18,6 @@ paper-button, paper-icon-button {
 *[text-left] {
     text-align: left;
 }
-@mixin condensed-font() {
-    font-family: 'Roboto Condensed', "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
-}
 @mixin config-link-on-dark-color() {
     a {
         color: $white1;
