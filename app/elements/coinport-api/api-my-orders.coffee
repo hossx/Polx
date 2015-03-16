@@ -36,4 +36,5 @@ Polymer 'api-my-orders',
     url = '%s/api/v2/user/orders?limit=%s'.format(@base(),limit)
     url = url + '&cursor=' + @cursor if @cursor > 0
     url = url + '&market=' + @marketId.toLowerCase() if @marketId
+    url = url + '&order_status=' + @status if @status
     @url = url
