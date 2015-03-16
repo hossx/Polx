@@ -66,8 +66,10 @@ Polymer 'orders-subpage',
   cancelledIdsChanged: (o, n) ->
     if @cancelledIds and @cancelledIds.length > 0
       @fire("display-message", {message: "Order (ID:%s) has been cancelled.".format(@cancelledIds[0])})
+      for order in @orders
+          if Number(order.id) in @cancelledIds
+              order.status = 3
       @cancelledIds = null
-      this.$.ajax.go()
 
 
   failedIdsChanged: (o, n) ->
