@@ -11,6 +11,7 @@ Polymer 'subpage-login',
       emailInvalid: "Email地址格式不正确。"
       invalidEmailOrPasswd: "用户名或密码错误！"
       tooManyFailure: "连续5次登录失败，请%s分钟之后再试！"
+      badPassword: "密码错误，还可以尝试%s次"
 
     'en':
       email: "Email"
@@ -21,6 +22,7 @@ Polymer 'subpage-login',
       emailInvalid: "Your email address is invalid."
       invalidEmailOrPasswd: "Invalid email or password!"
       tooManyFailure: "Login failed more than 5 times. Please retry in %s minutes."
+      badPassword: "Bad password, can retry %s times"
   errorMsg: ' '
 
   observe: {
@@ -41,7 +43,10 @@ Polymer 'subpage-login',
   responseChanged: (o, n) ->
     if @response and @response.code != 0
       if @response.code == 9013
-        @errorMsg = @M.tooManyFailure.format(@response.data)
+        @errorMsg = @M.tooManyFailure.format("120")
+        @buttonDisabled = true
+      else if @response.code == 1004
+        @errorMsg = @M.badPassword.format(@response.data.canRetryTime)
         @buttonDisabled = true
 
   validateLoginForm: () ->
