@@ -37,8 +37,7 @@
     }
   };
 
-  //if (/Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor)) {
-  setTimeout(function() {
+  function setupIM() {
     (function(d, s) {
       var z = window.$zopim = function(c) {
         z._.push(c);
@@ -75,8 +74,38 @@
         }
       });
     }
-  });
-  // }
+  };
+
+  function gaSSDSLoad(acct) {
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www."),
+      pageTracker,
+      s;
+    s = document.createElement('script');
+    s.src = gaJsHost + 'google-analytics.com/ga.js';
+    s.type = 'text/javascript';
+    s.onloadDone = false;
+
+    function init() {
+      pageTracker = _gat._getTracker(acct);
+      pageTracker._trackPageview();
+    }
+    s.onload = function() {
+      s.onloadDone = true;
+      init();
+    };
+    s.onreadystatechange = function() {
+      if (('loaded' === s.readyState || 'complete' === s.readyState) && !s.onloadDone) {
+        s.onloadDone = true;
+        init();
+      }
+    };
+    document.getElementsByTagName('head')[0].appendChild(s);
+  }
+
+  setTimeout(function() {
+    setupIM();
+    gaSSDSLoad("UA-51354545-2");
+  }, 2000);
 
   $('<the-app></the-app>').insertBefore($('#loading'));
 
