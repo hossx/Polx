@@ -104,7 +104,9 @@
 
   setTimeout(function() {
     setupIM();
-    gaSSDSLoad("UA-51354545-2");
+    if (window.lang != 'zh') {
+      gaSSDSLoad("UA-51354545-2");
+    }
   }, 2000);
 
   $('<the-app></the-app>').insertBefore($('#loading'));
