@@ -11,6 +11,10 @@ Polymer 'cp-footer',
         ,
           label: "Fees"
           url: "/#/fees"
+        ,
+          label: "Blog"
+          target: "_blank"
+          url: "http://blogs.coinport.com"
         ]
       ,
         label: "Legal"

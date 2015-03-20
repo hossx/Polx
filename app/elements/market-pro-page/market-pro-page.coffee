@@ -73,7 +73,6 @@ Polymer 'market-pro-page',
 
   refresh: () ->
     @loggedIn = if window.profile then true else false
-    console.log(@loggedIn)
     clearTimeout(@autoRefresh)
     this.$.refresh.setAttribute("disabled","")
     reenable = () => this.$.refresh.removeAttribute("disabled")
