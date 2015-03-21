@@ -91,7 +91,9 @@ cp-page /deep/ #main {
         min-height: 160px;
         min-width: 160px;
         border-radius: 50%;
-        font-awesome {
+        core-icon {
+            height: 50px;
+            width: 50px;
             color: $white1;
         }
         &#feature1 {

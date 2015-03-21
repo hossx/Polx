@@ -2,9 +2,8 @@
 <link rel="import" href="../../bower_components/core-icon/core-icon.html">
 <link rel="import" href="../../bower_components/core-media-query/core-media-query.html">
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
-<link rel="import" href="../../bower_components/polymer-fontawesome/polymer-fontawesome.html">
 <link rel="import" href="../cp-page/cp-page.html">
-
+<link rel="import" href="../cp-icons/fontawesome-icons.html">
 <polymer-element name="home-page">
   <template>
     <link rel="stylesheet" href="home-page.css">
@@ -43,7 +42,7 @@
         <div class="section" id="features" vertical?="{{!smallup}}" horizontal?="{{smallup}}" center center-justified layout>
           <div class="feature" flex auto-vertical vertical center layout>
             <div vertical center center-justified layout class="icon-wrapper" id="feature1">
-              <font-awesome icon="github" size="5x"></font-awesome>
+              <core-icon icon="fa_github:icon"></core-icon>
             </div>
             <div class="label">{{M.feature1}}</div>
             <div class="explain">
@@ -53,14 +52,14 @@
           </div>
           <div class="feature" flex auto-vertical vertical center layout>
             <div vertical center center-justified layout class="icon-wrapper" id="feature2">
-              <font-awesome icon="lightbulb-o" size="5x"></font-awesome>
+              <core-icon icon="fa_light:icon"></core-icon>
             </div>
             <div class="label">{{M.feature2}}</div>
             <div class="explain">{{M.explain2}}</div>
           </div>
           <div class="feature" flex auto-vertical vertical center layout>
             <div vertical center center-justified layout class="icon-wrapper" id="feature3">
-              <font-awesome icon="shield" size="5x"></font-awesome>
+              <core-icon icon="fa_shield:icon"></core-icon>
             </div>
             <div class="label">{{M.feature3}}</div>
             <div class="explain">{{M.explain3}}</div>
