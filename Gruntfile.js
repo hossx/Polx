@@ -263,7 +263,12 @@
                     options: {
                         strip: true,
                         csp: true,
-                        inline: true
+                        inline: true,
+                        "strip-excludes": false,
+                        excludes: {
+                            imports: ['bower_components/.*']
+                        }
+
                     },
                     files: {
                         '<%= yeoman.dist %>/the-app.html': [
@@ -441,14 +446,14 @@
             'sass',
             'copy',
             'useminPrepare',
-            'imagemin',
+            //'imagemin',
             'concat',
             'autoprefixer',
             'uglify',
             'vulcanize:theapp',
             'vulcanize:email',
-            'filerev:step1',
-            'filerev:step2',
+            //'filerev:step1',
+            //'filerev:step2',
             'usemin',
             'vulcanize:index',
             'minifyHtml'
