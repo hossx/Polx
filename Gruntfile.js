@@ -431,7 +431,7 @@
                 options: {
                     base: 'dist'
                 },
-                src: ['**', 'elements/**', 'bower_components/**']
+                src: ['**', 'bower_components/**']
             }
         });
 
