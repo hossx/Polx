@@ -408,7 +408,7 @@
                 options: {
                     base: 'dist'
                 },
-                src: ['**', 'elements/**', 'bower_components/fontawesome/fonts/*']
+                src: ['**', 'elements/**', 'bower_components/**']
             }
         });
 
@@ -452,8 +452,8 @@
             'uglify',
             'vulcanize:theapp',
             'vulcanize:email',
-            //'filerev:step1',
-            //'filerev:step2',
+            'filerev:step1',
+            'filerev:step2',
             'usemin',
             'vulcanize:index',
             'minifyHtml'
