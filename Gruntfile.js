@@ -259,6 +259,24 @@
                 }
             },
             vulcanize: {
+                thirdparty: {
+                    options: {
+                        strip: true,
+                        inline: true,
+                        "strip-excludes": false,
+                        excludes: {
+                            imports: ['.*'],
+                            scripts: ['browser.js', 'fake.js','runner.js']
+                        }
+
+                    },
+                    files: [{
+                        expand: true,
+                        cwd: '<%= yeoman.dist %>/bower_components',
+                        src: ['**/*.html', '!{platform,web-component-tester,web-animations-js}/**/*.html'],
+                        dest: '<%= yeoman.dist %>/bower_components'
+                    }]
+                },
                 theapp: {
                     options: {
                         strip: true,
@@ -318,6 +336,11 @@
                     }]
                 }
             },
+            'json-minify': {
+                build: {
+                    files: '<%= yeoman.dist %>/configs/*.json'
+                }
+            },
             minifyHtml: {
                 options: {
                     quotes: true,
@@ -327,7 +350,7 @@
                     files: [{
                         expand: true,
                         cwd: '<%= yeoman.dist %>',
-                        src: '{index,404,email/*}.html',
+                        src: '{index,404,elements/**/*,email/*}.html',
                         dest: '<%= yeoman.dist %>'
                     }]
                 }
@@ -456,7 +479,9 @@
             'filerev:step2',
             'usemin',
             'vulcanize:index',
-            'minifyHtml'
+            'minifyHtml',
+            'json-minify',
+            'vulcanize:thirdparty',
         ]);
 
         grunt.registerTask('publish', [
