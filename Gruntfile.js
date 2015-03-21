@@ -469,7 +469,7 @@
             'sass',
             'copy',
             'useminPrepare',
-            //'imagemin',
+            'imagemin',
             'concat',
             'autoprefixer',
             'uglify',
