@@ -61,14 +61,20 @@ Polymer 'the-app',
 
   route: ""
 
+  configLoaded: false
+  msgsLoaded: false
+
   ready: () ->
     @M = @msgMap[window.lang]
     $('#loading').remove()
     @configFile = "/configs/appconfig_" + window.lang + ".json"
+    @msgFile = "/configs/messages_" + window.lang + ".json"
 
   onConfigLoaded: (event, data) ->
     try
       @enrichConfig(data.response)
+      if @configLoaded and @msgsLoaded
+        @initRouter()
     catch e
       console.error(e)
       this.$.error.removeAttribute("hide")
@@ -77,7 +83,19 @@ Polymer 'the-app',
     console.error(e)
     this.$.error.removeAttribute("hide")
 
+  onMsgLoaded: (event, data) ->
+    try
+      @setupMsg(data.response)
+      if @configLoaded and @msgsLoaded
+        @initRouter()
+    catch e
+      console.error(e)
+
+  onMsgError: (e) ->
+    console.error(e)
+
   initRouter: () ->
+    window.state = {}
     router = document.createElement('the-router')
     this.$.main.appendChild(router)
     router.setAttribute("show", "")
@@ -147,12 +165,11 @@ Polymer 'the-app',
     
     console.debug("Loaded dynamic app-configurations:")
     console.dir(window.config)
+    @configLoaded = true
 
-    window.state = {}
-
-    @initRouter()
-
-
+  setupMsg: (messages) ->
+    window.M = messages
+    @msgsLoaded = true
 
 
 

@@ -1,0 +1,61 @@
+{
+  "account": {
+    "sidebar": {
+      "logout": "Logout",
+      "assets": "Assets",
+      "profile": "Profile",
+      "deposit": "Deposit",
+      "withdraw": "Withdrawal",
+      "orders": "Orders",
+      "trades": "Trade History"
+    },
+    "assets": {
+      "assets": {
+        "0": "Non-Crypto Assets",
+        "1": "Crypto Assets"
+      },
+      "currency": "Currency",
+      "total": "Total",
+      "available": "Available",
+      "locked": "Locked",
+      "pendingWithdrawal": "Pending Withdrawal",
+      "trade": "Trade ",
+      "deposit": "Deposit ",
+      "withdraw": "Withdraw "
+    },
+    "deposit": {
+      "na": "N/A",
+      "id": "ID",
+      "address": "Address",
+      "transaction": "Transaction",
+      "quantity": "Quantity",
+      "timestamp": "Time",
+      "deposit": "Deposit",
+      "status": "Status",
+      "history": "Deposit Records",
+      "currencyToDeposit": "Currency: ",
+      "balance": "Balance:",
+      "scan": "Your wallet may support scaning of the following QR-Code:",
+      "statusLabels": {
+        "0": "Pending",
+        "1": "Accepted",
+        "2": "Confirming",
+        "3": "Confirmed",
+        "4": "Succeeded",
+        "5": "Failed",
+        "6": "Re-organizing",
+        "7": "Re-org OK",
+        "8": "Cancelled",
+        "9": "Rejected",
+        "10": "Insufficient Hot Wallet",
+        "11": "Processing",
+        "12": "Internal Error",
+        "13": "Internal Error",
+        "14": "Internal Error",
+        "15": "Internal Error",
+        "16": "Internal Error",
+        "17": "Internal Error"
+      }
+    }
+  }
+}

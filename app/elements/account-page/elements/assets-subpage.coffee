@@ -1,36 +1,8 @@
 'use strict'
 
 Polymer 'assets-subpage',
-  msgMap:
-    'en':
-      assets:
-        0: "Non-Crypto Assets"
-        1: "Crypto Assets"
-      currency: "Currency"
-      total: "Total"
-      available: "Available"
-      locked: "Locked"
-      pendingWithdrawal: "Pending Withdrawal"
-      trade: "Trade "
-      deposit: "Deposit "
-      withdraw: "Withdraw "
-
-    'zh':
-      assets:
-        0: "非区块链资产"
-        1: "区块链资产"  
-      currency: "货币"
-      total: "总额"
-      available: "可用金额"
-      locked: "锁定金额"
-      pendingWithdrawal: "等待提现金额"
-      trade: "买卖"
-      deposit: "充值"
-      withdraw: "提现"
-
-
   ready: () ->
-    @M = @msgMap[window.lang]
+    @M = window.M['account']['assets']
     @marketsFor = window.config.marketsForCurrency
 
 
@@ -56,6 +28,8 @@ Polymer 'assets-subpage',
   gotoWithdraw: (e, detail, sender) ->
    @fire("goto-account-subpage", {page: 'withdraw', currencyId: sender.getAttribute("currencyId")})
 
+  groupLabel: (i) ->
+    @M['assets'][(i or 0).toString()]
 
   balanceChanged: (o, n) ->
     currencyMap = window.config.currencies

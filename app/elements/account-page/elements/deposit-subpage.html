@@ -280,7 +280,7 @@
                     <nice-number v="{{d.amount}}" p="4"></nice-number>
                   </td>
                   <td text-right>{{d.created | formatTime}}</td>
-                  <td text-right>{{M.statusLabels[d.status]}}</td>
+                  <td text-right>{{d.status | statusLabel}}</td>
                 </tr>
               </template>
             </tbody>

@@ -26,7 +26,7 @@
     // Perform some behaviour
     console.log('Polymer is ready to rock!');
   });
-*/
+
   window.logAndContinue = function() {
     var missing = Polymer.waitingFor();
     if (missing.length) {
@@ -37,7 +37,7 @@
       Polymer.forceReady();
     }
   };
-
+*/
   function setupIM() {
     (function(d, s) {
       var z = window.$zopim = function(c) {

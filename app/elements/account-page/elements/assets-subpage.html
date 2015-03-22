@@ -26,7 +26,7 @@
       <template repeat="{{group,idx in assetGroups}}">
         <paper-shadow z="0">
           <div label>
-            <h2>{{M.assets[idx]}}</h2>
+            <h2>{{idx | groupLabel}}</h2>
           </div>
           <div vertical center layout id="table-container">
             <table class="simple">
