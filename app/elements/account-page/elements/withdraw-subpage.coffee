@@ -1,89 +1,6 @@
 'use strict'
 
 Polymer 'withdraw-subpage',
-  msgMap:
-    'en':
-      na: "N/A"
-      id: "ID"
-      address: "Address"
-      transaction: "Transaction"
-      quantity: "Quantity"
-      timestamp: "Time"
-      withdraw: "withdraw"
-      status: "Status"
-      history: "withdraw Records"
-      currencyToWithdraw: "Currency: "
-      balance: "Balance:"
-      scan: "Your wallet may support scaning of the following QR-Code:"
-      statusLabels:
-        0: "Pending"
-        1: "Accepted"
-        2: "Confirming"
-        3: "Confirmed"
-        4: "Succeeded"
-        5: "Failed"
-        6: "Re-organizing"
-        7: "Re-org OK"
-        8: "Cancelled"
-        9: "Rejected"
-        10: "Insufficient Hot Wallet"
-        11: "Processing"
-        12: "Internal Error"
-        13: "Internal Error"
-        14: "Internal Error"
-        15: "Internal Error"
-        16: "Internal Error"
-        17: "Internal Error"
-      withdrawalDesc: "The minimum amount of withdrawal should be equal to or greater than %s %s, which include %s withdrawal fee. Most withdrawal requests will be processed within 24 hours. Our working hours are between 12:00 and 24:00 Hong Kong Time."
-      identityVerifyRequirement: "According to China government regulation, you need to verify your identity before youcan make any withdrawls."
-      identityVerify: "Verify my identity"
-      withdrawalHint1: "The minimum amount for withdrawal is: %s"
-      withdrawalHint2: "Withdrawal fee: %s"
-      withdrawalHint3: "Manual processing of %s is only available between 10:00AM and 10:00PM Hong Kong Time."
-      withdrawalHint4: "We nomally process your requests within 1 hour."
-      withdrawalHintBtsx: "Due to BTSX's API, now only support registered ID(Eg. coinport-deposit) to withdraw."
-
-    'zh':
-      na: "无"
-      id: "ID"
-      address: "地址"
-      transaction: "转账记录"
-      quantity: "金额"
-      timestamp: "时间"
-      withdraw: "提现"
-      status: "状态"
-      history: "提现记录"
-      currencyToWithdraw: "货币： "
-      balance: "余额："
-      scan: "如果钱包支持，您可以用钱包扫描下面二维码："
-      statusLabels:
-        0: "等待中"
-        1: "已提交"
-        2: "确认中"
-        3: "已确认"
-        4: "已成功"
-        5: "已失败"
-        6: "区块链重组中"
-        7: "区块链已重组"
-        8: "已取消"
-        9: "已被拒"
-        10: "热钱包不足"
-        11: "处理中"
-        12: "系统错误"
-        13: "系统错误"
-        14: "系统错误"
-        15: "系统错误"
-        16: "系统错误"
-        17: "系统错误"
-      withdrawalDesc: "最小提现不能小于 %s %s，无最大数量限制。 我们会从提现数目中扣除 %s作为手续费。提现请求会在24小时内处理完成。我们的工作时间是北京时间12:00-24:00，周末无休。如有其他问题，请联系客服人员。"
-      identityVerifyRequirement: "根据相关政策，您需要进行实名认证才能够提现人民币。"
-      identityVerify: "开始实名认证"
-      withdrawalHint1: "每次提现的最小金额为: %s %s"
-      withdrawalHint2: "提现手续费: %s"
-      withdrawalHint3: "%s提现需要人工处理，我们的服务时间是北京时间早10点到晚10点。"
-      withdrawalHint4: "您的提现一般会在一个小时内被处理。"
-      withdrawalHintBtsx: "BTSX目前只支持使用已注册的帐号提币（比如coinport-deposit）。"
-
   feeMap:
     'en':
         'CNY':
@@ -163,7 +80,7 @@ Polymer 'withdraw-subpage',
   selectedBalance: 0
 
   created: () ->
-    @M = @msgMap[window.lang]
+    @M = window.M['account']['withdraw']
     @fee = @feeMap[window.lang]
     @lang = window.lang
     @profile = window.profile
@@ -192,6 +109,7 @@ Polymer 'withdraw-subpage',
       @selectedBalance = 0
 
   formatTime: (t) -> moment(t).format("YYYY/MM/DD-hh:mm")
+  statusLabel: (i) -> @M['statusLabels'][(i or 0).toString()]
 
   loadMore: () ->
     this.$.withdrawalsAjax.loadMore()

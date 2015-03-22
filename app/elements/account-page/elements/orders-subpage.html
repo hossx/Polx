@@ -60,7 +60,7 @@
                     {{order.created | formatTime}}
                   </td>
                   <td text-right>
-                    {{M.statuses[order.status]}}
+                    {{order.status | statusLabel}}
                   </td>
                   <td class="op">
                     <template if="{{order.status == 0 || order.status == 1}}">

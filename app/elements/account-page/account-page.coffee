@@ -1,19 +1,10 @@
 'use strict'
 
 Polymer 'account-page',
-  msgMap:
-    'en':
-      myAccount: 'My Account'
-      tradeTooltip: 'Trade Now'
-
-    'zh':
-      myAccount: '我的账号'
-      tradeTooltip: '交易'
-
   currencyId: 'BTC'
 
   ready: () ->
-    @M = @msgMap[window.lang]
+    @M = window.M['account']['account']
     @page = "assets"
     @setupEventListeners()
 
