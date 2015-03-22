@@ -1,28 +1,6 @@
 'use strict'
 
 Polymer 'subpage-login',
-  msgMap:
-    'zh':
-      email: "Email"
-      password: "密码"
-      login: "登录"
-      register: "还没有账号？注册一个吧。"
-      forgetpassword: "忘记密码？"
-      emailInvalid: "Email地址格式不正确。"
-      invalidEmailOrPasswd: "用户名或密码错误！"
-      tooManyFailure: "连续5次登录失败，请%s分钟之后再试！"
-      badPassword: "密码错误，还可以尝试%s次"
-
-    'en':
-      email: "Email"
-      password: "Password"
-      login: "Login"
-      register: "Don't have an acccount? Register Now"
-      forgetpassword: "Forget password?"
-      emailInvalid: "Your email address is invalid."
-      invalidEmailOrPasswd: "Invalid email or password!"
-      tooManyFailure: "Login failed more than 5 times. Please retry in %s minutes."
-      badPassword: "Bad password, can retry %s times"
   errorMsg: ' '
 
   observe: {
@@ -31,7 +9,7 @@ Polymer 'subpage-login',
   }
 
   ready: () ->
-    @M = @msgMap[window.lang]
+    @M = window.M['member']['login']
     @addEventListener 'user-access-denied', (e) ->
       @errorMsg = @M.invalidEmailOrPasswd
       @buttonDisabled = true

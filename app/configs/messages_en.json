@@ -575,6 +575,143 @@
     "minimumConstantFormat": "%s (Minimum %s %s)",
     "minimumPercentageFormat": "%s% (Minimum %s %s)"
   },
+  "member": {
+    "forgetpwd": {
+      "title": "Forgot Password?",
+      "email": "Email",
+      "login": "Login",
+      "register": "Don't have an acccount? Register Now",
+      "reset": "Request Password Reset"
+    },
+    "login": {
+      "email": "Email",
+      "password": "Password",
+      "login": "Login",
+      "register": "Don't have an acccount? Register Now",
+      "forgetpassword": "Forget password?",
+      "emailInvalid": "Your email address is invalid.",
+      "invalidEmailOrPasswd": "Invalid email or password!",
+      "tooManyFailure": "Login failed more than 5 times. Please retry in %s minutes.",
+      "badPassword": "Bad password, can retry %s times"
+    },
+    "logout": {
+      "logout": "Logout",
+      "signedInAlready": "You have logged in as %s already.",
+      "gotoAccount": "Go to account"
+    },
+    "register": {
+      "register": "Register",
+      "email": "Email",
+      "password": "Passwod",
+      "password2": "Confirm Password",
+      "haveRead1": "I have read and agree to Coinport Exchange's ",
+      "haveRead2": "Terms of Service",
+      "login": "Login",
+      "errProvideEmail": "Please provide your email",
+      "errEmailInvalid": "Your email address is invalid",
+      "errPasswordTooSimple": "Your password is too weak",
+      "errPasswordsMisMatch": "Passwords do not match",
+      "errPasswordMissing": "Please provide a password",
+      "errRegisterFailed": {
+        "0": "Unknown error! Please contact our customer service.",
+        "1001": "Registeration Failed: Email already registered."
+      }
+    },
+    "resend-activation": {
+      "title": "Re-send activation email",
+      "email": "Email",
+      "login": "Login",
+      "register": "Don't have an acccount? Register Now",
+      "reset": "Re-send Account Verification Email"
+    },
+    "resetpwd": {
+      "password": "New pasword",
+      "password2": "Repeat new password",
+      "login": "Login",
+      "register": "Don't have an acccount? Register Now",
+      "reset": "Reset Password",
+      "resend": "Re-send me a password reset email.",
+      "errors": {
+        "loggedIn": "You have logged in.",
+        "noToken": "You need to click the link in your email.",
+        "notMatch": "Passwords do not match"
+      }
+    },
+    "verify-email": {
+      "label": "Verify Email",
+      "verifying": "Verifying your email ..."
+    },
+    "messages": {
+      "login": "Login",
+      "register": "Don't have an acccount? Register Now",
+      "checkEmail": {
+        "label": "Check Your Email",
+        "details": [
+          "We just send you an email for your account confirmation. You need to click on the link in the email to activate your account.",
+          "Please give the email a couple of minutes to arrive. If you still don't find it in your mailbox after a while, go ahead and check the spam folder.",
+          "Thank you."
+        ]
+      },
+
+      "emailVerified": {
+        "label": "Email Verified",
+        "details": [
+          "We have verified your email address.",
+          "You can take advantage of all Coinport services.",
+          "Happy trading!"
+        ]
+      },
+      "emailVerificationFailed": {
+        "label": "Email Verification Failed",
+        "details": [
+          "We cannot verify your email address.",
+          "You many need to try again."
+        ]
+      },
+      "pwresetTokenSent": {
+        "label": "Check Your Email",
+        "details": [
+          "If your email has been registered already, we will send you an email with a link to reset your password. Your current password is still valid until a new one is set.",
+          "Please give the email a couple of minutes to arrive. If you still don't find it in your mailbox after a while, go ahead and check the spam folder.",
+          "Thank you."
+        ]
+      },
+      "activationTokenSent": {
+        "label": "Check Your Email",
+        "details": [
+          "If your email has been registered already and your email has not been verified yet, we will send you an email with a link to verify your email.",
+          "Please give the email a couple of minutes to arrive. If you still don't find it in your mailbox after a while, go ahead and check the spam folder.",
+          "Thank you."
+        ]
+      },
+      "pwresetTokenInvalid": {
+        "label": "Unable to Reset Password",
+        "details": [
+          "Your token for resetting password is invalid.",
+          "You many need to try again."
+        ]
+      },
+      "passwordChanged": {
+        "label": "Password Changed",
+        "details": [
+          "Your password has bee successfully changed.",
+          "Thank you."
+        ]
+      },
+      "loggedOut": {
+        "label": "Logged Out",
+        "details": [
+          "You have successfully logged out.",
+          "See you soon."
+        ]
+      }
+    }
+  },
+  "coinport-api": {
+    "serviceUnavailable": "Service is temporarily unavailable.",
+    "internalServiceError": "We encountered an internal server error. Please report this to Coinport support team. (URL: %s)",
+    "badRequest": "Bad request."
+  },
   "utils": {
     "crypto-address": {
       "checkout": "Check out this address at:"

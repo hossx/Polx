@@ -577,6 +577,143 @@
     "minimumConstantFormat": "%s（最低：%s %s）",
     "minimumPercentageFormat": "%s%（最低：%s %s）"
   },
+  "member": {
+    "forgetpwd": {
+      "title": "忘记密码",
+      "email": "Email",
+      "login": "登录",
+      "register": "还没有账号？注册一个吧。",
+      "reset": "请求重置密码"
+    },
+    "login": {
+      "email": "Email",
+      "password": "密码",
+      "login": "登录",
+      "register": "还没有账号？注册一个吧。",
+      "forgetpassword": "忘记密码？",
+      "emailInvalid": "Email地址格式不正确。",
+      "invalidEmailOrPasswd": "用户名或密码错误！",
+      "tooManyFailure": "连续5次登录失败，请%s分钟之后再试！",
+      "badPassword": "密码错误，还可以尝试%s次"
+    },
+    "logout": {
+      "logout": "登出",
+      "signedInAlready": "你已经用%s登录",
+      "gotoAccount": "查看账户"
+    },
+    "register": {
+      "register": "注册",
+      "email": "Email",
+      "password": "密码",
+      "password2": "重新输入密码",
+      "haveRead1": "我已阅读并同意币丰港交易所的",
+      "haveRead2": "服务条款",
+      "login": "已有账号登录",
+      "errProvideEmail": "请输入您的Email",
+      "errEmailInvalid": "Email地址格式错误",
+      "errPasswordTooSimple": "您的密码过于简单",
+      "errPasswordsMisMatch": "两次密码输入不一致",
+      "errPasswordMissing": "请输入密码",
+      "errRegisterFailed": {
+        "0": "未知错误 - 请联系客服。",
+        "1001": "注册失败：该email已经注册。"
+      }
+    },
+    "resend-activation": {
+      "title": "重发激活邮件",
+      "email": "Email",
+      "login": "登录",
+      "register": "还没有账号？注册一个吧。",
+      "reset": "再发邮箱验证邮件给我"
+    },
+    "resetpwd": {
+      "password": "新密码",
+      "password2": "确认新密码",
+      "login": "登录",
+      "register": "还没有账号？注册一个吧。",
+      "reset": "重置密码",
+      "resend": "重新发送重置密码的邮件给我。",
+      "errors": {
+        "loggedIn": "登录状态无法重置密码。",
+        "noToken": "请您点击重置密码邮件中的链接。",
+        "notMatch": "密码不匹配"
+      }
+    },
+    "verify-email": {
+      "label": "验证邮箱",
+      "verifying": "正在验证您的邮箱 ..."
+    },
+    "messages": {
+      "login": "登录",
+      "register": "还没有账号？注册一个吧。",
+
+      "checkEmail": {
+        "label": "请检查邮箱",
+        "details": [
+          "感谢您注册币丰港交易所账号。我们刚刚发送了一封email给您，请点击其中的链接对您的邮箱进行验证。",
+          "如果您几分钟后依然没收到邮件，请检查下垃圾邮件。",
+          "谢谢。"
+        ]
+      },
+      "emailVerified": {
+        "label": "邮箱验证完成",
+        "details": [
+          "我们已经验证了您的邮箱。",
+          "现在您可以使用币丰港进行各种交易了。"
+        ]
+      },
+      "emailVerificationFailed": {
+        "label": "邮箱验证失败",
+        "details": [
+          "您试图使用的邮箱验证令牌无效。",
+          "请您重试。"
+        ]
+      },
+      "pwresetTokenSent": {
+        "label": "请检查邮箱",
+        "details": [
+          "如果您的email已经在币丰港注册，您将很快收到重置密码的email。请按照其中的指示操作。",
+          "如果您几分钟后依然没收到邮件，请检查下垃圾邮件。",
+          "谢谢。"
+        ]
+      },
+      "activationTokenSent": {
+        "label": "请检查邮箱",
+        "details": [
+          "如果您的email已经在币丰港注册并且还未被验证，您将很快收到激活邮箱的email。请按照其中的指示操作。",
+          "如果您几分钟后依然没收到邮件，请检查下垃圾邮件。",
+          "谢谢。"
+        ]
+      },
+      "pwresetTokenInvalid": {
+        "label": "无法重置密码",
+        "details": [
+          "您试图使用的重置密码令牌无效。",
+          "你需要再次请求重置密码。"
+        ]
+      },
+
+      "passwordChanged": {
+        "label": "密码更改成功",
+        "details": [
+          "您的密码已经更改成功。",
+          "谢谢。"
+        ]
+      },
+      "loggedOut": {
+        "label": "已登出系统",
+        "details": [
+          "您已经成功登出系统。",
+          "回见。"
+        ]
+      }
+    }
+  },
+  "coinport-api": {
+    "serviceUnavailable": "币丰港服务暂时不可用。是不是你的网络有问题啦？",
+    "internalServiceError": "我们貌似遇到了一个后台服务内部错误，请联系币丰港客服提交一个bug吧。（URL: %s）",
+    "badRequest": "非法API请求。"
+  },
   "utils": {
     "crypto-address": {
       "checkout": "查看该地址："
