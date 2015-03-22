@@ -121,8 +121,8 @@ cp-page /deep/ #main {
     }
 }
 #mobile {
-    @include diagonal-fill(color($C2, 100), $mode: 0);
-    color: $black1;
+    @include diagonal-fill(color($C2, 400), $mode: 0);
+    color: $white1;
     #words {
         #ready {
             font-size: 28px;

@@ -10,7 +10,7 @@ cp-page /deep/ #main {
 }
 #container {
     position: relative;
-    @include diagonal-fill(color($C2, 100));
+    @include diagonal-fill(color($C2, 400));
     min-height: 540px;
     width: 100%;
     overflow: hidden;
