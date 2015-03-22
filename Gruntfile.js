@@ -282,10 +282,10 @@
                         strip: true,
                         csp: true,
                         inline: true,
-                        "strip-excludes": false,
+                        /*"strip-excludes": false,
                         excludes: {
                             imports: ['bower_components/.*']
-                        }
+                        }*/
 
                     },
                     files: {
@@ -481,7 +481,7 @@
             'vulcanize:index',
             'minifyHtml',
             'json-minify',
-            'vulcanize:thirdparty',
+            //'vulcanize:thirdparty',
         ]);
 
         grunt.registerTask('publish', [
