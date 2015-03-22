@@ -350,6 +350,21 @@
       "takerOrderTypeSell": "卖单触发的交易"
     }
   },
+  "markets": {
+    "x-group": {
+      "markets": "第三方BTC/CNY市场",
+      "refresh": "每%s秒刷新一次"
+    },
+    "group": {
+      "markets": "市场",
+      "refresh": "每%s秒刷新一次"
+    },
+    "card": {
+      "lastPrice": "最新成交价",
+      "volume": "24小时成交",
+      "change": "24小时价差"
+    }
+  },
   "market-pro": {
     "market-pro": {
       "relaxMode": "查看更多该市场信息",
@@ -572,6 +587,9 @@
     },
     "markdown-viewer": {
       "relatedDocs": "相关文档"
+    },
+    "timer-btn": {
+      "ticking": "%s秒后重发"
     }
   }
 }

@@ -1,20 +1,10 @@
 'use strict'
 
 Polymer 'stats-card-group',
-  msgMap:
-    'en':
-      markets: " Markets"
-      refresh: "Refreshed every %s seconds"
-
-    'zh':
-      markets: "市场"
-      refresh: "每%s秒刷新一次"
-
-
   tickers: null
   
   ready: () ->
-    @M = @msgMap[window.lang]
+    @M = window.M['markets']['group']
     @refreshInterval = window.config.refreshIntervals.tickers
     work = () =>this.$.ajax.go()
     @refreshJob = setInterval(work, @refreshInterval)
@@ -26,4 +16,4 @@ Polymer 'stats-card-group',
     if @tickers
       @marketIds = Object.keys(@tickers).sort()
 
-  refreshFormatter: (v) -> @msgMap[window.lang].refresh.format(v/1000)
+  refreshFormatter: (v) -> if @M then @M.refresh.format(v/1000)

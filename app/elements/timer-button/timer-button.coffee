@@ -1,16 +1,10 @@
 Polymer 'timer-button',
-    msgMap:
-        'en':
-            ticking: "Re-send after %ss"
-        'zh':
-            ticking: "%s秒后重发"
-
     oriLabel: ""
     interval: 60
 
     ready: () ->
         `this.super()`
-        @M = @msgMap[window.lang]
+        @M = window.M['utils']['timer-btn']
 
     upAction: () ->
         `this.super()`

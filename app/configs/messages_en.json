@@ -348,6 +348,21 @@
       "takerOrderTypeSell": "Sell Order Takes"
     }
   },
+  "markets": {
+    "x-group": {
+      "markets": "External BTC/CNY Markets",
+      "refresh": "Refreshed every %s seconds"
+    },
+    "group": {
+      "markets": " Markets",
+      "refresh": "Refreshed every %s seconds"
+    },
+    "card": {
+      "lastPrice": "Last Price",
+      "volume": "24H Volume",
+      "change": "24H Change"
+    }
+  },
   "market-pro": {
     "market-pro": {
       "relaxMode": "More about this market",
@@ -570,6 +585,9 @@
     },
     "markdown-viewer": {
       "relatedDocs": "Related Documents"
+    },
+    "timer-btn": {
+      "ticking": "Re-send after %ss"
     }
   }
 }

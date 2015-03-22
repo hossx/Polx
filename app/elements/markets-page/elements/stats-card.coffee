@@ -1,22 +1,11 @@
 'use strict'
 
 Polymer 'stats-card',
-  msgMap:
-    'zh':
-      lastPrice: "最新成交价"
-      volume: "24小时总成交量"
-      change: "24小时价格变化"
-
-    'en':
-      lastPrice: "Last Price"
-      volume: "24H Volume"
-      change: "24H Change"
-
   marketId: ''
   ticker: null
 
   ready: () ->
-    @M = @msgMap[window.lang]
+    @M = window.M['markets']['card']
 
   marketIdChanged: (o, n) ->
     @market = window.config.markets[@marketId]
