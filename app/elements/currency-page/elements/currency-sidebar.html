@@ -19,7 +19,7 @@
           <core-menu>
             <template repeat="{{currency in config.currencyGroups[selectedGroup]}}">
               <a href="/#/currency/{{currency.id}}">
-                <core-item active?="{{currencyId===currency.id}}" icon="" label="{{currency.fullName}}"></core-item>
+                <core-item active?="{{currencyId===currency.id}}" label="{{currency.fullName}}"></core-item>
               </a>
             </template>
           </core-menu>

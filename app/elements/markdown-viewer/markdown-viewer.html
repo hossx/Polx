@@ -22,7 +22,7 @@
         <core-menu>
           <template repeat="{{f in files}}">
             <a href="/#/doc/{{f}}">
-              <core-item active?="{{f == file}}" icon="" label="{{doclinks[f].label}}"></core-item>
+              <core-item active?="{{f == file}}" label="{{doclinks[f].label}}"></core-item>
             </a>
           </template>
         </core-menu>

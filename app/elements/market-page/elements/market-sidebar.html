@@ -20,7 +20,7 @@
           <core-menu>
             <template repeat="{{market in config.marketGroups[selectedGroup]}}">
               <a href="/#/marketpro/{{market.id}}">
-                <core-item active?="{{marketId==market.id}}" icon="" label="{{market.name}}"></core-item>
+                <core-item active?="{{marketId==market.id}}" label="{{market.name}}"></core-item>
               </a>
             </template>
           </core-menu>
