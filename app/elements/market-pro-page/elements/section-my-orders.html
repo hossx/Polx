@@ -42,7 +42,7 @@
               {{order.created | formatTime}}
             </td>
             <td>
-              {{M.statuses[order.status]}}
+              {{order.status | formatStatus}}
             </td>
             <td class="op">
               <template if="{{order.status == 0 || order.status == 1}}">
@@ -93,7 +93,7 @@
                   {{orderToCancel.created | formatTime}}
                 </td>
                 <td>
-                  {{M.statuses[orderToCancel.status]}}
+                  {{orderToCancel.status | formatStatus}}
                 </td>
               </tr>
 

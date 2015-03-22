@@ -1,16 +1,8 @@
 'use strict'
 
 Polymer 'section-news',
-  msgMap:
-    'en':
-      noNews: "Not much to say ..."
-
-
-    'zh':
-      noNews: "好吧，还没什么新闻 ..."
-
   ready: () ->
-    @M = @msgMap[window.lang]
+    @M = window.M['market-pro']['news']
 
   newsFile: ''
   news: ''

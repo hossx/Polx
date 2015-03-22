@@ -1,16 +1,8 @@
 'use strict'
 
 Polymer 'markdown-viewer',
-  msgMap:
-    'en':
-      relatedDocs: "Related Documents"
-
-    'zh':
-      relatedDocs: "相关文档"
-
-
   ready: () ->
-    @M = @msgMap[window.lang]
+    @M = window.M['utils']['markdown-viewer']
     @file= ""
     @fileLang = ""
     @text = null

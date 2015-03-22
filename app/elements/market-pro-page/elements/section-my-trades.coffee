@@ -1,34 +1,8 @@
 'use strict'
 
 Polymer 'section-my-trades',
-  msgMap:
-    'en':
-      id: "Trade ID"
-      orderId: "Order ID"
-      type: "Type"
-      price: "Price"
-      quantity: "Quantity"
-      total: "Total"
-      time: "Timestamp"
-      buy: "Buy"
-      sell: "Sell"
-      noTrades: "No Trades"
-
-
-    'zh':
-      id: "成交号"
-      orderId: "订单号"
-      type: "类型"
-      price: "成交价"
-      quantity: "成交量"
-      total: "成交额"
-      time: "时间"
-      buy: "买入"
-      sell: "卖出"
-      noTrades: "没有成交记录"
-
   ready: () ->
-    @M = @msgMap[window.lang]
+    @M = window.M['market-pro']['my-trades']
 
   go: () ->
     this.$.ajax.go()

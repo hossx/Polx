@@ -1,45 +1,10 @@
 'use strict'
 
 Polymer 'market-pro-page',
-  msgMap:
-    'en':
-      relaxMode: "More about this market"
-      ticker: "Ticker"
-      availableBalance: "Available Balance"
-      news: "Market News"
-      orderBook: "Order Book"
-      priceChart: "Price Chart"
-      depthChart: "Depth Chart"
-      myOpenOrders: "Open Orders"
-      myTrades: "My Trade History"
-      tradeHistory: "Trade History"
-      login: "Login"
-      
-      refreshTooltip: "Refresh"
-      refreshingMsg: "Refreshing market data..."
-
-
-
-    'zh':
-      relaxMode: "查看更多该市场信息"
-      ticker: "市场概况"
-      availableBalance: "可用余额"
-      news: "市场新闻"
-      orderBook: "现有订单"
-      priceChart: "价格图表"
-      depthChart: "深度图表"
-      myOpenOrders: "我的挂单"
-      myTrades: "我的成交"
-      tradeHistory: '成交记录'
-      login: "登陆"
-
-      refreshTooltip: "更新数据"
-      refreshingMsg: "正在更新市场数据..."
-
   loggedIn: true
 
   ready: () ->
-    @M = @msgMap[window.lang]
+    @M = window.M['market-pro']['market-pro']
     @config = window.config
     @addEventListener 'refresh-market-data', (e) ->
       work = () => @refresh()

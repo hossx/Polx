@@ -1,41 +1,8 @@
 'use strict'
 
 Polymer 'section-trade',
-  msgMap:
-    'en':
-      sellAction: "Sell"
-      buyAction: "Buy"
-      price: "Price"
-      quantity: "Quantity"
-      total: "Total"
-      submittedMsg: "Your order has been submitted [order ID: %s]"
-      submitionFailedMsg: "Failed to submit order. Please try again!"
-      errorUnknown: "Unknown error"
-      minBuyAmount: "Minimum Buy"
-      minSellAmount: "Minimum Sell"
-      errorCode:
-        2001: "Price out of valid range"
-        2002: "Insufficient fund"
-        2003: "Invalid quantity"
-
-    'zh':
-      sellAction: "卖出"
-      buyAction: "买入"
-      price: "价格"
-      quantity: "数量"
-      total: "总金额"
-      submittedMsg: "您的订单提交成功。订单ID：%s"
-      submitionFailedMsg: "订单无法提交！"
-      errorUnknown: "原因不明"
-      minBuyAmount: "最小买单"
-      minSellAmount: "最小卖单"
-      errorCode:
-        2001: "价格太大或太小"
-        2002: "账户余额不住"
-        2003: "数量太大或太小"
-
   ready: () ->
-    @M = @msgMap[window.lang]
+    @M = window.M['market-pro']['trade']
 
 
   buyPrice: 0.0
@@ -102,7 +69,7 @@ Polymer 'section-trade',
           @fire('display-message', {message: @M.submittedMsg.format(@results[0].order_id)})
           @fire('refresh-market-data') 
         else
-          @fire('display-message', {error: @M.submitionFailedMsg + '  - ' + result.code + ": " + (@M.errorCode[result.code] or @M.errorUnknown)})
+          @fire('display-message', {error: @M.submitionFailedMsg + '  - ' + result.code + ": " + (@M.errorCode[result.code.toString()] or @M.errorUnknown)})
     else
       @fire('display-message', {error: @M.submitionFailedMsg})
 
