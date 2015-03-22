@@ -1,7 +1,7 @@
 
 #币丰港交易平台API
 
-<center>当前版本：2.0</center>
+<center>当前版本：1.1</center>
 
 ---
 
