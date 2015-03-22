@@ -17,6 +17,7 @@ class Currency
     @fee = new CurrencyFee @json.fee
     @fullName = @name + "-" + @id
     @isCrypto = not @json.notCripto
+    @icon = if not @json.icon then 'crypto:' + @id else @json.icon
     @group =
       if @isCrypto
         'CRYPTO'

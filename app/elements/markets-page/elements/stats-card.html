@@ -17,7 +17,7 @@
             </template>
 
             <div id="head" horizontal center-justified layout>
-              <core-icon icon="crypto:{{market.currency.id}}" style="color:{{market.currency.json.color}}"></core-icon>
+              <core-icon icon="{{market.currency.icon}}" style="color:{{market.currency.json.color}}"></core-icon>
               <div>{{market.name}}
                 <template if="{{market.json.priceUnit != null}}">
                   <span id="unit">{{market.json.priceUnit}}</span>
