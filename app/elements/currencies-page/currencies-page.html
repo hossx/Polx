@@ -1,18 +1,14 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
-<link rel="import" href="../../bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
-<link rel="import" href="../../bower_components/core-header-panel/core-header-panel.html">
 <link rel="import" href="../cp-page/cp-page.html">
 <link rel="import" href="../cp-media-query/cp-media-query.html">
-<link rel="import" href="../cp-footer/cp-footer.html">
 <link rel="import" href="elements/reserve-card-group.html">
 
 <polymer-element name="currencies-page" noscript>
   <template>
     <link rel="stylesheet" href="currencies-page.css">
     <cp-media-query smallup="{{smallup}}"></cp-media-query>
-    <cp-page  toolbarSelect="/currencies">
+    <cp-page toolbarSelect="/currencies">
       <reserve-card-group id="reserves" smallup="{{smallup}}"></reserve-card-group>
     </cp-page>
   </template>
