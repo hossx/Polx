@@ -1,6 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/core-icon/core-icon.html">
-<link rel="import" href="../../bower_components/core-icons/communication-icons.html">
+<link rel="import" href="../cp-icons/selected-icons.html">
 
 <polymer-element name="crypto-address" attributes="currency,addr">
   <template>
@@ -8,11 +8,11 @@
       <div center horizontal layout>
         <template if="{{link}}">
           <a target="_blank" href="{{link}}">
-            <core-icon id="icon" icon="communication:location-on"></core-icon>
+            <core-icon id="icon" icon="selected:location"></core-icon>
           </a>
         </template>
         <template if="{{!link}}">
-          <core-icon id="icon" icon="communication:location-on"></core-icon>
+          <core-icon id="icon" icon="selected:location"></core-icon>
         </template>
         <div id="addr">{{addr}}</div>
       </div>

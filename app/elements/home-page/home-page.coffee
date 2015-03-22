@@ -63,7 +63,6 @@ Polymer 'home-page',
     if window.config.announcement
       @announceMsg = window.config.announcement.message
       @announceCritical = window.config.announcement.critical
-      console.log(@announceCritical)
       @announceLink = window.config.announcement.link
     @M = @msgMap[window.lang]
     ###

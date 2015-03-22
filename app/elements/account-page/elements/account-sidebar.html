@@ -1,14 +1,11 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/core-icon/core-icon.html">
-<link rel="import" href="../../../bower_components/core-icons/social-icons.html">
-<link rel="import" href="../../../bower_components/core-icons/editor-icons.html">
-<link rel="import" href="../../../bower_components/core-icons/hardware-icons.html">
-<link rel="import" href="../../../bower_components/core-icons/communication-icons.html">
 <link rel="import" href="../../../bower_components/core-collapse/core-collapse.html">
 <link rel="import" href="../../../bower_components/core-menu/core-menu.html">
 <link rel="import" href="../../../bower_components/core-menu/core-submenu.html">
 <link rel="import" href="../../../bower_components/core-item/core-item.html">
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../cp-icons/selected-icons.html">
 
 <polymer-element name="account-sidebar" attributes="selected" fit vertical layout>
   <template>
@@ -19,13 +16,13 @@
         <core-item active?="{{selected=='assets'}}" icon="account-balance-wallet" label="{{M.assets}}"></core-item>
       </a>
       <a href="/#/account/profile">
-        <core-item active?="{{selected=='profile'}}" icon="social:person-outline" label="{{M.profile}}"></core-item>
+        <core-item active?="{{selected=='profile'}}" icon="selected:person" label="{{M.profile}}"></core-item>
       </a>
       <a href="/#/account/deposit">
-        <core-item active?="{{selected=='deposit'}}" icon="communication:call-received" label="{{M.deposit}}"></core-item>
+        <core-item active?="{{selected=='deposit'}}" icon="selected:deposit" label="{{M.deposit}}"></core-item>
       </a>
       <a href="/#/account/withdraw">
-        <core-item active?="{{selected=='withdraw'}}" icon="communication:call-made" label="{{M.withdraw}}"></core-item>
+        <core-item active?="{{selected=='withdraw'}}" icon="selected:withdraw" label="{{M.withdraw}}"></core-item>
       </a>
       <a href="/#/account/orders">
         <core-item active?="{{selected=='orders'}}" icon="list" label="{{M.orders}}"></core-item>

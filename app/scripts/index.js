@@ -7,7 +7,7 @@
   } else {
     window.lang = 'zh';
   }
-  console.log('lang: ' + window.lang);
+  //console.log('lang: ' + window.lang);
 
   if (window.lang === 'zh') {
     document.title = '币丰港';
@@ -21,11 +21,12 @@
 
   }
 
+/*
   document.addEventListener('polymer-ready', function() {
     // Perform some behaviour
     console.log('Polymer is ready to rock!');
   });
-
+*/
   window.logAndContinue = function() {
     var missing = Polymer.waitingFor();
     if (missing.length) {
@@ -105,7 +106,7 @@
   setTimeout(function() {
     setupIM();
     if (window.lang != 'zh') {
-      gaSSDSLoad("UA-51354545-2");
+      gaSSDSLoad('UA-51354545-2');
     }
   }, 2000);
 

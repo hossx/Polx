@@ -14,9 +14,6 @@ Polymer 'the-router',
       catch e
         window.profile = null
     
-    if not window.profile
-      console.log("No user logged in")
-
   stateChange: (e) ->
     path = e.detail.path
     if window.profile # logged in

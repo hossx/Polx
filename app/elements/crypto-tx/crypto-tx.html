@@ -1,8 +1,7 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/core-icon/core-icon.html">
-<link rel="import" href="../../bower_components/core-icons/image-icons.html">
 <link rel="import" href="../../bower_components/core-tooltip/core-tooltip.html">
-
+<link rel="import" href="../cp-icons/selected-icons.html">
 
 
 <polymer-element name="crypto-tx" attributes="currency,tx" horizontal layout>
@@ -10,12 +9,12 @@
     <link rel="stylesheet" href="crypto-tx.css">
     <template if="{{link}}">
       <a target="_blank" href="{{link}}">
-        <core-icon id="icon" icon="image:transform"></core-icon>
+        <core-icon id="icon" icon="selected:transform"></core-icon>
       </a>
     </template>
 
     <template if="{{!link}}">
-      <core-icon id="icon" icon="image:transform"></core-icon>
+      <core-icon id="icon" icon="selected:transform"></core-icon>
     </template>
 
     <core-tooltip label="{{tx}}" position="bottom">

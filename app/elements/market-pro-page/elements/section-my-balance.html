@@ -1,5 +1,6 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../coinport-api/api-my-balance.html">
+<link rel="import" href="../../cp-icons/selected-icons.html">
 
 <polymer-element name="section-my-balance" attributes="market,balance,baseBalance" vertical layout>
   <template>
@@ -9,12 +10,12 @@
     <div class="actions" horizontal layout>
       <paper-button flex>
         <a href="/#/account/deposit">
-          <core-icon class="small" icon="communication:call-received"></core-icon>{{M.deposit}}
+          <core-icon class="small" icon="selected:deposit"></core-icon>{{M.deposit}}
         </a>
       </paper-button>
       <paper-button flex>
         <a href="/#/account/withdraw">
-          <core-icon class="small" icon="communication:call-made"></core-icon>{{M.withdraw}}</a>
+          <core-icon class="small" icon="selected:withdraw"></core-icon>{{M.withdraw}}</a>
       </paper-button>
     </div>
 
