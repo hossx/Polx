@@ -240,8 +240,8 @@
     }
   },
   "refreshIntervals": {
-    "pro": 3000,
-    "depths": 5000,
+    "pro": 30000,
+    "depths": 15000,
     "tickers": 30000
   },
   "documents": {

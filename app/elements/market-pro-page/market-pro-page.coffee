@@ -23,14 +23,8 @@ Polymer 'market-pro-page',
     work = () => @refresh()
     @autoRefresh = setTimeout(work)
 
-    # every 30 seconds, increase the refresh interval by 20%, max 5 minutes.
-    @autoDelayRefresh = setInterval ()=>
-      @refreshInterval = Math.min(Math.round(@refreshInterval  * 1.2), 300000)
-    , 30000
-
   detached: () ->
     clearTimeout(@autoRefresh)
-    clearInterval(@autoDelayRefresh)
 
   forceRefresh: () ->
     @fire('display-message', {'message': @M.refreshingMsg})
@@ -41,7 +35,7 @@ Polymer 'market-pro-page',
     clearTimeout(@autoRefresh)
     this.$.refresh.setAttribute("disabled","")
     reenable = () => this.$.refresh.removeAttribute("disabled")
-    setTimeout(reenable, 1000)
+    setTimeout(reenable, 3000)
     this.$.ajaxTicker.go()
     this.$.ajaxKline.go()
     this.$.orderBookSection.go()
@@ -51,7 +45,8 @@ Polymer 'market-pro-page',
       this.$.myOrdersSection.go()
       this.$.myTradesSection.go()
       this.$.myBalanceSection.go()
-
+    
+    @refreshInterval = Math.min(Math.round(@refreshInterval  * 1.2), 300000)
     work = () => @refresh() 
     @autoRefresh = setTimeout(work, @refreshInterval)
 
