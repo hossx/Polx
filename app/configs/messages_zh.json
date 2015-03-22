@@ -54,6 +54,10 @@
         "label": "微信",
         "url": "weixin://contacts/profile/coinport",
         "target": "_blank"
+      }, {
+        "label": "博客",
+        "url": "http://boke.coinport.com",
+        "target": "_blank"
       }]
     }]
   },
