@@ -1,38 +1,8 @@
 'use strict'
 
 Polymer 'reserve-subpage',
-  msgMap:
-    'en':
-      reserveDetails: 'Reserve Details'
-      address: 'Address'
-      balance: 'Balance'
-      label: 'Type'
-      signedMsg: "Signed Message"
-      signature: "Signature"
-      hot: "Hot"
-      cold: "Cold"
-      total: "Total"
-      addresses: "addresses"
-      sigNotAvailable: "N/A"
-      noReserveDataAvail: "No reserve data available for non-blockchain currencies!"
-
-    'zh':
-      reserveDetails: '准备金详情'
-      address: '地址'
-      balance: '余额'
-      label: '类型'
-      signedMsg: "被签名消息"
-      signature: "签名"
-      hot: "热钱包"
-      cold: "冷钱包"
-      total: "总量"
-      addresses: '个地址'
-      sigNotAvailable: "暂无"
-      noReserveDataAvail: "对于非区块链货币我们暂不提供准备金证明。"
-
-
   ready: () ->
-    @M = @msgMap[window.lang]
+    @M = window.M['currency']['reserve']
 
   wiki: ''
   wikiLinted: ''

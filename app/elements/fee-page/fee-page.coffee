@@ -1,32 +1,8 @@
 'use strict'
 
 Polymer 'fee-page',
-  msgMap:
-    'en':
-      depositWithdrawFees: "Deposit / Withdrawal Fee Table"
-      tradingFees: "Trading Fee Table"
-      currency: "Currency"
-      market: "Market"
-      depositFee: "Deposit Fee"
-      withdrawFee: "Withdrawal Fee"
-      buyerFee: "Buying Fee"
-      sellerFee: "Selling Fee"
-      minimumConstantFormat: "%s (Minimum %s %s)"
-      minimumPercentageFormat: "%s% (Minimum %s %s)"
-    'zh':
-      depositWithdrawFees: "充值提现费率"
-      tradingFees: "交易费率"
-      currency: "货币"
-      market: "市场"
-      depositFee: "充值费率"
-      withdrawFee: "提现费率"
-      buyerFee: "买入费率"
-      sellerFee: "卖出费率"
-      minimumConstantFormat: "%s（最低：%s %s）"
-      minimumPercentageFormat: "%s%（最低：%s %s）"
-
   created: () ->
-    @M = @msgMap[window.lang]
+    @M = window.M['fee']
     @config = window.config
     currencyKeys = Object.keys(@config.currencies).sort()
 

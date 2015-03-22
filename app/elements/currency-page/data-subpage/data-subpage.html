@@ -20,7 +20,7 @@
       <paper-shadow z="0">
         <div label>
           <h2>{{currency.name}} {{M.transactions}}</h2>
-          <p>{{currency.name | formatTransactionsComment}} </p>
+          <p>{{currency.name | formatTxComment}} </p>
         </div>
         <div vertical center layout>
           <table class="simple">
@@ -52,7 +52,7 @@
                       </template>
                     </td>
                   </template>
-                  <td class="{{tx.operation | formatClass}}">{{M.operationsLabel[tx.operation]}}</td>
+                  <td class="{{tx.operation | formatClass}}">{{tx.operation | opLabel}}</td>
                   <td text-right class="{{tx.operation | formatClass}}">
                     <nice-number v="{{tx.amount}}" p="4"></nice-number>
                   </td>
@@ -72,7 +72,7 @@
       <paper-shadow z="0">
         <div label>
           <h2>{{currency.name}} {{M.distributionSnapshots}}</h2>
-          <p>{{currency.name | formatDistributionSnapshotsComment}}</p>
+          <p>{{currency.name | formatSnapshotsComment}}</p>
         </div>
         <div vertical center layout>
           <table class="simple">

@@ -1,4 +1,62 @@
 {
+  "toolbar": {
+    "coinport": "币丰港",
+    "markets": "市场",
+    "currencies": "货币",
+    "myAccount": "账号"
+  },
+  "footer": {
+    "groups": [{
+      "label": "关于",
+      "links": [{
+        "label": "工作机会",
+        "url": "/#/doc/jobs"
+      }, {
+        "label": "联系我们",
+        "url": "/#/doc/contactus"
+      }, {
+        "label": "费用",
+        "url": "/#/fees"
+      }]
+    }, {
+      "label": "法律",
+      "links": [{
+        "label": "服务条款",
+        "url": "/#/doc/terms"
+      }, {
+        "label": "隐私政策",
+        "url": "/#/doc/privacy"
+      }, {
+        "label": "反洗钱与客户调查",
+        "url": "/#/doc/aml-kyc"
+      }]
+    }, {
+      "label": "资源",
+      "links": [{
+        "label": "API",
+        "url": "/#/doc/api"
+      }, {
+        "label": "通过Ripple网关充值",
+        "url": "/#/doc/ripple-deposit"
+      }, {
+        "label": "币丰支付",
+        "url": "https://pay.coinport.com",
+        "class": "pay",
+        "target": "_blank"
+      }]
+    }, {
+      "label": "媒体",
+      "links": [{
+        "label": "微博",
+        "url": "http://www.weibo.com/coinport",
+        "target": "_blank"
+      }, {
+        "label": "微信",
+        "url": "weixin://contacts/profile/coinport",
+        "target": "_blank"
+      }]
+    }]
+  },
   "account": {
     "sidebar": {
       "logout": "登出",
@@ -249,6 +307,101 @@
         "国家开发银行",
         "招商银行"
       ]
+    }
+  },
+  "charts": {
+    "depth": {
+      "pointFormat": "累积数量: {point.y:.8f}",
+      "buy": "买单",
+      "sell": "卖单"
+    },
+    "price": {
+      "pointFormat": "价格: {point.y:.8f}",
+      "price": "价格"
+    },
+    "trades": {
+      "pointFormat": "数量: {point.z}<br/>价格: {point.y}",
+      "takerOrderTypeBuy": "买单触发的交易",
+      "takerOrderTypeSell": "卖单触发的交易"
+    }
+  },
+  "currencies": {
+    "group": {
+      "reserveStats": "货币准备金"
+    },
+    "card": {
+      "reserveRatio": "准备金比例",
+      "hotWallet": "热钱包",
+      "coldWallet": "冷钱包",
+      "userWallet": "用户钱包",
+      "shortage": "缺口",
+      "extra": "盈余",
+      "labels": ["热钱包", "冷钱包", "用户钱包", "盈余", "缺口"]
+    }
+  },
+  "currency": {
+    "currency": {
+      "about": "货币趋势",
+      "reserves": "准备金",
+      "history": "历史数据"
+    },
+    "about": {
+      "trend": "价格走势",
+      "about": "关于",
+      "buzz": "相关微博",
+      "trade": "买卖",
+      "market": "市场",
+      "aboutWeiboWall": "如果微博条数太少，可以点击“全部”，“认证用户”，或者“我关注的”来刷新一下。"
+    },
+    "data": {
+      "na": "无",
+      "transactions": "转账记录",
+      "formatTxComment": "以下是与币丰港%s冷热钱包地址相关的区块链转账记录。",
+      "distributionSnapshots": "资产分布快照",
+      "formatSsComment": "下列文件存储了特定时刻%s资产在币丰港用户间的分布情况。",
+      "timestamp": "时间",
+      "userId": "用户ID",
+      "type": "类型",
+      "amount": "数量",
+      "address": "地址",
+      "transaction": "转账",
+      "file": "文件",
+      "size": "大小",
+      "operationsLabel": {
+        "0": "充值",
+        "1": "提现"
+      }
+    },
+    "reserve": {
+      "reserveDetails": "准备金详情",
+      "address": "地址",
+      "balance": "余额",
+      "label": "类型",
+      "signedMsg": "被签名消息",
+      "signature": "签名",
+      "hot": "热钱包",
+      "cold": "冷钱包",
+      "total": "总量",
+      "addresses": "个地址",
+      "sigNotAvailable": "暂无",
+      "noReserveDataAvail": "对于非区块链货币我们暂不提供准备金证明。"
+    }
+  },
+  "fee": {
+    "depositWithdrawFees": "充值提现费率",
+    "tradingFees": "交易费率",
+    "currency": "货币",
+    "market": "市场",
+    "depositFee": "充值费率",
+    "withdrawFee": "提现费率",
+    "buyerFee": "买入费率",
+    "sellerFee": "卖出费率",
+    "minimumConstantFormat": "%s（最低：%s %s）",
+    "minimumPercentageFormat": "%s%（最低：%s %s）"
+  },
+  "utils": {
+    "crypto-address": {
+      "checkout": "查看该地址："
     }
   }
 }

@@ -2,17 +2,6 @@
 
 # bids and asks are array of {price:price, quantity:quantity, accumulated:accumulated}
 Polymer 'depth-chart',
-  msgMap:
-    'en':
-      pointFormat: 'Quantity: {point.y:.8f}'
-      buy: "Buy"
-      sell: "Sell"
-
-    'zh':
-      pointFormat: '累积数量: {point.y:.8f}'
-      buy: "买单"
-      sell: "卖单"
-
   market: null
   width: 600
   height: 260
@@ -32,7 +21,7 @@ Polymer 'depth-chart',
   }
 
   ready: () ->
-    @M = @msgMap[window.lang]
+    @M = window.M['charts']['depth']
     Highcharts.setOptions
       #
       chart:

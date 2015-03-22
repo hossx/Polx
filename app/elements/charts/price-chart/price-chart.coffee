@@ -2,15 +2,6 @@
 
 # bids and asks are array of {price:price, quantity:quantity, accumulated:accumulated}
 Polymer 'price-chart',
-  msgMap:
-    'en':
-      pointFormat: 'Price: {point.y:.8f}'
-      price: "Price"
-
-    'zh':
-      pointFormat: '价格: {point.y:.8f}'
-      price: "价格"
-
   market: null
   width: 600
   height: 260
@@ -26,7 +17,7 @@ Polymer 'price-chart',
   }
 
   ready: () ->
-    @M = @msgMap[window.lang]
+    @M = window.M['charts']['price']
     Highcharts.setOptions
       chart:
         style:

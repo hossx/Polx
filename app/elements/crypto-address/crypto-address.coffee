@@ -1,16 +1,10 @@
 'use strict'
 
 Polymer 'crypto-address',
-  msgMap:
-    'en':
-      checkout: "Check out this address at:"
-    'zh':
-      checkout: "查看该地址："
-
   link: null
 
   ready: () ->
-    @M = @msgMap[window.lang]
+    @M = window.M['utils']['crypto-address']
 
   currencyChanged: (o, n) ->
     if @currency

@@ -1,25 +1,8 @@
 'use strict'
 
 Polymer 'about-subpage',
-  msgMap:
-    'en':
-      trend: "Price Trend"
-      about: "About"
-      buzz: "Tweets"
-      trade: "Trade "
-      market: "Market"
-      aboutWeiboWall: ''
-
-    'zh':
-      trend: "价格走势"
-      about: "关于"
-      buzz: "相关微博"
-      trade: "买卖"
-      market: "市场"
-      aboutWeiboWall: "如果微博条数太少，可以点击“全部”，“认证用户”，或者“我关注的”来刷新一下。"
-
   ready: () ->
-    @M = @msgMap[window.lang]
+    @M = window.M['currency']['about']
 
   tab: 0
   currency: null

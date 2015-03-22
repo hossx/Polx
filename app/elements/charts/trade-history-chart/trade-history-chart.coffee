@@ -2,18 +2,6 @@
 
 # trades are an array of {timestamp, isSell, price, quantity, total, typeClass, typeLabel}
 Polymer 'trade-history-chart',
-  msgMap:
-    'en':
-      pointFormat: 'Quantity: {point.z}<br/>Price: {point.y}'
-      takerOrderTypeBuy: "Buy Order Takes"
-      takerOrderTypeSell: "Sell Order Takes"
-
-    'zh':
-      pointFormat: '数量: {point.z}<br/>价格: {point.y}'
-      takerOrderTypeBuy: "买单触发的交易"
-      takerOrderTypeSell: "卖单触发的交易"
-
-
   market: null
   width: 600
   height: 260
@@ -28,7 +16,7 @@ Polymer 'trade-history-chart',
   }
 
   ready: () ->
-    @M = @msgMap[window.lang]
+    @M = window.M['charts']['trades']
     Highcharts.setOptions
       colors: ["#ff8a65","#42bd41"]
       chart:

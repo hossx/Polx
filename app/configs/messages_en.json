@@ -1,4 +1,60 @@
 {
+  "toolbar": {
+    "coinport": "Coinport",
+    "markets": "Markets",
+    "currencies": "Currencies",
+    "myAccount": "Account"
+  },
+  "footer": {
+    "groups": [{
+      "label": "About",
+      "links": [{
+        "label": "Contact Us",
+        "url": "/#/doc/contactus"
+      }, {
+        "label": "Fees",
+        "url": "/#/fees"
+      }, {
+        "label": "Blog",
+        "target": "_blank",
+        "url": "http://blogs.coinport.com"
+      }]
+    }, {
+      "label": "Legal",
+      "links": [{
+        "label": "Terms of Service",
+        "url": "/#/doc/terms"
+      }, {
+        "label": "Privacy Polycies",
+        "url": "/#/doc/privacy"
+      }, {
+        "label": "AML and KYC",
+        "url": "/#/doc/aml-kyc"
+      }]
+    }, {
+      "label": "Resources",
+      "links": [{
+        "label": "API",
+        "url": "/#/doc/api"
+      }, {
+        "label": "Coinport PAY",
+        "url": "https://pay.coinport.com",
+        "class": "pay",
+        "target": "_blank"
+      }]
+    }, {
+      "label": "Social",
+      "links": [{
+        "label": "Twitter",
+        "url": "http://twitter.com/coinportinc",
+        "target": "_blank"
+      }, {
+        "label": "Facebook",
+        "url": "http://facebook.com/coinport",
+        "target": "_blank"
+      }]
+    }]
+  },
   "account": {
     "sidebar": {
       "logout": "Logout",
@@ -249,6 +305,101 @@
         "China Development Bank",
         "China Merchants Bank"
       ]
+    }
+  },
+  "charts": {
+    "depth": {
+      "pointFormat": "Quantity: {point.y:.8f}",
+      "buy": "Buy",
+      "sell": "Sell"
+    },
+    "price": {
+      "pointFormat": "Price: {point.y:.8f}",
+      "price": "Price"
+    },
+    "trades": {
+      "pointFormat": "Quantity: {point.z}<br/>Price: {point.y}",
+      "takerOrderTypeBuy": "Buy Order Takes",
+      "takerOrderTypeSell": "Sell Order Takes"
+    }
+  },
+  "currencies": {
+    "group": {
+      "reserveStats": "Currency Reserves"
+    },
+    "card": {
+      "reserveRatio": "Reserve Ratio",
+      "hotWallet": "Hot Wallet",
+      "coldWallet": "Cold Wallet",
+      "userWallet": "User Wallet",
+      "shortage": "Shortage",
+      "extra": "Abundance",
+      "labels": ["Hot Wallet", "Cold Wallet", "User Wallet", "Abundance", "Shortage"]
+    }
+  },
+  "currency": {
+    "currency": {
+      "about": "About",
+      "reserves": "Reserve",
+      "history": "Data"
+    },
+    "about": {
+      "trend": "Price Trend",
+      "about": "About",
+      "buzz": "Tweets",
+      "trade": "Trade ",
+      "market": "Market",
+      "aboutWeiboWall": ""
+    },
+    "data": {
+      "na": "N/A",
+      "transactions": "Transactions",
+      "formatTxComment": "The following blockchain transactions involve our %s addresses.",
+      "distributionSnapshots": "Distributation Snapshots",
+      "formatSsComment": "The following files capture our %s distribution among all our users at certain time.",
+      "timestamp": "Timestamp",
+      "userId": "User ID",
+      "type": "Type",
+      "amount": "Amount",
+      "address": "Address",
+      "transaction": "Transaction",
+      "file": "File",
+      "size": "Size",
+      "operationsLabel": {
+        "0": "Deposit",
+        "1": "Withdrawal"
+      }
+    },
+    "reserve": {
+      "reserveDetails": "Reserve Details",
+      "address": "Address",
+      "balance": "Balance",
+      "label": "Type",
+      "signedMsg": "Signed Message",
+      "signature": "Signature",
+      "hot": "Hot",
+      "cold": "Cold",
+      "total": "Total",
+      "addresses": "addresses",
+      "sigNotAvailable": "N/A",
+      "noReserveDataAvail": "No reserve data available for non-blockchain currencies!"
+    }
+  },
+  "fee": {
+    "depositWithdrawFees": "Deposit / Withdrawal Fee Table",
+    "tradingFees": "Trading Fee Table",
+    "currency": "Currency",
+    "market": "Market",
+    "depositFee": "Deposit Fee",
+    "withdrawFee": "Withdrawal Fee",
+    "buyerFee": "Buying Fee",
+    "sellerFee": "Selling Fee",
+    "minimumConstantFormat": "%s (Minimum %s %s)",
+    "minimumPercentageFormat": "%s% (Minimum %s %s)"
+  },
+  "utils": {
+    "crypto-address": {
+      "checkout": "Check out this address at:"
     }
   }
 }

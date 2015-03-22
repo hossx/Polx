@@ -1,15 +1,8 @@
 'use strict'
 
 Polymer 'reserve-card-group',
-  msgMap:
-    'en':
-      reserveStats: "Currency Reserves"
-
-    'zh':
-      reserveStats: "货币准备金"
-
   ready: () ->
-    @M = @msgMap[window.lang]
+    @M = window.M['currencies']['group']
 
   reserveStatsChanged: (o, n) ->
     if @reserveStats

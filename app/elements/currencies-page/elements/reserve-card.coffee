@@ -1,26 +1,6 @@
 'use strict'
 
 Polymer 'reserve-card',
-  msgMap:
-    'en':
-      reserveRatio: "Reserve Ratio"
-      hotWallet: "Hot Wallet"
-      coldWallet: "Cold Wallet"
-      userWallet: "User Wallet"
-      shortage: "Shortage"
-      extra: "Abundance"
-      labels: ["Hot Wallet", "Cold Wallet", "User Wallet", "Abundance","Shortage"]
-
-    'zh':
-      reserveRatio: "准备金比例"
-      hotWallet: "热钱包"
-      coldWallet: "冷钱包"
-      userWallet: "用户钱包"
-      shortage: "缺口"
-      extra: "盈余"
-      labels: ["热钱包", "冷钱包", "用户钱包", "盈余","缺口"]
-
-
   currencyId: ''
   currency: null
   reserve: null
@@ -32,7 +12,7 @@ Polymer 'reserve-card',
   extraRatio: 0
 
   ready: () ->
-    @M = @msgMap[window.lang]
+    @M = window.M['currencies']['card']
     @asset = []
     @labels = @M.labels
     @colors = ['#9CCC65','#8BC34A','#AED581','#00e5ff','#ff2d6f']
