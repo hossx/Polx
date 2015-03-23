@@ -3,14 +3,12 @@
 # bids and asks are array of {price:price, quantity:quantity, accumulated:accumulated}
 Polymer 'price-chart',
   market: null
-  width: 600
   height: 260
   candles: []
   simple: false
 
   observe: {
     market: 'createChart'
-    #width: 'createChart'
     height:  'createChart'
     candles: 'createChart'
     simple: 'createChart'
@@ -35,7 +33,6 @@ Polymer 'price-chart',
           zoomType: 'xy'
           height: @height
           backgroundColor: null
-          #width: @width
         colors: ["#ffeb3b"]
         legend:
           enabled: false

@@ -316,7 +316,7 @@ paper-button, paper-icon-button {
         background-color: $overlay;
     }
 }
-@mixin config-stats-card() {
+@mixin config-stats-card($bottomPad:20px) {
     :host {
         width: 100%;
         display: block;
@@ -340,6 +340,7 @@ paper-button, paper-icon-button {
             }
             #box {
                 padding: 20px;
+                padding-bottom: $bottomPad;
             }
             #head {
                 color: $black1;

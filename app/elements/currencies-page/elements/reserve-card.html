@@ -1,7 +1,7 @@
 <link rel="import" href="../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../bower_components/paper-shadow/paper-shadow.html">
 <link rel="import" href="../../../bower_components/core-icon/core-icon.html">
-<link rel="import" href="../../better-chart-pie/better-chart-pie.html">
+<link rel="import" href="../../charts/pie-chart/pie-chart.html">
 <link rel="import" href="../../cp-icons/crypto-icons.html">
 <link rel="import" href="../../nice-number/nice-number.html">
 
@@ -66,7 +66,7 @@
               </div>
             </div>
             <div id="chart" center-justified horizontal layout>
-              <better-chart-pie values="{{asset}}" colors="{{colors}}" labels="{{labels}}" width="{{220}}" height="{{100}}"></better-chart-pie>
+            <pie-chart width="{{200}}" height="{{140}}" colors="{{colors}}" data="{{asset}}"></pie-chart>
             </div>
           </div>
         </a>

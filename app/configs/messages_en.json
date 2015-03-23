@@ -346,6 +346,9 @@
       "pointFormat": "Quantity: {point.z}<br/>Price: {point.y}",
       "takerOrderTypeBuy": "Buy Order Takes",
       "takerOrderTypeSell": "Sell Order Takes"
+    },
+    "pie": {
+      "reserve": "Reserve Ratio"
     }
   },
   "markets": {

@@ -352,6 +352,9 @@
       "pointFormat": "数量: {point.z}<br/>价格: {point.y}",
       "takerOrderTypeBuy": "买单触发的交易",
       "takerOrderTypeSell": "卖单触发的交易"
+    },
+    "pie": {
+      "reserve": "保证金占比"
     }
   },
   "markets": {

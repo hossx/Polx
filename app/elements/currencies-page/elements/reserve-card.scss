@@ -1,6 +1,6 @@
 @import "../../_colors";
 @import "../../_common";
-@include config-stats-card();
+@include config-stats-card(0);
 #stats {
     padding-bottom: 10px;
     table {

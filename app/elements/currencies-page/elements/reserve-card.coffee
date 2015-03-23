@@ -14,7 +14,6 @@ Polymer 'reserve-card',
   ready: () ->
     @M = window.M['currencies']['card']
     @asset = []
-    @labels = @M.labels
     @colors = ['#9CCC65','#8BC34A','#AED581','#00e5ff','#ff2d6f']
 
   currencyIdChanged: (o, n) ->
@@ -38,12 +37,13 @@ Polymer 'reserve-card',
 
       @needWarn = @reserveRatio <= window.config.viewParams.reserveRatioWarningThreshold
       if @shortageRatio > 0
-        @asset = [@reserve[0], @reserve[1], @reserve[2], 0, @shortage]
+        @asset = [[@M.labels[0],@reserve[0]], [@M.labels[1],@reserve[1]], [@M.labels[2],@reserve[2]], [@M.labels[3],0], [@M.labels[4],@shortage]]
       else if @extraRatio > 0
-        @asset = [@reserve[0], @reserve[1], @reserve[2], -@shortage, 0]
+        @asset = [[@M.labels[0],@reserve[0]], [@M.labels[1],@reserve[1]], [@M.labels[2],@reserve[2]], [@M.labels[3],-@shortage], [@M.labels[4],0]]
       else
-        @asset = [@reserve[0], @reserve[1], @reserve[2], 0, 0]
+        @asset = [[@M.labels[0],@reserve[0]], [@M.labels[1],@reserve[1]], [@M.labels[2],@reserve[2]], [@M.labels[3],0], [@M.labels[4],0]]
 
 
+      console.log(@asset)
   ratioFormat: (value) ->
     value.toFixed(2) + "%"
