@@ -43,7 +43,5 @@ Polymer 'reserve-card',
       else
         @asset = [[@M.labels[0],@reserve[0]], [@M.labels[1],@reserve[1]], [@M.labels[2],@reserve[2]], [@M.labels[3],0], [@M.labels[4],0]]
 
-
-      console.log(@asset)
   ratioFormat: (value) ->
     value.toFixed(2) + "%"
