@@ -14,17 +14,25 @@ Polymer 'subpage-login',
       @errorMsg = @M.invalidEmailOrPasswd
       @buttonDisabled = true
 
-  logMeIn: () -> 
+  logMeIn: () ->
     if not @buttonDisabled
       this.$.loginAjax.login()
 
   responseChanged: (o, n) ->
+    @needResendActivationEmail = false
     if @response and @response.code != 0
       if @response.code == 9013
         @errorMsg = @M.tooManyFailure.format("120")
         @buttonDisabled = true
+      else if @response.code == 1003
+        @errorMsg = @M.userNotExist
+        @buttonDisabled = true
       else if @response.code == 1004
         @errorMsg = @M.badPassword.format(@response.data.canRetryTime)
+        @buttonDisabled = true
+      else if @response.code == 1006
+        @needResendActivationEmail = true
+        @errorMsg = @M.emailNotVerified.format(@response.data.canRetryTime)
         @buttonDisabled = true
 
   validateLoginForm: () ->

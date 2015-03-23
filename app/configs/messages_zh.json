@@ -598,7 +598,10 @@
       "emailInvalid": "Email地址格式不正确。",
       "invalidEmailOrPasswd": "用户名或密码错误！",
       "tooManyFailure": "连续5次登录失败，请%s分钟之后再试！",
-      "badPassword": "密码错误，还可以尝试%s次"
+      "badPassword": "密码错误，还可以尝试%s次",
+      "userNotExist": "此用户不存在，请先注册",
+      "emailNotVerified": "此邮箱未激活，%s次失败后会锁定账号。",
+      "resendActivityEmail": "重新发送激活邮件"
     },
     "logout": {
       "logout": "登出",

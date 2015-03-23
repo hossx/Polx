@@ -19,6 +19,13 @@
           <input readonly?="{{loading}}" is="core-input" class="input last" type="password" value="{{password}}" placeholder="{{M.password}}">
         </div>
         <div class="errorMsg">{{errorMsg}}</div>
+        <template if="{{needResendActivationEmail}}">
+            <div class="options" horizontal center-justified layout>
+              <a id="resendActEmail" href="/#/member/resend_activation" class="sub highlight">
+                  {{M.resendActivityEmail}}
+              </a>
+            </div>
+        </template>
       </div>
 
       <div class="action" vertical center-justified layout>

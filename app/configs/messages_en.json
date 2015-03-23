@@ -592,7 +592,10 @@
       "emailInvalid": "Your email address is invalid.",
       "invalidEmailOrPasswd": "Invalid email or password!",
       "tooManyFailure": "Login failed more than 5 times. Please retry in %s minutes.",
-      "badPassword": "Bad password, can retry %s times"
+      "badPassword": "Bad password, can retry %s tmes",
+      "userNotExist": "The email is unregisted",
+      "emailNotVerified": "The email is inactive, will lock this accout after %s failure.",
+      "resendActivityEmail": "Resend activation email"
     },
     "logout": {
       "logout": "Logout",

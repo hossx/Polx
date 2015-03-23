@@ -3,4 +3,12 @@
 
 :host {
   @include has-paper-spinner(color($C2, a400));
+
+  #resendActEmail {
+      height: 40px;
+      padding-top: 10px;
+      width: 100%;
+      text-align: center;
+      color: color($C2, a400);
+  }
 }
