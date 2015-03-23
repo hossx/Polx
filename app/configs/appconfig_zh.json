@@ -166,7 +166,6 @@
     },
     "ETH": {
       "name": "以太",
-      "notCripto": true,
       "color": "#8a92b2",
       "twitterWidgetId": "578845657026297856",
       "tags": "以太坊,Ethereum"
