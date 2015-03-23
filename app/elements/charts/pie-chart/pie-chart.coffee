@@ -13,7 +13,7 @@ Polymer 'pie-chart',
     Highcharts.setOptions
       chart:
         style:
-          fontFamily: "'Roboto Condensed','Lantinghei SC','Hiragino Sans GB','Microsoft Yahei',sans-serif"
+          fontFamily: window.config.chartFonts
 
   createChart: () ->
     if @width and @height and @colors and @data and @data.length > 0

@@ -21,7 +21,7 @@ Polymer 'trade-history-chart',
       colors: ["#ff8a65","#42bd41"]
       chart:
         style:
-          fontFamily: "'Roboto Condensed','Lantinghei SC','Hiragino Sans GB','Microsoft Yahei',sans-serif"
+          fontFamily: window.config.chartFonts
 
   createChart: () ->
     if @market and @trades

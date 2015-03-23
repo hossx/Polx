@@ -14,6 +14,12 @@ Polymer 'candlestick-chart',
     candles: 'createChart'
   }
 
+  ready: () ->
+    Highcharts.setOptions
+      chart:
+        style:
+          fontFamily: window.config.chartFonts
+
   createChart: () ->
     if @market and @candles.length > 0
       groupingUnits = [['minute', [5,10,30]],['hour',[1,6,12]], ['day',[1]],['week',[1]],['year',null]]

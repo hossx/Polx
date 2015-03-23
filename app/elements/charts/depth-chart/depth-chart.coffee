@@ -23,10 +23,9 @@ Polymer 'depth-chart',
   ready: () ->
     @M = window.M['charts']['depth']
     Highcharts.setOptions
-      #
       chart:
         style:
-          fontFamily: "'Roboto Condensed','Lantinghei SC','Hiragino Sans GB','Microsoft Yahei',sans-serif"
+          fontFamily: window.config.chartFonts
 
   createChart: () ->
     if @market and @asks and @bids

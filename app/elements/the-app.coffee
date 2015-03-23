@@ -162,6 +162,7 @@ Polymer 'the-app',
     @processDocuments()
     window.config.emailRe = /^[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}$/
     window.config.wikiPrefix = "coinport:wiki\n"
+    window.config.chartFonts = "'Roboto Condensed','Lantinghei SC','Hiragino Sans GB','Microsoft Yahei',sans-serif"
     
     console.debug("Loaded dynamic app-configurations:")
     console.dir(window.config)
