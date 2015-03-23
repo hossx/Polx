@@ -170,7 +170,7 @@
       "name": "GooCoin",
       "notCripto": true,
       "color": "#FBE332",
-      "tags": "谷壳币,谷壳宝"
+      "tags": "谷壳币,谷壳宝",
       "lowLimit": 1000,
       "fee": {
         "withdraw": {
