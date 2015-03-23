@@ -40,13 +40,13 @@ Polymer 'withdraw-subpage',
   genWithdrawalDesc: (currency) ->
     if !currency
       currency = 'BTC'
-    @M.withdrawalDesc.format(@currency['fee']['json']['withdraw']['min'], currency, @currency['fee']['json']['withdraw']['c'])
+    @M.withdrawalDesc.format(@currency['json']['lowLimit'], currency, @currency['fee']['json']['withdraw']['c'])
 
   getWithdrawalLimit: (currency) ->
     if !currency
       currency = 'BTC'
     @currency = @config['currencies'][currency]
-    @currency['fee']['json']['withdraw']['min']
+    @currency['json']['lowLimit']
 
   onWithdrawSucceed: (e) ->
       this.$.withdrawalsAjax.go()

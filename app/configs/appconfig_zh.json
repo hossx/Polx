@@ -10,10 +10,10 @@
       "color": "red",
       "unit": "元",
       "notCripto": true,
+      "lowLimit": 2,
       "fee": {
         "withdraw": {
           "p": 0.4,
-          "c": "0.4% (最小2元)",
           "min": 2
         }
       },
@@ -23,10 +23,10 @@
     "BTC": {
       "name": "比特币",
       "color": "#F7931A",
+      "lowLimit": 0.01,
       "fee": {
         "withdraw": {
-          "c": 0.0005,
-          "min": 0.01
+          "c": 0.0005
         }
       },
       "browser": {
@@ -40,10 +40,10 @@
       "name": "莱特币",
       "color": "#D8D8D8",
       "officialSite": "http://litcoin.org",
+      "lowLimit": 0.01,
       "fee": {
         "withdraw": {
-          "c": 0.0005,
-          "min": 0.01
+          "c": 0.0005
         }
       },
       "browser": {
@@ -58,10 +58,10 @@
       "color": "#00A9E0",
       "tags": "比特股,Bitshare,BitsharesX,BTS",
       "twitterWidgetId": "560707192261980160",
+      "lowLimit": 10,
       "fee": {
         "withdraw": {
-          "c": 2,
-          "min": 10
+          "c": 2
         }
       }
     },
@@ -74,10 +74,10 @@
         "addr": "https://coinplorer.com/DOGE/Addresses/%s",
         "tx": "https://coinplorer.com/DOGE/Transactions/%s"
       },
+      "lowLimit": 5,
       "fee": {
         "withdraw": {
-          "c": 2,
-          "min": 5
+          "c": 2
         }
       }
     },
@@ -90,10 +90,10 @@
         "addr": "https://coinplorer.com/BC/Addresses/%s",
         "tx": "https://coinplorer.com/BC/Transactions/%s"
       },
+      "lowLimit": 0.01,
       "fee": {
         "withdraw": {
-          "c": 0.0005,
-          "min": 0.01
+          "c": 0.0005
         }
       }
     },
@@ -102,14 +102,14 @@
       "color": "#3998CA",
       "tags": "暗黑币,Darkcoin",
       "twitterWidgetId": "560705595456909312",
+      "lowLimit": 0.01,
       "browser": {
         "addr": "https://coinplorer.com/DRK/Addresses/%s",
         "tx": "https://coinplorer.com/DRK/Transactions/%s"
       },
       "fee": {
         "withdraw": {
-          "c": 0.0005,
-          "min": 0.01
+          "c": 0.0005
         }
       }
     },
@@ -118,10 +118,10 @@
       "color": "#458CC8",
       "tags": "维理币,VeriCoin",
       "twitterWidgetId": "560706527330590720",
+      "lowLimit": 0.01,
       "fee": {
         "withdraw": {
-          "c": 0.0005,
-          "min": 0.01
+          "c": 0.0005
         }
       }
     },
@@ -134,10 +134,10 @@
         "addr": "https://coinplorer.com/ZET/Addresses/%s",
         "tx": "https://coinplorer.com/ZET/Transactions/%s"
       },
+      "lowLimit": 0.01,
       "fee": {
         "withdraw": {
-          "c": 0.0005,
-          "min": 0.01
+          "c": 0.0005
         }
       }
     },
@@ -150,10 +150,10 @@
         "addr": "http://www.mynxt.info/account/%s",
         "tx": "http://www.mynxt.info/transaction/%s"
       },
+      "lowLimit": 10,
       "fee": {
         "withdraw": {
-          "c": 2,
-          "min": 10
+          "c": 2
         }
       }
     },
@@ -162,10 +162,10 @@
       "color": "#28619D",
       "tags": "瑞波币,Ripple,XRP",
       "twitterWidgetId": "560707081905639424",
+      "lowLimit": 10,
       "fee": {
         "withdraw": {
-          "c": 1,
-          "min": 10
+          "c": 1
         }
       }
     },
@@ -174,10 +174,10 @@
       "notCripto": true,
       "color": "#FBE332",
       "tags": "谷壳宝,GooCoin",
+      "lowLimit": 1000,
       "fee": {
         "withdraw": {
-          "c": 0,
-          "min": 1000
+          "c": 0
         }
       }
     },

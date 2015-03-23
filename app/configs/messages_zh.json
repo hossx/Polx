@@ -290,6 +290,7 @@
       "withdrawalHint2": "提现手续费: %s",
       "withdrawalHint3": "%s提现需要人工处理，我们的服务时间是北京时间早10点到晚10点。",
       "withdrawalHint4": "您的提现一般会在一个小时内被处理。",
+      "withdrawalHint5": "最少%s %s",
       "withdrawalHintBtsx": "BTSX目前只支持使用已注册的帐号提币（比如coinport-deposit）。"
     },
     "withdraw-widget": {

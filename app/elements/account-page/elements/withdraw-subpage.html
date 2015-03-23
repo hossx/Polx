@@ -71,8 +71,14 @@
                 <template if="{{currency.id=='BTSX'}}">
                   <li class="red"> {{M.withdrawalHintBtsx}} </li>
                 </template>
-                <li>{{genMessage(M.withdrawalHint1, [currency["fee"]["json"]["withdraw"]["min"], currency.id])}}。</li>
-                <li>{{genMessage(M.withdrawalHint2, [currency["fee"]["json"]["withdraw"]['c']])}}。</li>
+                <li>{{genMessage(M.withdrawalHint1, [currency["json"]["lowLimit"], currency.id])}}。</li>
+                <template if="{{currency.id!='CNY'}}">
+                    <li>{{genMessage(M.withdrawalHint2, [currency["fee"]["json"]["withdraw"]['c']])}}。</li>
+                </template>
+                <template if="{{currency.id=='CNY'}}">
+                    <li>{{genMessage(M.withdrawalHint2, [currency["fee"]["json"]["withdraw"]["p"]])}}%
+                    ({{genMessage(M.withdrawalHint5, [currency["fee"]["json"]["withdraw"]["min"], currency.id])}})。</li>
+                </template>
                 <template if="{{currency.id=='CNY' || currency.id=='GOOC'}}">
                   <li>{{genMessage(M.withdrawalHint3, [currency.name])}}</li>
                 </template>

@@ -284,6 +284,7 @@
       "withdrawalHint2": "Withdrawal fee: %s",
       "withdrawalHint3": "Manual processing of %s is only available between 10:00AM and 10:00PM Hong Kong Time.",
       "withdrawalHint4": "We nomally process your requests within 1 hour.",
+      "withdrawalHint5": "At least %s %s",
       "withdrawalHintBtsx": "Due to BTSX's API, now only support registered ID(Eg. coinport-deposit) to withdraw."
     },
     "withdraw-widget": {
