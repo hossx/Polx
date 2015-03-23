@@ -17,5 +17,8 @@
   },
   "devDependencies": {
     "polymer-test-tools": "Polymer/polymer-test-tools#^0.5.5"
+  },
+  "resolutions": {
+    "jquery": "~2.1.1"
   }
 }

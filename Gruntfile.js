@@ -106,7 +106,7 @@
             // Compiles Sass to CSS and generates necessary files if requested
             sass: {
                 options: {
-                    loadPath: 'bower_components'
+                    loadPath: 'bc'
                 },
                 dist: {
                     options: {
@@ -139,7 +139,7 @@
                     files: [{
                         expand: true,
                         cwd: '<%= yeoman.dist %>',
-                        src: ['**/*.css', '!bower_components/**/*.css'],
+                        src: ['**/*.css', '!bc/**/*.css'],
                         dest: '<%= yeoman.dist %>'
                     }]
                 },
@@ -272,9 +272,9 @@
                     },
                     files: [{
                         expand: true,
-                        cwd: '<%= yeoman.dist %>/bower_components',
+                        cwd: '<%= yeoman.dist %>/bc',
                         src: ['**/*.html', '!{platform,web-component-tester,web-animations-js}/**/*.html'],
-                        dest: '<%= yeoman.dist %>/bower_components'
+                        dest: '<%= yeoman.dist %>/bc'
                     }]
                 },
                 theapp: {
@@ -284,7 +284,7 @@
                         inline: true,
                         /*"strip-excludes": false,
                         excludes: {
-                            imports: ['bower_components/.*']
+                            imports: ['bc/.*']
                         }*/
 
                     },
@@ -368,7 +368,7 @@
                             '*.html',
                             '*.json',
                             'CNAME',
-                            'bower_components/**',
+                            'bc/**',
                             'elements/**',
                             'styles/*.ttf',
                             'scripts/**',
@@ -431,7 +431,7 @@
                 options: {
                     base: 'dist'
                 },
-                src: ['**', 'bower_components/**']
+                src: ['**', 'bc/**']
             }
         });
 

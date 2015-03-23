@@ -2,11 +2,11 @@ node_modules
 dist
 test/temp
 .sass-cache
-app/bower_components
+app/bc
 .tmp
 *.swp
 .DS_Store
-test/bower_components/
+test/bc/
 .grunt/
 
 npm-debug.log
