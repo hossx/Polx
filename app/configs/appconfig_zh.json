@@ -13,6 +13,7 @@
       "fee": {
         "withdraw": {
           "p": 0.4,
+          "c": "0.4% (最小2元)",
           "min": 2
         }
       },
@@ -24,7 +25,8 @@
       "color": "#F7931A",
       "fee": {
         "withdraw": {
-          "c": 0.0005
+          "c": 0.0005,
+          "min": 0.01
         }
       },
       "browser": {
@@ -40,7 +42,8 @@
       "officialSite": "http://litcoin.org",
       "fee": {
         "withdraw": {
-          "c": 0.0005
+          "c": 0.0005,
+          "min": 0.01
         }
       },
       "browser": {
@@ -57,7 +60,8 @@
       "twitterWidgetId": "560707192261980160",
       "fee": {
         "withdraw": {
-          "c": 2
+          "c": 2,
+          "min": 10
         }
       }
     },
@@ -72,7 +76,8 @@
       },
       "fee": {
         "withdraw": {
-          "c": 2
+          "c": 2,
+          "min": 5
         }
       }
     },
@@ -87,7 +92,8 @@
       },
       "fee": {
         "withdraw": {
-          "c": 0.0005
+          "c": 0.0005,
+          "min": 0.01
         }
       }
     },
@@ -102,7 +108,8 @@
       },
       "fee": {
         "withdraw": {
-          "c": 0.0005
+          "c": 0.0005,
+          "min": 0.01
         }
       }
     },
@@ -113,7 +120,8 @@
       "twitterWidgetId": "560706527330590720",
       "fee": {
         "withdraw": {
-          "c": 0.0005
+          "c": 0.0005,
+          "min": 0.01
         }
       }
     },
@@ -128,7 +136,8 @@
       },
       "fee": {
         "withdraw": {
-          "c": 0.0005
+          "c": 0.0005,
+          "min": 0.01
         }
       }
     },
@@ -143,7 +152,8 @@
       },
       "fee": {
         "withdraw": {
-          "c": 2
+          "c": 2,
+          "min": 10
         }
       }
     },
@@ -154,7 +164,8 @@
       "twitterWidgetId": "560707081905639424",
       "fee": {
         "withdraw": {
-          "c": 1
+          "c": 1,
+          "min": 10
         }
       }
     },
@@ -162,7 +173,13 @@
       "name": "谷壳宝",
       "notCripto": true,
       "color": "#FBE332",
-      "tags": "谷壳宝,GooCoin"
+      "tags": "谷壳宝,GooCoin",
+      "fee": {
+        "withdraw": {
+          "c": 0,
+          "min": 1000
+        }
+      }
     },
     "ETH": {
       "name": "以太",

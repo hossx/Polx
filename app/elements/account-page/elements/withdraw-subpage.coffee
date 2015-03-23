@@ -1,87 +1,10 @@
 'use strict'
 
 Polymer 'withdraw-subpage',
-  feeMap:
-    'en':
-        'CNY':
-            'l': 2
-            'f': "0.4% (at least 2 CNY)"
-        'BTC':
-            'l': 0.01
-            'f': "0.0005 BTC"
-        'LTC':
-            "l": 0.01
-            "f": "0.0005 LTC"
-        'DOGE':
-            "l": 5
-            "f": "2 DOGE"
-        'BC':
-            "l": 0.01
-            "f": "0.0005 BC"
-        'DRK':
-            "l": 0.01
-            "f": "0.0005 DRK"
-        'VRC':
-            "l": 0.01
-            "f": "0.0005 VRC"
-        'ZET':
-            "l": 0.01
-            "f": "0.0005 ZET"
-        'BTSX':
-            "l": 10
-            "f": "2 BTSX"
-        'NXT':
-            "l": 10
-            "f": "2 NXT"
-        'XRP':
-            "l": 10
-            "f": "1 XRP"
-        'GOOC':
-            "l": 1000
-            "f": "0 GOOC"
-    'zh':
-        'CNY':
-            'l': 2
-            'f': "0.4% (最小2元)"
-        'BTC':
-            'l': 0.01
-            'f': "0.0005 BTC"
-        'LTC':
-            "l": 0.01
-            "f": "0.0005 LTC"
-        'DOGE':
-            "l": 5
-            "f": "2 DOGE"
-        'BC':
-            "l": 0.01
-            "f": "0.0005 BC"
-        'DRK':
-            "l": 0.01
-            "f": "0.0005 DRK"
-        'VRC':
-            "l": 0.01
-            "f": "0.0005 VRC"
-        'ZET':
-            "l": 0.01
-            "f": "0.0005 ZET"
-        'BTSX':
-            "l": 10
-            "f": "2 BTSX"
-        'NXT':
-            "l": 10
-            "f": "2 NXT"
-        'XRP':
-            "l": 10
-            "f": "1 XRP"
-        'GOOC':
-            "l": 1000
-            "f": "0 GOOC"
-
   selectedBalance: 0
 
   created: () ->
     @M = window.M['account']['withdraw']
-    @fee = @feeMap[window.lang]
     @lang = window.lang
     @profile = window.profile
     @config = window.config
@@ -117,12 +40,13 @@ Polymer 'withdraw-subpage',
   genWithdrawalDesc: (currency) ->
     if !currency
       currency = 'BTC'
-    @M.withdrawalDesc.format(@fee[currency]['l'], currency, @fee[currency]['f'])
+    @M.withdrawalDesc.format(@currency['fee']['json']['withdraw']['min'], currency, @currency['fee']['json']['withdraw']['c'])
 
   getWithdrawalLimit: (currency) ->
     if !currency
       currency = 'BTC'
-    @feeMap[window.lang][currency]['l']
+    @currency = @config['currencies'][currency]
+    @currency['fee']['json']['withdraw']['min']
 
   onWithdrawSucceed: (e) ->
       this.$.withdrawalsAjax.go()
