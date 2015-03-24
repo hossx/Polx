@@ -45,9 +45,7 @@
                 <template repeat="{{item in group}}">
                   <tr>
                     <td>
-                      <template if="{{item.total > 0}}">
-                        <core-icon icon="{{item.currency.icon}}"></core-icon>
-                      </template>
+                      <core-icon icon="{{item.currency.icon}}"></core-icon>
                     </td>
                     <td>
                       <a class="market-link" href="/#/currency/{{item.currency.id}}">{{item.currency.fullName}}</a>
