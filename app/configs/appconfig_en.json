@@ -1,8 +1,8 @@
 {
   "announcement": {
-    "message": "",
+    "message": "As a member of Ethereum Exchange Workgroup, Coinport will support Ether trading right after Ethereum Frontier launches. Stay turned.",
     "critical": false,
-    "link": "http://exchange.coinport.com"
+    "link": ""
   },
   "currencies": {
     "CNY": {

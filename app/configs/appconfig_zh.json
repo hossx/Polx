@@ -1,8 +1,8 @@
 {
   "announcement": {
-    "message": "",
+    "message": "币丰港将在以太坊（Frontier版本）上线之日起，同步上线以太（Ether）对比特币和人民币的交易市场。敬请期待。",
     "critical": false,
-    "link": "http://exchange.coinport.com"
+    "link": ""
   },
   "currencies": {
     "CNY": {
