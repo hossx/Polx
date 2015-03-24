@@ -46,6 +46,7 @@
       }, {
         "label": "币丰钱包",
         "url": "https://www.coinport.com/wallet/",
+        "class": "pay",
         "target": "_blank"
       }]
     }, {
