@@ -7,6 +7,7 @@ Polymer 'pie-chart',
     height: 'createChart'
     data: 'createChart'
     colors: 'createChart'
+    unit: 'createChart'
 
   ready: () ->
     @M = window.M['charts']['pie']
@@ -39,7 +40,7 @@ Polymer 'pie-chart',
               enabled: false
             showInLegend: true
         tooltip:
-          pointFormat: '{series.name}: <b>{point.percentage:.2f}%</b>'
+          pointFormat: '{series.name}: <b>{point.y:.4f}%s</b>'.format(@unit)
         series:[
            type: 'pie'
            name: @M.reserve
