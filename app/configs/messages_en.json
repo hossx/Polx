@@ -596,15 +596,15 @@
       "emailInvalid": "Your email address is invalid.",
       "invalidEmailOrPasswd": "Invalid email or password!",
       "tooManyFailure": "Login failed more than 5 times. Please retry in %s minutes.",
-      "badPassword": "Bad password, can retry %s tmes",
+      "badPassword": "Incorrect email or password. You can try %s more times before this account is locked.",
       "userNotExist": "The email is unregisted",
-      "emailNotVerified": "The email is inactive, will lock this accout after %s failure.",
-      "resendActivityEmail": "Resend activation email"
+      "emailNotVerified": "This account has not been activated yet. Please follow the instructions in the email we sent you.",
+      "resendActivityEmail": "Re-send activation email."
     },
     "logout": {
       "logout": "Logout",
       "signedInAlready": "You have logged in as %s already.",
-      "gotoAccount": "Go to account"
+      "gotoAccount": "Go to my account"
     },
     "register": {
       "register": "Register",
