@@ -1,22 +1,23 @@
 @import "../elements/_colors";
-@font-face {
-    font-family: 'Roboto Condensed';
-    font-weight: 300;
-    font-style: normal;
-    src: local('RobotoCondensed-Light'), local('Roboto Condensed Light'), url('/styles/RobotoCondensed-Light.ttf');
-}
+//    @font-face {
+//        font-family: 'Roboto Condensed';
+//        font-weight: 300;
+//        font-style: normal;
+//        src: local('RobotoCondensed-Light'), local('Roboto Condensed Light'), url('/styles/RobotoCondensed-Light.ttf');
+//    }
 @font-face {
     font-family: 'Roboto Condensed';
     font-weight: 400;
     font-style: normal;
     src: local('RobotoCondensed-Regular'), local('Roboto Condensed Regular'), url('/styles/RobotoCondensed-Regular.ttf');
 }
-@font-face {
-    font-family: 'Roboto Condensed';
-    font-weight: 700;
-    font-style: normal;
-    src: local('RobotoCondensed-Bold'), local('Roboto Condensed Bold'), url('/styles/RobotoCondensed-Bold.ttf');
-}
+
+//   @font-face {
+//        font-family: 'Roboto Condensed';
+//        font-weight: 700;
+//        font-style: normal;
+//        src: local('RobotoCondensed-Bold'), local('Roboto Condensed Bold'), url('/styles/RobotoCondensed-Bold.ttf');
+//    }
 @mixin condensed-font() {
     font-family: 'Roboto Condensed', "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
