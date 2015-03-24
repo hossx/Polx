@@ -43,6 +43,10 @@
         "url": "https://pay.coinport.com",
         "class": "pay",
         "target": "_blank"
+      }, {
+        "label": "币丰钱包",
+        "url": "https://www.coinport.com/wallet/",
+        "target": "_blank"
       }]
     }, {
       "label": "媒体",
