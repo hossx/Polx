@@ -1,14 +1,14 @@
 {
   "announcement": {
     "message": "We are upgrading Bitshares wallet. BTS deposts and withdrawals will be processed once this is done!",
-    "critical": true,
+    "critical": 0,
     "link": ""
   },
   "currencies": {
     "CNY": {
       "name": "Chinese Yuan",
       "color": "red",
-      "notCripto": true,
+      "notCripto": 0,
       "unit": "Yuan",
       "lowLimit": 2,
       "fee": {
@@ -168,7 +168,7 @@
     },
     "GOOC": {
       "name": "GooCoin",
-      "notCripto": true,
+      "notCripto": 0,
       "color": "#FBE332",
       "tags": "谷壳币,谷壳宝",
       "lowLimit": 1000,

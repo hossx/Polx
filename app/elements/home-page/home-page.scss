@@ -1,31 +1,35 @@
 @import "../_colors";
 @import "../_common";
 @import "_water";
-
 @include config-link-on-light-color();
 :host {
     box-sizing: border-box;
 }
+
 #container {
     width: 100%;
 }
+
 cp-page /deep/ #main {
     background: transparent;
 }
+
 .section {
     min-height: 360px;
     padding: 0;
     position: relative; // important
     overflow: hide;
 }
+
 .small-section {
     min-height: 200px;
 }
+
 .tiny-section {
     min-height: 0;
 }
+
 #branding {
-    
     background: color($C2, 500) url(/images/bg/bg-wave.jpg) center center;
     color: $white1;
     text-shadow: 1px 1px $black3;
@@ -44,6 +48,7 @@ cp-page /deep/ #main {
         font-weight: bold;
     }
 }
+
 #announce {
     min-height: 100px;
     padding: 5px 30px;
@@ -53,21 +58,18 @@ cp-page /deep/ #main {
         width: 40px;
         padding-right: 20px;
     }
-    background: color($C2, 100);
-    color: $black1;
+    background: color($green, 400);
+    color: $white1;
     a {
         padding-left: 10px;
-        color: $black1;
         text-decoration: underline;
+        color: $white1;
     }
     &.critical {
         background: color($C3, 400);
-        color: $white1;
-        a {
-            color: $white1;
-        }
     }
 }
+
 #desktop {
     display: none;
     background: #fff url(/images/home-page/banner-tablet-white.jpg) no-repeat bottom center;
@@ -85,6 +87,7 @@ cp-page /deep/ #main {
         }
     }
 }
+
 #features {
     color: $black1;
     .icon-wrapper {
@@ -120,6 +123,7 @@ cp-page /deep/ #main {
         }
     }
 }
+
 #mobile {
     @include diagonal-fill(color($C2, 400), $mode: 0);
     color: $white1;
@@ -161,6 +165,7 @@ cp-page /deep/ #main {
         position: absolute;
     }
 }
+
 #powered {
     background: white;
     border-bottom: 1px solid $black4;
@@ -182,6 +187,7 @@ cp-page /deep/ #main {
         }
     }
 }
+
 #media {
     background: color($grey, 900);
     color: $white2;
@@ -196,7 +202,8 @@ cp-page /deep/ #main {
         &:after {
             content: '”';
         }
-        &:after, &:before {
+        &:after,
+        &:before {
             font-weight: 700;
             font-size: 48px;
             color: $white2;
@@ -213,6 +220,7 @@ cp-page /deep/ #main {
         }
     }
 }
+
 #member {
     background: color($C1, 50);
     color: $black1;
@@ -224,6 +232,7 @@ cp-page /deep/ #main {
         font-size: 18px;
     }
 }
+
 @media(min-width: 768px) {
     .section {
         padding: 40px 0;
