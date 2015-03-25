@@ -3,7 +3,7 @@
 Polymer 'api-external-tickers',
   
   created: () ->
-    @url = "%s/api/v2/CNY/external_tickers".format(@base())
+    @url = "%s/api/v2/BTC/external_tickers".format(@base())
 
   dataChanged: (o, n) ->
     if @data and @data['BTC-CNY']
