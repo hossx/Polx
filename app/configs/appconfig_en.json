@@ -1,6 +1,6 @@
 {
   "announcement": {
-    "message": "As a member of Ethereum Exchange Workgroup, Coinport will support Ether trading right after Ethereum Frontier launches. Stay turned.",
+    "message": "As a member of Ethereum Exchange Workgroup, Coinport will support Ether trading right after Ethereum Frontier launches. Stay tuned.",
     "critical": false,
     "link": ""
   },
@@ -180,7 +180,6 @@
     },
     "ETH": {
       "name": "Ether",
-      "icon": "ethereum:i",
       "color": "#8a92b2",
       "twitterWidgetId": "578845657026297856",
       "tags": "以太坊,以太"
