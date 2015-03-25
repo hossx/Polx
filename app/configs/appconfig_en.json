@@ -1,7 +1,7 @@
 {
   "announcement": {
-    "message": "As a member of Ethereum Exchange Workgroup, Coinport will support Ether trading right after Ethereum Frontier launches. Stay tuned.",
-    "critical": false,
+    "message": "We are upgrading Bitshares wallet. BTS deposts and withdrawals will be processed once this is done!",
+    "critical": true,
     "link": ""
   },
   "currencies": {
