@@ -480,7 +480,7 @@
             'usemin',
             'vulcanize:index',
             'minifyHtml',
-            //'json-minify',
+            'json-minify',
             //'vulcanize:thirdparty',
         ]);
 
