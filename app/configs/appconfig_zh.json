@@ -1,7 +1,7 @@
 {
   "announcement": {
     "message": "我们正在升级BTS钱包。BTS充值提现已暂停，待钱包升级后恢复。请您谅解。",
-    "critical": 0,
+    "critical": false,
     "link": ""
   },
   "currencies": {
@@ -9,7 +9,7 @@
       "name": "人民币",
       "color": "red",
       "unit": "元",
-      "notCripto": 1,
+      "notCripto": true,
       "lowLimit": 2,
       "fee": {
         "withdraw": {
@@ -171,7 +171,7 @@
     },
     "GOOC": {
       "name": "谷壳宝",
-      "notCripto": 1,
+      "notCripto": true,
       "color": "#FBE332",
       "tags": "谷壳宝,GooCoin",
       "lowLimit": 1000,
