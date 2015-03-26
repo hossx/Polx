@@ -44,7 +44,14 @@
   <script>
     (function(document) {
       'use strict';
-      var langs = window.navigator.languages || [window.navigator.language || window.navigator.userLanguage];
+      if (!(
+          /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor) ||
+          /Firefox/.test(navigator.userAgent) ||
+          /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor))) {
+        window.location.href = "https://exchange.coinport.com";
+        return;
+      }
+      var langs = navigator.languages || [navigator.language || navigator.userLanguage];
       var lang = langs[0].split('-')[0];
       if (lang !== 'zh') {
         window.lang = 'en';
