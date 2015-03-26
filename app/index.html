@@ -29,10 +29,31 @@
 
 <body fullbleed layout center vertical>
   <div id="loading">
-    <h2>Loading the app ...</h2>
-    <div>This may take seconds for the initial loading,</div>
-    <div>But it will be must faster once this is done. </div>
+    <div id="en">
+      <h2>Loading the app ...</h2>
+      <div>This may take seconds for the initial loading,</div>
+      <div>But it will be must faster once this is done. </div>
+    </div>
+    <div id="zh">
+      <h2>正在加载App ...</h2>
+      <div>第一次加载App可能有点慢，</div>
+      <div>但后续用起来就快啦。耐心点。 </div>
+    </div>
   </div>
+
+  <script>
+    (function(document) {
+      'use strict';
+      var langs = window.navigator.languages || [window.navigator.language || window.navigator.userLanguage];
+      var lang = langs[0].split('-')[0];
+      if (lang !== 'zh') {
+        window.lang = 'en';
+      } else {
+        window.lang = 'zh';
+      }
+      document.querySelector('#' + window.lang).style.display = "block";
+    })(document);
+  </script>
 
   <!-- build:js scripts/index.js -->
   <script src="bc/webcomponentsjs/webcomponents.js"></script>

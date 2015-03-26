@@ -1,14 +1,5 @@
 (function(document) {
   'use strict';
-  var langs = window.navigator.languages || [window.navigator.language || window.navigator.userLanguage];
-  var lang = langs[0].split('-')[0];
-  if (lang !== 'zh') {
-    window.lang = 'en';
-  } else {
-    window.lang = 'zh';
-  }
-  //console.log('lang: ' + window.lang);
-
   if (window.lang === 'zh') {
     document.title = '币丰港';
     $('meta[name="description"]')
@@ -20,24 +11,24 @@
       .attr('content', 'Crypto-asset exchange for cool people. Coinport features full openness - open source, open data, 100% open reserve.');
 
   }
+  /*
+    document.addEventListener('polymer-ready', function() {
+      // Perform some behaviour
+      console.log('Polymer is ready to rock!');
+    });
 
-/*
-  document.addEventListener('polymer-ready', function() {
-    // Perform some behaviour
-    console.log('Polymer is ready to rock!');
-  });
+    window.logAndContinue = function() {
+      var missing = Polymer.waitingFor();
+      if (missing.length) {
+        missing.forEach(function(el) {
+          console.warn('Waiting for: ' + el.getAttribute('name'));
+        });
+        console.warn('Forcing element registration.');
+        Polymer.forceReady();
+      }
+    };
+  */
 
-  window.logAndContinue = function() {
-    var missing = Polymer.waitingFor();
-    if (missing.length) {
-      missing.forEach(function(el) {
-        console.warn('Waiting for: ' + el.getAttribute('name'));
-      });
-      console.warn('Forcing element registration.');
-      Polymer.forceReady();
-    }
-  };
-*/
   function setupIM() {
     (function(d, s) {
       var z = window.$zopim = function(c) {

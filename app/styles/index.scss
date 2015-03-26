@@ -21,15 +21,18 @@
 @mixin condensed-font() {
     font-family: 'Roboto Condensed', "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
+
 html {
     @include condensed-font();
     font-size: 13px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
 body {
     color: $white1;
 }
+
 a {
     color: $black2;
     text-decoration: none;
@@ -38,6 +41,7 @@ a {
         text-decoration: underline;
     }
 }
+
 #loading {
     color: $black1;
     font-size: 13px;
@@ -49,4 +53,7 @@ a {
     width: 300px;
     height: 150px;
     font-family: ‘Arial Narrow’, sans-serif;
+    #zh, #en {
+        display: none;
+    }
 }

@@ -66,7 +66,6 @@ Polymer 'the-app',
 
   ready: () ->
     @M = @msgMap[window.lang]
-    $('#loading').remove()
     @configFile = "/configs/appconfig_" + window.lang + ".json"
     @msgFile = "/configs/messages_" + window.lang + ".json"
 
@@ -88,6 +87,7 @@ Polymer 'the-app',
       @setupMsg(data.response)
       if @configLoaded and @msgsLoaded
         @initRouter()
+        
     catch e
       console.error(e)
 
@@ -99,6 +99,7 @@ Polymer 'the-app',
     router = document.createElement('the-router')
     this.$.main.appendChild(router)
     router.setAttribute("show", "")
+    $('#loading').remove()
 
   processCurrenciesAndMarkets: () ->
     currencies = {}
