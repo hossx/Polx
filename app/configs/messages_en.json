@@ -519,9 +519,9 @@
       "hotWallet": "Hot Wallet",
       "coldWallet": "Cold Wallet",
       "userWallet": "User Wallet",
-      "shortage": "Shortage",
+      "shortage": "Deficit",
       "extra": "Surplus",
-      "labels": ["Hot Wallet", "Cold Wallet", "User Wallet", "Surplus", "Shortage"]
+      "labels": ["Hot Wallet", "Cold Wallet", "User Wallet", "Surplus", "Deficit"]
     }
   },
   "currency": {
