@@ -39,11 +39,11 @@
                         livereload: true
                     },
                     files: [
-                        '{.tmp,<%= yeoman.app %>}/{,email/}*.html',
+                        '{.tmp,<%= yeoman.app %>}/{,email/,email/*/}*.html',
                         '{.tmp,<%= yeoman.app %>}/elements/{,*/,*/*/,*/*/*/}*.{html,css,scss,js,coffee}',
-                        '{.tmp,<%= yeoman.app %>}/{styles,email}/*.{css,scss}',
+                        '{.tmp,<%= yeoman.app %>}/{styles,email,email/*}/*.{css,scss}',
                         '{.tmp,<%= yeoman.app %>}/scripts/*.{js,coffee}',
-                        '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}'
+                        '<%= yeoman.app %>/images/{,*/,*/*/,*/*/*/,*/*/*/*/}*.{png,jpg,jpeg,gif,webp}'
                     ]
                 },
                 js: {
@@ -62,14 +62,14 @@
                 },
                 styles: {
                     files: [
-                        '<%= yeoman.app %>/{styles,email}/*.css',
+                        '<%= yeoman.app %>/{styles,email,email/*/}/*.css',
                         '<%= yeoman.app %>/elements/{,*/,*/*/,*/*/*/}*.css'
                     ],
                     tasks: ['copy:styles', 'autoprefixer:server']
                 },
                 sass: {
                     files: [
-                        '<%= yeoman.app %>/{styles,email}/*.{scss,sass}',
+                        '<%= yeoman.app %>/{styles,email,email/*/}/*.{scss,sass}',
                         '<%= yeoman.app %>/elements/{,*/,*/*/,*/*/*/}*.{scss,sass}'
                     ],
                     tasks: ['sass:server', 'copy:styles', 'autoprefixer:server']
@@ -115,7 +115,7 @@
                     files: [{
                         expand: true,
                         cwd: '<%= yeoman.app %>',
-                        src: ['{styles,email}/*.{scss,sass}', 'elements/{,*/,*/*/,*/*/*/}*.{scss,sass}'],
+                        src: ['{styles,email,email/*}/*.{scss,sass}', 'elements/{,*/,*/*/,*/*/*/}*.{scss,sass}'],
                         dest: '<%= yeoman.dist %>',
                         ext: '.css'
                     }]
@@ -124,7 +124,7 @@
                     files: [{
                         expand: true,
                         cwd: '<%= yeoman.app %>',
-                        src: ['{styles,email}/*.{scss,sass}', 'elements/{,*/,*/*/,*/*/*/}*.{scss,sass}'],
+                        src: ['{styles,email,email/*}/*.{scss,sass}', 'elements/{,*/,*/*/,*/*/*/}*.{scss,sass}'],
                         dest: '.tmp',
                         ext: '.css'
                     }]
@@ -248,7 +248,7 @@
             },
             usemin: {
                 html: ['<%= yeoman.dist %>/{,*/,*/*/,*/*/*/}*.html'],
-                css: ['<%= yeoman.dist %>/{styles,email}/*.css', '<%= yeoman.dist %>/elements{,*/,*/*/,*/*/*/}*.css'],
+                css: ['<%= yeoman.dist %>/{styles,email,email/*}/*.css', '<%= yeoman.dist %>/elements{,*/,*/*/,*/*/*/}*.css'],
                 options: {
                     dirs: ['<%= yeoman.dist %>'],
                     blockReplacements: {
@@ -318,7 +318,7 @@
                     files: [{
                         expand: true,
                         cwd: '<%= yeoman.dist %>/email',
-                        src: '*.html',
+                        src: '{,*/}*.html',
                         dest: '<%= yeoman.dist %>/email'
                     }]
                 }
@@ -331,7 +331,7 @@
                     files: [{
                         expand: true,
                         cwd: '<%= yeoman.app %>/images',
-                        src: '{,*/,*/*/,*/*/*/}*.{png,jpg,jpeg}',
+                        src: '{,*/,*/*/,*/*/*/,*/*/*/*/}*.{png,jpg,jpeg}',
                         dest: '<%= yeoman.dist %>/images'
                     }]
                 }
@@ -369,7 +369,7 @@
                     files: [{
                         expand: true,
                         cwd: '<%= yeoman.dist %>',
-                        src: '{index,404,elements/**/*,email/*}.html',
+                        src: '{index,404,elements/**/*,email/**/*}.html',
                         dest: '<%= yeoman.dist %>'
                     }]
                 }
