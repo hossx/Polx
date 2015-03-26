@@ -318,7 +318,7 @@
                     files: [{
                         expand: true,
                         cwd: '<%= yeoman.dist %>/email',
-                        src: '{,*/}*.html',
+                        src: '{,**/}*.html',
                         dest: '<%= yeoman.dist %>/email'
                     }]
                 }
