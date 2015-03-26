@@ -266,7 +266,7 @@
                         "strip-excludes": false,
                         excludes: {
                             imports: ['.*'],
-                            scripts: ['browser.js', 'fake.js','runner.js']
+                            scripts: ['browser.js', 'fake.js', 'runner.js']
                         }
 
                     },
@@ -339,6 +339,25 @@
             'json-minify': {
                 build: {
                     files: '<%= yeoman.dist %>/configs/*.json'
+                }
+            },
+            replace: {
+                dist: {
+                    options: {
+                        usePrefix: false,
+                        patterns: [{
+                            json: {
+                                "/configs/appconfig_": "http://x.bifengzhifu.com/configs/appconfig_"
+                            }
+                        }]
+
+                    },
+                    files: [{
+                        expand: true,
+                        cwd: '<%= yeoman.dist %>',
+                        src: 'the-app*.js',
+                        dest: '<%= yeoman.dist %>'
+                    }]
                 }
             },
             minifyHtml: {
@@ -475,6 +494,7 @@
             'uglify',
             'vulcanize:theapp',
             'vulcanize:email',
+            'replace', // serve appconfig_*.json from http://x.bifengzhifu.com instead of https://x.coinport.com
             'filerev:step1',
             'filerev:step2',
             'usemin',
