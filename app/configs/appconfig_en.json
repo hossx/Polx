@@ -177,12 +177,6 @@
           "c": 0
         }
       }
-    },
-    "ETH": {
-      "name": "Ether",
-      "color": "#8a92b2",
-      "twitterWidgetId": "578845657026297856",
-      "tags": "以太坊,以太"
     }
   },
   "marketGroups": {
@@ -279,6 +273,14 @@
     "api": {
       "label": "API",
       "tags": ["developer"]
+    }
+  },
+  "ignored": {
+    "ETH": {
+      "name": "Ether",
+      "color": "#8a92b2",
+      "twitterWidgetId": "578845657026297856",
+      "tags": "以太坊,以太"
     }
   }
 }
