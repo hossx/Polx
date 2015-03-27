@@ -494,7 +494,7 @@
             'uglify',
             'vulcanize:theapp',
             'vulcanize:email',
-            'replace', // serve appconfig_*.json from http://x.bifengzhifu.com instead of https://x.coinport.com
+            //'replace', // serve appconfig_*.json from http://x.bifengzhifu.com instead of https://x.coinport.com
             'filerev:step1',
             'filerev:step2',
             'usemin',
