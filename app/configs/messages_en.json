@@ -525,6 +525,10 @@
     }
   },
   "currency": {
+    "sidebar": {
+      "noncrypto": "Non-Crypto",
+      "crypto": "Crypto"
+    },
     "currency": {
       "about": "About",
       "reserves": "Reserve",

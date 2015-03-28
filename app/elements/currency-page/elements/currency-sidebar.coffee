@@ -2,6 +2,7 @@
 
 Polymer 'currency-sidebar',
   ready: ()-> 
+    @M = window.M['currency']['sidebar']
     @config = window.config
     @currencyGroupKeys = Object.keys(window.config.currencyGroups)
     @currencyId = ''
@@ -12,3 +13,5 @@ Polymer 'currency-sidebar',
     @currency = @config.currencies[@currencyId]
     if @currency
       @selectedGroup = @currency.group
+
+  groupLabel: (x) -> @M[x]

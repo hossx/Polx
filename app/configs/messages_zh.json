@@ -531,6 +531,10 @@
     }
   },
   "currency": {
+    "sidebar": {
+      "noncrypto": "非区块链货币",
+      "crypto": "区块链货币"
+    },
     "currency": {
       "about": "货币趋势",
       "reserves": "准备金",

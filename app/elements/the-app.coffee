@@ -20,9 +20,9 @@ class Currency
     @icon = if not @json.icon then 'crypto:' + @id else @json.icon
     @group =
       if @isCrypto
-        'CRYPTO'
+        'crypto'
       else
-        'NON-CRYPTO'
+        'noncrypto'
 
 class Market
   constructor: (@baseCurrency, @currency, @json) ->

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="currency-sidebar.css">
     <paper-tabs valueattr="group" selected="{{selectedGroup}}">
       <template repeat="{{g in currencyGroupKeys}}">
-        <paper-tab noink group="{{g}}">{{g}}</paper-tab>
+        <paper-tab noink group="{{g}}">{{g | groupLabel}}</paper-tab>
       </template>
     </paper-tabs>
 
