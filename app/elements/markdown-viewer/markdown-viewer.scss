@@ -5,6 +5,10 @@
 core-header-panel[main] {
     background: $white1;
 }
+@include has-paper-spinner();
+paper-spinner {
+    padding: 20px;
+}
 #drawer {
     background: $white1;
     padding: 0;
@@ -16,6 +20,9 @@ core-header-panel[main] {
 #canvas {
     background: $white1;
     height: 100%;
+}
+#container {
+    border-bottom: solid 1px $black4;
 }
 #marked {
     padding: 40px 0 60px 0;
@@ -39,8 +46,6 @@ core-header-panel[main] {
 @media(min-width: 768px) {
     #marked {
         width: 768px;
-        padding-bottom: 80px;
-        border-bottom: solid 1px $black4;
     }
     #footer {
         display: inherit;

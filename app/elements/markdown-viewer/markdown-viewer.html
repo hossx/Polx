@@ -6,13 +6,15 @@
 <link rel="import" href="../../bc/core-drawer-panel/core-drawer-panel.html">
 <link rel="import" href="../../bc/core-toolbar/core-toolbar.html">
 <link rel="import" href="../../bc/core-icon-button/core-icon-button.html">
+<link rel="import" href="../../bc/paper-spinner/paper-spinner.html">
 <link rel="import" href="../../bc/marked-element/marked-element.html">
 <link rel="import" href="../cp-footer/cp-footer.html">
 
 <polymer-element name="markdown-viewer" attributes="file" flex>
   <template>
     <link rel="stylesheet" href="markdown-viewer.css">
-    <core-ajax url="../markdown/{{fileLang}}" error="{{error}}" on-core-error="{{onError}}" response="{{text}}" auto></core-ajax>
+    <core-ajax url="../markdown/{{fileLang}}" error="{{error}}" loading="{{loading}}" on-core-error="{{onError}}" response="{{text}}"
+    auto></core-ajax>
 
     <core-drawer-panel forceNarrow>
       <core-header-panel mode="seamed" id="drawer" drawer>
@@ -38,9 +40,11 @@
         </core-toolbar>
 
         <div id="canvas" center vertical layout main>
-          <div>
+          <div id="container" center vertical layout>
             <marked-element id="marked" text="{{text}}"></marked-element>
+            <paper-spinner active?="{{loading}}"></paper-spinner>
           </div>
+
           <cp-footer id="footer"></cp-footer>
         </div>
 
