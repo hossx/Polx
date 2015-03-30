@@ -1,0 +1,83 @@
+{
+    "firebase": "polx",
+    "public": "dist",
+    "ignore": [
+        "firebase.json",
+        "the-app.html",
+        "the-app.js",
+        "**/.*",
+        "elements/**",
+        "email/**",
+        "**/node_modules/**"
+    ],
+    "headers": [{
+        "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
+        "headers": [{
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+        },{
+            "key": "Cache-Control",
+            "value": "max-age=8640000"
+        }]
+    }, {
+        "source": "**/*.@(jpg|jpeg|gif|png)",
+        "headers": [{
+            "key": "Cache-Control",
+            "value": "max-age=86400"
+        }]
+    }, {
+        "source": "404.html",
+        "headers": [{
+            "key": "Cache-Control",
+            "value": "max-age=3600"
+        }]
+    }, {
+        "source": "index.html",
+        "headers": [{
+            "key": "Cache-Control",
+            "value": "max-age=120"
+        }]
+    },{
+        "source": "the-app.*.*",
+        "headers": [{
+            "key": "Cache-Control",
+            "value": "max-age=8640000"
+        }]
+    },{
+        "source": "styles/*.*.css",
+        "headers": [{
+            "key": "Cache-Control",
+            "value": "max-age=8640000"
+        }]
+    },{
+        "source": "scripts/index.*.js",
+        "headers": [{
+            "key": "Cache-Control",
+            "value": "max-age=8640000"
+        }]
+    },{
+        "source": "configs/messages_*.json",
+        "headers": [{
+            "key": "Cache-Control",
+            "value": "max-age=3600"
+        }]
+    },{
+        "source": "configs/appconfig_*.json",
+        "headers": [{
+            "key": "Cache-Control",
+            "value": "max-age=120"
+        }]
+    },{
+        "source": "**/*.md",
+        "headers": [{
+            "key": "Cache-Control",
+            "value": "max-age=3600"
+        }]
+    },{
+        "source": "bc/**/*",
+        "headers": [{
+            "key": "Cache-Control",
+            "value": "max-age=86400"
+        }]
+    }]
+}
