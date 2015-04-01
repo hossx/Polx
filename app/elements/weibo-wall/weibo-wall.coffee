@@ -14,7 +14,7 @@ Polymer 'weibo-wall',
       tags = tags + ",币丰港"
 
       @content = 
-      '<html xmlns:wb=“http://open.weibo.com/wb”>
+      '<html xmlns:wb="http://open.weibo.com/wb">
       <head>
         <script src="https://tjs.sjs.sinajs.cn/open/api/js/wb.js"></script>
       </head>

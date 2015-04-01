@@ -39,12 +39,11 @@
           <div flex id="label">{{doclinks[file].label}}</div>
         </core-toolbar>
 
-        <div id="canvas" center vertical layout main>
-          <div id="container" center vertical layout>
+        <div id="canvas" center vertical layout>
+          <div id="container">
             <marked-element id="marked" text="{{text}}"></marked-element>
-            <paper-spinner active?="{{loading}}"></paper-spinner>
           </div>
-
+          <paper-spinner active?="{{loading}}"></paper-spinner>
           <cp-footer id="footer"></cp-footer>
         </div>
 
