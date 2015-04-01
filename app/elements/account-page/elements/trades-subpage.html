@@ -50,8 +50,8 @@
               </template>
             </tbody>
           </table>
-          <api-my-trades id="ajax" limit="100" trades="{{trades}}" hasMore="{{hasMore}}" loading="{{loading}}" loadMore="{{loadMore}}"
-          auto?="{{active}}"></api-my-trades>
+
+          <api-my-trades id="ajax" limit="100" trades="{{trades}}" hasMore="{{hasMore}}" loading="{{loading}}" auto?="{{active}}"></api-my-trades>
           <load-data-widget hasMore="{{hasMore}}" loading="{{loading}}" data="{{trades}}" on-load-more="{{loadMore}}"></load-data-widget>
         </div>
       </paper-shadow>

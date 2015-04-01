@@ -1,19 +1,18 @@
 'use strict'
 
 Polymer 'api-my-trades',
-  trades: []
   hasMore: false
+  loadingMore: false
+  trades: []
+
+  marketId: ''
+  limit: 40
+  cursor: 0
 
   observe:
-    marketId: 'onChange'
-    limit: 'onChange'
-    cursor: 'onChange'
-
-  created: () ->
-    @updateUrl()
-
-  onChange: () ->
-    @updateUrl()
+    marketId: 'updateUrl'
+    limit: 'updateUrl'
+    cursor: 'updateUrl'
 
   dataChanged: (o, n) ->
     if @data
@@ -22,17 +21,24 @@ Polymer 'api-my-trades',
         item.class = if item.isSell then "sell" else "buy"
         item.total = item.amount * item.price
 
-      @hasMore = @data.hasMore
-      @trades = @data.trades
+      if @loadingMore
+        @loadingMore = false
+        @trades.push @data.trades...
+      else
+        @trades = @data.trades
+
+      len = @trades.length
+      if len >= 1
+        @tailCursor = @trades[len-1].id
 
   loadMore: () ->
-    console.log("load more...")
+    @loadingMore = true
+    @cursor = @tailCursor
 
   updateUrl: () ->
-    base = window.config.api.base
     limit = if @limit > 0 then @limit else 50
-    url = '%s/api/v2/user/trades?limit=%s'.format(base,limit)
-    url = url + '%cursor=' + @cursor if @cursor > 0
+    url = '%s/api/v2/user/trades?limit=%s'.format(@base(),limit)
+    url = url + '&cursor=' + @cursor if @cursor > 0
     url = url + '&market=' + @marketId.toLowerCase() if @marketId
     @url = url
-      
+ 
