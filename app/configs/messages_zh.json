@@ -218,7 +218,7 @@
       "type": "类型",
       "types": {
         "buy": "买入",
-        " sell": "卖出"
+        "sell": "卖出"
       }
     },
     "deposit": {
