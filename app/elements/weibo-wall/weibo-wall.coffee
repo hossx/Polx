@@ -16,7 +16,7 @@ Polymer 'weibo-wall',
       @content = 
       '<html xmlns:wb=“http://open.weibo.com/wb”>
       <head>
-        <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js"></script>
+        <script src="https://tjs.sjs.sinajs.cn/open/api/js/wb.js"></script>
       </head>
       <body>
        <wb:topic uid="1904178193" topmid="C7dJbdvTw" column="n" border="n" width="728"
