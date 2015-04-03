@@ -99,7 +99,7 @@
     if (window.lang != 'zh') {
       gaSSDSLoad('UA-51354545-2');
     }
-  }, 2000);
+  }, 8000);
 
   $('<the-app></the-app>').insertBefore($('#loading'));
 
