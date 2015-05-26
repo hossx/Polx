@@ -177,6 +177,17 @@
           "c": 0
         }
       }
+    },
+    "ETH": {
+      "name": "Ether",
+      "color": "#8a92b2",
+      "twitterWidgetId": "578845657026297856",
+      "tags": "以太坊,以太",
+      "lowLimit": 10,
+      "fee": {
+        "withdraw": {
+          "c": 0.5
+        }
     }
   },
   "marketGroups": {
@@ -201,7 +212,8 @@
               "p": 0.1
             }
           }
-        }
+        },
+        "ETH": {},
       }
     },
     "BTC": {
